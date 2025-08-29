@@ -102,27 +102,27 @@ const translations = {
 };
 
 const categories = [
-    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: null },
-    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: null },
-    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: null },
-    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: null },
-    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: null },
-    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: null },
-    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: null },
-    { id: 'trees', emoji: '🌲', key: 'trees', preview: null },
-    { id: 'heroes', emoji: '👤', key: 'heroes', preview: null },
-    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: null },
-    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: null },
-    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: null },
-    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: null },
-    { id: 'towers', emoji: '🗼', key: 'towers', preview: null },
-    { id: 'high-five', emoji: '👋', key: 'high-five', preview: null },
-    { id: 'packs', emoji: '📦', key: 'packs', preview: null },
-    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: null },
-    { id: 'weather', emoji: '🌦️', key: 'weather', preview: null },
-    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: null },
-    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: null },
-    { id: 'other', emoji: '⚙️', key: 'other', preview: null }
+    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.png' },
+    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'ti-bp-effects.png' },
+    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.png' },
+    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.png' },
+    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.png' },
+    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.png' },
+    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.png' },
+    { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.png' },
+    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.png' },
+    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.png' },
+    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.png' },
+    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.png' },
+    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.png' },
+    { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.png' },
+    { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.png' },
+    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.png' },
+    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.png' },
+    { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.png' },
+    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.png' },
+    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.png' },
+    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.png' }
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
