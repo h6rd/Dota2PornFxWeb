@@ -102,27 +102,27 @@ const translations = {
 };
 
 const categories = [
-    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.png' },
-    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'ti-bp-effects.png' },
-    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.png' },
-    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.png' },
-    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.png' },
-    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.png' },
-    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.png' },
-    { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.png' },
-    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.png' },
-    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.png' },
-    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.png' },
-    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.png' },
-    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.png' },
-    { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.png' },
-    { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.png' },
-    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.png' },
-    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.png' },
-    { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.png' },
-    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.png' },
-    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.png' },
-    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.png' }
+    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.webp' },
+    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'ti-bp-effects.webp' },
+    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
+    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
+    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
+    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
+    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.webp' },
+    { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.webp' },
+    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.webp' },
+    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
+    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp' },
+    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
+    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
+    { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp' },
+    { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.webp' },
+    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
+    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
+    { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.webp' },
+    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
+    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
+    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' }
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
@@ -183,15 +183,15 @@ const modsData = {
         { name: 'Emblem Darkness', preview: 'Emblem Darkness.mp4', file: 'pak20_dir.vpk' }
     ],
     'versus-screens': [
-        { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.mp4', file: 'pak45_dir.vpk' },
-        { name: 'TI9 Versus Screen I', preview: 'TI9 Versus Screen I.mp4', file: 'pak46_dir.vpk' },
-        { name: 'TI9 Versus Screen II', preview: 'TI9 Versus Screen II.mp4', file: 'pak47_dir.vpk' },
-        { name: 'Nemestice Versus Screen', preview: 'Nemestice Versus Screen.mp4', file: 'pak48_dir.vpk' },
-        { name: 'TI 2024 Versus Screen', preview: 'TI 2024 Versus Screen.mp4', file: 'pak69_dir.vpk' },
-        { name: 'Muerta Radiant Versus Screen', preview: 'Muerta Radiant Versus Screen.mp4', file: 'pak70_dir.vpk' },
-        { name: 'Muerta Dire Versus Screen', preview: 'Muerta Dire Versus Screen.mp4', file: 'pak71_dir.vpk' },
-        { name: 'Diretide Radiant Versus Screen', preview: 'Diretide Radiant Versus Screen.mp4', file: 'pak72_dir.vpk' },
-        { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.mp4', file: 'pak73_dir.vpk' }
+        { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.jpg', file: 'pak45_dir.vpk' },
+        { name: 'TI9 Versus Screen I', preview: 'TI9 Versus Screen I.jpg', file: 'pak46_dir.vpk' },
+        { name: 'TI9 Versus Screen II', preview: 'TI9 Versus Screen II.jpg', file: 'pak47_dir.vpk' },
+        { name: 'Nemestice Versus Screen', preview: 'Nemestice Versus Screen.jpg', file: 'pak48_dir.vpk' },
+        { name: 'TI 2024 Versus Screen', preview: 'TI 2024 Versus Screen.jpg', file: 'pak69_dir.vpk' },
+        { name: 'Muerta Radiant Versus Screen', preview: 'Muerta Radiant Versus Screen.jpg', file: 'pak70_dir.vpk' },
+        { name: 'Muerta Dire Versus Screen', preview: 'Muerta Dire Versus Screen.jpg', file: 'pak71_dir.vpk' },
+        { name: 'Diretide Radiant Versus Screen', preview: 'Diretide Radiant Versus Screen.jpg', file: 'pak72_dir.vpk' },
+        { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.jpg', file: 'pak73_dir.vpk' }
     ],
     'terrains': [
         { name: 'All Terrains', preview: 'All Terrains.jpg', file: 'README.txt' },
