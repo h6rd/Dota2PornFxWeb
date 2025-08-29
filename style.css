@@ -1,5 +1,6 @@
 :root {
     --md-sys-color-primary: #D0BCFF;
+    --md-sys-color-shit: #b190ff;
     --md-sys-color-on-primary: #381E72;
     --md-sys-color-primary-container: #4F378B;
     --md-sys-color-on-primary-container: #EADDFF;
@@ -40,7 +41,7 @@ body::-webkit-scrollbar {
 }
 
 #tg {
-    color: #b192ff;
+    color: var(--md-sys-color-shit);
     font-weight: bold;
 }
 
@@ -290,4 +291,21 @@ a {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 13px;
+}
+
+.footer a {
+    color: var(--md-sys-color-shit);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }

@@ -1,7 +1,7 @@
 const translations = {
     en: {
         'main-title': 'Dota 2 Mods Collection',
-        'main-description': 'Discover and download mods for Dota 2 by @dota2pornfx',
+        'main-description': 'Discover and download mods for Dota 2',
         'back': 'Back',
         'download': 'Download',
         'shaders': 'Shaders',
@@ -51,7 +51,7 @@ const translations = {
     },
     ru: {
         'main-title': 'Dota 2 Mods Collection',
-        'main-description': 'Discover and download mods for Dota 2 by @dota2pornfx',
+        'main-description': 'Discover and download mods for Dota 2',
         'back': 'Назад',
         'download': 'Скачать',
         'shaders': 'Shaders',
@@ -156,7 +156,9 @@ const modsData = {
         { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
         { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk' },
         { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
-        { name: 'Beer Bottle', preview: 'Beer Bottle.jpg', file: 'pak26_dir.vpk' }
+        { name: 'Beer Bottle', preview: 'Beer Bottle.jpg', file: 'pak26_dir.vpk' },
+        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk' },
+        { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' }
     ],
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.jpg', file: 'pak08_dir.vpk' },
@@ -223,7 +225,7 @@ const modsData = {
         { name: 'Reef Roshan', preview: 'Reef Roshan.jpg', file: 'pak64_dir.vpk' }
     ],
     'creeps': [
-        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian_Creeps_Woodland_Siege.jpg', file: 'pak65_dir.vpk' },
+        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian _Creeps_Woodland_Siege.jpg', file: 'pak65_dir.vpk' },
         { name: 'Woodland Creeps + Woodland Siege', preview: 'Woodland_Creeps_Woodland_Siege.jpg', file: 'pak66_dir.vpk' },
         { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice_Creeps_Woodland_Siege.jpg', file: 'pak67_dir.vpk' }
     ],
