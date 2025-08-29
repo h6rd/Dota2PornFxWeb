@@ -223,9 +223,9 @@ const modsData = {
         { name: 'Reef Roshan', preview: 'Reef Roshan.jpg', file: 'pak64_dir.vpk' }
     ],
     'creeps': [
-        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian Creeps + Woodland Siege.jpg', file: 'pak65_dir.vpk' },
-        { name: 'Woodland Creeps + Woodland Siege', preview: 'Woodland Creeps + Woodland Siege.jpg', file: 'pak66_dir.vpk' },
-        { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice Creeps + Woodland Siege.jpg', file: 'pak67_dir.vpk' }
+        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian_Creeps_Woodland_Siege.jpg', file: 'pak65_dir.vpk' },
+        { name: 'Woodland Creeps + Woodland Siege', preview: 'Woodland_Creeps_Woodland_Siege.jpg', file: 'pak66_dir.vpk' },
+        { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice_Creeps_Woodland_Siege.jpg', file: 'pak67_dir.vpk' }
     ],
     'ancient': [
         { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.jpg', file: 'pak30_dir.vpk' },
