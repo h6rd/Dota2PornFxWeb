@@ -51,7 +51,7 @@ const translations = {
     },
     ru: {
         'main-title': 'Dota 2 Mods Collection',
-        'main-description': 'Discover and download various modifications for Dota 2 by @dota2pornfx',
+        'main-description': 'Discover and download mods for Dota 2 by @dota2pornfx',
         'back': 'Назад',
         'download': 'Скачать',
         'shaders': 'Shaders',
@@ -121,14 +121,14 @@ const categories = [
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: null },
     { id: 'weather', emoji: '🌦️', key: 'weather', preview: null },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: null },
-    { id: 'guides', emoji: '📖', key: 'guides', preview: null },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: null },
     { id: 'other', emoji: '⚙️', key: 'other', preview: null }
+    // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
 const modsData = {
     'shaders': [
-        { name: 'Aghanim\'s Labyrinth Shader', preview: 'aghanim_shader.jpg', file: 'pak07_dir.vpk' },
+        { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.jpg', file: 'pak07_dir.vpk' },
         { name: 'Diretide Shader', preview: 'diretide_shader.jpg', file: 'pak10_dir.vpk' },
         { name: 'Ancient Shader', preview: 'ancient_shader.jpg', file: 'pak32_dir.vpk' },
         { name: 'Haze Shader', preview: 'haze_shader.mp4', file: 'pak40_dir.vpk' },
@@ -155,7 +155,8 @@ const modsData = {
         { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
         { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
         { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk' },
-        { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' }
+        { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
+        { name: 'Beer Bottle', preview: 'Beer Bottle.jpg', file: 'pak26_dir.vpk' }
     ],
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.jpg', file: 'pak08_dir.vpk' },
@@ -198,25 +199,77 @@ const modsData = {
         { name: 'Flat Dark Terrain', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
     ],
-    '': [
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' }
+    'trees': [
+        { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.jpg', file: 'pak25_dir.vpk' },
+        { name: 'Small Trees', preview: 'Small Trees.jpg', file: 'pak7_dir.vpk' },
+        { name: 'Crystals Trees', preview: 'Crystals Trees.jpg', file: 'pak22_dir.vpk' },
+        { name: 'Wooden Trees', preview: 'Wooden Trees.jpg', file: 'pak23_dir.vpk' },
+        { name: 'Stone Trees', preview: 'Stone Trees.jpg', file: 'pak31_dir.vpk' }
+    ],
+    'heroes': [
+        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.jpg', file: 'pak50_dir.zip' },
+        { name: 'Old Storm Spirit', preview: 'Old Storm Spirit.jpg', file: 'pak51_dir.vpk' },
+        { name: 'Bare Brewmaster', preview: 'Bare Brewmaster.mp4', file: 'pak54_dir.vpk' },
+        { name: 'Пока лень', preview: '', file: 'pak_dir.vpk' }
+    ],
+    'roshan': [
+        { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.jpg', file: 'pak52_dir.vpk' },
+        { name: 'Greevil Grief Roshan', preview: 'Greevil Grief Roshan.jpg', file: 'pak58_dir.vpk' },
+        { name: 'Winter Roshan', preview: 'Winter Roshan.jpg', file: 'pak59_dir.vpk' },
+        { name: 'Desert Roshan', preview: 'Desert Roshan.jpg', file: 'pak60_dir.vpk' },
+        { name: 'Gardens Roshan', preview: 'Gardens Roshan.jpg', file: 'pak61_dir.vpk' },
+        { name: 'Golden Roshan', preview: 'Golden Roshan.jpg', file: 'pak62_dir.vpk' },
+        { name: 'Journey Roshan', preview: 'Journey Roshan.jpg', file: 'pak63_dir.vpk' },
+        { name: 'Reef Roshan', preview: 'Reef Roshan.jpg', file: 'pak64_dir.vpk' }
+    ],
+    'creeps': [
+        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian Creeps + Woodland Siege.jpg', file: 'pak65_dir.vpk' },
+        { name: 'Woodland Creeps + Woodland Siege', preview: 'Woodland Creeps + Woodland Siege.jpg', file: 'pak66_dir.vpk' },
+        { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice Creeps + Woodland Siege.jpg', file: 'pak67_dir.vpk' }
+    ],
+    'ancient': [
+        { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.jpg', file: 'pak30_dir.vpk' },
+        { name: 'Frostivus Ancient', preview: 'Frostivus Ancient.jpg', file: 'pak74_dir.vpk' }
+    ],
+    'tormentor': [
+        { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.jpg', file: 'pak75_dir.vpk' }
+    ],
+    'towers': [
+        { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.jpg', file: 'pak81_dir.vpk' }
+    ],
+    'high-five': [
+        { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
+        { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' }
+    ],
+    'packs': [
+        { name: 'Winter Pack', preview: 'Winter Pack.mp4', file: 'Winter Pack [7.39d].zip' },
+        { name: 'Autumn Pack', preview: 'Autumn Pack.mp4', file: 'Autumn Pack [7.39d].zip' },
+        { name: 'Aqua Pack', preview: 'Aqua Pack.mp4', file: 'Aqua Pack [7.39d].zip' }
+    ],
+    'ranged-attack': [
+        { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' }
+    ],
+    'weather': [
+        { name: 'Weather Changer', preview: 'Weather Changer.jpg', file: 'Weather Changer.zip' }
+    ],
+    'mega-kill': [
+        { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.jpg', file: 'pak39_dir.vpk' },
+        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.jpg', file: 'pak46_dir.vpk' }
+    ],
+    'pedestal': [
+        { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.jpg', file: 'pak78_dir.vpk' },
+        { name: 'Earthshaker Pedestal', preview: 'Earthshaker Pedestal.jpg', file: 'pak79_dir.vpk' },
+        { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.jpg', file: 'pak80_dir.vpk' },
+        { name: 'Snow Pedestal', preview: 'Snow Pedestal.jpg', file: 'pak16_dir.vpk' }
+    ],
+    'other': [
+        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.jpg', file: 'pak44_dir.vpk' },
+        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.jpg', file: 'pak53_dir.vpk' },
+        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' }
     ],
     '': [
         { name: '', preview: '', file: 'pak_dir.vpk' },
         { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' }
-    ],
-    '': [
         { name: '', preview: '', file: 'pak_dir.vpk' },
         { name: '', preview: '', file: 'pak_dir.vpk' },
         { name: '', preview: '', file: 'pak_dir.vpk' },

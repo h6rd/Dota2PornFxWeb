@@ -32,6 +32,21 @@ body {
     color: var(--md-sys-color-on-surface);
     line-height: 1.6;
     overflow-x: hidden;
+    -ms-overflow-style: none
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#tg {
+    color: #b192ff;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface);
 }
 
 .container {
