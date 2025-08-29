@@ -102,13 +102,13 @@ const translations = {
 };
 
 const categories = [
-    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.png' },
-    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'ti-bp-effects.png' },
-    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.png' },
-    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.png' },
-    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblem.png' },
-    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.png' },
-    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.png' },
+    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: null },
+    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: null },
+    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: null },
+    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: null },
+    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: null },
+    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: null },
+    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: null },
     { id: 'trees', emoji: '🌲', key: 'trees', preview: null },
     { id: 'heroes', emoji: '👤', key: 'heroes', preview: null },
     { id: 'roshan', emoji: '🦖', key: 'roshan', preview: null },
