@@ -321,18 +321,8 @@ const modsData = {
     'other': [
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.jpg', file: 'pak44_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.jpg', file: 'pak53_dir.vpk' },
-        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' }
-    ],
-    '': [
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' },
-        { name: '', preview: '', file: 'pak_dir.vpk' }
+        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
+        { name: 'Background Changer', preview: 'Background Changer.png', file: 'Background Changer [7.39d].zip' }
     ]
 };
 
