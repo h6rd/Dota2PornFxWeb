@@ -1,6 +1,7 @@
 :root {
     --md-sys-color-primary: #D0BCFF;
     --md-sys-color-shit: #b190ff;
+    --md-sys-color-shit-light: #c1a7ff;
     --md-sys-color-on-primary: #381E72;
     --md-sys-color-primary-container: #4F378B;
     --md-sys-color-on-primary-container: #EADDFF;
@@ -225,6 +226,29 @@ a {
 
 .card:hover .download-icon {
     opacity: 1;
+}
+
+/* Mod tags (pills) */
+.mod-tags {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    z-index: 2;
+}
+
+.mod-tag {
+    background-color: var(--md-sys-color-shit-light);
+    color: var(--md-sys-color-on-primary);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.636);
 }
 
 @media (max-width: 768px) {

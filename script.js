@@ -39,7 +39,7 @@ const translations = {
         'ranged-attack': 'Ranged Attack',
         'ranged-attack-desc': 'Custom ranged attack effects',
         'weather': 'Weather',
-        'weather-desc': 'Weather modification tool',
+        'weather-desc': 'Weather Changer [Last Update: 29.08]',
         'mega-kill': 'Mega-Kill',
         'mega-kill-desc': 'Custom mega-kill announcers',
         'guides': 'Guides',
@@ -209,9 +209,9 @@ const modsData = {
         { name: 'Stone Trees', preview: 'Stone Trees.jpg', file: 'pak31_dir.vpk' }
     ],
     'heroes': [
-        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.jpg', file: 'pak50_dir.zip' },
-        { name: 'Old Storm Spirit', preview: 'Old Storm Spirit.jpg', file: 'pak51_dir.vpk' },
-        { name: 'Bare Brewmaster', preview: 'Bare Brewmaster.mp4', file: 'pak54_dir.vpk' },
+        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.jpg', file: 'pak50_dir.zip', tags: { effects: true, items: true } },
+        { name: 'Old Storm Spirit', preview: 'Old Storm Spirit.jpg', file: 'pak51_dir.vpk', tags: { effects: true, items: true } },
+        { name: 'Bare Brewmaster', preview: 'Bare Brewmaster.mp4', file: 'pak54_dir.vpk', tags: { effects: false, items: false } },
         { name: 'Пока лень', preview: '', file: 'pak_dir.vpk' }
     ],
     'roshan': [
@@ -426,20 +426,38 @@ function createModCard(mod, categoryId) {
     const mediaElement = isVideo ? 'video' : 'img';
     const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
 
+    let tagsHtml = '';
+    if (categoryId === 'heroes' && mod.tags) {
+        const activeTags = [];
+
+        if (mod.tags.effects) {
+            activeTags.push('<span class="mod-tag">Effects</span>');
+        }
+
+        if (mod.tags.items) {
+            activeTags.push('<span class="mod-tag">Icons</span>');
+        }
+
+        if (activeTags.length > 0) {
+            tagsHtml = `<div class="mod-tags">${activeTags.join('')}</div>`;
+        }
+    }
+
     card.innerHTML = `
-                <div class="card-media">
-                    <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🖼️</span>'"></${mediaElement}>
-                    <div class="download-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${mod.name}</h3>
-                    <p class="card-subtitle">${translations[currentLanguage]['download']}</p>
-                </div>
-            `;
+        <div class="card-media">
+            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🖼️</span>'"></${mediaElement}>
+            ${tagsHtml}
+            <div class="download-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">${mod.name}</h3>
+            <p class="card-subtitle">${translations[currentLanguage]['download']}</p>
+        </div>
+    `;
 
     card.addEventListener('click', () => downloadMod(mod, categoryId));
     return card;
