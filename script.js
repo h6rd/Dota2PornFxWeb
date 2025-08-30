@@ -196,7 +196,7 @@ const modsData = {
         { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.jpg', file: 'pak73_dir.vpk' }
     ],
     'terrains': [
-        { name: 'All Terrains', preview: 'All Terrains.jpg', file: 'README.txt' },
+        { name: 'All Terrains', preview: 'All Terrains.jpg', file: 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/README.txt', type: 'guide' },
         { name: 'Dark Terrain', preview: 'Dark Terrain.jpg', file: 'pak55_dir.vpk' },
         { name: 'Flat Dark Terrain', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
@@ -464,12 +464,11 @@ function createModCard(mod, categoryId) {
     card.className = 'card fade-in';
 
     const isVideo = mod.preview.endsWith('.mp4');
-    const isGif = mod.preview.endsWith('.gif');
     const mediaElement = isVideo ? 'video' : 'img';
     const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
 
     let tagsHtml = '';
-    if (categoryId === 'heroes' && mod.tags) {
+    if (categoryId === 'heroes' && mod.tags && mod.type !== 'guide') {
         const activeTags = [];
 
         if (mod.tags.effects) {
@@ -477,7 +476,7 @@ function createModCard(mod, categoryId) {
         }
 
         if (mod.tags.items) {
-            activeTags.push('<span class="mod-tag">Icons</span>');
+            activeTags.push('<span class="mod-tag">Items</span>');
         }
 
         if (activeTags.length > 0) {
@@ -485,23 +484,38 @@ function createModCard(mod, categoryId) {
         }
     }
 
+    const iconSvg = mod.type === 'guide'
+        ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
+        : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
+
+    const subtitle = mod.type === 'guide'
+        ? (currentLanguage === 'ru' ? 'Открыть гайд' : 'Open Guide')
+        : translations[currentLanguage]['download'];
+
     card.innerHTML = `
         <div class="card-media">
-            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🖼️</span>'"></${mediaElement}>
+            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
             ${tagsHtml}
             <div class="download-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                    ${iconSvg}
                 </svg>
             </div>
         </div>
         <div class="card-content">
             <h3 class="card-title">${mod.name}</h3>
-            <p class="card-subtitle">${translations[currentLanguage]['download']}</p>
+            <p class="card-subtitle">${subtitle}</p>
         </div>
     `;
 
-    card.addEventListener('click', () => downloadMod(mod, categoryId));
+    card.addEventListener('click', () => {
+        if (mod.type === 'guide') {
+            window.open(mod.file, '_blank');
+        } else {
+            downloadMod(mod, categoryId);
+        }
+    });
+
     return card;
 }
 
