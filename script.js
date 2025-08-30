@@ -266,7 +266,8 @@ const modsData = {
         { name: 'The Mawsworn Razor', preview: 'The Mawsworn Razor.png', file: 'The Mawsworn Razor.zip', tags: { effects: true, icons: false } },
         { name: 'Ursa White and Red', preview: 'Ursa White and Red.png', file: 'Ursa White and Red.zip', tags: { effects: true, icons: true } },
         { name: 'Warlock Puppet Bear', preview: 'Warlock Puppet Bear.png', file: 'Warlock Puppet Bear.zip', tags: { effects: true, icons: false } },
-        { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.png', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true } }
+        { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.png', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true } },
+        { name: 'Night Ursa', preview: 'Night Ursa.png', file: 'Night Ursa.zip', tags: { effects: true, icons: true } }
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.jpg', file: 'pak52_dir.vpk' },
