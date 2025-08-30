@@ -133,7 +133,8 @@ const modsData = {
         { name: 'Ancient Shader', preview: 'ancient_shader.jpg', file: 'pak32_dir.vpk' },
         { name: 'Haze Shader', preview: 'haze_shader.mp4', file: 'pak40_dir.vpk' },
         { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.jpg', file: 'pak47_dir.vpk' },
-        { name: 'Purple Aghanim Shader', preview: 'purple_aghanim_shader.jpg', file: 'pak48_dir.vpk' }
+        { name: 'Purple Aghanim Shader', preview: 'purple_aghanim_shader.jpg', file: 'pak48_dir.vpk' },
+        { name: 'Green Aghanim Shader', preview: 'green_aghanim_shader.jpg', file: 'pak60_dir.vpk' }
     ],
     'ti-bp-effects': [
         { name: 'The International 2019 Effects', preview: 'ti19.jpg', file: 'pak09_dir.vpk' },
