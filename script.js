@@ -244,7 +244,7 @@ const modsData = {
         { name: 'Pudge Arcana Elephant', preview: 'Pudge Arcana Elephant.png', file: 'Pudge Arcana Elephant.zip', tags: { effects: true, items: false } },
         { name: 'Pudge CM', preview: 'Pudge CM.png', file: 'Pudge CM.zip', tags: { effects: false, items: false } },
         { name: 'Queen of Pain Rose', preview: 'Queen of Pain Rose.png', file: 'Queen of Pain Rose.zip', tags: { effects: true, items: true } },
-        { name: 'Russian Ursa', preview: 'Russian Ursa.png', file: 'Russian Ursa.zip', tags: { effects: false, items: false } },
+        { name: 'Russian Ursa', preview: 'Russian Ursa.png', file: 'Russian Ursa.zip', tags: { effects: true, items: true } },
         { name: 'Scarlet Keeper', preview: 'Scarlet Keeper.png', file: 'Scarlet Keeper.zip', tags: { effects: true, items: true } },
         { name: 'Shadow Fiend White', preview: 'Shadow Fiend White.png', file: 'Shadow Fiend White.zip', tags: { effects: true, items: true } },
         { name: 'Shadow Shaman Purple', preview: 'Shadow Shaman Purple.png', file: 'Shadow Shaman Purple.zip', tags: { effects: true, items: false } },
