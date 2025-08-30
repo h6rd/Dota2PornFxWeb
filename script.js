@@ -196,7 +196,7 @@ const modsData = {
         { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.jpg', file: 'pak73_dir.vpk' }
     ],
     'terrains': [
-        { name: 'All Terrains', preview: 'All Terrains.jpg', file: 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/README.txt', type: 'guide' },
+        { name: 'All Terrains', preview: 'All Terrains.jpg', file: 'https://t.me/dota2pornfx/184', type: 'guide' },
         { name: 'Dark Terrain', preview: 'Dark Terrain.jpg', file: 'pak55_dir.vpk' },
         { name: 'Flat Dark Terrain', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
