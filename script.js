@@ -476,7 +476,7 @@ function createModCard(mod, categoryId) {
         }
 
         if (mod.tags.items) {
-            activeTags.push('<span class="mod-tag">Items</span>');
+            activeTags.push('<span class="mod-tag">Icons</span>');
         }
 
         if (activeTags.length > 0) {
