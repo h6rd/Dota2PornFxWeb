@@ -1,7 +1,7 @@
 :root {
     --md-sys-color-primary: #D0BCFF;
     --md-sys-color-shit: #b190ff;
-    --md-sys-color-shit-light: #c1a7ff;
+    --md-sys-color-shit-light: #c8b0ff;
     --md-sys-color-on-primary: #381E72;
     --md-sys-color-primary-container: #4F378B;
     --md-sys-color-on-primary-container: #EADDFF;
@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
 }
 
 #tg {
-    color: var(--md-sys-color-shit);
+    color: var(--md-sys-color-shit-light);
     font-weight: bold;
 }
 
@@ -76,7 +76,7 @@ a {
 .logo {
     font-size: 24px;
     font-weight: 500;
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-surface);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -325,7 +325,7 @@ a {
 }
 
 .footer a {
-    color: var(--md-sys-color-shit);
+    color: var(--md-sys-color-shit-light);
     text-decoration: none;
     font-weight: 500;
 }
