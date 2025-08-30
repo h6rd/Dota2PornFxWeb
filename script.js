@@ -209,10 +209,7 @@ const modsData = {
         { name: 'Stone Trees', preview: 'Stone Trees.jpg', file: 'pak31_dir.vpk' }
     ],
     'heroes': [
-        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.jpg', file: 'pak50_dir.zip', tags: { effects: true, items: true } },
-        { name: 'Old Storm Spirit', preview: 'Old Storm Spirit.jpg', file: 'pak51_dir.vpk', tags: { effects: true, items: true } },
-        { name: 'Bare Brewmaster', preview: 'Bare Brewmaster.mp4', file: 'pak54_dir.vpk', tags: { effects: false, items: false } },
-        { name: 'Пока лень', preview: '', file: 'pak_dir.vpk' }
+        { name: 'Bare Brewmaster', preview: 'Bare Brewmaster.mp4', file: 'Bare Brewmaster.zip', tags: { effects: false, items: false } },
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.jpg', file: 'pak52_dir.vpk' },
