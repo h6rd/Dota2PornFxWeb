@@ -11,6 +11,7 @@
     --md-sys-color-on-secondary-container: #E8DEF8;
     --md-sys-color-surface: #141218;
     --md-sys-color-on-surface: #E6E0E9;
+    --md-sys-color-on-surface-light: #e7e4e9;
     --md-sys-color-surface-variant: #49454F;
     --md-sys-color-on-surface-variant: #CAC4D0;
     --md-sys-color-outline: #938F99;
@@ -34,7 +35,10 @@ body {
     color: var(--md-sys-color-on-surface);
     line-height: 1.6;
     overflow-x: hidden;
-    -ms-overflow-style: none
+    -ms-overflow-style: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body::-webkit-scrollbar {
@@ -42,13 +46,14 @@ body::-webkit-scrollbar {
 }
 
 #tg {
-    color: var(--md-sys-color-shit-light);
-    font-weight: bold;
+    color: var(--md-sys-color-primary);
+    font-weight: 700;
 }
 
 a {
     text-decoration: none;
-    color: var(--md-sys-color-on-surface);
+    color: var(--md-sys-color-on-surface-light);
+    font-weight: 500;
 }
 
 .container {
@@ -57,10 +62,20 @@ a {
     padding: 0 20px;
 }
 
-.header {
+/* .header {
     background-color: var(--md-sys-color-surface-container);
     padding: 16px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+} */
+
+.header {
+    background-color: hsla(252, 12%, 8%, 0.400);
+    padding: 16px 0;
+    box-shadow: 0 1px 8px #131217;
+    backdrop-filter: blur(15px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -74,7 +89,7 @@ a {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500;
     color: var(--md-sys-color-on-surface);
     position: absolute;
@@ -129,17 +144,18 @@ a {
 
 .main {
     padding: 32px 0;
+    flex: 1;
 }
 
 .page-title {
     font-size: 32px;
-    font-weight: 400;
-    margin-bottom: 8px;
+    font-weight: bold;
+    margin-bottom: 4px;
     color: var(--md-sys-color-on-surface);
 }
 
 .page-description {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--md-sys-color-on-surface-variant);
     margin-bottom: 32px;
     max-width: 600px;
@@ -153,29 +169,38 @@ a {
 
 .card {
     background-color: var(--md-sys-color-surface-container);
-    border-radius: 12px;
+    border-radius: 24px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--md-sys-color-outline);
+    transition: all 0.2s ease;
+    border: none;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--md-sys-color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-content {
+    background-color: rgba(208, 188, 255, 0.08);
 }
 
 .card-media {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--md-sys-color-primary-container), var(--md-sys-color-secondary-container));
+    background-color: var(--md-sys-color-surface-container-high);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
+    font-size: 40px;
     position: relative;
     overflow: hidden;
+    border-radius: 24px 24px 0 0;
+}
+
+.card-media svg,
+.card-media .icon {
+    color: var(--md-sys-color-primary-container);
 }
 
 .card-media img,
@@ -183,39 +208,46 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 0.3s ease;
 }
 
 .card-content {
-    padding: 16px;
+    padding: 20px;
+    transition: background-color 0.2s ease;
+    border-radius: 0 0 24px 24px;
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     color: var(--md-sys-color-on-surface);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    line-height: 1.3;
 }
 
 .card-subtitle {
     font-size: 14px;
     color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.4;
+    opacity: 0.8;
 }
 
 .download-icon {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 12px;
+    right: 12px;
     background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    border-radius: 50%;
+    color: #444;
+    border-radius: 12px;
     padding: 8px;
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
+    z-index: 3;
 }
 
 .download-icon svg {
@@ -235,11 +267,11 @@ a {
     display: flex;
     flex-direction: row;
     gap: 6px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .mod-tag {
-    background-color: var(--md-sys-color-shit-light);
+    background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
     font-size: 11px;
     font-weight: 500;
@@ -248,6 +280,29 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.636);
+}
+
+.lazy-media {
+    transition: opacity 0.3s ease;
+    background: var(--md-sys-color-surface-variant);
+}
+
+.lazy-media.loaded {
+    opacity: 1 !important;
+}
+
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--md-sys-color-outline);
+    border-top: 2px solid var(--md-sys-color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -321,6 +376,18 @@ a {
     padding: 20px 0;
     color: var(--md-sys-color-on-surface-variant);
     font-size: 13px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' width='100%25' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='squiggle' width='91' height='8' patternUnits='userSpaceOnUse'%3E%3Cg clip-path='url(%23clip0_2426_11367)'%3E%3Cpath d='M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0' stroke='%23D0BCFF' stroke-linecap='square'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2426_11367'%3E%3Crect width='91' height='8' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23squiggle)'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
 }
 
 .footer a {
