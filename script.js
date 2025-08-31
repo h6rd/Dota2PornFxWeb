@@ -209,13 +209,13 @@ const modsData = {
         { name: 'Summer', preview: 'Summer.webp', file: 'Summer.zip' },
         { name: 'Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
         { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' },
-        { name: 'Dark Terrain', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk' },
-        { name: 'Flat Dark Terrain', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk' },
+        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk' },
-        { name: 'Small Trees', preview: 'Small Trees.webp', file: 'pak7_dir.vpk' },
+        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak7_dir.vpk' },
         { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk' },
         { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk' },
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk' }
