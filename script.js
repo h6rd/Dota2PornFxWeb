@@ -268,7 +268,8 @@ const modsData = {
         { name: 'Warlock Puppet Bear', preview: 'Warlock Puppet Bear.webp', file: 'Warlock Puppet Bear.zip', tags: { effects: true, icons: false } },
         { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.webp', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true } },
         { name: 'Night Ursa', preview: 'Night Ursa.webp', file: 'Night Ursa.zip', tags: { effects: true, icons: true } },
-        { name: 'Flameling Morphling', preview: 'Flameling Morphling.webp', file: 'Flameling Morphling.zip', tags: { effects: true, icons: true } }
+        { name: 'Flameling Morphling', preview: 'Flameling Morphling.webp', file: 'Flameling Morphling.zip', tags: { effects: true, icons: true } },
+        { name: 'Ghost Void Spirit', preview: 'Ghost Void Spirit.webp', file: 'Ghost Void Spirit.zip', tags: { effects: true, icons: true } }
 
     ],
     'roshan': [
