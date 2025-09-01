@@ -1,104 +1,49 @@
 const translations = {
-    en: {
-        'main-title': 'Dota 2 Mods',
-        'main-description': 'Discover and download mods for Dota 2',
-        'back': 'Back',
-        'download': 'Download',
-        'shaders': 'Shaders',
-        'shaders-desc': 'Replaces the fog of war effect',
-        'ti-bp-effects': 'TI/BP Effects',
-        'ti-bp-effects-desc': 'Battle Pass and The International effects',
-        'item-effects': 'Item Effects',
-        'item-effects-desc': 'Effects for various items',
-        'creep-deny': 'Creep Deny',
-        'creep-deny-desc': 'Creep deny animations and effects',
-        'emblems': 'Emblems',
-        'emblems-desc': 'Collection of various emblems',
-        'versus-screens': 'Versus Screens',
-        'versus-screens-desc': 'Custom versus screen',
-        'terrains': 'Terrains',
-        'terrains-desc': 'Terrains modifications',
-        'trees': 'Trees',
-        'trees-desc': 'Custom trees',
-        'heroes': 'Heroes',
-        'heroes-desc': 'Hero models and sets',
-        'roshan': 'Roshan',
-        'roshan-desc': 'Custom Roshan models and skins',
-        'creeps': 'Creeps',
-        'creeps-desc': 'Custom creeps',
-        'ancient': 'Ancient',
-        'ancient-desc': 'Ancient mods',
-        'tormentor': 'Tormentor',
-        'tormentor-desc': 'Custom Tormentor',
-        'towers': 'Towers',
-        'towers-desc': 'Custom towers',
-        'high-five': 'High Five',
-        'high-five-desc': 'Custom high five animations',
-        'packs': 'Packs',
-        'packs-desc': 'Themed mods packs',
-        'ranged-attack': 'Ranged Attack',
-        'ranged-attack-desc': 'Custom ranged attack effects',
-        'weather': 'Weather',
-        'weather-desc': 'Weather Changer [Last Update: 01.09]',
-        'mega-kill': 'Mega-Kill',
-        'mega-kill-desc': 'Custom mega-kill announcers',
-        'guides': 'Guides',
-        'guides-desc': 'Installation guides and tutorials',
-        'pedestal': 'Pedestal',
-        'pedestal-desc': 'Custom hero pedestals',
-        'other': 'Other',
-        'other-desc': 'Miscellaneous mods'
-    },
-    ru: {
-        'main-title': 'Dota 2 Mods',
-        'main-description': 'Discover and download mods for Dota 2',
-        'back': 'Назад',
-        'download': 'Скачать',
-        'shaders': 'Shaders',
-        'shaders-desc': 'Заменяет эффект тумана войны',
-        'ti-bp-effects': 'TI/BP Effects',
-        'ti-bp-effects-desc': 'Коллекция эффектов Battle Pass и The International, заменяет стандартные эффекты',
-        'item-effects': 'Item Effects',
-        'item-effects-desc': 'Эффекты для различных предметов',
-        'creep-deny': 'Creep Deny',
-        'creep-deny-desc': 'Анимации и эффекты добивания крипов',
-        'emblems': 'Emblems',
-        'emblems-desc': 'Коллекция различных эмблем',
-        'versus-screens': 'Versus Screens',
-        'versus-screens-desc': 'Заменяет стандартные VS',
-        'terrains': 'Terrains',
-        'terrains-desc': 'Модификация ландшафта',
-        'trees': 'Trees',
-        'trees-desc': 'Кастомные деревья',
-        'heroes': 'Heroes',
-        'heroes-desc': 'Кастомные модели и сеты героев',
-        'roshan': 'Roshan',
-        'roshan-desc': 'Кастомные модели и скины Рошана',
-        'creeps': 'Creeps',
-        'creeps-desc': 'Модели крипов',
-        'ancient': 'Ancient',
-        'ancient-desc': 'Кастомный Ancient',
-        'tormentor': 'Tormentor',
-        'tormentor-desc': 'Кастомный терзатель',
-        'towers': 'Towers',
-        'towers-desc': 'Кастомные башни',
-        'high-five': 'High Five',
-        'high-five-desc': 'Кастомные анимации и эффекты дай пять',
-        'packs': 'Packs',
-        'packs-desc': 'Тематические паки',
-        'ranged-attack': 'Ranged Attack',
-        'ranged-attack-desc': 'Эффекты для дальников',
-        'weather': 'Weather',
-        'weather-desc': 'Замена погоды [ласт обнова: 01.09]',
-        'mega-kill': 'Mega-Kill',
-        'mega-kill-desc': 'Кастомная озвучка мега-убийств',
-        'guides': 'Guides',
-        'guides-desc': 'Руководства по разной хуйне',
-        'pedestal': 'Pedestal',
-        'pedestal-desc': 'Кастомные пьедесталы',
-        'other': 'Other',
-        'other-desc': 'Разнообразные моды/штучки'
-    }
+    'shaders': 'Shaders',
+    'shaders-desc': 'Replaces the fog of war effect',
+    'ti-bp-effects': 'TI/BP Effects',
+    'ti-bp-effects-desc': 'Battle Pass and The International effects',
+    'item-effects': 'Item Effects',
+    'item-effects-desc': 'Effects for various items',
+    'creep-deny': 'Creep Deny',
+    'creep-deny-desc': 'Creep deny animations and effects',
+    'emblems': 'Emblems',
+    'emblems-desc': 'Collection of various emblems',
+    'versus-screens': 'Versus Screens',
+    'versus-screens-desc': 'Custom versus screen',
+    'terrains': 'Terrains',
+    'terrains-desc': 'Terrains modifications',
+    'trees': 'Trees',
+    'trees-desc': 'Custom trees',
+    'heroes': 'Heroes',
+    'heroes-desc': 'Hero models and sets',
+    'roshan': 'Roshan',
+    'roshan-desc': 'Custom Roshan models and skins',
+    'creeps': 'Creeps',
+    'creeps-desc': 'Custom creeps',
+    'ancient': 'Ancient',
+    'ancient-desc': 'Ancient mods',
+    'tormentor': 'Tormentor',
+    'tormentor-desc': 'Custom Tormentor',
+    'towers': 'Towers',
+    'towers-desc': 'Custom towers',
+    'high-five': 'High Five',
+    'high-five-desc': 'Custom high five animations',
+    'packs': 'Packs',
+    'packs-desc': 'Themed mods packs',
+    'ranged-attack': 'Ranged Attack',
+    'ranged-attack-desc': 'Custom ranged attack effects',
+    'weather': 'Weather',
+    'weather-desc': 'Weather Changer [Last Update: 01.09]',
+    'mega-kill': 'Mega-Kill',
+    'mega-kill-desc': 'Custom mega-kill announcers',
+    'guides': 'Guides',
+    'guides-desc': 'Installation guides and tutorials',
+    'pedestal': 'Pedestal',
+    'pedestal-desc': 'Custom hero pedestals',
+    'other': 'Other',
+    'other-desc': 'Miscellaneous mods',
+    'download': 'Download'
 };
 
 const categories = [
@@ -310,7 +255,7 @@ const modsData = {
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' }
     ],
     'weather': [
-        { name: 'Weather Changer', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' }
+        { name: 'Weather Changer [01.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' }
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk' },
@@ -330,7 +275,6 @@ const modsData = {
     ]
 };
 
-let currentLanguage = 'en';
 let currentCategory = null;
 
 const homePage = document.getElementById('homePage');
@@ -340,24 +284,13 @@ const modsGrid = document.getElementById('modsGrid');
 const categoryTitle = document.getElementById('categoryTitle');
 const categoryDescription = document.getElementById('categoryDescription');
 const backButton = document.getElementById('backButton');
-const langButtons = document.querySelectorAll('.lang-btn');
 
 function init() {
     renderCategories();
     setupEventListeners();
-    updateLanguage();
 }
 
 function setupEventListeners() {
-    langButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.dataset.lang;
-            if (lang !== currentLanguage) {
-                switchLanguage(lang);
-            }
-        });
-    });
-
     backButton.addEventListener('click', showHomePage);
 
     document.addEventListener('keydown', (e) => {
@@ -365,31 +298,6 @@ function setupEventListeners() {
             showHomePage();
         }
     });
-}
-
-function switchLanguage(lang) {
-    currentLanguage = lang;
-    langButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    updateLanguage();
-}
-
-function updateLanguage() {
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.dataset.translate;
-        if (translations[currentLanguage][key]) {
-            element.textContent = translations[currentLanguage][key];
-        }
-    });
-
-    if (currentCategory) {
-        const category = categories.find(cat => cat.id === currentCategory);
-        if (category) {
-            categoryTitle.textContent = translations[currentLanguage][category.key];
-            categoryDescription.textContent = translations[currentLanguage][category.key + '-desc'];
-        }
-    }
 }
 
 function renderCategories() {
@@ -415,14 +323,14 @@ function createCategoryCard(category) {
     }
 
     card.innerHTML = `
-                <div class="card-media">
-                    ${mediaContent}
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${translations[currentLanguage][category.key]}</h3>
-                    <p class="card-subtitle">${translations[currentLanguage][category.key + '-desc']}</p>
-                </div>
-            `;
+                    <div class="card-media">
+                        ${mediaContent}
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${translations[category.key]}</h3>
+                        <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+                    </div>
+                `;
 
     card.addEventListener('click', () => showCategoryPage(category.id));
     return card;
@@ -434,8 +342,8 @@ function showCategoryPage(categoryId) {
 
     if (!category) return;
 
-    categoryTitle.textContent = translations[currentLanguage][category.key];
-    categoryDescription.textContent = translations[currentLanguage][category.key + '-desc'];
+    categoryTitle.textContent = translations[category.key];
+    categoryDescription.textContent = translations[category.key + '-desc'];
 
     renderMods(categoryId);
 
@@ -452,10 +360,10 @@ function renderMods(categoryId) {
 
     if (mods.length === 0) {
         modsGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
-                        <p>No mods available in this category yet.</p>
-                    </div>
-                `;
+                        <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                            <p>No mods available in this category yet.</p>
+                        </div>
+                    `;
         return;
     }
 
@@ -494,25 +402,23 @@ function createModCard(mod, categoryId) {
         ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
-    const subtitle = mod.type === 'guide'
-        ? (currentLanguage === 'ru' ? 'Открыть гайд' : 'Open Guide')
-        : translations[currentLanguage]['download'];
+    const subtitle = mod.type === 'guide' ? 'Open Guide' : translations['download'];
 
     card.innerHTML = `
-        <div class="card-media">
-            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
-            ${tagsHtml}
-            <div class="download-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    ${iconSvg}
-                </svg>
+            <div class="card-media">
+                <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
+                ${tagsHtml}
+                <div class="download-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        ${iconSvg}
+                    </svg>
+                </div>
             </div>
-        </div>
-        <div class="card-content">
-            <h3 class="card-title">${mod.name}</h3>
-            <p class="card-subtitle">${subtitle}</p>
-        </div>
-    `;
+            <div class="card-content">
+                <h3 class="card-title">${mod.name}</h3>
+                <p class="card-subtitle">${subtitle}</p>
+            </div>
+        `;
 
     card.addEventListener('click', () => {
         if (mod.type === 'guide') {
