@@ -43,7 +43,9 @@ const translations = {
     'pedestal-desc': 'Custom hero pedestals',
     'other': 'Other',
     'other-desc': 'Miscellaneous mods',
-    'download': 'Download'
+    'download': 'Download',
+    'source': 'Source',
+    'author': 'Author'
 };
 
 const categories = [
@@ -75,8 +77,8 @@ const modsData = {
     'shaders': [
         { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.webp', file: 'pak07_dir.vpk' },
         { name: 'Diretide Shader', preview: 'diretide_shader.webp', file: 'pak10_dir.vpk' },
-        { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk' },
-        { name: 'Haze Shader', preview: 'haze_shader.mp4', file: 'pak40_dir.vpk' },
+        { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_shader/' },
+        { name: 'Haze Shader', preview: 'haze_shader.mp4', file: 'pak40_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-haze_shader/' },
         { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.webp', file: 'pak47_dir.vpk' },
         { name: 'Purple Aghanim Shader', preview: 'purple_aghanim_shader.webp', file: 'pak48_dir.vpk' },
         { name: 'Green Aghanim Shader', preview: 'green_aghanim_shader.webp', file: 'pak60_dir.vpk' }
@@ -100,10 +102,10 @@ const modsData = {
         { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
         { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
         { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
-        { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk' },
+        { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
         { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk' },
+        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/'},
         { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' }
     ],
     'creep-deny': [
@@ -127,8 +129,8 @@ const modsData = {
         { name: 'Overgrown Emblem', preview: 'Overgrown Emblem.mp4', file: 'pak36_dir.vpk' },
         { name: 'Aghanims Emblem', preview: 'Aghanims Emblem.webp', file: 'pak37_dir.vpk' },
         { name: 'Sunken Emblem', preview: 'Sunken Emblem.mp4', file: 'pak38_dir.vpk' },
-        { name: 'Emblem Black Star', preview: 'Emblem Black Star.mp4', file: 'pak19_dir.vpk' },
-        { name: 'Emblem Darkness', preview: 'Emblem Darkness.mp4', file: 'pak20_dir.vpk' }
+        { name: 'Emblem Black Star', preview: 'Emblem Black Star.mp4', file: 'pak19_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-emblem_lsq_black_star/' },
+        { name: 'Emblem Darkness', preview: 'Emblem Darkness.mp4', file: 'pak20_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-emblem_darkness/' }
     ],
     'versus-screens': [
         { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.webp', file: 'pak45_dir.vpk' },
@@ -154,67 +156,67 @@ const modsData = {
         { name: 'Summer', preview: 'Summer.webp', file: 'Summer.zip' },
         { name: 'Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
         { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' },
-        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk' },
-        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk' },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
+        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
     ],
     'trees': [
-        { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk' },
-        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak7_dir.vpk' },
-        { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk' },
-        { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk' },
-        { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk' }
+        { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },
+        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak7_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
+        { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_crystals_trees/' },
+        { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-wooden_trees/' },
+        { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' }
     ],
     'heroes': [
-        { name: 'Alien Nyx Assassin', preview: 'Alien Nyx Assassin.webp', file: 'Alien Nyx Assassin.zip', tags: { effects: true, icons: true } },
-        { name: 'Ancients Lina', preview: 'Ancients Lina.webp', file: 'Ancients Lina.zip', tags: { effects: true, icons: true } },
-        { name: 'Arc Warden Black Hole', preview: 'Arc Warden Black Hole.webp', file: 'Arc Warden Black Hole.zip', tags: { effects: true, icons: true } },
-        { name: 'Arc Warden Sakura Winter', preview: 'Arc Warden Sakura Winter.webp', file: 'Arc Warden Sakura Winter.zip', tags: { effects: true, icons: true } },
-        { name: 'Ashes Arc Warden', preview: 'Ashes Arc Warden.webp', file: 'Ashes Arc Warden.zip', tags: { effects: true, icons: true } },
-        { name: 'Axe Immortal Bootblack', preview: 'Axe Immortal Bootblack.webp', file: 'Axe Immortal Bootblack.zip', tags: { effects: true, icons: false } },
+        { name: 'Alien Nyx Assassin', preview: 'Alien Nyx Assassin.webp', file: 'Alien Nyx Assassin.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-alien_nyx_assassin_megapack/' },
+        { name: 'Ancients Lina', preview: 'Ancients Lina.webp', file: 'Ancients Lina.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancients_lina/' },
+        { name: 'Arc Warden Black Hole', preview: 'Arc Warden Black Hole.webp', file: 'Arc Warden Black Hole.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-black_hole_custom_arc_warden/' },
+        { name: 'Arc Warden Sakura Winter', preview: 'Arc Warden Sakura Winter.webp', file: 'Arc Warden Sakura Winter.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sakura_arc_warden/' },
+        { name: 'Ashes Arc Warden', preview: 'Ashes Arc Warden.webp', file: 'Ashes Arc Warden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ashes_arc_warden/' },
+        { name: 'Axe Immortal Bootblack', preview: 'Axe Immortal Bootblack.webp', file: 'Axe Immortal Bootblack.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/' },
         { name: 'Bare Brewmaster 🥸', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
-        { name: 'Bloody Enigma', preview: 'Bloody Enigma.webp', file: 'Bloody Enigma.zip', tags: { effects: true, icons: true } },
-        { name: 'Bloody Kez', preview: 'Bloody Kez.webp', file: 'Bloody Kez.zip', tags: { effects: true, icons: false } },
-        { name: 'Brewmaster Jousting Panda', preview: 'Brewmaster Jousting Panda.webp', file: 'Brewmaster Jousting Panda.zip', tags: { effects: false, icons: false } },
-        { name: 'Broodmother Redan', preview: 'Broodmother Redan.webp', file: 'Broodmother Redan.zip', tags: { effects: true, icons: true } },
-        { name: 'Clinkz Silver Metall Pink', preview: 'Clinkz Silver Metall Pink.webp', file: 'Clinkz Silver Metall Pink.zip', tags: { effects: true, icons: true } },
-        { name: 'Darkness Weaver', preview: 'Darkness Weaver.webp', file: 'Darkness Weaver.zip', tags: { effects: true, icons: true } },
-        { name: 'Drow Ranger Stranger Arcana', preview: 'Drow Ranger Stranger Arcana.webp', file: 'Drow Ranger Stranger Arcana.zip', tags: { effects: true, icons: false } },
-        { name: 'Earthshaker Red Arcana', preview: 'Earthshaker Red Arcana.webp', file: 'Earthshaker Red Arcana.zip', tags: { effects: false, icons: true } },
-        { name: 'Ghost Fiend', preview: 'Ghost Fiend.webp', file: 'Ghost Fiend.zip', tags: { effects: true, icons: true } },
-        { name: 'Ghosty Slark', preview: 'Ghosty Slark.webp', file: 'Ghosty Slark.zip', tags: { effects: true, icons: true } },
-        { name: 'GopoPudge 🥰', preview: 'GopoPudge.webp', file: 'GopoPudge.zip', tags: { effects: false, icons: false } },
-        { name: 'GopoTide 🥰', preview: 'GopoTide.webp', file: 'GopoTide.zip', tags: { effects: false, icons: true } },
-        { name: 'Ice Phoenix', preview: 'Ice Phoenix.webp', file: 'Ice Phoenix.zip', tags: { effects: true, icons: true } },
-        { name: 'Ice Venomancer', preview: 'Ice Venomancer.webp', file: 'Ice Venomancer.zip', tags: { effects: true, icons: true } },
-        { name: 'IO Pink Arcana', preview: 'IO Pink Arcana.webp', file: 'IO Pink Arcana.zip', tags: { effects: true, icons: true } },
+        { name: 'Bloody Enigma', preview: 'Bloody Enigma.webp', file: 'Bloody Enigma.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-bloody_enigma/' },
+        { name: 'Bloody Kez', preview: 'Bloody Kez.webp', file: 'Bloody Kez.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-bloody_kez/' },
+        { name: 'Brewmaster Jousting Panda', preview: 'Brewmaster Jousting Panda.webp', file: 'Brewmaster Jousting Panda.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-brew_jousting_panda_and_donkey_kong/' },
+        { name: 'Broodmother Redan', preview: 'Broodmother Redan.webp', file: 'Broodmother Redan.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-broodmother_redan_megapack/' },
+        { name: 'Clinkz Silver Metall Pink', preview: 'Clinkz Silver Metall Pink.webp', file: 'Clinkz Silver Metall Pink.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-silver_metall_clinkz_pink_megapack/' },
+        { name: 'Darkness Weaver', preview: 'Darkness Weaver.webp', file: 'Darkness Weaver.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-darkness_weaver_modpack/' },
+        { name: 'Drow Ranger Stranger Arcana', preview: 'Drow Ranger Stranger Arcana.webp', file: 'Drow Ranger Stranger Arcana.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stranger_in_the_wandering_isles/' },
+        { name: 'Earthshaker Red Arcana', preview: 'Earthshaker Red Arcana.webp', file: 'Earthshaker Red Arcana.zip', tags: { effects: false, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-earthshaker_red_arcana/' },
+        { name: 'Ghost Fiend', preview: 'Ghost Fiend.webp', file: 'Ghost Fiend.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ghost_fiend/' },
+        { name: 'Ghosty Slark', preview: 'Ghosty Slark.webp', file: 'Ghosty Slark.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ghosty_slark_megapack/' },
+        { name: 'GopoPudge 🥰', preview: 'GopoPudge.webp', file: 'GopoPudge.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-gopopudge/' },
+        { name: 'GopoTide 🥰', preview: 'GopoTide.webp', file: 'GopoTide.zip', tags: { effects: false, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-gopotide/' },
+        { name: 'Ice Phoenix', preview: 'Ice Phoenix.webp', file: 'Ice Phoenix.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ice_phoenix_v_2_0/' },
+        { name: 'Ice Venomancer', preview: 'Ice Venomancer.webp', file: 'Ice Venomancer.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_ice_venomancer_megapack/' },
+        { name: 'IO Pink Arcana', preview: 'IO Pink Arcana.webp', file: 'IO Pink Arcana.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_wisp_arcana_by_defiree/' },
         { name: 'IO Purple', preview: 'Purple IO.webp', file: 'IO Purple.zip', tags: { effects: true, icons: true } },
-        { name: 'Kai Meepo', preview: 'Kai Meepo.webp', file: 'Kai Meepo.zip', tags: { effects: true, icons: true } },
-        { name: 'Legion Commander Crimson Black', preview: 'Legion Commander Crimson Black.webp', file: 'Legion Commander Crimson Black.zip', tags: { effects: true, icons: true } },
+        { name: 'Kai Meepo', preview: 'Kai Meepo.webp', file: 'Kai Meepo.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-kai_meepo/' },
+        { name: 'Legion Commander Crimson Black', preview: 'Legion Commander Crimson Black.webp', file: 'Legion Commander Crimson Black.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-legion_commander_custom_arcana_crimson_black_defireee/' },
         { name: 'Lion Cannonroar Confessor', preview: 'Lion Cannonroar Confessor.webp', file: 'Lion Cannonroar Confessor.zip', tags: { effects: true, icons: true } },
-        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.webp', file: 'Lion Dark Magician Girl.zip', tags: { effects: true, icons: true } },
-        { name: 'Morphling Darktrench Stalker Purple', preview: 'Morphling Darktrench Stalker Purple.webp', file: 'Morphling Darktrench Stalker Purple.zip', tags: { effects: true, icons: true } },
+        { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.webp', file: 'Lion Dark Magician Girl.zip', tags: { effects: true, icons: true }, linkType: 'author', linkUrl: 'https://discord.com/users/187454472253997056' },
+        { name: 'Morphling Darktrench Stalker Purple', preview: 'Morphling Darktrench Stalker Purple.webp', file: 'Morphling Darktrench Stalker Purple.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://vk.com/wall-127340251_11856' },
         { name: 'Natures Prophet Allfather', preview: 'Natures Prophet Allfather.webp', file: 'Natures Prophet Allfather.zip', tags: { effects: true, icons: true } },
-        { name: 'Nightmare Chaos Knight', preview: 'Nightmare Chaos Knight.webp', file: 'Nightmare Chaos Knight.zip', tags: { effects: true, icons: true } },
-        { name: 'Ogre Magi Custom Arcana', preview: 'Ogre Magi Custom Arcana.webp', file: 'Ogre Magi Custom Arcana.zip', tags: { effects: false, icons: false } },
+        { name: 'Nightmare Chaos Knight', preview: 'Nightmare Chaos Knight.webp', file: 'Nightmare Chaos Knight.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-nightmare_chaos_knight_megapack/' },
+        { name: 'Ogre Magi Custom Arcana', preview: 'Ogre Magi Custom Arcana.webp', file: 'Ogre Magi Custom Arcana.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_arcana_ogre_magi_by_defiree/' },
         { name: 'Old Storm Spirit', preview: 'Old Storm Spirit.webp', file: 'Old Storm Spirit.zip', tags: { effects: true, icons: true } },
-        { name: 'Pudge Arcana Elephant', preview: 'Pudge Arcana Elephant.webp', file: 'Pudge Arcana Elephant.zip', tags: { effects: true, icons: false } },
-        { name: 'Pudge CM', preview: 'Pudge CM.webp', file: 'Pudge CM.zip', tags: { effects: false, icons: false } },
-        { name: 'Queen of Pain Rose', preview: 'Queen of Pain Rose.webp', file: 'Queen of Pain Rose.zip', tags: { effects: true, icons: true } },
-        { name: 'Russian Ursa', preview: 'Russian Ursa.webp', file: 'Russian Ursa.zip', tags: { effects: true, icons: true } },
-        { name: 'Scarlet Keeper', preview: 'Scarlet Keeper.webp', file: 'Scarlet Keeper.zip', tags: { effects: true, icons: true } },
-        { name: 'Shadow Fiend White', preview: 'Shadow Fiend White.webp', file: 'Shadow Fiend White.zip', tags: { effects: true, icons: true } },
+        { name: 'Pudge Arcana Elephant', preview: 'Pudge Arcana Elephant.webp', file: 'Pudge Arcana Elephant.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_pudge_arcana_elephant/' },
+        { name: 'Pudge CM', preview: 'Pudge CM.webp', file: 'Pudge CM.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pudge-cm/' },
+        { name: 'Queen of Pain Rose', preview: 'Queen of Pain Rose.webp', file: 'Queen of Pain Rose.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pink_rose_custom_arcana_queen_of_pain/' },
+        { name: 'Russian Ursa', preview: 'Russian Ursa.webp', file: 'Russian Ursa.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-russian_ursa-bear/' },
+        { name: 'Scarlet Keeper', preview: 'Scarlet Keeper.webp', file: 'Scarlet Keeper.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-darkness_scarlet_keeper/' },
+        { name: 'Shadow Fiend White', preview: 'Shadow Fiend White.webp', file: 'Shadow Fiend White.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/hero-tag:shadow%20fiend-list_skins_dlya_dota_2-0/#megapack' },
         { name: 'Shadow Shaman Purple', preview: 'Shadow Shaman Purple.webp', file: 'Shadow Shaman Purple.zip', tags: { effects: true, icons: false } },
-        { name: 'Spectre Toxin', preview: 'Spectre Toxin.webp', file: 'Spectre Toxin.zip', tags: { effects: true, icons: true } },
-        { name: 'Spirit Breaker Ghost Monster', preview: 'Spirit Breaker Ghost Monster.webp', file: 'Spirit Breaker Ghost Monster.zip', tags: { effects: true, icons: true } },
-        { name: 'Steel King', preview: 'Steel King.webp', file: 'Steel King.zip', tags: { effects: true, icons: true } },
-        { name: 'The Mawsworn Razor', preview: 'The Mawsworn Razor.webp', file: 'The Mawsworn Razor.zip', tags: { effects: true, icons: false } },
-        { name: 'Ursa White and Red', preview: 'Ursa White and Red.webp', file: 'Ursa White and Red.zip', tags: { effects: true, icons: true } },
+        { name: 'Spectre Toxin', preview: 'Spectre Toxin.webp', file: 'Spectre Toxin.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-darkness_toxin_spectre/' },
+        { name: 'Spirit Breaker Ghost Monster', preview: 'Spirit Breaker Ghost Monster.webp', file: 'Spirit Breaker Ghost Monster.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_spirit_breaker_ghost_monster/' },
+        { name: 'Steel King', preview: 'Steel King.webp', file: 'Steel King.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-steel_king/' },
+        { name: 'The Mawsworn Razor', preview: 'The Mawsworn Razor.webp', file: 'The Mawsworn Razor.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-the_mawsworn_razor/' },
+        { name: 'Ursa White and Red', preview: 'Ursa White and Red.webp', file: 'Ursa White and Red.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ursa_sss_rank_or_white_and_red_megapack/' },
         { name: 'Warlock Puppet Bear', preview: 'Warlock Puppet Bear.webp', file: 'Warlock Puppet Bear.zip', tags: { effects: true, icons: false } },
-        { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.webp', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true } },
-        { name: 'Night Ursa', preview: 'Night Ursa.webp', file: 'Night Ursa.zip', tags: { effects: true, icons: true } },
-        { name: 'Flameling Morphling', preview: 'Flameling Morphling.webp', file: 'Flameling Morphling.zip', tags: { effects: true, icons: true } },
-        { name: 'Ghost Void Spirit', preview: 'Ghost Void Spirit.webp', file: 'Ghost Void Spirit.zip', tags: { effects: true, icons: true } }
+        { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.webp', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-winter_ember_spirit/' },
+        { name: 'Night Ursa', preview: 'Night Ursa.webp', file: 'Night Ursa.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-night_ursa_megapack/' },
+        { name: 'Flameling Morphling', preview: 'Flameling Morphling.webp', file: 'Flameling Morphling.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-flameling_morphling_megapack/' },
+        { name: 'Ghost Void Spirit', preview: 'Ghost Void Spirit.webp', file: 'Ghost Void Spirit.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ghost_void_spirit/' }
 
     ],
     'roshan': [
@@ -233,14 +235,14 @@ const modsData = {
         { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice_Creeps_Woodland_Siege.webp', file: 'pak67_dir.vpk' }
     ],
     'ancient': [
-        { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk' },
+        { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/' },
         { name: 'Frostivus Ancient', preview: 'Frostivus Ancient.webp', file: 'pak74_dir.vpk' }
     ],
     'tormentor': [
         { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.webp', file: 'pak75_dir.vpk' }
     ],
     'towers': [
-        { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak81_dir.vpk' }
+        { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak81_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' }
     ],
     'high-five': [
         { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
@@ -259,16 +261,16 @@ const modsData = {
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk' },
-        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak46_dir.vpk' }
+        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak46_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/SsixM/Dotafy-mods/tree/master/mods/!%20Golovach%20killstreak/files/sounds/vo/announcer_killing_spree' }
     ],
     'pedestal': [
         { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.webp', file: 'pak78_dir.vpk' },
         { name: 'Earthshaker Pedestal', preview: 'Earthshaker Pedestal.webp', file: 'pak79_dir.vpk' },
         { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.webp', file: 'pak80_dir.vpk' },
-        { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk' }
+        { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }
     ],
     'other': [
-        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk' },
+        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer [7.39d].zip' }
@@ -402,7 +404,17 @@ function createModCard(mod, categoryId) {
         ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
-    const subtitle = mod.type === 'guide' ? 'Open Guide' : translations['download'];
+    let subtitleText, subtitleClass;
+    if (mod.type === 'guide') {
+        subtitleText = 'Open Guide';
+        subtitleClass = 'card-subtitle';
+    } else if (mod.linkType && mod.linkUrl) {
+        subtitleText = translations[mod.linkType];
+        subtitleClass = 'card-subtitle card-link';
+    } else {
+        subtitleText = translations['download'];
+        subtitleClass = 'card-subtitle';
+    }
 
     card.innerHTML = `
             <div class="card-media">
@@ -416,17 +428,29 @@ function createModCard(mod, categoryId) {
             </div>
             <div class="card-content">
                 <h3 class="card-title">${mod.name}</h3>
-                <p class="card-subtitle">${subtitle}</p>
+                <p class="${subtitleClass}">${subtitleText}</p>
             </div>
         `;
 
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+        if (e.target.classList.contains('card-link')) {
+            return;
+        }
+
         if (mod.type === 'guide') {
             window.open(mod.file, '_blank');
         } else {
             downloadMod(mod, categoryId);
         }
     });
+
+    if (mod.linkType && mod.linkUrl) {
+        const linkElement = card.querySelector('.card-link');
+        linkElement.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.open(mod.linkUrl, '_blank');
+        });
+    }
 
     return card;
 }

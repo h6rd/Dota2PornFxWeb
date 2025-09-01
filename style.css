@@ -200,6 +200,28 @@ a {
   opacity: 0.8;
 }
 
+/* Стили для ссылок в карточках */
+.card-link {
+  color: var(--md-sys-color-primary) !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.card-link:hover {
+  color: var(--md-sys-color-shit-light) !important;
+  text-decoration: underline !important;
+  text-shadow: 0 0 8px rgba(208, 188, 255, 0.4);
+}
+
+.card-link:active {
+  transform: translateY(1px);
+}
+
 .download-icon {
   position: absolute;
   bottom: 12px;
