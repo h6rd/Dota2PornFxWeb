@@ -239,7 +239,7 @@ const modsData = {
         { name: 'Ghost Fiend', preview: 'Ghost Fiend.webp', file: 'Ghost Fiend.zip', tags: { effects: true, icons: true } },
         { name: 'Ghosty Slark', preview: 'Ghosty Slark.webp', file: 'Ghosty Slark.zip', tags: { effects: true, icons: true } },
         { name: 'GopoPudge 🥰', preview: 'GopoPudge.webp', file: 'GopoPudge.zip', tags: { effects: false, icons: false } },
-        { name: 'GopoTide 🥰', preview: 'GopoTide.webp', file: 'GopoTide.zip', tags: { effects: false, icons: false } },
+        { name: 'GopoTide 🥰', preview: 'GopoTide.webp', file: 'GopoTide.zip', tags: { effects: false, icons: true } },
         { name: 'Ice Phoenix', preview: 'Ice Phoenix.webp', file: 'Ice Phoenix.zip', tags: { effects: true, icons: true } },
         { name: 'Ice Venomancer', preview: 'Ice Venomancer.webp', file: 'Ice Venomancer.zip', tags: { effects: true, icons: true } },
         { name: 'IO Pink Arcana', preview: 'IO Pink Arcana.webp', file: 'IO Pink Arcana.zip', tags: { effects: true, icons: true } },
