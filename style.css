@@ -198,28 +198,27 @@ a {
   color: var(--md-sys-color-on-surface-variant);
   line-height: 1.4;
   opacity: 0.8;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Стили для ссылок в карточках */
-.card-link {
+.card-subtitle.card-link {
   color: var(--md-sys-color-primary) !important;
   font-weight: 600 !important;
   text-decoration: underline !important;
   opacity: 1 !important;
   cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  display: inline-block;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.card-link:hover {
+.card-subtitle.card-link:hover {
   color: var(--md-sys-color-shit-light) !important;
-  text-decoration: underline !important;
   text-shadow: 0 0 8px rgba(208, 188, 255, 0.4);
 }
 
-.card-link:active {
-  transform: translateY(1px);
+.card-subtitle.card-link:active {
+  color: var(--md-sys-color-primary) !important;
 }
 
 .download-icon {
