@@ -195,7 +195,7 @@ const modsData = {
         { name: 'Legion Commander Crimson Black', preview: 'Legion Commander Crimson Black.webp', file: 'Legion Commander Crimson Black.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-legion_commander_custom_arcana_crimson_black_defireee/' },
         { name: 'Lion Cannonroar Confessor', preview: 'Lion Cannonroar Confessor.webp', file: 'Lion Cannonroar Confessor.zip', tags: { effects: true, icons: true } },
         { name: 'Lion Dark Magician Girl', preview: 'Lion Dark Magician Girl.webp', file: 'Lion Dark Magician Girl.zip', tags: { effects: true, icons: true }, linkType: 'author', linkUrl: 'https://discord.com/users/187454472253997056' },
-        { name: 'Morphling Darktrench Stalker Purple', preview: 'Morphling Darktrench Stalker Purple.webp', file: 'Morphling Darktrench Stalker Purple.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://vk.com/wall-127340251_11856' },
+        { name: 'Morphling Darktrench Purple', preview: 'Morphling Darktrench Stalker Purple.webp', file: 'Morphling Darktrench Stalker Purple.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://vk.com/wall-127340251_11856' },
         { name: 'Natures Prophet Allfather', preview: 'Natures Prophet Allfather.webp', file: 'Natures Prophet Allfather.zip', tags: { effects: true, icons: true } },
         { name: 'Nightmare Chaos Knight', preview: 'Nightmare Chaos Knight.webp', file: 'Nightmare Chaos Knight.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-nightmare_chaos_knight_megapack/' },
         { name: 'Ogre Magi Custom Arcana', preview: 'Ogre Magi Custom Arcana.webp', file: 'Ogre Magi Custom Arcana.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_arcana_ogre_magi_by_defiree/' },
@@ -230,9 +230,9 @@ const modsData = {
         { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' }
     ],
     'creeps': [
-        { name: 'Reptilian Creeps + Woodland Siege', preview: 'Reptilian _Creeps_Woodland_Siege.webp', file: 'pak65_dir.vpk' },
-        { name: 'Woodland Creeps + Woodland Siege', preview: 'Woodland_Creeps_Woodland_Siege.webp', file: 'pak66_dir.vpk' },
-        { name: 'Nemestice Creeps + Woodland Siege', preview: 'Nemestice_Creeps_Woodland_Siege.webp', file: 'pak67_dir.vpk' }
+        { name: 'Reptilian Creeps', preview: 'Reptilian _Creeps_Woodland_Siege.webp', file: 'pak65_dir.vpk' },
+        { name: 'Woodland Creeps', preview: 'Woodland_Creeps_Woodland_Siege.webp', file: 'pak66_dir.vpk' },
+        { name: 'Nemestice Creeps', preview: 'Nemestice_Creeps_Woodland_Siege.webp', file: 'pak67_dir.vpk' }
     ],
     'ancient': [
         { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/' },
@@ -463,7 +463,6 @@ function downloadMod(mod, categoryId) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
     console.log(`Downloading: ${mod.name}`);
 }
 

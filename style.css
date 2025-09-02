@@ -135,8 +135,19 @@ a {
   gap: 24px;
 }
 
+/* .card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+} */
+
 .card {
   background-color: var(--md-sys-color-surface-container);
+  display: flex;
+  flex-direction: column;
   border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
@@ -179,8 +190,15 @@ a {
   transition: opacity 0.3s ease;
 }
 
+/* .card-content {
+  padding: 20px;
+  transition: background-color 0.2s ease;
+  border-radius: 0 0 24px 24px;
+} */
+
 .card-content {
   padding: 20px;
+  flex-grow: 1;
   transition: background-color 0.2s ease;
   border-radius: 0 0 24px 24px;
 }
