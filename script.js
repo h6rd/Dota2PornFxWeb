@@ -216,7 +216,12 @@ const modsData = {
         { name: 'Winter Ember Spirit', preview: 'Winter Ember Spirit.webp', file: 'Winter Ember Spirit.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-winter_ember_spirit/' },
         { name: 'Night Ursa', preview: 'Night Ursa.webp', file: 'Night Ursa.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-night_ursa_megapack/' },
         { name: 'Flameling Morphling', preview: 'Flameling Morphling.webp', file: 'Flameling Morphling.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-flameling_morphling_megapack/' },
-        { name: 'Ghost Void Spirit', preview: 'Ghost Void Spirit.webp', file: 'Ghost Void Spirit.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ghost_void_spirit/' }
+        { name: 'Ghost Void Spirit', preview: 'Ghost Void Spirit.webp', file: 'Ghost Void Spirit.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ghost_void_spirit/' },
+        { name: 'Anti-Mage Shadow Slayer', preview: 'Anti-Mage Shadow Slayer.webp', file: 'Anti-Mage Shadow Slayer.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-shadow_slayer/' },
+        { name: 'Dawnbreaker Death Knight', preview: 'Dawnbreaker Death Knight.webp', file: 'Dawnbreaker Death Knight.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-death_knight/' },
+        { name: 'Bloody Death Prophet', preview: 'Bloody Death Prophet.webp', file: 'Bloody Death Prophet.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-death_prophet_custom_modpack/' },
+        { name: 'Blue Soul Huskar', preview: 'Blue Soul Huskar.webp', file: 'Blue Soul Huskar.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_soul_huskar_megapack/' }
+        // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' }
 
     ],
     'roshan': [
