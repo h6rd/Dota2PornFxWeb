@@ -220,8 +220,10 @@ const modsData = {
         { name: 'Anti-Mage Shadow Slayer', preview: 'Anti-Mage Shadow Slayer.webp', file: 'Anti-Mage Shadow Slayer.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-shadow_slayer/' },
         { name: 'Dawnbreaker Death Knight', preview: 'Dawnbreaker Death Knight.webp', file: 'Dawnbreaker Death Knight.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-death_knight/' },
         { name: 'Bloody Death Prophet', preview: 'Bloody Death Prophet.webp', file: 'Bloody Death Prophet.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-death_prophet_custom_modpack/' },
-        { name: 'Blue Soul Huskar', preview: 'Blue Soul Huskar.webp', file: 'Blue Soul Huskar.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_soul_huskar_megapack/' }
-        // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' }
+        { name: 'Blue Soul Huskar', preview: 'Blue Soul Huskar.webp', file: 'Blue Soul Huskar.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_soul_huskar_megapack/' },
+        { name: 'Bloody Lanaya', preview: 'Bloody Lanaya.webp', file: 'Bloody Lanaya.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-bloody_lanaya/' },
+        { name: 'Red Abaddon', preview: 'Red Abaddon.webp', file: 'Red Abaddon.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-abaddon_red_megapack/' }
+        // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
     'roshan': [
