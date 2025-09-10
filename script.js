@@ -281,7 +281,7 @@ const modsData = {
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
-        { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer [7.39d].zip' }
+        { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip' }
     ]
 };
 
