@@ -45,7 +45,8 @@ const translations = {
     'other-desc': 'Miscellaneous mods',
     'download': 'Download',
     'source': 'Source',
-    'author': 'Author'
+    'author': 'Author',
+    'preview': 'Preview'
 };
 
 const categories = [
@@ -84,15 +85,15 @@ const modsData = {
         { name: 'Green Aghanim Shader', preview: 'green_aghanim_shader.webp', file: 'pak60_dir.vpk' }
     ],
     'ti-bp-effects': [
-        { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk' },
-        { name: 'TI 2018 Battle Pass', preview: 'TI 2018 Battle Pass.webp', file: 'pak13_dir.vpk' },
-        { name: 'TI 2017 Battle Pass', preview: 'TI 2017 Battle Pass.webp', file: 'pak17_dir.vpk' },
-        { name: 'Winter 2016 Battle Pass', preview: 'Winter 2016 Battle Pass.webp', file: 'pak18_dir.vpk' },
-        { name: 'TI 2016 Battle Pass', preview: 'TI 2016 Battle Pass.webp', file: 'pak19_dir.vpk' },
-        { name: 'TI 10 Battle Pass', preview: 'TI 10 Battle Pass.webp', file: 'pak24_dir.vpk' },
-        { name: 'Nemestice 2021 Battle Pass', preview: 'Nemestice 2021 Battle Pass.webp', file: 'pak27_dir.vpk' },
-        { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk' },
-        { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk' }
+        { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
+        { name: 'TI 2018 Battle Pass', preview: 'TI 2018 Battle Pass.webp', file: 'pak13_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4' },
+        { name: 'TI 2017 Battle Pass', preview: 'TI 2017 Battle Pass.webp', file: 'pak17_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4' },
+        { name: 'Winter 2016 Battle Pass', preview: 'Winter 2016 Battle Pass.webp', file: 'pak18_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4' },
+        { name: 'TI 2016 Battle Pass', preview: 'TI 2016 Battle Pass.webp', file: 'pak19_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4' },
+        { name: 'TI 10 Battle Pass', preview: 'TI 10 Battle Pass.webp', file: 'pak24_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4' },
+        { name: 'Nemestice 2021 Battle Pass', preview: 'Nemestice 2021 Battle Pass.webp', file: 'pak27_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4' },
+        { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4' },
+        { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' }
     ],
     'item-effects': [
         { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
