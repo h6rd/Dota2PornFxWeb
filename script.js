@@ -84,15 +84,15 @@ const modsData = {
         { name: 'Green Aghanim Shader', preview: 'green_aghanim_shader.webp', file: 'pak60_dir.vpk' }
     ],
     'ti-bp-effects': [
-        { name: 'The International 2019 Effects', preview: 'ti19.webp', file: 'pak09_dir.vpk' },
-        { name: 'The International 2018 Effects', preview: 'ti18.webp', file: 'pak13_dir.vpk' },
-        { name: 'The International 2017 Effects', preview: 'ti17.webp', file: 'pak17_dir.vpk' },
-        { name: 'Winter 2016 BP Effects', preview: 'winter2016.webp', file: 'pak18_dir.vpk' },
-        { name: 'The International 2016 Effects', preview: 'ti16.webp', file: 'pak19_dir.vpk' },
-        { name: 'The International 2021 Effects', preview: 'ti10.webp', file: 'pak24_dir.vpk' },
-        { name: 'Nemestice 2021 BP Effects', preview: 'bp21.webp', file: 'pak27_dir.vpk' },
-        { name: 'Aghanims BP Effects', preview: 'Aghanims BP.webp', file: 'pak39_dir.vpk' },
-        { name: 'Quartero Effects', preview: 'Quartero.webp', file: 'pak40_dir.vpk' }
+        { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk' },
+        { name: 'TI 2018 Battle Pass', preview: 'TI 2018 Battle Pass.webp', file: 'pak13_dir.vpk' },
+        { name: 'TI 2017 Battle Pass', preview: 'TI 2017 Battle Pass.webp', file: 'pak17_dir.vpk' },
+        { name: 'Winter 2016 Battle Pass', preview: 'Winter 2016 Battle Pass.webp', file: 'pak18_dir.vpk' },
+        { name: 'TI 2016 Battle Pass', preview: 'TI 2016 Battle Pass.webp', file: 'pak19_dir.vpk' },
+        { name: 'TI 10 Battle Pass', preview: 'TI 10 Battle Pass.webp', file: 'pak24_dir.vpk' },
+        { name: 'Nemestice 2021 Battle Pass', preview: 'Nemestice 2021 Battle Pass.webp', file: 'pak27_dir.vpk' },
+        { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk' },
+        { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk' }
     ],
     'item-effects': [
         { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
