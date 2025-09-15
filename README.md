@@ -126,3 +126,42 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 - Updates are released rarely
 
 </details>
+
+## Effects Preview
+
+<details>
+<summary>TI 2019 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>TI 2018 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>TI 2017 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>Winter 2016 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>TI 2016 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>TI 10 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>Nemestice 2021 Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>Aghanims Labyrinth Battle Pass</summary>
+<video width="630" height="300" src=""></video>
+</details>
+<details>
+<summary>Quarteros Curios</summary>
+<video width="630" height="300" src=""></video>
+</details>
