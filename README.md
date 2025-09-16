@@ -126,9 +126,3 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 - Updates are released rarely
 
 </details>
-<video width="630" height="300" src=""></video>
-</details>
-<details>
-<summary>Quarteros Curios</summary>
-<video width="630" height="300" src=""></video>
-</details>
