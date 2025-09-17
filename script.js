@@ -223,7 +223,8 @@ const modsData = {
         { name: 'Blue Soul Huskar', preview: 'Blue Soul Huskar.webp', file: 'Blue Soul Huskar.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_soul_huskar_megapack/' },
         { name: 'Bloody Lanaya', preview: 'Bloody Lanaya.webp', file: 'Bloody Lanaya.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-bloody_lanaya/' },
         { name: 'Red Abaddon', preview: 'Red Abaddon.webp', file: 'Red Abaddon.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-abaddon_red_megapack/' },
-        { name: 'Void Morphling', preview: 'Void Morphling.webp', file: 'Void Morphling.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-void_morphling_by_darknessing/' }
+        { name: 'Void Morphling', preview: 'Void Morphling.webp', file: 'Void Morphling.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-void_morphling_by_darknessing/' },
+        { name: 'Faceless Chrononaut Continuum', preview: 'Faceless Void Chrononaut Continuum.webp', file: 'Faceless Void Chrononaut Continuum.zip', tags: { effects: false, icons: false } }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
