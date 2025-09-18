@@ -34,7 +34,7 @@ const translations = {
     'ranged-attack': 'Ranged Attack',
     'ranged-attack-desc': 'Custom ranged attack effects',
     'weather': 'Weather',
-    'weather-desc': 'Weather Changer [Last Update: 14.09]',
+    'weather-desc': 'Weather Changer [Last Update: 18.09]',
     'mega-kill': 'Mega-Kill',
     'mega-kill-desc': 'Custom mega-kill announcers',
     'guides': 'Guides',
@@ -266,7 +266,7 @@ const modsData = {
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' }
     ],
     'weather': [
-        { name: 'Weather Changer [14.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' }
+        { name: 'Weather Changer [18.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' }
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk' },
