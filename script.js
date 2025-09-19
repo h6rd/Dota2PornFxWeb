@@ -229,7 +229,8 @@ const modsData = {
         { name: 'Jakiro Himera', preview: 'Jakiro Himera.webp', file: 'Jakiro Himera.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-jakiro_himera/' },
         { name: 'Cosmic Spirit Breaker', preview: 'Cosmic Spirit Breaker.webp', file: 'Cosmic Spirit Breaker.zip', tags: { effects: false, icons: false } },
         { name: 'Cosmic Enigma', preview: 'Cosmic Enigma.webp', file: 'Cosmic Enigma.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-graviton_blackguard/' },
-        { name: 'Medusa Gorgon', preview: 'Medusa Gorgon.webp', file: 'Medusa Gorgon.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-medusa_gorgon/' }
+        { name: 'Medusa Gorgon', preview: 'Medusa Gorgon.webp', file: 'Medusa Gorgon.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-medusa_gorgon/' },
+        { name: 'Ifrit Monkey King', preview: 'Ifrit Monkey King.webp', file: 'Ifrit Monkey King.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ifrit_monkey_king/' }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
