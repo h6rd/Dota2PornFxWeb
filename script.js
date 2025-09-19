@@ -228,7 +228,8 @@ const modsData = {
         { name: 'Terrorblade Wrong Arcana', preview: 'Terrorblade Wrong Arcana.webp', file: 'Terrorblade Wrong Arcana.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/hero-tag:terrorblade-list_skins_dlya_dota_2-0/' },
         { name: 'Jakiro Himera', preview: 'Jakiro Himera.webp', file: 'Jakiro Himera.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-jakiro_himera/' },
         { name: 'Cosmic Spirit Breaker', preview: 'Cosmic Spirit Breaker.webp', file: 'Cosmic Spirit Breaker.zip', tags: { effects: false, icons: false } },
-        { name: 'Cosmic Enigma', preview: 'Cosmic Enigma.webp', file: 'Cosmic Enigma.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-graviton_blackguard/' }
+        { name: 'Cosmic Enigma', preview: 'Cosmic Enigma.webp', file: 'Cosmic Enigma.zip', tags: { effects: false, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-graviton_blackguard/' },
+        { name: 'Medusa Gorgon', preview: 'Medusa Gorgon.webp', file: 'Medusa Gorgon.zip', tags: { effects: true, icons: false }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-medusa_gorgon/' }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
