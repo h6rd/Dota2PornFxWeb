@@ -225,7 +225,7 @@ const modsData = {
         { name: 'Red Abaddon', preview: 'Red Abaddon.webp', file: 'Red Abaddon.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-abaddon_red_megapack/' },
         { name: 'Void Morphling', preview: 'Void Morphling.webp', file: 'Void Morphling.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-void_morphling_by_darknessing/' },
         { name: 'Faceless Chrononaut Continuum', preview: 'Faceless Void Chrononaut Continuum.webp', file: 'Faceless Void Chrononaut Continuum.zip', tags: { effects: false, icons: false } },
-        { name: 'Terrorblade Wrong Arcana', preview: '.webp', file: 'Terrorblade Wrong Arcana.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/hero-tag:terrorblade-list_skins_dlya_dota_2-0/' },
+        { name: 'Terrorblade Wrong Arcana', preview: 'Terrorblade Wrong Arcana.webp', file: 'Terrorblade Wrong Arcana.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/hero-tag:terrorblade-list_skins_dlya_dota_2-0/' },
         { name: 'Jakiro Himera', preview: 'Jakiro Himera.webp', file: 'Jakiro Himera.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-jakiro_himera/' }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
