@@ -34,7 +34,7 @@ const translations = {
     'ranged-attack': 'Ranged Attack',
     'ranged-attack-desc': 'Custom ranged attack effects',
     'weather': 'Weather',
-    'weather-desc': 'Weather Changer [Last Update: 18.09]',
+    'weather-desc': 'Weather Changer',
     'mega-kill': 'Mega-Kill',
     'mega-kill-desc': 'Custom mega-kill announcers',
     'guides': 'Guides',
@@ -288,7 +288,7 @@ const modsData = {
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
-        { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip' }
+        { name: 'Background Changer [16.09]', preview: 'Background Changer.webp', file: 'Background Changer.zip' }
     ]
 };
 
