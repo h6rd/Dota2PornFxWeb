@@ -233,7 +233,8 @@ const modsData = {
         { name: 'Ifrit Monkey King', preview: 'Ifrit Monkey King.webp', file: 'Ifrit Monkey King.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ifrit_monkey_king/' },
         { name: 'Morphling Darktrench Tears', preview: 'Morphling Darktrench Tears.webp', file: 'Morphling Darktrench Tears.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-darktrench_stalker_and_blade_of_tears/' },
         { name: 'Sven Blue Angel', preview: 'Sven Blue Angel.webp', file: 'Sven Blue Angel.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_angel_of_sven/' },
-        { name: 'Visage Grimfeather Сorpse', preview: 'Visage Grimfeather Сorpse.webp', file: 'Visage Grimfeather Сorpse.zip', tags: { effects: true, icons: true } }
+        { name: 'Visage Grimfeather Сorpse', preview: 'Visage Grimfeather Сorpse.webp', file: 'Visage Grimfeather Сorpse.zip', tags: { effects: true, icons: true } },
+        { name: 'Mars Diretide Shimmer', preview: 'Mars Diretide Shimmer.webp', file: 'Mars Diretide Shimmer.zip', tags: { effects: true, icons: true } }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
