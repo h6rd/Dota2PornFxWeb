@@ -101,7 +101,8 @@ const modsData = {
         { name: 'TI 10 Battle Pass', preview: 'TI 10 Battle Pass.webp', file: 'pak24_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4' },
         { name: 'Nemestice 2021 Battle Pass', preview: 'Nemestice 2021 Battle Pass.webp', file: 'pak27_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4' },
         { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4' },
-        { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' }
+        { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' },
+        { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak97_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' }
     ],
     'item-effects': [
         { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
