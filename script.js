@@ -77,12 +77,20 @@ const categories = [
 const modsData = {
     'shaders': [
         { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.webp', file: 'pak07_dir.vpk' },
-        { name: 'Diretide Shader', preview: 'diretide_shader.webp', file: 'pak10_dir.vpk' },
-        { name: 'Purple Aghanim Shader', preview: 'purple_aghanim_shader.webp', file: 'pak48_dir.vpk' },
-        { name: 'Green Aghanim Shader', preview: 'green_aghanim_shader.webp', file: 'pak60_dir.vpk' },
-        { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.webp', file: 'pak47_dir.vpk' },
-        { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_shader/' },
+        { name: 'Aghanim Peach Shader', preview: 'Aghanim Peach Shader.webp', file: 'pak78_dir.vpk' },
+        { name: 'Aghanim Red Shader', preview: 'Aghanim Red Shader.webp', file: 'pak79_dir.vpk' },
+        { name: 'Aghanim White Shader', preview: 'Aghanim White Shader.webp', file: 'pak80_dir.vpk' },
+        { name: 'Aghanim Purple Shader', preview: 'Aghanim Purple Shader.webp', file: 'pak48_dir.vpk' },
+        { name: 'Aghanim Green Shader', preview: 'Aghanim Green Shader.webp', file: 'pak60_dir.vpk' },
+        { name: 'Wave Green Shader', preview: 'Wave Green Shader.webp', file: 'pak81_dir.vpk' },
+        { name: 'Wave Peach Shader', preview: 'Wave Peach Shader.webp', file: 'pak82_dir.vpk' },
+        { name: 'Wave Purple Shader', preview: 'Wave Purple Shader.webp', file: 'pak83_dir.vpk' },
+        { name: 'Wave Red Shader', preview: 'Wave Red Shader.webp', file: 'pak84_dir.vpk' },
+        { name: 'Wave White Shader', preview: 'Wave White Shader.webp', file: 'pak85_dir.vpk' },
+        { name: 'Diretide Shader (outline)', preview: 'diretide_shader.webp', file: 'pak10_dir.vpk' },
         { name: 'Haze Shader', preview: 'haze_shader.webp', file: 'pak40_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-haze_shader/' },
+        { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_shader/' },
+        { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.webp', file: 'pak47_dir.vpk' }
     ],
     'ti-bp-effects': [
         { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
@@ -157,6 +165,7 @@ const modsData = {
         { name: 'Summer', preview: 'Summer.webp', file: 'Summer.zip' },
         { name: 'Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
         { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' },
+        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
         { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
         { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
         { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
@@ -236,7 +245,10 @@ const modsData = {
         { name: 'Sven Blue Angel', preview: 'Sven Blue Angel.webp', file: 'Sven Blue Angel.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_angel_of_sven/' },
         { name: 'Visage Grimfeather Сorpse', preview: 'Visage Grimfeather Сorpse.webp', file: 'Visage Grimfeather Сorpse.zip', tags: { effects: true, icons: true } },
         { name: 'Mars Diretide Shimmer', preview: 'Mars Diretide Shimmer.webp', file: 'Mars Diretide Shimmer.zip', tags: { effects: true, icons: true } },
-        { name: 'Pinkie Sven', preview: 'Pinkie Sven.webp', file: 'Pinkie Sven.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pinkie_sven/' }
+        { name: 'Pinkie Sven', preview: 'Pinkie Sven.webp', file: 'Pinkie Sven.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pinkie_sven/' },
+        { name: 'Cosmic Zeus', preview: 'Cosmic Zeus.webp', file: 'Cosmic Zeus.zip', tags: { effects: false, icons: false } },
+        { name: 'Sherman Crystal Maiden', preview: 'Sherman Crystal Maiden.webp', file: 'Sherman Crystal Maiden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sherman_maiden_v_4_1/' },
+        { name: 'Lifestealer Diretide Shimmer', preview: 'Lifestealer Diretide Shimmer.webp', file: 'Lifestealer Diretide Shimmer.zip', tags: { effects: false, icons: false }}
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
 
     ],
