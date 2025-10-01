@@ -74,6 +74,10 @@ const categories = [
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
+const fileToReleaseUrl = {
+    "Background Changer.zip": "https://github.com/h6rd/Dota2PornFxWeb/raw/refs/heads/main/assets/files/other/Background%20Changer.zip"
+};
+
 const modsData = {
     'shaders': [
         { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.webp', file: 'pak07_dir.vpk' },
@@ -489,15 +493,28 @@ function createModCard(mod, categoryId) {
     return card;
 }
 
+// function downloadMod(mod, categoryId) {
+//     const link = document.createElement('a');
+//     link.href = `assets/files/${categoryId}/${mod.file}`;
+//     link.download = mod.file;
+//     link.style.display = 'none';
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//     console.log(`Downloading: ${mod.name}`);
+// }
+
 function downloadMod(mod, categoryId) {
+    const fileName = mod.file;
+    const releaseUrl = fileToReleaseUrl[fileName];
     const link = document.createElement('a');
-    link.href = `assets/files/${categoryId}/${mod.file}`;
-    link.download = mod.file;
+    link.href = releaseUrl || `assets/files/${categoryId}/${fileName}`;
+    link.download = fileName;
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    console.log(`Downloading: ${mod.name}`);
+    console.log(`Downloading: ${mod.name} from ${link.href}`);
 }
 
 function showHomePage() {
