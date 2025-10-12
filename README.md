@@ -134,7 +134,7 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 **Если мод не работает**
 1. Создайте папку `dota_test` в `steamapps\common\dota 2 beta\game\`
 2. Поместите туда нужный мод
-3. Добавьте в параметры запуска: `-language dota_test`
+3. Добавьте в параметры запуска: `-language test`
 * Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды. Если проблема сохраняется - дело в самом моде.
 
 **Если возникли проблемы с заменой фона**
@@ -154,7 +154,7 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 **If the mod doesn’t work**  
 1. Create a folder named `dota_test` in `steamapps\common\dota 2 beta\game\`
 2. Place the required mod inside it.  
-3. Add this to your launch options: `-language dota_test`
+3. Add this to your launch options: `-language test`
  
 * If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
 
