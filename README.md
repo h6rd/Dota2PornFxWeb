@@ -135,7 +135,10 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 1. Создайте папку `dota_test` в `steamapps\common\dota 2 beta\game\`
 2. Поместите туда нужный мод
 3. Добавьте в параметры запуска: `-language test`
+ 
 * Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды. Если проблема сохраняется - дело в самом моде.
+
+*При совмещении модов могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых  
 
 **Если возникли проблемы с заменой фона**
 - Основные требования:
@@ -157,6 +160,8 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 3. Add this to your launch options: `-language test`
  
 * If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
+
+* When merging mods you may have problems - try installing the buggy mod separately from the merged mods
 
 **If you’re having issues with background replacement**  
 - Main requirements:  
