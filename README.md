@@ -126,3 +126,51 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 - Updates are released rarely
 
 </details>
+
+## 🛠️ Troubleshooting
+<details>
+<summary>🇷🇺</summary>
+
+**Если мод не работает**
+1. Создайте папку `dota_test` в `steamapps\common\dota 2 beta\game\`
+2. Поместите туда нужный мод
+3. Добавьте в параметры запуска: `-language test`
+ 
+* Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды. Если проблема сохраняется - дело в самом моде.
+
+* При совмещении модов могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых  
+
+**Если возникли проблемы с заменой фона**
+- Основные требования:
+1. Видео должно быть не длиннее 30 секунд.
+2. Формат .webm.
+3. Рекомендуется использовать Convert - Panorama чувствительна к кодекам.
+
+* **An error occurred during playback**: Прогоните видос через Convert. Если не помогло - попробуйте другой видос.<br>
+* **Фон не меняется**: См. раздел "Если моды не работают" выше.
+
+</details>
+
+<details>
+<summary>🇺🇸</summary>
+
+**If the mod doesn’t work**  
+1. Create a folder named `dota_test` in `steamapps\common\dota 2 beta\game\`
+2. Place the required mod inside it.  
+3. Add this to your launch options: `-language test`
+ 
+* If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
+
+* When merging mods you may have problems - try installing the buggy mod separately from the merged mods
+
+**If you’re having issues with background replacement**  
+- Main requirements:  
+1. The video must be no longer than 30 seconds.  
+2. Format must be `.webm`.  
+3. It’s recommended to use Convert — Panorama is sensitive to codecs.  
+
+* **An error occurred during playback**: Run the video through Convert. If that doesn’t help, try another video.
+
+* **Background doesn’t change**: See the section above, “If the mod doesn’t work.”
+
+</details>
