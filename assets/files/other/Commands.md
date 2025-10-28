@@ -1,6 +1,6 @@
 # 🛠️ Work in progress
 
-## Numpad Binds
+## Numpad Bind Keys
 - `/` - `kp_slash`
 - `*` - `kp_multiply`
 - `-` - `kp_minus`
@@ -19,17 +19,17 @@
 - `Enter` - `kp_enter`
 
 ## Say Hero Phrases
-
 - **[List Phrases](https://gist.githubusercontent.com/h6rd/24364c1cea9083db99791c35c2cfe5d9/raw/5f18ed01ce3436376089e6236c4fcdb70ef5fb37/gistfile1.txt)**
 - Console command - `chatwheel_say 73001`
 - Bind command - `bind "kp_ins" "chatwheel_say 73001"`
 
 ## Binds
 - `bind "end" "disconnect"` - Disconnect from match
-- `bind "home" "say 给狗吹箫 "` - Say `给狗吹箫 ` in global chat
+- `bind "home" "say gg"` - Say `gg` in all chat
+- `bind "home" "say_team wp"` - Say `wp` in team chat
 
 
-## Chat Lobby/Testing Hero Commands
+## Lobby / Testing Hero Chat Commands
 - `-lvlup #` - (where "#" number from 1 to 30) - Increases the hero's level
 - `-gold #` - (where "#" number up to 99999) - Gives you gold
 - `-respawn` - Resurrects the hero.
