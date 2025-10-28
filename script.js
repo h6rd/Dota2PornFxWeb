@@ -46,7 +46,10 @@ const translations = {
     'download': 'Download',
     'source': 'Source',
     'author': 'Author',
-    'preview': 'Preview'
+    'guide': 'Guide',
+    'preview': 'Preview',
+    'optimization': 'Optimization',
+    'optimization-desc': 'Dota2 optimization stuff'
 };
 
 const categories = [
@@ -68,9 +71,10 @@ const categories = [
     { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.webp' },
+    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
+    { id: 'optimization', emoji: '⚙️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
-    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
-    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' }
+    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' }
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
@@ -255,7 +259,6 @@ const modsData = {
         { name: 'Pinkie Sven', preview: 'Pinkie Sven.webp', file: 'Pinkie Sven.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pinkie_sven/' },
         { name: 'Sherman Crystal Maiden', preview: 'Sherman Crystal Maiden.webp', file: 'Sherman Crystal Maiden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sherman_maiden_v_4_1/' }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
-
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
@@ -308,12 +311,16 @@ const modsData = {
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }
     ],
     'other': [
-        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
-        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
-        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip' },
-        { name: 'VPKMerge', preview: 'VPKMerge.webp', file: 'VPKMerge.zip' },
-        { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip' }
+        { name: 'VPKMerge', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
+        { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
+        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
+        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
+        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
+    ],
+    'optimization': [
+        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
+        { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' }
     ]
 };
 
@@ -441,12 +448,13 @@ function createModCard(mod, categoryId) {
     }
 
     const iconSvg = mod.type === 'guide'
-        ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
+        // ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
+        ? '<path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
     let subtitleText, subtitleClass;
     if (mod.type === 'guide') {
-        subtitleText = 'Open Guide';
+        subtitleText = 'Open';
         subtitleClass = 'card-subtitle';
     } else if (mod.linkType && mod.linkUrl) {
         subtitleText = translations[mod.linkType];
