@@ -70,11 +70,11 @@ const categories = [
     { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.webp' },
     { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
+    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
+    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
-    { id: 'optimization', emoji: '⚙️', key: 'optimization', preview: 'optimization.webp' },
-    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
-    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' }
+    { id: 'optimization', emoji: '⚙️', key: 'optimization', preview: 'optimization.webp' }
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
 ];
 
