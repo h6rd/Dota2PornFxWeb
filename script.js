@@ -123,7 +123,7 @@ const modsData = {
         { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
         { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/'},
+        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
         { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' }
     ],
     'creep-deny': [
@@ -197,7 +197,7 @@ const modsData = {
         { name: 'Visage Grimfeather Сorpse', preview: 'Visage Grimfeather Сorpse.webp', file: 'Visage Grimfeather Сorpse.zip', tags: { effects: true, icons: true } },
         { name: 'Mars Diretide Shimmer', preview: 'Mars Diretide Shimmer.webp', file: 'Mars Diretide Shimmer.zip', tags: { effects: true, icons: true } },
         { name: 'Cosmic Zeus', preview: 'Cosmic Zeus.webp', file: 'Cosmic Zeus.zip', tags: { effects: false, icons: false } },
-        { name: 'Lifestealer Diretide Shimmer', preview: 'Lifestealer Diretide Shimmer.webp', file: 'Lifestealer Diretide Shimmer.zip', tags: { effects: false, icons: false }},
+        { name: 'Lifestealer Diretide Shimmer', preview: 'Lifestealer Diretide Shimmer.webp', file: 'Lifestealer Diretide Shimmer.zip', tags: { effects: false, icons: false } },
         { name: 'Lion Cannonroar Confessor', preview: 'Lion Cannonroar Confessor.webp', file: 'Lion Cannonroar Confessor.zip', tags: { effects: true, icons: true } },
         { name: 'Alien Nyx Assassin', preview: 'Alien Nyx Assassin.webp', file: 'Alien Nyx Assassin.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-alien_nyx_assassin_megapack/' },
         { name: 'Ancients Lina', preview: 'Ancients Lina.webp', file: 'Ancients Lina.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancients_lina/' },
@@ -326,6 +326,7 @@ const modsData = {
 };
 
 let currentCategory = null;
+let searchQuery = '';
 
 const homePage = document.getElementById('homePage');
 const categoryPage = document.getElementById('categoryPage');
@@ -334,10 +335,13 @@ const modsGrid = document.getElementById('modsGrid');
 const categoryTitle = document.getElementById('categoryTitle');
 const categoryDescription = document.getElementById('categoryDescription');
 const backButton = document.getElementById('backButton');
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
 
 function init() {
     renderCategories();
     setupEventListeners();
+    setupSearch();
 }
 
 function setupEventListeners() {
@@ -350,9 +354,68 @@ function setupEventListeners() {
     });
 }
 
+let searchTimeout;
+
+function setupSearch() {
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchQuery = e.target.value.toLowerCase().trim();
+        searchClear.style.display = searchQuery ? 'flex' : 'none';
+
+        searchTimeout = setTimeout(() => {
+            if (searchQuery) {
+                if (currentCategory) {
+                    renderMods(currentCategory);
+                } else {
+                    renderAllModsSearch();
+                }
+            } else {
+                if (currentCategory) {
+                    renderMods(currentCategory);
+                } else {
+                    renderCategories();
+                }
+            }
+            if (searchQuery) {
+                currentCategory = null;
+                renderAllModsSearch();
+            } else {
+                showHomePage();
+            }
+        }, 360);
+    });
+
+    searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        searchClear.style.display = 'none';
+        showHomePage();
+        searchInput.focus();
+    });
+
+}
+
 function renderCategories() {
     categoriesGrid.innerHTML = '';
-    categories.forEach(category => {
+    let filteredCategories = categories;
+
+    if (searchQuery) {
+        filteredCategories = categories.filter(category =>
+            translations[category.key].toLowerCase().includes(searchQuery) ||
+            translations[category.key + '-desc'].toLowerCase().includes(searchQuery)
+        );
+    }
+
+    if (filteredCategories.length === 0) {
+        categoriesGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                <p>No results found</p>
+            </div>
+        `;
+        return;
+    }
+
+    filteredCategories.forEach(category => {
         const card = createCategoryCard(category);
         categoriesGrid.appendChild(card);
     });
@@ -373,14 +436,14 @@ function createCategoryCard(category) {
     }
 
     card.innerHTML = `
-                    <div class="card-media">
-                        ${mediaContent}
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">${translations[category.key]}</h3>
-                        <p class="card-subtitle">${translations[category.key + '-desc']}</p>
-                    </div>
-                `;
+        <div class="card-media">
+            ${mediaContent}
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">${translations[category.key]}</h3>
+            <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+        </div>
+    `;
 
     card.addEventListener('click', () => showCategoryPage(category.id));
     return card;
@@ -406,19 +469,65 @@ function showCategoryPage(categoryId) {
 
 function renderMods(categoryId) {
     modsGrid.innerHTML = '';
-    const mods = modsData[categoryId] || [];
+    let mods = modsData[categoryId] || [];
+
+    if (searchQuery) {
+        mods = mods.filter(mod =>
+            mod.name.toLowerCase().includes(searchQuery)
+        );
+    }
 
     if (mods.length === 0) {
+        const message = searchQuery
+            ? 'No results found'
+            : 'No mods available in this category yet.';
+
         modsGrid.innerHTML = `
-                        <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
-                            <p>No mods available in this category yet.</p>
-                        </div>
-                    `;
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                <p>${message}</p>
+            </div>
+        `;
         return;
     }
 
     mods.forEach(mod => {
         const card = createModCard(mod, categoryId);
+        modsGrid.appendChild(card);
+    });
+}
+
+function renderAllModsSearch() {
+    modsGrid.innerHTML = '';
+    homePage.classList.add('hidden');
+    categoryPage.classList.remove('hidden');
+    backButton.style.display = 'flex';
+
+    let allResults = [];
+
+    for (const category of categories) {
+        const mods = modsData[category.id] || [];
+        const filtered = mods.filter(mod =>
+            mod.name.toLowerCase().includes(searchQuery)
+        );
+        filtered.forEach(mod => allResults.push({ mod, category }));
+    }
+
+    if (allResults.length === 0) {
+        modsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                <p>No results found</p>
+            </div>
+        `;
+        categoryTitle.textContent = 'Search results';
+        categoryDescription.textContent = '';
+        return;
+    }
+
+    categoryTitle.textContent = 'Search results';
+    categoryDescription.textContent = `Found ${allResults.length} mods`;
+
+    allResults.forEach(({ mod, category }) => {
+        const card = createModCard(mod, category.id);
         modsGrid.appendChild(card);
     });
 }
@@ -449,7 +558,6 @@ function createModCard(mod, categoryId) {
     }
 
     const iconSvg = mod.type === 'guide'
-        // ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
         ? '<path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
@@ -466,20 +574,20 @@ function createModCard(mod, categoryId) {
     }
 
     card.innerHTML = `
-            <div class="card-media">
-                <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
-                ${tagsHtml}
-                <div class="download-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        ${iconSvg}
-                    </svg>
-                </div>
+        <div class="card-media">
+            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
+            ${tagsHtml}
+            <div class="download-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    ${iconSvg}
+                </svg>
             </div>
-            <div class="card-content">
-                <h3 class="card-title">${mod.name}</h3>
-                <p class="${subtitleClass}">${subtitleText}</p>
-            </div>
-        `;
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">${mod.name}</h3>
+            <p class="${subtitleClass}">${subtitleText}</p>
+        </div>
+    `;
 
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('card-link')) {
@@ -515,19 +623,6 @@ function downloadMod(mod, categoryId) {
     console.log(`Downloading: ${mod.name}`);
 }
 
-// function downloadMod(mod, categoryId) {
-//     const fileName = mod.file;
-//     const releaseUrl = fileToReleaseUrl[fileName];
-//     const link = document.createElement('a');
-//     link.href = releaseUrl || `assets/files/${categoryId}/${fileName}`;
-//     link.download = fileName;
-//     link.style.display = 'none';
-//     document.body.appendChild(link);
-//     link.click();
-//     document.body.removeChild(link);
-//     console.log(`Downloading: ${mod.name} from ${link.href}`);
-// }
-
 function showHomePage() {
     currentCategory = null;
     categoryPage.classList.add('hidden');
@@ -537,3 +632,216 @@ function showHomePage() {
 }
 
 init();
+
+// let currentCategory = null;
+
+// const homePage = document.getElementById('homePage');
+// const categoryPage = document.getElementById('categoryPage');
+// const categoriesGrid = document.getElementById('categoriesGrid');
+// const modsGrid = document.getElementById('modsGrid');
+// const categoryTitle = document.getElementById('categoryTitle');
+// const categoryDescription = document.getElementById('categoryDescription');
+// const backButton = document.getElementById('backButton');
+
+// function init() {
+//     renderCategories();
+//     setupEventListeners();
+// }
+
+// function setupEventListeners() {
+//     backButton.addEventListener('click', showHomePage);
+
+//     document.addEventListener('keydown', (e) => {
+//         if (e.key === 'Escape' && currentCategory) {
+//             showHomePage();
+//         }
+//     });
+// }
+
+// function renderCategories() {
+//     categoriesGrid.innerHTML = '';
+//     categories.forEach(category => {
+//         const card = createCategoryCard(category);
+//         categoriesGrid.appendChild(card);
+//     });
+// }
+
+// function createCategoryCard(category) {
+//     const card = document.createElement('div');
+//     card.className = 'card fade-in';
+
+//     let mediaContent;
+//     if (category.preview) {
+//         const isVideo = category.preview.endsWith('.mp4');
+//         const mediaElement = isVideo ? 'video' : 'img';
+//         const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+//         mediaContent = `<${mediaElement} src="assets/previews/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
+//     } else {
+//         mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
+//     }
+
+//     card.innerHTML = `
+//                     <div class="card-media">
+//                         ${mediaContent}
+//                     </div>
+//                     <div class="card-content">
+//                         <h3 class="card-title">${translations[category.key]}</h3>
+//                         <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+//                     </div>
+//                 `;
+
+//     card.addEventListener('click', () => showCategoryPage(category.id));
+//     return card;
+// }
+
+// function showCategoryPage(categoryId) {
+//     currentCategory = categoryId;
+//     const category = categories.find(cat => cat.id === categoryId);
+
+//     if (!category) return;
+
+//     categoryTitle.textContent = translations[category.key];
+//     categoryDescription.textContent = translations[category.key + '-desc'];
+
+//     renderMods(categoryId);
+
+//     homePage.classList.add('hidden');
+//     categoryPage.classList.remove('hidden');
+//     backButton.style.display = 'flex';
+
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+// }
+
+// function renderMods(categoryId) {
+//     modsGrid.innerHTML = '';
+//     const mods = modsData[categoryId] || [];
+
+//     if (mods.length === 0) {
+//         modsGrid.innerHTML = `
+//                         <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+//                             <p>No mods available in this category yet.</p>
+//                         </div>
+//                     `;
+//         return;
+//     }
+
+//     mods.forEach(mod => {
+//         const card = createModCard(mod, categoryId);
+//         modsGrid.appendChild(card);
+//     });
+// }
+
+// function createModCard(mod, categoryId) {
+//     const card = document.createElement('div');
+//     card.className = 'card fade-in';
+
+//     const isVideo = mod.preview.endsWith('.mp4');
+//     const mediaElement = isVideo ? 'video' : 'img';
+//     const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+
+//     let tagsHtml = '';
+//     if (categoryId === 'heroes' && mod.tags && mod.type !== 'guide') {
+//         const activeTags = [];
+
+//         if (mod.tags.effects) {
+//             activeTags.push('<span class="mod-tag">Effects</span>');
+//         }
+
+//         if (mod.tags.icons) {
+//             activeTags.push('<span class="mod-tag">Icons</span>');
+//         }
+
+//         if (activeTags.length > 0) {
+//             tagsHtml = `<div class="mod-tags">${activeTags.join('')}</div>`;
+//         }
+//     }
+
+//     const iconSvg = mod.type === 'guide'
+//         // ? '<path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />'
+//         ? '<path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />'
+//         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
+
+//     let subtitleText, subtitleClass;
+//     if (mod.type === 'guide') {
+//         subtitleText = 'Open';
+//         subtitleClass = 'card-subtitle';
+//     } else if (mod.linkType && mod.linkUrl) {
+//         subtitleText = translations[mod.linkType];
+//         subtitleClass = 'card-subtitle card-link';
+//     } else {
+//         subtitleText = translations['download'];
+//         subtitleClass = 'card-subtitle';
+//     }
+
+//     card.innerHTML = `
+//             <div class="card-media">
+//                 <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
+//                 ${tagsHtml}
+//                 <div class="download-icon">
+//                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+//                         ${iconSvg}
+//                     </svg>
+//                 </div>
+//             </div>
+//             <div class="card-content">
+//                 <h3 class="card-title">${mod.name}</h3>
+//                 <p class="${subtitleClass}">${subtitleText}</p>
+//             </div>
+//         `;
+
+//     card.addEventListener('click', (e) => {
+//         if (e.target.classList.contains('card-link')) {
+//             return;
+//         }
+
+//         if (mod.type === 'guide') {
+//             window.open(mod.file, '_blank');
+//         } else {
+//             downloadMod(mod, categoryId);
+//         }
+//     });
+
+//     if (mod.linkType && mod.linkUrl) {
+//         const linkElement = card.querySelector('.card-link');
+//         linkElement.addEventListener('click', (e) => {
+//             e.stopPropagation();
+//             window.open(mod.linkUrl, '_blank');
+//         });
+//     }
+
+//     return card;
+// }
+
+// function downloadMod(mod, categoryId) {
+//     const link = document.createElement('a');
+//     link.href = `assets/files/${categoryId}/${mod.file}`;
+//     link.download = mod.file;
+//     link.style.display = 'none';
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//     console.log(`Downloading: ${mod.name}`);
+// }
+
+// // function downloadMod(mod, categoryId) {
+// //     const fileName = mod.file;
+// //     const releaseUrl = fileToReleaseUrl[fileName];
+// //     const link = document.createElement('a');
+// //     link.href = releaseUrl || `assets/files/${categoryId}/${fileName}`;
+// //     link.download = fileName;
+// //     link.style.display = 'none';
+// //     document.body.appendChild(link);
+// //     link.click();
+// //     document.body.removeChild(link);
+// //     console.log(`Downloading: ${mod.name} from ${link.href}`);
+// // }
+
+// function showHomePage() {
+//     currentCategory = null;
+//     categoryPage.classList.add('hidden');
+//     homePage.classList.remove('hidden');
+//     backButton.style.display = 'none';
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+// }
+
+// init();

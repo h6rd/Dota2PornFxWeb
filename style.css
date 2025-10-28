@@ -45,17 +45,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-#tg {
-  color: var(--md-sys-color-primary);
-  font-weight: 700;
-}
-
-a {
-  text-decoration: none;
-  color: var(--md-sys-color-on-surface-light);
-  font-weight: 500;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -80,11 +69,87 @@ a {
   min-height: 40px;
 }
 
+#tg {
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface-light);
+  font-weight: 500;
+}
+
 .logo {
   font-size: 23px;
   font-weight: 500;
   color: var(--md-sys-color-on-surface);
 }
+
+/* search  */
+.search-container {
+  flex: 1;
+  max-width: 180px;
+  margin: 0 10px;
+  z-index: 2;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-radius: 24px;
+  padding: 8px 16px;
+  transition: all 0.2s;
+}
+
+.search-box:focus-within {
+  background-color: var(--md-sys-color-surface-container-highest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-icon {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--md-sys-color-on-surface);
+  font-size: 14px;
+  font-family: inherit;
+  padding: 0;
+}
+
+.search-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: all 0.2s;
+  margin-left: -60px;
+}
+
+.search-clear:hover {
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* search  */
 
 .drunk {
   width: 32px;
@@ -392,4 +457,31 @@ a {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .back-button {
+    position: static;
+    order: -1;
+    align-self: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
 }
