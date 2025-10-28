@@ -309,7 +309,7 @@ const modsData = {
     'other': [
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip' },
         { name: 'VPKMerge', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
-        { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
+        { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpktool-guide' },
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
         { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb#%EF%B8%8F-weather-changer-guide' },
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
