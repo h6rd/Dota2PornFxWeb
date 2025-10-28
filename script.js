@@ -72,7 +72,6 @@ const categories = [
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
-    { id: 'weather', emoji: '🌦️', key: 'weather', preview: 'weather.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
     { id: 'optimization', emoji: '⚙️', key: 'optimization', preview: 'optimization.webp' }
     // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
@@ -297,9 +296,6 @@ const modsData = {
     'ranged-attack': [
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' }
     ],
-    'weather': [
-        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' }
-    ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk' },
         { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak46_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/SsixM/Dotafy-mods/tree/master/mods/!%20Golovach%20killstreak/files/sounds/vo/announcer_killing_spree' }
@@ -315,6 +311,7 @@ const modsData = {
         { name: 'VPKMerge', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
         { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
+        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip' },
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
