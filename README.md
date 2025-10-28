@@ -127,6 +127,60 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 
 </details>
 
+## 🗃️ VPKMerge Guide
+
+<details>
+<summary>🇷🇺</summary>
+
+1. Распакуйте архив
+2. Поместите vpk файлы в папку рядом с VPKMerge.exe
+3. Запустите VPKMerge.exe
+
+- Он объединит все vpk в `pak10_dir.vpk`
+</details>
+
+<details>
+<summary>🇺🇸</summary>
+
+1. Unpack the archive
+2. Place the vpk files in the folder next to VPKMerge.exe
+3. Launch VPKMerge.exe
+
+- It will combine all VPKs into `pak10_dir.vpk`
+</details>
+
+## ⚙️ VPKTool Guide
+
+<details>
+<summary>🇷🇺</summary>
+   
+**📦 Распаковка VPK**
+1. Положите .vpk файлы рядом с VPKTool.exe
+2. Запустите VPKTool.exe
+3. VPK файлы будут распакованы
+
+**📁 Сборка в VPK**
+1. Положите папки/файлы рядом с VPKTool.exe  
+2. Запустите VPKTool.exe
+3. Папки/файлы будут упакованы в `pak20_dir.vpk`
+
+</details>
+
+<details>
+<summary>🇺🇸</summary>
+   
+**📦 Unpacking VPK**
+1. Put it down.vpk files next to VPKTool.exe
+2. Launch VPKTool.exe
+3. VPK files will be unpacked
+
+**📁 Build VPK**
+1. Put the folders/files next to VPKTool.exe  
+2. Launch VPKTool.exe
+3. The folders/files will be packed in `pak20_dir.vpk`
+ 
+</details>
+
 ## 🛠️ Troubleshooting
 <details>
 <summary>🇷🇺</summary>
