@@ -1,5 +1,5 @@
 # Dota2PornFxWeb
-https://t.me/dota2pornfx
+[@dota2pornfx](https://t.me/dota2pornfx)
 
 ## 🎮 Default Mods Guide
 
