@@ -188,7 +188,7 @@ const modsData = {
         { name: 'Low Poly Trees', preview: 'Low Poly Trees.webp', file: 'pak91_dir.vpk' }
     ],
     'heroes': [
-        { name: 'Bare Brewmaster 🥸', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
+        { name: 'Bare Brewmaster 🥵', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
         { name: 'IO Purple', preview: 'Purple IO.webp', file: 'IO Purple.zip', tags: { effects: true, icons: true } },
         { name: 'Natures Prophet Allfather', preview: 'Natures Prophet Allfather.webp', file: 'Natures Prophet Allfather.zip', tags: { effects: true, icons: true } },
         { name: 'Shadow Shaman Purple', preview: 'Shadow Shaman Purple.webp', file: 'Shadow Shaman Purple.zip', tags: { effects: true, icons: false } },
