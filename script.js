@@ -314,6 +314,7 @@ const modsData = {
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip' },
         { name: 'VPKMerge', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
         { name: 'VPKTool', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
+        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
