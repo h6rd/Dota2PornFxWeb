@@ -89,18 +89,8 @@ a {
   z-index: 1;
 }
 
-.logo a {
-  color: inherit;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.logo a:hover {
-  text-shadow: 0 0 2px #c096ff, 0 0 2px #c096ff, 0 0 2px #c096ff;
-}
-
-.logo span {
-  display: inline-block;
+.logo:hover {
+  text-shadow: 0 0 1px #c096ff, 0 0 2px #c096ff, 0 0 1px #c096ff;
 }
 
 .search-container {

@@ -335,72 +335,6 @@ const backButton = document.getElementById('backButton');
 const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
 
-//logo
-document.addEventListener('DOMContentLoaded', () => {
-    const logoLink = document.querySelector('.logo a');
-    const tgElement = document.getElementById('tg');
-    const pornfxElement = document.getElementById('pornfx');
-    const tgText = "Dota2";
-    const pornfxText = "PornFx";
-
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_-+=[]{}|;:,.<>?';
-    let isAnimating = false;
-    let currentTimeline = null;
-
-    tgText.split('').forEach(char => {
-        const span = document.createElement('span');
-        span.textContent = char;
-        span.dataset.original = char;
-        tgElement.appendChild(span);
-    });
-
-    pornfxText.split('').forEach(char => {
-        const span = document.createElement('span');
-        span.textContent = char;
-        span.dataset.original = char;
-        pornfxElement.appendChild(span);
-    });
-
-    const tgLetters = Array.from(tgElement.children);
-    const pornfxLetters = Array.from(pornfxElement.children);
-    const allLetters = [...tgLetters, ...pornfxLetters];
-
-    function createDecoderAnimation() {
-        if (isAnimating) return;
-        isAnimating = true;
-
-        if (currentTimeline) {
-            currentTimeline.kill();
-        }
-
-        currentTimeline = gsap.timeline({
-            onComplete: () => {
-                isAnimating = false;
-            }
-        });
-
-        allLetters.forEach((letter, i) => {
-            const originalChar = letter.dataset.original;
-            let proxy = { charIndex: 0 };
-
-            currentTimeline.to(proxy, {
-                charIndex: chars.length - 1,
-                duration: 0.1,
-                ease: "power2.inOut",
-                onUpdate: () => {
-                    const randomIndex = Math.floor(Math.random() * chars.length);
-                    letter.textContent = chars[randomIndex];
-                },
-                onComplete: () => {
-                    letter.textContent = originalChar;
-                }
-            }, i * 0.08);
-        });
-    }
-
-    logoLink.addEventListener('mouseenter', createDecoderAnimation);
-});
-
 // hueta
 const gifElement = document.getElementById('clickable-gif');
 const gifs = [
@@ -469,10 +403,15 @@ function setupSearch() {
         searchInput.value = '';
         searchQuery = '';
         searchClear.style.display = 'none';
-        showHomePage();
+
+        if (currentCategory) {
+            showHomePage();
+        } else {
+            renderCategories();
+        }
+
         searchInput.focus();
     });
-
 }
 
 function renderCategories() {
@@ -705,9 +644,17 @@ function downloadMod(mod, categoryId) {
 
 function showHomePage() {
     currentCategory = null;
+
+    searchInput.value = '';
+    searchQuery = '';
+    searchClear.style.display = 'none';
+
     categoryPage.classList.add('hidden');
     homePage.classList.remove('hidden');
     backButton.style.display = 'none';
+
+    renderCategories();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
