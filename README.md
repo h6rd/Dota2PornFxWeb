@@ -181,6 +181,17 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
  
 </details>
 
+___
+
+## ℹ️ FAQ
+<details>
+<summary>🇷🇺</summary>
+</details>
+
+<details>
+<summary>🇺🇸</summary>
+</details>
+
 ## 🛠️ Troubleshooting
 <details>
 <summary>🇷🇺</summary>
