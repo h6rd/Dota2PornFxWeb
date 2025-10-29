@@ -324,6 +324,7 @@ const modsData = {
 
 let currentCategory = null;
 let searchQuery = '';
+let scrollPosition = 0;
 
 const homePage = document.getElementById('homePage');
 const categoryPage = document.getElementById('categoryPage');
@@ -469,6 +470,8 @@ function createCategoryCard(category) {
 }
 
 function showCategoryPage(categoryId) {
+    scrollPosition = window.pageYOffset;
+    
     currentCategory = categoryId;
     const category = categories.find(cat => cat.id === categoryId);
 
@@ -656,6 +659,10 @@ function showHomePage() {
     renderCategories();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+        window.scrollTo(0, scrollPosition);
+    }, 0);
 }
 
 init()
