@@ -44,10 +44,10 @@ const translations = {
     'other': 'Other',
     'other-desc': 'Miscellaneous mods',
     'download': 'Download',
-    'source': 'Source',
-    'author': 'Author',
-    'guide': 'Guide',
-    'preview': 'Preview',
+    'source': 'source',
+    'author': 'author',
+    'guide': 'guide',
+    'preview': 'preview',
     'optimization': 'Optimization',
     'optimization-desc': 'Dota2 optimization stuff'
 };
