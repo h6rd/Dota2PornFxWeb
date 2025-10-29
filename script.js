@@ -336,6 +336,72 @@ const backButton = document.getElementById('backButton');
 const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
 
+function setupFAB() {
+    const fab = document.getElementById('fab');
+    const fabMenu = document.getElementById('fabMenu');
+    const fabMenuBackground = document.getElementById('fabMenuBackground');
+    const infoButton = document.getElementById('infoButton');
+    const infoModal = document.getElementById('infoModal');
+    const infoOverlay = document.getElementById('infoOverlay');
+    const closeModal = document.getElementById('closeModal');
+
+    fab.addEventListener('click', () => {
+        const isActive = fab.classList.toggle('active');
+        fabMenu.classList.toggle('active');
+        fabMenuBackground.classList.toggle('active');
+
+        if (isActive) {
+            const menuItems = fabMenu.querySelectorAll('.fab-menu-item');
+            const itemCount = menuItems.length;
+            const itemHeight = 48;
+            const gap = 12;
+            const bottomOffset = 68;
+            const totalHeight = (itemHeight * itemCount) + (gap * (itemCount - 1)) + bottomOffset;
+
+            fabMenuBackground.style.height = totalHeight + 'px';
+        } else {
+            fabMenuBackground.style.height = '0px';
+        }
+    });
+
+    infoButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        infoModal.classList.add('active');
+        infoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        fab.classList.remove('active');
+        fabMenu.classList.remove('active');
+        fabMenuBackground.classList.remove('active');
+        fabMenuBackground.style.height = '0px';
+    });
+
+    const closeModalWindow = () => {
+        infoModal.classList.remove('active');
+        infoOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeModal.addEventListener('click', closeModalWindow);
+    infoOverlay.addEventListener('click', closeModalWindow);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && infoModal.classList.contains('active')) {
+            closeModalWindow();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!fab.contains(e.target) && !fabMenu.contains(e.target)) {
+            fab.classList.remove('active');
+            fabMenu.classList.remove('active');
+            fabMenuBackground.classList.remove('active');
+            fabMenuBackground.style.height = '0px';
+        }
+    });
+}
+
 // hueta
 const gifElement = document.getElementById('clickable-gif');
 const gifs = [
@@ -357,6 +423,7 @@ function init() {
     renderCategories();
     setupEventListeners();
     setupSearch();
+    setupFAB();
 }
 
 function setupEventListeners() {
@@ -471,7 +538,7 @@ function createCategoryCard(category) {
 
 function showCategoryPage(categoryId) {
     scrollPosition = window.pageYOffset;
-    
+
     currentCategory = categoryId;
     const category = categories.find(cat => cat.id === categoryId);
 

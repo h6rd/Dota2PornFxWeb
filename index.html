@@ -10,6 +10,10 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <title>Dota 2 Mods</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+  <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+  <link href='https://cdn.boxicons.com/fonts/transformations.min.css' rel='stylesheet'>
   <script defer src="https://va.vercel-scripts.com/v1/script.js" data-sdkn="@vercel/analytics"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
@@ -51,7 +55,7 @@
   <main class="main">
     <div class="container">
       <div id="homePage">
-        <h2 class="page-title">Dota2 Mods<img src="assets/files/hueta/brew.gif" alt="" class="hueta" id="clickable-gif">
+        <h2 class="page-title">Dota2 Mods<img src="assets/files/hueta/brew.gif" class="hueta" id="clickable-gif">
         </h2>
         <p class="page-description">Discover and download mods for Dota 2</p>
         <div class="grid" id="categoriesGrid"></div>
@@ -74,6 +78,84 @@
       </p>
     </div>
   </footer>
+
+  <!-- fab -->
+  <button id="fab" class="fab" aria-label="Menu">
+    <i class='bx bx-grid-circle-diagonal-right bx-md'></i>
+  </button>
+  <div id="fabMenu" class="fab-menu">
+    <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank" class="fab-menu-item" data-label="GitHub">
+      <i class='bxl bx-github bx-sm'></i>
+    </a>
+    <a href="https://t.me/dota2pornfx" target="_blank" class="fab-menu-item" data-label="Telegram">
+      <i class="bxl bx-telegram bx-sm"></i>
+    </a>
+    <a href="https://steamcommunity.com/id/hrdq" target="_blank" class="fab-menu-item" data-label="Steam">
+      <i class="bxl bx-steam bx-sm"></i>
+    </a>
+    <a href="#" class="fab-menu-item" data-label="Information" id="infoButton">
+      <i class='bx bx-help-circle bx-sm'></i>
+    </a>
+  </div>
+
+  <!-- info -->
+  <div id="infoOverlay" class="info-overlay"></div>
+  <div id="infoModal" class="info-modal">
+    <button class="info-modal-close" id="closeModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+
+    <div class="info-modal-content">
+      <h2 class="info-modal-title">About This Project</h2>
+
+      <div class="info-modal-section">
+        <h3 class="info-modal-subtitle">Welcome!</h3>
+        <p class="info-modal-text">
+          This is a collection of mods for <span id="tg">Dota2</span>.<br>
+          Browse to find just what you need.
+        </p>
+      </div>
+
+      <div class="info-modal-section">
+        <h3 class="info-modal-subtitle">How to Use</h3>
+        <ol class="info-modal-list">
+          <li>Select a category or use search</li>
+          <li>Browse available mods</li>
+          <li>Click on mod to download it</li>
+          <li>Follow installation instructions in guides</li>
+        </ol>
+      </div>
+
+      <div class="info-modal-section">
+        <h3 class="info-modal-subtitle">Resources & Links</h3>
+        <div class="info-modal-links">
+          <a href="https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#-default-mods-guide" target="_blank"
+            class="info-modal-link">
+            <span class="material-symbols-rounded">description</span>
+            <span>Installation Guide</span>
+          </a>
+          <a href="https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#-faq" target="_blank"
+            class="info-modal-link">
+            <span class="material-symbols-rounded">help</span>
+            <span>FAQ & Troubleshooting</span>
+          </a>
+          <a href="https://t.me/dota2pornfx" target="_blank" class="info-modal-link">
+            <span class="material-symbols-rounded">forum</span>
+            <span>Join Our Community</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="info-modal-section">
+        <h3 class="info-modal-subtitle">Important Notes</h3>
+        <div class="info-modal-note">
+          <span class="material-symbols-rounded">info</span>
+          <p>All actions to modify the game files you do at your <span id="tg">OWN RISK</span>. In case of blocking, the
+            responsibility lies entirely with <span id="tg">YOU</span>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
