@@ -188,10 +188,34 @@ ___
 ## 📄 FAQ
 <details>
 <summary>🇷🇺</summary>
+
+**Общая информация**
+- Большая часть модов, представленных здесь, не являются моими - они были взяты из слитых паков [Dota2Changer](https://en.dota2changer.com/).
+- Моды, у которых внизу нет ссылки `source/author` - мои собственные (за исключением категории Item Effects).
+
+**Авторы модов**
+- Minify `Background` - [Egezenn](https://github.com/Egezenn)
+- Minify `Terrains` - [robbyz512](https://github.com/robbyz512)
+- [Darkness](https://t.me/Darkness_Logovo)
+- [Defiree2Mods](https://vk.com/defiree2mods)
+- [Kisilev_ind](https://vk.com/id363951132)
+
 </details>
 
 <details>
 <summary>🇺🇸</summary>
+
+**General information**
+- Most of the mods presented here are not mine - they were taken from leaked packs [Dota2Changer](https://en.dota2changer.com/).
+- Mods that don't have a `source/author` link at the bottom are my own (except for the Item Effects category).
+
+**Mod authors**
+- Minify `Background` - [Egezenn](https://github.com/Egezenn)
+- Minify `Terrains` - [robbyz512](https://github.com/robbyz512)
+- [Darkness](https://t.me/Darkness_Logovo)
+- [Defiree2Mods](https://vk.com/defiree2mods)
+- [Kisilev_ind](https://vk.com/id363951132)
+   
 </details>
 
 ## 🛠️ Troubleshooting
