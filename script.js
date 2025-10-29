@@ -123,7 +123,19 @@ const modsData = {
         { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
         { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
-        { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' }
+        { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
+        { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.mp4', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Bottle', preview: 'Darkness Bottle.mp4', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Dagon', preview: 'Darkness Dagon.mp4', file: 'Darkness Dagon.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.mp4', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.mp4', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Mekanism', preview: 'Darkness Mekanism.mp4', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Mjollner', preview: 'Darkness Mjollner.mp4', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.mp4', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Radiance', preview: 'Darkness Radiance.mp4', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+        { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
+
+
     ],
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.webp', file: 'pak08_dir.vpk' },
