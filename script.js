@@ -1,8 +1,8 @@
 const translations = {
     'shaders': 'Shaders',
     'shaders-desc': 'Replaces the fog of war effect',
-    'ti-bp-effects': 'TI/BP Effects',
-    'ti-bp-effects-desc': 'Battle Pass and The International effects',
+    'ti-bp-effects': 'Effect Packs',
+    'ti-bp-effects-desc': 'Battle Pass / The International / Pack effects',
     'item-effects': 'Item Effects',
     'item-effects-desc': 'Effects for various items',
     'creep-deny': 'Creep Deny',
@@ -54,7 +54,7 @@ const translations = {
 
 const categories = [
     { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.webp' },
-    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'ti-bp-effects.webp' },
+    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'Effect-Packs.webp' },
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
     { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
     { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
@@ -109,7 +109,8 @@ const modsData = {
         { name: 'Nemestice 2021 Battle Pass', preview: 'Nemestice 2021 Battle Pass.webp', file: 'pak27_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4' },
         { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4' },
         { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' },
-        { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak97_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' }
+        { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak97_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' },
+        { name: 'Darkness Pack', preview: 'Darkness Pack.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Darkness_Pack.mp4' }
     ],
     'item-effects': [
         { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
