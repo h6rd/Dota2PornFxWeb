@@ -415,6 +415,38 @@ function setupFAB() {
     });
 }
 
+// Modal Preview Video
+function setupVideoModal() {
+    const videoModal = document.getElementById('videoModal');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const closeVideoModal = document.getElementById('closeVideoModal');
+    const modalVideo = document.getElementById('modalVideo');
+
+    const closeVideoWindow = () => {
+        videoModal.classList.remove('active');
+        videoOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        modalVideo.pause();
+        modalVideo.src = '';
+    };
+
+    closeVideoModal.addEventListener('click', closeVideoWindow);
+    videoOverlay.addEventListener('click', closeVideoWindow);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeVideoWindow();
+        }
+    });
+
+    window.openVideoModal = (videoUrl) => {
+        modalVideo.src = videoUrl;
+        videoModal.classList.add('active');
+        videoOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+}
+
 // hueta
 const gifElement = document.getElementById('clickable-gif');
 const gifs = [
@@ -458,6 +490,7 @@ function init() {
     setupEventListeners();
     setupSearch();
     setupFAB();
+    setupVideoModal();
 }
 
 function setupEventListeners() {
@@ -707,13 +740,28 @@ function createModCard(mod, categoryId) {
         }
     });
 
+    // if (mod.linkType && mod.linkUrl) {
+    //     const linkElement = card.querySelector('.card-link');
+    //     linkElement.addEventListener('click', (e) => {
+    //         e.stopPropagation();
+    //         window.open(mod.linkUrl, '_blank');
+    //     });
+    // }
+
+    //Modal Preview Video
     if (mod.linkType && mod.linkUrl) {
         const linkElement = card.querySelector('.card-link');
         linkElement.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.open(mod.linkUrl, '_blank');
+
+            if (mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')) {
+                window.openVideoModal(mod.linkUrl);
+            } else {
+                window.open(mod.linkUrl, '_blank');
+            }
         });
     }
+
 
     return card;
 }
