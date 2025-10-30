@@ -432,6 +432,27 @@ gifElement.addEventListener('click', () => {
     gifElement.src = gifs[currentIndex];
 });
 
+// Theme
+(function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        if ('vibrate' in navigator) {
+            navigator.vibrate(10);
+        }
+    });
+})();
+
 function init() {
     renderCategories();
     setupEventListeners();
@@ -459,19 +480,6 @@ function setupSearch() {
 
         searchTimeout = setTimeout(() => {
             if (searchQuery) {
-                if (currentCategory) {
-                    renderMods(currentCategory);
-                } else {
-                    renderAllModsSearch();
-                }
-            } else {
-                if (currentCategory) {
-                    renderMods(currentCategory);
-                } else {
-                    renderCategories();
-                }
-            }
-            if (searchQuery) {
                 currentCategory = null;
                 renderAllModsSearch();
             } else {
@@ -485,11 +493,7 @@ function setupSearch() {
         searchQuery = '';
         searchClear.style.display = 'none';
 
-        if (currentCategory) {
-            showHomePage();
-        } else {
-            renderCategories();
-        }
+        showHomePage();
 
         searchInput.focus();
     });
