@@ -764,13 +764,7 @@ function createModCard(mod, categoryId) {
 
     const isVideo = mod.preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
-
-    let mediaAttrs;
-    if (isVideo) {
-        mediaAttrs = 'muted loop playsinline preload="none" loading="lazy"';
-    } else {
-        mediaAttrs = 'loading="lazy"';
-    }
+    const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
 
     let tagsHtml = '';
     if (categoryId === 'heroes' && mod.tags && mod.type !== 'guide') {
@@ -807,7 +801,7 @@ function createModCard(mod, categoryId) {
 
     card.innerHTML = `
         <div class="card-media">
-            <${mediaElement} data-src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
+            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
             ${tagsHtml}
             <div class="download-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -821,24 +815,6 @@ function createModCard(mod, categoryId) {
         </div>
     `;
 
-    const mediaEl = card.querySelector(mediaElement);
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const src = mediaEl.getAttribute('data-src');
-                if (src) {
-                    mediaEl.src = src;
-                    if (isVideo) {
-                        mediaEl.play().catch(() => { });
-                    }
-                }
-                observer.unobserve(mediaEl);
-            }
-        });
-    }, { rootMargin: '50px' });
-
-    observer.observe(mediaEl);
-
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('card-link')) {
             return;
@@ -851,6 +827,15 @@ function createModCard(mod, categoryId) {
         }
     });
 
+    // if (mod.linkType && mod.linkUrl) {
+    //     const linkElement = card.querySelector('.card-link');
+    //     linkElement.addEventListener('click', (e) => {
+    //         e.stopPropagation();
+    //         window.open(mod.linkUrl, '_blank');
+    //     });
+    // }
+
+    //Modal Preview Video
     if (mod.linkType && mod.linkUrl) {
         const linkElement = card.querySelector('.card-link');
         linkElement.addEventListener('click', (e) => {
