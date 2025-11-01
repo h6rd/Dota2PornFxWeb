@@ -415,6 +415,51 @@ function setupFAB() {
     });
 }
 
+function sortMods(mods, mode) {
+    const sortedMods = [...mods];
+
+    switch (mode) {
+        case 'name':
+            return sortedMods.sort((a, b) => a.name.localeCompare(b.name));
+        case 'date':
+            return sortedMods.reverse();
+        case 'default':
+        default:
+            return sortedMods;
+    }
+}
+
+function setupSortToggle() {
+    const sortToggle = document.getElementById('sortToggle');
+    const sortLabel = document.getElementById('sortLabel');
+    const sortIcon = sortToggle.querySelector('.material-symbols-rounded');
+
+    const sortModes = [
+        { key: 'default', label: 'Default', icon: 'sort' },
+        { key: 'name', label: 'Name', icon: 'sort_by_alpha' },
+        { key: 'date', label: 'Newest', icon: 'schedule' }
+    ];
+
+    let currentModeIndex = 0;
+
+    sortToggle.addEventListener('click', () => {
+        currentModeIndex = (currentModeIndex + 1) % sortModes.length;
+        const mode = sortModes[currentModeIndex];
+
+        sortMode = mode.key;
+        sortLabel.textContent = mode.label;
+        sortIcon.textContent = mode.icon;
+
+        if (currentCategory) {
+            renderMods(currentCategory);
+        }
+
+        if ('vibrate' in navigator) {
+            navigator.vibrate(10);
+        }
+    });
+}
+
 // Modal Preview Video
 function setupVideoModal() {
     const videoModal = document.getElementById('videoModal');
@@ -486,9 +531,18 @@ gifElement.addEventListener('click', () => {
 })();
 
 function init() {
+    homePage.classList.remove('hidden');
+    categoryPage.classList.add('hidden');
+    backButton.style.display = 'none';
+
+    currentCategory = null;
+    searchQuery = '';
+    sortMode = 'default';
+
     renderCategories();
     setupEventListeners();
     setupSearch();
+    setupSortToggle();
     setupFAB();
     setupVideoModal();
 }
@@ -594,6 +648,21 @@ function showCategoryPage(categoryId) {
 
     if (!category) return;
 
+    sortMode = 'default';
+    const sortLabel = document.getElementById('sortLabel');
+    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
+    const sortToggle = document.getElementById('sortToggle');
+
+    if (sortLabel) {
+        sortLabel.textContent = 'Default';
+    }
+    if (sortIcon) {
+        sortIcon.textContent = 'sort';
+    }
+    if (sortToggle) {
+        sortToggle.style.display = 'flex';
+    }
+
     categoryTitle.textContent = translations[category.key];
     categoryDescription.textContent = translations[category.key + '-desc'];
 
@@ -610,11 +679,18 @@ function renderMods(categoryId) {
     modsGrid.innerHTML = '';
     let mods = modsData[categoryId] || [];
 
+    const sortToggle = document.getElementById('sortToggle');
+    if (sortToggle) {
+        sortToggle.style.display = 'flex';
+    }
+
     if (searchQuery) {
         mods = mods.filter(mod =>
             mod.name.toLowerCase().includes(searchQuery)
         );
     }
+
+    mods = sortMods(mods, sortMode);
 
     if (mods.length === 0) {
         const message = searchQuery
@@ -641,6 +717,11 @@ function renderAllModsSearch() {
     categoryPage.classList.remove('hidden');
     backButton.style.display = 'flex';
 
+    const sortToggle = document.getElementById('sortToggle');
+    if (sortToggle) {
+        sortToggle.style.display = 'none';
+    }
+
     let allResults = [];
 
     for (const category of categories) {
@@ -662,6 +743,12 @@ function renderAllModsSearch() {
         return;
     }
 
+    if (sortMode === 'name') {
+        allResults.sort((a, b) => a.mod.name.localeCompare(b.mod.name));
+    } else if (sortMode === 'date') {
+        allResults.reverse();
+    }
+
     categoryTitle.textContent = 'Search results';
     categoryDescription.textContent = `Found ${allResults.length} mods`;
 
@@ -677,7 +764,13 @@ function createModCard(mod, categoryId) {
 
     const isVideo = mod.preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
-    const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+
+    let mediaAttrs;
+    if (isVideo) {
+        mediaAttrs = 'muted loop playsinline preload="none" loading="lazy"';
+    } else {
+        mediaAttrs = 'loading="lazy"';
+    }
 
     let tagsHtml = '';
     if (categoryId === 'heroes' && mod.tags && mod.type !== 'guide') {
@@ -714,7 +807,7 @@ function createModCard(mod, categoryId) {
 
     card.innerHTML = `
         <div class="card-media">
-            <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
+            <${mediaElement} data-src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
             ${tagsHtml}
             <div class="download-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -728,6 +821,24 @@ function createModCard(mod, categoryId) {
         </div>
     `;
 
+    const mediaEl = card.querySelector(mediaElement);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const src = mediaEl.getAttribute('data-src');
+                if (src) {
+                    mediaEl.src = src;
+                    if (isVideo) {
+                        mediaEl.play().catch(() => { });
+                    }
+                }
+                observer.unobserve(mediaEl);
+            }
+        });
+    }, { rootMargin: '50px' });
+
+    observer.observe(mediaEl);
+
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('card-link')) {
             return;
@@ -740,15 +851,6 @@ function createModCard(mod, categoryId) {
         }
     });
 
-    // if (mod.linkType && mod.linkUrl) {
-    //     const linkElement = card.querySelector('.card-link');
-    //     linkElement.addEventListener('click', (e) => {
-    //         e.stopPropagation();
-    //         window.open(mod.linkUrl, '_blank');
-    //     });
-    // }
-
-    //Modal Preview Video
     if (mod.linkType && mod.linkUrl) {
         const linkElement = card.querySelector('.card-link');
         linkElement.addEventListener('click', (e) => {
@@ -761,7 +863,6 @@ function createModCard(mod, categoryId) {
             }
         });
     }
-
 
     return card;
 }
@@ -779,6 +880,7 @@ function downloadMod(mod, categoryId) {
 
 function showHomePage() {
     currentCategory = null;
+    sortMode = 'default';
 
     searchInput.value = '';
     searchQuery = '';
@@ -787,6 +889,19 @@ function showHomePage() {
     categoryPage.classList.add('hidden');
     homePage.classList.remove('hidden');
     backButton.style.display = 'none';
+
+    const sortToggle = document.getElementById('sortToggle');
+    if (sortToggle) {
+        sortToggle.style.display = 'none';
+    }
+    const sortLabel = document.getElementById('sortLabel');
+    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
+    if (sortLabel) {
+        sortLabel.textContent = 'Default';
+    }
+    if (sortIcon) {
+        sortIcon.textContent = 'sort';
+    }
 
     renderCategories();
 

@@ -64,9 +64,18 @@
       </div>
 
       <div id="categoryPage" class="hidden">
-        <h2 class="page-title" id="categoryTitle"></h2>
-        <p class="page-description" id="categoryDescription"></p>
-        <div class="grid" id="modsGrid"></div>
+        <div class="category-header">
+          <div>
+            <h2 class="page-title" id="categoryTitle"></h2>
+            <p class="page-description" id="categoryDescription"></p>
+          </div>
+          <button class="sort-toggle" id="sortToggle">
+            <span class="material-symbols-rounded">sort</span>
+            <span id="sortLabel">Default</span>
+          </button>
+        </div>
+        <div class="grid" id="modsGrid">
+        </div>
       </div>
     </div>
   </main>
