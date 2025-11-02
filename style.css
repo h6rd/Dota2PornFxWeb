@@ -611,7 +611,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -620,7 +620,6 @@ img {
 .video-modal-content:hover .custom-video-controls,
 .video-modal-content:fullscreen .custom-video-controls {
   opacity: 1;
-  pointer-events: auto;
 }
 
 .video-progress-container {
@@ -691,38 +690,6 @@ img {
   max-height: 100vh;
   width: 100%;
   height: 100%;
-}
-
-.video-loading {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  z-index: 10;
-  pointer-events: none;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.custom-video-controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -1118,12 +1085,12 @@ img {
 }
 
 .spinner {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border: 4px solid var(--md-sys-color-surface-container-high);
   border-top: 4px solid var(--md-sys-color-primary);
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
