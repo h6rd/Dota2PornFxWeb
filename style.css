@@ -21,6 +21,7 @@
   --md-sys-color-surface-container-highest: #36343b;
   --md-sys-color-error: #ffb4ab;
   --md-sys-color-on-error: #690005;
+  --md-header-blur: rgba(20, 18, 24, 0.7);
 }
 
 [data-theme="light"] {
@@ -46,6 +47,7 @@
   --md-sys-color-surface-container-highest: #e6e0e9;
   --md-sys-color-error: #ba1a1a;
   --md-sys-color-on-error: #ffffff;
+  --md-header-blur: rgba(254, 247, 255, 0.50);
 }
 
 * {
@@ -86,9 +88,8 @@ body::-webkit-scrollbar {
 }
 
 .header {
-  background-color: rgba(20, 18, 24, 0.7);
+  background-color: var(--md-header-blur);
   padding: 16px 0;
-  box-shadow: 0 1px 8px rgba(19, 18, 23, 0.3);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   position: sticky;
@@ -96,11 +97,6 @@ body::-webkit-scrollbar {
   z-index: 100;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="light"] .header {
-  background-color: rgba(254, 247, 255, 0.50);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0);
 }
 
 .header-content {
