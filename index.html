@@ -177,10 +177,26 @@
     </button>
 
     <div class="video-modal-content">
-      <video id="modalVideo" controls autoplay>
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <video id="modalVideo" controlslist="nodownload" disablepictureinpicture autoplay></video>
+
+      <div class="custom-video-controls">
+        <div class="video-progress-container">
+          <div class="video-progress-bar">
+            <div class="video-progress-filled"></div>
+          </div>
+        </div>
+        <div class="video-controls-row">
+          <button class="video-control-btn" id="playPauseBtn">
+            <span class="material-symbols-rounded">pause</span>
+          </button>
+          <div class="video-time-display">
+            <span id="videoCurrentTime">0:00</span> / <span id="videoTotalTime">0:00</span>
+          </div>
+          <button class="video-control-btn" id="fullscreenBtn">
+            <span class="material-symbols-rounded">fullscreen</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 

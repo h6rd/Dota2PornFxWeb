@@ -460,12 +460,16 @@ function setupSortToggle() {
     });
 }
 
-// Modal Preview Video
 function setupVideoModal() {
     const videoModal = document.getElementById('videoModal');
     const videoOverlay = document.getElementById('videoOverlay');
     const closeVideoModal = document.getElementById('closeVideoModal');
     const modalVideo = document.getElementById('modalVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const progressBar = document.querySelector('.video-progress-bar');
+    const progressFilled = document.querySelector('.video-progress-filled');
+    const playIcon = playPauseBtn.querySelector('.material-symbols-rounded');
 
     const closeVideoWindow = () => {
         videoModal.classList.remove('active');
@@ -473,6 +477,7 @@ function setupVideoModal() {
         document.body.style.overflow = '';
         modalVideo.pause();
         modalVideo.src = '';
+        playIcon.textContent = 'play_arrow'; // Reset icon when closing
     };
 
     closeVideoModal.addEventListener('click', closeVideoWindow);
@@ -484,11 +489,72 @@ function setupVideoModal() {
         }
     });
 
+    playPauseBtn.addEventListener('click', () => {
+        if (modalVideo.paused) {
+            modalVideo.play();
+            playIcon.textContent = 'pause';
+        } else {
+            modalVideo.pause();
+            playIcon.textContent = 'play_arrow';
+        }
+    });
+
+    fullscreenBtn.addEventListener('click', () => {
+        const videoContainer = document.querySelector('.video-modal-content');
+        if (!document.fullscreenElement) {
+            videoContainer.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
+    modalVideo.addEventListener('timeupdate', () => {
+        const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
+        progressFilled.style.width = percent + '%';
+    });
+
+    // Format time helper function
+    const formatTime = (seconds) => {
+        if (isNaN(seconds)) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const currentTimeDisplay = document.getElementById('videoCurrentTime');
+    const totalTimeDisplay = document.getElementById('videoTotalTime');
+
+    modalVideo.addEventListener('loadedmetadata', () => {
+        totalTimeDisplay.textContent = formatTime(modalVideo.duration);
+    });
+
+    modalVideo.addEventListener('timeupdate', () => {
+        const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
+        progressFilled.style.width = percent + '%';
+        currentTimeDisplay.textContent = formatTime(modalVideo.currentTime);
+    });
+
+    progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        modalVideo.currentTime = percent * modalVideo.duration;
+    });
+
+    // Sync play/pause icon with video state
+    modalVideo.addEventListener('play', () => {
+        playIcon.textContent = 'pause';
+    });
+
+    modalVideo.addEventListener('pause', () => {
+        playIcon.textContent = 'play_arrow';
+    });
+
     window.openVideoModal = (videoUrl) => {
         modalVideo.src = videoUrl;
         videoModal.classList.add('active');
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        playIcon.textContent = 'pause'; // Set to pause since autoplay is on
     };
 }
 
