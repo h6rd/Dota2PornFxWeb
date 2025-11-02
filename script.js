@@ -1039,12 +1039,10 @@ function showHomePage() {
     }
 
     renderCategories();
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    setTimeout(() => {
+    
+    requestAnimationFrame(() => {
         window.scrollTo(0, scrollPosition);
-    }, 0);
+    });
 }
 
 init()
