@@ -338,6 +338,8 @@ const modsData = {
 let currentCategory = null;
 let searchQuery = '';
 let scrollPosition = 0;
+let sortMode = 'default';
+let currentSortModeIndex = 0;
 
 const homePage = document.getElementById('homePage');
 const categoryPage = document.getElementById('categoryPage');
@@ -440,11 +442,9 @@ function setupSortToggle() {
         { key: 'date', label: 'Newest', icon: 'schedule' }
     ];
 
-    let currentModeIndex = 0;
-
     sortToggle.addEventListener('click', () => {
-        currentModeIndex = (currentModeIndex + 1) % sortModes.length;
-        const mode = sortModes[currentModeIndex];
+        currentSortModeIndex = (currentSortModeIndex + 1) % sortModes.length;
+        const mode = sortModes[currentSortModeIndex];
 
         sortMode = mode.key;
         sortLabel.textContent = mode.label;
@@ -538,6 +538,7 @@ function init() {
     currentCategory = null;
     searchQuery = '';
     sortMode = 'default';
+    currentSortModeIndex = 0;
 
     renderCategories();
     setupEventListeners();
@@ -649,6 +650,8 @@ function showCategoryPage(categoryId) {
     if (!category) return;
 
     sortMode = 'default';
+    currentSortModeIndex = 0;
+    
     const sortLabel = document.getElementById('sortLabel');
     const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
     const sortToggle = document.getElementById('sortToggle');
@@ -866,6 +869,7 @@ function downloadMod(mod, categoryId) {
 function showHomePage() {
     currentCategory = null;
     sortMode = 'default';
+    currentSortModeIndex = 0;
 
     searchInput.value = '';
     searchQuery = '';
