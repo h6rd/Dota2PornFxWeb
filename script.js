@@ -110,7 +110,7 @@ const modsData = {
         { name: 'Aghanims Labyrinth Battle Pass', preview: 'Aghanims Labyrinth Battle Pass.webp', file: 'pak39_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4' },
         { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak40_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' },
         { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak97_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' },
-        { name: 'Darkness Pack', preview: 'Darkness Pack.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Darkness_Pack.mp4' }
+        { name: 'Darkness Pack', preview: 'Darkness Pack.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'preview', url: 'assets/previews/ti-bp-effects/Darkness_Pack.mp4' }] }
     ],
     'item-effects': [
         { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
