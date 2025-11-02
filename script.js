@@ -476,16 +476,19 @@ function setupVideoModal() {
     let isDoubleClick = false;
 
     const closeVideoWindow = () => {
+        isClosing = true;
         videoModal.classList.remove('active');
         videoOverlay.classList.remove('active');
         document.body.style.overflow = '';
         modalVideo.pause();
         modalVideo.currentTime = 0;
-        modalVideo.src = '';
         playIcon.textContent = 'play_arrow';
-        if (videoSpinner) {
-            videoSpinner.classList.add('hidden');
-        }
+        if (videoSpinner) videoSpinner.classList.add('hidden');
+
+        setTimeout(() => {
+            modalVideo.src = '';
+            isClosing = false;
+        }, 150);
     };
 
     closeVideoModal.addEventListener('click', closeVideoWindow);
@@ -498,10 +501,12 @@ function setupVideoModal() {
     });
 
     modalVideo.addEventListener('loadstart', () => {
+        if (isClosing) return;
         if (videoSpinner) videoSpinner.classList.remove('hidden');
     });
 
     modalVideo.addEventListener('waiting', () => {
+        if (isClosing) return;
         if (videoSpinner) videoSpinner.classList.remove('hidden');
     });
 
