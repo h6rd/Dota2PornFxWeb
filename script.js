@@ -786,26 +786,25 @@ function createModCard(mod, categoryId) {
         }
     }
 
+    let linkButtonsHtml = '';
+    if (mod.links && mod.links.length > 0) {
+        const linkButtons = mod.links.map(link =>
+            `<span class="link-button" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">${translations[link.type]}</span>`
+        );
+        linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
+    } else if (mod.linkType && mod.linkUrl) {
+        linkButtonsHtml = `<div class="link-buttons"><span class="link-button" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">${translations[mod.linkType]}</span></div>`;
+    }
+
     const iconSvg = mod.type === 'guide'
         ? '<path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
-    let subtitleHtml, subtitleClass;
+    let subtitleText;
     if (mod.type === 'guide') {
-        subtitleHtml = 'Open';
-        subtitleClass = 'card-subtitle';
-    } else if (mod.links && mod.links.length > 0) {
-        const linkParts = mod.links.map(link =>
-            `<span class="card-link" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">${translations[link.type]}</span>`
-        );
-        subtitleHtml = linkParts.join(' / ');
-        subtitleClass = 'card-subtitle has-links';
-    } else if (mod.linkType && mod.linkUrl) {
-        subtitleHtml = `<span class="card-link" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">${translations[mod.linkType]}</span>`;
-        subtitleClass = 'card-subtitle has-links';
+        subtitleText = 'Open';
     } else {
-        subtitleHtml = translations['download'];
-        subtitleClass = 'card-subtitle';
+        subtitleText = translations['download'];
     }
 
     card.innerHTML = `
@@ -820,29 +819,32 @@ function createModCard(mod, categoryId) {
         </div>
         <div class="card-content">
             <h3 class="card-title">${mod.name}</h3>
-            <p class="${subtitleClass}">${subtitleHtml}</p>
+            <div class="card-subtitle-wrapper">
+                <p class="card-subtitle">${subtitleText}</p>
+                ${linkButtonsHtml}
+            </div>
         </div>
     `;
 
     card.addEventListener('click', (e) => {
-        if (e.target.classList.contains('card-link')) {
+        if (e.target.classList.contains('link-button')) {
             return;
         }
 
         if (mod.type === 'guide') {
             window.open(mod.file, '_blank');
-        } else if (!mod.links && !mod.linkType) {
+        } else {
             downloadMod(mod, categoryId);
         }
     });
 
-    const linkElements = card.querySelectorAll('.card-link');
-    linkElements.forEach(linkElement => {
-        linkElement.addEventListener('click', (e) => {
+    const linkButtons = card.querySelectorAll('.link-button');
+    linkButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
             e.stopPropagation();
 
-            const url = linkElement.getAttribute('data-url');
-            const isVideo = linkElement.getAttribute('data-video') === 'true';
+            const url = button.getAttribute('data-url');
+            const isVideo = button.getAttribute('data-video') === 'true';
 
             if (isVideo) {
                 window.openVideoModal(url);
