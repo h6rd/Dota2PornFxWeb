@@ -470,14 +470,22 @@ function setupVideoModal() {
     const progressBar = document.querySelector('.video-progress-bar');
     const progressFilled = document.querySelector('.video-progress-filled');
     const playIcon = playPauseBtn.querySelector('.material-symbols-rounded');
+    const videoSpinner = document.querySelector('.video-loading-spinner');
+
+    let clickTimer = null;
+    let isDoubleClick = false;
 
     const closeVideoWindow = () => {
         videoModal.classList.remove('active');
         videoOverlay.classList.remove('active');
         document.body.style.overflow = '';
         modalVideo.pause();
+        modalVideo.currentTime = 0;
         modalVideo.src = '';
         playIcon.textContent = 'play_arrow';
+        if (videoSpinner) {
+            videoSpinner.classList.add('hidden');
+        }
     };
 
     closeVideoModal.addEventListener('click', closeVideoWindow);
@@ -486,6 +494,55 @@ function setupVideoModal() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && videoModal.classList.contains('active')) {
             closeVideoWindow();
+        }
+    });
+
+    modalVideo.addEventListener('loadstart', () => {
+        if (videoSpinner) videoSpinner.classList.remove('hidden');
+    });
+
+    modalVideo.addEventListener('waiting', () => {
+        if (videoSpinner) videoSpinner.classList.remove('hidden');
+    });
+
+    modalVideo.addEventListener('canplay', () => {
+        if (videoSpinner) videoSpinner.classList.add('hidden');
+    });
+
+    modalVideo.addEventListener('playing', () => {
+        if (videoSpinner) videoSpinner.classList.add('hidden');
+    });
+
+    modalVideo.addEventListener('stalled', () => {
+        if (videoSpinner) videoSpinner.classList.remove('hidden');
+    });
+
+    modalVideo.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            isDoubleClick = true;
+
+            const videoContainer = document.querySelector('.video-modal-content');
+            if (!document.fullscreenElement) {
+                videoContainer.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        } else {
+            isDoubleClick = false;
+            clickTimer = setTimeout(() => {
+                if (!isDoubleClick) {
+                    if (modalVideo.paused) {
+                        modalVideo.play();
+                    } else {
+                        modalVideo.pause();
+                    }
+                }
+                clickTimer = null;
+            }, 250);
         }
     });
 
@@ -548,6 +605,9 @@ function setupVideoModal() {
     });
 
     window.openVideoModal = (videoUrl) => {
+        if (videoSpinner) {
+            videoSpinner.classList.remove('hidden');
+        }
         modalVideo.src = videoUrl;
         videoModal.classList.add('active');
         videoOverlay.classList.add('active');
