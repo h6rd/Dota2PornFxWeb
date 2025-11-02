@@ -862,7 +862,7 @@ img {
   box-sizing: border-box;
 }
 
-.card-subtitle.card-link {
+.card-subtitle .card-link {
   color: var(--md-sys-color-primary) !important;
   font-weight: 600 !important;
   text-decoration: underline !important;
@@ -871,12 +871,12 @@ img {
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.card-subtitle.card-link:hover {
+.card-subtitle .card-link:hover {
   color: var(--md-sys-color-shit-light) !important;
   text-shadow: 0 0 8px rgba(208, 188, 255, 0.4);
 }
 
-.card-subtitle.card-link:active {
+.card-subtitle .card-link:active {
   color: var(--md-sys-color-primary) !important;
 }
 

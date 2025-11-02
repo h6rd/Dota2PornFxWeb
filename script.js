@@ -44,10 +44,10 @@ const translations = {
     'other': 'Other',
     'other-desc': 'Miscellaneous mods',
     'download': 'Download',
-    'source': 'source',
-    'author': 'author',
-    'guide': 'guide',
-    'preview': 'preview',
+    'source': 'Source',
+    'author': 'Author',
+    'guide': 'Guide',
+    'preview': 'Preview',
     'optimization': 'Optimization',
     'optimization-desc': 'Dota2 optimization stuff'
 };
@@ -310,8 +310,8 @@ const modsData = {
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' }
     ],
     'mega-kill': [
-        { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk' },
-        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak46_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/SsixM/Dotafy-mods/tree/master/mods/!%20Golovach%20killstreak/files/sounds/vo/announcer_killing_spree' }
+        { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk', links: [ { type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }, { type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' } ] },
+        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak46_dir.vpk', links: [ { type: 'source', url: 'https://github.com/SsixM/Dotafy-mods/tree/master/mods/!%20Golovach%20killstreak/files/sounds/vo/announcer_killing_spree' }, { type: 'preview', url: 'assets/previews/mega-kill/Siega-Mega-Kill.mp4' } ] }
     ],
     'pedestal': [
         { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.webp', file: 'pak78_dir.vpk' },
@@ -761,6 +761,8 @@ function renderAllModsSearch() {
     });
 }
 
+
+// Updated createModCard function to support multiple links
 function createModCard(mod, categoryId) {
     const card = document.createElement('div');
     card.className = 'card fade-in';
@@ -790,15 +792,24 @@ function createModCard(mod, categoryId) {
         ? '<path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />'
         : '<path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />';
 
-    let subtitleText, subtitleClass;
+    // Build subtitle with multiple links
+    let subtitleHtml, subtitleClass;
     if (mod.type === 'guide') {
-        subtitleText = 'Open';
+        subtitleHtml = 'Open';
         subtitleClass = 'card-subtitle';
+    } else if (mod.links && mod.links.length > 0) {
+        // Multiple links case
+        const linkParts = mod.links.map(link => 
+            `<span class="card-link" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">${translations[link.type]}</span>`
+        );
+        subtitleHtml = linkParts.join(' / ');
+        subtitleClass = 'card-subtitle has-links';
     } else if (mod.linkType && mod.linkUrl) {
-        subtitleText = translations[mod.linkType];
-        subtitleClass = 'card-subtitle card-link';
+        // Single link case (backward compatibility)
+        subtitleHtml = `<span class="card-link" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">${translations[mod.linkType]}</span>`;
+        subtitleClass = 'card-subtitle has-links';
     } else {
-        subtitleText = translations['download'];
+        subtitleHtml = translations['download'];
         subtitleClass = 'card-subtitle';
     }
 
@@ -814,43 +825,39 @@ function createModCard(mod, categoryId) {
         </div>
         <div class="card-content">
             <h3 class="card-title">${mod.name}</h3>
-            <p class="${subtitleClass}">${subtitleText}</p>
+            <p class="${subtitleClass}">${subtitleHtml}</p>
         </div>
     `;
 
+    // Handle card click (for guide or download)
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('card-link')) {
-            return;
+            return; // Let link handler deal with it
         }
 
         if (mod.type === 'guide') {
             window.open(mod.file, '_blank');
-        } else {
+        } else if (!mod.links && !mod.linkType) {
             downloadMod(mod, categoryId);
         }
     });
 
-    // if (mod.linkType && mod.linkUrl) {
-    //     const linkElement = card.querySelector('.card-link');
-    //     linkElement.addEventListener('click', (e) => {
-    //         e.stopPropagation();
-    //         window.open(mod.linkUrl, '_blank');
-    //     });
-    // }
-
-    //Modal Preview Video
-    if (mod.linkType && mod.linkUrl) {
-        const linkElement = card.querySelector('.card-link');
+    // Handle link clicks
+    const linkElements = card.querySelectorAll('.card-link');
+    linkElements.forEach(linkElement => {
         linkElement.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            const url = linkElement.getAttribute('data-url');
+            const isVideo = linkElement.getAttribute('data-video') === 'true';
 
-            if (mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')) {
-                window.openVideoModal(mod.linkUrl);
+            if (isVideo) {
+                window.openVideoModal(url);
             } else {
-                window.open(mod.linkUrl, '_blank');
+                window.open(url, '_blank');
             }
         });
-    }
+    });
 
     return card;
 }
