@@ -190,17 +190,30 @@
             <div class="video-progress-filled"></div>
           </div>
         </div>
+
         <div class="video-controls-row">
-          <button class="video-control-btn" id="playPauseBtn">
-            <span class="material-symbols-rounded">pause</span>
-          </button>
-          <div class="video-time-display">
-            <span id="videoCurrentTime">0:00</span> / <span id="videoTotalTime">0:00</span>
+          <div class="video-controls-left">
+            <button class="video-control-btn" id="playPauseBtn">
+              <span class="material-symbols-rounded">pause</span>
+            </button>
           </div>
-          <button class="video-control-btn" id="fullscreenBtn">
-            <span class="material-symbols-rounded">fullscreen</span>
-          </button>
+
+          <div class="video-controls-center">
+            <div class="video-time-display">
+              <span id="videoCurrentTime">0:00</span> / <span id="videoTotalTime">0:00</span>
+            </div>
+          </div>
+
+          <div class="video-controls-right">
+            <button class="video-control-btn" id="volumeBtn">
+              <span class="material-symbols-rounded" id="volumeIcon">volume_up</span>
+            </button>
+            <button class="video-control-btn" id="fullscreenBtn">
+              <span class="material-symbols-rounded">fullscreen</span>
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

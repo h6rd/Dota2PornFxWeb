@@ -565,6 +565,21 @@ function setupVideoModal() {
         }
     });
 
+    const volumeBtn = document.getElementById('volumeBtn');
+    const volumeIcon = document.getElementById('volumeIcon');
+
+    volumeBtn.addEventListener('click', () => {
+        if (modalVideo.muted || modalVideo.volume === 0) {
+            modalVideo.muted = false;
+            modalVideo.volume = 1;
+            volumeIcon.textContent = 'volume_up';
+        } else {
+            modalVideo.muted = true;
+            volumeIcon.textContent = 'volume_off';
+        }
+    });
+
+
     modalVideo.addEventListener('timeupdate', () => {
         const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
         progressFilled.style.width = percent + '%';
