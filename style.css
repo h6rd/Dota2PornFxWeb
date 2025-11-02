@@ -681,7 +681,6 @@ img {
   font-size: 24px;
 }
 
-/* Fullscreen styles */
 .video-modal-content:fullscreen {
   background: #000;
   border-radius: 0;

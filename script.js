@@ -477,7 +477,7 @@ function setupVideoModal() {
         document.body.style.overflow = '';
         modalVideo.pause();
         modalVideo.src = '';
-        playIcon.textContent = 'play_arrow'; // Reset icon when closing
+        playIcon.textContent = 'play_arrow';
     };
 
     closeVideoModal.addEventListener('click', closeVideoWindow);
@@ -513,7 +513,6 @@ function setupVideoModal() {
         progressFilled.style.width = percent + '%';
     });
 
-    // Format time helper function
     const formatTime = (seconds) => {
         if (isNaN(seconds)) return '0:00';
         const mins = Math.floor(seconds / 60);
@@ -540,7 +539,6 @@ function setupVideoModal() {
         modalVideo.currentTime = percent * modalVideo.duration;
     });
 
-    // Sync play/pause icon with video state
     modalVideo.addEventListener('play', () => {
         playIcon.textContent = 'pause';
     });
@@ -554,7 +552,7 @@ function setupVideoModal() {
         videoModal.classList.add('active');
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        playIcon.textContent = 'pause'; // Set to pause since autoplay is on
+        playIcon.textContent = 'pause';
     };
 }
 
