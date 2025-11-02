@@ -638,25 +638,55 @@ function setupVideoModal() {
 
 // hueta
 const gifElement = document.getElementById('clickable-gif');
+const hintElement = document.getElementById('click-hint');
+const html = document.documentElement;
+
 const gifs = [
-    'assets/files/hueta/brew.gif',
-    'assets/files/hueta/ursa.gif',
-    'assets/files/hueta/fura.gif',
-    'assets/files/hueta/tech.gif',
-    'assets/files/hueta/tide.gif'
+  'assets/files/hueta/ursa.gif',
+  'assets/files/hueta/brew.gif',
+  'assets/files/hueta/fura.gif',
+  'assets/files/hueta/tide.gif',
+  'assets/files/hueta/salt.gif'
 ];
 
+const themes = ['ursa', 'brew', 'fura', 'tide', 'salt'];
+
 let currentIndex = 0;
+const savedIndex = localStorage.getItem('gifIndex');
+if (savedIndex !== null) {
+  currentIndex = parseInt(savedIndex);
+  gifElement.src = gifs[currentIndex];
+}
+
+const hasClicked = localStorage.getItem('gifClicked') === 'true';
+if (!hasClicked && hintElement) {
+  hintElement.classList.add('show');
+}
 
 gifElement.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % gifs.length;
-    gifElement.src = gifs[currentIndex];
+  if (hintElement && !hasClicked) {
+    hintElement.classList.remove('show');
+    setTimeout(() => {
+      hintElement.style.display = 'none';
+    }, 300);
+    localStorage.setItem('gifClicked', 'true');
+  }
+
+  currentIndex = (currentIndex + 1) % gifs.length;
+  const newTheme = themes[currentIndex];
+
+  gifElement.src = gifs[currentIndex];
+  html.setAttribute('data-gif-theme', newTheme);
+  localStorage.setItem('gifIndex', currentIndex);
+
+  if ('vibrate' in navigator) {
+    navigator.vibrate(10);
+  }
 });
 
-// Theme
+// dark/light theme
 (function () {
     const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
@@ -1039,7 +1069,7 @@ function showHomePage() {
     }
 
     renderCategories();
-    
+
     requestAnimationFrame(() => {
         window.scrollTo(0, scrollPosition);
     });
