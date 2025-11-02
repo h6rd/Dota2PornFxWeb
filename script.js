@@ -547,11 +547,39 @@ function setupVideoModal() {
         playIcon.textContent = 'play_arrow';
     });
 
+    const videoContainer = document.querySelector('.video-modal-content');
+    const customControls = document.querySelector('.custom-video-controls');
+
+    const loadingSpinner = document.createElement('div');
+    loadingSpinner.className = 'video-loading';
+    loadingSpinner.innerHTML = '<div class="spinner"></div>';
+    videoContainer.appendChild(loadingSpinner);
+
+    modalVideo.addEventListener('loadstart', () => {
+        loadingSpinner.style.display = 'flex';
+        customControls.style.opacity = '0';
+        customControls.style.pointerEvents = 'none';
+    });
+
+    modalVideo.addEventListener('canplay', () => {
+        loadingSpinner.style.display = 'none';
+        customControls.style.pointerEvents = 'auto';
+    });
+
+    modalVideo.addEventListener('waiting', () => {
+        loadingSpinner.style.display = 'flex';
+    });
+
+    modalVideo.addEventListener('playing', () => {
+        loadingSpinner.style.display = 'none';
+    });
+
     window.openVideoModal = (videoUrl) => {
-        modalVideo.src = videoUrl;
         videoModal.classList.add('active');
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        loadingSpinner.style.display = 'flex';
+        modalVideo.src = videoUrl;
         playIcon.textContent = 'pause';
     };
 }
