@@ -733,7 +733,7 @@ img {
   width: 24px;
   height: 24px;
   background: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  color: var(--md-sys-color-on-surface-variant);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -811,6 +811,10 @@ img {
   margin-bottom: 24px;
 }
 
+[data-theme="light"] .guide-language-toggle {
+  background: var(--md-sys-color-surface-container);
+}
+
 .guide-language-btn {
   flex: 1;
   padding: 8px 16px;
@@ -824,12 +828,25 @@ img {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="light"] .guide-language-bt {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
 .guide-language-btn.active {
   background: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface);
 }
 
+[data-theme="light"] .guide-language-btn.active {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
 .guide-language-btn:hover:not(.active) {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+[data-theme="light"] .guide-language-btn:hover:not(.active) {
   background: var(--md-sys-color-surface-container-highest);
 }
 
@@ -870,6 +887,10 @@ img {
   align-items: center;
 }
 
+[data-theme="light"] .guide-step {
+  background: var(--md-sys-color-surface-container);
+}
+
 .guide-step-number {
   flex-shrink: 0;
   width: 32px;
@@ -884,12 +905,21 @@ img {
   font-weight: 600;
 }
 
+[data-theme="light"] .guide-step-number {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
 .guide-step-text {
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
   color: var(--md-sys-color-on-surface);
   padding: 4px 0;
+}
+
+[data-theme="light"] .guide-step-text {
+  color: var(--md-sys-color-on-surface);
 }
 
 .guide-section-title {
@@ -901,6 +931,10 @@ img {
   align-items: center;
   gap: 8px;
   line-height: 1.4;
+}
+
+[data-theme="light"] .guide-section-title {
+  color: var(--md-sys-color-primary);
 }
 
 .guide-result {
@@ -938,10 +972,18 @@ img {
   margin-bottom: 20px;
 }
 
+[data-theme="light"] .guide-info {
+  background: var(--md-sys-color-secondary-container);
+}
+
 .guide-info .material-symbols-rounded {
   font-size: 24px;
   color: var(--md-sys-color-primary);
   flex-shrink: 0;
+}
+
+[data-theme="light"] .guide-info .material-symbols-rounded {
+  color: var(--md-sys-color-primary);
 }
 
 .guide-info-text {
@@ -949,6 +991,10 @@ img {
   font-size: 14px;
   line-height: 1.6;
   color: var(--md-sys-color-on-surface-variant);
+}
+
+[data-theme="light"] .guide-info-text {
+  color: var(--md-sys-color-on-secondary-container);
 }
 
 .guide-warning {
