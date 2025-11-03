@@ -126,4 +126,110 @@ const guidesData = {
       ]
     }
   },
+  'info-and-troubleshooting': {
+    title: 'Information & Troubleshooting',
+    content: {
+      en: [
+        {
+          icon: 'info',
+          title: 'General information',
+          steps: [
+            { icon: 'keep', text: 'Most of the mods presented here are not mine - they were taken from leaked packs <span id="tg">Dota2Changer</span>' },
+            { icon: 'keep', text: 'Mods that don\'t have a <span id="tg">source</span>/<span id="tg">author</span> link at the bottom are my own (except for some mods)' }
+          ]
+        },
+        {
+          icon: 'person',
+          title: 'Mod authors',
+          steps: [
+            { icon: 'person', text: '<a href="https://github.com/Egezenn" target="_blank"><span id="tg">Egezenn</span></a> <fcode>Minify Background</fcode>' },
+            { icon: 'person', text: '<a href="https://github.com/robbyz512" target="_blank"><span id="tg">Robbyz512</span></a> <fcode>Minify Terrains</fcode>' },
+            { icon: 'person', text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a>' },
+            { icon: 'person', text: '<a href="https://vk.com/defiree2mods" target="_blank"><span id="tg">Defiree2Mods</span></a>' },
+            { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a>' }
+          ]
+        },
+        {
+          icon: 'build',
+          title: 'If the mod doesn\'t work',
+          steps: [
+            'Create a folder named <code>dota_test</code> in <code>steamapps\\common\\dota 2 beta\\game\\</code>',
+            'Place the required mod inside it',
+            'Add this to launch options: <code>-language test</code>',
+            { icon: 'sentiment_satisfied', text: 'If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods.' },
+            { icon: 'sentiment_dissatisfied', text: 'If the problem persists, the issue lies within the mod itself.' }
+          ], 
+        },
+        {
+          icon: 'merge',
+          title: 'Mod merging issues',
+          steps: [
+            { icon: 'error', text: 'When merging mods you may have problems - try installing the buggy mod separately from the merged mods'}
+          ]
+        },
+        {
+          icon: 'video_library',
+          title: 'Background replacement issues',
+          steps: [
+            'The video must be no longer than 30 seconds',
+            'Format must be <span id="tg">.webm</span>',
+            'It\'s recommended to use <span id="tg">Convert</span> — Panorama is sensitive to codecs',
+            { icon: 'error', text: '<code>An error occurred during playback</code>: Run the video through <span id="tg">Convert</span>. If that doesn\'t help, try another video.' },
+            { icon: 'error', text: '<code>Background doesn\'t change</code>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.' }
+          ]
+        }
+      ],
+      ru: [
+        {
+          icon: 'info',
+          title: 'Общая информация',
+          steps: [
+            { icon: 'keep', text: 'Большая часть модов, представленных здесь, не являются моими - они были взяты из слитых паков <span id="tg">Dota2Changer</span>' },
+            { icon: 'keep', text: 'Моды, у которых внизу нет кнопки <span id="tg">source</span>/<span id="tg">author</span> - мои (за исключением некоторых модов)' }
+          ]
+        },
+        {
+          icon: 'person',
+          title: 'Авторы модов',
+          steps: [
+            { icon: 'person', text: '<a href="https://github.com/Egezenn" target="_blank"><span id="tg">Egezenn</span></a> <fcode>Minify Background</fcode>' },
+            { icon: 'person', text: '<a href="https://github.com/robbyz512" target="_blank"><span id="tg">Robbyz512</span></a> <fcode>Minify Terrains</fcode>' },
+            { icon: 'person', text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a>' },
+            { icon: 'person', text: '<a href="https://vk.com/defiree2mods" target="_blank"><span id="tg">Defiree2Mods</span></a>' },
+            { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a>' }
+          ]
+        },
+        {
+          icon: 'build',
+          title: 'Если мод не работает',
+          steps: [
+            'Создайте папку <code>dota_test</code> в <code>steamapps\\common\\dota 2 beta\\game\\</code>',
+            'Поместите туда нужный мод',
+            'Добавьте в параметры запуска: <code>-language test</code>',
+            { icon: 'sentiment_satisfied', text: 'Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды.' },
+            { icon: 'sentiment_dissatisfied', text: 'Если проблема сохраняется - дело в самом моде.' }
+
+          ]
+        },
+        {
+          icon: 'merge',
+          title: 'Проблемы при совмещении модов',
+          steps: [
+            { icon: 'error', text: 'При совмещении модов могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых.' }
+          ]
+        },
+        {
+          icon: 'video_library',
+          title: 'Если возникли проблемы с заменой фона',
+          steps: [
+            'Видео должно быть не длиннее 30 секунд',
+            'Формат <span id="tg">.webm</span>',
+            'Рекомендуется использовать <span id="tg">Convert</span> - Panorama чувствительна к кодекам',
+            { icon: 'error', text: '<code>An error occurred during playback</code>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' }, 
+            { icon: 'error', text: '<code>Фон не меняется</code>: См. раздел <span id="tg">"Если моды не работают"</span> выше.' },
+          ]
+        }
+      ]
+    }
+  }
 };

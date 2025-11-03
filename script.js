@@ -501,14 +501,29 @@ function setupGuideModal() {
                 section.steps.forEach((step, index) => {
                     const stepDiv = document.createElement('div');
                     stepDiv.className = 'guide-step';
-                    stepDiv.innerHTML = `
-                        <div class="guide-step-number">${index + 1}</div>
-                        <div class="guide-step-content">
-                            <p class="guide-step-text">${step}</p>
-                        </div>
-                    `;
+
+                    if (typeof step === 'object' && step.icon) {
+                        stepDiv.innerHTML = `
+            <div class="guide-step-number">
+                <span class="material-symbols-rounded">${step.icon}</span>
+            </div>
+            <div class="guide-step-content">
+                <p class="guide-step-text">${step.text}</p>
+            </div>
+        `;
+                    } else {
+
+                        stepDiv.innerHTML = `
+            <div class="guide-step-number">${index + 1}</div>
+            <div class="guide-step-content">
+                <p class="guide-step-text">${step}</p>
+            </div>
+        `;
+                    }
+
                     sectionDiv.appendChild(stepDiv);
                 });
+
 
                 if (section.result) {
                     const resultDiv = document.createElement('div');
