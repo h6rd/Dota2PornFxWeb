@@ -1202,6 +1202,10 @@ code.copied::after {
   height: 40px;
 }
 
+.search-box:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
 .search-box:focus-within {
   background-color: var(--md-sys-color-surface-container-highest);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -1316,23 +1320,21 @@ code.copied::after {
   display: none;
   align-items: center;
   background: none;
+  gap: 5px;
   border: none;
   color: var(--md-sys-color-on-surface);
   font-size: 16px;
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 20px;
   transition: background-color 0.2s;
+  background-color: var(--md-sys-color-surface-container-high);
   position: absolute;
   left: 0;
 }
 
 .back-button:hover {
-  background-color: var(--md-sys-color-surface-container-high);
-}
-
-.back-button svg {
-  margin-right: 8px;
+  background-color: var(--md-sys-color-surface-container-highest);
 }
 
 .main {
