@@ -928,31 +928,6 @@ img {
   color: var(--md-sys-color-on-surface);
 }
 
-.guide-warning {
-  display: flex;
-  gap: 12px;
-  padding: 16px;
-  background: var(--md-sys-color-surface-container-high);
-  border-radius: 16px;
-  border-left: 3px solid var(--md-sys-color-error);
-  margin-top: 28px;
-  margin-bottom: 0;
-  order: 999;
-}
-
-.guide-warning .material-symbols-rounded {
-  font-size: 24px;
-  color: var(--md-sys-color-error);
-  flex-shrink: 0;
-}
-
-.guide-warning-text {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--md-sys-color-on-surface-variant);
-}
-
 .guide-info {
   display: flex;
   gap: 12px;
@@ -986,6 +961,19 @@ img {
   margin-top: -20px;
   margin-bottom: 0;
   align-items: flex-start;
+}
+
+.guide-warning .material-symbols-rounded {
+  font-size: 24px;
+  color: var(--md-sys-color-error);
+  flex-shrink: 0;
+}
+
+.guide-warning-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Modal Preview Video */
