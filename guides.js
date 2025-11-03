@@ -174,8 +174,8 @@ const guidesData = {
             'The video must be no longer than 30 seconds',
             'Format must be <span id="tg">.webm</span>',
             'It\'s recommended to use <span id="tg">Convert</span> — Panorama is sensitive to codecs',
-            { icon: 'error', text: '<code>An error occurred during playback</code>: Run the video through <span id="tg">Convert</span>. If that doesn\'t help, try another video.' },
-            { icon: 'error', text: '<code>Background doesn\'t change</code>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.' }
+            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Run the video through <span id="tg">Convert</span>. If that doesn\'t help, try another video.' },
+            { icon: 'error', text: '<fcode>Background doesn\'t change</fcode>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.' }
           ]
         }
       ],
@@ -225,8 +225,8 @@ const guidesData = {
             'Видео должно быть не длиннее 30 секунд',
             'Формат <span id="tg">.webm</span>',
             'Рекомендуется использовать <span id="tg">Convert</span> - Panorama чувствительна к кодекам',
-            { icon: 'error', text: '<code>An error occurred during playback</code>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' }, 
-            { icon: 'error', text: '<code>Фон не меняется</code>: См. раздел <span id="tg">"Если моды не работают"</span> выше.' },
+            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' }, 
+            { icon: 'error', text: '<fcode>Фон не меняется</fcode>: См. раздел <span id="tg">"Если моды не работают"</span> выше.' },
           ]
         }
       ]
