@@ -319,10 +319,10 @@ const modsData = {
     ],
     'other': [
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip' },
-        { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpkmerge-guide' },
-        { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb?tab=readme-ov-file#%EF%B8%8F-vpktool-guide' },
+        { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
+        { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
-        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', linkType: 'guide', linkUrl: 'https://github.com/h6rd/Dota2PornFxWeb#%EF%B8%8F-weather-changer-guide' },
+        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
@@ -413,6 +413,146 @@ function setupFAB() {
             fabMenuBackground.style.height = '0px';
         }
     });
+}
+
+function setupGuideModal() {
+    const guideModal = document.getElementById('guideModal');
+    const guideOverlay = document.getElementById('guideOverlay');
+    const closeGuideModal = document.getElementById('closeGuideModal');
+    const guideModalContent = document.getElementById('guideModalContent');
+    const guideModalTitle = document.getElementById('guideModalTitle');
+
+    const closeGuideWindow = () => {
+        guideModal.classList.remove('active');
+        guideOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeGuideModal.addEventListener('click', closeGuideWindow);
+    guideOverlay.addEventListener('click', closeGuideWindow);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && guideModal.classList.contains('active')) {
+            closeGuideWindow();
+        }
+    });
+
+    window.openGuideModal = (guideData) => {
+        guideModalTitle.textContent = guideData.title;
+        guideModalContent.innerHTML = '';
+
+        const languageToggle = document.createElement('div');
+        languageToggle.className = 'guide-language-toggle';
+        languageToggle.innerHTML = `
+            <button class="guide-language-btn active" data-lang="en">
+                English
+            </button>
+            <button class="guide-language-btn" data-lang="ru">
+                Русский
+            </button>
+        `;
+        guideModalContent.appendChild(languageToggle);
+
+        ['en', 'ru'].forEach(lang => {
+            const contentDiv = document.createElement('div');
+            contentDiv.className = `guide-content ${lang === 'en' ? 'active' : ''}`;
+            contentDiv.setAttribute('data-lang', lang);
+
+            guideData.content[lang].forEach(section => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'info-modal-section';
+
+                if (section.title) {
+                    const sectionTitle = document.createElement('h3');
+                    sectionTitle.className = 'guide-section-title';
+
+                    if (section.icon) {
+                        sectionTitle.innerHTML = `
+                <span class="material-symbols-rounded">${section.icon}</span>
+                ${section.title}
+            `;
+                    } else {
+                        sectionTitle.textContent = section.title;
+                    }
+                    sectionDiv.appendChild(sectionTitle);
+                }
+
+                if (section.warning) {
+                    const warningDiv = document.createElement('div');
+                    warningDiv.className = 'guide-warning';
+                    warningDiv.innerHTML = `
+            <span class="material-symbols-rounded">warning</span>
+            <p class="guide-warning-text">${section.warning}</p>
+        `;
+                    sectionDiv.appendChild(warningDiv);
+                }
+
+                if (section.info) {
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'guide-info';
+                    infoDiv.innerHTML = `
+            <span class="material-symbols-rounded">info</span>
+            <p class="guide-info-text">${section.info}</p>
+        `;
+                    sectionDiv.appendChild(infoDiv);
+                }
+
+                section.steps.forEach((step, index) => {
+                    const stepDiv = document.createElement('div');
+                    stepDiv.className = 'guide-step';
+                    stepDiv.innerHTML = `
+            <div class="guide-step-number">${index + 1}</div>
+            <div class="guide-step-content">
+                <p class="guide-step-text">${step}</p>
+            </div>
+        `;
+                    sectionDiv.appendChild(stepDiv);
+                });
+
+                if (section.result) {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.className = 'guide-result';
+                    resultDiv.innerHTML = `
+            <span class="material-symbols-rounded">check_circle</span>
+            <p class="guide-result-text">${section.result}</p>
+        `;
+                    sectionDiv.appendChild(resultDiv);
+                }
+
+                contentDiv.appendChild(sectionDiv);
+            });
+
+            guideModalContent.appendChild(contentDiv);
+        });
+
+        const langButtons = languageToggle.querySelectorAll('.guide-language-btn');
+        const contentSections = guideModalContent.querySelectorAll('.guide-content');
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetLang = btn.getAttribute('data-lang');
+
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                contentSections.forEach(section => {
+                    if (section.getAttribute('data-lang') === targetLang) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            });
+        });
+
+        guideModal.classList.add('active');
+        guideOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
 }
 
 function sortMods(mods, mode) {
@@ -717,6 +857,7 @@ function init() {
     setupSearch();
     setupSortToggle();
     setupFAB();
+    setupGuideModal();
     setupVideoModal();
 }
 
@@ -957,26 +1098,38 @@ function createModCard(mod, categoryId) {
     const linkIcons = {
         'author': 'person',
         'preview': 'play_circle',
-        'source': 'captive_portal', //code
+        'source': 'captive_portal',
         'guide': 'description'
     };
 
     let linkButtonsHtml = '';
+    const linkButtons = [];
+
     if (mod.links && mod.links.length > 0) {
-        const linkButtons = mod.links.map(link => {
+        mod.links.forEach(link => {
             const icon = linkIcons[link.type] || 'link';
-            return `<span class="link-button" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
+            linkButtons.push(`<span class="link-button" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
                 <span class="material-symbols-rounded">${icon}</span>
                 ${translations[link.type]}
-            </span>`;
+            </span>`);
         });
-        linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
     } else if (mod.linkType && mod.linkUrl) {
         const icon = linkIcons[mod.linkType] || 'link';
-        linkButtonsHtml = `<div class="link-buttons"><span class="link-button" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
+        linkButtons.push(`<span class="link-button" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
             <span class="material-symbols-rounded">${icon}</span>
             ${translations[mod.linkType]}
-        </span></div>`;
+        </span>`);
+    }
+
+    if (mod.guideId) {
+        linkButtons.push(`<span class="link-button guide-button" data-guide-id="${mod.guideId}">
+            <span class="material-symbols-rounded">description</span>
+            ${translations['guide'] || 'Guide'}
+        </span>`);
+    }
+
+    if (linkButtons.length > 0) {
+        linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
     }
 
     const downloadIcon = mod.type === 'guide' ? 'captive_portal' : 'download';
@@ -1009,17 +1162,24 @@ function createModCard(mod, categoryId) {
         if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
             return;
         }
-        if (mod.type === 'guide') {
+        if (mod.type === 'guide' && !mod.guideId) {
             window.open(mod.file, '_blank');
         } else {
             downloadMod(mod, categoryId);
         }
     });
 
-    const linkButtons = card.querySelectorAll('.link-button');
-    linkButtons.forEach(button => {
+    const linkButtonElements = card.querySelectorAll('.link-button');
+    linkButtonElements.forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
+
+            const guideId = button.getAttribute('data-guide-id');
+            if (guideId) {
+                openGuideForMod({ guideId: guideId });
+                return;
+            }
+
             const url = button.getAttribute('data-url');
             const isVideo = button.getAttribute('data-video') === 'true';
             if (isVideo) {
@@ -1042,6 +1202,16 @@ function downloadMod(mod, categoryId) {
     link.click();
     document.body.removeChild(link);
     console.log(`Downloading: ${mod.name}`);
+}
+
+function openGuideForMod(mod) {
+    if (!mod.guideId || !guidesData[mod.guideId]) {
+        console.error('Guide not found:', mod.guideId);
+        return;
+    }
+
+    const guideData = guidesData[mod.guideId];
+    window.openGuideModal(guideData);
 }
 
 function showHomePage() {
