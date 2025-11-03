@@ -62,7 +62,7 @@ const guidesData = {
       ],
       ru: [
         {
-        warning: "Не работает с паками Dota2Changer - не может объединить файлы items_game.txt!",
+          warning: "Не работает с паками Dota2Changer - не может объединить файлы items_game.txt!",
           steps: [
             'Распакуйте архив',
             'Поместите vpk файлы в папку рядом с VPKMerge.exe',
@@ -78,7 +78,7 @@ const guidesData = {
     content: {
       en: [
         {
-        warning: "Updates are released rarely",
+          warning: "Updates are released rarely",
           steps: [
             'Unpack the archive',
             'Run Run.bat',
@@ -88,7 +88,7 @@ const guidesData = {
       ],
       ru: [
         {
-        warning: "Обновления выходят редко",
+          warning: "Обновления выходят редко",
           steps: [
             'Распакуйте архив',
             'Запустите Run.bat',
@@ -97,5 +97,33 @@ const guidesData = {
         },
       ]
     }
-  }
+  },
+  'install': {
+    title: 'Install Mods Guide',
+    content: {
+      en: [
+        {
+          steps: [
+            'Download the required .vpk files',
+            'Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>',
+            'Put the downloaded mods in the folder <code>dota_123</code>',
+            'Add to launch options: <code>-language 123</code>',
+          ],
+          result: 'Done! You can also use <span id="tg">VPKMerge</span> to combine the mods.',
+          warning: 'If files are duplicated, rename the repeated file to pak<span id="tg">XX</span>_dir.vpk, where <span id="tg">XX</span> is 10, 11, 12, 13...99.',
+        }
+      ],
+      ru: [
+        {
+          steps: [
+            'Скачайте нужные .vpk файлы',
+            'Переместите их в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>',
+            'В параметрах запуска добавьте: <code>-language russian</code>',
+          ],
+          result: 'Готово! Вы можете использовать <span id="tg">VPKMerge</span> для объединения модов.',
+          warning: 'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99'
+        }
+      ]
+    }
+  },
 };

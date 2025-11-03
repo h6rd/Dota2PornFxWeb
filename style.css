@@ -783,7 +783,7 @@ img {
   display: flex;
   gap: 12px;
   padding: 16px;
-  background: var(--md-sys-color-secondary-container);
+  background: var(--md-sys-color-surface-container-high);
   border-radius: 16px;
   border-left: 4px solid var(--md-sys-color-primary);
 }
@@ -975,6 +975,44 @@ img {
   line-height: 1.6;
   color: var(--md-sys-color-on-surface-variant);
 }
+
+/* code */
+code {
+  background: var(--md-sys-color-surface-container-highest);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+code:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+code::after {
+  content: "Copied!";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+code.copied::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
 
 /* Modal Preview Video */
 .video-modal {

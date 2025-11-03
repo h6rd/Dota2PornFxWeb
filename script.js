@@ -556,6 +556,23 @@ function setupGuideModal() {
     };
 }
 
+// copy code
+document.addEventListener('click', (e) => {
+    if (e.target.tagName === 'CODE') {
+        const codeText = e.target.textContent.trim();
+
+        navigator.clipboard.writeText(codeText).then(() => {
+            e.target.classList.add('copied');
+
+            if ('vibrate' in navigator) navigator.vibrate(20);
+
+            setTimeout(() => {
+                e.target.classList.remove('copied');
+            }, 1200);
+        });
+    }
+});
+
 function sortMods(mods, mode) {
     const sortedMods = [...mods];
 
