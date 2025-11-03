@@ -468,32 +468,22 @@ function setupGuideModal() {
 
                     if (section.icon) {
                         sectionTitle.innerHTML = `
-                <span class="material-symbols-rounded">${section.icon}</span>
-                ${section.title}
-            `;
+                            <span class="material-symbols-rounded">${section.icon}</span>
+                            ${section.title}
+                        `;
                     } else {
                         sectionTitle.textContent = section.title;
                     }
                     sectionDiv.appendChild(sectionTitle);
                 }
 
-                if (section.warning) {
-                    const warningDiv = document.createElement('div');
-                    warningDiv.className = 'guide-warning';
-                    warningDiv.innerHTML = `
-            <span class="material-symbols-rounded">warning</span>
-            <p class="guide-warning-text">${section.warning}</p>
-        `;
-                    sectionDiv.appendChild(warningDiv);
-                }
-
                 if (section.info) {
                     const infoDiv = document.createElement('div');
                     infoDiv.className = 'guide-info';
                     infoDiv.innerHTML = `
-            <span class="material-symbols-rounded">info</span>
-            <p class="guide-info-text">${section.info}</p>
-        `;
+                        <span class="material-symbols-rounded">info</span>
+                        <p class="guide-info-text">${section.info}</p>
+                    `;
                     sectionDiv.appendChild(infoDiv);
                 }
 
@@ -501,11 +491,11 @@ function setupGuideModal() {
                     const stepDiv = document.createElement('div');
                     stepDiv.className = 'guide-step';
                     stepDiv.innerHTML = `
-            <div class="guide-step-number">${index + 1}</div>
-            <div class="guide-step-content">
-                <p class="guide-step-text">${step}</p>
-            </div>
-        `;
+                        <div class="guide-step-number">${index + 1}</div>
+                        <div class="guide-step-content">
+                            <p class="guide-step-text">${step}</p>
+                        </div>
+                    `;
                     sectionDiv.appendChild(stepDiv);
                 });
 
@@ -513,14 +503,25 @@ function setupGuideModal() {
                     const resultDiv = document.createElement('div');
                     resultDiv.className = 'guide-result';
                     resultDiv.innerHTML = `
-            <span class="material-symbols-rounded">check_circle</span>
-            <p class="guide-result-text">${section.result}</p>
-        `;
+                        <span class="material-symbols-rounded">check_circle</span>
+                        <p class="guide-result-text">${section.result}</p>
+                    `;
                     sectionDiv.appendChild(resultDiv);
                 }
 
                 contentDiv.appendChild(sectionDiv);
             });
+
+            const warningSection = guideData.content[lang].find(section => section.warning);
+            if (warningSection && warningSection.warning) {
+                const warningDiv = document.createElement('div');
+                warningDiv.className = 'guide-warning';
+                warningDiv.innerHTML = `
+                    <span class="material-symbols-rounded">warning</span>
+                    <p class="guide-warning-text">${warningSection.warning}</p>
+                `;
+                contentDiv.appendChild(warningDiv);
+            }
 
             guideModalContent.appendChild(contentDiv);
         });

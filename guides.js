@@ -51,13 +51,13 @@ const guidesData = {
     content: {
       en: [
         {
-        warning: "Doesn't work with packs from dota2changer - can't merge items_game.txt files!",
           steps: [
             'Unpack the archive',
             'Place the vpk files in the folder next to VPKMerge.exe',
             'Launch VPKMerge.exe',
           ],
-          result: 'It will combine all VPKs into pak10_dir.vpk'
+          result: 'It will combine all VPKs into pak10_dir.vpk',
+          warning: "Doesn't work with packs from dota2changer - can't merge items_game.txt files!",
         },
       ],
       ru: [
