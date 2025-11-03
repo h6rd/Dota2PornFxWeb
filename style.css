@@ -304,6 +304,26 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+body:not(.loaded) .footer {
+  opacity: 0;
+}
+
+body.loaded .footer {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+body:not(.loaded) .main,
+body:not(.loaded) .footer {
+  opacity: 0;
+}
+
+body.loaded .main,
+body.loaded .footer {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1019,6 +1039,56 @@ img {
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.guide-step.has-link {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guide-step.has-link:hover {
+  background: var(--md-sys-color-surface-container-highest);
+  transform: translateX(4px);
+}
+
+.guide-step.has-link:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+[data-theme="light"] .guide-step.has-link:hover {
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.guide-step.has-link .guide-step-text a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.guide-step.has-link .guide-step-text a #tg {
+  color: var(--md-sys-color-primary);
+  font-weight: 600;
+}
+
+[data-theme="light"] .guide-step.has-link .guide-step-text a #tg {
+  color: var(--md-sys-color-primary);
+}
+
+.guide-step-text fcode {
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+[data-theme="light"] .guide-step-text fcode {
+  background: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface-variant);
 }
 

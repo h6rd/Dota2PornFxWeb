@@ -1,3 +1,7 @@
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+});
+
 const translations = {
     'shaders': 'Shaders',
     'shaders-desc': 'Replaces the fog of war effect',
@@ -502,8 +506,13 @@ function setupGuideModal() {
                     const stepDiv = document.createElement('div');
                     stepDiv.className = 'guide-step';
 
+                    let stepContent = '';
+                    let stepText = '';
+                    let linkUrl = '';
+
                     if (typeof step === 'object' && step.icon) {
-                        stepDiv.innerHTML = `
+                        stepText = step.text;
+                        stepContent = `
             <div class="guide-step-number">
                 <span class="material-symbols-rounded">${step.icon}</span>
             </div>
@@ -512,13 +521,32 @@ function setupGuideModal() {
             </div>
         `;
                     } else {
-
-                        stepDiv.innerHTML = `
+                        stepText = step;
+                        stepContent = `
             <div class="guide-step-number">${index + 1}</div>
             <div class="guide-step-content">
                 <p class="guide-step-text">${step}</p>
             </div>
         `;
+                    }
+
+                    stepDiv.innerHTML = stepContent;
+
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = stepText;
+                    const link = tempDiv.querySelector('a');
+
+                    if (link) {
+                        stepDiv.classList.add('has-link');
+                        const href = link.getAttribute('href');
+                        const target = link.getAttribute('target');
+
+                        stepDiv.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (href) {
+                                window.open(href, target || '_self');
+                            }
+                        });
                     }
 
                     sectionDiv.appendChild(stepDiv);
@@ -1118,125 +1146,6 @@ function renderAllModsSearch() {
     });
 }
 
-// function createModCard(mod, categoryId) {
-//     const card = document.createElement('div');
-//     card.className = 'card fade-in';
-//     const isVideo = mod.preview.endsWith('.mp4');
-//     const mediaElement = isVideo ? 'video' : 'img';
-//     const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
-
-//     let tagsHtml = '';
-//     if (categoryId === 'heroes' && mod.tags && mod.type !== 'guide') {
-//         const activeTags = [];
-//         if (mod.tags.effects) {
-//             activeTags.push('<span class="mod-tag">Effects</span>');
-//         }
-//         if (mod.tags.icons) {
-//             activeTags.push('<span class="mod-tag">Icons</span>');
-//         }
-//         if (activeTags.length > 0) {
-//             tagsHtml = `<div class="mod-tags">${activeTags.join('')}</div>`;
-//         }
-//     }
-
-//     const linkIcons = {
-//         'author': 'person',
-//         'preview': 'play_circle',
-//         'source': 'captive_portal',
-//         'guide': 'description'
-//     };
-
-//     let linkButtonsHtml = '';
-//     const linkButtons = [];
-
-//     if (mod.links && mod.links.length > 0) {
-//         mod.links.forEach(link => {
-//             const icon = linkIcons[link.type] || 'link';
-//             linkButtons.push(`<span class="link-button" data-url="${link.url}" data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
-//                 <span class="material-symbols-rounded">${icon}</span>
-//                 ${translations[link.type]}
-//             </span>`);
-//         });
-//     } else if (mod.linkType && mod.linkUrl) {
-//         const icon = linkIcons[mod.linkType] || 'link';
-//         linkButtons.push(`<span class="link-button" data-url="${mod.linkUrl}" data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
-//             <span class="material-symbols-rounded">${icon}</span>
-//             ${translations[mod.linkType]}
-//         </span>`);
-//     }
-
-//     if (mod.guideId) {
-//         linkButtons.push(`<span class="link-button guide-button" data-guide-id="${mod.guideId}">
-//             <span class="material-symbols-rounded">description</span>
-//             ${translations['guide'] || 'Guide'}
-//         </span>`);
-//     }
-
-//     if (linkButtons.length > 0) {
-//         linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
-//     }
-
-//     const downloadIcon = mod.type === 'guide' ? 'captive_portal' : 'download';
-
-//     let subtitleText;
-//     if (mod.type === 'guide') {
-//         subtitleText = 'Open';
-//     } else {
-//         subtitleText = translations['download'];
-//     }
-
-//     card.innerHTML = `
-//         <div class="card-media">
-//             <${mediaElement} src="assets/previews/${categoryId}/${mod.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>
-//             ${tagsHtml}
-//             <div class="download-icon">
-//                 <span class="material-symbols-rounded">${downloadIcon}</span>
-//             </div>
-//         </div>
-//         <div class="card-content">
-//             <h3 class="card-title">${mod.name}</h3>
-//             <div class="card-subtitle-wrapper">
-//                 <p class="card-subtitle">${subtitleText}</p>
-//                 ${linkButtonsHtml}
-//             </div>
-//         </div>
-//     `;
-
-//     card.addEventListener('click', (e) => {
-//         if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
-//             return;
-//         }
-//         if (mod.type === 'guide' && !mod.guideId) {
-//             window.open(mod.file, '_blank');
-//         } else {
-//             downloadMod(mod, categoryId);
-//         }
-//     });
-
-//     const linkButtonElements = card.querySelectorAll('.link-button');
-//     linkButtonElements.forEach(button => {
-//         button.addEventListener('click', (e) => {
-//             e.stopPropagation();
-
-//             const guideId = button.getAttribute('data-guide-id');
-//             if (guideId) {
-//                 openGuideForMod({ guideId: guideId });
-//                 return;
-//             }
-
-//             const url = button.getAttribute('data-url');
-//             const isVideo = button.getAttribute('data-video') === 'true';
-//             if (isVideo) {
-//                 window.openVideoModal(url);
-//             } else {
-//                 window.open(url, '_blank');
-//             }
-//         });
-//     });
-
-//     return card;
-// }
-
 function createModCard(mod, categoryId) {
     const card = document.createElement('div');
     card.className = 'card fade-in';
@@ -1382,7 +1291,6 @@ function createModCard(mod, categoryId) {
 
     return card;
 }
-
 
 function downloadMod(mod, categoryId) {
     const link = document.createElement('a');
