@@ -368,6 +368,28 @@ body.loaded .footer {
   text-shadow: 0 0 1px #000000;
 }
 
+.scroll-to-top-fab {
+  bottom: 92px !important;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-to-top-fab.visible {
+  opacity: 1 !important;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#up-icon {
+  font-weight: bold;
+}
+
+.logo a {
+  cursor: pointer;
+}
+
 #tg {
   color: var(--md-sys-color-primary);
   font-weight: 700;

@@ -430,6 +430,47 @@ function setupFAB() {
     });
 }
 
+function setupScrollToTop() {
+    const scrollFab = document.getElementById('scrollToTopFab');
+    const logo = document.querySelector('.logo a');
+    const fab = document.getElementById('fab');
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    const updateScrollButton = () => {
+        const isFabActive = fab.classList.contains('active');
+
+        if (window.scrollY > 300 && !isFabActive) {
+            scrollFab.classList.add('visible');
+        } else {
+            scrollFab.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', updateScrollButton);
+
+    const observer = new MutationObserver(() => {
+        updateScrollButton();
+    });
+
+    observer.observe(fab, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    scrollFab.addEventListener('click', scrollToTop);
+
+    logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollToTop();
+    });
+}
+
 function setupGuideModal() {
     const guideModal = document.getElementById('guideModal');
     const guideOverlay = document.getElementById('guideOverlay');
@@ -929,6 +970,7 @@ function init() {
     setupSearch();
     setupSortToggle();
     setupFAB();
+    setupScrollToTop();
     setupGuideModal();
     setupVideoModal();
 }
