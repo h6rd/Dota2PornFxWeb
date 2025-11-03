@@ -339,12 +339,12 @@ const modsData = {
         { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' }
     ],
     'sites': [
-        { name: 'Stratz', preview: '', file: 'https://stratz.com/', type: 'guide', tags: { stats: true, meta: true } },
-        { name: 'DotaBuff', preview: '', file: 'https://www.dotabuff.com/', type: 'guide', tags: { stats: true, meta: true } },
-        { name: 'OpenDota', preview: '', file: 'https://www.opendota.com/', type: 'guide', tags: { stats: true, meta: true } },
-        { name: 'Dota2ProTracker', preview: '', file: 'https://dota2protracker.com/', type: 'guide', tags: { meta: true } },
+        { name: 'Stratz', preview: 'stratz.webp', file: 'https://stratz.com/', type: 'guide', tags: { stats: true, meta: true } },
+        { name: 'DotaBuff', preview: 'dotabuff.webp', file: 'https://www.dotabuff.com/', type: 'guide', tags: { stats: true, meta: true } },
+        { name: 'OpenDota', preview: 'opendota.webp', file: 'https://www.opendota.com/', type: 'guide', tags: { stats: true, meta: true } },
+        { name: 'Dota2ProTracker', preview: 'dota2protracker.webp', file: 'https://dota2protracker.com/', type: 'guide', tags: { meta: true } },
         { name: 'Dota2 Emoji Nickname', preview: '', file: 'https://l4wio.github.io/dota2-emoji-nickname/', type: 'guide', tags: { fun: true } },
-        { name: 'Steam Status', preview: '', file: 'https://steamstat.us/', type: 'guide' }
+        { name: 'Steam Status', preview: 'steamstatus.webp', file: 'https://steamstat.us/', type: 'guide' }
     ]
 }
 
