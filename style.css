@@ -360,14 +360,6 @@ body.loaded .footer {
   z-index: 1;
 }
 
-.logo:hover {
-  text-shadow: 0 0 1px #ffffff;
-}
-
-[data-theme="light"] .logo:hover {
-  text-shadow: 0 0 1px #000000;
-}
-
 .scroll-to-top-fab {
   bottom: 92px !important;
   opacity: 0;
@@ -1362,6 +1354,7 @@ fcode {
   color: var(--md-sys-color-on-surface-variant);
   margin-right: 8px;
   flex-shrink: 0;
+  font-size: 20px;
 }
 
 .search-input {
@@ -1397,6 +1390,10 @@ fcode {
 .search-clear:hover {
   background-color: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);
+}
+
+.search-clear .material-symbols-rounded {
+  font-size: 18px;
 }
 
 .hueta {
