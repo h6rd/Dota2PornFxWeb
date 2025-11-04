@@ -543,8 +543,9 @@
     --md-header-blur: rgba(254, 247, 255, 0.8);
     --md-card-hover: rgba(94, 94, 94, 0.08);
   }
-
-  */ * {
+  */ 
+  
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
