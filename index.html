@@ -80,6 +80,34 @@
         <h2 class="page-title">Dota2 Mods<img src="assets/files/hueta/ursa.gif" class="hueta" id="clickable-gif">
         </h2>
         <p class="page-description">Discover and download mods for Dota 2</p>
+
+        <!-- Recently Added -->
+        <div id="recentlyAddedSection" class="recently-added-section hidden">
+          <div class="recently-added-header">
+            <div class="recently-added-title-wrapper">
+              <h3 class="recently-added-title">Recently Added</h3>
+              <button class="collapse-btn" id="collapseBtn">
+                <span class="material-symbols-rounded">expand_less</span>
+              </button>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn carousel-btn-prev" id="carouselPrev" disabled>
+                <span class="material-symbols-rounded">chevron_left</span>
+              </button>
+              <button class="carousel-btn carousel-btn-next" id="carouselNext">
+                <span class="material-symbols-rounded">chevron_right</span>
+              </button>
+            </div>
+          </div>
+          <div class="carousel-wrapper">
+            <div class="carousel-container" id="carouselContainer">
+              <div class="carousel-track" id="carouselTrack"></div>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="categories-title hidden" id="categoriesTitle">Categories</h3>
+
         <div class="grid" id="categoriesGrid"></div>
       </div>
 

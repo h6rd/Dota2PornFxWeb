@@ -955,6 +955,183 @@ gifElement.addEventListener('click', () => {
     });
 })();
 
+// Recently Added
+const recentlyAddedMods = [
+    { name: 'Sherman Crystal Maiden', category: 'heroes' },
+    { name: 'Pinkie Sven', category: 'heroes' },
+    { name: 'Morphling Darktrench Tears', category: 'heroes' },
+    { name: 'Darkness Pack', category: 'ti-bp-effects' },
+    { name: 'Darkness Blink Dagger', category: 'item-effects' },
+    { name: 'Darkness Radiance', category: 'item-effects' },
+    { name: 'Darkness Shivas', category: 'item-effects' },
+    { name: 'Low Poly Trees', category: 'trees' },
+    { name: 'Mossy Cobblestone', category: 'terrains' }
+];
+
+let carouselPosition = 0;
+let itemsPerPage = 3;
+let isCollapsed = false;
+
+function calculateItemsPerPage() {
+    const width = window.innerWidth;
+    if (width < 768) return 1;
+    if (width < 1024) return 2;
+    return 3;
+}
+
+function updateCarouselButtons() {
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const totalMods = recentlyAddedMods.length;
+
+    if (prevBtn && nextBtn) {
+        prevBtn.disabled = carouselPosition === 0;
+        nextBtn.disabled = carouselPosition + itemsPerPage >= totalMods;
+
+        const controls = document.querySelector('.carousel-controls');
+        if (controls) {
+            controls.style.display = totalMods <= itemsPerPage ? 'none' : 'flex';
+        }
+    }
+}
+
+function moveCarousel(direction) {
+    const track = document.getElementById('carouselTrack');
+    const container = document.getElementById('carouselContainer');
+    const totalMods = recentlyAddedMods.length;
+
+    carouselPosition += direction * itemsPerPage;
+    carouselPosition = Math.max(0, Math.min(carouselPosition, totalMods - itemsPerPage));
+
+    const containerWidth = container.offsetWidth;
+    const gap = window.innerWidth < 768 ? 16 : 24;
+    const cardWidth = (containerWidth - (gap * (itemsPerPage - 1))) / itemsPerPage;
+    const offset = carouselPosition * (cardWidth + gap);
+
+    track.style.transform = `translateX(-${offset}px)`;
+    updateCarouselButtons();
+
+    if ('vibrate' in navigator) {
+        navigator.vibrate(10);
+    }
+}
+
+function toggleRecentlyAdded() {
+    const wrapper = document.querySelector('.carousel-wrapper');
+    const collapseBtn = document.getElementById('collapseBtn');
+    const categoriesTitle = document.getElementById('categoriesTitle');
+    const track = document.getElementById('carouselTrack');
+    const header = document.querySelector('.recently-added-header');
+    const controls = document.querySelector('.carousel-controls');
+
+    isCollapsed = !isCollapsed;
+
+    if (isCollapsed) {
+        const currentHeight = wrapper.scrollHeight;
+        wrapper.style.maxHeight = currentHeight + 'px';
+        requestAnimationFrame(() => {
+            wrapper.classList.add('collapsed');
+            wrapper.style.maxHeight = '0px';
+            collapseBtn.classList.add('collapsed');
+            header.classList.add('collapsed');
+            controls.classList.add('collapsed');
+        });
+        setTimeout(() => {
+            categoriesTitle.classList.add('hidden');
+        }, 200);
+    } else {
+        categoriesTitle.classList.remove('hidden');
+        const targetHeight = track.scrollHeight + 48;
+        wrapper.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+            wrapper.classList.remove('collapsed');
+            wrapper.style.maxHeight = targetHeight + 'px';
+            collapseBtn.classList.remove('collapsed');
+            header.classList.remove('collapsed');
+            controls.classList.remove('collapsed');
+        });
+        setTimeout(() => {
+            wrapper.style.maxHeight = '1000px';
+            controls.style.maxHeight = '48px';
+        }, 400);
+    }
+
+    localStorage.setItem('recentlyAddedCollapsed', isCollapsed);
+    if ('vibrate' in navigator) {
+        navigator.vibrate(10);
+    }
+}
+
+function setupRecentlyAdded() {
+    const section = document.getElementById('recentlyAddedSection');
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const collapseBtn = document.getElementById('collapseBtn');
+    const wrapper = document.querySelector('.carousel-wrapper');
+    const categoriesTitle = document.getElementById('categoriesTitle');
+
+    if (recentlyAddedMods.length === 0) {
+        section.classList.add('hidden');
+        categoriesTitle.classList.add('hidden');
+        return;
+    }
+
+    section.classList.remove('hidden');
+    track.innerHTML = '';
+
+    const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') === 'true';
+    isCollapsed = savedCollapsed;
+
+    if (isCollapsed) {
+        wrapper.classList.add('collapsed');
+        wrapper.style.maxHeight = '0px';
+        collapseBtn.classList.add('collapsed');
+        categoriesTitle.classList.add('hidden');
+        document.querySelector('.recently-added-header').classList.add('collapsed');
+        document.querySelector('.carousel-controls').classList.add('collapsed');
+    } else {
+        categoriesTitle.classList.remove('hidden');
+        document.querySelector('.recently-added-header').classList.remove('collapsed');
+        document.querySelector('.carousel-controls').classList.remove('collapsed');
+    }
+
+    recentlyAddedMods.forEach(recentMod => {
+        const category = categories.find(cat => cat.id === recentMod.category);
+        if (!category) return;
+
+        const mods = modsData[recentMod.category] || [];
+        const mod = mods.find(m => m.name === recentMod.name);
+
+        if (mod) {
+            const card = createModCard(mod, recentMod.category);
+            track.appendChild(card);
+        }
+    });
+
+    itemsPerPage = calculateItemsPerPage();
+    carouselPosition = 0;
+    updateCarouselButtons();
+
+    prevBtn.addEventListener('click', () => moveCarousel(-1));
+    nextBtn.addEventListener('click', () => moveCarousel(1));
+    collapseBtn.addEventListener('click', toggleRecentlyAdded);
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newItemsPerPage = calculateItemsPerPage();
+            if (newItemsPerPage !== itemsPerPage) {
+                itemsPerPage = newItemsPerPage;
+                carouselPosition = 0;
+                track.style.transform = 'translateX(0)';
+                updateCarouselButtons();
+            }
+        }, 250);
+    });
+}
+
 function init() {
     homePage.classList.remove('hidden');
     categoryPage.classList.add('hidden');
@@ -973,6 +1150,7 @@ function init() {
     setupScrollToTop();
     setupGuideModal();
     setupVideoModal();
+    setupRecentlyAdded()
 }
 
 function setupEventListeners() {

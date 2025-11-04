@@ -2185,3 +2185,224 @@
       font-size: 15px;
     }
   }
+
+  /* Recently Added */
+  .recently-added-section {
+    margin-bottom: 32px;
+  }
+
+  .recently-added-section.hidden {
+    display: none;
+  }
+
+  .recently-added-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .recently-added-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .recently-added-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+  }
+
+  .collapse-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .collapse-btn:hover {
+    background-color: var(--md-sys-color-surface-container-highest);
+    transform: scale(1.05);
+  }
+
+  .collapse-btn:active {
+    transform: scale(0.95);
+  }
+
+  .collapse-btn .material-symbols-rounded {
+    font-size: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .collapse-btn.collapsed .material-symbols-rounded {
+    transform: rotate(180deg);
+  }
+
+  .carousel-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-btn:hover:not(:disabled) {
+    background-color: var(--md-sys-color-surface-container-highest);
+    transform: scale(1.05);
+  }
+
+  .carousel-btn:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.38;
+    cursor: default;
+  }
+
+  .carousel-btn .material-symbols-rounded {
+    font-size: 24px;
+  }
+
+  .carousel-wrapper {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-wrapper.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: -24px;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-track .card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    max-width: calc((100% - 48px) / 3);
+    min-width: 280px;
+  }
+
+  .categories-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+    margin: 0 0 24px 0;
+    opacity: 1;
+    max-height: 100px;
+    transform: translateY(0);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .categories-title.hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-track .card {
+      flex: 0 0 calc((100% - 24px) / 2);
+      max-width: calc((100% - 24px) / 2);
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .recently-added-title {
+      font-size: 20px;
+    }
+
+    .carousel-track {
+      gap: 16px;
+    }
+
+    .carousel-track .card {
+      flex: 0 0 100%;
+      max-width: 100%;
+      min-width: 250px;
+    }
+
+    .carousel-controls {
+      gap: 6px;
+    }
+
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+    }
+
+    .collapse-btn {
+      width: 28px;
+      height: 28px;
+    }
+
+    .collapse-btn .material-symbols-rounded {
+      font-size: 18px;
+    }
+
+    .categories-title {
+      font-size: 20px;
+    }
+  }
+
+  .carousel-controls {
+    opacity: 1;
+    max-height: 48px;
+    overflow: hidden;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-controls.collapsed {
+    opacity: 0;
+    max-height: 0;
+    margin-top: -8px;
+  }
+
+  .recently-added-header {
+    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .recently-added-header.collapsed {
+    gap: 0;
+  }
