@@ -277,7 +277,8 @@ const guidesData = {
           'Для создания видоса можете заюзать <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a>',
           'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
           'Переименуйте в <code>zxc.webm</code> и положите в папку <code>pak33_dir/zxc/</code>',
-          'Запустите <fcode>Create VPK.exe</fcode>'
+          'Запустите <fcode>Create VPK.exe</fcode>',
+          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
         ]
       },
       {
