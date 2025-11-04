@@ -325,7 +325,7 @@ const modsData = {
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }
     ],
     'other': [
-        { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip' },
+        { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },

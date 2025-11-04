@@ -231,5 +231,76 @@ const guidesData = {
         }
       ]
     }
+  },
+  'background-changer': {
+  title: 'Background Changer Guide',
+  content: {
+    en: [
+      {
+        icon: 'video_library',
+        title: 'Manual Method',
+        steps: [
+          'Find or make a video in webm format (1920x1080 & 5-10sec recommended)',
+          'You can use <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a> to create a video (e.g. crop to 16:9)',
+          'If it\'s heavy, you can compress it here: <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+          'Rename it to <code>zxc.webm</code> and drop it into <code>pak33_dir/zxc/</code>',
+          'Run <fcode>Create VPK.exe</fcode>',
+          'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+        ]
+      },
+      {
+        icon: 'auto_fix_high',
+        title: 'Using Convert Tool (Recommended)',
+        steps: [
+          'Put video in it (I advise you to use 1920x1080, extensions: mp4, avi, mkv, mov, wmv, flv. it won\'t work if you put zxc.webm there)',
+          'Run <fcode>Convert.exe</fcode> and wait for the end (the longer the video, the longer it takes to process)',
+          'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>',
+          'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+        ],
+      },
+      {
+        icon: 'image',
+        title: 'If you need a picture',
+        steps: [
+          'Put the image (jpg, jpeg, png, bmp, gif) in the Convert folder',
+          'Run <fcode>Convert.exe</fcode> and wait for it to finish',
+          'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>'
+        ],
+      }
+    ],
+    ru: [
+      {
+        icon: 'video_library',
+        title: 'Ручной метод',
+        steps: [
+          'Найдите или сделайте видос в формате webm (рекомендую 1920x1080, 5-10 сек)',
+          'Для создания видоса можете заюзать <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a>',
+          'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+          'Переименуйте в <code>zxc.webm</code> и положите в папку <code>pak33_dir/zxc/</code>',
+          'Запустите <fcode>Create VPK.exe</fcode>'
+        ]
+      },
+      {
+        icon: 'auto_fix_high',
+        title: 'Использование Convert (Рекомендуется)',
+        steps: [
+          'Положите в нее видео (советую использовать 1920x1080, расширения: mp4, avi, mkv, mov, wmv, flv, webm. нихуя не сработает если туда положить zxc.webm)',
+          'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания (чем длинее видос, тем дольше он обрабатывает его)',
+          'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
+          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+        ],
+      },
+      {
+        icon: 'image',
+        title: 'Если нужна фотка',
+        steps: [
+          'Положите изображение (jpg, jpeg, png, bmp, gif) в папку Convert',
+          'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания',
+          'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
+          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+        ],
+      }
+    ]
   }
+}
 };
