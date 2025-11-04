@@ -262,7 +262,7 @@ const guidesData = {
         icon: 'image',
         title: 'If you need a picture',
         steps: [
-          'Put the image (jpg, jpeg, png, bmp, gif) in the Convert folder',
+          'Put the image (jpg, jpeg, png, bmp, gif) in the <fcode>Convert</fcode> folder',
           'Run <fcode>Convert.exe</fcode> and wait for it to finish',
           'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>'
         ],
@@ -294,7 +294,7 @@ const guidesData = {
         icon: 'image',
         title: 'Если нужна фотка',
         steps: [
-          'Положите изображение (jpg, jpeg, png, bmp, gif) в папку Convert',
+          'Положите изображение (jpg, jpeg, png, bmp, gif) в папку <fcode>Convert</fcode>',
           'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания',
           'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
           'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
