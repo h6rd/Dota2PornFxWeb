@@ -905,11 +905,11 @@ const gifs = [
     'assets/files/hueta/ursa.gif',
     'assets/files/hueta/brew.gif',
     'assets/files/hueta/fura.gif',
-    'assets/files/hueta/tide.gif',
+    'assets/files/hueta/storm.gif',
     'assets/files/hueta/salt.gif'
 ];
 
-const themes = ['ursa', 'brew', 'fura', 'tide', 'salt'];
+const themes = ['ursa', 'brew', 'fura', 'storm', 'salt'];
 
 let currentIndex = 0;
 const savedIndex = localStorage.getItem('gifIndex');

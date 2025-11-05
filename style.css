@@ -163,8 +163,8 @@
     --md-card-hover: rgba(177, 249, 164, 0.08);
   }
 
-  /* tide */
-  [data-gif-theme="tide"] {
+  /* storm */
+  [data-gif-theme="storm"] {
     --md-sys-color-primary: #c7dbf0;
     --md-sys-color-shit: #b5d0ec;
     --md-sys-color-shit-light: #d9e8f6;
@@ -191,7 +191,7 @@
     --md-card-hover: rgba(199, 219, 240, 0.08);
   }
 
-  [data-theme="light"][data-gif-theme="tide"] {
+  [data-theme="light"][data-gif-theme="storm"] {
     --md-sys-color-primary: #4f80b5;
     --md-sys-color-shit: #6a9dd1;
     --md-sys-color-shit-light: #c7dbf0;
@@ -436,7 +436,7 @@
     --md-card-hover: rgba(0, 110, 28, 0.08);
   }
 
-  [data-gif-theme="tide"] {
+  [data-gif-theme="storm"] {
     --md-sys-color-primary: #a0cbf6;
     --md-sys-color-shit: #b5d0ec;
     --md-sys-color-shit-light: #c5ddf5;
@@ -463,7 +463,7 @@
     --md-card-hover: rgba(160, 203, 246, 0.08);
   }
 
-  [data-theme="light"][data-gif-theme="tide"] {
+  [data-theme="light"][data-gif-theme="storm"] {
     --md-sys-color-primary: #00639b;
     --md-sys-color-shit: #007dc0;
     --md-sys-color-shit-light: #a0cbf6;
