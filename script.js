@@ -345,7 +345,8 @@ const modsData = {
         { name: 'Steam Status', preview: 'steamstatus.webp', file: 'https://steamstat.us/', type: 'guide' }
     ],
     'guides': [
-        { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' }
+        { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' },
+        { name: 'Install Mods', preview: '', guideId: 'install', type: 'guide' }
     ]
 }
 
