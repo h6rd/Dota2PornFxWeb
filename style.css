@@ -2218,6 +2218,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .recently-added-title-wrapper {
@@ -2302,14 +2305,16 @@
     font-size: 24px;
   }
 
-  .carousel-wrapper {
-    max-height: 1000px;
-    opacity: 1;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.carousel-wrapper {
+  max-height: 1000px;
+  opacity: 1;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
   .carousel-wrapper.collapsed {
     max-height: 0;
@@ -2318,9 +2323,11 @@
   }
 
   .carousel-container {
-    overflow: hidden;
-    position: relative;
-  }
+  overflow: hidden;
+  position: relative;
+  padding: 4px 0;
+  margin: -4px 0;
+}
 
   .carousel-track {
     display: flex;
@@ -2415,10 +2422,6 @@
     opacity: 0;
     max-height: 0;
     margin-top: -8px;
-  }
-
-  .recently-added-header {
-    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .recently-added-header.collapsed {
