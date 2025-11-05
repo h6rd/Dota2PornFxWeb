@@ -158,13 +158,13 @@ const guidesData = {
             'Add this to launch options: <code>-language test</code>',
             { icon: 'sentiment_satisfied', text: 'If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods.' },
             { icon: 'sentiment_dissatisfied', text: 'If the problem persists, the issue lies within the mod itself.' }
-          ], 
+          ],
         },
         {
           icon: 'merge',
           title: 'Mod merging issues',
           steps: [
-            { icon: 'error', text: 'When merging mods you may have problems - try installing the buggy mod separately from the merged mods'}
+            { icon: 'error', text: 'When merging mods you may have problems - try installing the buggy mod separately from the merged mods' }
           ]
         },
         {
@@ -225,7 +225,7 @@ const guidesData = {
             'Видео должно быть не длиннее 30 секунд',
             'Формат <span id="tg">.webm</span>',
             'Рекомендуется использовать <span id="tg">Convert</span> - Panorama чувствительна к кодекам',
-            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' }, 
+            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' },
             { icon: 'error', text: '<fcode>Фон не меняется</fcode>: См. раздел <span id="tg">"Если моды не работают"</span> выше.' },
           ]
         }
@@ -233,75 +233,154 @@ const guidesData = {
     }
   },
   'background-changer': {
-  title: 'Background Changer Guide',
-  content: {
-    en: [
-      {
-        icon: 'video_library',
-        title: 'Manual Method',
-        steps: [
-          'Find or make a video in webm format (1920x1080 & 5-10sec recommended)',
-          'You can use <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a> to create a video (e.g. crop to 16:9)',
-          'If it\'s heavy, you can compress it here: <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
-          'Rename it to <code>zxc.webm</code> and drop it into <code>pak33_dir/zxc/</code>',
-          'Run <fcode>Create VPK.exe</fcode>',
-          'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
-        ]
-      },
-      {
-        icon: 'auto_fix_high',
-        title: 'Using Convert Tool (Recommended)',
-        steps: [
-          'Put video in <fcode>Convert</fcode> folder (I advise you to use 1920x1080, extensions: mp4, avi, mkv, mov, wmv, flv. it won\'t work if you put zxc.webm there)',
-          'Run <fcode>Convert.exe</fcode> and wait for the end (the longer the video, the longer it takes to process)',
-          'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>',
-          'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
-        ],
-      },
-      {
-        icon: 'image',
-        title: 'If you need a picture',
-        steps: [
-          'Put the image (jpg, jpeg, png, bmp, gif) in the <fcode>Convert</fcode> folder',
-          'Run <fcode>Convert.exe</fcode> and wait for it to finish',
-          'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>'
-        ],
-      }
-    ],
-    ru: [
-      {
-        icon: 'video_library',
-        title: 'Ручной метод',
-        steps: [
-          'Найдите или сделайте видос в формате webm (рекомендую 1920x1080, 5-10 сек)',
-          'Для создания видоса можете заюзать <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a>',
-          'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
-          'Переименуйте в <code>zxc.webm</code> и положите в папку <code>pak33_dir/zxc/</code>',
-          'Запустите <fcode>Create VPK.exe</fcode>',
-          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
-        ]
-      },
-      {
-        icon: 'auto_fix_high',
-        title: 'Использование Convert (Рекомендуется)',
-        steps: [
-          'Положите видео в папку <fcode>Convert</fcode> (советую использовать 1920x1080, расширения: mp4, avi, mkv, mov, wmv, flv, webm. нихуя не сработает если туда положить zxc.webm)',
-          'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания (чем длинее видос, тем дольше он обрабатывает его)',
-          'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
-          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
-        ],
-      },
-      {
-        icon: 'image',
-        title: 'Если нужна фотка',
-        steps: [
-          'Положите изображение (jpg, jpeg, png, bmp, gif) в папку <fcode>Convert</fcode>',
-          'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания',
-          'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
-          'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
-        ],
-      }
-    ]
+    title: 'Background Changer Guide',
+    content: {
+      en: [
+        {
+          icon: 'video_library',
+          title: 'Manual Method',
+          steps: [
+            'Find or make a video in webm format (1920x1080 & 5-10sec recommended)',
+            'You can use <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a> to create a video (e.g. crop to 16:9)',
+            'If it\'s heavy, you can compress it here: <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+            'Rename it to <code>zxc.webm</code> and drop it into <code>pak33_dir/zxc/</code>',
+            'Run <fcode>Create VPK.exe</fcode>',
+            'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+          ]
+        },
+        {
+          icon: 'auto_fix_high',
+          title: 'Using Convert Tool (Recommended)',
+          steps: [
+            'Put video in <fcode>Convert</fcode> folder (I advise you to use 1920x1080, extensions: mp4, avi, mkv, mov, wmv, flv. it won\'t work if you put zxc.webm there)',
+            'Run <fcode>Convert.exe</fcode> and wait for the end (the longer the video, the longer it takes to process)',
+            'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>',
+            'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+          ],
+        },
+        {
+          icon: 'image',
+          title: 'If you need a picture',
+          steps: [
+            'Put the image (jpg, jpeg, png, bmp, gif) in the <fcode>Convert</fcode> folder',
+            'Run <fcode>Convert.exe</fcode> and wait for it to finish',
+            'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <fcode>Create VPK.exe</fcode>'
+          ],
+        }
+      ],
+      ru: [
+        {
+          icon: 'video_library',
+          title: 'Ручной метод',
+          steps: [
+            'Найдите или сделайте видос в формате webm (рекомендую 1920x1080, 5-10 сек)',
+            'Для создания видоса можете заюзать <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a>',
+            'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+            'Переименуйте в <code>zxc.webm</code> и положите в папку <code>pak33_dir/zxc/</code>',
+            'Запустите <fcode>Create VPK.exe</fcode>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ]
+        },
+        {
+          icon: 'auto_fix_high',
+          title: 'Использование Convert (Рекомендуется)',
+          steps: [
+            'Положите видео в папку <fcode>Convert</fcode> (советую использовать 1920x1080, расширения: mp4, avi, mkv, mov, wmv, flv, webm. нихуя не сработает если туда положить zxc.webm)',
+            'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания (чем длинее видос, тем дольше он обрабатывает его)',
+            'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ],
+        },
+        {
+          icon: 'image',
+          title: 'Если нужна фотка',
+          steps: [
+            'Положите изображение (jpg, jpeg, png, bmp, gif) в папку <fcode>Convert</fcode>',
+            'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания',
+            'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ],
+        }
+      ]
+    }
+  },
+  'minimap-icons': {
+    title: 'Minimap Icons',
+    content: {
+      en: [
+        {
+          icon: 'settings',
+          title: 'Creating Сfg',
+          steps: [
+            'Open <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>',
+            'Create a new text file',
+            'Rename file to <code>autoexec.cfg</code>',
+            'Add to launch options: <code>+exec autoexec.cfg</code>'
+          ],
+          info: 'Everything that will be written below must be entered in this config',
+          infoPosition: 'bottom'
+        },
+        {
+          icon: 'palette',
+          title: 'Colors Allies/Enemies on minimap and hover',
+          info: 'RGB colors here <a href="https://htmlcolorcodes.com" target="_blank"><span id="tg">htmlcolorcodes.com</span></a>',
+          steps: [
+            { icon: 'code', text: 'Allies <code>dota_friendly_color 255 255 0;</code>' },
+            { icon: 'code', text: 'Enemies <code>dota_enemy_color 255 0 255;</code>' }
+          ]
+        },
+        {
+          icon: 'track_changes',
+          title: 'Size runes on minimap',
+          steps: [
+            { icon: 'code', text: '<code>dota_minimap_rune_size 500;</code>' }
+          ]
+        },
+        {
+          icon: 'zoom_in',
+          title: 'Size creeps on minimap',
+          steps: [
+            { icon: 'code', text: '<code>dota_minimap_creep_scale 1.3;</code>' }
+          ]
+        }
+      ],
+      ru: [
+        {
+          icon: 'settings',
+          title: 'Создание cfg',
+          steps: [
+            'Откройте <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>',
+            'Создайте новый текстовый файл',
+            'Переименуйте файл в <code>autoexec.cfg</code>',
+            'В параметрах запуска добавьте: <code>+exec autoexec.cfg</code>'
+          ],
+          info: 'Все, что будет написано ниже, необходимо писать в этот конфиг',
+          infoPosition: 'bottom'
+        },
+        {
+          icon: 'palette',
+          title: 'Цвета Союзников/Врагов на миникарте и наведении',
+          info: 'Цвета RGB брать тут <a href="https://htmlcolorcodes.com" target="_blank"><span id="tg">htmlcolorcodes.com</span></a>',
+          steps: [
+            { icon: 'code', text: 'Союзники <code>dota_friendly_color 255 255 0;</code>' },
+            { icon: 'code', text: 'Враги <code>dota_enemy_color 255 0 255;</code>' }
+          ]
+        },
+        {
+          icon: 'track_changes',
+          title: 'Размер рун на миникарте',
+          steps: [
+            { icon: 'code', text: '<code>dota_minimap_rune_size 500;</code>' }
+          ]
+        },
+        {
+          icon: 'zoom_in',
+          title: 'Размер крипов на миникарте',
+          steps: [
+            { icon: 'code', text: '<code>dota_minimap_creep_scale 1.3;</code>' }
+          ]
+        }
+      ]
+    }
   }
-}
 };

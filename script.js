@@ -42,7 +42,7 @@ const translations = {
     'mega-kill': 'Mega-Kill',
     'mega-kill-desc': 'Custom mega-kill announcers',
     'guides': 'Guides',
-    'guides-desc': 'Installation guides and tutorials',
+    'guides-desc': 'Guides and tutorials',
     'pedestal': 'Pedestal',
     'pedestal-desc': 'Custom hero pedestals',
     'other': 'Other',
@@ -73,15 +73,15 @@ const categories = [
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
     { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp' },
-    { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.webp' },
     { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
+    { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' }
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
-    // { id: 'guides', emoji: '📖', key: 'guides', preview: null }
+    // { id: 'high-five', emoji: '👋', key: 'high-five', preview: 'high-five.webp' }
 ];
 
 // const fileToReleaseUrl = {
@@ -302,10 +302,6 @@ const modsData = {
     'towers': [
         { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak81_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' }
     ],
-    'high-five': [
-        { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
-        { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' }
-    ],
     'packs': [
         { name: 'Winter Pack', preview: 'Winter Pack.mp4', file: 'Winter Pack [7.39d].zip' },
         { name: 'Autumn Pack', preview: 'Autumn Pack.mp4', file: 'Autumn Pack [7.39d].zip' },
@@ -328,10 +324,12 @@ const modsData = {
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
-        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
         { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
+        { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
+        { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' },
+        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
     ],
     'optimization': [
@@ -345,6 +343,9 @@ const modsData = {
         { name: 'Dota2ProTracker', preview: 'dota2protracker.webp', file: 'https://dota2protracker.com/', type: 'guide', tags: { meta: true } },
         { name: 'Dota2 Emoji Nickname', preview: '', file: 'https://l4wio.github.io/dota2-emoji-nickname/', type: 'guide', tags: { fun: true } },
         { name: 'Steam Status', preview: 'steamstatus.webp', file: 'https://steamstat.us/', type: 'guide' }
+    ],
+    'guides': [
+        { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' }
     ]
 }
 
@@ -532,14 +533,13 @@ function setupGuideModal() {
                     }
                     sectionDiv.appendChild(sectionTitle);
                 }
-
-                if (section.info) {
+                if (section.info && (!section.infoPosition || section.infoPosition === 'top')) {
                     const infoDiv = document.createElement('div');
                     infoDiv.className = 'guide-info';
                     infoDiv.innerHTML = `
-                        <span class="material-symbols-rounded">info</span>
-                        <p class="guide-info-text">${section.info}</p>
-                    `;
+        <span class="material-symbols-rounded">info</span>
+        <p class="guide-info-text">${section.info}</p>
+    `;
                     sectionDiv.appendChild(infoDiv);
                 }
 
@@ -602,6 +602,15 @@ function setupGuideModal() {
                         <p class="guide-result-text">${section.result}</p>
                     `;
                     sectionDiv.appendChild(resultDiv);
+                }
+                if (section.info && section.infoPosition === 'bottom') {
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'guide-info';
+                    infoDiv.innerHTML = `
+        <span class="material-symbols-rounded">info</span>
+        <p class="guide-info-text">${section.info}</p>
+    `;
+                    sectionDiv.appendChild(infoDiv);
                 }
 
                 contentDiv.appendChild(sectionDiv);
@@ -957,9 +966,10 @@ gifElement.addEventListener('click', () => {
 
 // Recently Added
 const recentlyAddedMods = [
-    { name: 'Sherman Crystal Maiden', category: 'heroes' },
-    { name: 'Pinkie Sven', category: 'heroes' },
-    { name: 'Morphling Darktrench Tears', category: 'heroes' },
+    { name: 'Minimap Icons', category: 'guides' },
+    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
+    { name: 'Mars Diretide Shimmer', category: 'heroes' },
+    { name: 'Visage Grimfeather Сorpse', category: 'heroes' },
     { name: 'Darkness Pack', category: 'ti-bp-effects' },
     { name: 'Darkness Blink Dagger', category: 'item-effects' },
     { name: 'Darkness Radiance', category: 'item-effects' },
@@ -1443,13 +1453,15 @@ function createModCard(mod, categoryId) {
             </span>
         `);
     }
-    if (mod.guideId) {
+    const hideGuideButtonCategories = ['guides'];
+
+    if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
         linkButtons.push(`
-            <span class="link-button guide-button" data-guide-id="${mod.guideId}">
-                <span class="material-symbols-rounded">description</span>
-                ${translations['guide'] || 'Guide'}
-            </span>
-        `);
+        <span class="link-button guide-button" data-guide-id="${mod.guideId}">
+            <span class="material-symbols-rounded">description</span>
+            ${translations['guide'] || 'Guide'}
+        </span>
+    `);
     }
     if (linkButtons.length > 0) {
         linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
@@ -1479,11 +1491,16 @@ function createModCard(mod, categoryId) {
     `;
 
     card.addEventListener('click', (e) => {
-        if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) return;
-
-        if (mod.type === 'guide' && !mod.guideId) {
+        if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
+            return;
+        }
+        if (mod.type === 'guide' && mod.guideId) {
+            openGuideForMod({ guideId: mod.guideId });
+        }
+        else if (mod.type === 'guide' && !mod.guideId) {
             window.open(mod.file, '_blank');
-        } else {
+        }
+        else {
             downloadMod(mod, categoryId);
         }
     });
