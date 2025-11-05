@@ -78,7 +78,8 @@ const guidesData = {
     content: {
       en: [
         {
-          warning: "Updates are released rarely",
+          info: "Updates are released rarely",
+          infoPosition: 'bottom',
           steps: [
             'Unpack the archive',
             'Run Run.bat',
@@ -88,7 +89,8 @@ const guidesData = {
       ],
       ru: [
         {
-          warning: "Обновления выходят редко",
+          info: 'Обновления выходят редко',
+          infoPosition: 'bottom',
           steps: [
             'Распакуйте архив',
             'Запустите Run.bat',
