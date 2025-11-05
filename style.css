@@ -1071,6 +1071,7 @@
 
   .info-modal-link:hover {
     background: var(--md-sys-color-surface-container-highest);
+    cursor: pointer;
     transform: translateX(4px);
   }
 
