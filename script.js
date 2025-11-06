@@ -640,10 +640,10 @@ const gifs = [
     'assets/files/hueta/brew.gif',
     'assets/files/hueta/fura.gif',
     'assets/files/hueta/storm.gif',
-    'assets/files/hueta/salt.gif'
+    'assets/files/hueta/invoker.gif'
 ];
 
-const themes = ['ursa', 'brew', 'fura', 'storm', 'salt'];
+const themes = ['ursa', 'brew', 'fura', 'storm', 'invoker'];
 
 let currentIndex = 0;
 const savedIndex = localStorage.getItem('gifIndex');
@@ -666,12 +666,25 @@ gifElement.addEventListener('click', () => {
         localStorage.setItem('gifClicked', 'true');
     }
 
-    currentIndex = (currentIndex + 1) % gifs.length;
-    const newTheme = themes[currentIndex];
+    gifElement.classList.add('clicked');
 
-    gifElement.src = gifs[currentIndex];
-    html.setAttribute('data-gif-theme', newTheme);
-    localStorage.setItem('gifIndex', currentIndex);
+    setTimeout(() => {
+        gifElement.classList.remove('clicked');
+
+        currentIndex = (currentIndex + 1) % gifs.length;
+        const newTheme = themes[currentIndex];
+
+        gifElement.src = gifs[currentIndex];
+        html.setAttribute('data-gif-theme', newTheme);
+        localStorage.setItem('gifIndex', currentIndex);
+
+        gifElement.classList.add('appear');
+
+        setTimeout(() => {
+            gifElement.classList.remove('appear');
+        }, 400);
+
+    }, 400);
 
     if ('vibrate' in navigator) {
         navigator.vibrate(10);
