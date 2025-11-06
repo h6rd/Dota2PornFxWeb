@@ -806,6 +806,69 @@ function toggleRecentlyAdded() {
     }
 }
 
+function openCategoryAndHighlightMod(categoryId, modName) {
+    scrollPosition = window.pageYOffset;
+
+    currentCategory = categoryId;
+    const category = categories.find(cat => cat.id === categoryId);
+
+    if (!category) return;
+
+    sortMode = 'default';
+    currentSortModeIndex = 0;
+
+    const sortLabel = document.getElementById('sortLabel');
+    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
+    const sortToggle = document.getElementById('sortToggle');
+
+    if (sortLabel) sortLabel.textContent = 'Default';
+    if (sortIcon) sortIcon.textContent = 'sort';
+    if (sortToggle) sortToggle.style.display = 'flex';
+
+    categoryTitle.textContent = translations[category.key];
+    categoryDescription.textContent = translations[category.key + '-desc'];
+
+    renderMods(categoryId);
+
+    homePage.classList.add('hidden');
+    categoryPage.classList.remove('hidden');
+    backButton.style.display = 'flex';
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    setTimeout(() => {
+        const targetCard = modsGrid.querySelector(
+            `[data-mod-name="${modName}"][data-category-id="${categoryId}"]`
+        );
+
+        if (targetCard) {
+            targetCard.classList.remove('fade-in');
+
+            targetCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'nearest'
+            });
+
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    targetCard.classList.add('highlighted');
+                });
+
+                if ('vibrate' in navigator) {
+                    navigator.vibrate([50, 100, 50]);
+                }
+
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        targetCard.classList.remove('highlighted');
+                    });
+                }, 2000);
+            }, 800);
+        }
+    }, 100);
+}
+
 function setupRecentlyAdded() {
     const section = document.getElementById('recentlyAddedSection');
     const track = document.getElementById('carouselTrack');
@@ -849,7 +912,42 @@ function setupRecentlyAdded() {
 
         if (mod) {
             const card = createModCard(mod, recentMod.category);
-            track.appendChild(card);
+            const newCard = card.cloneNode(true);
+
+            newCard.addEventListener('click', (e) => {
+                if (e.target.classList.contains('link-button') ||
+                    e.target.closest('.link-button')) {
+
+                    e.stopPropagation();
+
+                    const button = e.target.classList.contains('link-button')
+                        ? e.target
+                        : e.target.closest('.link-button');
+
+                    const guideId = button.getAttribute('data-guide-id');
+                    if (guideId) {
+                        openGuideForMod({ guideId: guideId });
+                        return;
+                    }
+
+                    const url = button.getAttribute('data-url');
+                    const isVideo = button.getAttribute('data-video') === 'true';
+                    if (isVideo) {
+                        window.openVideoModal(url);
+                    } else {
+                        window.open(url, '_blank');
+                    }
+                    return;
+                }
+
+                openCategoryAndHighlightMod(recentMod.category, recentMod.name);
+
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            });
+
+            track.appendChild(newCard);
         }
     });
 
@@ -1113,6 +1211,8 @@ function renderAllModsSearch() {
 function createModCard(mod, categoryId) {
     const card = document.createElement('div');
     card.className = 'card fade-in';
+    card.setAttribute('data-mod-name', mod.name);
+    card.setAttribute('data-category-id', categoryId);
     const preview = mod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';

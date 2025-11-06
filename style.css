@@ -2311,6 +2311,80 @@ fcode {
   gap: 0;
 }
 
+/* Highlight Recently Added */
+@keyframes highlight-pulse {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 8px 32px var(--md-sys-color-primary),
+      0 0 40px var(--md-sys-color-primary);
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes highlight-bg {
+  0%,
+  100% {
+    background-color: var(--md-sys-color-surface-container);
+  }
+  50% {
+    background-color: var(--md-sys-color-primary-container);
+  }
+}
+
+.card.highlighted {
+  animation: highlight-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) 1,
+    highlight-bg 2s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
+  scroll-margin-top: 120px;
+  position: relative;
+  will-change: transform, box-shadow, background-color;
+}
+
+.card.highlighted.fade-in {
+  animation: highlight-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) 1,
+    highlight-bg 2s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
+}
+
+.card.highlighted::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 32px;
+  background: radial-gradient(
+    circle at center,
+    var(--md-sys-color-primary) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  animation: highlight-glow 2s cubic-bezier(0.4, 0, 0.2, 1) 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card.highlighted::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes highlight-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 /* media */
 @media (max-width: 1024px) {
   .carousel-track .card {
