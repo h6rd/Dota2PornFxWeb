@@ -622,11 +622,35 @@ function setupVideoModal() {
         if (videoSpinner) {
             videoSpinner.classList.remove('hidden');
         }
-        modalVideo.src = videoUrl;
-        videoModal.classList.add('active');
+
+        videoModal.classList.add('no-transition');
+
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        playIcon.textContent = 'pause';
+
+        modalVideo.src = videoUrl;
+
+        const enableAndShow = () => {
+            setTimeout(() => {
+                videoModal.classList.remove('no-transition');
+                videoModal.offsetHeight;
+                videoModal.classList.add('active');
+                if (videoSpinner) videoSpinner.classList.add('hidden');
+                playIcon.textContent = 'pause';
+            }, 40);
+
+            modalVideo.removeEventListener('loadedmetadata', enableAndShow);
+            modalVideo.removeEventListener('canplay', enableAndShow);
+        };
+
+        modalVideo.addEventListener('loadedmetadata', enableAndShow);
+        modalVideo.addEventListener('canplay', enableAndShow);
+
+        setTimeout(() => {
+            if (!videoModal.classList.contains('active')) {
+                enableAndShow();
+            }
+        }, 700);
     };
 }
 
