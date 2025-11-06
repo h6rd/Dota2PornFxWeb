@@ -2,6 +2,12 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
 });
 
+document.addEventListener('touchstart', function() {
+  document.querySelectorAll('.hueta').forEach(el => {
+    el.classList.remove('hovered');
+  });
+});
+
 const translations = {
     'shaders': 'Shaders',
     'shaders-desc': 'Replaces the fog of war effect',
