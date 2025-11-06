@@ -789,6 +789,20 @@ img {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.fab i,
+.fab .bx,
+.fab .bxl,
+.fab .bxs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+}
+
 .fab-menu {
   position: fixed;
   bottom: 92px;
@@ -1647,6 +1661,11 @@ fcode {
   margin-right: 8px;
   flex-shrink: 0;
   font-size: 20px;
+  /* reserve fixed space so font swap doesn't change layout */
+  width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-input {
@@ -1659,6 +1678,7 @@ fcode {
   font-family: inherit;
   padding: 0;
   height: 100%;
+  padding-right: 44px;
 }
 
 .search-input::placeholder {
@@ -1669,14 +1689,20 @@ fcode {
   background: none;
   border: none;
   cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 4px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   color: var(--md-sys-color-on-surface-variant);
   transition: all 0.2s;
-  margin-left: -60px;
+  margin-left: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .search-clear:hover {
