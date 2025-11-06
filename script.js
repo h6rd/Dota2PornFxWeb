@@ -167,7 +167,6 @@ function setupFAB() {
 
 function setupScrollToTop() {
     const scrollFab = document.getElementById('scrollToTopFab');
-    const logo = document.querySelector('.logo a');
     const fab = document.getElementById('fab');
 
     const scrollToTop = () => {
@@ -199,11 +198,6 @@ function setupScrollToTop() {
     });
 
     scrollFab.addEventListener('click', scrollToTop);
-
-    logo.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollToTop();
-    });
 }
 
 function setupGuideModal() {
