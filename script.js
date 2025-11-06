@@ -894,7 +894,7 @@ function openCategoryAndHighlightMod(categoryId, modName) {
                     requestAnimationFrame(() => {
                         targetCard.classList.remove('highlighted');
                     });
-                }, 2000);
+                }, 1500);
             }, 800);
         }
     }, 100);

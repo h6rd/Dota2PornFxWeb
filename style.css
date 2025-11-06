@@ -908,7 +908,7 @@ img {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              backdrop-filter 0.25s ease;
+    backdrop-filter 0.25s ease;
 }
 
 .info-overlay.active {
@@ -2499,6 +2499,45 @@ fcode {
 }
 
 /* Highlight Recently Added */
+.card.highlighted {
+  animation: highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1,
+    highlight-bg 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
+  scroll-margin-top: 120px;
+  position: relative;
+  will-change: transform, box-shadow, background-color;
+}
+
+.card.highlighted.fade-in {
+  animation: highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1,
+    highlight-bg 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
+}
+
+.card.highlighted::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 32px;
+  background: radial-gradient(
+    circle at center,
+    var(--md-sys-color-primary) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  animation: highlight-glow 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card.highlighted::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
 @keyframes highlight-pulse {
   0% {
     transform: translateY(0);
@@ -2521,45 +2560,6 @@ fcode {
   50% {
     background-color: var(--md-sys-color-primary-container);
   }
-}
-
-.card.highlighted {
-  animation: highlight-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) 1,
-    highlight-bg 2s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
-  scroll-margin-top: 120px;
-  position: relative;
-  will-change: transform, box-shadow, background-color;
-}
-
-.card.highlighted.fade-in {
-  animation: highlight-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) 1,
-    highlight-bg 2s cubic-bezier(0.4, 0, 0.2, 1) 1 !important;
-}
-
-.card.highlighted::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border-radius: 32px;
-  background: radial-gradient(
-    circle at center,
-    var(--md-sys-color-primary) 0%,
-    transparent 70%
-  );
-  opacity: 0;
-  animation: highlight-glow 2s cubic-bezier(0.4, 0, 0.2, 1) 1;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.card.highlighted::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
 }
 
 @keyframes highlight-glow {
