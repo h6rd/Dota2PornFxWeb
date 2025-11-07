@@ -89,6 +89,10 @@ const modsData = {
         { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.webp', file: 'pak73_dir.vpk' }
     ],
     'terrains': [
+        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
+        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
+        { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
         { name: 'TI6 Immortal Gardens', preview: 'TI6 Immortal Gardens.webp', file: 'TI6 Immortal Gardens.zip' },
         { name: 'TI7 Reefs Edge', preview: 'TI7 Reefs Edge.webp', file: 'TI7 Reefs Edge.zip' },
@@ -100,11 +104,7 @@ const modsData = {
         { name: 'Spring', preview: 'Spring.webp', file: 'Spring.zip' },
         { name: 'Summer', preview: 'Summer.webp', file: 'Summer.zip' },
         { name: 'Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
-        { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' },
-        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
-        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
-        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
-        { name: 'River Colors', preview: 'River Colors.mp4', file: 'Rivers.zip' }
+        { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' }
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },

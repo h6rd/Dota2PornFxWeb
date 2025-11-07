@@ -56,6 +56,7 @@ const translations = {
     'optimization-desc': 'Dota2 optimization stuff',
     'sites': 'Websites',
     'sites-desc': 'Useful websites',
+    'addToCart': 'Add to cart',
 };
 
 const categories = [
@@ -98,6 +99,14 @@ const recentlyAddedMods = [
     { name: 'Low Poly Trees', category: 'trees' },
     { name: 'Mossy Cobblestone', category: 'terrains' }
 ];
+
+const addToCartRules = {
+    hiddenCategories: ['guides', 'optimization', 'packs'],
+    allowedMods: {
+        terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify'],
+        other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon']
+    }
+};
 
 let currentCategory = null;
 let searchQuery = '';
@@ -947,6 +956,11 @@ function setupRecentlyAdded() {
             const card = createModCard(mod, recentMod.category);
             const newCard = card.cloneNode(true);
 
+            const addToCartBtn = newCard.querySelector('.add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.remove();
+            }
+
             const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
             if (downloadIcon) {
                 downloadIcon.textContent = 'expand_circle_down';
@@ -1197,6 +1211,10 @@ function renderMods(categoryId) {
         const card = createModCard(mod, categoryId);
         modsGrid.appendChild(card);
     });
+
+    if (typeof updateCartButtons === 'function') {
+        updateCartButtons();
+    }
 }
 
 function renderAllModsSearch() {
@@ -1244,6 +1262,10 @@ function renderAllModsSearch() {
         const card = createModCard(mod, category.id);
         modsGrid.appendChild(card);
     });
+
+    if (typeof updateCartButtons === 'function') {
+        updateCartButtons();
+    }
 }
 
 function createModCard(mod, categoryId) {
@@ -1341,6 +1363,20 @@ function createModCard(mod, categoryId) {
 
     const downloadIcon = mod.type === 'guide' ? 'captive_portal' : 'download';
     const subtitleText = mod.type === 'guide' ? 'Open' : translations['download'];
+    let hideAddToCart = false;
+    if (addToCartRules.hiddenCategories.includes(categoryId)) {
+        hideAddToCart = true;
+    }
+    else if (addToCartRules.allowedMods[categoryId]) {
+        const allowedList = addToCartRules.allowedMods[categoryId].map(name => name.toLowerCase());
+        if (!allowedList.includes(mod.name.toLowerCase())) {
+            hideAddToCart = true;
+        }
+    }
+    else if (mod.type === 'guide') {
+        hideAddToCart = true;
+    }
+
     card.innerHTML = `
         <div class="card-media">
             ${preview
@@ -1349,6 +1385,12 @@ function createModCard(mod, categoryId) {
             : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
         }
             ${tagsHtml}
+            ${!hideAddToCart ? `
+            <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: mod.name, file: mod.file })}' data-category="${categoryId}">
+                <span class="material-symbols-rounded">add</span>
+                <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
+            </button>
+            ` : ''}
             <div class="download-icon">
                 <span class="material-symbols-rounded">${downloadIcon}</span>
             </div>
@@ -1397,6 +1439,17 @@ function createModCard(mod, categoryId) {
             }
         });
     });
+
+    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const modData = JSON.parse(addToCartBtn.getAttribute('data-mod'));
+            const category = addToCartBtn.getAttribute('data-category');
+            addToCart(modData, category);
+            updateCartButtons();
+        });
+    }
 
     return card;
 }
