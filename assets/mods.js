@@ -184,7 +184,8 @@ const modsData = {
         { name: 'Morphling Darktrench Tears', preview: 'Morphling Darktrench Tears.webp', file: 'Morphling Darktrench Tears.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-darktrench_stalker_and_blade_of_tears/' },
         { name: 'Sven Blue Angel', preview: 'Sven Blue Angel.webp', file: 'Sven Blue Angel.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_angel_of_sven/' },
         { name: 'Pinkie Sven', preview: 'Pinkie Sven.webp', file: 'Pinkie Sven.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pinkie_sven/' },
-        { name: 'Sherman Crystal Maiden', preview: 'Sherman Crystal Maiden.webp', file: 'Sherman Crystal Maiden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sherman_maiden_v_4_1/' }
+        { name: 'Sherman Crystal Maiden', preview: 'Sherman Crystal Maiden.webp', file: 'Sherman Crystal Maiden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sherman_maiden_v_4_1/' },
+        { name: 'Sakura Pink Invoker', preview: 'Sakura Pink Invoker.webp', file: 'Sakura Pink Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-sakura_pink_invoker/' }] }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
     ],
     'roshan': [

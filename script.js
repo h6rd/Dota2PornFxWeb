@@ -83,6 +83,20 @@ const categories = [
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
+const recentlyAddedMods = [
+    { name: 'Sakura Pink Invoker', category: 'heroes' },
+    { name: 'Minimap Icons', category: 'guides' },
+    { name: 'Darkness Pack', category: 'ti-bp-effects' },
+    { name: 'Darkness Blink Dagger', category: 'item-effects' },
+    { name: 'Darkness Radiance', category: 'item-effects' },
+    { name: 'Darkness Shivas', category: 'item-effects' },
+    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
+    { name: 'Sherman Crystal Maiden', category: 'heroes' },
+    { name: 'Cosmic Zeus', category: 'heroes' },
+    { name: 'Low Poly Trees', category: 'trees' },
+    { name: 'Mossy Cobblestone', category: 'terrains' }
+];
+
 let currentCategory = null;
 let searchQuery = '';
 let scrollPosition = 0;
@@ -729,19 +743,6 @@ gifElement.addEventListener('click', () => {
 })();
 
 // Recently Added
-const recentlyAddedMods = [
-    { name: 'Minimap Icons', category: 'guides' },
-    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
-    { name: 'Mars Diretide Shimmer', category: 'heroes' },
-    { name: 'Visage Grimfeather Сorpse', category: 'heroes' },
-    { name: 'Darkness Pack', category: 'ti-bp-effects' },
-    { name: 'Darkness Blink Dagger', category: 'item-effects' },
-    { name: 'Darkness Radiance', category: 'item-effects' },
-    { name: 'Darkness Shivas', category: 'item-effects' },
-    { name: 'Low Poly Trees', category: 'trees' },
-    { name: 'Mossy Cobblestone', category: 'terrains' }
-];
-
 let carouselPosition = 0;
 let itemsPerPage = 3;
 let isCollapsed = false;
