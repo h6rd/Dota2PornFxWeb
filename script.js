@@ -84,7 +84,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
-    // { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
+    { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
     { name: 'Sakura Pink Invoker', category: 'heroes' },
     { name: 'Minimap Icons', category: 'guides' },
     { name: 'Darkness Pack', category: 'ti-bp-effects' },
