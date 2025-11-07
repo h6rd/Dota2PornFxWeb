@@ -108,7 +108,7 @@ const modsData = {
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },
-        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak7_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
+        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak57_dir.vpk', linkType: 'source', linkUrl: 'https://github.com/Egezenn/dota2-minify' },
         { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_crystals_trees/' },
         { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-wooden_trees/' },
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' },
