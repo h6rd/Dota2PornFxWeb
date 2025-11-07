@@ -633,8 +633,8 @@ function setupVideoModal() {
             videoSpinner.classList.remove('hidden');
         }
 
-    videoModal.classList.add('no-transition', 'active');
-    videoOverlay.classList.add('active');
+        videoModal.classList.add('no-transition', 'active');
+        videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
         modalVideo.src = videoUrl;
@@ -946,6 +946,11 @@ function setupRecentlyAdded() {
         if (mod) {
             const card = createModCard(mod, recentMod.category);
             const newCard = card.cloneNode(true);
+
+            const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
+            if (downloadIcon) {
+                downloadIcon.textContent = 'expand_circle_down';
+            }
 
             newCard.addEventListener('click', (e) => {
                 if (e.target.classList.contains('link-button') ||
