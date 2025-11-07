@@ -185,7 +185,7 @@ const modsData = {
         { name: 'Sven Blue Angel', preview: 'Sven Blue Angel.webp', file: 'Sven Blue Angel.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_angel_of_sven/' },
         { name: 'Pinkie Sven', preview: 'Pinkie Sven.webp', file: 'Pinkie Sven.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pinkie_sven/' },
         { name: 'Sherman Crystal Maiden', preview: 'Sherman Crystal Maiden.webp', file: 'Sherman Crystal Maiden.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-sherman_maiden_v_4_1/' },
-        { name: 'Sakura Pink Invoker', preview: 'Sakura Pink Invoker.webp', file: 'Sakura Pink Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-sakura_pink_invoker/' }] }
+        { name: 'Sakura Pink Invoker', preview: 'Sakura Pink Invoker.webp', file: 'Sakura Pink Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] }
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: '' },
     ],
     'roshan': [
@@ -220,7 +220,8 @@ const modsData = {
     ],
     'ranged-attack': [
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' },
-        { name: 'Aghanim Ranged Attack', preview: 'Aghanim Ranged Attack.mp4', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ranged_attack_effect_aghanim_2021/' }
+        { name: 'Aghanim Ranged Attack', preview: 'Aghanim Ranged Attack.mp4', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ranged_attack_effect_aghanim_2021/' },
+        { name: 'Green Diretide Ranged Attack', preview: 'Green Diretide Ranged Attack.mp4', file: 'pak15_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ranged_attack_effect_diretide_-_green/' }
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak39_dir.vpk', links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }, { type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' }] },
