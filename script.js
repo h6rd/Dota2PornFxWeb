@@ -617,9 +617,8 @@ function setupVideoModal() {
             videoSpinner.classList.remove('hidden');
         }
 
-        videoModal.classList.add('no-transition');
-
-        videoOverlay.classList.add('active');
+    videoModal.classList.add('no-transition', 'active');
+    videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
         modalVideo.src = videoUrl;
