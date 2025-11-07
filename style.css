@@ -1668,7 +1668,6 @@ fcode {
   margin-right: 8px;
   flex-shrink: 0;
   font-size: 20px;
-  /* reserve fixed space so font swap doesn't change layout */
   width: 28px;
   display: inline-flex;
   align-items: center;
