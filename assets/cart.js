@@ -430,6 +430,247 @@ RU
     }
 }
 
+// logged out the advanced packing function for now
+// async function packAndDownload() {
+//     if (cart.length === 0) return;
+
+//     const packBtn = document.getElementById('packBtn');
+//     const originalContent = packBtn.innerHTML;
+
+//     packBtn.disabled = true;
+//     packBtn.innerHTML = `
+//         <div class="spinner small"></div>
+//         Packing...
+//     `;
+
+//     // Create progress modal
+//     const progressOverlay = document.createElement('div');
+//     progressOverlay.className = 'pack-progress-overlay';
+//     progressOverlay.innerHTML = `
+//         <div class="pack-progress-modal">
+//             <div class="pack-progress-header">
+//                 <div class="spinner"></div>
+//                 <h3>Packing Mods...</h3>
+//             </div>
+//             <div class="pack-progress-log" id="packProgressLog"></div>
+//             <div class="pack-progress-footer">
+//                 <span id="packProgressStatus">Initializing...</span>
+//                 <button class="pack-close-btn" id="packCloseBtn">Close</button>
+//             </div>
+//         </div>
+//     `;
+//     document.body.appendChild(progressOverlay);
+    
+//     const logContainer = document.getElementById('packProgressLog');
+//     const statusText = document.getElementById('packProgressStatus');
+//     const closeBtn = document.getElementById('packCloseBtn');
+
+//     function addLog(message, type = 'info') {
+//         const entry = document.createElement('div');
+//         entry.className = `pack-log-entry ${type}`;
+        
+//         const icons = {
+//             success: 'check_circle',
+//             error: 'error',
+//             warning: 'warning',
+//             info: 'info'
+//         };
+        
+//         entry.innerHTML = `
+//             <span class="material-symbols-rounded">${icons[type]}</span>
+//             <span>${message}</span>
+//         `;
+        
+//         logContainer.appendChild(entry);
+//         logContainer.scrollTop = logContainer.scrollHeight;
+//     }
+
+//     requestAnimationFrame(() => progressOverlay.classList.add('active'));
+
+//     try {
+//         addLog('Starting pack creation...', 'info');
+        
+//         if (typeof JSZip === 'undefined') {
+//             addLog('Loading JSZip library...', 'info');
+//             const script = document.createElement('script');
+//             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+//             document.head.appendChild(script);
+
+//             await new Promise((resolve, reject) => {
+//                 script.onload = resolve;
+//                 script.onerror = reject;
+//             });
+//             addLog('JSZip loaded successfully', 'success');
+//         }
+
+//         addLog(`Creating archive for ${cart.length} mods...`, 'info');
+//         statusText.textContent = 'Creating archive...';
+        
+//         const mainZip = new JSZip();
+//         const modsFolder = mainZip.folder('mods');
+//         const existingFileNames = new Set();
+
+//         let processedCount = 0;
+
+//         for (const item of cart) {
+//             const filePath = `assets/files/${item.categoryId}/${item.file}`;
+//             addLog(`Processing: ${item.name}`, 'info');
+//             statusText.textContent = `Processing ${processedCount + 1}/${cart.length}...`;
+
+//             try {
+//                 const response = await fetch(filePath);
+//                 if (!response.ok) throw new Error(`Failed to fetch ${item.file}`);
+
+//                 const blob = await response.blob();
+
+//                 if (isZipFile(item.file)) {
+//                     addLog(`Extracting ZIP: ${item.name}`, 'info');
+//                     const zipContent = await JSZip.loadAsync(blob);
+
+//                     for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
+//                         if (!zipEntry.dir) {
+//                             const fileBlob = await zipEntry.async('blob');
+//                             const fileName = relativePath.split('/').pop();
+//                             const uniqueName = getUniqueFileName(fileName, existingFileNames);
+//                             modsFolder.file(uniqueName, fileBlob);
+//                         }
+//                     }
+//                     addLog(`✓ Extracted ${item.name}`, 'success');
+//                 } else {
+//                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
+//                     modsFolder.file(uniqueName, blob);
+//                     addLog(`✓ Added ${item.name}`, 'success');
+//                 }
+                
+//                 processedCount++;
+//             } catch (error) {
+//                 console.error(`Error processing ${item.name}:`, error);
+//                 addLog(`⚠ Failed to add ${item.name}`, 'warning');
+//             }
+//         }
+
+//         addLog('Creating mods list...', 'info');
+//         let modsListText = 'Mods in this pack:\n';
+//         modsListText += '='.repeat(50) + '\n\n';
+
+//         const modsByCategory = {};
+//         cart.forEach(item => {
+//             const category = categories.find(cat => cat.id === item.categoryId);
+//             const categoryName = category ? translations[category.key] : item.categoryId;
+
+//             if (!modsByCategory[categoryName]) {
+//                 modsByCategory[categoryName] = [];
+//             }
+//             modsByCategory[categoryName].push(item.name);
+//         });
+
+//         for (const [categoryName, mods] of Object.entries(modsByCategory)) {
+//             modsListText += `${categoryName}:\n`;
+//             mods.forEach(modName => {
+//                 modsListText += `  • ${modName}\n`;
+//             });
+//             modsListText += '\n';
+//         }
+
+//         modsListText += '='.repeat(50) + '\n';
+//         modsListText += `Total mods: ${cart.length}\n`;
+//         modsListText += `Generated: ${new Date().toLocaleString()}\n`;
+
+//         mainZip.file('Mods_List.txt', modsListText);
+//         addLog('✓ Mods list created', 'success');
+
+//         addLog('Adding installation guide...', 'info');
+//         const guideText = `Dota2PornFX Guide
+// =================
+
+// EN
+// 1. Open mods folder
+
+// 2. Launch VPKMerge.exe and wait for the end
+
+// 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
+
+// 4. Put the finished pak10_dir.vpk in the folder dota_123
+
+// 5. Add to launch options: -language 123
+
+
+// RU
+// 1. Откройте папку mods
+
+// 2. Запустите VPKMerge.exe и дождитесь окончания
+
+// 3. Переместите готовый pak10_dir.vpk в папку с языком игры
+//    - Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
+//    - Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
+
+// 4. Добавьте в параметры запуска игры:
+//    - Для русского: -language russian
+//    - Для английского: -language 123`;
+
+//         mainZip.file('Guide.txt', guideText);
+//         addLog('✓ Guide added', 'success');
+
+//         addLog('Adding VPKMerge.exe...', 'info');
+//         try {
+//             const exeResponse = await fetch('assets/files/VPKMerge.exe');
+//             if (exeResponse.ok) {
+//                 const exeBlob = await exeResponse.blob();
+//                 modsFolder.file('VPKMerge.exe', exeBlob);
+//                 addLog('✓ VPKMerge.exe added', 'success');
+//             } else {
+//                 addLog('⚠ VPKMerge.exe not found', 'warning');
+//             }
+//         } catch (error) {
+//             addLog('⚠ Could not add VPKMerge.exe', 'warning');
+//         }
+
+//         addLog('Compressing files...', 'info');
+//         statusText.textContent = 'Compressing...';
+        
+//         const now = new Date();
+//         const timestamp = `${now.getHours()}.${now.getMinutes()}-${now.getDate()}.${now.getMonth() + 1}`;
+
+//         const content = await mainZip.generateAsync({
+//             type: 'blob',
+//             compression: 'DEFLATE',
+//             compressionOptions: { level: 6 }
+//         }, (metadata) => {
+//             const percent = metadata.percent.toFixed(0);
+//             statusText.textContent = `Compressing... ${percent}%`;
+//         });
+
+//         addLog('✓ Archive compressed', 'success');
+//         addLog('Starting download...', 'info');
+//         statusText.textContent = 'Download starting...';
+
+//         const url = URL.createObjectURL(content);
+//         const link = document.createElement('a');
+//         link.href = url;
+//         link.download = `d2pfxPack-${timestamp}.zip`;
+//         link.click();
+//         URL.revokeObjectURL(url);
+
+//         addLog('✓ Pack downloaded successfully!', 'success');
+//         statusText.textContent = 'Completed!';
+//         closeBtn.classList.add('visible');
+
+//     } catch (error) {
+//         console.error('Pack error:', error);
+//         addLog(`✗ Error: ${error.message}`, 'error');
+//         statusText.textContent = 'Failed!';
+//         closeBtn.classList.add('visible');
+//     } finally {
+//         packBtn.disabled = false;
+//         packBtn.innerHTML = originalContent;
+        
+//         closeBtn.addEventListener('click', () => {
+//             progressOverlay.classList.remove('active');
+//             setTimeout(() => progressOverlay.remove(), 300);
+//         });
+//     }
+// }
+
 function showReplaceModal(existingItem, newItem) {
     document.querySelector('.replace-modal-overlay')?.remove();
 
