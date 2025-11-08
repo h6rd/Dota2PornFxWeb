@@ -56,7 +56,7 @@ function addToCart(mod, categoryId) {
     cart.push(cartItem);
     saveCart();
     updateCartBadge();
-    showToast('Added to cart');
+    showToast(`Added <span style="color: var(--md-sys-color-shit)">${mod.name}</span>`);
 
     const allButtons = document.querySelectorAll('.add-to-cart-btn');
     allButtons.forEach(btn => {
@@ -75,13 +75,20 @@ function addToCart(mod, categoryId) {
     if ('vibrate' in navigator) navigator.vibrate([10, 50, 10]);
 }
 
-
 function removeFromCart(itemId) {
+    const item = cart.find(i => i.id === itemId);
+    const itemName = item ? item.name : '';
+
     cart = cart.filter(item => item.id !== itemId);
     saveCart();
     updateCartBadge();
     renderCartItems();
-    showToast('Removed from cart');
+
+    if (itemName) {
+        showToast(`Removed <span style="color: var(--md-sys-color-primary)">${itemName}</span>`);
+    } else {
+        showToast('Removed from cart');
+    }
 
     if ('vibrate' in navigator) {
         navigator.vibrate(10);
@@ -146,24 +153,16 @@ function updateCartBadge() {
 }
 
 function showToast(message) {
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.textContent = message;
+    toast.innerHTML = message;
     document.body.appendChild(toast);
 
-    requestAnimationFrame(() => {
-        toast.classList.add('show');
-    });
-
+    setTimeout(() => toast.classList.add('show'), 10);
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
-    }, 2000);
+    }, 3000);
 }
 
 function setupCartModal() {
@@ -175,16 +174,63 @@ function setupCartModal() {
     const packBtn = document.getElementById('packBtn');
 
     const openCart = () => {
-        renderCartItems();
-        cartModal.classList.add('active');
-        cartOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        cartModal.classList.remove('expanded');
+
+        const logPanel = document.getElementById('packLogPanel');
+        if (logPanel) {
+            logPanel.classList.remove('active');
+        }
+
+        const elementsToReset = [
+            cartModal,
+            document.querySelector('.cart-main-content'),
+            cartModal.querySelector('.info-modal-content'),
+            document.getElementById('cartItems'),
+            document.getElementById('cartEmpty'),
+            document.getElementById('cartActions')
+        ];
+
+        elementsToReset.forEach(element => {
+            if (element) {
+                element.removeAttribute('style');
+            }
+        });
+
+        requestAnimationFrame(() => {
+            renderCartItems();
+            cartModal.classList.add('active');
+            cartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
     };
 
     const closeCart = () => {
         cartModal.classList.remove('active');
+        cartModal.classList.remove('expanded');
         cartOverlay.classList.remove('active');
         document.body.style.overflow = '';
+
+        const logPanel = document.getElementById('packLogPanel');
+        if (logPanel) {
+            logPanel.classList.remove('active');
+        }
+
+        setTimeout(() => {
+            const elementsToReset = [
+                cartModal,
+                document.querySelector('.cart-main-content'),
+                cartModal.querySelector('.info-modal-content'),
+                document.getElementById('cartItems'),
+                document.getElementById('cartEmpty'),
+                document.getElementById('cartActions')
+            ];
+
+            elementsToReset.forEach(element => {
+                if (element) {
+                    element.removeAttribute('style');
+                }
+            });
+        }, 400);
     };
 
     cartButton.addEventListener('click', openCart);
@@ -277,7 +323,6 @@ function getUniqueFileName(fileName, existingNames) {
 
 async function packAndDownload() {
     if (cart.length === 0) return;
-
     const packBtn = document.getElementById('packBtn');
     const originalContent = packBtn.innerHTML;
 
@@ -287,8 +332,47 @@ async function packAndDownload() {
         Packing...
     `;
 
+    const cartModal = document.getElementById('cartModal');
+    const logPanel = document.getElementById('packLogPanel');
+    const logContainer = document.getElementById('packLog');
+    const statusText = document.getElementById('packStatus');
+    const logHeader = logPanel.querySelector('.pack-log-header');
+
+    cartModal.classList.add('expanded');
+    logPanel.classList.add('active');
+    logContainer.innerHTML = '';
+    logHeader.innerHTML = `
+        <div class="spinner"></div>
+        <h3>Packing Progress</h3>
+    `;
+
+    function addLog(message, type = 'info') {
+        const entry = document.createElement('div');
+        entry.className = `pack-log-entry ${type}`;
+
+        const icons = {
+            success: 'check_circle',
+            error: 'error',
+            warning: 'warning',
+            info: 'info'
+        };
+
+        entry.innerHTML = `
+            <span class="material-symbols-rounded">${icons[type]}</span>
+            <span>${message}</span>
+        `;
+
+        logContainer.appendChild(entry);
+        logContainer.scrollTop = logContainer.scrollHeight;
+    }
+
+    let packSuccess = false;
+
     try {
+        addLog('Starting pack creation...', 'info');
+
         if (typeof JSZip === 'undefined') {
+            addLog('Loading JSZip library...', 'info');
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
             document.head.appendChild(script);
@@ -297,14 +381,22 @@ async function packAndDownload() {
                 script.onload = resolve;
                 script.onerror = reject;
             });
+            addLog('JSZip loaded successfully', 'success');
         }
+
+        addLog(`Creating archive for ${cart.length} mods...`, 'info');
+        statusText.textContent = 'Creating archive...';
 
         const mainZip = new JSZip();
         const modsFolder = mainZip.folder('mods');
         const existingFileNames = new Set();
 
+        let processedCount = 0;
+
         for (const item of cart) {
             const filePath = `assets/files/${item.categoryId}/${item.file}`;
+            addLog(`Processing: ${item.name}`, 'info');
+            statusText.textContent = `Processing ${processedCount + 1}/${cart.length}...`;
 
             try {
                 const response = await fetch(filePath);
@@ -313,6 +405,7 @@ async function packAndDownload() {
                 const blob = await response.blob();
 
                 if (isZipFile(item.file)) {
+                    addLog(`Extracting ZIP: ${item.name}`, 'info');
                     const zipContent = await JSZip.loadAsync(blob);
 
                     for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
@@ -323,15 +416,21 @@ async function packAndDownload() {
                             modsFolder.file(uniqueName, fileBlob);
                         }
                     }
+                    addLog(` Extracted ${item.name}`, 'success');
                 } else {
                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
                     modsFolder.file(uniqueName, blob);
+                    addLog(` Added ${item.name}`, 'success');
                 }
+
+                processedCount++;
             } catch (error) {
                 console.error(`Error processing ${item.name}:`, error);
-                showToast(`Warning: Could not add ${item.name}`);
+                addLog(`⚠ Failed to add ${item.name}`, 'warning');
             }
         }
+
+        addLog('Creating mods list...', 'info');
         let modsListText = 'Mods in this pack:\n';
         modsListText += '='.repeat(50) + '\n\n';
 
@@ -359,7 +458,9 @@ async function packAndDownload() {
         modsListText += `Generated: ${new Date().toLocaleString()}\n`;
 
         mainZip.file('Mods_List.txt', modsListText);
+        addLog(' Mods list created', 'success');
 
+        addLog('Adding installation guide...', 'info');
         const guideText = `Dota2PornFX Guide
 =================
 
@@ -389,28 +490,40 @@ RU
    - Для английского: -language 123`;
 
         mainZip.file('Guide.txt', guideText);
+        addLog(' Guide added', 'success');
 
+        addLog('Adding VPKMerge.exe...', 'info');
         try {
             const exeResponse = await fetch('assets/files/VPKMerge.exe');
             if (exeResponse.ok) {
                 const exeBlob = await exeResponse.blob();
                 modsFolder.file('VPKMerge.exe', exeBlob);
+                addLog(' VPKMerge.exe added', 'success');
             } else {
-                console.warn('VPKMerge.exe not found');
+                addLog('⚠ VPKMerge.exe not found', 'warning');
             }
         } catch (error) {
-            console.warn('Could not add VPKMerge.exe:', error);
+            addLog('⚠ Could not add VPKMerge.exe', 'warning');
         }
+
+        addLog('Compressing files...', 'info');
+        statusText.textContent = 'Compressing...';
 
         const now = new Date();
         const timestamp = `${now.getHours()}.${now.getMinutes()}-${now.getDate()}.${now.getMonth() + 1}`;
-
 
         const content = await mainZip.generateAsync({
             type: 'blob',
             compression: 'DEFLATE',
             compressionOptions: { level: 6 }
+        }, (metadata) => {
+            const percent = metadata.percent.toFixed(0);
+            statusText.textContent = `Compressing... ${percent}%`;
         });
+
+        addLog(' Archive compressed', 'success');
+        addLog('Starting download...', 'info');
+        statusText.textContent = 'Download starting...';
 
         const url = URL.createObjectURL(content);
         const link = document.createElement('a');
@@ -419,257 +532,33 @@ RU
         link.click();
         URL.revokeObjectURL(url);
 
-        showToast('Pack downloaded successfully!');
+        addLog(' Pack downloaded successfully!', 'success');
+        statusText.textContent = '';
+
+        logHeader.innerHTML = `
+            <span class="material-symbols-rounded success">check_circle</span>
+            <h3>Completed!</h3>
+        `;
+
+        packSuccess = true;
 
     } catch (error) {
         console.error('Pack error:', error);
-        showToast('Error creating pack. Please try again.');
+        addLog(`✗ Error: ${error.message}`, 'error');
+        statusText.textContent = 'Failed!';
+
+        logHeader.innerHTML = `
+            <span class="material-symbols-rounded error">error</span>
+            <h3>Failed!</h3>
+        `;
+
+        packSuccess = false;
     } finally {
         packBtn.disabled = false;
         packBtn.innerHTML = originalContent;
+
     }
 }
-
-// logged out the advanced packing function for now
-// async function packAndDownload() {
-//     if (cart.length === 0) return;
-
-//     const packBtn = document.getElementById('packBtn');
-//     const originalContent = packBtn.innerHTML;
-
-//     packBtn.disabled = true;
-//     packBtn.innerHTML = `
-//         <div class="spinner small"></div>
-//         Packing...
-//     `;
-
-//     // Create progress modal
-//     const progressOverlay = document.createElement('div');
-//     progressOverlay.className = 'pack-progress-overlay';
-//     progressOverlay.innerHTML = `
-//         <div class="pack-progress-modal">
-//             <div class="pack-progress-header">
-//                 <div class="spinner"></div>
-//                 <h3>Packing Mods...</h3>
-//             </div>
-//             <div class="pack-progress-log" id="packProgressLog"></div>
-//             <div class="pack-progress-footer">
-//                 <span id="packProgressStatus">Initializing...</span>
-//                 <button class="pack-close-btn" id="packCloseBtn">Close</button>
-//             </div>
-//         </div>
-//     `;
-//     document.body.appendChild(progressOverlay);
-    
-//     const logContainer = document.getElementById('packProgressLog');
-//     const statusText = document.getElementById('packProgressStatus');
-//     const closeBtn = document.getElementById('packCloseBtn');
-
-//     function addLog(message, type = 'info') {
-//         const entry = document.createElement('div');
-//         entry.className = `pack-log-entry ${type}`;
-        
-//         const icons = {
-//             success: 'check_circle',
-//             error: 'error',
-//             warning: 'warning',
-//             info: 'info'
-//         };
-        
-//         entry.innerHTML = `
-//             <span class="material-symbols-rounded">${icons[type]}</span>
-//             <span>${message}</span>
-//         `;
-        
-//         logContainer.appendChild(entry);
-//         logContainer.scrollTop = logContainer.scrollHeight;
-//     }
-
-//     requestAnimationFrame(() => progressOverlay.classList.add('active'));
-
-//     try {
-//         addLog('Starting pack creation...', 'info');
-        
-//         if (typeof JSZip === 'undefined') {
-//             addLog('Loading JSZip library...', 'info');
-//             const script = document.createElement('script');
-//             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
-//             document.head.appendChild(script);
-
-//             await new Promise((resolve, reject) => {
-//                 script.onload = resolve;
-//                 script.onerror = reject;
-//             });
-//             addLog('JSZip loaded successfully', 'success');
-//         }
-
-//         addLog(`Creating archive for ${cart.length} mods...`, 'info');
-//         statusText.textContent = 'Creating archive...';
-        
-//         const mainZip = new JSZip();
-//         const modsFolder = mainZip.folder('mods');
-//         const existingFileNames = new Set();
-
-//         let processedCount = 0;
-
-//         for (const item of cart) {
-//             const filePath = `assets/files/${item.categoryId}/${item.file}`;
-//             addLog(`Processing: ${item.name}`, 'info');
-//             statusText.textContent = `Processing ${processedCount + 1}/${cart.length}...`;
-
-//             try {
-//                 const response = await fetch(filePath);
-//                 if (!response.ok) throw new Error(`Failed to fetch ${item.file}`);
-
-//                 const blob = await response.blob();
-
-//                 if (isZipFile(item.file)) {
-//                     addLog(`Extracting ZIP: ${item.name}`, 'info');
-//                     const zipContent = await JSZip.loadAsync(blob);
-
-//                     for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
-//                         if (!zipEntry.dir) {
-//                             const fileBlob = await zipEntry.async('blob');
-//                             const fileName = relativePath.split('/').pop();
-//                             const uniqueName = getUniqueFileName(fileName, existingFileNames);
-//                             modsFolder.file(uniqueName, fileBlob);
-//                         }
-//                     }
-//                     addLog(`✓ Extracted ${item.name}`, 'success');
-//                 } else {
-//                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
-//                     modsFolder.file(uniqueName, blob);
-//                     addLog(`✓ Added ${item.name}`, 'success');
-//                 }
-                
-//                 processedCount++;
-//             } catch (error) {
-//                 console.error(`Error processing ${item.name}:`, error);
-//                 addLog(`⚠ Failed to add ${item.name}`, 'warning');
-//             }
-//         }
-
-//         addLog('Creating mods list...', 'info');
-//         let modsListText = 'Mods in this pack:\n';
-//         modsListText += '='.repeat(50) + '\n\n';
-
-//         const modsByCategory = {};
-//         cart.forEach(item => {
-//             const category = categories.find(cat => cat.id === item.categoryId);
-//             const categoryName = category ? translations[category.key] : item.categoryId;
-
-//             if (!modsByCategory[categoryName]) {
-//                 modsByCategory[categoryName] = [];
-//             }
-//             modsByCategory[categoryName].push(item.name);
-//         });
-
-//         for (const [categoryName, mods] of Object.entries(modsByCategory)) {
-//             modsListText += `${categoryName}:\n`;
-//             mods.forEach(modName => {
-//                 modsListText += `  • ${modName}\n`;
-//             });
-//             modsListText += '\n';
-//         }
-
-//         modsListText += '='.repeat(50) + '\n';
-//         modsListText += `Total mods: ${cart.length}\n`;
-//         modsListText += `Generated: ${new Date().toLocaleString()}\n`;
-
-//         mainZip.file('Mods_List.txt', modsListText);
-//         addLog('✓ Mods list created', 'success');
-
-//         addLog('Adding installation guide...', 'info');
-//         const guideText = `Dota2PornFX Guide
-// =================
-
-// EN
-// 1. Open mods folder
-
-// 2. Launch VPKMerge.exe and wait for the end
-
-// 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-
-// 4. Put the finished pak10_dir.vpk in the folder dota_123
-
-// 5. Add to launch options: -language 123
-
-
-// RU
-// 1. Откройте папку mods
-
-// 2. Запустите VPKMerge.exe и дождитесь окончания
-
-// 3. Переместите готовый pak10_dir.vpk в папку с языком игры
-//    - Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
-//    - Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
-
-// 4. Добавьте в параметры запуска игры:
-//    - Для русского: -language russian
-//    - Для английского: -language 123`;
-
-//         mainZip.file('Guide.txt', guideText);
-//         addLog('✓ Guide added', 'success');
-
-//         addLog('Adding VPKMerge.exe...', 'info');
-//         try {
-//             const exeResponse = await fetch('assets/files/VPKMerge.exe');
-//             if (exeResponse.ok) {
-//                 const exeBlob = await exeResponse.blob();
-//                 modsFolder.file('VPKMerge.exe', exeBlob);
-//                 addLog('✓ VPKMerge.exe added', 'success');
-//             } else {
-//                 addLog('⚠ VPKMerge.exe not found', 'warning');
-//             }
-//         } catch (error) {
-//             addLog('⚠ Could not add VPKMerge.exe', 'warning');
-//         }
-
-//         addLog('Compressing files...', 'info');
-//         statusText.textContent = 'Compressing...';
-        
-//         const now = new Date();
-//         const timestamp = `${now.getHours()}.${now.getMinutes()}-${now.getDate()}.${now.getMonth() + 1}`;
-
-//         const content = await mainZip.generateAsync({
-//             type: 'blob',
-//             compression: 'DEFLATE',
-//             compressionOptions: { level: 6 }
-//         }, (metadata) => {
-//             const percent = metadata.percent.toFixed(0);
-//             statusText.textContent = `Compressing... ${percent}%`;
-//         });
-
-//         addLog('✓ Archive compressed', 'success');
-//         addLog('Starting download...', 'info');
-//         statusText.textContent = 'Download starting...';
-
-//         const url = URL.createObjectURL(content);
-//         const link = document.createElement('a');
-//         link.href = url;
-//         link.download = `d2pfxPack-${timestamp}.zip`;
-//         link.click();
-//         URL.revokeObjectURL(url);
-
-//         addLog('✓ Pack downloaded successfully!', 'success');
-//         statusText.textContent = 'Completed!';
-//         closeBtn.classList.add('visible');
-
-//     } catch (error) {
-//         console.error('Pack error:', error);
-//         addLog(`✗ Error: ${error.message}`, 'error');
-//         statusText.textContent = 'Failed!';
-//         closeBtn.classList.add('visible');
-//     } finally {
-//         packBtn.disabled = false;
-//         packBtn.innerHTML = originalContent;
-        
-//         closeBtn.addEventListener('click', () => {
-//             progressOverlay.classList.remove('active');
-//             setTimeout(() => progressOverlay.remove(), 300);
-//         });
-//     }
-// }
 
 function showReplaceModal(existingItem, newItem) {
     document.querySelector('.replace-modal-overlay')?.remove();

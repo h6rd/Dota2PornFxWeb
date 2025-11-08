@@ -68,9 +68,9 @@
           <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
         </button>
         <button class="cart-button" id="cartButton" aria-label="Cart">
-        <span class="material-symbols-rounded">shopping_bag</span>
-        <span class="cart-badge" id="cartBadge">0</span>
-      </button>
+          <span class="material-symbols-rounded">shopping_bag</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
       </div>
     </div>
   </header>
@@ -278,27 +278,40 @@
     <button class="info-modal-close" id="closeCartModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
+    <div class="cart-main-content">
 
-    <div class="info-modal-content">
-      <h2 class="info-modal-title">Cart</h2>
+      <div class="info-modal-content">
+        <h2 class="info-modal-title">Cart</h2>
 
-      <div id="cartEmpty" class="cart-empty">
-        <span class="material-symbols-rounded">shopping_bag</span>
-        <p>Your cart is empty</p>
-        <p>Click on the «<span id="tg">+</span>» in the upper right corner of mod</p>
+        <div id="cartEmpty" class="cart-empty">
+          <span class="material-symbols-rounded">shopping_bag</span>
+          <p>Your cart is empty</p>
+          <p>Click on the «<span id="tg">+</span>» in the upper right corner of mod</p>
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div id="cartActions" class="cart-actions hidden">
+          <button class="cart-clear-btn" id="clearCartBtn">
+            <span class="material-symbols-rounded">delete</span>
+            Clear Cart
+          </button>
+          <button class="cart-pack-btn" id="packBtn">
+            <span class="material-symbols-rounded">archive</span>
+            Pack & Download
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div id="cartItems" class="cart-items"></div>
-
-      <div id="cartActions" class="cart-actions hidden">
-        <button class="cart-clear-btn" id="clearCartBtn">
-          <span class="material-symbols-rounded">delete</span>
-          Clear Cart
-        </button>
-        <button class="cart-pack-btn" id="packBtn">
-          <span class="material-symbols-rounded">archive</span>
-          Pack & Download
-        </button>
+    <div class="pack-log-panel" id="packLogPanel">
+      <div class="pack-log-header">
+        <div class="spinner"></div>
+        <h3>Packing Progress</h3>
+      </div>
+      <div class="pack-log-container" id="packLog"></div>
+      <div class="pack-log-footer">
+        <span id="packStatus">Ready</span>
       </div>
     </div>
   </div>
