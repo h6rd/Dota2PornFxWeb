@@ -233,17 +233,28 @@ const modsData = {
         { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.webp', file: 'pak80_dir.vpk' },
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }
     ],
+    'high-five': [
+        { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
+        { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' }
+    ],
     'other': [
+        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
+        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
+        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
+        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
+    ],
+    'backgrounds': [
+        { name: 'Ulquiorra', preview: 'Ulquiorra.webp', file: 'pak10_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Brewmaster', preview: 'Brewmaster.webp', file: 'pak11_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Moonflower Field', preview: 'Moonflower Field.mp4', file: 'pak12_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Forgotten Sword', preview: 'Forgotten Sword.mp4', file: 'pak13_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Depressed SpongeBob', preview: 'Depressed SpongeBob.mp4', file: 'pak14_dir.vpk', tags: { image: false, video: true } },
+    ],
+    'tools': [
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
-        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
-        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
-        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
-        { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
-        { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' },
-        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
-        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' }
+        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' }
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },

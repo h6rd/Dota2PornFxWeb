@@ -29,8 +29,8 @@ function saveCart() {
 }
 
 function addToCart(mod, categoryId) {
-    const FORBIDDEN_CATEGORIES = ['guides', 'optimization', 'packs'];
-    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'creep-deny', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'creeps', 'ancient', 'tormentor', 'towers', 'ranged-attack', 'mega-kill', 'pedestal'];
+    const FORBIDDEN_CATEGORIES = ['guides', 'optimization', 'packs', 'tools'];
+    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'creep-deny', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'creeps', 'ancient', 'tormentor', 'towers', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds'];
 
     if (FORBIDDEN_CATEGORIES.includes(categoryId)) {
         showToast('Cannot add mods from this category.');

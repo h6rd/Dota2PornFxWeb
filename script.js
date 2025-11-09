@@ -56,7 +56,11 @@ const translations = {
     'optimization-desc': 'Dota2 optimization stuff',
     'sites': 'Websites',
     'sites-desc': 'Useful websites',
+    'tools': 'Tools',
+    'tools-desc': 'Various tools',
     'addToCart': 'Add to cart',
+    'backgrounds': 'Backgrounds',
+    'backgrounds-desc': 'Custom backgrounds'
 };
 
 const categories = [
@@ -78,9 +82,12 @@ const categories = [
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
+    { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
+    { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
+    { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
-    { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' }
+    { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
@@ -101,10 +108,10 @@ const recentlyAddedMods = [
 ];
 
 const addToCartRules = {
-    hiddenCategories: ['guides', 'optimization', 'packs'],
+    hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
         terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify'],
-        other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon']
+        other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon'],
     }
 };
 
@@ -1286,6 +1293,13 @@ function createModCard(mod, categoryId) {
             map: {
                 effects: 'Effects',
                 icons: 'Icons'
+            }
+        },
+        backgrounds: {
+            allowForGuides: false,
+            map: {
+                image: 'Image',
+                video: 'Video'
             }
         },
         sites: {
