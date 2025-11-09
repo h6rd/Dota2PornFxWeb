@@ -1,6 +1,17 @@
 let cart = [];
 const MAX_CART_ITEMS = 50;
 
+function escapeHtml(unsafe) {
+    if (unsafe === null || unsafe === undefined) return '';
+    return unsafe
+        .toString()
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 function loadCart() {
     const saved = localStorage.getItem('modCart');
     if (saved) {
@@ -56,7 +67,7 @@ function addToCart(mod, categoryId) {
     cart.push(cartItem);
     saveCart();
     updateCartBadge();
-    showToast(`Added <span style="color: var(--md-sys-color-shit)">${mod.name}</span>`);
+    showToast(`Added <span style="color: var(--md-sys-color-shit)">${escapeHtml(mod.name)}</span>`);
 
     const allButtons = document.querySelectorAll('.add-to-cart-btn');
     allButtons.forEach(btn => {
@@ -85,7 +96,7 @@ function removeFromCart(itemId) {
     renderCartItems();
 
     if (itemName) {
-        showToast(`Removed <span style="color: var(--md-sys-color-primary)">${itemName}</span>`);
+        showToast(`Removed <span style="color: var(--md-sys-color-primary)">${escapeHtml(itemName)}</span>`);
     } else {
         showToast('Removed from cart');
     }
@@ -275,10 +286,10 @@ function renderCartItems() {
 
         cartItem.innerHTML = `
             <div class="cart-item-info">
-                <h3 class="cart-item-name">${item.name}</h3>
-                <p class="cart-item-category">${categoryName}</p>
+                <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
+                <p class="cart-item-category">${escapeHtml(categoryName)}</p>
             </div>
-            <button class="cart-item-remove" data-id="${item.id}">
+            <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
                 <span class="material-symbols-rounded">close</span>
             </button>
         `;
@@ -359,7 +370,7 @@ async function packAndDownload() {
 
         entry.innerHTML = `
             <span class="material-symbols-rounded">${icons[type]}</span>
-            <span>${message}</span>
+            <span>${escapeHtml(message)}</span>
         `;
 
         logContainer.appendChild(entry);
@@ -416,11 +427,11 @@ async function packAndDownload() {
                             modsFolder.file(uniqueName, fileBlob);
                         }
                     }
-                    addLog(` Extracted ${item.name}`, 'success');
+                    addLog(`Extracted ${item.name}`, 'success');
                 } else {
                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
                     modsFolder.file(uniqueName, blob);
-                    addLog(` Added ${item.name}`, 'success');
+                    addLog(`Added ${item.name}`, 'success');
                 }
 
                 processedCount++;
@@ -458,7 +469,7 @@ async function packAndDownload() {
         modsListText += `Generated: ${new Date().toLocaleString()}\n`;
 
         mainZip.file('Mods_List.txt', modsListText);
-        addLog(' Mods list created', 'success');
+        addLog('Mods list created', 'success');
 
         addLog('Adding installation guide...', 'info');
         const guideText = `Dota2PornFX Guide
@@ -490,7 +501,7 @@ RU
    - Для английского: -language 123`;
 
         mainZip.file('Guide.txt', guideText);
-        addLog(' Guide added', 'success');
+        addLog('Guide added', 'success');
 
         addLog('Adding VPKMerge.exe...', 'info');
         try {
@@ -498,7 +509,7 @@ RU
             if (exeResponse.ok) {
                 const exeBlob = await exeResponse.blob();
                 modsFolder.file('VPKMerge.exe', exeBlob);
-                addLog(' VPKMerge.exe added', 'success');
+                addLog('VPKMerge.exe added', 'success');
             } else {
                 addLog('⚠ VPKMerge.exe not found', 'warning');
             }
@@ -521,7 +532,7 @@ RU
             statusText.textContent = `Compressing... ${percent}%`;
         });
 
-        addLog(' Archive compressed', 'success');
+        addLog('Archive compressed', 'success');
         addLog('Starting download...', 'info');
         statusText.textContent = 'Download starting...';
 
@@ -532,7 +543,7 @@ RU
         link.click();
         URL.revokeObjectURL(url);
 
-        addLog(' Pack downloaded successfully!', 'success');
+        addLog('Pack downloaded successfully!', 'success');
         statusText.textContent = '';
 
         logHeader.innerHTML = `
@@ -556,7 +567,6 @@ RU
     } finally {
         packBtn.disabled = false;
         packBtn.innerHTML = originalContent;
-
     }
 }
 
@@ -573,7 +583,7 @@ function showReplaceModal(existingItem, newItem) {
             </div>
             <div class="replace-modal-body">
                 <p>You already have a mod from this category.</p>
-                <p>Replace <b>${existingItem.name}</b> with <b>${newItem.name}</b>?</p>
+                <p>Replace <b>${escapeHtml(existingItem.name)}</b> with <b>${escapeHtml(newItem.name)}</b>?</p>
             </div>
             <div class="replace-modal-actions">
                 <button id="replaceConfirm" class="cart-pack-btn">
@@ -601,6 +611,7 @@ function showReplaceModal(existingItem, newItem) {
         cart.push(newItem);
         saveCart();
         updateCartBadge();
+        renderCartItems();
         updateCartButtons();
         showToast('Replaced successfully');
         closeModal();
