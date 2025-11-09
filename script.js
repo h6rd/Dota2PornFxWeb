@@ -92,17 +92,15 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'Ulquiorra', category: 'backgrounds' },
+    { name: 'Moonflower Field', category: 'backgrounds' },
     { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
     { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
     { name: 'Sakura Pink Invoker', category: 'heroes' },
     { name: 'Minimap Icons', category: 'guides' },
     { name: 'Darkness Pack', category: 'ti-bp-effects' },
-    { name: 'Darkness Blink Dagger', category: 'item-effects' },
-    { name: 'Darkness Radiance', category: 'item-effects' },
-    { name: 'Darkness Shivas', category: 'item-effects' },
     { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
     { name: 'Sherman Crystal Maiden', category: 'heroes' },
-    { name: 'Cosmic Zeus', category: 'heroes' },
     { name: 'Low Poly Trees', category: 'trees' },
     { name: 'Mossy Cobblestone', category: 'terrains' }
 ];
