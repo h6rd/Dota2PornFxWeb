@@ -60,7 +60,9 @@ const translations = {
     'tools-desc': 'Various tools',
     'addToCart': 'Add to cart',
     'backgrounds': 'Backgrounds',
-    'backgrounds-desc': 'Custom backgrounds'
+    'backgrounds-desc': 'Custom backgrounds',
+    'river': 'River',
+    'river-desc': 'Custom river colors'
 };
 
 const categories = [
@@ -83,6 +85,7 @@ const categories = [
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
+    { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
@@ -92,6 +95,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'Black River', category: 'river' },
     { name: 'Ulquiorra', category: 'backgrounds' },
     { name: 'Moonflower Field', category: 'backgrounds' },
     { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },

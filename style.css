@@ -2711,7 +2711,7 @@ fcode {
   opacity: 1 !important;
   background-color: var(--md-sys-color-secondary);
   pointer-events: none;
-  animation: enable-hover 5s cubic-bezier(0.2, 0, 0, 1) forwards;
+  animation: enable-hover 3s cubic-bezier(0.2, 0, 0, 1) forwards;
   transition: opacity 0.4s cubic-bezier(0.2, 0, 0, 1),
     background-color 0.4s cubic-bezier(0.2, 0, 0, 1),
     box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
