@@ -365,7 +365,12 @@ async function packAndDownload() {
             success: 'check_circle',
             error: 'error',
             warning: 'warning',
-            info: 'info'
+            info: 'info',
+            extract: 'unarchive',
+            archive: 'folder_zip',
+            loading: 'cached',
+            start: 'rocket_launch',
+            download: 'download'
         };
 
         entry.innerHTML = `
@@ -380,10 +385,10 @@ async function packAndDownload() {
     let packSuccess = false;
 
     try {
-        addLog('Starting pack creation...', 'info');
+        addLog('Starting pack creation...', 'start');
 
         if (typeof JSZip === 'undefined') {
-            addLog('Loading JSZip library...', 'info');
+            addLog('Loading JSZip library...', 'loading');
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
             document.head.appendChild(script);
@@ -395,7 +400,7 @@ async function packAndDownload() {
             addLog('JSZip loaded successfully', 'success');
         }
 
-        addLog(`Creating archive for ${cart.length} mods...`, 'info');
+        addLog(`Creating archive for ${cart.length} mods...`, 'archive');
         statusText.textContent = 'Creating archive...';
 
         const mainZip = new JSZip();
@@ -416,7 +421,7 @@ async function packAndDownload() {
                 const blob = await response.blob();
 
                 if (isZipFile(item.file)) {
-                    addLog(`Extracting ZIP: ${item.name}`, 'info');
+                    addLog(`Extracting ZIP: ${item.name}`, 'extract');
                     const zipContent = await JSZip.loadAsync(blob);
 
                     for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
@@ -437,7 +442,7 @@ async function packAndDownload() {
                 processedCount++;
             } catch (error) {
                 console.error(`Error processing ${item.name}:`, error);
-                addLog(`⚠ Failed to add ${item.name}`, 'warning');
+                addLog(`Failed to add ${item.name}`, 'warning');
             }
         }
 
@@ -511,13 +516,13 @@ RU
                 modsFolder.file('VPKMerge.exe', exeBlob);
                 addLog('VPKMerge.exe added', 'success');
             } else {
-                addLog('⚠ VPKMerge.exe not found', 'warning');
+                addLog('VPKMerge.exe not found', 'warning');
             }
         } catch (error) {
-            addLog('⚠ Could not add VPKMerge.exe', 'warning');
+            addLog('Could not add VPKMerge.exe', 'warning');
         }
 
-        addLog('Compressing files...', 'info');
+        addLog('Compressing files...', 'archive');
         statusText.textContent = 'Compressing...';
 
         const now = new Date();
@@ -543,7 +548,7 @@ RU
         link.click();
         URL.revokeObjectURL(url);
 
-        addLog('Pack downloaded successfully!', 'success');
+        addLog('Pack downloaded successfully!', 'download');
         statusText.textContent = '';
 
         logHeader.innerHTML = `
