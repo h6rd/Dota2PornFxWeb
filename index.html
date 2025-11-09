@@ -5,41 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="Discover and download mods for Dota 2. Browse mods, and customize your gaming experience.">
+  <meta name="keywords" content="Dota 2, mods, customization">
+  <meta name="author" content="hrdq">
+  <meta property="og:title" content="Dota 2 Mods">
+  <meta property="og:description" content="Discover and download mods for Dota 2">
+  <meta property="og:image" content="https://d2pfx.vercel.app/assets/banner.png">
+  <meta property="og:image:alt" content="Dota 2 Mods Collection">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://d2pfx.vercel.app/">
+  <meta property="og:type" content="website">
   <title>Dota 2 Mods</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/transformations.min.css' rel='stylesheet'>
   <script defer src="https://va.vercel-scripts.com/v1/script.js" data-sdkn="@vercel/analytics"></script>
-  <script>
-    (function () {
-      try {
-        const savedGifIndex = localStorage.getItem('gifIndex');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        const hasClicked = localStorage.getItem('gifClicked') === 'true';
-
-        const themes = ['ursa', 'brew', 'fura', 'storm', 'invoker'];
-        const defaultTheme = 'ursa';
-
-        document.documentElement.setAttribute('data-theme', savedTheme);
-
-        if (savedGifIndex !== null) {
-          const index = parseInt(savedGifIndex);
-          if (index >= 0 && index < themes.length) {
-            document.documentElement.setAttribute('data-gif-theme', themes[index]);
-          } else {
-            document.documentElement.setAttribute('data-gif-theme', defaultTheme);
-          }
-        } else {
-          document.documentElement.setAttribute('data-gif-theme', defaultTheme);
-        }
-      } catch (e) {
-      }
-    })();
-  </script>
+  <script src="assets/theme.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
