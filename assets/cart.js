@@ -409,6 +409,8 @@ async function packAndDownload() {
 
         let processedCount = 0;
 
+        const modFileNames = {};
+
         for (const item of cart) {
             const filePath = `assets/files/${item.categoryId}/${item.file}`;
             addLog(`Processing: ${item.name}`, 'info');
@@ -423,6 +425,7 @@ async function packAndDownload() {
                 if (isZipFile(item.file)) {
                     addLog(`Extracting ZIP: ${item.name}`, 'extract');
                     const zipContent = await JSZip.loadAsync(blob);
+                    const extractedFiles = [];
 
                     for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
                         if (!zipEntry.dir) {
@@ -430,12 +433,15 @@ async function packAndDownload() {
                             const fileName = relativePath.split('/').pop();
                             const uniqueName = getUniqueFileName(fileName, existingFileNames);
                             modsFolder.file(uniqueName, fileBlob);
+                            extractedFiles.push(uniqueName);
                         }
                     }
+                    modFileNames[item.name] = extractedFiles.join(', ');
                     addLog(`Extracted ${item.name}`, 'success');
                 } else {
                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
                     modsFolder.file(uniqueName, blob);
+                    modFileNames[item.name] = uniqueName;
                     addLog(`Added ${item.name}`, 'success');
                 }
 
@@ -464,7 +470,8 @@ async function packAndDownload() {
         for (const [categoryName, mods] of Object.entries(modsByCategory)) {
             modsListText += `${categoryName}:\n`;
             mods.forEach(modName => {
-                modsListText += `  • ${modName}\n`;
+                const fileName = modFileNames[modName] || '';
+                modsListText += `  • ${modName} ➜ (${fileName})\n`;
             });
             modsListText += '\n';
         }
