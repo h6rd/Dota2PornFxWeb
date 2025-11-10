@@ -471,7 +471,7 @@ async function packAndDownload() {
             modsListText += `${categoryName}:\n`;
             mods.forEach(modName => {
                 const fileName = modFileNames[modName] || '';
-                modsListText += `  • ${modName} ➜ (${fileName})\n`;
+                modsListText += `  • ${modName} ➜ ${fileName}\n`;
             });
             modsListText += '\n';
         }
