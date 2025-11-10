@@ -484,40 +484,52 @@ async function packAndDownload() {
         addLog('Mods list created', 'success');
 
         addLog('Adding installation guide...', 'info');
-        const guideText = `Dota2PornFX Guide
-=================
+        const guideText = `Dota2PornFX Installation Guide
+===============================
 
-EN
-1. Open mods folder
-
-2. Launch VPKMerge.exe and wait for the end
-
+EN WINDOWS 
+-----------
+1. Open the mods folder
+2. Run VPKMerge.exe and wait until it finishes
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-
 4. Put the finished pak10_dir.vpk in the folder dota_123
-
 5. Add to launch options: -language 123
 
-
-RU
+RU WINDOWS
+-----------
 1. Откройте папку mods
-
 2. Запустите VPKMerge.exe и дождитесь окончания
-
-3. Переместите готовый pak10_dir.vpk в папку с языком игры
-   - Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
-   - Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
+3. Переместите готовый pak10_dir.vpk в папку с языком игры:
+   • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
+   • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
 
 4. Добавьте в параметры запуска игры:
-   - Для русского: -language russian
-   - Для английского: -language 123`;
+   • Для русского: -language russian
+   • Для английского: -language 123
+
+
+EN LINUX
+---------
+1. Open the mods folder in terminal
+2. Make VPKMerge executable: chmod +x VPKMerge
+3. Run VPKMerge: ./VPKMerge
+4. Move the generated pak10_dir.vpk to your game language folder: dota_123
+5. Add to Dota 2 launch options: -language 123
+
+RU LINUX
+---------
+1. Откройте папку mods в терминале
+2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
+3. Запустите VPKMerge: ./VPKMerge
+4. Переместите готовый pak10_dir.vpk в папку с языком игры: dota_russian или dota_123
+5. Добавьте в параметры запуска: -language russian или -language 123`;
 
         mainZip.file('Guide.txt', guideText);
         addLog('Guide added', 'success');
 
-        addLog('Adding VPKMerge.exe...', 'info');
+        addLog('Adding VPKMerge files...', 'info');
         try {
-            const exeResponse = await fetch('assets/files/VPKMerge.exe');
+            const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
             if (exeResponse.ok) {
                 const exeBlob = await exeResponse.blob();
                 modsFolder.file('VPKMerge.exe', exeBlob);
@@ -525,8 +537,17 @@ RU
             } else {
                 addLog('VPKMerge.exe not found', 'warning');
             }
+
+            const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
+            if (linuxResponse.ok) {
+                const linuxBlob = await linuxResponse.blob();
+                modsFolder.file('VPKMerge', linuxBlob);
+                addLog('VPKMerge Linux added', 'success');
+            } else {
+                addLog('VPKMerge Linux not found', 'warning');
+            }
         } catch (error) {
-            addLog('Could not add VPKMerge.exe', 'warning');
+            addLog('Could not add VPKMerge files', 'warning');
         }
 
         addLog('Compressing files...', 'archive');
