@@ -73,6 +73,35 @@ const guidesData = {
       ]
     }
   },
+  'vpk-merge-linux': {
+    title: 'VPKMerge Linux Guide',
+    content: {
+      en: [
+        {
+          steps: [
+            'Unpack the archive',
+            'Place the vpk files in the folder next to VPKMerge',
+            'Make VPKMerge executable: <code>chmod +x VPKMerge</code>',
+            'Run VPKMerge: <code>./VPKMerge</code>',
+          ],
+          result: 'It will combine all VPKs into pak10_dir.vpk',
+          warning: "Doesn't work with packs from dota2changer - can't merge items_game.txt files!",
+        },
+      ],
+      ru: [
+        {
+          steps: [
+            'Распакуйте архив',
+            'Поместите vpk файлы в папку рядом с VPKMerge',
+            'Сделайте VPKMerge исполняемым: <code>chmod +x VPKMerge</code>',
+            'Запустите VPKMerge: <code>./VPKMerge</code>',
+          ],
+          result: 'Он объединит все vpk в pak10_dir.vpk',
+          warning: "Не работает с паками Dota2Changer - не может объединить файлы items_game.txt!",
+        },
+      ]
+    }
+  },
   'weather': {
     title: 'Weather Changer Guide',
     content: {
