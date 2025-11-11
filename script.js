@@ -719,6 +719,7 @@ gifElement.addEventListener('click', () => {
     }
 
     gifElement.classList.add('clicked');
+    gifElement.classList.add('no-hover');
 
     setTimeout(() => {
         gifElement.classList.remove('clicked');
@@ -734,6 +735,11 @@ gifElement.addEventListener('click', () => {
 
         setTimeout(() => {
             gifElement.classList.remove('appear');
+
+            setTimeout(() => {
+                gifElement.classList.remove('no-hover');
+            }, 400);
+
         }, 400);
 
     }, 400);
