@@ -107,7 +107,7 @@ const guidesData = {
     content: {
       en: [
         {
-          info: "Updates are released rarely",
+          info: "Update guide in archive",
           infoPosition: 'bottom',
           steps: [
             'Unpack the archive',
@@ -118,7 +118,7 @@ const guidesData = {
       ],
       ru: [
         {
-          info: 'Обновления выходят редко',
+          info: 'Гайд по обновлению в архиве',
           infoPosition: 'bottom',
           steps: [
             'Распакуйте архив',
