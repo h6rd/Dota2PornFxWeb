@@ -278,7 +278,7 @@ const modsData = {
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
-        { name: 'Weather Changer [25.09]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
+        { name: 'Weather Changer [11.11]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
     ],
     'optimization': [

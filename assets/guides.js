@@ -179,7 +179,8 @@ const guidesData = {
             { icon: 'person', text: '<a href="https://github.com/robbyz512" target="_blank"><span id="tg">Robbyz512</span></a> <fcode>Minify Terrains</fcode>' },
             { icon: 'person', text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a>' },
             { icon: 'person', text: '<a href="https://vk.com/defiree2mods" target="_blank"><span id="tg">Defiree2Mods</span></a>' },
-            { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a>' }
+            { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a>' },
+            { icon: 'person', text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>' },
           ]
         },
         {
