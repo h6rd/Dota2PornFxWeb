@@ -270,8 +270,10 @@ const modsData = {
         { name: 'Moonflower Field', preview: 'Moonflower Field.mp4', file: 'pak12_dir.vpk', tags: { image: false, video: true } },
         { name: 'Forgotten Sword', preview: 'Forgotten Sword.mp4', file: 'pak13_dir.vpk', tags: { image: false, video: true } },
         { name: 'Depressed SpongeBob', preview: 'Depressed SpongeBob.mp4', file: 'pak14_dir.vpk', tags: { image: false, video: true } },
-        { name: 'Lonely Quay', preview: 'Lonely Quay.mp4', file: 'pak15_dir.vpk', tags: { image: false, video: true } },
-        { name: 'Code Geass', preview: 'Code Geass.mp4', file: 'pak16_dir.vpk', tags: { image: false, video: true } }
+        { name: 'Lonely Quay', preview: 'Lonely Quay.mp4', file: 'pak15_dir.vpk', tags: { image: false, video: true, lowres: true } },
+        { name: 'Code Geass', preview: 'Code Geass.mp4', file: 'pak16_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Winter Solitude', preview: 'Winter.mp4', file: 'pak17_dir.vpk', tags: { image: false, video: true, lowres: true } },
+        { name: 'Cloudy Tree', preview: 'Tree.mp4', file: 'pak18_dir.vpk', tags: { image: false, video: true, lowres: true } },
     ],
     'tools': [
         { name: 'Background Changer [01.10]', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },

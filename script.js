@@ -1308,7 +1308,8 @@ function createModCard(mod, categoryId) {
             allowForGuides: false,
             map: {
                 image: 'Image',
-                video: 'Video'
+                video: 'Video',
+                lowres: 'Shit Quality'
             }
         },
         sites: {
