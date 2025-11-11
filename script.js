@@ -95,9 +95,10 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'Cloudy Tree', category: 'backgrounds' },
+    { name: 'Winter Solitude', category: 'backgrounds' },
     { name: 'Arcanas Items Icons', category: 'other' },
     { name: 'Black River', category: 'river' },
-    { name: 'Ulquiorra', category: 'backgrounds' },
     { name: 'Moonflower Field', category: 'backgrounds' },
     { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
     { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
