@@ -95,6 +95,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'Arcanas Items', category: 'item-effects' },
     { name: 'Black River', category: 'river' },
     { name: 'Ulquiorra', category: 'backgrounds' },
     { name: 'Moonflower Field', category: 'backgrounds' },
