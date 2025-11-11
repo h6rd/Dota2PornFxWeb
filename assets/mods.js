@@ -39,7 +39,6 @@ const modsData = {
         { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
         { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
         { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
-        { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
         { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
         { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
         { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.mp4', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
@@ -51,8 +50,7 @@ const modsData = {
         { name: 'Darkness Mjollner', preview: 'Darkness Mjollner.mp4', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
         { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.mp4', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
         { name: 'Darkness Radiance', preview: 'Darkness Radiance.mp4', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
+        { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
     ],
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.webp', file: 'pak08_dir.vpk' },
@@ -241,7 +239,8 @@ const modsData = {
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
-        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
+        { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
+        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
     ],
     'river': [
         { name: 'Black River', preview: 'Black.webp', file: 'pak10_dir.vpk' },
@@ -295,6 +294,7 @@ const modsData = {
     ],
     'guides': [
         { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' },
-        { name: 'Install Mods', preview: '', guideId: 'install', type: 'guide' }
+        { name: 'Install Mods', preview: '', guideId: 'install', type: 'guide' },
+        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
     ]
 }

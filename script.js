@@ -71,22 +71,22 @@ const categories = [
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
     { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
     { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
-    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
+    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.webp' },
     { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.webp' },
     { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.webp' },
-    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.webp' },
-    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
     { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp' },
+    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
+    { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
+    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
+    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
     { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp' },
-    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
-    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
-    { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
+    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
@@ -95,7 +95,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
-    { name: 'Arcanas Items Icons', category: 'item-effects' },
+    { name: 'Arcanas Items Icons', category: 'other' },
     { name: 'Black River', category: 'river' },
     { name: 'Ulquiorra', category: 'backgrounds' },
     { name: 'Moonflower Field', category: 'backgrounds' },
@@ -114,7 +114,7 @@ const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
         terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify'],
-        other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon'],
+        other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon', 'Arcanas Items Icons', 'Beer Bottle'],
     }
 };
 
