@@ -46,6 +46,57 @@ const guidesData = {
       ]
     }
   },
+  'vpk-tool-linux': {
+    title: 'VPKTool Linux Guide',
+    content: {
+      en: [
+        {
+          icon: 'folder_zip',
+          title: 'Unpacking VPK',
+          steps: [
+            'Unpack the archive',
+            'Place .vpk files next to VPKTool',
+            'Make VPKTool executable: <code>chmod +x VPKTool</code>',
+            'Run VPKTool: <code>./VPKTool</code>'
+          ],
+          result: 'VPK files will be unpacked'
+        },
+        {
+          icon: 'inventory_2',
+          title: 'Building VPK',
+          steps: [
+            'Place folders/files next to VPKTool.exe',
+            'Make VPKTool executable: <code>chmod +x VPKTool</code>',
+            'Run VPKTool: <code>./VPKTool</code>'
+          ],
+          result: 'Folders/files will be packed into pak20_dir.vpk'
+        }
+      ],
+      ru: [
+        {
+          icon: 'folder_zip',
+          title: 'Распаковка VPK',
+          steps: [
+            'Распакуйте архив',
+            'Положите .vpk файлы рядом с VPKTool',
+            'Сделайте VPKTool исполняемым: <code>chmod +x VPKTool</code>',
+            'Запустите VPKTool: <code>./VPKTool</code>'
+          ],
+          result: 'VPK файлы будут распакованы'
+        },
+        {
+          icon: 'inventory_2',
+          title: 'Сборка в VPK',
+          steps: [
+            'Положите папки/файлы рядом с VPKTool',
+            'Сделайте VPKTool исполняемым: <code>chmod +x VPKTool</code>',
+            'Запустите VPKTool: <code>./VPKTool</code>'
+          ],
+          result: 'Папки/файлы будут упакованы в pak20_dir.vpk'
+        }
+      ]
+    }
+  },
   'vpk-merge': {
     title: 'VPKMerge Guide',
     content: {
@@ -333,6 +384,82 @@ const guidesData = {
             'Положите изображение (jpg, jpeg, png, bmp, gif) в папку <fcode>Convert</fcode>',
             'Запустите <fcode>Convert.exe</fcode> и дождитесь окончания',
             'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <fcode>Create VPK.exe</fcode>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ],
+        }
+      ]
+    }
+  },
+  'background-changer-linux': {
+    title: 'Background Changer Linux Guide',
+    content: {
+      en: [
+        {
+          icon: 'video_library',
+          title: 'Manual Method',
+          steps: [
+            'Find or make a video in webm format (1920x1080 & 5-10sec recommended)',
+            'You can use <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a> to create a video (e.g. crop to 16:9)',
+            'If it\'s heavy, you can compress it here: <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+            'Rename it to <code>zxc.webm</code> and drop it into <code>pak33_dir/zxc/</code>',
+            'Make Create executable: <code>chmod +x Create</code>',
+            'Run <fcode>./Create</fcode>',
+            'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+          ]
+        },
+        {
+          icon: 'auto_fix_high',
+          title: 'Using Convert Tool (Recommended)',
+          steps: [
+            'Put video in <fcode>Convert</fcode> folder (I advise you to use 1920x1080, extensions: mp4, avi, mkv, mov, wmv, flv. it won\'t work if you put zxc.webm there)',
+            'Make Convert executable: <code>chmod +x Convert</code>',
+            'Run <fcode>./Convert</fcode> and wait for the end (the longer the video, the longer it takes to process)',
+            'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <code>./Create</code>',
+            'Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder'
+          ],
+        },
+        {
+          icon: 'image',
+          title: 'If you need a picture',
+          steps: [
+            'Put the image (jpg, jpeg, png, bmp, gif) in the <fcode>Convert</fcode> folder',
+            'Make Convert executable: <code>chmod +x Convert</code> and wait for it to finish',
+            'It will move the created video to <fcode>pak33_dir/zxc/</fcode>, you only need to run <code>./Create</code>'
+          ],
+        }
+      ],
+      ru: [
+        {
+          icon: 'video_library',
+          title: 'Ручной метод',
+          steps: [
+            'Найдите или сделайте видос в формате webm (рекомендую 1920x1080, 5-10 сек)',
+            'Для создания видоса можете заюзать <a href="https://online-video-cutter.com" target="_blank"><span id="tg">online-video-cutter.com</span></a>',
+            'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
+            'Переименуйте в <code>zxc.webm</code> и положите в папку <code>pak33_dir/zxc/</code>',
+            'Сделайте Create исполняемым: <code>chmod +x Create</code>',
+            'Запустите Create: <code>./Create</code>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ]
+        },
+        {
+          icon: 'auto_fix_high',
+          title: 'Использование Convert (Рекомендуется)',
+          steps: [
+            'Положите видео в папку <fcode>Convert</fcode> (советую использовать 1920x1080, расширения: mp4, avi, mkv, mov, wmv, flv, webm. нихуя не сработает если туда положить zxc.webm)',
+            'Сделайте Convert исполняемым: <code>chmod +x Convert</code> и дождитесь окончания (чем длинее видос, тем дольше он обрабатывает его)',
+            'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <code>./Create</code>',
+            'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
+          ],
+        },
+        {
+          icon: 'image',
+          title: 'Если нужна фотка',
+          steps: [
+            'Положите изображение (jpg, jpeg, png, bmp, gif) в папку <fcode>Convert</fcode>',
+            'Сделайте Convert исполняемым: <code>chmod +x Convert</code>',
+            'Запустите <code>./Convert</code> и дождитесь окончания',
+            'Он переместит созданный видос в <fcode>pak33_dir/zxc/</fcode>, остается только запустить <code>./Create</code>',
             'Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>'
           ],
         }

@@ -280,7 +280,9 @@ const modsData = {
         { name: 'Weather Changer [11.11]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
+        { name: 'Background Changer Linux [01.10]', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
+        { name: 'VPKTool Linux', preview: 'VPKTool Linux.webp', file: 'VPKTool Linux.zip', guideId: "vpk-tool-linux" },
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
