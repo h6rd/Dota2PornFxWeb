@@ -1421,7 +1421,7 @@ function createModCard(mod, categoryId) {
             </div>
         </div>
         <div class="card-content">
-            <h3 class="card-title">${mod.name}</h3>
+            <h3 class="card-title">${mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
                 ${linkButtonsHtml}
