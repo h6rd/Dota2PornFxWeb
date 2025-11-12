@@ -95,6 +95,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'LowPoly Map', category: 'terrains' },
     { name: 'Cloudy Tree', category: 'backgrounds' },
     { name: 'Winter Solitude', category: 'backgrounds' },
     { name: 'Arcanas Items Icons', category: 'other' },
@@ -114,7 +115,7 @@ const recentlyAddedMods = [
 const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
-        terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify'],
+        terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify', 'LowPoly Map'],
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon', 'Arcanas Items Icons', 'Beer Bottle'],
     }
 };
