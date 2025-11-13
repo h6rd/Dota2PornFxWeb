@@ -86,7 +86,7 @@ const categories = [
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
-    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
+    // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
