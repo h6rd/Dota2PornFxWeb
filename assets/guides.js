@@ -231,6 +231,8 @@ const guidesData = {
             { icon: 'person', text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://vk.com/defiree2mods" target="_blank"><span id="tg">Defiree2Mods</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a> <fcode>Heroes</fcode>' },
+            { icon: 'person', text: '<a href="https://vk.com/amir4an" target="_blank"><span id="tg">Amir4an</span></a> <fcode>Heroes</fcode>' },
+            { icon: 'person', text: '<a href="https://www.youtube.com/@mrkliromin7723" target="_blank"><span id="tg">MrKliromin</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>' },
           ]
         },
@@ -282,6 +284,8 @@ const guidesData = {
             { icon: 'person', text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://vk.com/defiree2mods" target="_blank"><span id="tg">Defiree2Mods</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://vk.com/id363951132" target="_blank"><span id="tg">Kisilev_ind</span></a> <fcode>Heroes</fcode>' },
+            { icon: 'person', text: '<a href="https://vk.com/amir4an" target="_blank"><span id="tg">Amir4an</span></a> <fcode>Heroes</fcode>' },
+            { icon: 'person', text: '<a href="https://www.youtube.com/@mrkliromin7723" target="_blank"><span id="tg">MrKliromin</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>' },
           ]
         },

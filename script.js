@@ -86,15 +86,17 @@ const categories = [
     { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
-    // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
+    // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
 const recentlyAddedMods = [
+    { name: 'Maid Marci', category: 'heroes' },
+    { name: 'Razor Rainbow Statics', category: 'heroes' },
     { name: 'LowPoly Map', category: 'terrains' },
     { name: 'Cloudy Tree', category: 'backgrounds' },
     { name: 'Winter Solitude', category: 'backgrounds' },
