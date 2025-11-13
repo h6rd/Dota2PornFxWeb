@@ -1208,35 +1208,78 @@ function renderMods(categoryId) {
         sortToggle.style.display = 'flex';
     }
 
-    if (searchQuery) {
-        mods = mods.filter(mod =>
-            mod.name.toLowerCase().includes(searchQuery)
-        );
+    const isGroupedCategory = mods.groups && Array.isArray(mods.groups);
+
+    if (isGroupedCategory) {
+        renderGroupedMods(categoryId, mods.groups);
+    } else {
+        if (searchQuery) {
+            mods = mods.filter(mod =>
+                mod.name.toLowerCase().includes(searchQuery)
+            );
+        }
+
+        mods = sortMods(mods, sortMode);
+
+        if (mods.length === 0) {
+            const message = searchQuery
+                ? 'No results found'
+                : 'No mods available in this category yet.';
+
+            modsGrid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                    <p>${message}</p>
+                </div>
+            `;
+            return;
+        }
+
+        mods.forEach(mod => {
+            const card = createModCard(mod, categoryId);
+            modsGrid.appendChild(card);
+        });
     }
-
-    mods = sortMods(mods, sortMode);
-
-    if (mods.length === 0) {
-        const message = searchQuery
-            ? 'No results found'
-            : 'No mods available in this category yet.';
-
-        modsGrid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
-                <p>${message}</p>
-            </div>
-        `;
-        return;
-    }
-
-    mods.forEach(mod => {
-        const card = createModCard(mod, categoryId);
-        modsGrid.appendChild(card);
-    });
 
     if (typeof updateCartButtons === 'function') {
         updateCartButtons();
     }
+}
+
+function renderGroupedMods(categoryId, groups) {
+
+    groups.forEach(group => {
+        let filteredMods = group.mods;
+
+        if (searchQuery) {
+            filteredMods = filteredMods.filter(mod =>
+                mod.name.toLowerCase().includes(searchQuery) ||
+                group.name.toLowerCase().includes(searchQuery)
+            );
+        }
+
+        if (filteredMods.length === 0) return;
+
+        const groupHeader = document.createElement('div');
+        groupHeader.className = 'mod-group-header';
+        groupHeader.innerHTML = `
+            <h3 class="mod-group-title">${group.name}</h3>
+            <div class="mod-group-divider"></div>
+        `;
+        modsGrid.appendChild(groupHeader);
+
+        const groupContainer = document.createElement('div');
+        groupContainer.className = 'mod-group-container';
+        groupContainer.setAttribute('data-group-id', group.id);
+
+        const sortedMods = sortMods(filteredMods, sortMode);
+
+        sortedMods.forEach(mod => {
+            const card = createModCard(mod, categoryId, group.id);
+            groupContainer.appendChild(card);
+        });
+
+        modsGrid.appendChild(groupContainer);
+    });
 }
 
 function renderAllModsSearch() {
@@ -1290,11 +1333,14 @@ function renderAllModsSearch() {
     }
 }
 
-function createModCard(mod, categoryId) {
+function createModCard(mod, categoryId, groupId = null) {
     const card = document.createElement('div');
     card.className = 'card fade-in';
     card.setAttribute('data-mod-name', mod.name);
     card.setAttribute('data-category-id', categoryId);
+    if (groupId) {
+        card.setAttribute('data-group-id', groupId);
+    }
     const preview = mod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';

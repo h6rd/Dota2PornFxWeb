@@ -3043,6 +3043,34 @@ fcode {
   justify-content: flex-end;
 }
 
+/* Grouped Mods */
+.mod-group-header {
+  grid-column: 1 / -1;
+  margin-top: 32px;
+}
+
+.mod-group-header:first-child {
+  margin-top: 0;
+}
+
+.mod-group-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+  margin-bottom: -5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mod-group-container {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
