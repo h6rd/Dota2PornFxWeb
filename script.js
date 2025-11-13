@@ -95,6 +95,7 @@ const categories = [
 ];
 
 const recentlyAddedMods = [
+    { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
     { name: 'Cartoon Trees', category: 'trees' },
     { name: 'Maid Marci', category: 'heroes' },
     { name: 'Razor Rainbow Statics', category: 'heroes' },

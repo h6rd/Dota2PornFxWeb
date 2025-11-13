@@ -188,6 +188,7 @@ const modsData = {
         { name: 'Sakura Pink Invoker', preview: 'Sakura Pink Invoker.webp', file: 'Sakura Pink Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Razor Rainbow Statics', preview: 'Razor Rainbow Statics.webp', file: 'Razor Rainbow Statics.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Maid Marci', preview: 'Maid Marci.webp', file: 'Maid Marci.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@mrkliromin7723' }] },
+        { name: 'Terrorblade Unblinking Horror', preview: 'Terrorblade Unblinking Horror.webp', file: 'Terrorblade Unblinking Horror.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
