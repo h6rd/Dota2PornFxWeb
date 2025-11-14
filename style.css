@@ -2552,7 +2552,7 @@ fcode {
 .add-to-cart-btn:hover .material-symbols-rounded {
   margin-left: 12px;
   margin-right: 4px;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
 }
 
 .add-to-cart-btn:hover .add-to-cart-text {
