@@ -102,22 +102,91 @@ const addToCartRules = {
     }
 };
 
-let currentCategory = null;
-let searchQuery = '';
-let scrollPosition = 0;
-let sortMode = 'default';
-let currentSortModeIndex = 0;
+const state = {
+    currentCategory: null,
+    searchQuery: '',
+    scrollPosition: 0,
+    sortMode: 'default',
+    currentSortModeIndex: 0,
+    carouselPosition: 0,
+    itemsPerPage: 3,
+    isCollapsed: false,
+    isClosing: false
+};
 
-const homePage = document.getElementById('homePage');
-const categoryPage = document.getElementById('categoryPage');
-const categoriesGrid = document.getElementById('categoriesGrid');
-const modsGrid = document.getElementById('modsGrid');
-const categoryTitle = document.getElementById('categoryTitle');
-const categoryDescription = document.getElementById('categoryDescription');
-const backButton = document.getElementById('backButton');
-const searchInput = document.getElementById('searchInput');
-const searchClear = document.getElementById('searchClear');
+const elements = {
+    homePage: document.getElementById('homePage'),
+    categoryPage: document.getElementById('categoryPage'),
+    categoriesGrid: document.getElementById('categoriesGrid'),
+    modsGrid: document.getElementById('modsGrid'),
+    categoryTitle: document.getElementById('categoryTitle'),
+    categoryDescription: document.getElementById('categoryDescription'),
+    backButton: document.getElementById('backButton'),
+    searchInput: document.getElementById('searchInput'),
+    searchClear: document.getElementById('searchClear')
+};
 
+const SORT_MODES = [
+    { key: 'default', label: 'Default', icon: 'sort' },
+    { key: 'name', label: 'Name', icon: 'sort_by_alpha' },
+    { key: 'date', label: 'Newest', icon: 'schedule' }
+];
+
+const LINK_ICONS = {
+    'author': 'person',
+    'preview': 'play_circle',
+    'source': 'captive_portal',
+    'guide': 'description'
+};
+
+const TAG_CONFIGS = {
+    heroes: {
+        allowForGuides: false,
+        map: { effects: 'Effects', icons: 'Icons' }
+    },
+    backgrounds: {
+        allowForGuides: false,
+        map: { image: 'Image', video: 'Video', lowres: 'Shit Quality' }
+    },
+    sites: {
+        allowForGuides: true,
+        map: { stats: 'Stats', meta: 'Meta', fun: 'Fun' }
+    }
+};
+
+const GIF_CONFIG = {
+    gifs: [
+        'assets/files/hueta/ursa.gif',
+        'assets/files/hueta/brew.gif',
+        'assets/files/hueta/fura.gif',
+        'assets/files/hueta/storm.gif',
+        'assets/files/hueta/invoker.gif'
+    ],
+    themes: ['ursa', 'brew', 'fura', 'storm', 'invoker']
+};
+
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+};
+
+const vibrate = (pattern = 10) => {
+    if ('vibrate' in navigator) {
+        navigator.vibrate(pattern);
+    }
+};
+
+const formatTime = (seconds) => {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+
+// FAB Menu
 function setupFAB() {
     const fab = document.getElementById('fab');
     const fabMenu = document.getElementById('fabMenu');
@@ -127,7 +196,9 @@ function setupFAB() {
     const infoOverlay = document.getElementById('infoOverlay');
     const closeModal = document.getElementById('closeModal');
 
-    fab.addEventListener('click', () => {
+    if (!fab || !fabMenu) return;
+
+    const toggleFAB = () => {
         const isActive = fab.classList.toggle('active');
         fabMenu.classList.toggle('active');
         fabMenuBackground.classList.toggle('active');
@@ -139,86 +210,81 @@ function setupFAB() {
             const gap = 12;
             const bottomOffset = 68;
             const totalHeight = (itemHeight * itemCount) + (gap * (itemCount - 1)) + bottomOffset;
-
-            fabMenuBackground.style.height = totalHeight + 'px';
+            fabMenuBackground.style.height = `${totalHeight}px`;
         } else {
             fabMenuBackground.style.height = '0px';
         }
-    });
+    };
 
-    infoButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        infoModal.classList.add('active');
-        infoOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
+    const closeFABMenu = () => {
         fab.classList.remove('active');
         fabMenu.classList.remove('active');
         fabMenuBackground.classList.remove('active');
         fabMenuBackground.style.height = '0px';
-    });
+    };
 
-    const closeModalWindow = () => {
+    const closeInfoModal = () => {
         infoModal.classList.remove('active');
         infoOverlay.classList.remove('active');
         document.body.style.overflow = '';
     };
 
-    closeModal.addEventListener('click', closeModalWindow);
-    infoOverlay.addEventListener('click', closeModalWindow);
+    fab.addEventListener('click', toggleFAB);
+
+    if (infoButton) {
+        infoButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            infoModal.classList.add('active');
+            infoOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            closeFABMenu();
+        });
+    }
+
+    closeModal?.addEventListener('click', closeInfoModal);
+    infoOverlay?.addEventListener('click', closeInfoModal);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && infoModal.classList.contains('active')) {
-            closeModalWindow();
+        if (e.key === 'Escape' && infoModal?.classList.contains('active')) {
+            closeInfoModal();
         }
     });
 
     document.addEventListener('click', (e) => {
         if (!fab.contains(e.target) && !fabMenu.contains(e.target)) {
-            fab.classList.remove('active');
-            fabMenu.classList.remove('active');
-            fabMenuBackground.classList.remove('active');
-            fabMenuBackground.style.height = '0px';
+            closeFABMenu();
         }
     });
 }
 
+// Scroll to top
 function setupScrollToTop() {
     const scrollFab = document.getElementById('scrollToTopFab');
     const fab = document.getElementById('fab');
 
+    if (!scrollFab) return;
+
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const updateScrollButton = () => {
-        const isFabActive = fab.classList.contains('active');
-
-        if (window.scrollY > 300 && !isFabActive) {
-            scrollFab.classList.add('visible');
-        } else {
-            scrollFab.classList.remove('visible');
-        }
+        const isFabActive = fab?.classList.contains('active');
+        scrollFab.classList.toggle('visible', window.scrollY > 300 && !isFabActive);
     };
 
-    window.addEventListener('scroll', updateScrollButton);
+    window.addEventListener('scroll', debounce(updateScrollButton, 100));
 
-    const observer = new MutationObserver(() => {
-        updateScrollButton();
-    });
-
-    observer.observe(fab, {
-        attributes: true,
-        attributeFilter: ['class']
-    });
+    if (fab) {
+        const observer = new MutationObserver(updateScrollButton);
+        observer.observe(fab, { attributes: true, attributeFilter: ['class'] });
+    }
 
     scrollFab.addEventListener('click', scrollToTop);
 }
 
+// Guide modal
 function setupGuideModal() {
     const guideModal = document.getElementById('guideModal');
     const guideOverlay = document.getElementById('guideOverlay');
@@ -226,13 +292,15 @@ function setupGuideModal() {
     const guideModalContent = document.getElementById('guideModalContent');
     const guideModalTitle = document.getElementById('guideModalTitle');
 
+    if (!guideModal || !guideOverlay) return;
+
     const closeGuideWindow = () => {
         guideModal.classList.remove('active');
         guideOverlay.classList.remove('active');
         document.body.style.overflow = '';
     };
 
-    closeGuideModal.addEventListener('click', closeGuideWindow);
+    closeGuideModal?.addEventListener('click', closeGuideWindow);
     guideOverlay.addEventListener('click', closeGuideWindow);
 
     document.addEventListener('keydown', (e) => {
@@ -245,161 +313,15 @@ function setupGuideModal() {
         guideModalTitle.textContent = guideData.title;
         guideModalContent.innerHTML = '';
 
-        const languageToggle = document.createElement('div');
-        languageToggle.className = 'guide-language-toggle';
-        languageToggle.innerHTML = `
-            <button class="guide-language-btn active" data-lang="en">
-                English
-            </button>
-            <button class="guide-language-btn" data-lang="ru">
-                Русский
-            </button>
-        `;
+        const languageToggle = createLanguageToggle();
         guideModalContent.appendChild(languageToggle);
 
         ['en', 'ru'].forEach(lang => {
-            const contentDiv = document.createElement('div');
-            contentDiv.className = `guide-content ${lang === 'en' ? 'active' : ''}`;
-            contentDiv.setAttribute('data-lang', lang);
-
-            guideData.content[lang].forEach(section => {
-                const sectionDiv = document.createElement('div');
-                sectionDiv.className = 'info-modal-section';
-
-                if (section.title) {
-                    const sectionTitle = document.createElement('h3');
-                    sectionTitle.className = 'guide-section-title';
-
-                    if (section.icon) {
-                        sectionTitle.innerHTML = `
-                            <span class="material-symbols-rounded">${section.icon}</span>
-                            ${section.title}
-                        `;
-                    } else {
-                        sectionTitle.textContent = section.title;
-                    }
-                    sectionDiv.appendChild(sectionTitle);
-                }
-                if (section.info && (!section.infoPosition || section.infoPosition === 'top')) {
-                    const infoDiv = document.createElement('div');
-                    infoDiv.className = 'guide-info';
-                    infoDiv.innerHTML = `
-        <span class="material-symbols-rounded">info</span>
-        <p class="guide-info-text">${section.info}</p>
-    `;
-                    sectionDiv.appendChild(infoDiv);
-                }
-
-                section.steps.forEach((step, index) => {
-                    const stepDiv = document.createElement('div');
-                    stepDiv.className = 'guide-step';
-
-                    let stepContent = '';
-                    let stepText = '';
-                    let linkUrl = '';
-
-                    if (typeof step === 'object' && step.icon) {
-                        stepText = step.text;
-                        stepContent = `
-            <div class="guide-step-number">
-                <span class="material-symbols-rounded">${step.icon}</span>
-            </div>
-            <div class="guide-step-content">
-                <p class="guide-step-text">${step.text}</p>
-            </div>
-        `;
-                    } else {
-                        stepText = step;
-                        stepContent = `
-            <div class="guide-step-number">${index + 1}</div>
-            <div class="guide-step-content">
-                <p class="guide-step-text">${step}</p>
-            </div>
-        `;
-                    }
-
-                    stepDiv.innerHTML = stepContent;
-
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = stepText;
-                    const link = tempDiv.querySelector('a');
-
-                    if (link) {
-                        stepDiv.classList.add('has-link');
-                        const href = link.getAttribute('href');
-                        const target = link.getAttribute('target');
-
-                        stepDiv.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            if (href) {
-                                window.open(href, target || '_self');
-                            }
-                        });
-                    }
-
-                    sectionDiv.appendChild(stepDiv);
-                });
-
-
-                if (section.result) {
-                    const resultDiv = document.createElement('div');
-                    resultDiv.className = 'guide-result';
-                    resultDiv.innerHTML = `
-                        <span class="material-symbols-rounded">check_circle</span>
-                        <p class="guide-result-text">${section.result}</p>
-                    `;
-                    sectionDiv.appendChild(resultDiv);
-                }
-                if (section.info && section.infoPosition === 'bottom') {
-                    const infoDiv = document.createElement('div');
-                    infoDiv.className = 'guide-info';
-                    infoDiv.innerHTML = `
-        <span class="material-symbols-rounded">info</span>
-        <p class="guide-info-text">${section.info}</p>
-    `;
-                    sectionDiv.appendChild(infoDiv);
-                }
-
-                contentDiv.appendChild(sectionDiv);
-            });
-
-            const warningSection = guideData.content[lang].find(section => section.warning);
-            if (warningSection && warningSection.warning) {
-                const warningDiv = document.createElement('div');
-                warningDiv.className = 'guide-warning';
-                warningDiv.innerHTML = `
-                    <span class="material-symbols-rounded">warning</span>
-                    <p class="guide-warning-text">${warningSection.warning}</p>
-                `;
-                contentDiv.appendChild(warningDiv);
-            }
-
+            const contentDiv = createGuideContent(guideData, lang);
             guideModalContent.appendChild(contentDiv);
         });
 
-        const langButtons = languageToggle.querySelectorAll('.guide-language-btn');
-        const contentSections = guideModalContent.querySelectorAll('.guide-content');
-
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetLang = btn.getAttribute('data-lang');
-
-                langButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                contentSections.forEach(section => {
-                    if (section.getAttribute('data-lang') === targetLang) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(10);
-                }
-            });
-        });
+        setupLanguageToggleListeners(languageToggle, guideModalContent);
 
         guideModal.classList.add('active');
         guideOverlay.classList.add('active');
@@ -407,32 +329,161 @@ function setupGuideModal() {
     };
 }
 
-// copy code
+function createLanguageToggle() {
+    const toggle = document.createElement('div');
+    toggle.className = 'guide-language-toggle';
+    toggle.innerHTML = `
+        <button class="guide-language-btn active" data-lang="en">English</button>
+        <button class="guide-language-btn" data-lang="ru">Русский</button>
+    `;
+    return toggle;
+}
+
+function createGuideContent(guideData, lang) {
+    const contentDiv = document.createElement('div');
+    contentDiv.className = `guide-content ${lang === 'en' ? 'active' : ''}`;
+    contentDiv.setAttribute('data-lang', lang);
+
+    guideData.content[lang].forEach(section => {
+        const sectionDiv = createGuideSection(section);
+        contentDiv.appendChild(sectionDiv);
+    });
+
+    const warningSection = guideData.content[lang].find(s => s.warning);
+    if (warningSection?.warning) {
+        const warningDiv = document.createElement('div');
+        warningDiv.className = 'guide-warning';
+        warningDiv.innerHTML = `
+            <span class="material-symbols-rounded">warning</span>
+            <p class="guide-warning-text">${warningSection.warning}</p>
+        `;
+        contentDiv.appendChild(warningDiv);
+    }
+
+    return contentDiv;
+}
+
+function createGuideSection(section) {
+    const sectionDiv = document.createElement('div');
+    sectionDiv.className = 'info-modal-section';
+
+    if (section.title) {
+        const sectionTitle = document.createElement('h3');
+        sectionTitle.className = 'guide-section-title';
+        sectionTitle.innerHTML = section.icon
+            ? `<span class="material-symbols-rounded">${section.icon}</span>${section.title}`
+            : section.title;
+        sectionDiv.appendChild(sectionTitle);
+    }
+
+    if (section.info && (!section.infoPosition || section.infoPosition === 'top')) {
+        sectionDiv.appendChild(createInfoBlock(section.info));
+    }
+
+    section.steps.forEach((step, index) => {
+        const stepDiv = createGuideStep(step, index);
+        sectionDiv.appendChild(stepDiv);
+    });
+
+    if (section.result) {
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'guide-result';
+        resultDiv.innerHTML = `
+            <span class="material-symbols-rounded">check_circle</span>
+            <p class="guide-result-text">${section.result}</p>
+        `;
+        sectionDiv.appendChild(resultDiv);
+    }
+
+    if (section.info && section.infoPosition === 'bottom') {
+        sectionDiv.appendChild(createInfoBlock(section.info));
+    }
+
+    return sectionDiv;
+}
+
+function createInfoBlock(info) {
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'guide-info';
+    infoDiv.innerHTML = `
+        <span class="material-symbols-rounded">info</span>
+        <p class="guide-info-text">${info}</p>
+    `;
+    return infoDiv;
+}
+
+function createGuideStep(step, index) {
+    const stepDiv = document.createElement('div');
+    stepDiv.className = 'guide-step';
+
+    const stepText = typeof step === 'object' && step.icon ? step.text : step;
+    const stepNumber = typeof step === 'object' && step.icon
+        ? `<span class="material-symbols-rounded">${step.icon}</span>`
+        : index + 1;
+
+    stepDiv.innerHTML = `
+        <div class="guide-step-number">${stepNumber}</div>
+        <div class="guide-step-content">
+            <p class="guide-step-text">${stepText}</p>
+        </div>
+    `;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = stepText;
+    const link = tempDiv.querySelector('a');
+
+    if (link) {
+        stepDiv.classList.add('has-link');
+        const href = link.getAttribute('href');
+        const target = link.getAttribute('target');
+        stepDiv.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (href) window.open(href, target || '_self');
+        });
+    }
+
+    return stepDiv;
+}
+
+function setupLanguageToggleListeners(toggle, content) {
+    const langButtons = toggle.querySelectorAll('.guide-language-btn');
+    const contentSections = content.querySelectorAll('.guide-content');
+
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetLang = btn.getAttribute('data-lang');
+            langButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            contentSections.forEach(section => {
+                section.classList.toggle('active', section.getAttribute('data-lang') === targetLang);
+            });
+
+            vibrate(10);
+        });
+    });
+}
+
+// Copy
 document.addEventListener('click', (e) => {
     if (e.target.tagName === 'CODE') {
         const codeText = e.target.textContent.trim();
-
         navigator.clipboard.writeText(codeText).then(() => {
             e.target.classList.add('copied');
-
-            if ('vibrate' in navigator) navigator.vibrate(20);
-
-            setTimeout(() => {
-                e.target.classList.remove('copied');
-            }, 1200);
-        });
+            vibrate(20);
+            setTimeout(() => e.target.classList.remove('copied'), 1200);
+        }).catch(err => console.error('Failed to copy:', err));
     }
 });
 
+// Sorting
 function sortMods(mods, mode) {
     const sortedMods = [...mods];
-
     switch (mode) {
         case 'name':
             return sortedMods.sort((a, b) => a.name.localeCompare(b.name));
         case 'date':
             return sortedMods.reverse();
-        case 'default':
         default:
             return sortedMods;
     }
@@ -441,32 +492,27 @@ function sortMods(mods, mode) {
 function setupSortToggle() {
     const sortToggle = document.getElementById('sortToggle');
     const sortLabel = document.getElementById('sortLabel');
-    const sortIcon = sortToggle.querySelector('.material-symbols-rounded');
+    const sortIcon = sortToggle?.querySelector('.material-symbols-rounded');
 
-    const sortModes = [
-        { key: 'default', label: 'Default', icon: 'sort' },
-        { key: 'name', label: 'Name', icon: 'sort_by_alpha' },
-        { key: 'date', label: 'Newest', icon: 'schedule' }
-    ];
+    if (!sortToggle || !sortLabel || !sortIcon) return;
 
     sortToggle.addEventListener('click', () => {
-        currentSortModeIndex = (currentSortModeIndex + 1) % sortModes.length;
-        const mode = sortModes[currentSortModeIndex];
+        state.currentSortModeIndex = (state.currentSortModeIndex + 1) % SORT_MODES.length;
+        const mode = SORT_MODES[state.currentSortModeIndex];
 
-        sortMode = mode.key;
+        state.sortMode = mode.key;
         sortLabel.textContent = mode.label;
         sortIcon.textContent = mode.icon;
 
-        if (currentCategory) {
-            renderMods(currentCategory);
+        if (state.currentCategory) {
+            renderMods(state.currentCategory);
         }
 
-        if ('vibrate' in navigator) {
-            navigator.vibrate(10);
-        }
+        vibrate(10);
     });
 }
 
+// Video modal
 function setupVideoModal() {
     const videoModal = document.getElementById('videoModal');
     const videoOverlay = document.getElementById('videoOverlay');
@@ -476,30 +522,36 @@ function setupVideoModal() {
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     const progressBar = document.querySelector('.video-progress-bar');
     const progressFilled = document.querySelector('.video-progress-filled');
-    const playIcon = playPauseBtn.querySelector('.material-symbols-rounded');
+    const playIcon = playPauseBtn?.querySelector('.material-symbols-rounded');
     const videoSpinner = document.querySelector('.video-loading-spinner');
+    const volumeBtn = document.getElementById('volumeBtn');
+    const volumeIcon = document.getElementById('volumeIcon');
+    const currentTimeDisplay = document.getElementById('videoCurrentTime');
+    const totalTimeDisplay = document.getElementById('videoTotalTime');
+
+    if (!videoModal || !modalVideo) return;
 
     let clickTimer = null;
     let isDoubleClick = false;
 
     const closeVideoWindow = () => {
-        isClosing = true;
+        state.isClosing = true;
         videoModal.classList.remove('active');
         videoOverlay.classList.remove('active');
         document.body.style.overflow = '';
         modalVideo.pause();
         modalVideo.currentTime = 0;
-        playIcon.textContent = 'play_arrow';
-        if (videoSpinner) videoSpinner.classList.add('hidden');
+        if (playIcon) playIcon.textContent = 'play_arrow';
+        videoSpinner?.classList.add('hidden');
 
         setTimeout(() => {
             modalVideo.src = '';
-            isClosing = false;
+            state.isClosing = false;
         }, 150);
     };
 
-    closeVideoModal.addEventListener('click', closeVideoWindow);
-    videoOverlay.addEventListener('click', closeVideoWindow);
+    closeVideoModal?.addEventListener('click', closeVideoWindow);
+    videoOverlay?.addEventListener('click', closeVideoWindow);
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && videoModal.classList.contains('active')) {
@@ -508,26 +560,14 @@ function setupVideoModal() {
     });
 
     modalVideo.addEventListener('loadstart', () => {
-        if (isClosing) return;
-        if (videoSpinner) videoSpinner.classList.remove('hidden');
+        if (!state.isClosing) videoSpinner?.classList.remove('hidden');
     });
-
     modalVideo.addEventListener('waiting', () => {
-        if (isClosing) return;
-        if (videoSpinner) videoSpinner.classList.remove('hidden');
+        if (!state.isClosing) videoSpinner?.classList.remove('hidden');
     });
-
-    modalVideo.addEventListener('canplay', () => {
-        if (videoSpinner) videoSpinner.classList.add('hidden');
-    });
-
-    modalVideo.addEventListener('playing', () => {
-        if (videoSpinner) videoSpinner.classList.add('hidden');
-    });
-
-    modalVideo.addEventListener('stalled', () => {
-        if (videoSpinner) videoSpinner.classList.remove('hidden');
-    });
+    modalVideo.addEventListener('canplay', () => videoSpinner?.classList.add('hidden'));
+    modalVideo.addEventListener('playing', () => videoSpinner?.classList.add('hidden'));
+    modalVideo.addEventListener('stalled', () => videoSpinner?.classList.remove('hidden'));
 
     modalVideo.addEventListener('click', (e) => {
         e.preventDefault();
@@ -536,7 +576,6 @@ function setupVideoModal() {
             clearTimeout(clickTimer);
             clickTimer = null;
             isDoubleClick = true;
-
             const videoContainer = document.querySelector('.video-modal-content');
             if (!document.fullscreenElement) {
                 videoContainer.requestFullscreen();
@@ -547,28 +586,24 @@ function setupVideoModal() {
             isDoubleClick = false;
             clickTimer = setTimeout(() => {
                 if (!isDoubleClick) {
-                    if (modalVideo.paused) {
-                        modalVideo.play();
-                    } else {
-                        modalVideo.pause();
-                    }
+                    modalVideo.paused ? modalVideo.play() : modalVideo.pause();
                 }
                 clickTimer = null;
             }, 250);
         }
     });
 
-    playPauseBtn.addEventListener('click', () => {
+    playPauseBtn?.addEventListener('click', () => {
         if (modalVideo.paused) {
             modalVideo.play();
-            playIcon.textContent = 'pause';
+            if (playIcon) playIcon.textContent = 'pause';
         } else {
             modalVideo.pause();
-            playIcon.textContent = 'play_arrow';
+            if (playIcon) playIcon.textContent = 'play_arrow';
         }
     });
 
-    fullscreenBtn.addEventListener('click', () => {
+    fullscreenBtn?.addEventListener('click', () => {
         const videoContainer = document.querySelector('.video-modal-content');
         if (!document.fullscreenElement) {
             videoContainer.requestFullscreen();
@@ -577,69 +612,46 @@ function setupVideoModal() {
         }
     });
 
-    const volumeBtn = document.getElementById('volumeBtn');
-    const volumeIcon = document.getElementById('volumeIcon');
-
-    volumeBtn.addEventListener('click', () => {
+    volumeBtn?.addEventListener('click', () => {
         if (modalVideo.muted || modalVideo.volume === 0) {
             modalVideo.muted = false;
             modalVideo.volume = 1;
-            volumeIcon.textContent = 'volume_up';
+            if (volumeIcon) volumeIcon.textContent = 'volume_up';
         } else {
             modalVideo.muted = true;
-            volumeIcon.textContent = 'volume_off';
+            if (volumeIcon) volumeIcon.textContent = 'volume_off';
         }
     });
 
-
-    modalVideo.addEventListener('timeupdate', () => {
-        const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
-        progressFilled.style.width = percent + '%';
-    });
-
-    const formatTime = (seconds) => {
-        if (isNaN(seconds)) return '0:00';
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-    };
-
-    const currentTimeDisplay = document.getElementById('videoCurrentTime');
-    const totalTimeDisplay = document.getElementById('videoTotalTime');
-
     modalVideo.addEventListener('loadedmetadata', () => {
-        totalTimeDisplay.textContent = formatTime(modalVideo.duration);
+        if (totalTimeDisplay) totalTimeDisplay.textContent = formatTime(modalVideo.duration);
     });
 
     modalVideo.addEventListener('timeupdate', () => {
         const percent = (modalVideo.currentTime / modalVideo.duration) * 100;
-        progressFilled.style.width = percent + '%';
-        currentTimeDisplay.textContent = formatTime(modalVideo.currentTime);
+        if (progressFilled) progressFilled.style.width = `${percent}%`;
+        if (currentTimeDisplay) currentTimeDisplay.textContent = formatTime(modalVideo.currentTime);
     });
 
-    progressBar.addEventListener('click', (e) => {
+    progressBar?.addEventListener('click', (e) => {
         const rect = progressBar.getBoundingClientRect();
         const percent = (e.clientX - rect.left) / rect.width;
         modalVideo.currentTime = percent * modalVideo.duration;
     });
 
     modalVideo.addEventListener('play', () => {
-        playIcon.textContent = 'pause';
+        if (playIcon) playIcon.textContent = 'pause';
     });
 
     modalVideo.addEventListener('pause', () => {
-        playIcon.textContent = 'play_arrow';
+        if (playIcon) playIcon.textContent = 'play_arrow';
     });
 
     window.openVideoModal = (videoUrl) => {
-        if (videoSpinner) {
-            videoSpinner.classList.remove('hidden');
-        }
-
+        videoSpinner?.classList.remove('hidden');
         videoModal.classList.add('no-transition', 'active');
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-
         modalVideo.src = videoUrl;
 
         const enableAndShow = () => {
@@ -647,10 +659,9 @@ function setupVideoModal() {
                 videoModal.classList.remove('no-transition');
                 videoModal.offsetHeight;
                 videoModal.classList.add('active');
-                if (videoSpinner) videoSpinner.classList.add('hidden');
-                playIcon.textContent = 'pause';
+                videoSpinner?.classList.add('hidden');
+                if (playIcon) playIcon.textContent = 'pause';
             }, 40);
-
             modalVideo.removeEventListener('loadedmetadata', enableAndShow);
             modalVideo.removeEventListener('canplay', enableAndShow);
         };
@@ -659,83 +670,66 @@ function setupVideoModal() {
         modalVideo.addEventListener('canplay', enableAndShow);
 
         setTimeout(() => {
-            if (!videoModal.classList.contains('active')) {
-                enableAndShow();
-            }
+            if (!videoModal.classList.contains('active')) enableAndShow();
         }, 700);
     };
 }
 
-// hueta
-const gifElement = document.getElementById('clickable-gif');
-const hintElement = document.getElementById('click-hint');
-const html = document.documentElement;
+// Hueta
+function setupGifSwitcher() {
+    const gifElement = document.getElementById('clickable-gif');
+    const hintElement = document.getElementById('click-hint');
+    const html = document.documentElement;
 
-const gifs = [
-    'assets/files/hueta/ursa.gif',
-    'assets/files/hueta/brew.gif',
-    'assets/files/hueta/fura.gif',
-    'assets/files/hueta/storm.gif',
-    'assets/files/hueta/invoker.gif'
-];
+    if (!gifElement) return;
 
-const themes = ['ursa', 'brew', 'fura', 'storm', 'invoker'];
-
-let currentIndex = 0;
-const savedIndex = localStorage.getItem('gifIndex');
-if (savedIndex !== null) {
-    currentIndex = parseInt(savedIndex);
-    gifElement.src = gifs[currentIndex];
-}
-
-const hasClicked = localStorage.getItem('gifClicked') === 'true';
-if (!hasClicked && hintElement) {
-    hintElement.classList.add('show');
-}
-
-gifElement.addEventListener('click', () => {
-    if (hintElement && !hasClicked) {
-        hintElement.classList.remove('show');
-        setTimeout(() => {
-            hintElement.style.display = 'none';
-        }, 300);
-        localStorage.setItem('gifClicked', 'true');
+    let currentIndex = 0;
+    const savedIndex = localStorage.getItem('gifIndex');
+    if (savedIndex !== null) {
+        currentIndex = parseInt(savedIndex, 10);
+        gifElement.src = GIF_CONFIG.gifs[currentIndex];
     }
 
-    gifElement.classList.add('clicked');
-    gifElement.classList.add('no-hover');
+    const hasClicked = localStorage.getItem('gifClicked') === 'true';
+    if (!hasClicked && hintElement) {
+        hintElement.classList.add('show');
+    }
 
-    setTimeout(() => {
-        gifElement.classList.remove('clicked');
+    gifElement.addEventListener('click', () => {
+        if (hintElement && !hasClicked) {
+            hintElement.classList.remove('show');
+            setTimeout(() => hintElement.style.display = 'none', 300);
+            localStorage.setItem('gifClicked', 'true');
+        }
 
-        currentIndex = (currentIndex + 1) % gifs.length;
-        const newTheme = themes[currentIndex];
-
-        gifElement.src = gifs[currentIndex];
-        html.setAttribute('data-gif-theme', newTheme);
-        localStorage.setItem('gifIndex', currentIndex);
-
-        gifElement.classList.add('appear');
+        gifElement.classList.add('clicked', 'no-hover');
 
         setTimeout(() => {
-            gifElement.classList.remove('appear');
+            gifElement.classList.remove('clicked');
+            currentIndex = (currentIndex + 1) % GIF_CONFIG.gifs.length;
+            const newTheme = GIF_CONFIG.themes[currentIndex];
 
+            gifElement.src = GIF_CONFIG.gifs[currentIndex];
+            html.setAttribute('data-gif-theme', newTheme);
+            localStorage.setItem('gifIndex', currentIndex.toString());
+
+            gifElement.classList.add('appear');
             setTimeout(() => {
-                gifElement.classList.remove('no-hover');
+                gifElement.classList.remove('appear');
+                setTimeout(() => gifElement.classList.remove('no-hover'), 400);
             }, 400);
-
         }, 400);
 
-    }, 400);
+        vibrate(10);
+    });
+}
 
-    if ('vibrate' in navigator) {
-        navigator.vibrate(10);
-    }
-});
-
-// dark/light theme
-(function () {
+// Theme
+function setupThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    if (!themeToggle) return;
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
@@ -743,21 +737,13 @@ gifElement.addEventListener('click', () => {
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-
-        if ('vibrate' in navigator) {
-            navigator.vibrate(10);
-        }
+        vibrate(10);
     });
-})();
+}
 
-// Recently Added
-let carouselPosition = 0;
-let itemsPerPage = 3;
-let isCollapsed = false;
-
+// Recently Added Carousel
 function calculateItemsPerPage() {
     const width = window.innerWidth;
     if (width < 768) return 1;
@@ -768,38 +754,37 @@ function calculateItemsPerPage() {
 function updateCarouselButtons() {
     const prevBtn = document.getElementById('carouselPrev');
     const nextBtn = document.getElementById('carouselNext');
+    const controls = document.querySelector('.carousel-controls');
+
+    if (!prevBtn || !nextBtn || !recentlyAddedMods) return;
+
     const totalMods = recentlyAddedMods.length;
+    prevBtn.disabled = state.carouselPosition === 0;
+    nextBtn.disabled = state.carouselPosition + state.itemsPerPage >= totalMods;
 
-    if (prevBtn && nextBtn) {
-        prevBtn.disabled = carouselPosition === 0;
-        nextBtn.disabled = carouselPosition + itemsPerPage >= totalMods;
-
-        const controls = document.querySelector('.carousel-controls');
-        if (controls) {
-            controls.style.display = totalMods <= itemsPerPage ? 'none' : 'flex';
-        }
+    if (controls) {
+        controls.style.display = totalMods <= state.itemsPerPage ? 'none' : 'flex';
     }
 }
 
 function moveCarousel(direction) {
     const track = document.getElementById('carouselTrack');
     const container = document.getElementById('carouselContainer');
-    const totalMods = recentlyAddedMods.length;
 
-    carouselPosition += direction * itemsPerPage;
-    carouselPosition = Math.max(0, Math.min(carouselPosition, totalMods - itemsPerPage));
+    if (!track || !container || !recentlyAddedMods) return;
+
+    const totalMods = recentlyAddedMods.length;
+    state.carouselPosition += direction * state.itemsPerPage;
+    state.carouselPosition = Math.max(0, Math.min(state.carouselPosition, totalMods - state.itemsPerPage));
 
     const containerWidth = container.offsetWidth;
     const gap = window.innerWidth < 768 ? 16 : 24;
-    const cardWidth = (containerWidth - (gap * (itemsPerPage - 1))) / itemsPerPage;
-    const offset = carouselPosition * (cardWidth + gap);
+    const cardWidth = (containerWidth - (gap * (state.itemsPerPage - 1))) / state.itemsPerPage;
+    const offset = state.carouselPosition * (cardWidth + gap);
 
     track.style.transform = `translateX(-${offset}px)`;
     updateCarouselButtons();
-
-    if ('vibrate' in navigator) {
-        navigator.vibrate(10);
-    }
+    vibrate(10);
 }
 
 function toggleRecentlyAdded() {
@@ -810,82 +795,69 @@ function toggleRecentlyAdded() {
     const header = document.querySelector('.recently-added-header');
     const controls = document.querySelector('.carousel-controls');
 
-    isCollapsed = !isCollapsed;
+    if (!wrapper || !track) return;
 
-    if (isCollapsed) {
+    state.isCollapsed = !state.isCollapsed;
+
+    if (state.isCollapsed) {
         const currentHeight = wrapper.scrollHeight;
-        wrapper.style.maxHeight = currentHeight + 'px';
+        wrapper.style.maxHeight = `${currentHeight}px`;
         requestAnimationFrame(() => {
             wrapper.classList.add('collapsed');
             wrapper.style.maxHeight = '0px';
-            collapseBtn.classList.add('collapsed');
-            header.classList.add('collapsed');
-            controls.classList.add('collapsed');
+            collapseBtn?.classList.add('collapsed');
+            header?.classList.add('collapsed');
+            controls?.classList.add('collapsed');
         });
-        setTimeout(() => {
-            categoriesTitle.classList.add('hidden');
-        }, 200);
+        setTimeout(() => categoriesTitle?.classList.add('hidden'), 200);
     } else {
-        categoriesTitle.classList.remove('hidden');
+        categoriesTitle?.classList.remove('hidden');
         const targetHeight = track.scrollHeight + 48;
         wrapper.style.maxHeight = '0px';
         requestAnimationFrame(() => {
             wrapper.classList.remove('collapsed');
-            wrapper.style.maxHeight = targetHeight + 'px';
-            collapseBtn.classList.remove('collapsed');
-            header.classList.remove('collapsed');
-            controls.classList.remove('collapsed');
+            wrapper.style.maxHeight = `${targetHeight}px`;
+            collapseBtn?.classList.remove('collapsed');
+            header?.classList.remove('collapsed');
+            controls?.classList.remove('collapsed');
         });
         setTimeout(() => {
             wrapper.style.maxHeight = '1000px';
-            controls.style.maxHeight = '48px';
+            if (controls) controls.style.maxHeight = '48px';
         }, 400);
     }
 
-    localStorage.setItem('recentlyAddedCollapsed', isCollapsed);
-    if ('vibrate' in navigator) {
-        navigator.vibrate(10);
-    }
+    localStorage.setItem('recentlyAddedCollapsed', state.isCollapsed.toString());
+    vibrate(10);
 }
 
 function openCategoryAndHighlightMod(categoryId, modName) {
-    scrollPosition = window.pageYOffset;
+    state.scrollPosition = window.pageYOffset;
+    state.currentCategory = categoryId;
 
-    currentCategory = categoryId;
     const category = categories.find(cat => cat.id === categoryId);
-
     if (!category) return;
 
-    sortMode = 'default';
-    currentSortModeIndex = 0;
+    resetSort();
 
-    const sortLabel = document.getElementById('sortLabel');
-    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
-    const sortToggle = document.getElementById('sortToggle');
-
-    if (sortLabel) sortLabel.textContent = 'Default';
-    if (sortIcon) sortIcon.textContent = 'sort';
-    if (sortToggle) sortToggle.style.display = 'flex';
-
-    categoryTitle.textContent = translations[category.key];
-    categoryDescription.textContent = translations[category.key + '-desc'];
+    elements.categoryTitle.textContent = translations[category.key];
+    elements.categoryDescription.textContent = translations[category.key + '-desc'];
 
     renderMods(categoryId);
 
-    homePage.classList.add('hidden');
-    categoryPage.classList.remove('hidden');
-    backButton.style.display = 'flex';
+    elements.homePage.classList.add('hidden');
+    elements.categoryPage.classList.remove('hidden');
+    elements.backButton.style.display = 'flex';
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     setTimeout(() => {
-        const targetCard = modsGrid.querySelector(
+        const targetCard = elements.modsGrid.querySelector(
             `[data-mod-name="${modName}"][data-category-id="${categoryId}"]`
         );
 
         if (targetCard) {
             targetCard.classList.remove('fade-in');
-
             targetCard.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
@@ -893,18 +865,10 @@ function openCategoryAndHighlightMod(categoryId, modName) {
             });
 
             setTimeout(() => {
-                requestAnimationFrame(() => {
-                    targetCard.classList.add('highlighted');
-                });
-
-                if ('vibrate' in navigator) {
-                    navigator.vibrate([50, 100, 50]);
-                }
-
+                requestAnimationFrame(() => targetCard.classList.add('highlighted'));
+                vibrate([50, 100, 50]);
                 setTimeout(() => {
-                    requestAnimationFrame(() => {
-                        targetCard.classList.remove('highlighted');
-                    });
+                    requestAnimationFrame(() => targetCard.classList.remove('highlighted'));
                 }, 1500);
             }, 800);
         }
@@ -920,29 +884,29 @@ function setupRecentlyAdded() {
     const wrapper = document.querySelector('.carousel-wrapper');
     const categoriesTitle = document.getElementById('categoriesTitle');
 
-    if (recentlyAddedMods.length === 0) {
-        section.classList.add('hidden');
-        categoriesTitle.classList.add('hidden');
+    if (!recentlyAddedMods || recentlyAddedMods.length === 0) {
+        section?.classList.add('hidden');
+        categoriesTitle?.classList.add('hidden');
         return;
     }
 
-    section.classList.remove('hidden');
-    track.innerHTML = '';
+    section?.classList.remove('hidden');
+    if (track) track.innerHTML = '';
 
     const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') === 'true';
-    isCollapsed = savedCollapsed;
+    state.isCollapsed = savedCollapsed;
 
-    if (isCollapsed) {
-        wrapper.classList.add('collapsed');
-        wrapper.style.maxHeight = '0px';
-        collapseBtn.classList.add('collapsed');
-        categoriesTitle.classList.add('hidden');
-        document.querySelector('.recently-added-header').classList.add('collapsed');
-        document.querySelector('.carousel-controls').classList.add('collapsed');
+    if (state.isCollapsed) {
+        wrapper?.classList.add('collapsed');
+        if (wrapper) wrapper.style.maxHeight = '0px';
+        collapseBtn?.classList.add('collapsed');
+        categoriesTitle?.classList.add('hidden');
+        document.querySelector('.recently-added-header')?.classList.add('collapsed');
+        document.querySelector('.carousel-controls')?.classList.add('collapsed');
     } else {
-        categoriesTitle.classList.remove('hidden');
-        document.querySelector('.recently-added-header').classList.remove('collapsed');
-        document.querySelector('.carousel-controls').classList.remove('collapsed');
+        categoriesTitle?.classList.remove('hidden');
+        document.querySelector('.recently-added-header')?.classList.remove('collapsed');
+        document.querySelector('.carousel-controls')?.classList.remove('collapsed');
     }
 
     recentlyAddedMods.forEach(recentMod => {
@@ -952,33 +916,23 @@ function setupRecentlyAdded() {
         const mods = modsData[recentMod.category] || [];
         const mod = mods.find(m => m.name === recentMod.name);
 
-        if (mod) {
+        if (mod && track) {
             const card = createModCard(mod, recentMod.category);
             const newCard = card.cloneNode(true);
 
-            const addToCartBtn = newCard.querySelector('.add-to-cart-btn');
-            if (addToCartBtn) {
-                addToCartBtn.remove();
-            }
+            newCard.querySelector('.add-to-cart-btn')?.remove();
 
             const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
-            if (downloadIcon) {
-                downloadIcon.textContent = 'expand_circle_down';
-            }
+            if (downloadIcon) downloadIcon.textContent = 'expand_circle_down';
 
             newCard.addEventListener('click', (e) => {
-                if (e.target.classList.contains('link-button') ||
-                    e.target.closest('.link-button')) {
-
+                if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
                     e.stopPropagation();
-
-                    const button = e.target.classList.contains('link-button')
-                        ? e.target
-                        : e.target.closest('.link-button');
-
+                    const button = e.target.classList.contains('link-button') ? e.target : e.target.closest('.link-button');
                     const guideId = button.getAttribute('data-guide-id');
+
                     if (guideId) {
-                        openGuideForMod({ guideId: guideId });
+                        openGuideForMod({ guideId });
                         return;
                     }
 
@@ -993,48 +947,43 @@ function setupRecentlyAdded() {
                 }
 
                 openCategoryAndHighlightMod(recentMod.category, recentMod.name);
-
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(10);
-                }
+                vibrate(10);
             });
 
             track.appendChild(newCard);
         }
     });
 
-    itemsPerPage = calculateItemsPerPage();
-    carouselPosition = 0;
+    state.itemsPerPage = calculateItemsPerPage();
+    state.carouselPosition = 0;
     updateCarouselButtons();
 
-    prevBtn.addEventListener('click', () => moveCarousel(-1));
-    nextBtn.addEventListener('click', () => moveCarousel(1));
-    collapseBtn.addEventListener('click', toggleRecentlyAdded);
+    prevBtn?.addEventListener('click', () => moveCarousel(-1));
+    nextBtn?.addEventListener('click', () => moveCarousel(1));
+    collapseBtn?.addEventListener('click', toggleRecentlyAdded);
 
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            const newItemsPerPage = calculateItemsPerPage();
-            if (newItemsPerPage !== itemsPerPage) {
-                itemsPerPage = newItemsPerPage;
-                carouselPosition = 0;
-                track.style.transform = 'translateX(0)';
-                updateCarouselButtons();
-            }
-        }, 250);
-    });
+    const handleResize = debounce(() => {
+        const newItemsPerPage = calculateItemsPerPage();
+        if (newItemsPerPage !== state.itemsPerPage) {
+            state.itemsPerPage = newItemsPerPage;
+            state.carouselPosition = 0;
+            if (track) track.style.transform = 'translateX(0)';
+            updateCarouselButtons();
+        }
+    }, 250);
+
+    window.addEventListener('resize', handleResize);
 }
 
 function init() {
-    homePage.classList.remove('hidden');
-    categoryPage.classList.add('hidden');
-    backButton.style.display = 'none';
+    elements.homePage.classList.remove('hidden');
+    elements.categoryPage.classList.add('hidden');
+    elements.backButton.style.display = 'none';
 
-    currentCategory = null;
-    searchQuery = '';
-    sortMode = 'default';
-    currentSortModeIndex = 0;
+    state.currentCategory = null;
+    state.searchQuery = '';
+    state.sortMode = 'default';
+    state.currentSortModeIndex = 0;
 
     renderCategories();
     setupEventListeners();
@@ -1044,61 +993,72 @@ function init() {
     setupScrollToTop();
     setupGuideModal();
     setupVideoModal();
-    setupRecentlyAdded()
+    setupRecentlyAdded();
+    setupGifSwitcher();
+    setupThemeToggle();
 }
 
 function setupEventListeners() {
-    backButton.addEventListener('click', showHomePage);
+    elements.backButton.addEventListener('click', showHomePage);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && currentCategory) {
+        if (e.key === 'Escape' && state.currentCategory) {
             showHomePage();
         }
     });
 }
 
-let searchTimeout;
-
 function setupSearch() {
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(searchTimeout);
-        searchQuery = e.target.value.toLowerCase().trim();
-        searchClear.style.display = searchQuery ? 'flex' : 'none';
+    const debouncedSearch = debounce(() => {
+        if (state.searchQuery) {
+            state.currentCategory = null;
+            renderAllModsSearch();
+        } else {
+            showHomePage();
+        }
+    }, 360);
 
-        searchTimeout = setTimeout(() => {
-            if (searchQuery) {
-                currentCategory = null;
-                renderAllModsSearch();
-            } else {
-                showHomePage();
-            }
-        }, 360);
+    elements.searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value.toLowerCase().trim();
+        elements.searchClear.style.display = state.searchQuery ? 'flex' : 'none';
+        debouncedSearch();
     });
 
-    searchClear.addEventListener('click', () => {
-        searchInput.value = '';
-        searchQuery = '';
-        searchClear.style.display = 'none';
-
+    elements.searchClear.addEventListener('click', () => {
+        elements.searchInput.value = '';
+        state.searchQuery = '';
+        elements.searchClear.style.display = 'none';
         showHomePage();
-
-        searchInput.focus();
+        elements.searchInput.focus();
     });
 }
 
+function resetSort() {
+    state.sortMode = 'default';
+    state.currentSortModeIndex = 0;
+
+    const sortLabel = document.getElementById('sortLabel');
+    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
+    const sortToggle = document.getElementById('sortToggle');
+
+    if (sortLabel) sortLabel.textContent = 'Default';
+    if (sortIcon) sortIcon.textContent = 'sort';
+    if (sortToggle) sortToggle.style.display = 'flex';
+}
+
 function renderCategories() {
-    categoriesGrid.innerHTML = '';
+    elements.categoriesGrid.innerHTML = '';
     let filteredCategories = categories;
 
-    if (searchQuery) {
+    if (state.searchQuery) {
         filteredCategories = categories.filter(category =>
-            translations[category.key].toLowerCase().includes(searchQuery) ||
-            translations[category.key + '-desc'].toLowerCase().includes(searchQuery)
+            translations[category.key].toLowerCase().includes(state.searchQuery) ||
+            translations[category.key + '-desc'].toLowerCase().includes(state.searchQuery)
         );
     }
 
     if (filteredCategories.length === 0) {
-        categoriesGrid.innerHTML = `
+        elements.categoriesGrid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
                 <p>No results found</p>
             </div>
@@ -1108,7 +1068,7 @@ function renderCategories() {
 
     filteredCategories.forEach(category => {
         const card = createCategoryCard(category);
-        categoriesGrid.appendChild(card);
+        elements.categoriesGrid.appendChild(card);
     });
 }
 
@@ -1127,9 +1087,7 @@ function createCategoryCard(category) {
     }
 
     card.innerHTML = `
-        <div class="card-media">
-            ${mediaContent}
-        </div>
+        <div class="card-media">${mediaContent}</div>
         <div class="card-content">
             <h3 class="card-title">${translations[category.key]}</h3>
             <p class="card-subtitle">${translations[category.key + '-desc']}</p>
@@ -1141,71 +1099,51 @@ function createCategoryCard(category) {
 }
 
 function showCategoryPage(categoryId) {
-    scrollPosition = window.pageYOffset;
+    state.scrollPosition = window.pageYOffset;
+    state.currentCategory = categoryId;
 
-    currentCategory = categoryId;
     const category = categories.find(cat => cat.id === categoryId);
-
     if (!category) return;
 
-    sortMode = 'default';
-    currentSortModeIndex = 0;
+    resetSort();
 
-    const sortLabel = document.getElementById('sortLabel');
-    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
-    const sortToggle = document.getElementById('sortToggle');
-
-    if (sortLabel) {
-        sortLabel.textContent = 'Default';
-    }
-    if (sortIcon) {
-        sortIcon.textContent = 'sort';
-    }
-    if (sortToggle) {
-        sortToggle.style.display = 'flex';
-    }
-
-    categoryTitle.textContent = translations[category.key];
-    categoryDescription.textContent = translations[category.key + '-desc'];
+    elements.categoryTitle.textContent = translations[category.key];
+    elements.categoryDescription.textContent = translations[category.key + '-desc'];
 
     renderMods(categoryId);
 
-    homePage.classList.add('hidden');
-    categoryPage.classList.remove('hidden');
-    backButton.style.display = 'flex';
+    elements.homePage.classList.add('hidden');
+    elements.categoryPage.classList.remove('hidden');
+    elements.backButton.style.display = 'flex';
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderMods(categoryId) {
-    modsGrid.innerHTML = '';
-    modsGrid.style.display = '';
+    elements.modsGrid.innerHTML = '';
+    elements.modsGrid.style.display = '';
     let mods = modsData[categoryId] || [];
 
     const sortToggle = document.getElementById('sortToggle');
-    if (sortToggle) {
-        sortToggle.style.display = 'flex';
-    }
+    if (sortToggle) sortToggle.style.display = 'flex';
 
     const isGroupedCategory = mods.groups && Array.isArray(mods.groups);
 
     if (isGroupedCategory) {
         renderGroupedMods(categoryId, mods.groups);
     } else {
-        if (searchQuery) {
-            mods = mods.filter(mod =>
-                mod.name.toLowerCase().includes(searchQuery)
-            );
+        if (state.searchQuery) {
+            mods = mods.filter(mod => mod.name.toLowerCase().includes(state.searchQuery));
         }
 
-        mods = sortMods(mods, sortMode);
+        mods = sortMods(mods, state.sortMode);
 
         if (mods.length === 0) {
-            const message = searchQuery
+            const message = state.searchQuery
                 ? 'No results found'
                 : 'No mods available in this category yet.';
 
-            modsGrid.innerHTML = `
+            elements.modsGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
                     <p>${message}</p>
                 </div>
@@ -1215,7 +1153,7 @@ function renderMods(categoryId) {
 
         mods.forEach(mod => {
             const card = createModCard(mod, categoryId);
-            modsGrid.appendChild(card);
+            elements.modsGrid.appendChild(card);
         });
     }
 
@@ -1228,10 +1166,10 @@ function renderGroupedMods(categoryId, groups) {
     groups.forEach(group => {
         let filteredMods = group.mods;
 
-        if (searchQuery) {
+        if (state.searchQuery) {
             filteredMods = filteredMods.filter(mod =>
-                mod.name.toLowerCase().includes(searchQuery) ||
-                group.name.toLowerCase().includes(searchQuery)
+                mod.name.toLowerCase().includes(state.searchQuery) ||
+                group.name.toLowerCase().includes(state.searchQuery)
             );
         }
 
@@ -1243,31 +1181,31 @@ function renderGroupedMods(categoryId, groups) {
             <h3 class="mod-group-title">${group.name}</h3>
             <div class="mod-group-divider"></div>
         `;
-        modsGrid.appendChild(groupHeader);
+        elements.modsGrid.appendChild(groupHeader);
+
         const groupContainer = document.createElement('div');
         groupContainer.className = 'mod-group-container';
         groupContainer.setAttribute('data-group-id', group.id);
-        const sortedMods = sortMods(filteredMods, sortMode);
+
+        const sortedMods = sortMods(filteredMods, state.sortMode);
         sortedMods.forEach(mod => {
             const card = createModCard(mod, categoryId, group.id);
             groupContainer.appendChild(card);
         });
 
-        modsGrid.appendChild(groupContainer);
+        elements.modsGrid.appendChild(groupContainer);
     });
 }
 
 function renderAllModsSearch() {
-    modsGrid.innerHTML = '';
-    modsGrid.style.display = '';
-    homePage.classList.add('hidden');
-    categoryPage.classList.remove('hidden');
-    backButton.style.display = 'flex';
+    elements.modsGrid.innerHTML = '';
+    elements.modsGrid.style.display = '';
+    elements.homePage.classList.add('hidden');
+    elements.categoryPage.classList.remove('hidden');
+    elements.backButton.style.display = 'flex';
 
     const sortToggle = document.getElementById('sortToggle');
-    if (sortToggle) {
-        sortToggle.style.display = 'none';
-    }
+    if (sortToggle) sortToggle.style.display = 'none';
 
     let allResults = [];
 
@@ -1278,8 +1216,8 @@ function renderAllModsSearch() {
         if (isGroupedCategory) {
             categoryData.groups.forEach(group => {
                 const filtered = group.mods.filter(mod =>
-                    mod.name.toLowerCase().includes(searchQuery) ||
-                    group.name.toLowerCase().includes(searchQuery)
+                    mod.name.toLowerCase().includes(state.searchQuery) ||
+                    group.name.toLowerCase().includes(state.searchQuery)
                 );
                 filtered.forEach(mod => {
                     allResults.push({
@@ -1293,35 +1231,35 @@ function renderAllModsSearch() {
         } else {
             const mods = categoryData || [];
             const filtered = mods.filter(mod =>
-                mod.name.toLowerCase().includes(searchQuery)
+                mod.name.toLowerCase().includes(state.searchQuery)
             );
             filtered.forEach(mod => allResults.push({ mod, category }));
         }
     }
 
     if (allResults.length === 0) {
-        modsGrid.innerHTML = `
+        elements.modsGrid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
                 <p>No results found</p>
             </div>
         `;
-        categoryTitle.textContent = 'Search results';
-        categoryDescription.textContent = '';
+        elements.categoryTitle.textContent = 'Search results';
+        elements.categoryDescription.textContent = '';
         return;
     }
 
-    if (sortMode === 'name') {
+    if (state.sortMode === 'name') {
         allResults.sort((a, b) => a.mod.name.localeCompare(b.mod.name));
-    } else if (sortMode === 'date') {
+    } else if (state.sortMode === 'date') {
         allResults.reverse();
     }
 
-    categoryTitle.textContent = 'Search results';
-    categoryDescription.textContent = `Found ${allResults.length} mods`;
+    elements.categoryTitle.textContent = 'Search results';
+    elements.categoryDescription.textContent = `Found ${allResults.length} mods`;
 
     allResults.forEach(({ mod, category, groupId }) => {
         const card = createModCard(mod, category.id, groupId);
-        modsGrid.appendChild(card);
+        elements.modsGrid.appendChild(card);
     });
 
     if (typeof updateCartButtons === 'function') {
@@ -1334,134 +1272,32 @@ function createModCard(mod, categoryId, groupId = null) {
     card.className = 'card fade-in';
     card.setAttribute('data-mod-name', mod.name);
     card.setAttribute('data-category-id', categoryId);
-    if (groupId) {
-        card.setAttribute('data-group-id', groupId);
-    }
+    if (groupId) card.setAttribute('data-group-id', groupId);
+
     const preview = mod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
     const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
 
-    let tagsHtml = '';
-
-    const tagConfigs = {
-        heroes: {
-            allowForGuides: false,
-            map: {
-                effects: 'Effects',
-                icons: 'Icons'
-            }
-        },
-        backgrounds: {
-            allowForGuides: false,
-            map: {
-                image: 'Image',
-                video: 'Video',
-                lowres: 'Shit Quality'
-            }
-        },
-        sites: {
-            allowForGuides: true,
-            map: {
-                stats: 'Stats',
-                meta: 'Meta',
-                fun: 'Fun'
-            }
-        }
-    };
-
-    const cfg = tagConfigs[categoryId];
-    const canShowTags = !!cfg && mod.tags && (mod.type !== 'guide' || cfg.allowForGuides);
-    if (canShowTags) {
-        const activeTags = [];
-        const tagMap = cfg.map || {};
-
-        for (const key in tagMap) {
-            if (Object.prototype.hasOwnProperty.call(mod.tags, key) && mod.tags[key]) {
-                activeTags.push(`<span class="mod-tag">${tagMap[key]}</span>`);
-            }
-        }
-
-        if (activeTags.length > 0) {
-            tagsHtml = `<div class="mod-tags">${activeTags.join('')}</div>`;
-        }
-    }
-
-    const linkIcons = {
-        'author': 'person',
-        'preview': 'play_circle',
-        'source': 'captive_portal',
-        'guide': 'description'
-    };
-
-    let linkButtonsHtml = '';
-    const linkButtons = [];
-    if (mod.links && mod.links.length > 0) {
-        mod.links.forEach(link => {
-            const icon = linkIcons[link.type] || 'link';
-            linkButtons.push(`
-                <span class="link-button" 
-                      data-url="${link.url}" 
-                      data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
-                    <span class="material-symbols-rounded">${icon}</span>
-                    ${translations[link.type]}
-                </span>
-            `);
-        });
-    } else if (mod.linkType && mod.linkUrl) {
-        const icon = linkIcons[mod.linkType] || 'link';
-        linkButtons.push(`
-            <span class="link-button" 
-                  data-url="${mod.linkUrl}" 
-                  data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
-                <span class="material-symbols-rounded">${icon}</span>
-                ${translations[mod.linkType]}
-            </span>
-        `);
-    }
-    const hideGuideButtonCategories = ['guides'];
-
-    if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
-        linkButtons.push(`
-        <span class="link-button guide-button" data-guide-id="${mod.guideId}">
-            <span class="material-symbols-rounded">description</span>
-            ${translations['guide'] || 'Guide'}
-        </span>
-    `);
-    }
-    if (linkButtons.length > 0) {
-        linkButtonsHtml = `<div class="link-buttons">${linkButtons.join('')}</div>`;
-    }
-
+    const tagsHtml = generateTagsHtml(mod, categoryId);
+    const linkButtonsHtml = generateLinkButtonsHtml(mod, categoryId);
     const downloadIcon = mod.type === 'guide' ? 'captive_portal' : 'download';
     const subtitleText = mod.type === 'guide' ? 'Open' : translations['download'];
-    let hideAddToCart = false;
-    if (addToCartRules.hiddenCategories.includes(categoryId)) {
-        hideAddToCart = true;
-    }
-    else if (addToCartRules.allowedMods[categoryId]) {
-        const allowedList = addToCartRules.allowedMods[categoryId].map(name => name.toLowerCase());
-        if (!allowedList.includes(mod.name.toLowerCase())) {
-            hideAddToCart = true;
-        }
-    }
-    else if (mod.type === 'guide') {
-        hideAddToCart = true;
-    }
+    const hideAddToCart = shouldHideAddToCart(mod, categoryId);
 
     card.innerHTML = `
         <div class="card-media">
             ${preview
             ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
-                         onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>`
+                     onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>`
             : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
         }
             ${tagsHtml}
             ${!hideAddToCart ? `
-            <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: mod.name, file: mod.file })}' data-category="${categoryId}">
-                <span class="material-symbols-rounded">add</span>
-                <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
-            </button>
+                <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: mod.name, file: mod.file })}' data-category="${categoryId}">
+                    <span class="material-symbols-rounded">add</span>
+                    <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
+                </button>
             ` : ''}
             <div class="download-icon">
                 <span class="material-symbols-rounded">${downloadIcon}</span>
@@ -1476,17 +1312,98 @@ function createModCard(mod, categoryId, groupId = null) {
         </div>
     `;
 
+    attachCardEventListeners(card, mod, categoryId);
+    return card;
+}
+
+function generateTagsHtml(mod, categoryId) {
+    const cfg = TAG_CONFIGS[categoryId];
+    const canShowTags = !!cfg && mod.tags && (mod.type !== 'guide' || cfg.allowForGuides);
+
+    if (!canShowTags) return '';
+
+    const activeTags = [];
+    const tagMap = cfg.map || {};
+
+    for (const key in tagMap) {
+        if (Object.prototype.hasOwnProperty.call(mod.tags, key) && mod.tags[key]) {
+            activeTags.push(`<span class="mod-tag">${tagMap[key]}</span>`);
+        }
+    }
+
+    return activeTags.length > 0 ? `<div class="mod-tags">${activeTags.join('')}</div>` : '';
+}
+
+function generateLinkButtonsHtml(mod, categoryId) {
+    const linkButtons = [];
+
+    if (mod.links && mod.links.length > 0) {
+        mod.links.forEach(link => {
+            const icon = LINK_ICONS[link.type] || 'link';
+            linkButtons.push(`
+                <span class="link-button" 
+                      data-url="${link.url}" 
+                      data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
+                    <span class="material-symbols-rounded">${icon}</span>
+                    ${translations[link.type]}
+                </span>
+            `);
+        });
+    } else if (mod.linkType && mod.linkUrl) {
+        const icon = LINK_ICONS[mod.linkType] || 'link';
+        linkButtons.push(`
+            <span class="link-button" 
+                  data-url="${mod.linkUrl}" 
+                  data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
+                <span class="material-symbols-rounded">${icon}</span>
+                ${translations[mod.linkType]}
+            </span>
+        `);
+    }
+
+    const hideGuideButtonCategories = ['guides'];
+    if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
+        linkButtons.push(`
+            <span class="link-button guide-button" data-guide-id="${mod.guideId}">
+                <span class="material-symbols-rounded">description</span>
+                ${translations['guide'] || 'Guide'}
+            </span>
+        `);
+    }
+
+    return linkButtons.length > 0 ? `<div class="link-buttons">${linkButtons.join('')}</div>` : '';
+}
+
+function shouldHideAddToCart(mod, categoryId) {
+    if (addToCartRules.hiddenCategories.includes(categoryId)) {
+        return true;
+    }
+
+    if (addToCartRules.allowedMods[categoryId]) {
+        const allowedList = addToCartRules.allowedMods[categoryId].map(name => name.toLowerCase());
+        if (!allowedList.includes(mod.name.toLowerCase())) {
+            return true;
+        }
+    }
+
+    if (mod.type === 'guide') {
+        return true;
+    }
+
+    return false;
+}
+
+function attachCardEventListeners(card, mod, categoryId) {
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
             return;
         }
+
         if (mod.type === 'guide' && mod.guideId) {
             openGuideForMod({ guideId: mod.guideId });
-        }
-        else if (mod.type === 'guide' && !mod.guideId) {
+        } else if (mod.type === 'guide' && !mod.guideId) {
             window.open(mod.file, '_blank');
-        }
-        else {
+        } else {
             downloadMod(mod, categoryId);
         }
     });
@@ -1498,7 +1415,7 @@ function createModCard(mod, categoryId, groupId = null) {
 
             const guideId = button.getAttribute('data-guide-id');
             if (guideId) {
-                openGuideForMod({ guideId: guideId });
+                openGuideForMod({ guideId });
                 return;
             }
 
@@ -1522,8 +1439,6 @@ function createModCard(mod, categoryId, groupId = null) {
             updateCartButtons();
         });
     }
-
-    return card;
 }
 
 function downloadMod(mod, categoryId) {
@@ -1548,36 +1463,27 @@ function openGuideForMod(mod) {
 }
 
 function showHomePage() {
-    currentCategory = null;
-    sortMode = 'default';
-    currentSortModeIndex = 0;
+    state.currentCategory = null;
+    state.sortMode = 'default';
+    state.currentSortModeIndex = 0;
 
-    searchInput.value = '';
-    searchQuery = '';
-    searchClear.style.display = 'none';
+    elements.searchInput.value = '';
+    state.searchQuery = '';
+    elements.searchClear.style.display = 'none';
 
-    categoryPage.classList.add('hidden');
-    homePage.classList.remove('hidden');
-    backButton.style.display = 'none';
+    elements.categoryPage.classList.add('hidden');
+    elements.homePage.classList.remove('hidden');
+    elements.backButton.style.display = 'none';
 
     const sortToggle = document.getElementById('sortToggle');
-    if (sortToggle) {
-        sortToggle.style.display = 'none';
-    }
-    const sortLabel = document.getElementById('sortLabel');
-    const sortIcon = document.querySelector('#sortToggle .material-symbols-rounded');
-    if (sortLabel) {
-        sortLabel.textContent = 'Default';
-    }
-    if (sortIcon) {
-        sortIcon.textContent = 'sort';
-    }
+    if (sortToggle) sortToggle.style.display = 'none';
 
+    resetSort();
     renderCategories();
 
     requestAnimationFrame(() => {
-        window.scrollTo(0, scrollPosition);
+        window.scrollTo(0, state.scrollPosition);
     });
 }
 
-init()
+init();
