@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Flaming Medals', category: 'ranks' },
+    { name: 'Imperial Medals', category: 'ranks' },
     { name: 'Spectre Shadowveil', category: 'heroes' },
     { name: 'Purple Shadow Fiend', category: 'heroes' },
     { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
@@ -400,5 +402,9 @@ const modsData = {
         { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' },
         { name: 'Install Mods', preview: '', guideId: 'install', type: 'guide' },
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
-    ]
+    ],
+    'ranks': [
+        { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk' },
+        { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk' },
+    ],
 }

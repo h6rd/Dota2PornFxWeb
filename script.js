@@ -62,7 +62,9 @@ const translations = {
     'backgrounds': 'Backgrounds',
     'backgrounds-desc': 'Custom backgrounds',
     'river': 'River',
-    'river-desc': 'Custom river colors'
+    'river-desc': 'Custom river colors',
+    'ranks': 'Rank Icons',
+    'ranks-desc': 'Custom Rank Icons'
 };
 
 const categories = [
@@ -87,6 +89,7 @@ const categories = [
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
+    { id: 'ranks', emoji: '🎖️', key: 'ranks', preview: 'ranks.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
