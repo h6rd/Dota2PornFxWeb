@@ -2037,7 +2037,7 @@ fcode {
 
 .card-subtitle .card-link:hover {
   color: var(--md-sys-color-shit-light) !important;
-  text-shadow: 0 0 8px rgba(208, 188, 255, 0.4);
+  text-shadow: 0 0 8px var(--md-sys-color-outline);
 }
 
 .card-subtitle .card-link:active {
@@ -3041,6 +3041,35 @@ fcode {
   display: flex;
   gap: 12px;
   justify-content: flex-end;
+}
+
+/* Grouped Mods */
+.mod-group-header {
+  grid-column: 1 / -1;
+  margin-top: 32px;
+  margin-bottom: 5px;
+}
+
+.mod-group-header:first-child {
+  margin-top: 0;
+}
+
+.mod-group-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+  margin-bottom: -10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mod-group-container {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 16px;
 }
 
 /* Animations */

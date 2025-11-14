@@ -29,29 +29,98 @@ const modsData = {
         { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak97_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' },
         { name: 'Darkness Pack', preview: 'Darkness Pack.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'preview', url: 'assets/previews/ti-bp-effects/Darkness_Pack.mp4' }] }
     ],
-    'item-effects': [
-        { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
-        { name: 'Christmas Iron Branch', preview: 'christmas_branch.mp4', file: 'pak68_dir.vpk' },
-        { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
-        { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
-        { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
-        { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
-        { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
-        { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
-        { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
-        { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
-        { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
-        { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.mp4', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Bottle', preview: 'Darkness Bottle.mp4', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Dagon', preview: 'Darkness Dagon.mp4', file: 'Darkness Dagon.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.mp4', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.mp4', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Mekanism', preview: 'Darkness Mekanism.mp4', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Mjollner', preview: 'Darkness Mjollner.mp4', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.mp4', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Radiance', preview: 'Darkness Radiance.mp4', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-        { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
-    ],
+    'item-effects': {
+        groups: [
+            {
+                id: 'dagon', name: 'Dagon', mods: [
+                    { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
+                    { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
+                    { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
+                    { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
+                    { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
+                ]
+            },
+            {
+                id: 'branch', name: 'Iron Branch', mods: [
+                    { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
+                    { name: 'Christmas Iron Branch', preview: 'christmas_branch.mp4', file: 'pak68_dir.vpk' },
+                ]
+            },
+            {
+                id: 'ethereal', name: 'Ethereal', mods: [
+                    { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
+                ]
+            },
+            {
+                id: 'bottle', name: 'Bottle', mods: [
+                    { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
+                    { name: 'Darkness Bottle', preview: 'Darkness Bottle.mp4', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'blink', name: 'Blink Dagger', mods: [
+                    { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.mp4', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'eul', name: "Eul's / Wind Waker", mods: [
+                    { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.mp4', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'lvlup', name: 'Lvl Up', mods: [
+                    { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.mp4', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'shivas', name: "Shiva's Guard", mods: [
+                    { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
+                ]
+            },
+            {
+                id: 'mekansm', name: 'Mekansm', mods: [
+                    { name: 'Darkness Mekansm', preview: 'Darkness Mekanism.mp4', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'mjollnir', name: 'Maelstrom / Mjollnir', mods: [
+                    { name: 'Darkness Mjollnir', preview: 'Darkness Mjollner.mp4', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'radiance', name: 'Radiance', mods: [
+                    { name: 'Darkness Radiance', preview: 'Darkness Radiance.mp4', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'phase-boots', name: 'Phase Boots', mods: [
+                    { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.mp4', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'aegis', name: 'Aegis', mods: [
+                    { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
+                ]
+            },
+            {
+                id: 'runes', name: 'Runes', mods: [
+                    { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
+                ]
+            },
+            {
+                id: 'teleport', name: 'Teleport', mods: [
+                ]
+            },
+            {
+                id: 'fountain', name: 'Fountain', mods: [
+                ]
+            },
+            {
+                id: 'aghanim', name: 'Aghanim', mods: [
+                ]
+            },
+        ]
+    },
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.webp', file: 'pak08_dir.vpk' },
         { name: 'Soul Deny', preview: 'soul_deny.mp4', file: 'pak11_dir.vpk' },
@@ -89,8 +158,8 @@ const modsData = {
     ],
     'terrains': [
         { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
-        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, {type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
-        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, {type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
+        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
         { name: 'LowPoly Map', preview: 'LowPolyMap.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
         { name: 'TI6 Immortal Gardens', preview: 'TI6 Immortal Gardens.webp', file: 'TI6 Immortal Gardens.zip' },
@@ -107,7 +176,7 @@ const modsData = {
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },
-        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak57_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, {type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
+        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak57_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
         { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_crystals_trees/' },
         { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-wooden_trees/' },
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' },

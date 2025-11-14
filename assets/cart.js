@@ -37,11 +37,16 @@ function addToCart(mod, categoryId) {
         return;
     }
 
+    const button = event?.target?.closest('.add-to-cart-btn');
+    const card = button?.closest('.card');
+    const groupId = card?.getAttribute('data-group-id');
+
     const cartItem = {
-        id: `${categoryId}-${mod.name}`,
+        id: groupId ? `${categoryId}-${groupId}-${mod.name}` : `${categoryId}-${mod.name}`,
         name: mod.name,
         file: mod.file,
-        categoryId: categoryId
+        categoryId: categoryId,
+        groupId: groupId || null
     };
 
     const exists = cart.find(item => item.id === cartItem.id);
@@ -49,6 +54,16 @@ function addToCart(mod, categoryId) {
         removeFromCart(cartItem.id);
         updateCartButtons();
         return;
+    }
+
+    if (groupId) {
+        const existingInGroup = cart.find(item =>
+            item.categoryId === categoryId && item.groupId === groupId
+        );
+        if (existingInGroup) {
+            showReplaceModal(existingInGroup, cartItem);
+            return;
+        }
     }
 
     if (SINGLE_ITEM_CATEGORIES.includes(categoryId)) {
@@ -73,7 +88,9 @@ function addToCart(mod, categoryId) {
     allButtons.forEach(btn => {
         const btnModData = JSON.parse(btn.getAttribute('data-mod'));
         const btnCategory = btn.getAttribute('data-category');
-        const btnId = `${btnCategory}-${btnModData.name}`;
+        const btnCard = btn.closest('.card');
+        const btnGroupId = btnCard?.getAttribute('data-group-id');
+        const btnId = btnGroupId ? `${btnCategory}-${btnGroupId}-${btnModData.name}` : `${btnCategory}-${btnModData.name}`;
 
         if (btnId === cartItem.id) {
             btn.classList.add('just-added');
@@ -110,7 +127,9 @@ function updateCartButtons() {
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
         const modData = JSON.parse(btn.getAttribute('data-mod'));
         const category = btn.getAttribute('data-category');
-        const id = `${category}-${modData.name}`;
+        const card = btn.closest('.card');
+        const groupId = card?.getAttribute('data-group-id');
+        const id = groupId ? `${category}-${groupId}-${modData.name}` : `${category}-${modData.name}`;
         const inCart = cart.some(item => item.id === id);
 
         const icon = btn.querySelector('.material-symbols-rounded');
