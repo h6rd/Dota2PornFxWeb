@@ -1,3 +1,26 @@
+const recentlyAddedMods = [
+    { name: 'Purple Shadow Fiend', category: 'heroes' },
+    { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
+    { name: 'Cartoon Trees', category: 'trees' },
+    { name: 'Maid Marci', category: 'heroes' },
+    { name: 'Razor Rainbow Statics', category: 'heroes' },
+    { name: 'LowPoly Map', category: 'terrains' },
+    { name: 'Cloudy Tree', category: 'backgrounds' },
+    { name: 'Winter Solitude', category: 'backgrounds' },
+    { name: 'Arcanas Items Icons', category: 'other' },
+    { name: 'Black River', category: 'river' },
+    { name: 'Moonflower Field', category: 'backgrounds' },
+    { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
+    { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
+    { name: 'Sakura Pink Invoker', category: 'heroes' },
+    { name: 'Minimap Icons', category: 'guides' },
+    { name: 'Darkness Pack', category: 'ti-bp-effects' },
+    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
+    { name: 'Sherman Crystal Maiden', category: 'heroes' },
+    { name: 'Low Poly Trees', category: 'trees' },
+    { name: 'Mossy Cobblestone', category: 'terrains' }
+];
+
 const modsData = {
     'shaders': [
         { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.webp', file: 'pak07_dir.vpk' },
@@ -258,6 +281,7 @@ const modsData = {
         { name: 'Razor Rainbow Statics', preview: 'Razor Rainbow Statics.webp', file: 'Razor Rainbow Statics.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Maid Marci', preview: 'Maid Marci.webp', file: 'Maid Marci.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@mrkliromin7723' }] },
         { name: 'Terrorblade Unblinking Horror', preview: 'Terrorblade Unblinking Horror.webp', file: 'Terrorblade Unblinking Horror.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Purple Shadow Fiend', preview: 'Purple Shadow Fiend.webp', file: 'Purple Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [

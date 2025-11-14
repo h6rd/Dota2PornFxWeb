@@ -94,28 +94,6 @@ const categories = [
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
-const recentlyAddedMods = [
-    { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
-    { name: 'Cartoon Trees', category: 'trees' },
-    { name: 'Maid Marci', category: 'heroes' },
-    { name: 'Razor Rainbow Statics', category: 'heroes' },
-    { name: 'LowPoly Map', category: 'terrains' },
-    { name: 'Cloudy Tree', category: 'backgrounds' },
-    { name: 'Winter Solitude', category: 'backgrounds' },
-    { name: 'Arcanas Items Icons', category: 'other' },
-    { name: 'Black River', category: 'river' },
-    { name: 'Moonflower Field', category: 'backgrounds' },
-    { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
-    { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
-    { name: 'Sakura Pink Invoker', category: 'heroes' },
-    { name: 'Minimap Icons', category: 'guides' },
-    { name: 'Darkness Pack', category: 'ti-bp-effects' },
-    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
-    { name: 'Sherman Crystal Maiden', category: 'heroes' },
-    { name: 'Low Poly Trees', category: 'trees' },
-    { name: 'Mossy Cobblestone', category: 'terrains' }
-];
-
 const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
