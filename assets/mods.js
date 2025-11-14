@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Spectre Shadowveil', category: 'heroes' },
     { name: 'Purple Shadow Fiend', category: 'heroes' },
     { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
     { name: 'Cartoon Trees', category: 'trees' },
@@ -219,6 +220,7 @@ const modsData = {
         { name: 'Lifestealer Diretide Shimmer', preview: 'Lifestealer Diretide Shimmer.webp', file: 'Lifestealer Diretide Shimmer.zip', tags: { effects: false, icons: false } },
         { name: 'Lion Cannonroar Confessor', preview: 'Lion Cannonroar Confessor.webp', file: 'Lion Cannonroar Confessor.zip', tags: { effects: true, icons: true } },
         { name: 'Cosmic Faceless Void', preview: 'Faceless Void Chrononaut Continuum.webp', file: 'Faceless Void Chrononaut Continuum.zip', tags: { effects: false, icons: false } },
+        { name: 'Spectre Shadowveil', preview: 'Spectre Shadowveil.webp', file: 'Spectre Shadowveil.zip', tags: { effects: true, icons: true } },
         { name: 'Alien Nyx Assassin', preview: 'Alien Nyx Assassin.webp', file: 'Alien Nyx Assassin.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-alien_nyx_assassin_megapack/' },
         { name: 'Ancients Lina', preview: 'Ancients Lina.webp', file: 'Ancients Lina.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancients_lina/' },
         { name: 'Arc Warden Black Hole', preview: 'Arc Warden Black Hole.webp', file: 'Arc Warden Black Hole.zip', tags: { effects: true, icons: true }, linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-black_hole_custom_arc_warden/' },
