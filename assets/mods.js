@@ -17,7 +17,7 @@ const recentlyAddedMods = [
     { name: 'LowPoly Map', category: 'terrains' },
     { name: 'Cloudy Tree', category: 'backgrounds' },
     { name: 'Winter Solitude', category: 'backgrounds' },
-    { name: 'Arcanas Items Icons', category: 'other' },
+    { name: 'Arcanas Items Icons', category: 'item-icons' },
     { name: 'Black River', category: 'river' },
     { name: 'Moonflower Field', category: 'backgrounds' },
     { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
@@ -379,8 +379,6 @@ const modsData = {
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
-        { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
     ],
     'river': [
         { name: 'Black River', preview: 'Black.webp', file: 'pak10_dir.vpk' },
@@ -444,5 +442,9 @@ const modsData = {
     'ranks': [
         { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk' },
         { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk' },
+    ],
+    'item-icons': [
+        { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
+        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
     ],
 }
