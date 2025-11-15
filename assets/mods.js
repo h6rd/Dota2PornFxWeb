@@ -425,7 +425,7 @@ const modsData = {
         { name: 'VPKTool Linux', preview: 'VPKTool-Linux.webp', file: 'VPKTool Linux.zip', guideId: "vpk-tool-linux" },
     ],
     'optimization': [
-        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
+        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify', type: 'guide' },
         { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' }
     ],
     'sites': [
