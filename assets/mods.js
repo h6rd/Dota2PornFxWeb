@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Tiny Majesty of the Colossus', category: 'heroes' },
     { name: 'Frostivus Alchemist', category: 'heroes' },
     { name: 'Cosmic Alchemist', category: 'heroes' },
     { name: 'Juggernaut Ice and Fire', category: 'heroes' },
@@ -298,6 +299,7 @@ const modsData = {
         { name: 'Juggernaut Ice and Fire', preview: 'Juggernaut Ice and Fire.webp', file: 'Juggernaut Ice and Fire.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
+        { name: 'Tiny Majesty of the Colossus', preview: 'Tiny Majesty of the Colossus.webp', file: 'Tiny Majesty of the Colossus.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
