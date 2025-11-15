@@ -2739,12 +2739,22 @@ fcode {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 16px;
+  padding: 12px;
   background: var(--md-sys-color-surface-container);
   border-radius: 16px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+}
+
+.cart-item-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--md-sys-color-surface-container-highest);
+  display: block;
 }
 
 .cart-item-info {

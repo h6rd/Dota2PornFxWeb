@@ -303,15 +303,44 @@ function renderCartItems() {
         const category = categories.find(cat => cat.id === item.categoryId);
         const categoryName = category ? translations[category.key] : item.categoryId;
 
+        const categoryData = modsData[item.categoryId];
+        let mod = null;
+        let previewPath = '';
+        let isVideo = false;
+
+        if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+            const group = categoryData.groups.find(g => g.id === item.groupId);
+            if (group) {
+                mod = group.mods.find(m => m.name === item.name);
+            }
+        } else if (Array.isArray(categoryData)) {
+            mod = categoryData.find(m => m.name === item.name);
+        }
+
+        if (mod && mod.preview) {
+            previewPath = `assets/previews/${item.categoryId}/${mod.preview}`;
+            isVideo = mod.preview.endsWith('.mp4');
+        }
+
+        let previewHtml = '';
+        if (previewPath) {
+            if (isVideo) {
+                previewHtml = `<video src="${previewPath}" class="cart-item-image" autoplay muted loop playsinline onerror="this.style.display='none'"></video>`;
+            } else {
+                previewHtml = `<img src="${previewPath}" alt="${escapeHtml(item.name)}" class="cart-item-image" onerror="this.style.display='none'">`;
+            }
+        }
+
         cartItem.innerHTML = `
-            <div class="cart-item-info">
-                <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
-                <p class="cart-item-category">${escapeHtml(categoryName)}</p>
-            </div>
-            <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
-                <span class="material-symbols-rounded">close</span>
-            </button>
-        `;
+    ${previewHtml}
+    <div class="cart-item-info">
+        <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
+        <p class="cart-item-category">${escapeHtml(categoryName)}</p>
+    </div>
+    <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
+        <span class="material-symbols-rounded">close</span>
+    </button>
+`;
 
         cartItems.appendChild(cartItem);
     });
