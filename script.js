@@ -171,6 +171,27 @@ const GIF_CONFIG = {
     themes: ['ursa', 'brew', 'fura', 'storm', 'invoker']
 };
 
+const HEROES_LIST = [
+    'Anti-Mage', 'Axe', 'Bane', 'Bloodseeker', 'Crystal Maiden', 'Drow Ranger', 
+    'Earthshaker', 'Juggernaut', 'Mirana', 'Morphling', 'Shadow Fiend', 'Phantom Lancer',
+    'Puck', 'Pudge', 'Razor', 'Sand King', 'Storm Spirit', 'Sven', 'Tiny', 'Vengeful Spirit',
+    'Windranger', 'Zeus', 'Kunkka', 'Lina', 'Lion', 'Shadow Shaman', 'Slardar', 'Tidehunter',
+    'Witch Doctor', 'Lich', 'Riki', 'Enigma', 'Tinker', 'Sniper', 'Necrophos', 'Warlock',
+    'Beastmaster', 'Queen of Pain', 'Venomancer', 'Faceless Void', 'Wraith King', 'Death Prophet',
+    'Phantom Assassin', 'Pugna', 'Templar Assassin', 'Viper', 'Luna', 'Dragon Knight', 'Dazzle',
+    'Clockwerk', 'Leshrac', 'Natures Prophet', 'Lifestealer', 'Dark Seer', 'Clinkz', 'Omniknight',
+    'Enchantress', 'Huskar', 'Night Stalker', 'Broodmother', 'Bounty Hunter', 'Weaver', 'Jakiro',
+    'Batrider', 'Chen', 'Spectre', 'Ancient Apparition', 'Doom', 'Ursa', 'Spirit Breaker', 'Gyrocopter',
+    'Alchemist', 'Invoker', 'Silencer', 'Outworld Destroyer', 'Lycan', 'Brewmaster', 'Shadow Demon',
+    'Lone Druid', 'Chaos Knight', 'Meepo', 'Treant Protector', 'Ogre Magi', 'Undying', 'Rubick',
+    'Disruptor', 'Nyx Assassin', 'Naga Siren', 'Keeper of the Light', 'Keeper', 'Io', 'Visage', 'Slark',
+    'Medusa', 'Troll Warlord', 'Centaur Warrunner', 'Magnus', 'Timbersaw', 'Bristleback', 'Tusk',
+    'Skywrath Mage', 'Abaddon', 'Elder Titan', 'Legion Commander', 'Techies', 'Ember Spirit',
+    'Earth Spirit', 'Underlord', 'Terrorblade', 'Phoenix', 'Oracle', 'Winter Wyvern', 'Arc Warden',
+    'Monkey King', 'Dark Willow', 'Pangolier', 'Grimstroke', 'Hoodwink', 'Void Spirit', 'Snapfire',
+    'Mars', 'Dawnbreaker', 'Marci', 'Primal Beast', 'Muerta', 'Ringmaster', 'Kez'
+];
+
 const debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -190,6 +211,21 @@ const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+
+//Highlight Hero Names
+const highlightHeroNames = (text) => {
+    if (!text) return text;
+    
+    let result = text;
+    HEROES_LIST.forEach(hero => {
+        const regex = new RegExp(`\\b${hero}\\b`, 'gi');
+        result = result.replace(regex, (match) => {
+            return `<span style="color: var(--md-sys-color-shit); font-weight: bold;">${match}</span>`;
+        });
+    });
+    
+    return result;
 };
 
 // FAB Menu
@@ -1310,7 +1346,7 @@ function createModCard(mod, categoryId, groupId = null) {
             </div>
         </div>
         <div class="card-content">
-            <h3 class="card-title">${mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
+            <h3 class="card-title">${highlightHeroNames(mod.name)}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
                 ${linkButtonsHtml}
