@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Frostivus Alchemist', category: 'heroes' },
+    { name: 'Cosmic Alchemist', category: 'heroes' },
     { name: 'Juggernaut Ice and Fire', category: 'heroes' },
     { name: 'Cursed Shadow Fiend', category: 'heroes' },
     { name: 'Bloody Gore Spectre', category: 'heroes' },
@@ -294,6 +296,8 @@ const modsData = {
         { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Cursed Shadow Fiend', preview: 'Cursed Shadow Fiend.webp', file: 'Cursed Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Juggernaut Ice and Fire', preview: 'Juggernaut Ice and Fire.webp', file: 'Juggernaut Ice and Fire.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
+        { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
