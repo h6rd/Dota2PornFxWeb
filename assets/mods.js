@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Juggernaut Ice and Fire', category: 'heroes' },
+    { name: 'Cursed Shadow Fiend', category: 'heroes' },
     { name: 'Bloody Gore Spectre', category: 'heroes' },
     { name: 'Rick & Morty', category: 'mega-kill' },
     { name: 'Kunkka & Tidehunter', category: 'mega-kill' },
@@ -290,6 +292,8 @@ const modsData = {
         { name: 'Terrorblade Unblinking Horror', preview: 'Terrorblade Unblinking Horror.webp', file: 'Terrorblade Unblinking Horror.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Purple Shadow Fiend', preview: 'Purple Shadow Fiend.webp', file: 'Purple Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Cursed Shadow Fiend', preview: 'Cursed Shadow Fiend.webp', file: 'Cursed Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Juggernaut Ice and Fire', preview: 'Juggernaut Ice and Fire.webp', file: 'Juggernaut Ice and Fire.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
