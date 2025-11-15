@@ -221,7 +221,7 @@ const highlightHeroNames = (text) => {
     HEROES_LIST.forEach(hero => {
         const regex = new RegExp(`\\b${hero}\\b`, 'gi');
         result = result.replace(regex, (match) => {
-            return `<span style="color: var(--md-sys-color-shit); font-weight: bold;">${match}</span>`;
+            return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
         });
     });
     
