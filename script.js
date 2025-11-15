@@ -172,7 +172,7 @@ const GIF_CONFIG = {
 };
 
 const HEROES_LIST = [
-    'Anti-Mage', 'Axe', 'Bane', 'Bloodseeker', 'Crystal Maiden', 'Drow Ranger', 
+    'Anti-Mage', 'Axe', 'Bane', 'Bloodseeker', 'Crystal Maiden', 'Drow Ranger',
     'Earthshaker', 'Juggernaut', 'Mirana', 'Morphling', 'Shadow Fiend', 'Phantom Lancer',
     'Puck', 'Pudge', 'Razor', 'Sand King', 'Storm Spirit', 'Sven', 'Tiny', 'Vengeful Spirit',
     'Windranger', 'Zeus', 'Kunkka', 'Lina', 'Lion', 'Shadow Shaman', 'Slardar', 'Tidehunter',
@@ -216,7 +216,7 @@ const formatTime = (seconds) => {
 //Highlight Hero Names
 const highlightHeroNames = (text) => {
     if (!text) return text;
-    
+
     let result = text;
     HEROES_LIST.forEach(hero => {
         const regex = new RegExp(`\\b${hero}\\b`, 'gi');
@@ -224,7 +224,7 @@ const highlightHeroNames = (text) => {
             return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
         });
     });
-    
+
     return result;
 };
 
@@ -523,6 +523,19 @@ function sortMods(mods, mode) {
     const sortedMods = [...mods];
     switch (mode) {
         case 'name':
+            if (state.currentCategory === 'heroes') {
+                return sortedMods.sort((a, b) => {
+                    const getHeroName = (modName) => {
+                        const found = HEROES_LIST.find(hero =>
+                            modName.toLowerCase().includes(hero.toLowerCase())
+                        );
+                        return found || modName;
+                    };
+                    const aHero = getHeroName(a.name);
+                    const bHero = getHeroName(b.name);
+                    return aHero.localeCompare(bHero);
+                });
+            }
             return sortedMods.sort((a, b) => a.name.localeCompare(b.name));
         case 'date':
             return sortedMods.reverse();
@@ -1346,7 +1359,7 @@ function createModCard(mod, categoryId, groupId = null) {
             </div>
         </div>
         <div class="card-content">
-            <h3 class="card-title">${highlightHeroNames(mod.name)}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
+            <h3 class="card-title">${categoryId === 'heroes' ? highlightHeroNames(mod.name) : mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
                 ${linkButtonsHtml}
