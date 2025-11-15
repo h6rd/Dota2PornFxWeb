@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Rick & Morty', category: 'mega-kill' },
+    { name: 'Kunkka & Tidehunter', category: 'mega-kill' },
     { name: 'Flaming Medals', category: 'ranks' },
     { name: 'Imperial Medals', category: 'ranks' },
     { name: 'Spectre Shadowveil', category: 'heroes' },
