@@ -64,7 +64,7 @@ const translations = {
     'river': 'River',
     'river-desc': 'Custom river colors',
     'ranks': 'Rank Icons',
-    'ranks-desc': 'Custom Rank Icons'
+    'ranks-desc': 'Custom Rank Icons',
 };
 
 const categories = [
