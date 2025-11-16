@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Extract - Extract Hero From VPKs', category: 'tools' },
     { name: 'Tiny Majesty of the Colossus', category: 'heroes' },
     { name: 'Frostivus Alchemist', category: 'heroes' },
     { name: 'Cosmic Alchemist', category: 'heroes' },
@@ -420,6 +421,7 @@ const modsData = {
         { name: 'Weather Changer', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
+        { name: 'Extract - Extract Hero From VPKs', preview: 'Extract.webp', file: 'Extract.zip' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
         { name: 'VPKTool Linux', preview: 'VPKTool-Linux.webp', file: 'VPKTool Linux.zip', guideId: "vpk-tool-linux" },
