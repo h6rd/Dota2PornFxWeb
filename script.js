@@ -268,7 +268,18 @@ function setupFAB() {
     const closeInfoModal = () => {
         infoModal.classList.remove('active');
         infoOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+
+        const guideModal = document.getElementById('guideModal');
+        if (!guideModal || !guideModal.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+
+        setTimeout(() => {
+            const infoContent = infoModal.querySelector('.info-modal-content');
+            if (infoContent) {
+                infoContent.scrollTop = 0;
+            }
+        }, 300);
     };
 
     fab.addEventListener('click', toggleFAB);
@@ -339,7 +350,17 @@ function setupGuideModal() {
     const closeGuideWindow = () => {
         guideModal.classList.remove('active');
         guideOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+
+        const infoModal = document.getElementById('infoModal');
+        if (!infoModal || !infoModal.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+
+        setTimeout(() => {
+            if (guideModalContent) {
+                guideModalContent.scrollTop = 0;
+            }
+        }, 300);
     };
 
     closeGuideModal?.addEventListener('click', closeGuideWindow);
@@ -354,6 +375,7 @@ function setupGuideModal() {
     window.openGuideModal = (guideData) => {
         guideModalTitle.textContent = guideData.title;
         guideModalContent.innerHTML = '';
+        guideModalContent.scrollTop = 0;
 
         const languageToggle = createLanguageToggle();
         guideModalContent.appendChild(languageToggle);
@@ -368,6 +390,10 @@ function setupGuideModal() {
         guideModal.classList.add('active');
         guideOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+            guideModalContent.scrollTop = 0;
+        });
     };
 }
 

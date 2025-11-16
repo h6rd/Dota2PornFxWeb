@@ -3082,6 +3082,16 @@ fcode {
   margin-bottom: 16px;
 }
 
+.info-modal.active .info-modal-content,
+.guide-modal.active .info-modal-content {
+  scroll-behavior: auto;
+}
+
+.info-modal:not(.active) .info-modal-content,
+.guide-modal:not(.active) .info-modal-content {
+  scroll-behavior: auto;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
