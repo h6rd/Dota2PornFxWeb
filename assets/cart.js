@@ -74,6 +74,28 @@ function addToCart(mod, categoryId) {
         }
     }
 
+    if (categoryId === 'heroes') {
+        const newHeroName = HEROES_LIST.find(hero => 
+            mod.name.toLowerCase().includes(hero.toLowerCase())
+        );
+        
+        if (newHeroName) {
+            const existingHeroMod = cart.find(item => {
+                if (item.categoryId !== 'heroes') return false;
+                
+                return HEROES_LIST.some(hero => 
+                    item.name.toLowerCase().includes(hero.toLowerCase()) &&
+                    hero.toLowerCase() === newHeroName.toLowerCase()
+                );
+            });
+
+            if (existingHeroMod) {
+                showReplaceModal(existingHeroMod, cartItem);
+                return;
+            }
+        }
+    }
+
     if (cart.length >= MAX_CART_ITEMS) {
         showToast('Cart is full (max 50 items)');
         return;
