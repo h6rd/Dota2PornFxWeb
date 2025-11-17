@@ -2576,7 +2576,7 @@ fcode {
 
 .add-to-cart-btn.in-cart {
   opacity: 1 !important;
-  background-color: var(--md-sys-color-secondary);
+  background-color: var(--md-sys-color-primary);
   pointer-events: none;
   animation: enable-hover 3s cubic-bezier(0.2, 0, 0, 1) forwards;
   transition: opacity 0.4s cubic-bezier(0.2, 0, 0, 1),
