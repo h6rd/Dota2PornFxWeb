@@ -295,7 +295,7 @@ const modsData = {
         { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Tiny Majesty of the Colossus', preview: 'Tiny Majesty of the Colossus.webp', file: 'Tiny Majesty of the Colossus.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
-        { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'submitted', url: 'https://t.me/hitman47attacks' }, { type: 'source', url: 'https://dota2changer.com' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [

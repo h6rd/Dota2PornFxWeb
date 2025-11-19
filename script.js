@@ -50,6 +50,7 @@ const translations = {
     'download': 'Download',
     'source': 'Source',
     'author': 'Author',
+    'submitted': 'Submitted',
     'guide': 'Guide',
     'preview': 'Preview',
     'optimization': 'Optimization',
@@ -140,6 +141,7 @@ const SORT_MODES = [
 
 const LINK_ICONS = {
     'author': 'person',
+    'submitted': 'person_edit',
     'preview': 'play_circle',
     'source': 'captive_portal',
     'guide': 'description'
