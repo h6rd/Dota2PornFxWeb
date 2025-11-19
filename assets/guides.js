@@ -234,6 +234,7 @@ const guidesData = {
             { icon: 'person', text: '<a href="https://vk.com/amir4an" target="_blank"><span id="tg">Amir4an</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://www.youtube.com/@mrkliromin7723" target="_blank"><span id="tg">MrKliromin</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>' },
+            { icon: 'person', text: '<a href="https://t.me/BLUADD" target="_blank"><span id="tg">BLUADD</span></a> <fcode>Mega-Kill</fcode>' },
           ]
         },
         {
@@ -287,6 +288,7 @@ const guidesData = {
             { icon: 'person', text: '<a href="https://vk.com/amir4an" target="_blank"><span id="tg">Amir4an</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://www.youtube.com/@mrkliromin7723" target="_blank"><span id="tg">MrKliromin</span></a> <fcode>Heroes</fcode>' },
             { icon: 'person', text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>' },
+            { icon: 'person', text: '<a href="https://t.me/BLUADD" target="_blank"><span id="tg">BLUADD</span></a> <fcode>Mega-Kill</fcode>' },
           ]
         },
         {
