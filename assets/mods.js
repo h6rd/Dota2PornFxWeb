@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Snowfall In Forest', category: 'backgrounds' },
+    { name: 'Field Grass', category: 'backgrounds' },
+    { name: 'Katana In Forest', category: 'backgrounds' },
     { name: 'Dead Eyes', category: 'backgrounds' },
     { name: 'Sad Maomao', category: 'backgrounds' },
     { name: 'Kurumi Tokisaki', category: 'backgrounds' },
@@ -410,6 +413,9 @@ const modsData = {
         { name: 'Kurumi Tokisaki', preview: 'Kurumi Tokisaki.mp4', file: 'pak21_dir.vpk', tags: { image: false, video: true } },
         { name: 'Sad Maomao', preview: 'Sad Maomao.mp4', file: 'pak22_dir.vpk', tags: { image: false, video: true } },
         { name: 'Dead Eyes', preview: 'Dead Eyes.mp4', file: 'pak23_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Katana In Forest', preview: 'Katana In Forest.mp4', file: 'pak24_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Field Grass', preview: 'Field Grass.mp4', file: 'pak25_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Snowfall In Forest', preview: 'Snowfall In Forest.mp4', file: 'pak26_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
