@@ -1001,6 +1001,19 @@ function setupRecentlyAdded() {
             const card = createModCard(mod, recentMod.category);
             const newCard = card.cloneNode(true);
 
+            if (recentMod.category === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
+                const video = newCard.querySelector('video');
+                if (video) {
+                    newCard.addEventListener('mouseenter', () => {
+                        video.play().catch(err => console.log('Play failed:', err));
+                    });
+                    newCard.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                }
+            }
+
             newCard.querySelector('.add-to-cart-btn')?.remove();
 
             const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
@@ -1358,7 +1371,9 @@ function createModCard(mod, categoryId, groupId = null) {
     const preview = mod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
-    const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+    const mediaAttrs = isVideo && categoryId !== 'backgrounds'
+        ? 'autoplay muted loop playsinline'
+        : isVideo ? 'muted loop playsinline' : '';
 
     const tagsHtml = generateTagsHtml(mod, categoryId);
     const linkButtonsHtml = generateLinkButtonsHtml(mod, categoryId);
@@ -1475,6 +1490,19 @@ function shouldHideAddToCart(mod, categoryId) {
 }
 
 function attachCardEventListeners(card, mod, categoryId) {
+    if (categoryId === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
+        const video = card.querySelector('video');
+        if (video) {
+            card.addEventListener('mouseenter', () => {
+                video.play().catch(err => console.log('Play failed:', err));
+            });
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+    }
+
     card.addEventListener('click', (e) => {
         if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
             return;
