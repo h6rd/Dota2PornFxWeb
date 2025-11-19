@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Kakehashi Subaru', category: 'backgrounds' },
+    { name: 'Blossom Rem', category: 'backgrounds' },
+    { name: 'Cyrene Song', category: 'backgrounds' },
     { name: 'Batrider Night Snotty', category: 'heroes'},
     { name: 'Snowfall In Forest', category: 'backgrounds' },
     { name: 'Field Grass', category: 'backgrounds' },
@@ -418,6 +421,10 @@ const modsData = {
         { name: 'Katana In Forest', preview: 'Katana In Forest.mp4', file: 'pak24_dir.vpk', tags: { image: false, video: true } },
         { name: 'Field Grass', preview: 'Field Grass.mp4', file: 'pak25_dir.vpk', tags: { image: false, video: true } },
         { name: 'Snowfall In Forest', preview: 'Snowfall In Forest.mp4', file: 'pak26_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Cyrene Song', preview: 'Cyrene Song.mp4', file: 'pak27_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Kakehashi Subaru', preview: 'Kakehashi Subaru.mp4', file: 'pak29_dir.vpk', tags: { image: false, video: true } },
+        // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
