@@ -1,5 +1,9 @@
 const recentlyAddedMods = [
-    // { name: 'Extract - Extract Hero From VPKs', category: 'tools' },
+    { name: 'Dead Eyes', category: 'backgrounds' },
+    { name: 'Sad Maomao', category: 'backgrounds' },
+    { name: 'Kurumi Tokisaki', category: 'backgrounds' },
+    { name: 'Nier Automata', category: 'backgrounds' },
+    { name: 'Zenitsu White', category: 'backgrounds' },
     { name: 'Tiny Majesty of the Colossus', category: 'heroes' },
     { name: 'Frostivus Alchemist', category: 'heroes' },
     { name: 'Cosmic Alchemist', category: 'heroes' },
@@ -16,21 +20,7 @@ const recentlyAddedMods = [
     { name: 'Cartoon Trees', category: 'trees' },
     { name: 'Maid Marci', category: 'heroes' },
     { name: 'Razor Rainbow Statics', category: 'heroes' },
-    { name: 'LowPoly Map', category: 'terrains' },
-    { name: 'Cloudy Tree', category: 'backgrounds' },
-    { name: 'Winter Solitude', category: 'backgrounds' },
-    { name: 'Arcanas Items Icons', category: 'item-icons' },
-    { name: 'Black River', category: 'river' },
-    { name: 'Moonflower Field', category: 'backgrounds' },
-    { name: 'Green Diretide Ranged Attack', category: 'ranged-attack' },
-    { name: 'Aghanim Ranged Attack', category: 'ranged-attack' },
-    { name: 'Sakura Pink Invoker', category: 'heroes' },
-    { name: 'Minimap Icons', category: 'guides' },
-    { name: 'Darkness Pack', category: 'ti-bp-effects' },
-    { name: 'Lifestealer Diretide Shimmer', category: 'heroes' },
-    { name: 'Sherman Crystal Maiden', category: 'heroes' },
-    { name: 'Low Poly Trees', category: 'trees' },
-    { name: 'Mossy Cobblestone', category: 'terrains' }
+    { name: 'LowPoly Map', category: 'terrains' }
 ];
 
 const modsData = {
@@ -415,6 +405,11 @@ const modsData = {
         { name: 'Code Geass', preview: 'Code Geass.mp4', file: 'pak16_dir.vpk', tags: { image: false, video: true } },
         { name: 'Winter Solitude', preview: 'Winter.mp4', file: 'pak17_dir.vpk', tags: { image: false, video: true, lowres: true } },
         { name: 'Cloudy Tree', preview: 'Tree.mp4', file: 'pak18_dir.vpk', tags: { image: false, video: true, lowres: true } },
+        { name: 'Zenitsu White', preview: 'Zenitsu White.mp4', file: 'pak19_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Nier Automata', preview: 'Nier Automata.mp4', file: 'pak20_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Kurumi Tokisaki', preview: 'Kurumi Tokisaki.mp4', file: 'pak21_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Sad Maomao', preview: 'Sad Maomao.mp4', file: 'pak22_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Dead Eyes', preview: 'Dead Eyes.mp4', file: 'pak23_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
