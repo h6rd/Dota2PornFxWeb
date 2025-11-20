@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Cosmic Tinker', category: 'heroes' },
     { name: 'Dawnbreaker Moonbreaker', category: 'heroes' },
     { name: 'Viper Butch Dog', category: 'heroes' },
     { name: 'Windranger Autumn Arcana', category: 'heroes' },
@@ -303,12 +304,13 @@ const modsData = {
         { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Tiny Majesty of the Colossus', preview: 'Tiny Majesty of the Colossus.webp', file: 'Tiny Majesty of the Colossus.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
-        { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'submitted', url: 'https://t.me/hitman47attacks' }, { type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'sender', url: 'https://t.me/hitman47attacks' }, { type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Morphling Megalodon', preview: 'Morphling Megalodon.webp', file: 'Morphling Megalodon.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Primal Beast Snowbeast', preview: 'Primal Beast Snowbeast.webp', file: 'Primal Beast Snowbeast.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Windranger Autumn Arcana', preview: 'Windranger Autumn Arcana.webp', file: 'Windranger Autumn Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Viper Butch Dog', preview: 'Viper Butch Dog.webp', file: 'Viper Butch Dog.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Dawnbreaker Moonbreaker', preview: 'Dawnbreaker Moonbreaker.webp', file: 'Dawnbreaker Moonbreaker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Cosmic Tinker', preview: 'Cosmic Tinker.webp', file: 'Cosmic Tinker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
