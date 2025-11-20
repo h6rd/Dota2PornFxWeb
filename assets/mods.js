@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Primal Beast Snowbeast', category: 'heroes' },
     { name: 'Morphling Megalodon', category: 'heroes' },
     { name: 'Kakehashi Subaru', category: 'backgrounds' },
     { name: 'Blossom Rem', category: 'backgrounds' },
@@ -301,6 +302,7 @@ const modsData = {
         { name: 'Tiny Majesty of the Colossus', preview: 'Tiny Majesty of the Colossus.webp', file: 'Tiny Majesty of the Colossus.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'submitted', url: 'https://t.me/hitman47attacks' }, { type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Morphling Megalodon', preview: 'Morphling Megalodon.webp', file: 'Morphling Megalodon.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Primal Beast Snowbeast', preview: 'Primal Beast Snowbeast.webp', file: 'Primal Beast Snowbeast.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
