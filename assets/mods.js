@@ -8,7 +8,7 @@ const recentlyAddedMods = [
     { name: 'Primal Beast Snowbeast', category: 'heroes' },
     { name: 'Morphling Megalodon', category: 'heroes' },
     { name: 'Kakehashi Subaru', category: 'backgrounds' },
-    { name: 'Blossom Rem', category: 'backgrounds' },
+    // { name: 'Blossom Rem', category: 'backgrounds' }, fix video
     { name: 'Cyrene Song', category: 'backgrounds' },
     { name: 'Batrider Night Snotty', category: 'heroes'},
     { name: 'Snowfall In Forest', category: 'backgrounds' },
@@ -438,7 +438,7 @@ const modsData = {
         { name: 'Field Grass', preview: 'Field Grass.mp4', file: 'pak25_dir.vpk', tags: { image: false, video: true } },
         { name: 'Snowfall In Forest', preview: 'Snowfall In Forest.mp4', file: 'pak26_dir.vpk', tags: { image: false, video: true } },
         { name: 'Cyrene Song', preview: 'Cyrene Song.mp4', file: 'pak27_dir.vpk', tags: { image: false, video: true } },
-        { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } },
+        // { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } }, fix video
         { name: 'Kakehashi Subaru', preview: 'Kakehashi Subaru.mp4', file: 'pak29_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
