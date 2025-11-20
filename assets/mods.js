@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Dawnbreaker Moonbreaker', category: 'heroes' },
     { name: 'Viper Butch Dog', category: 'heroes' },
     { name: 'Windranger Autumn Arcana', category: 'heroes' },
     { name: 'Primal Beast Snowbeast', category: 'heroes' },
@@ -307,6 +308,7 @@ const modsData = {
         { name: 'Primal Beast Snowbeast', preview: 'Primal Beast Snowbeast.webp', file: 'Primal Beast Snowbeast.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Windranger Autumn Arcana', preview: 'Windranger Autumn Arcana.webp', file: 'Windranger Autumn Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Viper Butch Dog', preview: 'Viper Butch Dog.webp', file: 'Viper Butch Dog.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Dawnbreaker Moonbreaker', preview: 'Dawnbreaker Moonbreaker.webp', file: 'Dawnbreaker Moonbreaker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
