@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Morphling Megalodon', category: 'heroes' },
     { name: 'Kakehashi Subaru', category: 'backgrounds' },
     { name: 'Blossom Rem', category: 'backgrounds' },
     { name: 'Cyrene Song', category: 'backgrounds' },
@@ -299,6 +300,7 @@ const modsData = {
         { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Tiny Majesty of the Colossus', preview: 'Tiny Majesty of the Colossus.webp', file: 'Tiny Majesty of the Colossus.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Batrider Night Snotty', preview: 'Batrider Night Snotty.webp', file: 'Batrider Night Snotty.zip', tags: { effects: true, icons: false }, links: [{ type: 'submitted', url: 'https://t.me/hitman47attacks' }, { type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Morphling Megalodon', preview: 'Morphling Megalodon.webp', file: 'Morphling Megalodon.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
