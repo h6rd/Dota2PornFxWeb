@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Viper Butch Dog', category: 'heroes' },
     { name: 'Windranger Autumn Arcana', category: 'heroes' },
     { name: 'Primal Beast Snowbeast', category: 'heroes' },
     { name: 'Morphling Megalodon', category: 'heroes' },
@@ -305,6 +306,7 @@ const modsData = {
         { name: 'Morphling Megalodon', preview: 'Morphling Megalodon.webp', file: 'Morphling Megalodon.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Primal Beast Snowbeast', preview: 'Primal Beast Snowbeast.webp', file: 'Primal Beast Snowbeast.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Windranger Autumn Arcana', preview: 'Windranger Autumn Arcana.webp', file: 'Windranger Autumn Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Viper Butch Dog', preview: 'Viper Butch Dog.webp', file: 'Viper Butch Dog.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
