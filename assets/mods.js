@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Broodmother Undermount Gloom', category: 'heroes' },
     { name: 'Juggernaut Samurai of Wind', category: 'heroes' },
     { name: 'Cosmic Tinker', category: 'heroes' },
     { name: 'Dawnbreaker Moonbreaker', category: 'heroes' },
@@ -313,6 +314,7 @@ const modsData = {
         { name: 'Dawnbreaker Moonbreaker', preview: 'Dawnbreaker Moonbreaker.webp', file: 'Dawnbreaker Moonbreaker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Cosmic Tinker', preview: 'Cosmic Tinker.webp', file: 'Cosmic Tinker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
         { name: 'Juggernaut Samurai of Wind', preview: 'Juggernaut Samurai of Wind.webp', file: 'Juggernaut Samurai of Wind.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
