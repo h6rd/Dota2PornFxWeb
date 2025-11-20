@@ -562,8 +562,13 @@ EN WINDOWS
 1. Open the mods folder
 2. Run VPKMerge.exe and wait until it finishes
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-4. Put the finished pak10_dir.vpk in the folder dota_123
-5. Add to launch options: -language 123
+4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
+5. Add to launch options: -language 123 (or "-language minify" if you're using it)
+
+When using VPKMerge, some mods or heroes may not display correctly
+If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
+Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods_List.txt file
+
 
 RU WINDOWS
 -----------
@@ -572,10 +577,16 @@ RU WINDOWS
 3. Переместите готовый pak10_dir.vpk в папку с языком игры:
    • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
    • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
+   • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
    • Для английского: -language 123
+   • Для англ Minify: -language minify
+
+При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
+Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Telegram: https://t.me/f4cks0ciety
+Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods_List.txt
 
 
 EN LINUX
@@ -583,16 +594,32 @@ EN LINUX
 1. Open the mods folder in terminal
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
-4. Move the generated pak10_dir.vpk to your game language folder: dota_123
-5. Add to Dota 2 launch options: -language 123
+4. Move the generated pak10_dir.vpk to your game language folder: dota_123 (If you are using Minify, put vpk in dota_minify folder)
+5. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
+
+When using VPKMerge, some mods or heroes may not display correctly
+If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
+Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods_List.txt file
+
 
 RU LINUX
 ---------
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
 3. Запустите VPKMerge: ./VPKMerge
-4. Переместите готовый pak10_dir.vpk в папку с языком игры: dota_russian или dota_123
-5. Добавьте в параметры запуска: -language russian или -language 123`;
+4. Переместите готовый pak10_dir.vpk в папку с языком игры:
+   • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
+   • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
+   • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
+
+4. Добавьте в параметры запуска игры:
+   • Для русского: -language russian
+   • Для английского: -language 123
+   • Для англ Minify: -language minify
+
+При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
+Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Telegram: https://t.me/f4cks0ciety
+Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods_List.txt`;
 
         mainZip.file('Guide.txt', guideText);
         addLog('Guide added', 'success');
