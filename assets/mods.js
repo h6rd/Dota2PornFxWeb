@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Sniper Odogaron Armor', category: 'heroes' },
     { name: 'Broodmother Undermount Gloom', category: 'heroes' },
     { name: 'Juggernaut Samurai of Wind', category: 'heroes' },
     { name: 'Cosmic Tinker', category: 'heroes' },
@@ -8,7 +9,7 @@ const recentlyAddedMods = [
     { name: 'Primal Beast Snowbeast', category: 'heroes' },
     { name: 'Morphling Megalodon', category: 'heroes' },
     { name: 'Kakehashi Subaru', category: 'backgrounds' },
-    // { name: 'Blossom Rem', category: 'backgrounds' }, fix video
+    { name: 'Blossom Rem', category: 'backgrounds' },
     { name: 'Cyrene Song', category: 'backgrounds' },
     { name: 'Batrider Night Snotty', category: 'heroes'},
     { name: 'Snowfall In Forest', category: 'backgrounds' },
@@ -315,6 +316,7 @@ const modsData = {
         { name: 'Cosmic Tinker', preview: 'Cosmic Tinker.webp', file: 'Cosmic Tinker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
         { name: 'Juggernaut Samurai of Wind', preview: 'Juggernaut Samurai of Wind.webp', file: 'Juggernaut Samurai of Wind.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
+        { name: 'Sniper Odogaron Armor', preview: 'Sniper Odogaron Armor.webp', file: 'Sniper Odogaron Armor.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -438,7 +440,7 @@ const modsData = {
         { name: 'Field Grass', preview: 'Field Grass.mp4', file: 'pak25_dir.vpk', tags: { image: false, video: true } },
         { name: 'Snowfall In Forest', preview: 'Snowfall In Forest.mp4', file: 'pak26_dir.vpk', tags: { image: false, video: true } },
         { name: 'Cyrene Song', preview: 'Cyrene Song.mp4', file: 'pak27_dir.vpk', tags: { image: false, video: true } },
-        // { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } }, fix video
+        { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } },
         { name: 'Kakehashi Subaru', preview: 'Kakehashi Subaru.mp4', file: 'pak29_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
