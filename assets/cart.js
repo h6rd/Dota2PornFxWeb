@@ -295,11 +295,6 @@ function setupCartModal() {
 
     packBtn.addEventListener('click', packAndDownload);
 
-    const randomizeBtn = document.getElementById('randomizeBtn');
-    if (randomizeBtn) {
-        randomizeBtn.addEventListener('click', randomizeCart);
-    }
-
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && cartModal.classList.contains('active')) {
             closeCart();
@@ -753,104 +748,6 @@ function showReplaceModal(existingItem, newItem) {
     });
 
     requestAnimationFrame(() => overlay.classList.add('active'));
-}
-
-function randomizeCart() {
-    if (cart.length > 0) return;
-
-    const randomizeBtn = document.getElementById('randomizeBtn');
-    if (randomizeBtn) {
-        randomizeBtn.disabled = true;
-        randomizeBtn.innerHTML = `
-            <div class="spinner small"></div>
-            Randomizing...
-        `;
-    }
-
-    const excludedCategories = ['ancient', 'item-effects', 'terrains', 'towers', 'tormentor', 'pedestal', 'item-icons', 'other', 'tools', 'optimization', 'guides'];
-
-    const eligibleCategories = categories.filter(cat => !excludedCategories.includes(cat.id));
-
-    eligibleCategories.forEach(category => {
-        const categoryData = modsData[category.id];
-
-        if (!categoryData || categoryData.length === 0) return;
-
-        if (category.id === 'heroes') {
-            HEROES_LIST.forEach(heroName => {
-                const heroMods = categoryData.filter(mod =>
-                    mod.name.toLowerCase().includes(heroName.toLowerCase())
-                );
-
-                if (heroMods.length > 0) {
-                    const randomMod = heroMods[Math.floor(Math.random() * heroMods.length)];
-                    const cartItem = {
-                        id: `${category.id}-${randomMod.name}`,
-                        name: randomMod.name,
-                        file: randomMod.file,
-                        categoryId: category.id,
-                        groupId: null
-                    };
-
-                    if (cart.length < MAX_CART_ITEMS) {
-                        cart.push(cartItem);
-                    }
-                }
-            });
-        } else {
-            const isGrouped = categoryData.groups && Array.isArray(categoryData.groups);
-
-            if (isGrouped) {
-                categoryData.groups.forEach(group => {
-                    if (group.mods && group.mods.length > 0) {
-                        const randomMod = group.mods[Math.floor(Math.random() * group.mods.length)];
-                        const cartItem = {
-                            id: `${category.id}-${group.id}-${randomMod.name}`,
-                            name: randomMod.name,
-                            file: randomMod.file,
-                            categoryId: category.id,
-                            groupId: group.id
-                        };
-
-                        if (cart.length < MAX_CART_ITEMS) {
-                            cart.push(cartItem);
-                        }
-                    }
-                });
-            } else {
-                const randomMod = categoryData[Math.floor(Math.random() * categoryData.length)];
-                const cartItem = {
-                    id: `${category.id}-${randomMod.name}`,
-                    name: randomMod.name,
-                    file: randomMod.file,
-                    categoryId: category.id,
-                    groupId: null
-                };
-
-                if (cart.length < MAX_CART_ITEMS) {
-                    cart.push(cartItem);
-                }
-            }
-        }
-    });
-
-    saveCart();
-    updateCartBadge();
-    renderCartItems();
-    updateCartButtons();
-
-    showToast(`Added ${cart.length} random mods to cart!`);
-
-    if (randomizeBtn) {
-        randomizeBtn.disabled = false;
-        randomizeBtn.innerHTML = `
-            Randomize Cart
-        `;
-    }
-
-    if ('vibrate' in navigator) {
-        navigator.vibrate([10, 50, 10, 50, 10]);
-    }
 }
 
 if (document.readyState === 'loading') {
