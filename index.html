@@ -8,8 +8,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-  <meta name="description"
-    content="Discover and download mods for Dota 2. Browse mods, and customize your gaming experience.">
+  <meta name="description" content="Discover and download mods for Dota 2. Browse mods, and customize your gaming experience.">
   <meta name="keywords" content="Dota 2, mods, customization">
   <meta name="author" content="hrdq">
   <meta name="robots" content="index, follow">
@@ -144,9 +143,6 @@
     <a href="#" class="fab-menu-item" data-label="About" id="infoButton">
       <i class='bx bx-help-circle bx-sm'></i>
     </a>
-    <a href="#" class="fab-menu-item" data-label="Send Your Mod" id="sendModButton">
-      <i class='bx bx-plus bx-sm'></i>
-    </a>
   </div>
 
   <!-- info -->
@@ -216,54 +212,6 @@
     <div class="info-modal-content">
       <h2 class="info-modal-title" id="guideModalTitle">Guide</h2>
       <div id="guideModalContent"></div>
-    </div>
-  </div>
-
-  <!-- Send Mod Modal -->
-  <div id="sendModOverlay" class="info-overlay"></div>
-  <div id="sendModModal" class="info-modal">
-    <button class="info-modal-close" id="closeSendModModal" aria-label="Close">
-      <span class="material-symbols-rounded">close</span>
-    </button>
-
-    <div class="info-modal-content">
-      <h2 class="info-modal-title">Send Mod</h2>
-
-      <p class="info-modal-text" style="margin-bottom: 24px;">
-        Send me your mod or video/photo for background
-      </p>
-
-      <form class="send-mod-form" id="sendModForm">
-        <div class="form-group">
-          <label class="form-label">Mod Title</label>
-          <input type="text" class="form-input" id="modTitle" placeholder="Enter mod/hero name" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Author</label>
-          <input type="text" class="form-input" id="authorLink" placeholder="Telegram, Steam or anything else">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Attach File <span style="opacity: 0.6; font-size: 13px;">50MB Max</span></label>
-          <div class="file-input-wrapper">
-            <input type="file" id="modFile" class="file-input" required>
-            <label for="modFile" class="file-input-label">
-              <span class="material-symbols-rounded">upload_file</span>
-              <span class="file-name">Choose file...</span>
-            </label>
-          </div>
-          <a href="https://t.me/f4cks0ciety" target="_blank" class="telegram-link hidden" id="telegramFallback">
-            <span class="material-symbols-rounded">send</span>
-            Send mod directly to Telegram
-          </a>
-        </div>
-
-        <button type="submit" class="send-mod-submit" id="sendModSubmit">
-          <span class="material-symbols-rounded">send</span>
-          <span class="submit-text">Send</span>
-        </button>
-      </form>
     </div>
   </div>
 
