@@ -2718,6 +2718,38 @@ fcode {
   margin: 0;
 }
 
+.cart-randomize-btn {
+  margin-top: 24px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-randomize-btn:hover {
+  background-color: var(--md-sys-color-shit-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.cart-randomize-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cart-randomize-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
