@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Lycan Red Wolf Clan', category: 'heroes' },
     { name: 'Billy Bounceback', category: 'couriers' },
     { name: 'Baby Roshan Crownfall', category: 'couriers' },
     { name: 'Waldi the Faithful', category: 'couriers' },
@@ -324,6 +325,7 @@ const modsData = {
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }, { type: 'sender', url: 'https://t.me/hitman47attacks' }] },
         { name: 'Sniper Odogaron Armor', preview: 'Sniper Odogaron Armor.webp', file: 'Sniper Odogaron Armor.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Tinker Submerged Hazard', preview: 'Tinker Submerged Hazard.webp', file: 'Tinker Submerged Hazard.zip', tags: { effects: true, icons: true } },
+        { name: 'Lycan Red Wolf Clan', preview: 'Lycan Red Wolf Clan.webp', file: 'Lycan Red Wolf Clan.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
