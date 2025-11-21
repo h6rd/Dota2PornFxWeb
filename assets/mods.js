@@ -44,7 +44,6 @@ const recentlyAddedMods = [
     { name: 'Cartoon Trees', category: 'trees' },
     { name: 'Maid Marci', category: 'heroes' },
     { name: 'Razor Rainbow Statics', category: 'heroes' },
-    { name: 'LowPoly Map', category: 'terrains' }
 ];
 
 const modsData = {
