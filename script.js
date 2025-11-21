@@ -1008,6 +1008,13 @@ function setupRecentlyAdded() {
         if (mod && track) {
             const card = createModCard(mod, recentMod.category);
             const newCard = card.cloneNode(true);
+            const category = categories.find(cat => cat.id === recentMod.category);
+            if (category) {
+                const subtitleElement = newCard.querySelector('.card-subtitle');
+                if (subtitleElement && mod.type !== 'guide') {
+                    subtitleElement.textContent = translations[category.key];
+                }
+            }
 
             if (recentMod.category === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
                 const video = newCard.querySelector('video');
