@@ -1,4 +1,9 @@
 const recentlyAddedMods = [
+    { name: 'Billy Bounceback', category: 'couriers' },
+    { name: 'Baby Roshan Crownfall', category: 'couriers' },
+    { name: 'Waldi the Faithful', category: 'couriers' },
+    { name: 'Floes Tower', category: 'wards' },
+    { name: 'Curious Snaptrap', category: 'wards' },
     { name: 'Tinker Submerged Hazard', category: 'heroes' },
     { name: 'Sniper Odogaron Armor', category: 'heroes' },
     { name: 'Broodmother Undermount Gloom', category: 'heroes' },
@@ -12,7 +17,7 @@ const recentlyAddedMods = [
     { name: 'Kakehashi Subaru', category: 'backgrounds' },
     { name: 'Blossom Rem', category: 'backgrounds' },
     { name: 'Cyrene Song', category: 'backgrounds' },
-    { name: 'Batrider Night Snotty', category: 'heroes'},
+    { name: 'Batrider Night Snotty', category: 'heroes' },
     { name: 'Snowfall In Forest', category: 'backgrounds' },
     { name: 'Field Grass', category: 'backgrounds' },
     { name: 'Katana In Forest', category: 'backgrounds' },
@@ -480,5 +485,14 @@ const modsData = {
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
         { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
+    ],
+    'wards': [
+        { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
+        { name: 'Floes Tower', preview: 'Floes Tower.webp', file: 'pak11_dir.vpk' },
+    ],
+    'couriers': [
+        { name: 'Waldi the Faithful', preview: 'Waldi the Faithful.webp', file: 'pak10_dir.vpk' },
+        { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
+        { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
     ],
 }

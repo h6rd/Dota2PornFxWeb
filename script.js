@@ -68,6 +68,10 @@ const translations = {
     'ranks-desc': 'Custom Rank Icons',
     'item-icons': 'Item Icons',
     'item-icons-desc': 'Custom Icons for Items',
+    'wards': 'Wards',
+    'wards-desc': 'Custom Wards',
+    'couriers': 'Couriers',
+    'couriers-desc': 'Custom Couriers',
 };
 
 const categories = [
@@ -83,6 +87,8 @@ const categories = [
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
+    { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp' },
+    { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp' },
     { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
