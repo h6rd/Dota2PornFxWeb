@@ -1,4 +1,14 @@
 const recentlyAddedMods = [
+    { name: 'Diretide Dire Creeps', category: 'creeps' },
+    { name: 'Diretide Radiant Creeps', category: 'creeps' },
+    { name: 'Crownfall Dire Creeps', category: 'creeps' },
+    { name: 'Crownfall Radiant Creeps', category: 'creeps' },
+    { name: 'Crownfall Dire Siege', category: 'creeps' },
+    { name: 'Crownfall Radiant Siege', category: 'creeps' },
+    { name: 'Palico Odogaron', category: 'couriers' },
+    { name: 'Portal', category: 'wards' },
+    { name: 'Monty', category: 'wards' },
+    { name: 'Trailgazer', category: 'wards' },
     { name: 'Chen Infernal Psychic', category: 'heroes' },
     { name: 'Lycan Red Wolf Clan', category: 'heroes' },
     { name: 'Billy Bounceback', category: 'couriers' },
@@ -339,11 +349,40 @@ const modsData = {
         { name: 'Journey Roshan', preview: 'Journey Roshan.webp', file: 'pak63_dir.vpk' },
         { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' }
     ],
-    'creeps': [
-        { name: 'Reptilian Creeps', preview: 'Reptilian _Creeps_Woodland_Siege.webp', file: 'pak65_dir.vpk' },
-        { name: 'Woodland Creeps', preview: 'Woodland_Creeps_Woodland_Siege.webp', file: 'pak66_dir.vpk' },
-        { name: 'Nemestice Creeps', preview: 'Nemestice_Creeps_Woodland_Siege.webp', file: 'pak67_dir.vpk' }
-    ],
+    'creeps': {
+        groups: [
+            {
+                id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
+                    { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
+                    { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
+                    { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
+                    { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-creeps', name: 'Dire Creeps', mods: [
+                    { name: 'Nemestice Dire Creeps', preview: 'Nemestice Dire.webp', file: 'pak15_dir.vpk' },
+                    { name: 'Woodland Dire Creeps', preview: 'Woodland Dire.webp', file: 'pak11_dir.vpk' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak17_dir.vpk' },
+                    { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
+                    { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
+                ]
+            },
+            {
+                id: 'radiant-siege', name: 'Radiant Siege', mods: [
+                    { name: 'Woodland Radiant Siege', preview: 'Woodland Radiant Siege.webp', file: 'pak12_dir.vpk' },
+                    { name: 'Crownfall Radiant Siege', preview: 'Crownfall Radiant Siege.webp', file: 'pak20_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-siege', name: 'Dire Siege', mods: [
+                    { name: 'Woodland Dire Siege', preview: 'Woodland Dire Siege.webp', file: 'pak13_dir.vpk' },
+                    { name: 'Crownfall Dire Siege', preview: 'Crownfall Dire Siege.webp', file: 'pak21_dir.vpk' },
+                ]
+            },
+        ]
+    },
     'ancient': [
         { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/' },
         { name: 'Frostivus Ancient', preview: 'Frostivus Ancient.webp', file: 'pak74_dir.vpk' }
@@ -492,10 +531,14 @@ const modsData = {
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
         { name: 'Floes Tower', preview: 'Floes Tower.webp', file: 'pak11_dir.vpk' },
+        { name: 'Trailgazer', preview: 'Trailgazer.webp', file: 'pak12_dir.vpk' },
+        { name: 'Monty', preview: 'Monty.webp', file: 'pak13_dir.vpk' },
+        { name: 'Portal', preview: 'Portal.webp', file: 'pak14_dir.vpk' },
     ],
     'couriers': [
         { name: 'Waldi the Faithful', preview: 'Waldi the Faithful.webp', file: 'pak10_dir.vpk' },
         { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
         { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
+        { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
     ],
 }

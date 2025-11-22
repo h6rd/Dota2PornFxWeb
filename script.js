@@ -1002,18 +1002,30 @@ function setupRecentlyAdded() {
         const category = categories.find(cat => cat.id === recentMod.category);
         if (!category) return;
 
-        const mods = modsData[recentMod.category] || [];
-        const mod = mods.find(m => m.name === recentMod.name);
+        const categoryData = modsData[recentMod.category];
+        let mod = null;
+        let groupId = null;
+
+        if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+            for (const group of categoryData.groups) {
+                mod = group.mods.find(m => m.name === recentMod.name);
+                if (mod) {
+                    groupId = group.id;
+                    break;
+                }
+            }
+        } else {
+            const mods = categoryData || [];
+            mod = mods.find(m => m.name === recentMod.name);
+        }
 
         if (mod && track) {
-            const card = createModCard(mod, recentMod.category);
+            const card = createModCard(mod, recentMod.category, groupId);
             const newCard = card.cloneNode(true);
-            const category = categories.find(cat => cat.id === recentMod.category);
-            if (category) {
-                const subtitleElement = newCard.querySelector('.card-subtitle');
-                if (subtitleElement && mod.type !== 'guide') {
-                    subtitleElement.textContent = translations[category.key];
-                }
+
+            const subtitleElement = newCard.querySelector('.card-subtitle');
+            if (subtitleElement && mod.type !== 'guide') {
+                subtitleElement.textContent = translations[category.key];
             }
 
             if (recentMod.category === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
