@@ -364,7 +364,7 @@ const modsData = {
                 id: 'dire-creeps', name: 'Dire Creeps', mods: [
                     { name: 'Nemestice Dire Creeps', preview: 'Nemestice Dire.webp', file: 'pak15_dir.vpk' },
                     { name: 'Woodland Dire Creeps', preview: 'Woodland Dire.webp', file: 'pak11_dir.vpk' },
-                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak17_dir.vpk' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
                     { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
                     { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
                 ]
