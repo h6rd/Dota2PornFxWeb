@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Emerald Shadow Fiend', category: 'heroes' },
     { name: 'Diretide Dire Creeps', category: 'creeps' },
     { name: 'Diretide Radiant Creeps', category: 'creeps' },
     { name: 'Crownfall Dire Creeps', category: 'creeps' },
@@ -31,29 +32,6 @@ const recentlyAddedMods = [
     { name: 'Cyrene Song', category: 'backgrounds' },
     { name: 'Batrider Night Snotty', category: 'heroes' },
     { name: 'Snowfall In Forest', category: 'backgrounds' },
-    { name: 'Field Grass', category: 'backgrounds' },
-    { name: 'Katana In Forest', category: 'backgrounds' },
-    { name: 'Dead Eyes', category: 'backgrounds' },
-    { name: 'Sad Maomao', category: 'backgrounds' },
-    { name: 'Kurumi Tokisaki', category: 'backgrounds' },
-    { name: 'Nier Automata', category: 'backgrounds' },
-    { name: 'Zenitsu White', category: 'backgrounds' },
-    { name: 'Tiny Majesty of the Colossus', category: 'heroes' },
-    { name: 'Frostivus Alchemist', category: 'heroes' },
-    { name: 'Cosmic Alchemist', category: 'heroes' },
-    { name: 'Juggernaut Ice and Fire', category: 'heroes' },
-    { name: 'Cursed Shadow Fiend', category: 'heroes' },
-    { name: 'Bloody Gore Spectre', category: 'heroes' },
-    { name: 'Rick & Morty', category: 'mega-kill' },
-    { name: 'Kunkka & Tidehunter', category: 'mega-kill' },
-    { name: 'Flaming Medals', category: 'ranks' },
-    { name: 'Imperial Medals', category: 'ranks' },
-    { name: 'Spectre Shadowveil', category: 'heroes' },
-    { name: 'Purple Shadow Fiend', category: 'heroes' },
-    { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
-    { name: 'Cartoon Trees', category: 'trees' },
-    { name: 'Maid Marci', category: 'heroes' },
-    { name: 'Razor Rainbow Statics', category: 'heroes' },
 ];
 
 const modsData = {
@@ -337,6 +315,7 @@ const modsData = {
         { name: 'Tinker Submerged Hazard', preview: 'Tinker Submerged Hazard.webp', file: 'Tinker Submerged Hazard.zip', tags: { effects: true, icons: true } },
         { name: 'Lycan Red Wolf Clan', preview: 'Lycan Red Wolf Clan.webp', file: 'Lycan Red Wolf Clan.zip', tags: { effects: false, icons: false } },
         { name: 'Chen Infernal Psychic', preview: 'Chen Infernal Psychic.webp', file: 'Chen Infernal Psychic.zip', tags: { effects: false, icons: false } },
+        { name: 'Emerald Shadow Fiend', preview: 'Emerald Shadow Fiend.webp', file: 'Emerald Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
