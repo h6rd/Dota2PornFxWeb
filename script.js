@@ -113,7 +113,7 @@ const categories = [
 const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
-        terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify', 'LowPoly Map'],
+        terrains: ['Mossy Cobblestone', 'Dark Terrain Minify', 'Flat Dark Terrain Minify', 'LowPoly Map', 'Bedrock'],
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'High Five Aghanim Puppet', 'High Five Crownfall', 'Rage Voice Icon', 'Arcanas Items Icons', 'Beer Bottle'],
     }
 };
