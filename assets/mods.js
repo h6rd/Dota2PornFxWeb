@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Night Stalker Feasts of Forever', category: 'heroes' },
+    { name: 'Tinker Deathsman', category: 'heroes' },
     { name: 'Snapfire Whippersnapper', category: 'heroes' },
     { name: 'Bedrock', category: 'terrains' },
     { name: 'Kunkka & Tidehunter', category: 'announcers' },
@@ -321,6 +323,8 @@ const modsData = {
         { name: 'Chen Infernal Psychic', preview: 'Chen Infernal Psychic.webp', file: 'Chen Infernal Psychic.zip', tags: { effects: false, icons: false } },
         { name: 'Emerald Shadow Fiend', preview: 'Emerald Shadow Fiend.webp', file: 'Emerald Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
         { name: 'Snapfire Whippersnapper', preview: 'Snapfire Whippersnapper.webp', file: 'Snapfire Whippersnapper.zip', tags: { effects: false, icons: false } },
+        { name: 'Tinker Deathsman', preview: 'Tinker Deathsman.webp', file: 'Tinker Deathsman.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Night Stalker Feasts of Forever', preview: 'Night Stalker Feasts of Forever.webp', file: 'Night Stalker Feasts of Forever.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
