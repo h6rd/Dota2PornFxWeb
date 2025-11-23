@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Bedrock', category: 'terrains' },
+    { name: 'Kunkka & Tidehunter', category: 'announcers' },
     { name: 'Emerald Shadow Fiend', category: 'heroes' },
     { name: 'Diretide Dire Creeps', category: 'creeps' },
     { name: 'Diretide Radiant Creeps', category: 'creeps' },
@@ -193,10 +195,11 @@ const modsData = {
         { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.webp', file: 'pak73_dir.vpk' }
     ],
     'terrains': [
-        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
         { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
         { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
-        { name: 'LowPoly Map', preview: 'LowPolyMap.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
+        { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak20_dir.vpk' },
+        { name: 'LowPoly', preview: 'LowPolyMap.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
         { name: 'TI6 Immortal Gardens', preview: 'TI6 Immortal Gardens.webp', file: 'TI6 Immortal Gardens.zip' },
         { name: 'TI7 Reefs Edge', preview: 'TI7 Reefs Edge.webp', file: 'TI7 Reefs Edge.zip' },
@@ -411,6 +414,16 @@ const modsData = {
         { name: 'Pyrion Flax', preview: 'PyrionFlax.webp', file: 'pak35_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
         { name: 'Stanley Parable', preview: 'TheStanleyParable.webp', file: 'pak36_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
         { name: 'Trine', preview: 'Trine.webp', file: 'pak37_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
+    ],
+    'announcers': [
+        { name: 'Kunkka & Tidehunter', preview: 'Kunkka & Tidehunter.webp', file: 'pak10_dir.vpk' },
+        { name: 'Rick & Morty', preview: 'Rick and Morty.webp', file: 'pak11_dir.vpk' },
+        { name: 'Meepo', preview: 'Meepo.webp', file: 'pak12_dir.vpk' },
+        { name: 'Lina', preview: 'Lina.webp', file: 'pak13_dir.vpk' },
+        { name: 'Dark Willow', preview: 'Dark Willow.webp', file: 'pak14_dir.vpk' },
+        { name: 'Darkest Dungeon', preview: 'Darkest Dungeon.webp', file: 'pak15_dir.vpk' },
+        { name: 'Voice of The International', preview: 'Voice of The International.webp', file: 'pak16_dir.vpk' },
+        { name: 'Pyrion Flax', preview: 'Pyrion Flax.webp', file: 'pak17_dir.vpk' },
     ],
     'pedestal': [
         { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.webp', file: 'pak78_dir.vpk' },
