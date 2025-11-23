@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Ulquiorra', category: 'backgrounds' },
+    { name: 'Rei Ayanami', category: 'backgrounds' },
+    { name: 'Liberalio Nikke', category: 'backgrounds' },
     { name: 'Night Stalker Feasts of Forever', category: 'heroes' },
     { name: 'Tinker Deathsman', category: 'heroes' },
     { name: 'Snapfire Whippersnapper', category: 'heroes' },
@@ -469,7 +472,7 @@ const modsData = {
         { name: 'Yellow River', preview: 'Yellow.webp', file: 'pak29_dir.vpk' },
     ],
     'backgrounds': [
-        { name: 'Ulquiorra', preview: 'Ulquiorra.webp', file: 'pak10_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Ulquiorra Purple', preview: 'Ulquiorra.webp', file: 'pak10_dir.vpk', tags: { image: true, video: false } },
         { name: 'Brewmaster', preview: 'Brewmaster.webp', file: 'pak11_dir.vpk', tags: { image: true, video: false } },
         { name: 'Moonflower Field', preview: 'Moonflower Field.mp4', file: 'pak12_dir.vpk', tags: { image: false, video: true } },
         { name: 'Forgotten Sword', preview: 'Forgotten Sword.mp4', file: 'pak13_dir.vpk', tags: { image: false, video: true } },
@@ -489,6 +492,11 @@ const modsData = {
         { name: 'Cyrene Song', preview: 'Cyrene Song.mp4', file: 'pak27_dir.vpk', tags: { image: false, video: true } },
         { name: 'Blossom Rem', preview: 'Blossom Rem.mp4', file: 'pak28_dir.vpk', tags: { image: false, video: true } },
         { name: 'Kakehashi Subaru', preview: 'Kakehashi Subaru.mp4', file: 'pak29_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Ichigo', preview: 'Ichigo.mp4', file: 'pak30_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Liberalio Nikke', preview: 'Liberalio Nikke.mp4', file: 'pak31_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Rainy Girl', preview: 'Rainy Girl.mp4', file: 'pak32_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Rei Ayanami', preview: 'Rei Ayanami.mp4', file: 'pak33_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Ulquiorra', preview: 'Ulquiorra.mp4', file: 'pak34_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
