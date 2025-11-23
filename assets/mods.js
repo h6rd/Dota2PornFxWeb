@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Snapfire Whippersnapper', category: 'heroes' },
     { name: 'Bedrock', category: 'terrains' },
     { name: 'Kunkka & Tidehunter', category: 'announcers' },
     { name: 'Emerald Shadow Fiend', category: 'heroes' },
@@ -319,6 +320,7 @@ const modsData = {
         { name: 'Lycan Red Wolf Clan', preview: 'Lycan Red Wolf Clan.webp', file: 'Lycan Red Wolf Clan.zip', tags: { effects: false, icons: false } },
         { name: 'Chen Infernal Psychic', preview: 'Chen Infernal Psychic.webp', file: 'Chen Infernal Psychic.zip', tags: { effects: false, icons: false } },
         { name: 'Emerald Shadow Fiend', preview: 'Emerald Shadow Fiend.webp', file: 'Emerald Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
+        { name: 'Snapfire Whippersnapper', preview: 'Snapfire Whippersnapper.webp', file: 'Snapfire Whippersnapper.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
