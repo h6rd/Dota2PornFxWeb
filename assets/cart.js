@@ -483,8 +483,6 @@ async function packAndDownload() {
 
         for (const item of cart) {
             const filePath = `assets/files/${item.categoryId}/${item.file}`;
-            addLog(`Processing: ${item.name}`, 'info');
-            statusText.textContent = `Processing ${processedCount + 1}/${cart.length}...`;
 
             try {
                 const response = await fetch(filePath);
@@ -493,21 +491,54 @@ async function packAndDownload() {
                 const blob = await response.blob();
 
                 if (isZipFile(item.file)) {
-                    addLog(`Extracting ZIP: ${item.name}`, 'extract');
+                    addLog(`Extracting: ${item.name}`, 'extract');
                     const zipContent = await JSZip.loadAsync(blob);
                     const extractedFiles = [];
 
-                    for (const [relativePath, zipEntry] of Object.entries(zipContent.files)) {
-                        if (!zipEntry.dir) {
+                    const isTerrainMod = item.categoryId === 'terrains';
+
+                    const zipFiles = Object.entries(zipContent.files);
+
+                    if (zipFiles.length === 0) {
+                        addLog(`Warning: ${item.name} appears to be empty`, 'warning');
+                    }
+
+                    for (const [relativePath, zipEntry] of zipFiles) {
+                        if (zipEntry.dir) continue;
+
+                        try {
                             const fileBlob = await zipEntry.async('blob');
-                            const fileName = relativePath.split('/').pop();
-                            const uniqueName = getUniqueFileName(fileName, existingFileNames);
-                            modsFolder.file(uniqueName, fileBlob);
-                            extractedFiles.push(uniqueName);
+                            if (isTerrainMod) {
+                                if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
+                                    const pathParts = relativePath.split('/');
+                                    const mapsIndex = pathParts.indexOf('maps');
+                                    if (mapsIndex !== -1) {
+                                        const relativeMapsPath = pathParts.slice(mapsIndex).join('/');
+                                        modsFolder.file(relativeMapsPath, fileBlob);
+                                        extractedFiles.push(relativeMapsPath);
+                                    }
+                                }
+                            } else {
+                                const fileName = relativePath.split('/').pop();
+                                if (fileName) {
+                                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
+                                    modsFolder.file(uniqueName, fileBlob);
+                                    extractedFiles.push(uniqueName);
+                                }
+                            }
+                        } catch (err) {
+                            console.error(`Error extracting file ${relativePath} from ${item.name}:`, err);
+                            addLog(`Failed to extract file from ${item.name}`, 'warning');
                         }
                     }
-                    modFileNames[item.name] = extractedFiles.join(', ');
-                    addLog(`Extracted ${item.name}`, 'success');
+
+                    if (extractedFiles.length > 0) {
+                        modFileNames[item.name] = extractedFiles.join(', ');
+                        addLog(`Added ${item.name}`, 'success');
+                    } else {
+                        modFileNames[item.name] = 'No files extracted';
+                        addLog(`No files extracted from ${item.name}`, 'warning');
+                    }
                 } else {
                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
                     modsFolder.file(uniqueName, blob);
@@ -563,6 +594,7 @@ EN WINDOWS
 2. Run VPKMerge.exe and wait until it finishes
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
 4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
+- If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 5. Add to launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
@@ -578,6 +610,7 @@ RU WINDOWS
    • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
    • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
    • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
+- Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
@@ -595,6 +628,7 @@ EN LINUX
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
 4. Move the generated pak10_dir.vpk to your game language folder: dota_123 (If you are using Minify, put vpk in dota_minify folder)
+- If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 5. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
@@ -611,6 +645,7 @@ RU LINUX
    • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
    • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
    • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
+- Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
