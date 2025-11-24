@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'TI9 Ranged Attack', category: 'ranged-attack' },
+    { name: 'TI10 Ranged Attack', category: 'ranged-attack' },
+    { name: 'Blue Diretide Ranged Attack', category: 'ranged-attack' },
     { name: 'Ulquiorra', category: 'backgrounds' },
     { name: 'Rei Ayanami', category: 'backgrounds' },
     { name: 'Liberalio Nikke', category: 'backgrounds' },
@@ -391,8 +394,14 @@ const modsData = {
     ],
     'ranged-attack': [
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.mp4', file: 'pak13_dir.vpk' },
-        { name: 'Aghanim Ranged Attack', preview: 'Aghanim Ranged Attack.mp4', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ranged_attack_effect_aghanim_2021/' },
-        { name: 'Green Diretide Ranged Attack', preview: 'Green Diretide Ranged Attack.mp4', file: 'pak15_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ranged_attack_effect_diretide_-_green/' }
+        { name: 'Aghanim Ranged Attack', preview: 'Aghanim Ranged Attack.mp4', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'Green Diretide Ranged Attack', preview: 'Green Diretide Ranged Attack.mp4', file: 'pak15_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'Blue Diretide Ranged Attack', preview: 'Diretide Blue.mp4', file: 'pak16_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'Red Diretide Ranged Attack', preview: 'Diretide Red.mp4', file: 'pak17_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'Yellow Diretide Ranged Attack', preview: 'Diretide Yellow.mp4', file: 'pak18_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'TI12 Ranged Attack', preview: 'ti12.mp4', file: 'pak19_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'TI10 Ranged Attack', preview: 'ti10.mp4', file: 'pak20_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
+        { name: 'TI9 Ranged Attack', preview: 'ti9.mp4', file: 'pak21_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak10_dir.vpk', links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }, { type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' }] },
