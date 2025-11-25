@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Background Changer', category: 'tools' },
     { name: 'TI9 Ranged Attack', category: 'ranged-attack' },
     { name: 'TI10 Ranged Attack', category: 'ranged-attack' },
     { name: 'Blue Diretide Ranged Attack', category: 'ranged-attack' },
