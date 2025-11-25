@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Phantom Assassin Skull Arcana', category: 'heroes' },
     { name: 'Background Changer', category: 'tools' },
     { name: 'TI9 Ranged Attack', category: 'ranged-attack' },
     { name: 'TI10 Ranged Attack', category: 'ranged-attack' },
@@ -332,6 +333,7 @@ const modsData = {
         { name: 'Snapfire Whippersnapper', preview: 'Snapfire Whippersnapper.webp', file: 'Snapfire Whippersnapper.zip', tags: { effects: false, icons: false } },
         { name: 'Tinker Deathsman', preview: 'Tinker Deathsman.webp', file: 'Tinker Deathsman.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Night Stalker Feasts of Forever', preview: 'Night Stalker Feasts of Forever.webp', file: 'Night Stalker Feasts of Forever.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
+        { name: 'Phantom Assassin Skull Arcana', preview: 'Phantom Assassin Skull Arcana.webp', file: 'Phantom Assassin Skull Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
