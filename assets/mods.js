@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Invoker Bloody Wizard', category: 'heroes' },
     { name: 'Spectre Phantom Advent', category: 'heroes' },
     { name: 'Phantom Assassin Skull Arcana', category: 'heroes' },
     { name: 'Background Changer', category: 'tools' },
@@ -336,6 +337,7 @@ const modsData = {
         { name: 'Night Stalker Feasts of Forever', preview: 'Night Stalker Feasts of Forever.webp', file: 'Night Stalker Feasts of Forever.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Phantom Assassin Skull Arcana', preview: 'Phantom Assassin Skull Arcana.webp', file: 'Phantom Assassin Skull Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Spectre Phantom Advent', preview: 'Spectre Phantom Advent.webp', file: 'Spectre Phantom Advent.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Invoker Bloody Wizard', preview: 'Invoker Bloody Wizard.webp', file: 'Invoker Bloody Wizard.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
