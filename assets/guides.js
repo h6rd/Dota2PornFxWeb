@@ -218,7 +218,7 @@ const guidesData = {
           icon: 'info',
           title: 'General information',
           steps: [
-            { icon: 'keep', text: 'Most of the mods presented here are not mine - they were taken from leaked packs <span id="tg">Dota2Changer</span>' },
+            { icon: 'keep', text: 'Most of the mods presented here are not mine - they were taken from leaked packs <a href="https://dota2changer.com/" target="_blank"><span id="tg">Dota2Changer</span></a>' },
             { icon: 'keep', text: 'Mods that don\'t have a <span id="tg">source</span>/<span id="tg">author</span> link at the bottom are my own (except for some mods)' }
           ]
         },
@@ -262,8 +262,7 @@ const guidesData = {
           steps: [
             'The video must be no longer than 30 seconds',
             'Format must be <span id="tg">.webm</span>',
-            'It\'s recommended to use <span id="tg">Convert</span> — Panorama is sensitive to codecs',
-            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Run the video through <span id="tg">Convert</span>. If that doesn\'t help, try another video.' },
+            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Try another video.' },
             { icon: 'error', text: '<fcode>Background doesn\'t change</fcode>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.' }
           ]
         }
@@ -273,7 +272,7 @@ const guidesData = {
           icon: 'info',
           title: 'Общая информация',
           steps: [
-            { icon: 'keep', text: 'Большая часть модов, представленных здесь, не являются моими - они были взяты из слитых паков <span id="tg">Dota2Changer</span>' },
+            { icon: 'keep', text: 'Большая часть модов, представленных здесь, не являются моими - они были взяты из слитых паков <a href="https://dota2changer.com/" target="_blank"><span id="tg">Dota2Changer</span></a>' },
             { icon: 'keep', text: 'Моды, у которых внизу нет кнопки <span id="tg">source</span>/<span id="tg">author</span> - мои (за исключением некоторых модов)' }
           ]
         },
@@ -318,8 +317,7 @@ const guidesData = {
           steps: [
             'Видео должно быть не длиннее 30 секунд',
             'Формат <span id="tg">.webm</span>',
-            'Рекомендуется использовать <span id="tg">Convert</span> - Panorama чувствительна к кодекам',
-            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Прогоните видос через <span id="tg">Convert</span>. Если не помогло - попробуйте другой видос.' },
+            { icon: 'error', text: '<fcode>An error occurred during playback</fcode>: Попробуйте другой видос.' },
             { icon: 'error', text: '<fcode>Фон не меняется</fcode>: См. раздел <span id="tg">"Если моды не работают"</span> выше.' },
           ]
         }
