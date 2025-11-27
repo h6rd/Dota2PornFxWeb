@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
+    { name: 'ItemsFix - Fix items_game structure', category: 'tools' },
     { name: 'Invoker Bloody Wizard', category: 'heroes' },
     { name: 'Spectre Phantom Advent', category: 'heroes' },
     { name: 'Phantom Assassin Skull Arcana', category: 'heroes' },
@@ -520,6 +522,8 @@ const modsData = {
         { name: 'Weather Changer [NotSafe]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
+        { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip'},
+        { name: 'Patcher - Lifetime Pack [NotSafe]', preview: 'patcher.webp', file: 'Patcher.zip'},
         // { name: 'Extract - Extract Hero From VPKs', preview: 'Extract.webp', file: 'Extract.zip' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
