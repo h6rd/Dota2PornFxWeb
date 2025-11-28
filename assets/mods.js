@@ -1,8 +1,8 @@
 const recentlyAddedMods = [
+    { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
     { name: 'Yuno Gasai', category: 'backgrounds' },
     { name: 'Techies War Rig Pachyderm', category: 'heroes' },
-    { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'ItemsFix - Fix items_game structure', category: 'tools' },
     { name: 'Invoker Bloody Wizard', category: 'heroes' },
     { name: 'Spectre Phantom Advent', category: 'heroes' },
