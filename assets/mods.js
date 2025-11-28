@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Sajin Komamura', category: 'backgrounds' },
+    { name: 'Yuno Gasai', category: 'backgrounds' },
+    { name: 'Techies War Rig Pachyderm', category: 'heroes' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'ItemsFix - Fix items_game structure', category: 'tools' },
     { name: 'Invoker Bloody Wizard', category: 'heroes' },
@@ -340,6 +343,7 @@ const modsData = {
         { name: 'Phantom Assassin Skull Arcana', preview: 'Phantom Assassin Skull Arcana.webp', file: 'Phantom Assassin Skull Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Spectre Phantom Advent', preview: 'Spectre Phantom Advent.webp', file: 'Spectre Phantom Advent.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Invoker Bloody Wizard', preview: 'Invoker Bloody Wizard.webp', file: 'Invoker Bloody Wizard.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Techies War Rig Pachyderm', preview: 'Techies War Rig Pachyderm.webp', file: 'Techies War Rig Pachyderm.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -515,6 +519,8 @@ const modsData = {
         { name: 'Rainy Girl', preview: 'Rainy Girl.mp4', file: 'pak32_dir.vpk', tags: { image: false, video: true } },
         { name: 'Rei Ayanami', preview: 'Rei Ayanami.mp4', file: 'pak33_dir.vpk', tags: { image: false, video: true } },
         { name: 'Ulquiorra', preview: 'Ulquiorra.mp4', file: 'pak34_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Yuno Gasai', preview: 'Yuno Gasai.webp', file: 'pak35_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Sajin Komamura', preview: 'Sajin Komamura.webp', file: 'pak36_dir.vpk', tags: { image: true, video: false } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
