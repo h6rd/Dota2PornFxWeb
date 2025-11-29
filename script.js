@@ -96,7 +96,7 @@ const categories = [
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp' },
-    { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp' },
+    // { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp' },
     { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
