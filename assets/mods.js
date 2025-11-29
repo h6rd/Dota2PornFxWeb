@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
     { name: 'Yuno Gasai', category: 'backgrounds' },
@@ -239,6 +240,7 @@ const modsData = {
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' },
         { name: 'Low Poly Trees', preview: 'Low Poly Trees.webp', file: 'pak91_dir.vpk' },
         { name: 'Cartoon Trees', preview: 'Cartoon Trees.webp', file: 'pak92_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Pine Cone Trees', preview: 'Pine Cone Trees.webp', file: 'pak32_dir.vpk' },
     ],
     'heroes': [
         { name: 'Bare Brewmaster 🥰', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
