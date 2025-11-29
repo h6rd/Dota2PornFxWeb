@@ -1,5 +1,5 @@
 const recentlyAddedMods = [
-    // { name: 'TheFatRat Warrior', category: 'music' },
+    { name: 'TheFatRat Warrior', category: 'music' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
@@ -577,6 +577,6 @@ const modsData = {
         { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
     ],
     'music': [
-        // { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk' },
+        { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk' },
     ],
 }
