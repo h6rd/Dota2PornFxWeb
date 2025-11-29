@@ -74,6 +74,8 @@ const translations = {
     'couriers-desc': 'Custom Couriers',
     'announcers': 'Announcers',
     'announcers-desc': 'Custom Announcers',
+    'music': 'Music',
+    'music-desc': 'Custom Music',
 };
 
 const categories = [
@@ -95,6 +97,7 @@ const categories = [
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp' },
+    { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
     { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp' },

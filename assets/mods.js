@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'TheFatRat Warrior', category: 'music' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
@@ -574,5 +575,8 @@ const modsData = {
         { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
         { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
         { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
+    ],
+    'music': [
+        { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk' },
     ],
 }
