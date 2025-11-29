@@ -1,6 +1,6 @@
 const recentlyAddedMods = [
-    { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
+    { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
     { name: 'Yuno Gasai', category: 'backgrounds' },
     { name: 'Techies War Rig Pachyderm', category: 'heroes' },
