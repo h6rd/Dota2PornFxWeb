@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Cone Trees', category: 'trees' },
     { name: 'Purple Reef Trees', category: 'trees' },
     { name: 'Anubis Phantom Lancer', category: 'heroes' },
     { name: 'Humanity Last Breath', category: 'music' },
@@ -250,6 +251,7 @@ const modsData = {
         { name: 'Cartoon Trees', preview: 'Cartoon Trees.webp', file: 'pak92_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Pine Cone Trees', preview: 'Pine Cone Trees.webp', file: 'pak32_dir.vpk' },
         { name: 'Purple Reef Trees', preview: 'Purple Reef Trees.webp', file: 'pak10_dir.vpk' },
+        { name: 'Cone Trees', preview: 'Cone Trees.webp', file: 'pak11_dir.vpk' },
     ],
     'heroes': [
         { name: 'Bare Brewmaster 🥰', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
