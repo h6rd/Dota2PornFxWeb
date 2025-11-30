@@ -1,4 +1,10 @@
 const recentlyAddedMods = [
+    { name: 'Anubis Phantom Lancer', category: 'heroes' },
+    { name: 'Humanity Last Breath', category: 'music' },
+    { name: 'Heroes Within', category: 'music' },
+    { name: 'Elemental Fury', category: 'music' },
+    { name: 'deadmau5 dieback', category: 'music' },
+    { name: 'JJ Lin Timekeeper', category: 'music' },
     { name: 'TheFatRat Warrior', category: 'music' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Pine Cone Trees', category: 'trees' },
@@ -347,6 +353,7 @@ const modsData = {
         { name: 'Spectre Phantom Advent', preview: 'Spectre Phantom Advent.webp', file: 'Spectre Phantom Advent.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Invoker Bloody Wizard', preview: 'Invoker Bloody Wizard.webp', file: 'Invoker Bloody Wizard.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Techies War Rig Pachyderm', preview: 'Techies War Rig Pachyderm.webp', file: 'Techies War Rig Pachyderm.zip', tags: { effects: false, icons: false } },
+        { name: 'Anubis Phantom Lancer', preview: 'Anubis Phantom Lancer.webp', file: 'Anubis Phantom Lancer.zip', tags: { effects: true, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -578,5 +585,10 @@ const modsData = {
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk' },
+        { name: 'JJ Lin Timekeeper', preview: 'JJ Lin Timekeeper.webp', file: 'pak11_dir.vpk' },
+        { name: 'deadmau5 dieback', preview: 'deadmau5 dieback.webp', file: 'pak12_dir.vpk' },
+        { name: 'Elemental Fury', preview: 'Elemental Fury.webp', file: 'pak13_dir.vpk' },
+        { name: 'Heroes Within', preview: 'Heroes Within.webp', file: 'pak14_dir.vpk' },
+        { name: 'Humanity Last Breath', preview: 'Humanity Last Breath.webp', file: 'pak15_dir.vpk' },
     ],
 }
