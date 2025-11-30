@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Void Medals', category: 'ranks' },
     { name: 'Cone Trees', category: 'trees' },
     { name: 'Purple Reef Trees', category: 'trees' },
     { name: 'Anubis Phantom Lancer', category: 'heroes' },
@@ -569,6 +570,7 @@ const modsData = {
     'ranks': [
         { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk' },
         { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk' },
+        { name: 'Void Medals', preview: 'Void Medals.webp', file: 'pak12_dir.vpk' },
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
