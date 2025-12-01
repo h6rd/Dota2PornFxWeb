@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'DarkPoly Terrain', category: 'terrains' },
     { name: 'Bear Medals', category: 'ranks' },
     { name: 'Void Medals', category: 'ranks' },
     { name: 'Cone Trees', category: 'trees' },
@@ -230,6 +231,7 @@ const modsData = {
         { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
         { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak20_dir.vpk' },
         { name: 'LowPoly', preview: 'LowPolyMap.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'DarkPoly Terrain', preview: 'DarkPoly Terrain.webp', file: 'pak35_dir.vpk' },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
         { name: 'TI6 Immortal Gardens', preview: 'TI6 Immortal Gardens.webp', file: 'TI6 Immortal Gardens.zip' },
         { name: 'TI7 Reefs Edge', preview: 'TI7 Reefs Edge.webp', file: 'TI7 Reefs Edge.zip' },
