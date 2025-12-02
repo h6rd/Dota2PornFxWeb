@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Shadow Wreck', category: 'backgrounds' },
     { name: 'Tusk', category: 'announcers' },
     { name: 'DarkPoly Terrain', category: 'terrains' },
     { name: 'Bear Medals', category: 'ranks' },
@@ -495,6 +496,7 @@ const modsData = {
         { name: 'Ulquiorra', preview: 'Ulquiorra.mp4', file: 'pak34_dir.vpk', tags: { image: false, video: true } },
         { name: 'Yuno Gasai', preview: 'Yuno Gasai.webp', file: 'pak35_dir.vpk', tags: { image: true, video: false } },
         { name: 'Sajin Komamura', preview: 'Sajin Komamura.webp', file: 'pak36_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Shadow Wreck', preview: 'Shadow Wreck.webp', file: 'pak37_dir.vpk', tags: { image: true, video: false } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
