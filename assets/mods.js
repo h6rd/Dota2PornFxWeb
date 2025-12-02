@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Iroha Isshiki', category: 'mega-kill' },
+    { name: 'Chitoge Kirisaki', category: 'mega-kill' },
     { name: 'Shadow Wreck', category: 'backgrounds' },
     { name: 'Tusk', category: 'announcers' },
     { name: 'DarkPoly Terrain', category: 'terrains' },
@@ -419,6 +421,8 @@ const modsData = {
         { name: 'Pyrion Flax', preview: 'PyrionFlax.webp', file: 'pak35_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
         { name: 'Stanley Parable', preview: 'TheStanleyParable.webp', file: 'pak36_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
         { name: 'Trine', preview: 'Trine.webp', file: 'pak37_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
+        { name: 'Chitoge Kirisaki', preview: 'Chitoge Kirisaki.webp', file: 'pak38_dir.vpk' },
+        { name: 'Iroha Isshiki', preview: 'Iroha Isshiki.webp', file: 'pak39_dir.vpk' },
     ],
     'announcers': [
         { name: 'Kunkka & Tidehunter', preview: 'Kunkka & Tidehunter.webp', file: 'pak10_dir.vpk' },
