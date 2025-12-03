@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Nyash Items', category: 'item-icons' },
     { name: 'DarkPoly', category: 'terrains' },
     { name: 'LowPoly Shrub Trees', category: 'trees' },
     { name: 'Iroha Isshiki', category: 'mega-kill' },
@@ -545,7 +546,8 @@ const modsData = {
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' }
+        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' },
+        { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
     ],
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
