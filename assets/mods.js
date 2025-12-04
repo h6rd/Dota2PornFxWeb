@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Nyash Items', category: 'item-icons' },
     { name: 'DarkPoly', category: 'terrains' },
     { name: 'LowPoly Shrub Trees', category: 'trees' },
@@ -18,7 +19,6 @@ const recentlyAddedMods = [
     { name: 'deadmau5 dieback', category: 'music' },
     { name: 'JJ Lin Timekeeper', category: 'music' },
     { name: 'TheFatRat Warrior', category: 'music' },
-    { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Pine Cone Trees', category: 'trees' },
     { name: 'Sajin Komamura', category: 'backgrounds' },
     { name: 'Yuno Gasai', category: 'backgrounds' },
