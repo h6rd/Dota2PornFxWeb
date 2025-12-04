@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Gabe Shopkeeper', category: 'other' },
     { name: 'Legion Commander Holy Paladin', category: 'heroes' },
     { name: 'Cursed Queen of Pain', category: 'heroes' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
@@ -459,6 +460,7 @@ const modsData = {
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
+        { name: 'Gabe Shopkeeper', preview: 'Gabe Shopkeeper.webp', file: 'pak10_dir.vpk' },
     ],
     'river': [
         { name: 'Black River', preview: 'Black.webp', file: 'pak10_dir.vpk' },
@@ -550,7 +552,7 @@ const modsData = {
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Arcanas Items Icons', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' },
+        { name: 'Arcanas Items', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' },
         { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
     ],
     'wards': [
