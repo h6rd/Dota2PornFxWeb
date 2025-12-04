@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Cursed Queen of Pain', category: 'heroes' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Nyash Items', category: 'item-icons' },
     { name: 'DarkPoly', category: 'terrains' },
@@ -326,6 +327,7 @@ const modsData = {
         { name: 'Invoker Bloody Wizard', preview: 'Invoker Bloody Wizard.webp', file: 'Invoker Bloody Wizard.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Techies War Rig Pachyderm', preview: 'Techies War Rig Pachyderm.webp', file: 'Techies War Rig Pachyderm.zip', tags: { effects: false, icons: false } },
         { name: 'Anubis Phantom Lancer', preview: 'Anubis Phantom Lancer.webp', file: 'Anubis Phantom Lancer.zip', tags: { effects: true, icons: false } },
+        { name: 'Cursed Queen of Pain', preview: 'Cursed Queen of Pain.webp', file: 'Cursed Queen of Pain.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
