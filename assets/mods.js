@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Legion Commander Holy Paladin', category: 'heroes' },
     { name: 'Cursed Queen of Pain', category: 'heroes' },
     { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Nyash Items', category: 'item-icons' },
@@ -328,6 +329,7 @@ const modsData = {
         { name: 'Techies War Rig Pachyderm', preview: 'Techies War Rig Pachyderm.webp', file: 'Techies War Rig Pachyderm.zip', tags: { effects: false, icons: false } },
         { name: 'Anubis Phantom Lancer', preview: 'Anubis Phantom Lancer.webp', file: 'Anubis Phantom Lancer.zip', tags: { effects: true, icons: false } },
         { name: 'Cursed Queen of Pain', preview: 'Cursed Queen of Pain.webp', file: 'Cursed Queen of Pain.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Legion Commander Holy Paladin', preview: 'Legion Commander Holy Paladin.webp', file: 'Legion Commander Holy Paladin.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
