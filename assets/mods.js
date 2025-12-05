@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Storm Spirit Corridan Maestro', category: 'heroes' },
+    { name: 'Storm Spirit Beast of Thunder', category: 'heroes' },
     { name: 'Blue Dragon Puck', category: 'heroes' },
     { name: 'Purple Witch Broodmother', category: 'heroes' },
     { name: 'Ogre Magi Freeboot Fortunes', category: 'heroes' },
@@ -343,6 +345,8 @@ const modsData = {
         { name: 'Ogre Magi Freeboot Fortunes', preview: 'Ogre Magi Freeboot Fortunes.webp', file: 'Ogre Magi Freeboot Fortunes.zip', tags: { effects: false, icons: false } },
         { name: 'Purple Witch Broodmother', preview: 'Purple Witch Broodmother.webp', file: 'Purple Witch Broodmother.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Blue Dragon Puck', preview: 'Blue Dragon Puck.webp', file: 'Blue Dragon Puck.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Storm Spirit Beast of Thunder', preview: 'Storm Spirit Beast of Thunder.webp', file: 'Storm Spirit Beast of Thunder.zip', tags: { effects: false, icons: false } },
+        { name: 'Storm Spirit Corridan Maestro', preview: 'Storm Spirit Corridan Maestro.webp', file: 'Storm Spirit Corridan Maestro.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
