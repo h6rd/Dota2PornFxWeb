@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Blue Dragon Puck', category: 'heroes' },
+    { name: 'Purple Witch Broodmother', category: 'heroes' },
     { name: 'Ogre Magi Freeboot Fortunes', category: 'heroes' },
     { name: 'Ogre Magi Pyrexae Polymorph', category: 'heroes' },
     { name: 'Clockwerk Apex Automated', category: 'heroes' },
@@ -7,7 +9,6 @@ const recentlyAddedMods = [
     { name: 'Gabe Shopkeeper', category: 'other' },
     { name: 'Legion Commander Holy Paladin', category: 'heroes' },
     { name: 'Cursed Queen of Pain', category: 'heroes' },
-    // { name: 'Patcher - Lifetime Pack [NotSafe]', category: 'tools' },
     { name: 'Nyash Items', category: 'item-icons' },
     { name: 'DarkPoly', category: 'terrains' },
     { name: 'LowPoly Shrub Trees', category: 'trees' },
@@ -340,6 +341,8 @@ const modsData = {
         { name: 'Clockwerk Apex Automated', preview: 'Clockwerk Apex Automated.webp', file: 'Clockwerk Apex Automated.zip', tags: { effects: false, icons: false } },
         { name: 'Ogre Magi Pyrexae Polymorph', preview: 'Ogre Magi Pyrexae Polymorph.webp', file: 'Ogre Magi Pyrexae Polymorph.zip', tags: { effects: false, icons: false } },
         { name: 'Ogre Magi Freeboot Fortunes', preview: 'Ogre Magi Freeboot Fortunes.webp', file: 'Ogre Magi Freeboot Fortunes.zip', tags: { effects: false, icons: false } },
+        { name: 'Purple Witch Broodmother', preview: 'Purple Witch Broodmother.webp', file: 'Purple Witch Broodmother.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Blue Dragon Puck', preview: 'Blue Dragon Puck.webp', file: 'Blue Dragon Puck.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
