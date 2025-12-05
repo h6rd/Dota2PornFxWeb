@@ -1426,7 +1426,7 @@ fcode {
 }
 
 .footer .fuck {
-  color: var(--md-sys-color-on-primary-container);
+  color: var(--md-sys-color-primary);
   font-weight: bold;
   font-size: 13px;
 }
