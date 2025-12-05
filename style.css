@@ -1697,6 +1697,13 @@ fcode {
   font-size: 18px;
 }
 
+#fuck {
+  color: var(--md-sys-color-on-primary-container);
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
 /* .hueta {
   width: 32px;
   height: 32px;
