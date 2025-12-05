@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Hestia', category: 'mega-kill' },
     { name: 'Gabe Shopkeeper', category: 'other' },
     { name: 'Legion Commander Holy Paladin', category: 'heroes' },
     { name: 'Cursed Queen of Pain', category: 'heroes' },
@@ -434,6 +435,7 @@ const modsData = {
         { name: 'Trine', preview: 'Trine.webp', file: 'pak37_dir.vpk', links: [{ type: 'author', url: 'https://t.me/BLUADD' }] },
         { name: 'Chitoge Kirisaki', preview: 'Chitoge Kirisaki.webp', file: 'pak38_dir.vpk' },
         { name: 'Iroha Isshiki', preview: 'Iroha Isshiki.webp', file: 'pak39_dir.vpk' },
+        { name: 'Hestia', preview: 'Hestia.webp', file: 'pak40_dir.vpk' },
     ],
     'announcers': [
         { name: 'Kunkka & Tidehunter', preview: 'Kunkka & Tidehunter.webp', file: 'pak10_dir.vpk' },
