@@ -449,14 +449,14 @@ const modsData = {
         { name: 'Hestia', preview: 'Hestia.webp', file: 'pak40_dir.vpk' },
     ],
     'announcers': [
-        // { name: 'Kunkka & Tidehunter', preview: 'Kunkka & Tidehunter.webp', file: 'pak10_dir.vpk' },
-        // { name: 'Rick & Morty', preview: 'Rick and Morty.webp', file: 'pak11_dir.vpk' },
-        // { name: 'Meepo', preview: 'Meepo.webp', file: 'pak12_dir.vpk' },
-        // { name: 'Lina', preview: 'Lina.webp', file: 'pak13_dir.vpk' },
-        // { name: 'Dark Willow', preview: 'Dark Willow.webp', file: 'pak14_dir.vpk' },
-        // { name: 'Darkest Dungeon', preview: 'Darkest Dungeon.webp', file: 'pak15_dir.vpk' },
-        // { name: 'Voice of The International', preview: 'Voice of The International.webp', file: 'pak16_dir.vpk' },
-        // { name: 'Pyrion Flax', preview: 'Pyrion Flax.webp', file: 'pak17_dir.vpk' },
+        { name: 'Kunkka & Tidehunter', preview: 'Kunkka & Tidehunter.webp', file: 'pak10_dir.vpk' },
+        // { name: 'Rick & Morty', preview: 'Rick and Morty.webp', file: 'pak11_dir.vpk' }, need fix structure
+        { name: 'Meepo', preview: 'Meepo.webp', file: 'pak12_dir.vpk' },
+        { name: 'Lina', preview: 'Lina.webp', file: 'pak13_dir.vpk' },
+        { name: 'Dark Willow', preview: 'Dark Willow.webp', file: 'pak14_dir.vpk' },
+        { name: 'Darkest Dungeon', preview: 'Darkest Dungeon.webp', file: 'pak15_dir.vpk' },
+        { name: 'Voice of The International', preview: 'Voice of The International.webp', file: 'pak16_dir.vpk' },
+        // { name: 'Pyrion Flax', preview: 'Pyrion Flax.webp', file: 'pak17_dir.vpk' }, need fix structure
         { name: 'Tusk', preview: 'Tusk.webp', file: 'pak18_dir.vpk' },
     ],
     'pedestal': [
