@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Dire Shred', category: 'music' },
     { name: 'Storm Spirit Corridan Maestro', category: 'heroes' },
     { name: 'Storm Spirit Beast of Thunder', category: 'heroes' },
     { name: 'Blue Dragon Puck', category: 'heroes' },
@@ -592,5 +593,6 @@ const modsData = {
         { name: 'Elemental Fury', preview: 'Elemental Fury.webp', file: 'pak13_dir.vpk' },
         { name: 'Heroes Within', preview: 'Heroes Within.webp', file: 'pak14_dir.vpk' },
         { name: 'Humanity Last Breath', preview: 'Humanity Last Breath.webp', file: 'pak15_dir.vpk' },
+        { name: 'Dire Shred', preview: 'Dire Shred.webp', file: 'pak16_dir.vpk' },
     ],
 }
