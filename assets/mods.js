@@ -1,4 +1,8 @@
 const recentlyAddedMods = [
+    { name: 'Ogre Magi Freeboot Fortunes', category: 'heroes' },
+    { name: 'Ogre Magi Pyrexae Polymorph', category: 'heroes' },
+    { name: 'Clockwerk Apex Automated', category: 'heroes' },
+    { name: 'Clockwerk Seadog Stash', category: 'heroes' },
     { name: 'Hestia', category: 'mega-kill' },
     { name: 'Gabe Shopkeeper', category: 'other' },
     { name: 'Legion Commander Holy Paladin', category: 'heroes' },
@@ -332,6 +336,10 @@ const modsData = {
         { name: 'Anubis Phantom Lancer', preview: 'Anubis Phantom Lancer.webp', file: 'Anubis Phantom Lancer.zip', tags: { effects: true, icons: false } },
         { name: 'Cursed Queen of Pain', preview: 'Cursed Queen of Pain.webp', file: 'Cursed Queen of Pain.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Legion Commander Holy Paladin', preview: 'Legion Commander Holy Paladin.webp', file: 'Legion Commander Holy Paladin.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Clockwerk Seadog Stash', preview: 'Clockwerk Seadog Stash.webp', file: 'Clockwerk Seadog Stash.zip', tags: { effects: false, icons: false } },
+        { name: 'Clockwerk Apex Automated', preview: 'Clockwerk Apex Automated.webp', file: 'Clockwerk Apex Automated.zip', tags: { effects: false, icons: false } },
+        { name: 'Ogre Magi Pyrexae Polymorph', preview: 'Ogre Magi Pyrexae Polymorph.webp', file: 'Ogre Magi Pyrexae Polymorph.zip', tags: { effects: false, icons: false } },
+        { name: 'Ogre Magi Freeboot Fortunes', preview: 'Ogre Magi Freeboot Fortunes.webp', file: 'Ogre Magi Freeboot Fortunes.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
