@@ -1697,7 +1697,7 @@ fcode {
   font-size: 18px;
 }
 
-#fuck {
+.fuck {
   color: var(--md-sys-color-on-primary-container);
   font-weight: bold;
   font-size: 13px;
