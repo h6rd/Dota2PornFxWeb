@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Cosmetics - Weather & More [NotSafe]', category: 'tools' },
     { name: 'Dire Shred', category: 'music' },
     { name: 'Storm Spirit Corridan Maestro', category: 'heroes' },
     { name: 'Storm Spirit Beast of Thunder', category: 'heroes' },
@@ -535,10 +536,11 @@ const modsData = {
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
-        { name: 'Weather Changer [NotSafe]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
+        // { name: 'Weather Changer [NotSafe]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
         { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip'},
+        { name: 'Cosmetics - Weather & More [NotSafe]', preview: 'Cosmetics.webp', file: 'Cosmetics.zip'},
         // { name: 'Patcher - Lifetime Pack [NotSafe]', preview: 'patcher.webp', file: 'Patcher.zip'},
         // { name: 'Extract - Extract Hero From VPKs', preview: 'Extract.webp', file: 'Extract.zip' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
