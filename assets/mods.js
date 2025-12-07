@@ -1,4 +1,9 @@
 const recentlyAddedMods = [
+    { name: 'Galactic IO', category: 'heroes' },
+    { name: 'Anti-Mage Illidan', category: 'heroes' },
+    { name: 'Tusk Odobenus Frost Mage', category: 'heroes' },
+    { name: 'Tusk Odobenus Footman', category: 'heroes' },
+    { name: 'Slardar Naga Guardian', category: 'heroes' },
     { name: 'Cosmetics - Weather & More', category: 'tools' },
     { name: 'Dire Shred', category: 'music' },
     { name: 'Storm Spirit Corridan Maestro', category: 'heroes' },
@@ -349,6 +354,11 @@ const modsData = {
         { name: 'Blue Dragon Puck', preview: 'Blue Dragon Puck.webp', file: 'Blue Dragon Puck.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Storm Spirit Beast of Thunder', preview: 'Storm Spirit Beast of Thunder.webp', file: 'Storm Spirit Beast of Thunder.zip', tags: { effects: false, icons: false } },
         { name: 'Storm Spirit Corridan Maestro', preview: 'Storm Spirit Corridan Maestro.webp', file: 'Storm Spirit Corridan Maestro.zip', tags: { effects: false, icons: false } },
+        { name: 'Slardar Naga Guardian', preview: 'Slardar Naga Guardian.webp', file: 'Slardar Naga Guardian.zip', tags: { effects: true, icons: false }},
+        { name: 'Tusk Odobenus Footman', preview: 'Tusk Odobenus Footman.webp', file: 'Tusk Odobenus Footman.zip', tags: { effects: true, icons: false }},
+        { name: 'Tusk Odobenus Frost Mage', preview: 'Tusk Odobenus Frost Mage.webp', file: 'Tusk Odobenus Frost Mage.zip', tags: { effects: true, icons: false }},
+        { name: 'Anti-Mage Illidan', preview: 'Anti-Mage Illidan.webp', file: 'Anti-Mage Illidan.zip', tags: { effects: true, icons: false }},
+        { name: 'Galactic IO', preview: 'Galactic IO.webp', file: 'Galactic IO.zip', tags: { effects: true, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
