@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Purple Reptilian Dire', category: 'creeps' },
+    { name: 'Blue Reptilian Radiant', category: 'creeps' },
     { name: 'Galactic IO', category: 'heroes' },
     { name: 'Anti-Mage Illidan', category: 'heroes' },
     { name: 'Tusk Odobenus Frost Mage', category: 'heroes' },
@@ -377,9 +379,10 @@ const modsData = {
                 id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
                     { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
                     { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
-                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk', linkType: 'bug', linkUrl: 'https://github.com/ValveSoftware/Dota2-Gameplay/issues/29344' },
                     { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
                     { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
+                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk', linkType: 'bug', linkUrl: 'https://github.com/ValveSoftware/Dota2-Gameplay/issues/29344' },
                 ]
             },
             {
@@ -389,6 +392,7 @@ const modsData = {
                     { name: 'Reptilian Dire Creeps', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
                     { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
                     { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
+                    { name: 'Purple Reptilian Dire', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
                 ]
             },
             {

@@ -53,6 +53,7 @@ const translations = {
     'sender': 'Sender',
     'guide': 'Guide',
     'preview': 'Preview',
+    'bug': 'Bug',
     'optimization': 'Optimization',
     'optimization-desc': 'Dota2 optimization stuff',
     'sites': 'Websites',
@@ -155,7 +156,8 @@ const LINK_ICONS = {
     'sender': 'send',
     'preview': 'play_circle',
     'source': 'captive_portal',
-    'guide': 'description'
+    'guide': 'description',
+    'bug': 'bug_report'
 };
 
 const TAG_CONFIGS = {
