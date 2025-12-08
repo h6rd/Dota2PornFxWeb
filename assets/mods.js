@@ -624,8 +624,8 @@ const modsData = {
         { name: 'Vengeful Spirit Cursor', preview: 'Vengeful Spirit Cursor.webp', file: 'Vengeful Spirit Cursor.zip' },
     ],
     'pings': [
-        { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk' },
+        { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
         { name: 'Skeleton Blue Ping', preview: 'Skeleton Blue Ping.webp', file: 'pak11_dir.vpk' },
-        { name: 'Skeleton Purple Ping', preview: 'Skeleton Purple Ping.webp', file: 'pak12_dir.vpk' },
+        { name: 'Skeleton Purple Ping', preview: 'Skeleton Purple Ping.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
     ],
 }
