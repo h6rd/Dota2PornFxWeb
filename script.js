@@ -77,6 +77,8 @@ const translations = {
     'announcers-desc': 'Custom Announcers',
     'music': 'Music',
     'music-desc': 'Custom Music',
+    'cursors': 'Cursors',
+    'cursors-desc': 'Custom Cursors',
 };
 
 const categories = [
@@ -106,6 +108,7 @@ const categories = [
     { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
     { id: 'item-icons', emoji: '👀', key: 'item-icons', preview: 'item-icons.webp' },
     { id: 'ranks', emoji: '🎖️', key: 'ranks', preview: 'ranks.webp' },
+    { id: 'cursors', emoji: '🛠️', key: 'cursors', preview: 'cursors.webp' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },

@@ -30,7 +30,7 @@ function saveCart() {
 
 function addToCart(mod, categoryId) {
     const FORBIDDEN_CATEGORIES = ['guides', 'optimization', 'packs', 'tools'];
-    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'creep-deny', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'towers', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music'];
+    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'creep-deny', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'towers', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors'];
 
     if (FORBIDDEN_CATEGORIES.includes(categoryId)) {
         showToast('Cannot add mods from this category.');
@@ -496,6 +496,7 @@ async function packAndDownload() {
                     const extractedFiles = [];
 
                     const isTerrainMod = item.categoryId === 'terrains';
+                    const isCursorMod = item.categoryId === 'cursors';
 
                     const zipFiles = Object.entries(zipContent.files);
 
@@ -518,6 +519,9 @@ async function packAndDownload() {
                                         extractedFiles.push(relativeMapsPath);
                                     }
                                 }
+                            } else if (isCursorMod) {
+                                mainZip.file(relativePath, fileBlob);
+                                extractedFiles.push(relativePath);    
                             } else {
                                 const fileName = relativePath.split('/').pop();
                                 if (fileName) {
@@ -533,12 +537,17 @@ async function packAndDownload() {
                     }
 
                     if (extractedFiles.length > 0) {
-                        modFileNames[item.name] = extractedFiles.join(', ');
+                        if (isCursorMod && extractedFiles.length > 0) {
+                            const folderName = extractedFiles[0].split('/')[0];
+                            modFileNames[item.name] = folderName + '/';
+                        } else {
+                            modFileNames[item.name] = extractedFiles.join(', ');
+                        }
                         addLog(`Added ${item.name}`, 'success');
                     } else {
                         modFileNames[item.name] = 'No files extracted';
                         addLog(`No files extracted from ${item.name}`, 'warning');
-                    }
+                    }    
                 } else {
                     const uniqueName = getUniqueFileName(item.file, existingFileNames);
                     modsFolder.file(uniqueName, blob);
@@ -595,6 +604,7 @@ EN WINDOWS
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
 4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
+- If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor)
 5. Add to launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
@@ -611,6 +621,7 @@ RU WINDOWS
    • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
    • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
+- Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor)
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
@@ -629,6 +640,7 @@ EN LINUX
 3. Run VPKMerge: ./VPKMerge
 4. Move the generated pak10_dir.vpk to your game language folder: dota_123 (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
+- If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor
 5. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
@@ -646,6 +658,7 @@ RU LINUX
    • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
    • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
+- Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
