@@ -79,6 +79,8 @@ const translations = {
     'music-desc': 'Custom Music',
     'cursors': 'Cursors',
     'cursors-desc': 'Custom Cursors',
+    'pings': 'Pings',
+    'pings-desc': 'Custom Pings',
 };
 
 const categories = [
@@ -96,6 +98,7 @@ const categories = [
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
+    { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp' },

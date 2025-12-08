@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Skeleton Blue Ping', category: 'pings' },
+    { name: 'Skeleton Black Ping', category: 'pings' },
+    { name: 'Allstars Items', category: 'item-icons' },
     { name: 'Diretide Cursor', category: 'cursors' },
     { name: 'TI8 Cursor', category: 'cursors' },
     { name: 'Purple Reptilian Dire', category: 'creeps' },
@@ -31,23 +34,6 @@ const recentlyAddedMods = [
     { name: 'DarkPoly & Trees', category: 'terrains' },
     { name: 'Tusk', category: 'announcers' },
     { name: 'Bear Medals', category: 'ranks' },
-    { name: 'Void Medals', category: 'ranks' },
-    { name: 'Cone Trees', category: 'trees' },
-    { name: 'Purple Reef Trees', category: 'trees' },
-    { name: 'Anubis Phantom Lancer', category: 'heroes' },
-    { name: 'Humanity Last Breath', category: 'music' },
-    { name: 'Heroes Within', category: 'music' },
-    { name: 'Elemental Fury', category: 'music' },
-    { name: 'deadmau5 dieback', category: 'music' },
-    { name: 'JJ Lin Timekeeper', category: 'music' },
-    { name: 'TheFatRat Warrior', category: 'music' },
-    { name: 'Pine Cone Trees', category: 'trees' },
-    { name: 'Sajin Komamura', category: 'backgrounds' },
-    { name: 'Yuno Gasai', category: 'backgrounds' },
-    { name: 'Techies War Rig Pachyderm', category: 'heroes' },
-    { name: 'ItemsFix - Fix items_game structure', category: 'tools' },
-    { name: 'Invoker Bloody Wizard', category: 'heroes' },
-    { name: 'Spectre Phantom Advent', category: 'heroes' },
 ];
 
 const modsData = {
@@ -590,6 +576,7 @@ const modsData = {
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
         { name: 'Arcanas Items', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' },
         { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
+        { name: 'Allstars Items', preview: 'Allstars Items.webp', file: 'pak11_dir.vpk' },
     ],
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
@@ -635,5 +622,10 @@ const modsData = {
         { name: 'TI7 Cursor', preview: 'TI7 Cursor.webp', file: 'TI7 Cursor.zip' },
         { name: 'Timbersaw Cursor', preview: 'Timbersaw Cursor.webp', file: 'Timbersaw Cursor.zip' },
         { name: 'Vengeful Spirit Cursor', preview: 'Vengeful Spirit Cursor.webp', file: 'Vengeful Spirit Cursor.zip' },
+    ],
+    'pings': [
+        { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk' },
+        { name: 'Skeleton Blue Ping', preview: 'Skeleton Blue Ping.webp', file: 'pak11_dir.vpk' },
+        { name: 'Skeleton Purple Ping', preview: 'Skeleton Purple Ping.webp', file: 'pak12_dir.vpk' },
     ],
 }
