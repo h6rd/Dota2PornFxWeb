@@ -70,6 +70,76 @@ const modsData = {
     'item-effects': {
         groups: [
             {
+                id: 'bottle', name: 'Bottle', mods: [
+                    { name: 'TI9 Bottle', preview: 'TI9 Bottle.webp', file: 'TI9 Bottle.zip' },
+                    { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
+                    { name: 'Darkness Bottle', preview: 'Darkness Bottle.webp', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'blink', name: 'Blink Dagger', mods: [
+                    { name: 'TI9 Blink Dagger', preview: 'TI9 Blink Dagger.webp', file: 'TI9 Blink Dagger.zip' },
+                    { name: 'TI9 Blink Dagger II', preview: 'TI9 Blink Dagger II.webp', file: 'TI9 Blink Dagger II.zip' },
+                    { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.webp', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'eul', name: "Eul's / Wind Waker", mods: [
+                    { name: 'TI9 Euls Scepter', preview: 'TI9 Eul.webp', file: 'TI9 Eul.zip' },
+                    { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.webp', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'lvlup', name: 'Lvl Up', mods: [
+                    { name: 'TI9 Lvl Up', preview: 'TI9 Lvl Up.webp', file: 'TI9 Lvl Up.zip' },
+                    { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.webp', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'shivas', name: "Shiva's Guard", mods: [
+                    { name: 'TI9 Shiva', preview: 'TI9 Shiva.webp', file: 'TI9 Shiva.zip' },
+                    { name: 'Darkness Shivas', preview: 'Darkness Shivas.webp', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
+                ]
+            },
+            {
+                id: 'mekanism', name: 'Mekanism', mods: [
+                    { name: 'TI9 Mekanism', preview: 'TI9 Mekanism.webp', file: 'TI9 Mekanism.zip' },
+                    { name: 'Darkness Mekanism', preview: 'Darkness Mekanism.webp', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'mjollnir', name: 'Maelstrom / Mjollnir', mods: [
+                    { name: 'TI9 Maelstrom Mjollnir', preview: 'TI9 Maelstrom Mjollnir.webp', file: 'TI9 Maelstrom Mjollnir.zip' },
+                    { name: 'Darkness Mjollnir', preview: 'Darkness Mjollner.webp', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'radiance', name: 'Radiance', mods: [
+                    { name: 'TI9 Radiance', preview: 'TI9 Radiance.webp', file: 'TI9 Radiance.zip' },
+                    { name: 'Darkness Radiance', preview: 'Darkness Radiance.webp', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'phase-boots', name: 'Phase Boots', mods: [
+                    { name: 'TI9 Phase Boots', preview: 'TI9 Phase Boots.webp', file: 'TI9 Phase Boots.zip' },
+                    { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.webp', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+                ]
+            },
+            {
+                id: 'teleport', name: 'Teleport', mods: [
+                    { name: 'TI9 Teleport', preview: 'TI9 Teleport.webp', file: 'TI9 Teleport.zip' },
+                    { name: 'TI9 Teleport II', preview: 'TI9 Teleport II.webp', file: 'TI9 Teleport II.zip' },
+                    { name: 'TI9 Teleport III', preview: 'TI9 Teleport III.webp', file: 'TI9 Teleport III.zip' },
+                ]
+            },
+            {
+                id: 'fountain', name: 'Fountain Regen', mods: [
+                    { name: 'TI9 Fountain Regen', preview: 'TI9 Fountain Regen.webp', file: 'TI9 Fountain Regen.zip' },
+                    { name: 'TI9 Fountain Regen II', preview: 'TI9 Fountain Regen II.webp', file: 'TI9 Fountain Regen II.zip' },
+                    { name: 'TI9 Fountain Regen III', preview: 'TI9 Fountain Regen III.webp', file: 'TI9 Fountain Regen III.zip' },
+                ]
+            },
+            {
                 id: 'dagon', name: 'Dagon', mods: [
                     { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
                     { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
@@ -90,52 +160,6 @@ const modsData = {
                 ]
             },
             {
-                id: 'bottle', name: 'Bottle', mods: [
-                    { name: 'Red Bottle', preview: 'Red Bottle.mp4', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
-                    { name: 'Darkness Bottle', preview: 'Darkness Bottle.mp4', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'blink', name: 'Blink Dagger', mods: [
-                    { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.mp4', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'eul', name: "Eul's / Wind Waker", mods: [
-                    { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.mp4', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'lvlup', name: 'Lvl Up', mods: [
-                    { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.mp4', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'shivas', name: "Shiva's Guard", mods: [
-                    { name: 'Darkness Shivas', preview: 'Darkness Shivas.mp4', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
-                ]
-            },
-            {
-                id: 'mekansm', name: 'Mekansm', mods: [
-                    { name: 'Darkness Mekansm', preview: 'Darkness Mekanism.mp4', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'mjollnir', name: 'Maelstrom / Mjollnir', mods: [
-                    { name: 'Darkness Mjollnir', preview: 'Darkness Mjollner.mp4', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'radiance', name: 'Radiance', mods: [
-                    { name: 'Darkness Radiance', preview: 'Darkness Radiance.mp4', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
-                id: 'phase-boots', name: 'Phase Boots', mods: [
-                    { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.mp4', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
-                ]
-            },
-            {
                 id: 'aegis', name: 'Aegis', mods: [
                     { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
                 ]
@@ -143,14 +167,6 @@ const modsData = {
             {
                 id: 'runes', name: 'Runes', mods: [
                     { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
-                ]
-            },
-            {
-                id: 'teleport', name: 'Teleport', mods: [
-                ]
-            },
-            {
-                id: 'fountain', name: 'Fountain', mods: [
                 ]
             },
             {
