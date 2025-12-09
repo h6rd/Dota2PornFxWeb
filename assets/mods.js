@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Lelouch Lamperouge', category: 'backgrounds' },
     { name: 'ToxicPunk Timbersaw', category: 'heroes' },
     { name: 'Pudge Clown Toy', category: 'heroes' },
     { name: 'Simple Cursor', category: 'cursors' },
@@ -22,21 +23,6 @@ const recentlyAddedMods = [
     { name: 'Purple Witch Broodmother', category: 'heroes' },
     { name: 'Ogre Magi Freeboot Fortunes', category: 'heroes' },
     { name: 'Ogre Magi Pyrexae Polymorph', category: 'heroes' },
-    { name: 'Clockwerk Apex Automated', category: 'heroes' },
-    { name: 'Clockwerk Seadog Stash', category: 'heroes' },
-    { name: 'Hestia', category: 'mega-kill' },
-    { name: 'Gabe Shopkeeper', category: 'other' },
-    { name: 'Legion Commander Holy Paladin', category: 'heroes' },
-    { name: 'Cursed Queen of Pain', category: 'heroes' },
-    { name: 'Nyash Items', category: 'item-icons' },
-    { name: 'DarkPoly', category: 'terrains' },
-    { name: 'LowPoly Shrub Trees', category: 'trees' },
-    { name: 'Iroha Isshiki', category: 'mega-kill' },
-    { name: 'Chitoge Kirisaki', category: 'mega-kill' },
-    { name: 'Shadow Wreck', category: 'backgrounds' },
-    { name: 'DarkPoly & Trees', category: 'terrains' },
-    { name: 'Tusk', category: 'announcers' },
-    { name: 'Bear Medals', category: 'ranks' },
 ];
 
 const modsData = {
@@ -603,6 +589,7 @@ const modsData = {
         { name: 'Yuno Gasai', preview: 'Yuno Gasai.webp', file: 'pak35_dir.vpk', tags: { image: true, video: false } },
         { name: 'Sajin Komamura', preview: 'Sajin Komamura.webp', file: 'pak36_dir.vpk', tags: { image: true, video: false } },
         { name: 'Shadow Wreck', preview: 'Shadow Wreck.webp', file: 'pak37_dir.vpk', tags: { image: true, video: false } },
+        { name: 'Lelouch Lamperouge', preview: 'Lelouch Lamperouge.mp4', file: 'pak38_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
