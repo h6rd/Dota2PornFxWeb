@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Pudge Clown Toy', category: 'heroes' },
+    { name: 'Simple Cursor', category: 'cursors' },
     { name: 'Skeleton Blue Ping', category: 'pings' },
     { name: 'Skeleton Black Ping', category: 'pings' },
     { name: 'Allstars Items', category: 'item-icons' },
@@ -413,6 +415,7 @@ const modsData = {
         { name: 'Tusk Odobenus Frost Mage', preview: 'Tusk Odobenus Frost Mage.webp', file: 'Tusk Odobenus Frost Mage.zip', tags: { effects: true, icons: false }},
         { name: 'Anti-Mage Illidan', preview: 'Anti-Mage Illidan.webp', file: 'Anti-Mage Illidan.zip', tags: { effects: true, icons: false }},
         { name: 'Galactic IO', preview: 'Galactic IO.webp', file: 'Galactic IO.zip', tags: { effects: true, icons: false }},
+        { name: 'Pudge Clown Toy', preview: 'Pudge Clown Toy.webp', file: 'Pudge Clown Toy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -686,6 +689,7 @@ const modsData = {
         { name: 'TI7 Cursor', preview: 'TI7 Cursor.webp', file: 'TI7 Cursor.zip' },
         { name: 'Timbersaw Cursor', preview: 'Timbersaw Cursor.webp', file: 'Timbersaw Cursor.zip' },
         { name: 'Vengeful Spirit Cursor', preview: 'Vengeful Spirit Cursor.webp', file: 'Vengeful Spirit Cursor.zip' },
+        { name: 'Simple Cursor', preview: 'Simple Cursor.webp', file: 'Simple Cursor.zip', linkType: 'author', linkUrl: 'https://t.me/slipersone' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
