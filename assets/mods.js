@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'ToxicPunk Timbersaw', category: 'heroes' },
     { name: 'Pudge Clown Toy', category: 'heroes' },
     { name: 'Simple Cursor', category: 'cursors' },
     { name: 'Skeleton Blue Ping', category: 'pings' },
@@ -416,6 +417,7 @@ const modsData = {
         { name: 'Anti-Mage Illidan', preview: 'Anti-Mage Illidan.webp', file: 'Anti-Mage Illidan.zip', tags: { effects: true, icons: false }},
         { name: 'Galactic IO', preview: 'Galactic IO.webp', file: 'Galactic IO.zip', tags: { effects: true, icons: false }},
         { name: 'Pudge Clown Toy', preview: 'Pudge Clown Toy.webp', file: 'Pudge Clown Toy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'ToxicPunk Timbersaw', preview: 'ToxicPunk Timbersaw.webp', file: 'ToxicPunk Timbersaw.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
