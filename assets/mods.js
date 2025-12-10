@@ -61,6 +61,7 @@ const modsData = {
         groups: [
             {
                 id: 'blink', name: 'Blink Dagger', mods: [
+                    // { name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Blink Dagger', preview: 'TI9 Blink Dagger.webp', file: 'TI9 Blink Dagger.zip' },
                     { name: 'TI9 Blink Dagger II', preview: 'TI9 Blink Dagger II.webp', file: 'TI9 Blink Dagger II.zip' },
                     { name: 'TI8 Blink Dagger', preview: 'TI8 Blink Dagger.webp', file: 'TI8 Blink Dagger.zip' },
@@ -68,85 +69,116 @@ const modsData = {
                     { name: 'TI7 Blink Dagger', preview: 'TI7 Blink Dagger.webp', file: 'TI7 Blink Dagger.zip' },
                     { name: 'TI7 Blink Dagger II', preview: 'TI7 Blink Dagger II.webp', file: 'TI7 Blink Dagger II.zip' },
                     { name: 'Winter 2016 Blink Dagger', preview: 'Winter 2016 Blink Dagger.webp', file: 'Winter 2016 Blink Dagger.zip' },
+                    { name: 'TI6 Blink Dagger', preview: 'TI6 Blink Dagger.webp', file: 'TI6 Blink Dagger.zip' },
+                    { name: 'TI6 Blink Dagger II', preview: 'TI6 Blink Dagger II.webp', file: 'TI6 Blink Dagger II.zip' },
+                    { name: 'TI10 Blink Dagger', preview: 'TI10 Blink Dagger.webp', file: 'TI10 Blink Dagger.zip' },
+                    { name: 'TI10 Blink Dagger II', preview: 'TI10 Blink Dagger II.webp', file: 'TI10 Blink Dagger II.zip' },
                     { name: 'Darkness Blink Dagger', preview: 'Darkness Blink Dagger.webp', file: 'Darkness Blink Dagger.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'bottle', name: 'Bottle', mods: [
+                    // { name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Bottle', preview: 'TI9 Bottle.webp', file: 'TI9 Bottle.zip' },
                     { name: 'TI8 Bottle', preview: 'TI8 Bottle.webp', file: 'TI8 Bottle.zip' },
                     { name: 'TI7 Bottle', preview: 'TI7 Bottle.webp', file: 'TI7 Bottle.zip' },
+                    { name: 'TI6 Bottle', preview: 'TI6 Bottle.webp', file: 'TI6 Bottle.zip' },
+                    { name: 'TI10 Bottle', preview: 'TI10 Bottle.webp', file: 'TI10 Bottle.zip' },
                     { name: 'Red Bottle', preview: 'Red Bottle.webp', file: 'pak50_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/' },
                     { name: 'Darkness Bottle', preview: 'Darkness Bottle.webp', file: 'Darkness Bottle.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'eul', name: "Eul's / Wind Waker", mods: [
+                    // { name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Euls Scepter', preview: 'TI9 Eul.webp', file: 'TI9 Eul.zip' },
                     { name: 'TI8 Euls Scepter', preview: 'TI8 Eul.webp', file: 'TI8 Eul.zip' },
                     { name: 'TI7 Euls Scepter', preview: 'TI7 Eul.webp', file: 'TI7 Eul.zip' },
                     { name: 'Winter 2016 Euls Scepter', preview: 'Winter 2016 Eul.webp', file: 'Winter 2016 Eul.zip' },
+                    { name: 'TI6 Euls Scepter', preview: 'TI6 Eul.webp', file: 'TI6 Eul.zip' },
+                    { name: 'TI10 Euls Scepter', preview: 'TI10 Eul.webp', file: 'TI10 Eul.zip' },
                     { name: 'Darkness Euls Scepter', preview: 'Darkness Euls Scepter.webp', file: 'Darkness Euls Scepter.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'force-staff', name: "Force Staff", mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Force Staff', preview: 'TI9 Force Staff.webp', file: 'TI9 Force Staff.zip' },
                     { name: 'TI8 Force Staff', preview: 'TI8 Force Staff.webp', file: 'TI8 Force Staff.zip' },
                     { name: 'TI7 Force Staff', preview: 'TI7 Force Staff.webp', file: 'TI7 Force Staff.zip' },
+                    { name: 'TI6 Force Staff', preview: 'TI6 Force Staff.webp', file: 'TI6 Force Staff.zip' },
+                    { name: 'TI10 Force Staff', preview: 'TI10 Force Staff.webp', file: 'TI10 Force Staff.zip' },
                     { name: 'Winter 2016 Force Staff', preview: 'Winter 2016 Force Staff.webp', file: 'Winter 2016 Force Staff.zip' },
                 ]
             },
             {
                 id: 'lvlup', name: 'Lvl Up', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Lvl Up', preview: 'TI9 Lvl Up.webp', file: 'TI9 Lvl Up.zip' },
                     { name: 'TI8 Lvl Up', preview: 'TI8 Lvl Up.webp', file: 'TI8 Lvl Up.zip' },
                     { name: 'TI7 Lvl Up', preview: 'TI7 Lvl Up.webp', file: 'TI7 Lvl Up.zip' },
+                    { name: 'TI6 Lvl Up', preview: 'TI6 Lvl Up.webp', file: 'TI6 Lvl Up.zip' },
+                    { name: 'TI10 Lvl Up', preview: 'TI10 Lvl Up.webp', file: 'TI10 Lvl Up.zip' },
                     { name: 'Darkness Lvl Up', preview: 'Darkness Lvl up.webp', file: 'Darkness Lvl up.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'shivas', name: "Shiva's Guard", mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Shiva', preview: 'TI9 Shiva.webp', file: 'TI9 Shiva.zip' },
                     { name: 'TI8 Shiva', preview: 'TI8 Shiva.webp', file: 'TI8 Shiva.zip' },
                     { name: 'TI7 Shiva', preview: 'TI7 Shiva.webp', file: 'TI7 Shiva.zip' },
+                    { name: 'TI10 Shiva', preview: 'TI10 Shiva.webp', file: 'TI10 Shiva.zip' },
                     { name: 'Darkness Shiva', preview: 'Darkness Shivas.webp', file: 'Darkness Shivas.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' }
                 ]
             },
             {
                 id: 'mekanism', name: 'Mekanism', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Mekanism', preview: 'TI9 Mekanism.webp', file: 'TI9 Mekanism.zip' },
                     { name: 'TI8 Mekanism', preview: 'TI8 Mekanism.webp', file: 'TI8 Mekanism.zip' },
                     { name: 'TI7 Mekanism', preview: 'TI7 Mekanism.webp', file: 'TI7 Mekanism.zip' },
+                    { name: 'TI6 Mekanism', preview: 'TI6 Mekanism.webp', file: 'TI6 Mekanism.zip' },
+                    { name: 'TI10 Mekanism', preview: 'TI10 Mekanism.webp', file: 'TI10 Mekanism.zip' },
                     { name: 'Darkness Mekanism', preview: 'Darkness Mekanism.webp', file: 'Darkness Mekanism.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'mjollnir', name: 'Maelstrom / Mjollnir', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Maelstrom Mjollnir', preview: 'TI9 Maelstrom Mjollnir.webp', file: 'TI9 Maelstrom Mjollnir.zip' },
                     { name: 'TI8 Maelstrom Mjollnir', preview: 'TI8 Maelstrom Mjollnir.webp', file: 'TI8 Maelstrom Mjollnir.zip' },
                     { name: 'TI7 Maelstrom Mjollnir', preview: 'TI7 Maelstrom Mjollnir.webp', file: 'TI7 Maelstrom Mjollnir.zip' },
+                    { name: 'TI6 Maelstrom Mjollnir', preview: 'TI6 Maelstrom Mjollnir.webp', file: 'TI6 Maelstrom Mjollnir.zip' },
+                    { name: 'TI10 Maelstrom Mjollnir', preview: 'TI10 Maelstrom Mjollnir.webp', file: 'TI10 Maelstrom Mjollnir.zip' },
                     { name: 'Darkness Mjollnir', preview: 'Darkness Mjollner.webp', file: 'Darkness Mjollner.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'radiance', name: 'Radiance', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Radiance', preview: 'TI9 Radiance.webp', file: 'TI9 Radiance.zip' },
                     { name: 'TI8 Radiance', preview: 'TI8 Radiance.webp', file: 'TI8 Radiance.zip' },
                     { name: 'TI7 Radiance', preview: 'TI7 Radiance.webp', file: 'TI7 Radiance.zip' },
+                    { name: 'TI6 Radiance', preview: 'TI6 Radiance.webp', file: 'TI6 Radiance.zip' },
+                    { name: 'TI10 Radiance', preview: 'TI10 Radiance.webp', file: 'TI10 Radiance.zip' },
                     { name: 'Darkness Radiance', preview: 'Darkness Radiance.webp', file: 'Darkness Radiance.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'phase-boots', name: 'Phase Boots', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Phase Boots', preview: 'TI9 Phase Boots.webp', file: 'TI9 Phase Boots.zip' },
                     { name: 'TI8 Phase Boots', preview: 'TI8 Phase Boots.webp', file: 'TI8 Phase Boots.zip' },
                     { name: 'TI7 Phase Boots', preview: 'TI7 Phase Boots.webp', file: 'TI7 Phase Boots.zip' },
+                    { name: 'TI6 Phase Boots', preview: 'TI6 Phase Boots.webp', file: 'TI6 Phase Boots.zip' },
+                    { name: 'TI10 Phase Boots', preview: 'TI10 Phase Boots.webp', file: 'TI10 Phase Boots.zip' },
                     { name: 'Darkness Phase Boots', preview: 'Darkness Phase Boots.webp', file: 'Darkness Phase Boots.zip', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
                 ]
             },
             {
                 id: 'teleport', name: 'Teleport', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Teleport', preview: 'TI9 Teleport.webp', file: 'TI9 Teleport.zip' },
                     { name: 'TI9 Teleport II', preview: 'TI9 Teleport II.webp', file: 'TI9 Teleport II.zip' },
                     { name: 'TI9 Teleport III', preview: 'TI9 Teleport III.webp', file: 'TI9 Teleport III.zip' },
@@ -159,10 +191,16 @@ const modsData = {
                     { name: 'Winter 2016 Teleport', preview: 'Winter 2016 Teleport.webp', file: 'Winter 2016 Teleport.zip' },
                     { name: 'Winter 2016 Teleport II', preview: 'Winter 2016 Teleport II.webp', file: 'Winter 2016 Teleport II.zip' },
                     { name: 'Winter 2016 Teleport III', preview: 'Winter 2016 Teleport III.webp', file: 'Winter 2016 Teleport III.zip' },
+                    { name: 'TI6 Teleport', preview: 'TI6 Teleport.webp', file: 'TI6 Teleport.zip' },
+                    { name: 'TI6 Teleport II', preview: 'TI6 Teleport II.webp', file: 'TI6 Teleport II.zip' },
+                    { name: 'TI6 Teleport III', preview: 'TI6 Teleport III.webp', file: 'TI6 Teleport III.zip' },
+                    { name: 'TI10 Teleport', preview: 'TI10 Teleport.webp', file: 'TI10 Teleport.zip' },
+                    { name: 'TI10 Teleport II', preview: 'TI10 Teleport II.webp', file: 'TI10 Teleport II.zip' },
                 ]
             },
             {
                 id: 'fountain', name: 'Fountain Regen', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Fountain Regen', preview: 'TI9 Fountain Regen.webp', file: 'TI9 Fountain Regen.zip' },
                     { name: 'TI9 Fountain Regen II', preview: 'TI9 Fountain Regen II.webp', file: 'TI9 Fountain Regen II.zip' },
                     { name: 'TI9 Fountain Regen III', preview: 'TI9 Fountain Regen III.webp', file: 'TI9 Fountain Regen III.zip' },
@@ -175,6 +213,18 @@ const modsData = {
                     { name: 'Winter 2016 Fountain Regen', preview: 'Winter 2016 Fountain Regen.webp', file: 'Winter 2016 Fountain Regen.zip' },
                     { name: 'Winter 2016 Fountain Regen II', preview: 'Winter 2016 Fountain Regen II.webp', file: 'Winter 2016 Fountain Regen II.zip' },
                     { name: 'Winter 2016 Fountain Regen III', preview: 'Winter 2016 Fountain Regen III.webp', file: 'Winter 2016 Fountain Regen III.zip' },
+                    { name: 'TI6 Fountain Regen', preview: 'TI6 Fountain Regen.webp', file: 'TI6 Fountain Regen.zip' },
+                    { name: 'TI6 Fountain Regen II', preview: 'TI6 Fountain Regen II.webp', file: 'TI6 Fountain Regen II.zip' },
+                    { name: 'TI6 Fountain Regen III', preview: 'TI6 Fountain Regen III.webp', file: 'TI6 Fountain Regen III.zip' },
+                    { name: 'TI10 Fountain Regen', preview: 'TI10 Fountain Regen.webp', file: 'TI10 Fountain Regen.zip' },
+                    { name: 'TI10 Fountain Regen II', preview: 'TI10 Fountain Regen II.webp', file: 'TI10 Fountain Regen II.zip' },
+                    { name: 'TI10 Fountain Regen III', preview: 'TI10 Fountain Regen III.webp', file: 'TI10 Fountain Regen III.zip' },
+                ]
+            },
+            {
+                id: 'aghanim', name: 'Aghanim Aura', mods: [
+                    //{ name: '', preview: '.webp', file: '.zip' },
+                    { name: 'TI10 Aghanim Aura', preview: 'TI10 Aghanim Aura.webp', file: 'TI10 Aghanim Aura.zip' },
                 ]
             },
             {
@@ -205,10 +255,6 @@ const modsData = {
             {
                 id: 'runes', name: 'Runes', mods: [
                     { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
-                ]
-            },
-            {
-                id: 'aghanim', name: 'Aghanim', mods: [
                 ]
             },
         ]
