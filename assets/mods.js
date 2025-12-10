@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Wraith King Pizdec', category: 'heroes' },
     { name: 'Ember Spirit Green Samurai', category: 'heroes' },
     { name: 'Anti-Mage Illidan v2', category: 'heroes' },
     { name: 'Shadow Timbersaw', category: 'heroes' },
@@ -475,6 +476,7 @@ const modsData = {
         { name: 'Shadow Timbersaw', preview: 'Shadow Timbersaw.webp', file: 'Shadow Timbersaw.zip', tags: { effects: true, icons: true }},
         { name: 'Anti-Mage Illidan v2', preview: 'Anti-Mage Illidan v2.webp', file: 'Anti-Mage Illidan v2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Ember Spirit Green Samurai', preview: 'Ember Spirit Green Samurai.webp', file: 'Ember Spirit Green Samurai.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Wraith King Pizdec', preview: 'Wraith King Pizdec.webp', file: 'Wraith King Pizdec.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
