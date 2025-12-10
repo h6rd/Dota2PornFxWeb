@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Shadow Timbersaw', category: 'heroes' },
     { name: 'Lelouch Lamperouge', category: 'backgrounds' },
     { name: 'ToxicPunk Timbersaw', category: 'heroes' },
     { name: 'Pudge Clown Toy', category: 'heroes' },
@@ -404,6 +405,7 @@ const modsData = {
         { name: 'Galactic IO', preview: 'Galactic IO.webp', file: 'Galactic IO.zip', tags: { effects: true, icons: false }},
         { name: 'Pudge Clown Toy', preview: 'Pudge Clown Toy.webp', file: 'Pudge Clown Toy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'ToxicPunk Timbersaw', preview: 'ToxicPunk Timbersaw.webp', file: 'ToxicPunk Timbersaw.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Shadow Timbersaw', preview: 'Shadow Timbersaw.webp', file: 'Shadow Timbersaw.zip', tags: { effects: true, icons: true }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
