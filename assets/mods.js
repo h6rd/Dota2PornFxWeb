@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Ember Spirit Green Samurai', category: 'heroes' },
+    { name: 'Anti-Mage Illidan v2', category: 'heroes' },
     { name: 'Shadow Timbersaw', category: 'heroes' },
     { name: 'Lelouch Lamperouge', category: 'backgrounds' },
     { name: 'ToxicPunk Timbersaw', category: 'heroes' },
@@ -29,16 +31,16 @@ const recentlyAddedMods = [
 const modsData = {
     'shaders': [
         { name: 'Aghanim Labyrinth Shader', preview: 'aghanim_shader.webp', file: 'pak07_dir.vpk' },
-        { name: 'Aghanim Peach Shader', preview: 'Aghanim Peach Shader.webp', file: 'pak78_dir.vpk' },
-        { name: 'Aghanim Red Shader', preview: 'Aghanim Red Shader.webp', file: 'pak79_dir.vpk' },
-        { name: 'Aghanim White Shader', preview: 'Aghanim White Shader.webp', file: 'pak80_dir.vpk' },
         { name: 'Aghanim Purple Shader', preview: 'Aghanim Purple Shader.webp', file: 'pak48_dir.vpk' },
+        { name: 'Aghanim Peach Shader', preview: 'Aghanim Peach Shader.webp', file: 'pak78_dir.vpk' },
+        { name: 'Aghanim White Shader', preview: 'Aghanim White Shader.webp', file: 'pak80_dir.vpk' },
         { name: 'Aghanim Green Shader', preview: 'Aghanim Green Shader.webp', file: 'pak60_dir.vpk' },
-        { name: 'Wave Green Shader', preview: 'Wave Green Shader.webp', file: 'pak81_dir.vpk' },
-        { name: 'Wave Peach Shader', preview: 'Wave Peach Shader.webp', file: 'pak82_dir.vpk' },
+        { name: 'Aghanim Red Shader', preview: 'Aghanim Red Shader.webp', file: 'pak79_dir.vpk' },
         { name: 'Wave Purple Shader', preview: 'Wave Purple Shader.webp', file: 'pak83_dir.vpk' },
-        { name: 'Wave Red Shader', preview: 'Wave Red Shader.webp', file: 'pak84_dir.vpk' },
+        { name: 'Wave Peach Shader', preview: 'Wave Peach Shader.webp', file: 'pak82_dir.vpk' },
         { name: 'Wave White Shader', preview: 'Wave White Shader.webp', file: 'pak85_dir.vpk' },
+        { name: 'Wave Green Shader', preview: 'Wave Green Shader.webp', file: 'pak81_dir.vpk' },
+        { name: 'Wave Red Shader', preview: 'Wave Red Shader.webp', file: 'pak84_dir.vpk' },
         { name: 'Diretide Shader (outline)', preview: 'diretide_shader.webp', file: 'pak10_dir.vpk' },
         { name: 'Haze Shader', preview: 'haze_shader.webp', file: 'pak40_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-haze_shader/' },
         { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_shader/' },
@@ -268,6 +270,25 @@ const modsData = {
         { name: 'Deny Fall 2021', preview: 'deny_fall_2021.mp4', file: 'pak23_dir.vpk' },
         { name: 'lasthit Golden Shards', preview: 'lasthit_golden_shards.mp4', file: 'pak35_dir.vpk' }
     ],
+    'creep-deny': {
+        groups: [
+            {
+                id: 'deny', name: 'Deny', mods: [
+                    { name: 'Deny ?', preview: 'deny_huh.webp', file: 'pak08_dir.vpk' },
+                    { name: 'Soul Deny', preview: 'soul_deny.mp4', file: 'pak11_dir.vpk' },
+                    { name: 'Fuck Deny', preview: 'fuck_deny.webp', file: 'pak12_dir.vpk' },
+                    { name: 'Deny Fall 2022', preview: 'deny_fall_2022.mp4', file: 'pak21_dir.vpk' },
+                    { name: 'Deny Spring', preview: 'deny_spring.mp4', file: 'pak22_dir.vpk' },
+                    { name: 'Deny Fall 2021', preview: 'deny_fall_2021.mp4', file: 'pak23_dir.vpk' },
+                ]
+            },
+            {
+                id: 'last-hit', name: 'Lasthit', mods: [
+                    { name: 'lasthit Golden Shards', preview: 'lasthit_golden_shards.mp4', file: 'pak35_dir.vpk' },
+                ]
+            }
+        ]
+    },
     'emblems': [
         { name: 'Emblem of the Diretide Green', preview: 'Emblem of the Diretide Green.webp', file: 'pak28_dir.vpk' },
         { name: 'Emblem of the Diretide Blue', preview: 'Emblem of the Diretide Blue.webp', file: 'pak29_dir.vpk' },
@@ -452,6 +473,8 @@ const modsData = {
         { name: 'Pudge Clown Toy', preview: 'Pudge Clown Toy.webp', file: 'Pudge Clown Toy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'ToxicPunk Timbersaw', preview: 'ToxicPunk Timbersaw.webp', file: 'ToxicPunk Timbersaw.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Shadow Timbersaw', preview: 'Shadow Timbersaw.webp', file: 'Shadow Timbersaw.zip', tags: { effects: true, icons: true }},
+        { name: 'Anti-Mage Illidan v2', preview: 'Anti-Mage Illidan v2.webp', file: 'Anti-Mage Illidan v2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Ember Spirit Green Samurai', preview: 'Ember Spirit Green Samurai.webp', file: 'Ember Spirit Green Samurai.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
