@@ -81,6 +81,7 @@ const translations = {
     'cursors-desc': 'Custom Cursors',
     'pings': 'Pings',
     'pings-desc': 'Custom Pings',
+    'file-search-results': 'Mods by file:',
 };
 
 const categories = [
@@ -1145,8 +1146,15 @@ function setupEventListeners() {
 function setupSearch() {
     const debouncedSearch = debounce(() => {
         if (state.searchQuery) {
+            if (!state.currentCategory && state.scrollPosition === 0) {
+                state.scrollPosition = window.pageYOffset;
+            }
             state.currentCategory = null;
-            renderAllModsSearch();
+            if (state.searchQuery.startsWith('#')) {
+                renderFileSearch(state.searchQuery.substring(1));
+            } else {
+                renderAllModsSearch();
+            }
         } else {
             showHomePage();
         }
@@ -1337,7 +1345,7 @@ function renderAllModsSearch() {
     elements.homePage.classList.add('hidden');
     elements.categoryPage.classList.remove('hidden');
     elements.backButton.style.display = 'flex';
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const sortToggle = document.getElementById('sortToggle');
     if (sortToggle) sortToggle.style.display = 'none';
 
@@ -1394,6 +1402,103 @@ function renderAllModsSearch() {
     allResults.forEach(({ mod, category, groupId }) => {
         const card = createModCard(mod, category.id, groupId);
         elements.modsGrid.appendChild(card);
+    });
+
+    if (typeof updateCartButtons === 'function') {
+        updateCartButtons();
+    }
+}
+
+function renderFileSearch(filename) {
+    elements.modsGrid.innerHTML = '';
+    elements.modsGrid.style.display = '';
+    elements.homePage.classList.add('hidden');
+    elements.categoryPage.classList.remove('hidden');
+    elements.backButton.style.display = 'flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const sortToggle = document.getElementById('sortToggle');
+    if (sortToggle) sortToggle.style.display = 'none';
+    const resultsByCategory = {};
+
+    for (const category of categories) {
+        const categoryData = modsData[category.id];
+        const isGroupedCategory = categoryData?.groups && Array.isArray(categoryData.groups);
+
+        if (isGroupedCategory) {
+            categoryData.groups.forEach(group => {
+                const matchingMods = group.mods.filter(mod => 
+                    mod.file && mod.file.toLowerCase().includes(filename.toLowerCase())
+                );
+                
+                if (matchingMods.length > 0) {
+                    if (!resultsByCategory[category.id]) {
+                        resultsByCategory[category.id] = {
+                            category: category,
+                            mods: []
+                        };
+                    }
+                    matchingMods.forEach(mod => {
+                        resultsByCategory[category.id].mods.push({
+                            mod,
+                            groupId: group.id,
+                            groupName: group.name
+                        });
+                    });
+                }
+            });
+        } else {
+            const mods = categoryData || [];
+            const matchingMods = mods.filter(mod => 
+                mod.file && mod.file.toLowerCase().includes(filename.toLowerCase())
+            );
+            
+            if (matchingMods.length > 0) {
+                resultsByCategory[category.id] = {
+                    category: category,
+                    mods: matchingMods.map(mod => ({ mod }))
+                };
+            }
+        }
+    }
+
+    const totalResults = Object.values(resultsByCategory).reduce(
+        (sum, cat) => sum + cat.mods.length, 
+        0
+    );
+
+    if (totalResults === 0) {
+        elements.modsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                <p>No mods found using file: <code>${filename}</code></p>
+            </div>
+        `;
+        elements.categoryTitle.textContent = 'File search results';
+        elements.categoryDescription.textContent = '';
+        return;
+    }
+
+    elements.categoryTitle.textContent = `${translations['file-search-results']} #${filename}`;
+    elements.categoryDescription.textContent = `Found ${totalResults} mod${totalResults !== 1 ? 's' : ''} in ${Object.keys(resultsByCategory).length} categor${Object.keys(resultsByCategory).length !== 1 ? 'ies' : 'y'}`;
+
+    Object.values(resultsByCategory).forEach(({ category, mods }) => {
+        const categoryHeader = document.createElement('div');
+        categoryHeader.className = 'mod-group-header';
+        categoryHeader.innerHTML = `
+            <h3 class="mod-group-title">${translations[category.key]}</h3>
+            <div class="mod-group-divider"></div>
+        `;
+        elements.modsGrid.appendChild(categoryHeader);
+
+        const categoryContainer = document.createElement('div');
+        categoryContainer.className = 'mod-group-container';
+        categoryContainer.setAttribute('data-category-id', category.id);
+
+        mods.forEach(({ mod, groupId }) => {
+            const card = createModCard(mod, category.id, groupId);
+            categoryContainer.appendChild(card);
+        });
+
+        elements.modsGrid.appendChild(categoryContainer);
     });
 
     if (typeof updateCartButtons === 'function') {
@@ -1630,8 +1735,11 @@ function showHomePage() {
     resetSort();
     renderCategories();
 
+    const scrollTo = state.scrollPosition;
+    state.scrollPosition = 0;
+
     requestAnimationFrame(() => {
-        window.scrollTo(0, state.scrollPosition);
+        window.scrollTo(0, scrollTo);
     });
 }
 
