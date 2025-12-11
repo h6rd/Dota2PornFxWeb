@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Sniper Ardalan Interdictor', category: 'herofx' },
     { name: 'Wraith King Pizdec', category: 'heroes' },
     { name: 'Ember Spirit Green Samurai', category: 'heroes' },
     { name: 'Anti-Mage Illidan v2', category: 'heroes' },
@@ -757,5 +758,8 @@ const modsData = {
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
         { name: 'Skeleton Blue Ping', preview: 'Skeleton Blue Ping.webp', file: 'pak11_dir.vpk' },
         { name: 'Skeleton Purple Ping', preview: 'Skeleton Purple Ping.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
+    ],
+    'herofx': [
+        { name: 'Sniper Ardalan Interdictor', preview: 'Sniper Ardalan Interdictor.webp', file: 'pak10_dir.vpk', tags: { effects: true, icons: true, sounds: true }},
     ],
 }

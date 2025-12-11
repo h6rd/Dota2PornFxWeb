@@ -82,6 +82,8 @@ const translations = {
     'pings': 'Pings',
     'pings-desc': 'Custom Pings',
     'file-search-results': 'Mods by file:',
+    'herofx': 'Hero Spells',
+    'herofx-desc': 'Effect sets for hero spells',
 };
 
 const categories = [
@@ -98,6 +100,7 @@ const categories = [
     { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
+    { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
     { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
@@ -179,6 +182,10 @@ const TAG_CONFIGS = {
     sites: {
         allowForGuides: true,
         map: { stats: 'Stats', meta: 'Meta', fun: 'Fun' }
+    },
+    herofx: {
+        allowForGuides: false,
+        map: { effects: 'Effects', icons: 'Icons', sounds: 'Sounds' }
     }
 };
 
