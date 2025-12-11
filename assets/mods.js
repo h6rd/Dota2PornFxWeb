@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Devil Legion Commander', category: 'heroes' },
+    { name: 'Crystal Maiden Tamamo no Mae', category: 'heroes' },
+    { name: 'Young Invoker', category: 'heroes' },
     { name: 'Sniper Ardalan Interdictor', category: 'herofx' },
     { name: 'Wraith King Pizdec', category: 'heroes' },
     { name: 'Ember Spirit Green Samurai', category: 'heroes' },
@@ -478,6 +481,9 @@ const modsData = {
         { name: 'Anti-Mage Illidan v2', preview: 'Anti-Mage Illidan v2.webp', file: 'Anti-Mage Illidan v2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Ember Spirit Green Samurai', preview: 'Ember Spirit Green Samurai.webp', file: 'Ember Spirit Green Samurai.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Wraith King Pizdec', preview: 'Wraith King Pizdec.webp', file: 'Wraith King Pizdec.zip', tags: { effects: false, icons: false }},
+        { name: 'Young Invoker', preview: 'Young Invoker.webp', file: 'Young Invoker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Crystal Maiden Tamamo no Mae', preview: 'Crystal Maiden Tamamo no Mae.webp', file: 'Crystal Maiden Tamamo no Mae.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Devil Legion Commander', preview: 'Devil Legion Commander.webp', file: 'Devil Legion Commander.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
