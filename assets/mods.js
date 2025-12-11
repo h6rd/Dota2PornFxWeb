@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Axe Unleashed', category: 'heroes' },
+    { name: 'Pudge Toy Butcher', category: 'heroes' },
     { name: 'Devil Legion Commander', category: 'heroes' },
     { name: 'Crystal Maiden Tamamo no Mae', category: 'heroes' },
     { name: 'Young Invoker', category: 'heroes' },
@@ -484,6 +486,8 @@ const modsData = {
         { name: 'Young Invoker', preview: 'Young Invoker.webp', file: 'Young Invoker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Crystal Maiden Tamamo no Mae', preview: 'Crystal Maiden Tamamo no Mae.webp', file: 'Crystal Maiden Tamamo no Mae.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Devil Legion Commander', preview: 'Devil Legion Commander.webp', file: 'Devil Legion Commander.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
+        { name: 'Pudge Toy Butcher', preview: 'Pudge Toy Butcher.webp', file: 'Pudge Toy Butcher.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Axe Unleashed', preview: 'Axe Unleashed.webp', file: 'Axe Unleashed.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
