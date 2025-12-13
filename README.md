@@ -1,5 +1,5 @@
 # Dota2PornFxWeb
-**[Website](https://h6rd.github.io/Dota2PornFxWeb/)  |  [Telegram](https://t.me/dota2pornfx)**
+**[Website](https://h6rd.github.io/Dota2PornFxWeb/)  / [Website Mirror](https://d2pfx.netlify.app/) |  [Telegram](https://t.me/dota2pornfx)**
 
 ___
 
