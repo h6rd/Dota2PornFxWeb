@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Bard Frog Emblem v2', category: 'emblems' },
     { name: 'Bard Frog Emblem', category: 'emblems' },
     { name: 'Winter Quarteros Curios', category: 'ti-bp-effects' },
     { name: 'Axe Unleashed', category: 'heroes' },
@@ -314,6 +315,7 @@ const modsData = {
         { name: 'Emblem Black Star', preview: 'Emblem Black Star.webp', file: 'pak19_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-emblem_lsq_black_star/' },
         { name: 'Emblem Darkness', preview: 'Emblem Darkness.webp', file: 'pak20_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-emblem_darkness/' },
         { name: 'Bard Frog Emblem', preview: 'Bard Frog Emblem.mp4', file: 'pak39_dir.vpk' },
+        { name: 'Bard Frog Emblem v2', preview: 'Bard Frog Emblem v2.mp4', file: 'pak40_dir.vpk' },
     ],
     'versus-screens': [
         { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.webp', file: 'pak45_dir.vpk' },
