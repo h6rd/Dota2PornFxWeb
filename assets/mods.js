@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Bare Pangolier', category: 'heroes' },
+    { name: 'Bare Natures Prophet', category: 'heroes' },
     { name: 'Bard Frog Emblem v2', category: 'emblems' },
     { name: 'Bard Frog Emblem', category: 'emblems' },
     { name: 'Winter Quarteros Curios', category: 'ti-bp-effects' },
@@ -494,6 +496,8 @@ const modsData = {
         { name: 'Devil Legion Commander', preview: 'Devil Legion Commander.webp', file: 'Devil Legion Commander.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@skratch' }] },
         { name: 'Pudge Toy Butcher', preview: 'Pudge Toy Butcher.webp', file: 'Pudge Toy Butcher.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Axe Unleashed', preview: 'Axe Unleashed.webp', file: 'Axe Unleashed.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Bare Natures Prophet', preview: 'Bare Natures Prophet.webp', file: 'Bare Natures Prophet.zip', tags: { effects: false, icons: false }},
+        { name: 'Bare Pangolier', preview: 'Bare Pangolier.webp', file: 'Bare Pangolier.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
