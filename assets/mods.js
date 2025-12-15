@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Beastmaster Bone Armor', category: 'heroes' },
     { name: 'Bare Pangolier', category: 'heroes' },
     { name: 'Bare Natures Prophet', category: 'heroes' },
     { name: 'Bard Frog Emblem v2', category: 'emblems' },
@@ -498,6 +499,7 @@ const modsData = {
         { name: 'Axe Unleashed', preview: 'Axe Unleashed.webp', file: 'Axe Unleashed.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Bare Natures Prophet', preview: 'Bare Natures Prophet.webp', file: 'Bare Natures Prophet.zip', tags: { effects: false, icons: false }},
         { name: 'Bare Pangolier', preview: 'Bare Pangolier.webp', file: 'Bare Pangolier.zip', tags: { effects: false, icons: false }},
+        { name: 'Beastmaster Bone Armor', preview: 'Beastmaster Bone Armor.webp', file: 'Beastmaster Bone Armor.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
