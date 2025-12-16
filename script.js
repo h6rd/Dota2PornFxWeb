@@ -95,7 +95,7 @@ const categories = [
     { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp' },
     { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
     { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
-    { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
+    // { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp' },
     { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
