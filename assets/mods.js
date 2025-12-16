@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Tiny Stone Giant Stronghold', category: 'heroes' },
+    { name: 'Chen Seed of Strife', category: 'heroes' },
     { name: 'Shadow Fiend Sundered Souls', category: 'heroes' },
     { name: 'Centaur Cunning Counterfeit', category: 'heroes' },
     { name: 'Beastmaster Bone Armor', category: 'heroes' },
@@ -19,27 +21,6 @@ const recentlyAddedMods = [
     { name: 'Shadow Timbersaw', category: 'heroes' },
     { name: 'ToxicPunk Timbersaw', category: 'heroes' },
     { name: 'Pudge Clown Toy', category: 'heroes' },
-    { name: 'Simple Cursor', category: 'cursors' },
-    { name: 'Skeleton Blue Ping', category: 'pings' },
-    { name: 'Skeleton Black Ping', category: 'pings' },
-    { name: 'Allstars Items', category: 'item-icons' },
-    { name: 'Diretide Cursor', category: 'cursors' },
-    { name: 'TI8 Cursor', category: 'cursors' },
-    { name: 'Purple Reptilian Dire', category: 'creeps' },
-    { name: 'Blue Reptilian Radiant', category: 'creeps' },
-    { name: 'Galactic IO', category: 'heroes' },
-    { name: 'Anti-Mage Illidan', category: 'heroes' },
-    { name: 'Tusk Odobenus Frost Mage', category: 'heroes' },
-    { name: 'Tusk Odobenus Footman', category: 'heroes' },
-    { name: 'Slardar Naga Guardian', category: 'heroes' },
-    { name: 'Cosmetics - Weather & More', category: 'tools' },
-    { name: 'Dire Shred', category: 'music' },
-    { name: 'Storm Spirit Corridan Maestro', category: 'heroes' },
-    { name: 'Storm Spirit Beast of Thunder', category: 'heroes' },
-    { name: 'Blue Dragon Puck', category: 'heroes' },
-    { name: 'Purple Witch Broodmother', category: 'heroes' },
-    { name: 'Ogre Magi Freeboot Fortunes', category: 'heroes' },
-    { name: 'Ogre Magi Pyrexae Polymorph', category: 'heroes' },
 ];
 
 const modsData = {
@@ -503,6 +484,8 @@ const modsData = {
         { name: 'Beastmaster Bone Armor', preview: 'Beastmaster Bone Armor.webp', file: 'Beastmaster Bone Armor.zip', tags: { effects: false, icons: false }},
         { name: 'Centaur Cunning Counterfeit', preview: 'Centaur Cunning Counterfeit.webp', file: 'Centaur Cunning Counterfeit.zip', tags: { effects: false, icons: false }},
         { name: 'Shadow Fiend Sundered Souls', preview: 'Shadow Fiend Sundered Souls.webp', file: 'Shadow Fiend Sundered Souls.zip', tags: { effects: false, icons: false }},
+        { name: 'Chen Seed of Strife', preview: 'Chen Seed of Strife.webp', file: 'Chen Seed of Strife.zip', tags: { effects: false, icons: false }},
+        { name: 'Tiny Stone Giant Stronghold', preview: 'Tiny Stone Giant Stronghold.webp', file: 'Tiny Stone Giant Stronghold.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
