@@ -1,5 +1,5 @@
 const recentlyAddedMods = [
-    { name: 'Background Changer', category: 'tools' },
+    { name: 'The International 2019', category: 'music' },
     { name: 'Tiny Stone Giant Stronghold', category: 'heroes' },
     { name: 'Chen Seed of Strife', category: 'heroes' },
     { name: 'Shadow Fiend Sundered Souls', category: 'heroes' },
@@ -738,6 +738,7 @@ const modsData = {
         { name: 'Heroes Within', preview: 'Heroes Within.webp', file: 'pak14_dir.vpk' },
         { name: 'Humanity Last Breath', preview: 'Humanity Last Breath.webp', file: 'pak15_dir.vpk' },
         { name: 'Dire Shred', preview: 'Dire Shred.webp', file: 'pak16_dir.vpk' },
+        { name: 'The International 2019', preview: 'The International 2019.webp', file: 'pak17_dir.vpk' },
     ],
     'cursors': [
         { name: 'Default Cursor', preview: 'Default Cursor.webp', file: 'Default Cursor.zip' },
