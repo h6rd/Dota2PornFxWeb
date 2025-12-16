@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Background Changer', category: 'tools' },
     { name: 'Tiny Stone Giant Stronghold', category: 'heroes' },
     { name: 'Chen Seed of Strife', category: 'heroes' },
     { name: 'Shadow Fiend Sundered Souls', category: 'heroes' },
