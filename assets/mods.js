@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Shadow Fiend Sundered Souls', category: 'heroes' },
+    { name: 'Centaur Cunning Counterfeit', category: 'heroes' },
     { name: 'Beastmaster Bone Armor', category: 'heroes' },
     { name: 'Bare Pangolier', category: 'heroes' },
     { name: 'Bare Natures Prophet', category: 'heroes' },
@@ -15,7 +17,6 @@ const recentlyAddedMods = [
     { name: 'Ember Spirit Green Samurai', category: 'heroes' },
     { name: 'Anti-Mage Illidan v2', category: 'heroes' },
     { name: 'Shadow Timbersaw', category: 'heroes' },
-    { name: 'Lelouch Lamperouge', category: 'backgrounds' },
     { name: 'ToxicPunk Timbersaw', category: 'heroes' },
     { name: 'Pudge Clown Toy', category: 'heroes' },
     { name: 'Simple Cursor', category: 'cursors' },
@@ -500,6 +501,8 @@ const modsData = {
         { name: 'Bare Natures Prophet', preview: 'Bare Natures Prophet.webp', file: 'Bare Natures Prophet.zip', tags: { effects: false, icons: false }},
         { name: 'Bare Pangolier', preview: 'Bare Pangolier.webp', file: 'Bare Pangolier.zip', tags: { effects: false, icons: false }},
         { name: 'Beastmaster Bone Armor', preview: 'Beastmaster Bone Armor.webp', file: 'Beastmaster Bone Armor.zip', tags: { effects: false, icons: false }},
+        { name: 'Centaur Cunning Counterfeit', preview: 'Centaur Cunning Counterfeit.webp', file: 'Centaur Cunning Counterfeit.zip', tags: { effects: false, icons: false }},
+        { name: 'Shadow Fiend Sundered Souls', preview: 'Shadow Fiend Sundered Souls.webp', file: 'Shadow Fiend Sundered Souls.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
