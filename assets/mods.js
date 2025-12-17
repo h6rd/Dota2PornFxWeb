@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'VPKTool - Extract & Pack VPKs', category: 'tools' },
     { name: 'The International 2019', category: 'music' },
     { name: 'Tiny Stone Giant Stronghold', category: 'heroes' },
     { name: 'Chen Seed of Strife', category: 'heroes' },
