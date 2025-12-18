@@ -853,6 +853,83 @@ function setupThemeToggle() {
     });
 }
 
+// Snow Particles
+function initParticles() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const snowColor = isDark ? '#ffffff' : '#000000';
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        setTimeout(initParticles, 100);
+      });
+    }
+    
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 300
+                    }
+                },
+                color: {
+                    value: snowColor
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: isDark ? 0.8 : 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.5,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        size_min: 0.5,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: false
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'bottom',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: false
+                    },
+                    onclick: {
+                        enable: false
+                    },
+                    resize: false
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
 // Recently Added Carousel
 function calculateItemsPerPage() {
     const width = window.innerWidth;
@@ -1138,6 +1215,7 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
+    initParticles();
 }
 
 function setupEventListeners() {

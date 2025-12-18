@@ -331,6 +331,16 @@ body.loaded .footer {
   padding: 0 20px;
 }
 
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .header {
   background-color: var(--md-header-blur);
   padding: 14px 0;
