@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Background Changer', category: 'tools' },
     { name: 'The International 2017', category: 'music' },
     { name: 'The International 2016', category: 'music' },
     { name: 'The International 2015', category: 'music' },
