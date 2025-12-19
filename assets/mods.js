@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Anti-Mage Turstarkuri Pilgrim', category: 'heroes' },
+    { name: 'Phantom Assassin Persona', category: 'heroes' },
     { name: 'Snowing Marci', category: 'heroes' },
     { name: 'Treant Frost Auburn Hideaway', category: 'heroes' },
     { name: 'Broodmother Epoch of the Abysm', category: 'heroes' },
@@ -503,6 +505,8 @@ const modsData = {
         { name: 'Broodmother Epoch of the Abysm', preview: 'Broodmother Epoch of the Abysm.webp', file: 'Broodmother Epoch of the Abysm.zip', tags: { effects: false, icons: false }},
         { name: 'Treant Frost Auburn Hideaway', preview: 'Treant Protector Frost Auburn Hideaway.webp', file: 'Treant Protector Frost Auburn Hideaway.zip', tags: { effects: false, icons: false }},
         { name: 'Snowing Marci', preview: 'Snowing Marci.webp', file: 'Snowing Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/darkness_logovo' }] },
+        { name: 'Phantom Assassin Persona', preview: 'Phantom Assassin Persona.webp', file: 'Phantom Assassin Persona.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Anti-Mage Turstarkuri Pilgrim', preview: 'Anti-Mage Turstarkuri Pilgrim.webp', file: 'Anti-Mage Turstarkuri Pilgrim.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [

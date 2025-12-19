@@ -125,11 +125,17 @@ const categories = [
 ];
 
 const NOTES_DATA = [
+    // {
+    //     type: 'update',
+    //     icon: 'new_releases',
+    //     title: 'Site Update',
+    //     text: 'Added a snow effect, and this notes section to keep you informed about the latest changes and updates.'
+    // },
     {
         type: 'update',
         icon: 'new_releases',
-        title: 'Site Update',
-        text: 'Added a snow effect, and this notes section to keep you informed about the latest changes and updates.'
+        title: 'Tool Update',
+        text: 'Background Changer has been updated, a method for current patch has been added, just run exe, it will update its files on its own.'
     },
     {
         type: 'warning',
