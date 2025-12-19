@@ -95,7 +95,7 @@ const categories = [
     { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp' },
     { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
     { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
-    // { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
+    { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
     { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp' },
     { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
@@ -134,8 +134,8 @@ const NOTES_DATA = [
     {
         type: 'update',
         icon: 'new_releases',
-        title: 'Tool Update',
-        text: 'Background Changer has been updated, a method for current patch has been added, just run exe, it will update its files on its own.'
+        title: 'Update',
+        text: 'Updated all backgrounds on the site. Also Background Changer has been updated, a method for current patch has been added, just run exe, it will update its files on its own.'
     },
     {
         type: 'warning',

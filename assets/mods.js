@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Kira and Ryuk', category: 'backgrounds' },
     { name: 'Anti-Mage Turstarkuri Pilgrim', category: 'heroes' },
     { name: 'Phantom Assassin Persona', category: 'heroes' },
     { name: 'Snowing Marci', category: 'heroes' },
@@ -16,25 +17,8 @@ const recentlyAddedMods = [
     { name: 'Tiny Stone Giant Stronghold', category: 'heroes' },
     { name: 'Chen Seed of Strife', category: 'heroes' },
     { name: 'Shadow Fiend Sundered Souls', category: 'heroes' },
-    { name: 'Centaur Cunning Counterfeit', category: 'heroes' },
-    { name: 'Beastmaster Bone Armor', category: 'heroes' },
-    { name: 'Bare Pangolier', category: 'heroes' },
-    { name: 'Bare Natures Prophet', category: 'heroes' },
     { name: 'Bard Frog Emblem v2', category: 'emblems' },
     { name: 'Bard Frog Emblem', category: 'emblems' },
-    { name: 'Winter Quarteros Curios', category: 'ti-bp-effects' },
-    { name: 'Axe Unleashed', category: 'heroes' },
-    { name: 'Pudge Toy Butcher', category: 'heroes' },
-    { name: 'Devil Legion Commander', category: 'heroes' },
-    { name: 'Crystal Maiden Tamamo no Mae', category: 'heroes' },
-    { name: 'Young Invoker', category: 'heroes' },
-    { name: 'Sniper Ardalan Interdictor', category: 'herofx' },
-    { name: 'Wraith King Pizdec', category: 'heroes' },
-    { name: 'Ember Spirit Green Samurai', category: 'heroes' },
-    { name: 'Anti-Mage Illidan v2', category: 'heroes' },
-    { name: 'Shadow Timbersaw', category: 'heroes' },
-    { name: 'ToxicPunk Timbersaw', category: 'heroes' },
-    { name: 'Pudge Clown Toy', category: 'heroes' },
 ];
 
 const modsData = {
@@ -693,6 +677,7 @@ const modsData = {
         { name: 'Sajin Komamura', preview: 'Sajin Komamura.webp', file: 'pak36_dir.vpk', tags: { image: true, video: false } },
         { name: 'Shadow Wreck', preview: 'Shadow Wreck.webp', file: 'pak37_dir.vpk', tags: { image: true, video: false } },
         { name: 'Lelouch Lamperouge', preview: 'Lelouch Lamperouge.mp4', file: 'pak38_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Kira and Ryuk', preview: 'Kira and Ryuk.mp4', file: 'pak39_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
