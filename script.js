@@ -966,7 +966,29 @@ function setupThemeToggle() {
     });
 }
 
-// Snow Particles
+// Winter FX
+function initWinterEffects() {
+    const now = new Date();
+    const month = now.getMonth();
+    const day = now.getDate();
+
+    const isWinter = (month === 11) ||
+                     (month === 0) ||
+                     (month === 1);
+    
+    if (isWinter) {
+        const garland = document.querySelector('.lightrope');
+        if (garland) garland.style.display = 'block';
+        initParticles();
+    } else {
+        const garland = document.querySelector('.lightrope');
+        if (garland) garland.style.display = 'none';
+        const particles = document.getElementById('particles-js');
+        if (particles) particles.style.display = 'none';
+    }
+}
+
+// Snow
 function initParticles() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const snowColor = isDark ? '#ffffff' : '#000000';
@@ -1329,7 +1351,7 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
-    initParticles();
+    initWinterEffects();
 }
 
 function setupEventListeners() {
