@@ -1,4 +1,8 @@
 const recentlyAddedMods = [
+    { name: 'Broodmother White Widow', category: 'heroes' },
+    { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
+    { name: 'Enigma Angel of the Abyss', category: 'heroes' },
+    { name: 'Viper Stuffed Menace', category: 'heroes' },
     { name: 'Kira and Ryuk', category: 'backgrounds' },
     { name: 'Anti-Mage Turstarkuri Pilgrim', category: 'heroes' },
     { name: 'Phantom Assassin Persona', category: 'heroes' },
@@ -491,6 +495,10 @@ const modsData = {
         { name: 'Snowing Marci', preview: 'Snowing Marci.webp', file: 'Snowing Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/darkness_logovo' }] },
         { name: 'Phantom Assassin Persona', preview: 'Phantom Assassin Persona.webp', file: 'Phantom Assassin Persona.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Anti-Mage Turstarkuri Pilgrim', preview: 'Anti-Mage Turstarkuri Pilgrim.webp', file: 'Anti-Mage Turstarkuri Pilgrim.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Viper Stuffed Menace', preview: 'Viper Stuffed Menace.webp', file: 'Viper Stuffed Menace.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Enigma Angel of the Abyss', preview: 'Enigma Angel of the Abyss.webp', file: 'Enigma Angel of the Abyss.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Primal Beast Prehistoric Predator', preview: 'Primal Beast Prehistoric Predator.webp', file: 'Primal Beast Prehistoric Predator.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Broodmother White Widow', preview: 'Broodmother White Widow.webp', file: 'Broodmother White Widow.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
