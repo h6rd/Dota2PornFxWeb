@@ -227,7 +227,7 @@ const HEROES_LIST = [
     'Enchantress', 'Huskar', 'Night Stalker', 'Broodmother', 'Bounty Hunter', 'Weaver', 'Jakiro',
     'Batrider', 'Chen', 'Spectre', 'Ancient Apparition', 'Doom', 'Ursa', 'Spirit Breaker', 'Gyrocopter',
     'Alchemist', 'Invoker', 'Silencer', 'Outworld Destroyer', 'Lycan', 'Brewmaster', 'Shadow Demon',
-    'Lone Druid', 'Chaos Knight', 'Meepo', 'Treant Protector', 'Ogre Magi', 'Undying', 'Rubick',
+    'Lone Druid', 'Chaos Knight', 'Meepo', 'Treant', 'Ogre Magi', 'Undying', 'Rubick',
     'Disruptor', 'Nyx Assassin', 'Naga Siren', 'Keeper of the Light', 'Io', 'Visage', 'Slark',
     'Medusa', 'Troll Warlord', 'Centaur', 'Magnus', 'Timbersaw', 'Bristleback', 'Tusk',
     'Skywrath Mage', 'Abaddon', 'Elder Titan', 'Legion Commander', 'Techies', 'Ember Spirit',

@@ -1,4 +1,8 @@
 const recentlyAddedMods = [
+    { name: 'Snowing Marci', category: 'heroes' },
+    { name: 'Treant Frost Auburn Hideaway', category: 'heroes' },
+    { name: 'Broodmother Epoch of the Abysm', category: 'heroes' },
+    { name: 'Crystal Bristleback', category: 'heroes' },
     { name: 'Background Changer', category: 'tools' },
     { name: 'The International 2017', category: 'music' },
     { name: 'The International 2016', category: 'music' },
@@ -495,6 +499,10 @@ const modsData = {
         { name: 'Chen Seed of Strife', preview: 'Chen Seed of Strife.webp', file: 'Chen Seed of Strife.zip', tags: { effects: false, icons: false }},
         { name: 'Tiny Stone Giant Stronghold', preview: 'Tiny Stone Giant Stronghold.webp', file: 'Tiny Stone Giant Stronghold.zip', tags: { effects: false, icons: false }},
         { name: 'Bare Kez', preview: 'Bare Kez.webp', file: 'Bare Kez.zip', tags: { effects: false, icons: false }},
+        { name: 'Crystal Bristleback', preview: 'Crystal Bristleback.webp', file: 'Crystal Bristleback.zip', tags: { effects: false, icons: false }},
+        { name: 'Broodmother Epoch of the Abysm', preview: 'Broodmother Epoch of the Abysm.webp', file: 'Broodmother Epoch of the Abysm.zip', tags: { effects: false, icons: false }},
+        { name: 'Treant Frost Auburn Hideaway', preview: 'Treant Protector Frost Auburn Hideaway.webp', file: 'Treant Protector Frost Auburn Hideaway.zip', tags: { effects: false, icons: false }},
+        { name: 'Snowing Marci', preview: 'Snowing Marci.webp', file: 'Snowing Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/darkness_logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
