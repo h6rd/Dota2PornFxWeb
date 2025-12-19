@@ -57,6 +57,10 @@
             </button>
           </div>
         </div>
+        <button class="notes-button" id="notesButton" aria-label="Updates & Notes">
+          <span class="material-symbols-rounded">edit_note</span>
+          <span class="notes-badge" id="notesBadge"></span>
+        </button>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="material-symbols-rounded theme-icon sun">light_mode</span>
           <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
@@ -213,6 +217,19 @@
     <div class="info-modal-content">
       <h2 class="info-modal-title" id="guideModalTitle">Guide</h2>
       <div id="guideModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Notes Modal -->
+  <div id="notesOverlay" class="info-overlay"></div>
+  <div id="notesModal" class="info-modal notes-modal">
+    <button class="info-modal-close" id="closeNotesModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <h2 class="info-modal-title">Updates & Notes</h2>
+      <div class="notes-content" id="notesContent">
+      </div>
     </div>
   </div>
 

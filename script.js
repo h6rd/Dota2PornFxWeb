@@ -124,6 +124,21 @@ const categories = [
     // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
+const NOTES_DATA = [
+    {
+        type: 'update',
+        icon: 'new_releases',
+        title: 'Site Update',
+        text: 'Added a snow effect, and this notes section to keep you informed about the latest changes and updates.'
+    },
+    {
+        type: 'warning',
+        icon: 'error',
+        title: 'Known Issue',
+        text: 'Due to patch 7.40, mods: Cursed Shadow Fiend, Ghost Shadow Fiend and Purple Shadow Fiend are not displaying correctly.',
+    },
+];
+
 const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
@@ -785,6 +800,98 @@ function setupVideoModal() {
     };
 }
 
+// Notes Modal
+function setupNotesModal() {
+    const notesButton = document.getElementById('notesButton');
+    const notesModal = document.getElementById('notesModal');
+    const notesOverlay = document.getElementById('notesOverlay');
+    const closeNotesModal = document.getElementById('closeNotesModal');
+    const notesContent = document.getElementById('notesContent');
+    const notesBadge = document.getElementById('notesBadge');
+
+    if (!notesModal || !notesButton) return;
+
+    const generateNotesHash = () => {
+        if (NOTES_DATA.length === 0) return 'empty';
+        return JSON.stringify(NOTES_DATA.map(note => ({
+            type: note.type,
+            title: note.title,
+            text: note.text
+        })));
+    };
+
+    const lastSeenNotesHash = localStorage.getItem('lastSeenNotesHash') || '';
+    const currentNotesHash = generateNotesHash();
+    
+    if (currentNotesHash !== lastSeenNotesHash && NOTES_DATA.length > 0) {
+        notesBadge.classList.add('show');
+    }
+
+    const openNotesModal = () => {
+        notesContent.innerHTML = '';
+
+        if (NOTES_DATA.length === 0) {
+            notesContent.innerHTML = `
+                <div class="notes-empty">
+                    <span class="material-symbols-rounded">description</span>
+                    <p>Nothing new at the moment.<br>Check back later for updates!</p>
+                </div>
+            `;
+        } else {
+            NOTES_DATA.forEach(note => {
+                const noteItem = document.createElement('div');
+                noteItem.className = `note-item ${note.type}`;
+                noteItem.innerHTML = `
+                    <div class="note-header">
+                        <div class="note-icon">
+                            <span class="material-symbols-rounded">${note.icon}</span>
+                        </div>
+                        <div class="note-meta">
+                            <h3 class="note-title">${note.title}</h3>
+                        </div>
+                    </div>
+                    <p class="note-text">${note.text}</p>
+                `;
+                notesContent.appendChild(noteItem);
+            });
+        }
+
+        notesModal.classList.add('active');
+        notesOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        const currentHash = generateNotesHash();
+        localStorage.setItem('lastSeenNotesHash', currentHash);
+        notesBadge.classList.remove('show');
+
+        setTimeout(() => {
+            const modalContent = notesModal.querySelector('.info-modal-content');
+            if (modalContent) modalContent.scrollTop = 0;
+        }, 100);
+    };
+
+    const closeNotesWindow = () => {
+        notesModal.classList.remove('active');
+        notesOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+
+        setTimeout(() => {
+            const modalContent = notesModal.querySelector('.info-modal-content');
+            if (modalContent) modalContent.scrollTop = 0;
+        }, 300);
+    };
+
+    notesButton.addEventListener('click', openNotesModal);
+    closeNotesModal?.addEventListener('click', closeNotesWindow);
+    notesOverlay?.addEventListener('click', closeNotesWindow);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && notesModal.classList.contains('active')) {
+            closeNotesWindow();
+        }
+    });
+}
+
 // Hueta
 function setupGifSwitcher() {
     const gifElement = document.getElementById('clickable-gif');
@@ -1212,6 +1319,7 @@ function init() {
     setupScrollToTop();
     setupGuideModal();
     setupVideoModal();
+    setupNotesModal();
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
