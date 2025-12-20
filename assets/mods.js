@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Tinker Cripple', category: 'heroes' },
+    { name: 'Devil Skywrath Mage', category: 'heroes' },
     { name: 'Broodmother White Widow', category: 'heroes' },
     { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
     { name: 'Enigma Angel of the Abyss', category: 'heroes' },
@@ -499,6 +501,8 @@ const modsData = {
         { name: 'Enigma Angel of the Abyss', preview: 'Enigma Angel of the Abyss.webp', file: 'Enigma Angel of the Abyss.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Primal Beast Prehistoric Predator', preview: 'Primal Beast Prehistoric Predator.webp', file: 'Primal Beast Prehistoric Predator.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Broodmother White Widow', preview: 'Broodmother White Widow.webp', file: 'Broodmother White Widow.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Devil Skywrath Mage', preview: 'Devil Skywrath Mage.webp', file: 'Devil Skywrath Mage.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/zzzfans' }] },
+        { name: 'Tinker Cripple', preview: 'Tinker Cripple.webp', file: 'Tinker Cripple.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
