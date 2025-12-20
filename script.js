@@ -84,6 +84,8 @@ const translations = {
     'file-search-results': 'Mods by file:',
     'herofx': 'Hero Spells',
     'herofx-desc': 'Effect sets for hero spells',
+    'hero-sounds': 'Hero Sounds',
+    'hero-sounds-desc': 'Custom hero sounds',
 };
 
 const categories = [
@@ -107,6 +109,7 @@ const categories = [
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp' },
     { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp' },
+    { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp' },
     { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },

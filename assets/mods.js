@@ -1,4 +1,9 @@
 const recentlyAddedMods = [
+    { name: 'Largo Serega Pirat', category: 'hero-sounds' },
+    { name: 'Arc Warden Yin Yang', category: 'heroes' },
+    { name: 'Primal Beast Dark Behemoth', category: 'heroes' },
+    { name: 'Black Invoker', category: 'heroes' },
+    { name: 'Sven Berseker', category: 'heroes' },
     { name: 'Techies Sodbustin Saboteurs', category: 'heroes' },
     { name: 'Chaos IO', category: 'heroes' },
     { name: 'Tinker Cripple', category: 'heroes' },
@@ -507,6 +512,10 @@ const modsData = {
         { name: 'Tinker Cripple', preview: 'Tinker Cripple.webp', file: 'Tinker Cripple.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Chaos IO', preview: 'Chaos IO.webp', file: 'Chaos IO.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Techies Sodbustin Saboteurs', preview: 'Techies Sodbustin Saboteurs.webp', file: 'Techies Sodbustin Saboteurs.zip', tags: { effects: false, icons: false } },
+        { name: 'Sven Berseker', preview: 'Sven Berseker.webp', file: 'Sven Berseker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/BackSpaceHub' }] },
+        { name: 'Black Invoker', preview: 'Black Invoker.webp', file: 'Black Invoker.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/d2modsreborn' }] },
+        { name: 'Primal Beast Dark Behemoth', preview: 'Primal Beast Dark Behemoth.webp', file: 'Primal Beast Dark Behemoth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Arc Warden Yin Yang', preview: 'Arc Warden Yin Yang.webp', file: 'Arc Warden Yin Yang.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -796,5 +805,8 @@ const modsData = {
     ],
     'herofx': [
         { name: 'Sniper Ardalan Interdictor', preview: 'Sniper Ardalan Interdictor.webp', file: 'pak10_dir.vpk', tags: { effects: true, icons: true, sounds: true }},
+    ],
+    'hero-sounds': [
+        { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
     ],
 }
