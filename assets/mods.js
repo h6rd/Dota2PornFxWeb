@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Chaos IO', category: 'heroes' },
     { name: 'Tinker Cripple', category: 'heroes' },
     { name: 'Devil Skywrath Mage', category: 'heroes' },
     { name: 'Broodmother White Widow', category: 'heroes' },
@@ -503,6 +504,7 @@ const modsData = {
         { name: 'Broodmother White Widow', preview: 'Broodmother White Widow.webp', file: 'Broodmother White Widow.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Devil Skywrath Mage', preview: 'Devil Skywrath Mage.webp', file: 'Devil Skywrath Mage.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/zzzfans' }] },
         { name: 'Tinker Cripple', preview: 'Tinker Cripple.webp', file: 'Tinker Cripple.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
+        { name: 'Chaos IO', preview: 'v.webp', file: 'Chaos IO.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
