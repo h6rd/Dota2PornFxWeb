@@ -1003,10 +1003,10 @@ function initParticles() {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 100,
+                    value: 45,
                     density: {
                         enable: true,
-                        value_area: 300
+                        value_area: 150
                     }
                 },
                 color: {
@@ -1031,7 +1031,7 @@ function initParticles() {
                     anim: {
                         enable: true,
                         speed: 1,
-                        size_min: 0.5,
+                        size_min: 1,
                         sync: false
                     }
                 },
