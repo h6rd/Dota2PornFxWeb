@@ -1,4 +1,10 @@
 const recentlyAddedMods = [
+    { name: 'Enigma World Chasm Artifact', category: 'herofx' },
+    { name: 'Silencer Whispered Wing', category: 'heroes' },
+    { name: 'Harrows Harvest Ringmaster', category: 'heroes' },
+    { name: 'Marci Laurels of the Downstar', category: 'heroes' },
+    { name: 'Omniknight Blinding Bastion', category: 'heroes' },
+    { name: 'Monkey King Simian Sovereign', category: 'heroes' },
     { name: 'Stray228 Mega-Kill', category: 'mega-kill' },
     { name: 'Largo Serega Pirat v2', category: 'hero-sounds' },
     { name: 'Largo Serega Pirat', category: 'hero-sounds' },
@@ -518,6 +524,11 @@ const modsData = {
         { name: 'Black Invoker', preview: 'Black Invoker.webp', file: 'Black Invoker.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/d2modsreborn' }] },
         { name: 'Primal Beast Dark Behemoth', preview: 'Primal Beast Dark Behemoth.webp', file: 'Primal Beast Dark Behemoth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Arc Warden Yin Yang', preview: 'Arc Warden Yin Yang.webp', file: 'Arc Warden Yin Yang.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Monkey King Simian Sovereign', preview: 'Monkey King Simian Sovereign.webp', file: 'Monkey King Simian Sovereign.zip', tags: { effects: false, icons: false } },
+        { name: 'Omniknight Blinding Bastion', preview: 'Omniknight Blinding Bastion.webp', file: 'Omniknight Blinding Bastion.zip', tags: { effects: false, icons: false } },
+        { name: 'Marci Laurels of the Downstar', preview: 'Marci Laurels of the Downstar.webp', file: 'Marci Laurels of the Downstar.zip', tags: { effects: false, icons: false } },
+        { name: 'Harrows Harvest Ringmaster', preview: 'Harrows Harvest Ringmaster.webp', file: 'Harrows Harvest Ringmaster.zip', tags: { effects: false, icons: false } },
+        { name: 'Silencer Whispered Wing', preview: 'Silencer Whispered Wing.webp', file: 'Silencer Whispered Wing.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
@@ -808,6 +819,7 @@ const modsData = {
     ],
     'herofx': [
         { name: 'Sniper Ardalan Interdictor', preview: 'Sniper Ardalan Interdictor.webp', file: 'pak10_dir.vpk', tags: { effects: true, icons: true, sounds: true }},
+        { name: 'Enigma World Chasm Artifact', preview: 'Enigma World Chasm Artifact.webp', file: 'pak11_dir.vpk', tags: { effects: true, icons: true, sounds: false }},
     ],
     'hero-sounds': [
         { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
