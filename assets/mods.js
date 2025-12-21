@@ -536,10 +536,10 @@ const modsData = {
                 id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
                     { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
                     { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
-                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk', linkType: 'bug', linkUrl: 'https://github.com/ValveSoftware/Dota2-Gameplay/issues/29344' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
                     { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
                     { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
-                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk', linkType: 'bug', linkUrl: 'https://github.com/ValveSoftware/Dota2-Gameplay/issues/29344' },
+                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
                 ]
             },
             {
