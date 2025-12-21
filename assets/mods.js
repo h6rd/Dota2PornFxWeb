@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Largo Serega Pirat v2', category: 'hero-sounds' },
     { name: 'Largo Serega Pirat', category: 'hero-sounds' },
     { name: 'Arc Warden Yin Yang', category: 'heroes' },
     { name: 'Primal Beast Dark Behemoth', category: 'heroes' },
@@ -808,5 +809,6 @@ const modsData = {
     ],
     'hero-sounds': [
         { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
+        { name: 'Largo Serega Pirat v2', preview: 'Largo Serega Pirat v2.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4' }] },
     ],
 }
