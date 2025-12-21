@@ -86,40 +86,41 @@ const translations = {
     'herofx-desc': 'Effect sets for hero spells',
     'hero-sounds': 'Hero Sounds',
     'hero-sounds-desc': 'Custom hero sounds',
+    'how-to-install': 'How to install?',
 };
 
 const categories = [
-    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.webp' },
-    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'Effect-Packs.webp' },
-    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.webp' },
-    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.webp' },
-    { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.webp' },
-    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp' },
-    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp' },
-    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp' },
-    { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp' },
-    { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp' },
-    { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp' },
-    { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp' },
-    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp' },
-    { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp' },
-    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp' },
-    { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp' },
-    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp' },
-    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp' },
-    { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp' },
-    { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp' },
-    { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp' },
-    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp' },
-    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp' },
-    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp' },
-    { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp' },
-    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp' },
-    { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp' },
-    { id: 'item-icons', emoji: '👀', key: 'item-icons', preview: 'item-icons.webp' },
-    { id: 'ranks', emoji: '🎖️', key: 'ranks', preview: 'ranks.webp' },
+    { id: 'shaders', emoji: '🎨', key: 'shaders', preview: 'shaders.webp', guideId: 'install' },
+    { id: 'ti-bp-effects', emoji: '🌟', key: 'ti-bp-effects', preview: 'Effect-Packs.webp', guideId: 'install' },
+    { id: 'heroes', emoji: '👤', key: 'heroes', preview: 'heroes.webp', guideId: 'install-heroes' },
+    { id: 'terrains', emoji: '🏞️', key: 'terrains', preview: 'terrains.webp', guideId: 'install-terrains' },
+    { id: 'trees', emoji: '🌲', key: 'trees', preview: 'trees.webp', guideId: 'install' },
+    { id: 'creeps', emoji: '🕷', key: 'creeps', preview: 'creeps.webp', guideId: 'install' },
+    { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp', guideId: 'install' },
+    { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp', guideId: 'install' },
+    { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp', guideId: 'install' },
+    { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp', guideId: 'install' },
+    { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp', guideId: 'install' },
+    { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp', guideId: 'install' },
+    { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp', guideId: 'install' },
+    { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp', guideId: 'install' },
+    { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp', guideId: 'install' },
+    { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp', guideId: 'install' },
+    { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp', guideId: 'install' },
+    { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp', guideId: 'install' },
+    { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp', guideId: 'install' },
+    { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp', guideId: 'install' },
+    { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp', guideId: 'install' },
+    { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp', guideId: 'install' },
+    { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp', guideId: 'install' },
+    { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp', guideId: 'install' },
+    { id: 'towers', emoji: '🗼', key: 'towers', preview: 'towers.webp', guideId: 'install' },
+    { id: 'pedestal', emoji: '🗿', key: 'pedestal', preview: 'pedestal.webp', guideId: 'install' },
+    { id: 'high-five', emoji: '🖐️', key: 'high-five', preview: 'high-five.webp', guideId: 'install' },
+    { id: 'item-icons', emoji: '👀', key: 'item-icons', preview: 'item-icons.webp', guideId: 'install' },
+    { id: 'ranks', emoji: '🎖️', key: 'ranks', preview: 'ranks.webp', guideId: 'install' },
     { id: 'cursors', emoji: '🛠️', key: 'cursors', preview: 'cursors.webp' },
-    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp' },
+    { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp', guideId: 'install' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
@@ -605,14 +606,38 @@ function sortMods(mods, mode) {
             if (state.currentCategory === 'heroes') {
                 return sortedMods.sort((a, b) => {
                     const getHeroName = (modName) => {
-                        const found = HEROES_LIST.find(hero =>
+                        const foundHeroes = HEROES_LIST.filter(hero =>
                             modName.toLowerCase().includes(hero.toLowerCase())
                         );
-                        return found || modName;
+                        
+                        if (foundHeroes.length === 0) {
+                            return modName;
+                        }
+
+                        let earliestHero = foundHeroes[0];
+                        let earliestPosition = modName.toLowerCase().indexOf(earliestHero.toLowerCase());
+                        
+                        foundHeroes.forEach(hero => {
+                            const position = modName.toLowerCase().indexOf(hero.toLowerCase());
+                            if (position < earliestPosition) {
+                                earliestPosition = position;
+                                earliestHero = hero;
+                            }
+                        });
+                        
+                        return earliestHero;
                     };
+                    
                     const aHero = getHeroName(a.name);
                     const bHero = getHeroName(b.name);
-                    return aHero.localeCompare(bHero);
+
+                    const heroComparison = aHero.localeCompare(bHero);
+
+                    if (heroComparison === 0) {
+                        return a.name.localeCompare(b.name);
+                    }
+                    
+                    return heroComparison;
                 });
             }
             return sortedMods.sort((a, b) => a.name.localeCompare(b.name));
@@ -1476,6 +1501,25 @@ function showCategoryPage(categoryId) {
     elements.categoryTitle.textContent = translations[category.key];
     elements.categoryDescription.textContent = translations[category.key + '-desc'];
 
+    const existingGuideLink = document.querySelector('.category-guide-link');
+    if (existingGuideLink) {
+        existingGuideLink.remove();
+    }
+
+    if (category.guideId) {
+        const guideLink = document.createElement('p');
+        guideLink.className = 'category-guide-link';
+        guideLink.textContent = translations['how-to-install'];
+        guideLink.setAttribute('data-guide-id', category.guideId);
+        
+        guideLink.addEventListener('click', () => {
+            openGuideForMod({ guideId: category.guideId });
+            vibrate(10);
+        });
+
+        elements.categoryDescription.insertAdjacentElement('afterend', guideLink);
+    }
+
     renderMods(categoryId);
 
     elements.homePage.classList.add('hidden');
@@ -1573,6 +1617,11 @@ function renderAllModsSearch() {
     const sortToggle = document.getElementById('sortToggle');
     if (sortToggle) sortToggle.style.display = 'none';
 
+    const existingGuideLink = document.querySelector('.category-guide-link');
+    if (existingGuideLink) {
+        existingGuideLink.remove();
+    }
+
     let allResults = [];
 
     for (const category of categories) {
@@ -1642,6 +1691,12 @@ function renderFileSearch(filename) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const sortToggle = document.getElementById('sortToggle');
     if (sortToggle) sortToggle.style.display = 'none';
+
+    const existingGuideLink = document.querySelector('.category-guide-link');
+    if (existingGuideLink) {
+        existingGuideLink.remove();
+    }
+
     const resultsByCategory = {};
 
     for (const category of categories) {

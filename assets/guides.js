@@ -181,7 +181,7 @@ const guidesData = {
     }
   },
   'install': {
-    title: 'Install Mods Guide',
+    title: 'Install Mods',
     content: {
       en: [
         {
@@ -204,6 +204,68 @@ const guidesData = {
             'В параметрах запуска добавьте: <code>-language russian</code>',
           ],
           info: 'Вы можете использовать <span id="tg">VPKMerge</span> для объединения модов',
+          infoPosition: 'bottom',
+          warning: 'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99'
+        }
+      ]
+    }
+  },
+  'install-heroes': {
+    title: 'Install Heroes Mods',
+    content: {
+      en: [
+        {
+          steps: [
+            'Download the required mods',
+            'Unzip the archive, it contains vpk',
+            'Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>',
+            'Put the vpk in the folder <code>dota_123</code>',
+            'Add to launch options: <code>-language 123</code>',
+          ],
+          info: 'You can also use <span id="tg">VPKMerge</span> to combine the mods',
+          infoPosition: 'bottom',
+          warning: 'If files are duplicated, rename the repeated file to pak<span id="tg">XX</span>_dir.vpk, where <span id="tg">XX</span> is 10, 11, 12, 13...99.',
+        }
+      ],
+      ru: [
+        {
+          steps: [
+            'Скачайте нужные моды',
+            'Распакуйте архив, в нем лежит vpk',
+            'Переместите vpk в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>',
+            'В параметрах запуска добавьте: <code>-language russian</code>',
+          ],
+          info: 'Вы можете использовать <span id="tg">VPKMerge</span> для объединения модов',
+          infoPosition: 'bottom',
+          warning: 'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99'
+        }
+      ]
+    }
+  },
+  'install-terrains': {
+    title: 'Install Terrains Mods',
+    content: {
+      en: [
+        {
+          steps: [
+            'Download the required mod',
+            'It will be a vpk or an archive with a maps folder inside',
+            'Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>',
+            'Move the vpk or maps folder from the archive to the folder <code>dota_123</code>',
+            'Add to launch options: <code>-language 123</code>',
+          ],
+          infoPosition: 'bottom',
+          warning: 'If files are duplicated, rename the repeated file to pak<span id="tg">XX</span>_dir.vpk, where <span id="tg">XX</span> is 10, 11, 12, 13...99.',
+        }
+      ],
+      ru: [
+        {
+          steps: [
+            'Скачайте нужный мод',
+            'Он будет в виде vpk, или архива с папкой maps внутри',
+            'Переместите vpk или папку maps из архива в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>',
+            'В параметрах запуска добавьте: <code>-language russian</code>',
+          ],
           infoPosition: 'bottom',
           warning: 'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99'
         }

@@ -1008,6 +1008,30 @@ img {
   color: var(--md-sys-color-on-secondary-container);
 }
 
+.category-guide-link {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    color: var(--md-sys-color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    display: inline-block;
+}
+
+.category-guide-link:hover {
+    color: var(--md-sys-color-shit-light);
+    text-shadow: 0 0 8px var(--md-sys-color-outline);
+    text-decoration-style: solid;
+}
+
+.category-guide-link:active {
+    color: var(--md-sys-color-primary);
+}
+
 /* Guide Modal */
 .guide-language-toggle {
   display: flex;
@@ -1772,14 +1796,14 @@ fcode {
 .page-title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: -5px;
   color: var(--md-sys-color-on-surface);
 }
 
 .page-description {
   font-size: 17px;
   color: var(--md-sys-color-on-surface-variant);
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   max-width: 600px;
 }
 
