@@ -396,23 +396,24 @@ body.loaded .footer {
 .lightrope li:before {
   content: "";
   position: absolute;
-  background: #222;
-  width: 10px;
-  height: 4px;
-  border-radius: 3px;
+  background: #000000;
+  width: 6px;
+  height: 3px;
+  border-radius: 2px;
   top: -2px;
-  left: 1px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .lightrope li:after {
   content: "";
-  top: -6px;
+  top: -2px;
   left: 9px;
   position: absolute;
   width: 52px;
-  height: 8px;
-  border-bottom: solid #222 2px;
-  border-radius: 50%;
+  height: 1px;
+  border-bottom: solid #000000 1px;
+  border-radius: 0;
 }
 
 .lightrope li:last-child:after {

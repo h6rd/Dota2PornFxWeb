@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Stray228 Mega-Kill', category: 'mega-kill' },
     { name: 'Largo Serega Pirat v2', category: 'hero-sounds' },
     { name: 'Largo Serega Pirat', category: 'hero-sounds' },
     { name: 'Arc Warden Yin Yang', category: 'heroes' },
@@ -594,6 +595,7 @@ const modsData = {
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak10_dir.vpk', links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }, { type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' }] },
         { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak11_dir.vpk', links: [{ type: 'source', url: 'https://github.com/SsixM/Dotafy-mods/tree/master/mods/!%20Golovach%20killstreak/files/sounds/vo/announcer_killing_spree' }, { type: 'preview', url: 'assets/previews/mega-kill/Siega-Mega-Kill.mp4' }] },
+        { name: 'Stray228 Mega-Kill', preview: 'Stray228 Mega-Kill.webp', file: 'pak41_dir.vpk', links: [{ type: 'source', url: 'https://t.me/f0ner/1085' }, { type: 'preview', url: 'assets/previews/mega-kill/Stray228-Mega-Kill.mp4' }] },
         { name: 'Kunkka & Tidehunter', preview: 'kunkatide.webp', file: 'pak16_dir.vpk' },
         { name: 'Rick & Morty', preview: 'rickmorty.webp', file: 'pak15_dir.vpk' },
         { name: 'Axe', preview: 'axe.webp', file: 'pak12_dir.vpk' },
