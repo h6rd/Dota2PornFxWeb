@@ -1,4 +1,10 @@
 const recentlyAddedMods = [
+    { name: 'Bounty Hunter Old Verminator', category: 'heroes' },
+    { name: 'Razor Silver Rrevenant', category: 'heroes' },
+    { name: 'Invoker Dark Artistry', category: 'heroes' },
+    { name: 'Ice Chaos Knight', category: 'heroes' },
+    { name: 'Black Witch Doctor', category: 'heroes' },
+    { name: 'Shadow Fiend Black', category: 'heroes' },
     { name: 'White Shadow Shaman', category: 'heroes' },
     { name: 'Bard Frog Emblem v2', category: 'emblems' },
     { name: 'Bard Frog Emblem', category: 'emblems' },
@@ -531,6 +537,12 @@ const modsData = {
         { name: 'Harrows Harvest Ringmaster', preview: 'Harrows Harvest Ringmaster.webp', file: 'Harrows Harvest Ringmaster.zip', tags: { effects: false, icons: false } },
         { name: 'Silencer Whispered Wing', preview: 'Silencer Whispered Wing.webp', file: 'Silencer Whispered Wing.zip', tags: { effects: false, icons: false } },
         { name: 'White Shadow Shaman', preview: 'White Shadow Shaman.webp', file: 'White Shadow Shaman.zip', tags: { effects: true, icons: true } },
+        { name: 'Shadow Fiend Black', preview: 'Shadow Fiend Black.webp', file: 'Shadow Fiend Black.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/d2modsreborn' }] },
+        { name: 'Black Witch Doctor', preview: 'Black Witch Doctor.webp', file: 'Black Witch Doctor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Ice Chaos Knight', preview: 'Ice Chaos Knight.webp', file: 'Ice Chaos Knight.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Invoker Dark Artistry', preview: 'Invoker Dark Artistry.webp', file: 'Invoker Dark Artistry.zip', tags: { effects: false, icons: false } },
+        { name: 'Razor Silver Rrevenant', preview: 'Razor Silver Rrevenant.webp', file: 'Razor Silver Rrevenant.zip', tags: { effects: true, icons: false } },
+        { name: 'Bounty Hunter Old Verminator', preview: 'Bounty Hunter Old Verminator.webp', file: 'Bounty Hunter Old Verminator.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
