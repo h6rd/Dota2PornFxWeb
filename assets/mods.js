@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'White Natures Prophet', category: 'heroes' },
     { name: 'Bounty Hunter Old Verminator', category: 'heroes' },
     { name: 'Razor Silver Rrevenant', category: 'heroes' },
     { name: 'Invoker Dark Artistry', category: 'heroes' },
@@ -543,6 +544,7 @@ const modsData = {
         { name: 'Invoker Dark Artistry', preview: 'Invoker Dark Artistry.webp', file: 'Invoker Dark Artistry.zip', tags: { effects: false, icons: false } },
         { name: 'Razor Silver Rrevenant', preview: 'Razor Silver Rrevenant.webp', file: 'Razor Silver Rrevenant.zip', tags: { effects: true, icons: false } },
         { name: 'Bounty Hunter Old Verminator', preview: 'Bounty Hunter Old Verminator.webp', file: 'Bounty Hunter Old Verminator.zip', tags: { effects: false, icons: false } },
+        { name: 'White Natures Prophet', preview: 'White Natures Prophet.webp', file: 'White Natures Prophet.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
