@@ -1,5 +1,5 @@
 const recentlyAddedMods = [
-    { name: 'Dark Shadow Shaman', category: 'heroes' },
+    { name: 'White Shadow Shaman', category: 'heroes' },
     { name: 'Bard Frog Emblem v2', category: 'emblems' },
     { name: 'Bard Frog Emblem', category: 'emblems' },
     { name: 'Enigma World Chasm Artifact', category: 'herofx' },
@@ -530,7 +530,7 @@ const modsData = {
         { name: 'Marci Laurels of the Downstar', preview: 'Marci Laurels of the Downstar.webp', file: 'Marci Laurels of the Downstar.zip', tags: { effects: false, icons: false } },
         { name: 'Harrows Harvest Ringmaster', preview: 'Harrows Harvest Ringmaster.webp', file: 'Harrows Harvest Ringmaster.zip', tags: { effects: false, icons: false } },
         { name: 'Silencer Whispered Wing', preview: 'Silencer Whispered Wing.webp', file: 'Silencer Whispered Wing.zip', tags: { effects: false, icons: false } },
-        { name: 'Dark Shadow Shaman', preview: 'Dark Shadow Shaman.webp', file: 'Dark Shadow Shaman.zip', tags: { effects: true, icons: true } },
+        { name: 'White Shadow Shaman', preview: 'White Shadow Shaman.webp', file: 'White Shadow Shaman.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
