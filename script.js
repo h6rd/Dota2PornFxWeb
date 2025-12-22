@@ -139,13 +139,13 @@ const NOTES_DATA = [
         type: 'update',
         icon: 'new_releases',
         title: 'Update',
-        text: 'Updated all backgrounds on the site. Also Background Changer has been updated, a method for current patch has been added, just run exe, it will update its files on its own.'
+        text: 'Added a button to copy the link to mod or category'
     },
     {
         type: 'warning',
         icon: 'error',
         title: 'Known Issue',
-        text: 'Due to patch 7.40, mods: Cursed Shadow Fiend, Ghost Shadow Fiend and Purple Shadow Fiend are not displaying correctly.',
+        text: 'Due to patch 7.40, some mods no longer display visual effects on models (in match). Unfortunately, I don\'t know how to fix this 😕',
     },
 ];
 
@@ -389,6 +389,65 @@ function setupScrollToTop() {
     }
 
     scrollFab.addEventListener('click', scrollToTop);
+}
+
+// Copy Link
+function generateModLink(categoryId, modName, groupId = null) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const params = new URLSearchParams();
+    params.set('category', categoryId);
+    params.set('mod', modName);
+    if (groupId) params.set('group', groupId);
+    return `${baseUrl}?${params.toString()}`;
+}
+
+function generateCategoryLink(categoryId) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    return `${baseUrl}?category=${categoryId}`;
+}
+
+function copyToClipboard(text, successMessage = 'Link copied!') {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast(successMessage);
+        vibrate(20);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        showToast('Failed to copy link');
+    });
+}
+
+function showToast(message) {
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(() => {
+        toast.classList.add('show');
+    });
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
+}
+
+function handleUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const categoryId = params.get('category');
+    const modName = params.get('mod');
+    const groupId = params.get('group');
+
+    if (categoryId && modName) {
+        openCategoryAndHighlightMod(categoryId, modName);
+    } else if (categoryId) {
+        showCategoryPage(categoryId);
+    }
 }
 
 // Guide modal
@@ -1303,31 +1362,13 @@ function setupRecentlyAdded() {
             }
 
             newCard.querySelector('.add-to-cart-btn')?.remove();
+            newCard.querySelector('.copy-link-btn')?.remove();
+            newCard.querySelector('.link-buttons')?.remove();
 
             const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
             if (downloadIcon) downloadIcon.textContent = 'expand_circle_down';
 
             newCard.addEventListener('click', (e) => {
-                if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
-                    e.stopPropagation();
-                    const button = e.target.classList.contains('link-button') ? e.target : e.target.closest('.link-button');
-                    const guideId = button.getAttribute('data-guide-id');
-
-                    if (guideId) {
-                        openGuideForMod({ guideId });
-                        return;
-                    }
-
-                    const url = button.getAttribute('data-url');
-                    const isVideo = button.getAttribute('data-video') === 'true';
-                    if (isVideo) {
-                        window.openVideoModal(url);
-                    } else {
-                        window.open(url, '_blank');
-                    }
-                    return;
-                }
-
                 openCategoryAndHighlightMod(recentMod.category, recentMod.name);
                 vibrate(10);
             });
@@ -1380,6 +1421,7 @@ function init() {
     setupGifSwitcher();
     setupThemeToggle();
     initWinterEffects();
+    handleUrlParams();
 }
 
 function setupEventListeners() {
@@ -1481,9 +1523,23 @@ function createCategoryCard(category) {
         <div class="card-media">${mediaContent}</div>
         <div class="card-content">
             <h3 class="card-title">${translations[category.key]}</h3>
-            <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+            <div class="card-subtitle-wrapper">
+                <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+                <button class="copy-category-link-btn" title="Copy link">
+                    <span class="material-symbols-rounded">link</span>
+                </button>
+            </div>
         </div>
     `;
+
+    const copyBtn = card.querySelector('.copy-category-link-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const link = generateCategoryLink(category.id);
+            copyToClipboard(link, 'Category link copied!');
+        });
+    }
 
     card.addEventListener('click', () => showCategoryPage(category.id));
     return card;
@@ -1808,10 +1864,10 @@ function createModCard(mod, categoryId, groupId = null) {
     card.innerHTML = `
         <div class="card-media">
             ${preview
-            ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
+                ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
                      onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>`
-            : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
-        }
+                : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
+            }
             ${tagsHtml}
             ${!hideAddToCart ? `
                 <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: mod.name, file: mod.file })}' data-category="${categoryId}">
@@ -1827,12 +1883,17 @@ function createModCard(mod, categoryId, groupId = null) {
             <h3 class="card-title">${categoryId === 'heroes' ? highlightHeroNames(mod.name) : mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
-                ${linkButtonsHtml}
+                <div class="card-buttons-group">
+                    ${linkButtonsHtml}
+                    <button class="copy-link-btn" title="Copy link">
+                        <span class="material-symbols-rounded">link</span>
+                    </button>
+                </div>
             </div>
         </div>
     `;
 
-    attachCardEventListeners(card, mod, categoryId);
+    attachCardEventListeners(card, mod, categoryId, groupId);
     return card;
 }
 
@@ -1913,7 +1974,16 @@ function shouldHideAddToCart(mod, categoryId) {
     return false;
 }
 
-function attachCardEventListeners(card, mod, categoryId) {
+function attachCardEventListeners(card, mod, categoryId, groupId = null) {
+    const copyLinkBtn = card.querySelector('.copy-link-btn');
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const link = generateModLink(categoryId, mod.name, groupId);
+            copyToClipboard(link, 'Mod link copied!');
+        });
+    }
+
     if (categoryId === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
         const video = card.querySelector('video');
         if (video) {
@@ -1931,7 +2001,9 @@ function attachCardEventListeners(card, mod, categoryId) {
         if (e.target.classList.contains('link-button') || e.target.closest('.link-button')) {
             return;
         }
-
+        if (e.target.classList.contains('copy-link-btn') || e.target.closest('.copy-link-btn')) {
+            return;
+        }
         if (mod.type === 'guide' && mod.guideId) {
             openGuideForMod({ guideId: mod.guideId });
         } else if (mod.type === 'guide' && !mod.guideId) {
@@ -2013,6 +2085,9 @@ function showHomePage() {
 
     resetSort();
     renderCategories();
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    window.history.pushState({}, '', baseUrl);
 
     const scrollTo = state.scrollPosition;
     state.scrollPosition = 0;

@@ -1872,45 +1872,89 @@ fcode {
 }
 
 .card-subtitle {
-  flex: 0 0 auto;
-  margin: 0;
-  font-size: 14px;
-  color: var(--md-sys-color-on-surface-variant);
-  line-height: 1.4;
-  opacity: 0.8;
+    flex: 1 1 auto;
+    margin: 0;
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.4;
+    opacity: 0.8;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-buttons-group {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.copy-link-btn,
+.copy-category-link-btn {
+    background-color: var(--md-sys-color-surface-container-highest);
+    color: var(--md-sys-color-on-surface-variant);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.copy-link-btn .material-symbols-rounded,
+.copy-category-link-btn .material-symbols-rounded {
+    font-size: 16px;
+}
+
+.copy-link-btn:hover,
+.copy-category-link-btn:hover {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    transform: scale(1.1);
+}
+
+.copy-link-btn:active,
+.copy-category-link-btn:active {
+    transform: scale(0.95);
 }
 
 .card-subtitle .card-link {
-  color: var(--md-sys-color-primary) !important;
-  font-weight: 600 !important;
-  text-decoration: underline !important;
-  opacity: 1 !important;
-  cursor: pointer;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+    color: var(--md-sys-color-primary) !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    opacity: 1 !important;
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .card-subtitle .card-link:hover {
-  color: var(--md-sys-color-shit-light) !important;
-  text-shadow: 0 0 8px var(--md-sys-color-outline);
+    color: var(--md-sys-color-shit-light) !important;
+    text-shadow: 0 0 8px var(--md-sys-color-outline);
 }
 
 .card-subtitle .card-link:active {
-  color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-primary) !important;
 }
 
 .card-subtitle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
 }
 
 .link-buttons {
-  display: flex;
-  gap: 4px;
-  flex-wrap: nowrap;
-  align-items: center;
-  margin-left: auto;
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .link-button {
