@@ -1363,16 +1363,50 @@ function setupRecentlyAdded() {
 
             newCard.querySelector('.add-to-cart-btn')?.remove();
             newCard.querySelector('.copy-link-btn')?.remove();
-            newCard.querySelector('.link-buttons')?.remove();
 
             const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
             if (downloadIcon) downloadIcon.textContent = 'expand_circle_down';
 
-            newCard.addEventListener('click', (e) => {
-                openCategoryAndHighlightMod(recentMod.category, recentMod.name);
-                vibrate(10);
+            const linkButtonElements = newCard.querySelectorAll('.link-button');
+            linkButtonElements.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+            
+                    const guideId = button.getAttribute('data-guide-id');
+                    if (guideId) {
+                        openGuideForMod({ guideId });
+                        return;
+                    }
+            
+                    const url = button.getAttribute('data-url');
+                    const isVideo = button.getAttribute('data-video') === 'true';
+                    if (isVideo) {
+                        window.openVideoModal(url);
+                    } else {
+                        window.open(url, '_blank');
+                    }
+                });
             });
 
+const copyLinkBtn = newCard.querySelector('.copy-link-btn');
+if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const link = generateModLink(recentMod.category, recentMod.name, groupId);
+        copyToClipboard(link, 'Mod link copied!');
+    });
+}
+
+newCard.addEventListener('click', (e) => {
+    if (e.target.classList.contains('link-button') || 
+        e.target.closest('.link-button') ||
+        e.target.classList.contains('copy-link-btn') || 
+        e.target.closest('.copy-link-btn')) {
+        return;
+    }
+    openCategoryAndHighlightMod(recentMod.category, recentMod.name);
+    vibrate(10);
+});
             track.appendChild(newCard);
         }
     });
