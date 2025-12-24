@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Santa Hat Roshan', category: 'roshan' },
+    { name: 'Purple Hex', category: 'item-effects' },
+    { name: 'Winter Hex', category: 'item-effects' },
     { name: 'Invoker Dark Artistry v2', category: 'heroes' },
     { name: 'Pink Nyx Assassin', category: 'heroes' },
     { name: 'White Natures Prophet', category: 'heroes' },
@@ -272,6 +275,12 @@ const modsData = {
             {
                 id: 'ethereal', name: 'Ethereal', mods: [
                     { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
+                ]
+            },
+            {
+                id: 'hex', name: 'Hex', mods: [
+                    { name: 'Purple Hex', preview: 'Purple Hex.webp', file: 'pak70_dir.vpk' },
+                    { name: 'Winter Hex', preview: 'Winter Hex.webp', file: 'pak71_dir.vpk' },
                 ]
             },
             {
@@ -559,7 +568,8 @@ const modsData = {
         { name: 'Gardens Roshan', preview: 'Gardens Roshan.webp', file: 'pak61_dir.vpk' },
         { name: 'Golden Roshan', preview: 'Golden Roshan.webp', file: 'pak62_dir.vpk' },
         { name: 'Journey Roshan', preview: 'Journey Roshan.webp', file: 'pak63_dir.vpk' },
-        { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' }
+        { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' },
+        { name: 'Santa Hat Roshan', preview: 'Santa Hat Roshan.webp', file: 'pak65_dir.vpk' },
     ],
     'creeps': {
         groups: [

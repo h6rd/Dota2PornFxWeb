@@ -427,7 +427,6 @@ body.loaded .footer {
   }
 }
 
-/* Snow */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -436,6 +435,88 @@ body.loaded .footer {
   left: 0;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Halloween Effects */
+#halloween-effects {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.halloween-ghost {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.692));
+}
+
+.ghost-1 {
+  right: -1%;
+  top: 20%;
+  animation: ghost-float-1 12s ease-in-out infinite;
+}
+
+.ghost-2 {
+  left: -1%;
+  bottom: 2%;
+  animation: ghost-float-2 15s ease-in-out infinite;
+}
+
+@keyframes ghost-float-1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  15% {
+    transform: translate(-12px, -8px) rotate(-2deg);
+  }
+  30% {
+    transform: translate(-18px, 5px) rotate(1deg);
+  }
+  45% {
+    transform: translate(-10px, 12px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-20px, 3px) rotate(2deg);
+  }
+  75% {
+    transform: translate(-8px, -5px) rotate(-1deg);
+  }
+  90% {
+    transform: translate(-15px, 8px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes ghost-float-2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  12% {
+    transform: translate(15px, -10px) rotate(2deg);
+  }
+  28% {
+    transform: translate(8px, 8px) rotate(-1deg);
+  }
+  42% {
+    transform: translate(22px, -5px) rotate(2deg);
+  }
+  58% {
+    transform: translate(12px, 10px) rotate(-2deg);
+  }
+  70% {
+    transform: translate(25px, -8px) rotate(1deg);
+  }
+  85% {
+    transform: translate(10px, 6px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 .header {

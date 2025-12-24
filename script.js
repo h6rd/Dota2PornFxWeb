@@ -1049,25 +1049,33 @@ function setupThemeToggle() {
     });
 }
 
-// Winter FX
-function initWinterEffects() {
+// Winter & Halloween FX
+function initSeasonalEffects() {
     const now = new Date();
     const month = now.getMonth();
     const day = now.getDate();
 
-    const isWinter = (month === 11) ||
-                     (month === 0) ||
-                     (month === 1);
+    const isWinter = (month === 11) || (month === 0) || (month === 1);
+
+    const isHalloween = (month === 9);
+    
+    const garland = document.querySelector('.lightrope');
+    const particles = document.getElementById('particles-js');
+    const halloweenEffects = document.getElementById('halloween-effects');
     
     if (isWinter) {
-        const garland = document.querySelector('.lightrope');
         if (garland) garland.style.display = 'block';
+        if (particles) particles.style.display = 'block';
+        if (halloweenEffects) halloweenEffects.style.display = 'none';
         initParticles();
-    } else {
-        const garland = document.querySelector('.lightrope');
+    } else if (isHalloween) {
         if (garland) garland.style.display = 'none';
-        const particles = document.getElementById('particles-js');
         if (particles) particles.style.display = 'none';
+        if (halloweenEffects) halloweenEffects.style.display = 'block';
+    } else {
+        if (garland) garland.style.display = 'none';
+        if (particles) particles.style.display = 'none';
+        if (halloweenEffects) halloweenEffects.style.display = 'none';
     }
 }
 
@@ -1450,7 +1458,7 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
-    initWinterEffects();
+    initSeasonalEffects();
     handleUrlParams();
 }
 
