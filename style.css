@@ -1950,6 +1950,11 @@ fcode {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+.link-button.not-safe {
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+}
+
 .download-icon {
   position: absolute;
   bottom: 12px;

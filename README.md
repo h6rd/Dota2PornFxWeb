@@ -1,12 +1,92 @@
-# Dota2PornFxWeb
-**[Website](https://h6rd.github.io/Dota2PornFxWeb/)  / [Website Mirror](https://d2pfx.netlify.app/) |  [Telegram](https://t.me/dota2pornfx)**
+<div align="center">
+  <img src="assets/banner-git.png" alt="Dota2PornFxWeb Banner" width="100%">
 
-___
+  [**Website**](https://h6rd.github.io/Dota2PornFxWeb/) • [**Website Mirror**](https://d2pfx.netlify.app/) • [**Telegram**](https://t.me/dota2pornfx)
 
-## 🎮 Default Mods Guide
+  <p><b>Discover and download a vast collection of Dota 2 customization mods</b></p>
+</div>
+
+---
+
+## 🎮 About
+
+**Dota2PornFxWeb** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2 environment.
+
+### 🌟 Features
+
+- **Extensive Categories**: Over 30+ categories including heroes, terrains, shaders, item effects, backgrounds, announcers, and more
+- **Easy Access**: Simple web interface to browse and download mods
+- **Regular Updates**: New content added regularly with latest updates from the community
+- **User-Friendly**: Intuitive interface with search, sorting, and cart functionality
+- **Previews Available**: Video and image previews for most mods
+- **Installation Guides**: Comprehensive instructions for installation and troubleshooting
+
+### 📚 Available Categories
 
 <details>
-<summary>🇷🇺</summary>
+<summary><b>Click to expand all categories</b></summary>
+
+- **Shaders** - Replaces the fog of war effect
+- **Effect Packs** - Battle Pass / The International / Pack effects
+- **Item Effects** - Effects for various items
+- **Creep Deny** - Creep deny animations and effects
+- **Emblems** - Collection of various emblems
+- **Versus Screens** - Custom versus screen
+- **Terrains** - Terrains modifications
+- **Trees** - Custom trees
+- **Heroes** - Hero models and sets
+- **Roshan** - Custom Roshan models and skins
+- **Creeps** - Custom creeps
+- **Ancient** - Ancient mods
+- **Tormentor** - Custom Tormentor
+- **Towers** - Custom towers
+- **High Five** - Custom high five animations
+- **Ranged Attack** - Custom ranged attack effects
+- **Mega-Kill** - Custom mega-kill announcers
+- **Pedestal** - Custom hero pedestals
+- **Other** - Miscellaneous mods
+- **Backgrounds** - Custom backgrounds
+- **River** - Custom river colors
+- **Rank Icons** - Custom Rank Icons
+- **Item Icons** - Custom Icons for Items
+- **Wards** - Custom Wards
+- **Couriers** - Custom Couriers
+- **Announcers** - Custom Announcers
+- **Music** - Custom Music
+- **Cursors** - Custom Cursors
+- **Pings** - Custom Pings
+- **Hero Spells** - Effect sets for hero spells
+- **Tools** - Various tools for modding
+
+</details>
+
+---
+
+## 🚀 Quick Start
+
+1. **Browse**: Explore the various categories on the website
+2. **Download**: Click on any mod to download it
+3. **Install**: Follow the installation instructions in the guides section
+
+### 📥 Installation Guide
+
+<details>
+<summary><b>How to install mods 🇺🇸</b></summary>
+
+1. **Download the required `.vpk` files**
+2. **Create folder `dota_123` in:**
+   ```
+   Steam\steamapps\common\dota 2 beta\game\dota_123\
+   ```
+3. **Put the downloaded mods in the folder `dota_123`**
+4. **Add to launch options: `-language 123`**
+
+> **Note:** If files are duplicated, rename the repeated file to `pakXX_dir.vpk`, where XX is 10, 11, 12, 13...99
+
+</details>
+
+<details>
+<summary><b>Как установить моды 🇷🇺</b></summary>
 
 1. Скачайте нужный файл `.vpk`
 2. Переместите его в папку с языком игры:
@@ -21,247 +101,69 @@ Steam\steamapps\common\dota 2 beta\game\dota_russian\
 Steam\steamapps\common\dota 2 beta\game\dota_123\
 ```
 
-⚠️ **Важно:** Если файлы дублируются, переименуйте повторяющийся файл в `pakXX_dir.vpk`, где XX = 10, 11, 12, 13...99
+> **Важно:** Если файлы дублируются, переименуйте повторяющийся файл в `pakXX_dir.vpk`, где XX = 10, 11, 12, 13...99
 
 </details>
 
-<details>
-<summary>🇺🇸</summary>
+---
 
-1. Download the required `.vpk` file
-2. Move it to the appropriate language folder in the game directory:
-```
-Steam\steamapps\common\dota 2 beta\game\
-```
+## 🛠️ Tools & Utilities
 
-3. Create a folder named `dota_123` and place the file there:
-```
-Steam\steamapps\common\dota 2 beta\game\dota_123\
-```
+The project includes several useful tools for modding:
 
-⚠️ **Note:** If files are duplicated, rename the repeated file to `pakXX_dir.vpk`, where XX is 10, 11, 12, 13...99
+- **VPKTool**: Extract and pack VPK files
+- **VPKMerge**: Combine multiple VPKs into one
+- **Weather Changer**: Change weather effects in-game
+- **Background Changer**: Create custom background videos
+- **More tools**: Various utilities for different modding needs
 
-</details>
+---
 
-## 📦 Packs Guide
+## 📖 Troubleshooting
 
 <details>
-<summary>🇷🇺</summary>
+<summary><b>Common issues and solutions</b></summary>
 
-В архиве находятся папка и файл — поместите их в:
-- `dota_russian` (для русского языка)
-- `dota_123` (для английского языка)
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-The archive contains a folder and file — place them in:
-- `dota_russian` (for Russian)
-- `dota_123` (for English)
-
-</details>
-
-## 🗺️ Terrains Guide
-
-<details>
-<summary>🇷🇺</summary>
-
-1. Переместите папку `maps` в соответствующую директорию:
-
-**Для русского языка:**
-```
-Steam\steamapps\common\dota 2 beta\game\dota_russian\
-```
-
-**Для английского языка создайте папку `dota_123`:**
-```
-Steam\steamapps\common\dota 2 beta\game\dota_123\
-```
-
-2. В параметрах запуска укажите:
-   - `-language russian` (для русского)
-   - `-language 123` (для английского)
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-1. Create a folder `dota_123` in:
-```
-Steam\steamapps\common\dota 2 beta\game\dota_123\
-```
-
-2. Move the `maps` folder into the created directory
-
-3. Add to launch options:
-```
--language 123
-```
-
-</details>
-
-## 🌤️ Weather Changer Guide
-
-<details>
-<summary>🇷🇺</summary>
-
-1. Распакуйте архив
-2. Запустите `Run.bat`
-
-⚠️ **Примечание:** 
-- Если не позволяет войти в матч — используйте Fix MM
-- Обновления выходят редко
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-1. Unpack the archive
-2. Run `Run.bat`
-
-⚠️ **Note:** 
-- If it doesn't let you enter matches — use Fix MM
-- Updates are released rarely
-
-</details>
-
-## 🗃️ VPKMerge Guide
-
-<details>
-<summary>🇷🇺</summary>
-
-1. Распакуйте архив
-2. Поместите vpk файлы в папку рядом с VPKMerge.exe
-3. Запустите VPKMerge.exe
-
-- Он объединит все vpk в `pak10_dir.vpk`
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-1. Unpack the archive
-2. Place the vpk files in the folder next to VPKMerge.exe
-3. Launch VPKMerge.exe
-
-- It will combine all VPKs into `pak10_dir.vpk`
-</details>
-
-## ⚙️ VPKTool Guide
-
-<details>
-<summary>🇷🇺</summary>
-   
-**📦 Распаковка VPK**
-1. Положите .vpk файлы рядом с VPKTool.exe
-2. Запустите VPKTool.exe
-3. VPK файлы будут распакованы
-
-**📁 Сборка в VPK**
-1. Положите папки/файлы рядом с VPKTool.exe  
-2. Запустите VPKTool.exe
-3. Папки/файлы будут упакованы в `pak20_dir.vpk`
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-   
-**📦 Unpacking VPK**
-1. Put it down.vpk files next to VPKTool.exe
-2. Launch VPKTool.exe
-3. VPK files will be unpacked
-
-**📁 Build VPK**
-1. Put the folders/files next to VPKTool.exe  
-2. Launch VPKTool.exe
-3. The folders/files will be packed in `pak20_dir.vpk`
- 
-</details>
-
-___
-
-## 📄 Info
-<details>
-<summary>🇷🇺</summary>
-
-**Общая информация**
-- Большая часть модов, представленных здесь, не являются моими - они были взяты из слитых паков [Dota2Changer](https://en.dota2changer.com/).
-- Моды, у которых внизу нет ссылки `source/author` - мои (за исключением категории Item Effects).
-
-**Авторы модов**
-- Minify `Background` - [Egezenn](https://github.com/Egezenn)
-- Minify `Terrains` - [robbyz512](https://github.com/robbyz512)
-- [Darkness](https://t.me/Darkness_Logovo)
-- [Defiree2Mods](https://vk.com/defiree2mods)
-- [Kisilev_ind](https://vk.com/id363951132)
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-**General information**
-- Most of the mods presented here are not mine - they were taken from leaked packs [Dota2Changer](https://en.dota2changer.com/).
-- Mods that don't have a `source/author` link at the bottom are my own (except for the Item Effects category).
-
-**Mod authors**
-- Minify `Background` - [Egezenn](https://github.com/Egezenn)
-- Minify `Terrains` - [robbyz512](https://github.com/robbyz512)
-- [Darkness](https://t.me/Darkness_Logovo)
-- [Defiree2Mods](https://vk.com/defiree2mods)
-- [Kisilev_ind](https://vk.com/id363951132)
-   
-</details>
-
-## 🛠️ Troubleshooting
-<details>
-<summary>🇷🇺</summary>
-
-**Если мод не работает**
-1. Создайте папку `dota_test` в `steamapps\common\dota 2 beta\game\`
-2. Поместите туда нужный мод
-3. Добавьте в параметры запуска: `-language test`
- 
-* Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды. Если проблема сохраняется - дело в самом моде.
-
-* При совмещении модов могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых  
-
-**Если возникли проблемы с заменой фона**
-- Основные требования:
-1. Видео должно быть не длиннее 30 секунд.
-2. Формат .webm.
-3. Рекомендуется использовать Convert - Panorama чувствительна к кодекам.
-
-* **An error occurred during playback**: Прогоните видос через Convert. Если не помогло - попробуйте другой видос.<br>
-* **Фон не меняется**: См. раздел "Если моды не работают" выше.
-
-</details>
-
-<details>
-<summary>🇺🇸</summary>
-
-**If the mod doesn’t work**  
+### If the mod doesn't work:
 1. Create a folder named `dota_test` in `steamapps\common\dota 2 beta\game\`
-2. Place the required mod inside it.  
+2. Place the required mod inside it
 3. Add this to your launch options: `-language test`
- 
-* If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
 
-* When merging mods you may have problems - try installing the buggy mod separately from the merged mods
+> If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
 
-**If you’re having issues with background replacement**  
-- Main requirements:  
-1. The video must be no longer than 30 seconds.  
-2. Format must be `.webm`.  
-3. It’s recommended to use Convert — Panorama is sensitive to codecs.  
+### Mod merging issues:
+- When merging mods you may have problems - try installing the buggy mod separately from the merged mods
 
-* **An error occurred during playback**: Run the video through Convert. If that doesn’t help, try another video.
-
-* **Background doesn’t change**: See the section above, “If the mod doesn’t work.”
+### Background replacement issues:
+- The video must be no longer than 30 seconds
+- Format must be `.webm`
+- **"An error occurred during playback"**: Try another video
+- **"Background doesn't change"**: See the section "If the mod doesn't work" above
 
 </details>
+
+---
+
+## 📜 Credits
+
+This project contains content from various sources:
+
+- **Dota2Changer** - Original mod sources (leaked packs)
+- **Mod Authors**:
+  - [Egezenn](https://github.com/Egezenn) - Minify Background
+  - [Robbyz512](https://github.com/robbyz512) - Minify Terrains & Trees
+  - [Darkness](https://t.me/Darkness_Logovo) - Heroes
+  - [Defiree2Mods](https://vk.com/defiree2mods) - Heroes
+  - [Kisilev_ind](https://vk.com/id363951132) - Heroes
+  - [Amir4an](https://vk.com/amir4an) - Heroes
+  - And many other contributors
+
+> **Note**: Mods without a source/author link are original contributions to this project
+
+---
+
+## ⚠️ Disclaimer
+
+**All actions to modify the game files you do at your OWN RISK. In case of a ban, the responsibility lies entirely with YOU.**
+
+This project is not affiliated with Valve or Dota 2. Use at your own discretion.

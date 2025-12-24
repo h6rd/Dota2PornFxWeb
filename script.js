@@ -87,6 +87,7 @@ const translations = {
     'hero-sounds': 'Hero Sounds',
     'hero-sounds-desc': 'Custom hero sounds',
     'how-to-install': 'How to install?',
+    'not-safe': 'Not Safe',
 };
 
 const categories = [
@@ -124,17 +125,11 @@ const categories = [
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
+    { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
     // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
-    // { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
 ];
 
 const NOTES_DATA = [
-    // {
-    //     type: 'update',
-    //     icon: 'new_releases',
-    //     title: 'Site Update',
-    //     text: 'Added a snow effect, and this notes section to keep you informed about the latest changes and updates.'
-    // },
     {
         type: 'update',
         icon: 'new_releases',
@@ -192,7 +187,8 @@ const LINK_ICONS = {
     'preview': 'play_circle',
     'source': 'captive_portal',
     'guide': 'description',
-    'bug': 'bug_report'
+    'bug': 'bug_report',
+    'not-safe': 'warning'
 };
 
 const TAG_CONFIGS = {
@@ -1955,8 +1951,9 @@ function generateLinkButtonsHtml(mod, categoryId) {
     if (mod.links && mod.links.length > 0) {
         mod.links.forEach(link => {
             const icon = LINK_ICONS[link.type] || 'link';
+            const isNotSafe = link.type === 'not-safe';
             linkButtons.push(`
-                <span class="link-button" 
+                <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
                       data-url="${link.url}" 
                       data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
                     <span class="material-symbols-rounded">${icon}</span>
@@ -1966,8 +1963,9 @@ function generateLinkButtonsHtml(mod, categoryId) {
         });
     } else if (mod.linkType && mod.linkUrl) {
         const icon = LINK_ICONS[mod.linkType] || 'link';
+        const isNotSafe = mod.linkType === 'not-safe';
         linkButtons.push(`
-            <span class="link-button" 
+            <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
                   data-url="${mod.linkUrl}" 
                   data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
                 <span class="material-symbols-rounded">${icon}</span>
@@ -1978,10 +1976,11 @@ function generateLinkButtonsHtml(mod, categoryId) {
 
     const hideGuideButtonCategories = ['guides'];
     if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
+        const isNotSafe = mod.guideType === 'not-safe';
         linkButtons.push(`
-            <span class="link-button guide-button" data-guide-id="${mod.guideId}">
-                <span class="material-symbols-rounded">description</span>
-                ${translations['guide'] || 'Guide'}
+            <span class="link-button guide-button ${isNotSafe ? 'not-safe' : ''}" data-guide-id="${mod.guideId}">
+                <span class="material-symbols-rounded">${isNotSafe ? 'warning' : 'description'}</span>
+                ${translations[isNotSafe ? 'not-safe' : 'guide']}
             </span>
         `);
     }

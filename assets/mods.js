@@ -743,9 +743,9 @@ const modsData = {
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         // { name: 'Weather Changer [NotSafe]', preview: 'Weather Changer.webp', file: 'Weather Changer.zip', guideId: 'weather' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
-        { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: "vpk-tool" },
+        { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: 'vpk-tool' },
         { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip'},
-        { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'Cosmetics.zip'},
+        { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'Cosmetics.zip', guideId: 'warning', guideType: 'not-safe'},
         // { name: 'Patcher - Lifetime Pack [NotSafe]', preview: 'patcher.webp', file: 'Patcher.zip'},
         // { name: 'Extract - Extract Hero From VPKs', preview: 'Extract.webp', file: 'Extract.zip' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
@@ -761,7 +761,7 @@ const modsData = {
         { name: 'DotaBuff', preview: 'dotabuff.webp', file: 'https://www.dotabuff.com/', type: 'guide', tags: { stats: true, meta: true } },
         { name: 'OpenDota', preview: 'opendota.webp', file: 'https://www.opendota.com/', type: 'guide', tags: { stats: true, meta: true } },
         { name: 'Dota2ProTracker', preview: 'dota2protracker.webp', file: 'https://dota2protracker.com/', type: 'guide', tags: { meta: true } },
-        { name: 'Dota2 Emoji Nickname', preview: '', file: 'https://l4wio.github.io/dota2-emoji-nickname/', type: 'guide', tags: { fun: false } },
+        { name: 'Dota2 Emoji Nickname', preview: 'Dota2EmojiNickname.webp', file: 'https://l4wio.github.io/dota2-emoji-nickname/', type: 'guide', tags: { fun: false } },
         { name: 'Steam Status', preview: 'steamstatus.webp', file: 'https://steamstat.us/', type: 'guide' }
     ],
     'guides': [
