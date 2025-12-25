@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dragon Dire Tower', category: 'towers' },
+    { name: 'Dragon Radiant Tower', category: 'towers' },
     { name: 'Morphling Fluid Frenzy', category: 'heroes' },
     { name: 'Tidehunter Insatiable Seas', category: 'heroes' },
     { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
@@ -635,11 +637,13 @@ const modsData = {
                 id: 'radiant-tower', name: 'Radiant Tower', mods: [
                     { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' },
                     { name: 'TI7 Radiant Tower', preview: 'TI7 Radiant Tower.webp', file: 'pak11_dir.vpk' },
+                    { name: 'Dragon Radiant Tower', preview: 'Dragon Radiant Tower.webp', file: 'pak13_dir.vpk' },
                 ]
             },
             {
                 id: 'dire-tower', name: 'Dire Tower', mods: [
                     { name: 'TI7 Dire Tower', preview: 'TI7 Dire Tower.webp', file: 'pak12_dir.vpk' },
+                    { name: 'Dragon Dire Tower', preview: 'Dragon Dire Tower.webp', file: 'pak14_dir.vpk' },
                 ]
             }
         ]
