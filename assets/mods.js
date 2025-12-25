@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Morphling Fluid Frenzy', category: 'heroes' },
+    { name: 'Tidehunter Insatiable Seas', category: 'heroes' },
+    { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
     { name: 'Purple Outline Shader', category: 'shaders' },
     { name: 'Pine Radiant Creeps', category: 'creeps' },
     { name: 'Pine Dire Creeps', category: 'creeps' },
@@ -39,7 +42,6 @@ const recentlyAddedMods = [
     { name: 'Tinker Cripple', category: 'heroes' },
     { name: 'Devil Skywrath Mage', category: 'heroes' },
     { name: 'Broodmother White Widow', category: 'heroes' },
-    { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
     { name: 'Enigma Angel of the Abyss', category: 'heroes' },
     { name: 'Viper Stuffed Menace', category: 'heroes' },
     { name: 'Kira and Ryuk', category: 'backgrounds' },
@@ -566,6 +568,8 @@ const modsData = {
         { name: 'White Natures Prophet', preview: 'White Natures Prophet.webp', file: 'White Natures Prophet.zip', tags: { effects: true, icons: true } },
         { name: 'Pink Nyx Assassin', preview: 'Pink Nyx Assassin.webp', file: 'Pink Nyx Assassin.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Invoker Dark Artistry v2', preview: 'Invoker Dark Artistry v2.webp', file: 'Invoker Dark Artistry v2.zip', tags: { effects: false, icons: false } },
+        { name: 'Tidehunter Insatiable Seas', preview: 'Tidehunter Insatiable Seas.webp', file: 'Tidehunter Insatiable Seas.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Morphling Fluid Frenzy', preview: 'Morphling Fluid Frenzy.webp', file: 'Morphling Fluid Frenzy.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
