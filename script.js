@@ -420,7 +420,7 @@ function showToast(message) {
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.textContent = message;
+    toast.innerHTML = message;
     document.body.appendChild(toast);
 
     requestAnimationFrame(() => {

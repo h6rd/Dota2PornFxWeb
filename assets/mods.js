@@ -1,4 +1,11 @@
 const recentlyAddedMods = [
+    // { name: '', category: '' },
+    { name: 'Purple Outline Shader', category: 'shaders' },
+    { name: 'Pine Radiant Creeps', category: 'creeps' },
+    { name: 'Pine Dire Creeps', category: 'creeps' },
+    { name: 'USSR Radiant Creeps', category: 'creeps' },
+    { name: 'TI7 Radiant Tower', category: 'towers' },
+    { name: 'TI7 Dire Tower', category: 'towers' },
     { name: 'Santa Hat Roshan', category: 'roshan' },
     { name: 'Purple Hex', category: 'item-effects' },
     { name: 'Winter Hex', category: 'item-effects' },
@@ -71,7 +78,8 @@ const modsData = {
         { name: 'Diretide Shader (outline)', preview: 'diretide_shader.webp', file: 'pak10_dir.vpk' },
         { name: 'Haze Shader', preview: 'haze_shader.webp', file: 'pak40_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-haze_shader/' },
         { name: 'Ancient Shader', preview: 'ancient_shader.webp', file: 'pak32_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_shader/' },
-        { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.webp', file: 'pak47_dir.vpk' }
+        { name: 'Purple Ancient Shader', preview: 'purple_ancient_shader.webp', file: 'pak47_dir.vpk' },
+        { name: 'Purple Outline Shader', preview: 'Purple Outline Shader.webp', file: 'pak11_dir.vpk' },
     ],
     'ti-bp-effects': [
         { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
@@ -581,6 +589,8 @@ const modsData = {
                     { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
                     { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
                     { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
+                    { name: 'Pine Radiant Creeps', preview: 'Pine Radiant Creeps.webp', file: 'pak26_dir.vpk' },
+                    { name: 'USSR Radiant Creeps', preview: 'USSR Radiant Creeps.webp', file: 'pak28_dir.vpk' },
                 ]
             },
             {
@@ -591,6 +601,7 @@ const modsData = {
                     { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
                     { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
                     { name: 'Purple Reptilian Dire', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
+                    { name: 'Pine Dire Creeps', preview: 'Pine Dire Creeps.webp', file: 'pak27_dir.vpk' },
                 ]
             },
             {
@@ -614,9 +625,21 @@ const modsData = {
     'tormentor': [
         { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.webp', file: 'pak75_dir.vpk' }
     ],
-    'towers': [
-        { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak81_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' }
-    ],
+    'towers': {
+        groups: [
+            {
+                id: 'radiant-tower', name: 'Radiant Tower', mods: [
+                    { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' },
+                    { name: 'TI7 Radiant Tower', preview: 'TI7 Radiant Tower.webp', file: 'pak11_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-tower', name: 'Dire Tower', mods: [
+                    { name: 'TI7 Dire Tower', preview: 'TI7 Dire Tower.webp', file: 'pak12_dir.vpk' },
+                ]
+            }
+        ]
+    },
     'packs': [
         { name: 'Winter Pack', preview: 'Winter Pack.mp4', file: 'Winter Pack [7.39d].zip' },
         { name: 'Autumn Pack', preview: 'Autumn Pack.mp4', file: 'Autumn Pack [7.39d].zip' },
