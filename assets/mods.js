@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Techies Arab', category: 'heroes' },
     { name: 'Dragon Dire Tower', category: 'towers' },
     { name: 'Dragon Radiant Tower', category: 'towers' },
     { name: 'Morphling Fluid Frenzy', category: 'heroes' },
@@ -572,6 +573,7 @@ const modsData = {
         { name: 'Invoker Dark Artistry v2', preview: 'Invoker Dark Artistry v2.webp', file: 'Invoker Dark Artistry v2.zip', tags: { effects: false, icons: false } },
         { name: 'Tidehunter Insatiable Seas', preview: 'Tidehunter Insatiable Seas.webp', file: 'Tidehunter Insatiable Seas.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Morphling Fluid Frenzy', preview: 'Morphling Fluid Frenzy.webp', file: 'Morphling Fluid Frenzy.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Techies Arab', preview: 'Techies Arab.webp', file: 'Techies Arab.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
