@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Baby Roshan', category: 'couriers' },
+    { name: 'Ice Baby Roshan', category: 'couriers' },
+    { name: 'Dark Moon Baby Roshan', category: 'couriers' },
     { name: 'Ghost Shadow Fiend', category: 'heroes' },
     { name: 'Primal Beast Prehistoric Predator', category: 'heroes' },
     { name: 'Techies Arab', category: 'heroes' },
@@ -370,8 +373,8 @@ const modsData = {
         { name: 'DarkPoly', preview: 'DarkPoly.webp', file: 'pak36_dir.vpk' },
         { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
         { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak20_dir.vpk' },
-        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
-        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }] },
+        { name: 'Flat Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }] },
         { name: 'LowPoly & Trees', preview: 'LowPoly+Trees.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'LowPoly', preview: 'LowPoly.webp', file: 'pak11_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
@@ -795,6 +798,8 @@ const modsData = {
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
         { name: 'VPKTool Linux', preview: 'VPKTool-Linux.webp', file: 'VPKTool Linux.zip', guideId: "vpk-tool-linux" },
+        { name: 'Source2Viewer', preview: 's2v.webp', file: 'https://github.com/ValveResourceFormat/ValveResourceFormat', type: 'guide' },
+        { name: 'VPKEdit', preview: 'VPKEdit.webp', file: 'https://github.com/craftablescience/VPKEdit', type: 'guide' },
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify', type: 'guide' },
@@ -837,6 +842,9 @@ const modsData = {
         { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
         { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
         { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
+        { name: 'Dark Moon Baby Roshan', preview: 'Dark Moon Baby Roshan.webp', file: 'pak14_dir.vpk' },
+        { name: 'Ice Baby Roshan', preview: 'Ice Baby Roshan.webp', file: 'pak15_dir.vpk' },
+        { name: 'Baby Roshan', preview: 'Baby Roshan.webp', file: 'pak16_dir.vpk' },
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack' },

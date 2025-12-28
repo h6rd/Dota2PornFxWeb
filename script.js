@@ -1767,8 +1767,14 @@ function renderAllModsSearch() {
     elements.categoryDescription.textContent = `Found ${allResults.length} mods`;
 
     allResults.forEach(({ mod, category, groupId }) => {
-        const card = createModCard(mod, category.id, groupId);
-        elements.modsGrid.appendChild(card);
+    const card = createModCard(mod, category.id, groupId);
+
+    const subtitleElement = card.querySelector('.card-subtitle');
+    if (subtitleElement && mod.type !== 'guide') {
+        subtitleElement.textContent = translations[category.key];
+    }
+    
+    elements.modsGrid.appendChild(card);
     });
 
     if (typeof updateCartButtons === 'function') {
