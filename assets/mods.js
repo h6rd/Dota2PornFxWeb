@@ -1,5 +1,10 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Aghanim Red Lite', category: 'shaders' },
+    { name: 'Aghanim Yellow Lite', category: 'shaders' },
+    { name: 'Aghanim White Lite', category: 'shaders' },
+    { name: 'Aghanim Purple Lite', category: 'shaders' },
+    { name: 'Aghanim Green Lite', category: 'shaders' },
     { name: 'Wraith King Itsuka Kotori', category: 'heroes' },
     { name: 'Sven Yatogami Tohka v2', category: 'heroes' },
     { name: 'Crystal Maiden Cirno', category: 'heroes' },
@@ -78,6 +83,11 @@ const modsData = {
         { name: 'Wave Lite Red', preview: 'Wave Lite Red.webp', file: 'pak29_dir.vpk' },
         { name: 'Wave Lite White', preview: 'Wave Lite White.webp', file: 'pak30_dir.vpk' },
         { name: 'Wave Lite Yellow', preview: 'Wave Lite Yellow.webp', file: 'pak31_dir.vpk' },
+        { name: 'Aghanim Green Lite', preview: 'Aghanim Green Lite.webp', file: 'pak32_dir.vpk' },
+        { name: 'Aghanim Purple Lite', preview: 'Aghanim Purple Lite.webp', file: 'pak33_dir.vpk' },
+        { name: 'Aghanim White Lite', preview: 'Aghanim White Lite.webp', file: 'pak34_dir.vpk' },
+        { name: 'Aghanim Yellow Lite', preview: 'Aghanim Yellow Lite.webp', file: 'pak35_dir.vpk' },
+        { name: 'Aghanim Red Lite', preview: 'Aghanim Red Lite.webp', file: 'pak36_dir.vpk' },
     ],
     'ti-bp-effects': [
         { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
@@ -584,6 +594,9 @@ const modsData = {
         { name: 'Troll Warlord Reimu', preview: 'Troll Warlord Reimu.webp', file: 'Troll Warlord Reimu.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Weaver Kurumi', preview: 'Weaver Kurumi.webp', file: 'Weaver Kurumi.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Tinker Sakuya', preview: 'Tinker Sakuya.webp', file: 'Tinker Sakuya.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
+        { name: 'Nude Naga Siren', preview: 'Nude Naga Siren.webp', file: 'Nude Naga Siren.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
+        { name: 'Nude Drow Ranger', preview: 'Nude Drow Ranger.webp', file: 'Nude Drow Ranger.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
+        { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
