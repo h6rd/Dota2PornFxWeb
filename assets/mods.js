@@ -1,6 +1,5 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
-    { name: 'Shadow Fiend Trenbolone', category: 'heroes' },
     { name: 'Aghanim Red Lite', category: 'shaders' },
     { name: 'Aghanim Yellow Lite', category: 'shaders' },
     { name: 'Aghanim White Lite', category: 'shaders' },
