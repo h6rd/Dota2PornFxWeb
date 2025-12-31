@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dark Bounty Rune', category: 'item-effects' },
     { name: 'Rubick Plagueroad Apothacary', category: 'heroes' },
     { name: 'Aghanim Red Lite', category: 'shaders' },
     { name: 'Aghanim Yellow Lite', category: 'shaders' },
@@ -281,6 +282,7 @@ const modsData = {
             {
                 id: 'runes', name: 'Runes', mods: [
                     { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
+                    { name: 'Dark Bounty Rune', preview: 'Dark Bounty Rune.mp4', file: 'pak10_dir.vpk' },
                 ]
             },
         ]
