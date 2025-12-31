@@ -598,7 +598,7 @@ const modsData = {
         { name: 'Nude Naga Siren', preview: 'Nude Naga Siren.webp', file: 'Nude Naga Siren.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
         { name: 'Nude Drow Ranger', preview: 'Nude Drow Ranger.webp', file: 'Nude Drow Ranger.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
         { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
-        { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://plusherei.bandcamp.com/' }] },
+        { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }, { type: 'source', url: 'https://discord.com/channels/984169062735151174/1426336775735087195/1426336775735087195' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
