@@ -392,7 +392,7 @@ const modsData = {
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },
-        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak57_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify' }] },
+        { name: 'Small Trees Minify', preview: 'Small Trees.webp', file: 'pak57_dir.vpk', links: [{ type: 'author', url: 'https://github.com/robbyz512' }] },
         { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_crystals_trees/' },
         { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-wooden_trees/' },
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' },
@@ -598,7 +598,7 @@ const modsData = {
         { name: 'Nude Naga Siren', preview: 'Nude Naga Siren.webp', file: 'Nude Naga Siren.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
         { name: 'Nude Drow Ranger', preview: 'Nude Drow Ranger.webp', file: 'Nude Drow Ranger.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://discord.com/users/187454472253997056' }] },
         { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
-        { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }, { type: 'source', url: 'https://discord.com/channels/984169062735151174/1426336775735087195/1426336775735087195' }] },
+        { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
