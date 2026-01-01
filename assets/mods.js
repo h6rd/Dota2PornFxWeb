@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'LowPoly & Trees', category: 'terrains' },
+    { name: 'LowPoly', category: 'terrains' },
     { name: 'Dark Bounty Rune', category: 'item-effects' },
     { name: 'Rubick Plagueroad Apothacary', category: 'heroes' },
     { name: 'Aghanim Red Lite', category: 'shaders' },
