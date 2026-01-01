@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Rubick Dark Mage', category: 'heroes' },
     { name: 'LowPoly & Trees', category: 'terrains' },
     { name: 'LowPoly', category: 'terrains' },
     { name: 'Dark Bounty Rune', category: 'item-effects' },
@@ -577,6 +578,7 @@ const modsData = {
         { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
         { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }] },
         { name: 'Rubick Plagueroad Apothacary', preview: 'Rubick Plagueroad Apothacary.webp', file: 'Rubick Plagueroad Apothacary.zip', tags: { effects: true, icons: false }},
+        { name: 'Rubick Dark Mage', preview: 'Rubick Dark Mage.webp', file: 'Rubick Dark Mage.zip', tags: { effects: true, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
