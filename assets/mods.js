@@ -377,7 +377,7 @@ const modsData = {
         { name: 'Low Poly Trees', preview: 'Low Poly Trees.webp', file: 'pak91_dir.vpk' },
         { name: 'Cartoon Trees', preview: 'Cartoon Trees.webp', file: 'pak92_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Pine Cone Trees', preview: 'Pine Cone Trees.webp', file: 'pak32_dir.vpk' },
-        { name: 'Purple Reef Trees', preview: 'Purple Reef Trees.webp', file: 'pak10_dir.vpk' },
+        // { name: 'Purple Reef Trees', preview: 'Purple Reef Trees.webp', file: 'pak10_dir.vpk' }, govno, mne ne nrav
         { name: 'Cone Trees', preview: 'Cone Trees.webp', file: 'pak11_dir.vpk' },
         { name: 'LowPoly Shrub Trees', preview: 'LowPoly Shrub Trees.webp', file: 'pak12_dir.vpk' },
     ],
