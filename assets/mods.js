@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Riki Hunger Howling Wilds', category: 'heroes' },
     { name: 'Rubick Dark Mage', category: 'heroes' },
     { name: 'LowPoly & Trees', category: 'terrains' },
     { name: 'LowPoly', category: 'terrains' },
@@ -579,6 +580,7 @@ const modsData = {
         { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }] },
         { name: 'Rubick Plagueroad Apothacary', preview: 'Rubick Plagueroad Apothacary.webp', file: 'Rubick Plagueroad Apothacary.zip', tags: { effects: true, icons: false }},
         { name: 'Rubick Dark Mage', preview: 'Rubick Dark Mage.webp', file: 'Rubick Dark Mage.zip', tags: { effects: true, icons: false } },
+        { name: 'Riki Hunger Howling Wilds', preview: 'Riki Hunger of the Howling Wilds.webp', file: 'Riki Hunger of the Howling Wilds.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
