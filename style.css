@@ -301,8 +301,30 @@ body {
   flex-direction: column;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100px;
+  margin: 6px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline);
+  border-radius: 100px;
+  border: 2px solid var(--md-sys-color-surface-container);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-on-surface-variant);
+}
+
+body {
+  scrollbar-gutter: stable;
+  -ms-overflow-style: scrollbar;
+  scrollbar-width: thin;
 }
 
 body:not(.loaded) .footer {

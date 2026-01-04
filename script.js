@@ -1097,7 +1097,7 @@ function initParticles() {
                     value: 45,
                     density: {
                         enable: true,
-                        value_area: 150
+                        value_area: 200
                     }
                 },
                 color: {
@@ -1122,7 +1122,7 @@ function initParticles() {
                     anim: {
                         enable: true,
                         speed: 1,
-                        size_min: 1,
+                        size_min: 2,
                         sync: false
                     }
                 },
