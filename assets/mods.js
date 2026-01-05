@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Bloody Gore Spectre', category: 'heroes' },
     { name: 'Riki Hunger Howling Wilds', category: 'heroes' },
     { name: 'Rubick Dark Mage', category: 'heroes' },
     { name: 'LowPoly & Trees', category: 'terrains' },
@@ -459,7 +460,6 @@ const modsData = {
         { name: 'Maid Marci', preview: 'Maid Marci.webp', file: 'Maid Marci.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@mrkliromin7723' }] },
         { name: 'Terrorblade Unblinking Horror', preview: 'Terrorblade Unblinking Horror.webp', file: 'Terrorblade Unblinking Horror.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: 'Purple Shadow Fiend', preview: 'Purple Shadow Fiend.webp', file: 'Purple Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
-        { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: 'Cursed Shadow Fiend', preview: 'Cursed Shadow Fiend.webp', file: 'Cursed Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Juggernaut Ice and Fire', preview: 'Juggernaut Ice and Fire.webp', file: 'Juggernaut Ice and Fire.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
@@ -581,6 +581,7 @@ const modsData = {
         { name: 'Rubick Plagueroad Apothacary', preview: 'Rubick Plagueroad Apothacary.webp', file: 'Rubick Plagueroad Apothacary.zip', tags: { effects: true, icons: false }},
         { name: 'Rubick Dark Mage', preview: 'Rubick Dark Mage.webp', file: 'Rubick Dark Mage.zip', tags: { effects: true, icons: false } },
         { name: 'Riki Hunger Howling Wilds', preview: 'Riki Hunger of the Howling Wilds.webp', file: 'Riki Hunger of the Howling Wilds.zip', tags: { effects: true, icons: true } },
+        { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
