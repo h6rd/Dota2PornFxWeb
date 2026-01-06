@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Undying Archange', category: 'heroes' },
     { name: 'Bloody Gore Spectre', category: 'heroes' },
     { name: 'Riki Hunger Howling Wilds', category: 'heroes' },
     { name: 'Rubick Dark Mage', category: 'heroes' },
@@ -582,6 +583,7 @@ const modsData = {
         { name: 'Rubick Dark Mage', preview: 'Rubick Dark Mage.webp', file: 'Rubick Dark Mage.zip', tags: { effects: true, icons: false } },
         { name: 'Riki Hunger Howling Wilds', preview: 'Riki Hunger of the Howling Wilds.webp', file: 'Riki Hunger of the Howling Wilds.zip', tags: { effects: true, icons: true } },
         { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Undying Archange', preview: 'Undying Archange.webp', file: 'Undying Archange.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
