@@ -826,7 +826,7 @@ const modsData = {
         { name: 'DotaBuff', preview: 'dotabuff.webp', file: 'https://www.dotabuff.com/', type: 'guide', tags: { stats: true, meta: true } },
         { name: 'OpenDota', preview: 'opendota.webp', file: 'https://www.opendota.com/', type: 'guide', tags: { stats: true, meta: true } },
         { name: 'Dota2ProTracker', preview: 'dota2protracker.webp', file: 'https://dota2protracker.com/', type: 'guide', tags: { meta: true } },
-        { name: 'Dota2 Emoji Nickname', preview: 'Dota2EmojiNickname.webp', file: 'https://l4wio.github.io/dota2-emoji-nickname/', type: 'guide', tags: { fun: false } },
+        { name: 'Dota2 Emoticons', preview: 'Dota2EmojiNickname.webp', file: 'https://aluerie.github.io/Dota2Utils/ListEmoticons/', type: 'guide', tags: { fun: false } },
         { name: 'Steam Status', preview: 'steamstatus.webp', file: 'https://steamstat.us/', type: 'guide' }
     ],
     'guides': [
