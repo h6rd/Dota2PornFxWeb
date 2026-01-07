@@ -1,5 +1,11 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Nikaido Hiro', category: 'backgrounds' },
+    { name: 'Fallen Paladin', category: 'backgrounds' },
+    { name: 'Cat Under Rain', category: 'backgrounds' },
+    { name: 'Corgi Sleeping', category: 'backgrounds' },
+    { name: 'Floating Dog', category: 'backgrounds' },
+    { name: 'Garden of Quiet Days', category: 'backgrounds' },
     { name: 'Ancient Sand Naga Siren', category: 'heroes' },
     { name: 'Nude Drow Ranger v2', category: 'heroes' },
     { name: 'Undying Archange', category: 'heroes' },
@@ -252,7 +258,6 @@ const modsData = {
             },
             {
                 id: 'aghanim', name: 'Aghanim Aura', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI10 Aghanim Aura', preview: 'TI10 Aghanim Aura.webp', file: 'TI10 Aghanim Aura.zip' },
                 ]
             },
@@ -789,6 +794,12 @@ const modsData = {
         { name: 'Shadow Wreck', preview: 'Shadow Wreck.webp', file: 'pak37_dir.vpk', tags: { image: true, video: false } },
         { name: 'Lelouch Lamperouge', preview: 'Lelouch Lamperouge.mp4', file: 'pak38_dir.vpk', tags: { image: false, video: true } },
         { name: 'Kira and Ryuk', preview: 'Kira and Ryuk.mp4', file: 'pak39_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Garden of Quiet Days', preview: 'Garden of Quiet Days.mp4', file: 'pak40_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Floating Dog', preview: 'Floating Dog.mp4', file: 'pak41_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Corgi Sleeping', preview: 'Corgi Sleeping.mp4', file: 'pak42_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Cat Under Rain', preview: 'Cat Under Rain.mp4', file: 'pak43_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Fallen Paladin', preview: 'Fallen Paladin.mp4', file: 'pak44_dir.vpk', tags: { image: false, video: true } },
+        { name: 'Nikaido Hiro', preview: 'Nikaido Hiro.mp4', file: 'pak45_dir.vpk', tags: { image: false, video: true } },
         // { name: '', preview: '.mp4', file: 'pak_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
@@ -807,7 +818,7 @@ const modsData = {
         { name: 'VPKEdit', preview: 'VPKEdit.webp', file: 'https://github.com/craftablescience/VPKEdit', type: 'guide' },
     ],
     'optimization': [
-        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify', type: 'guide' },
+        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
         { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' }
     ],
     'sites': [

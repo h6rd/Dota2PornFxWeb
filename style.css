@@ -302,29 +302,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 100px;
-  margin: 6px 0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--md-sys-color-outline);
-  border-radius: 100px;
-  border: 2px solid var(--md-sys-color-surface-container);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--md-sys-color-on-surface-variant);
-}
-
-body {
-  scrollbar-gutter: stable;
-  -ms-overflow-style: scrollbar;
-  scrollbar-width: thin;
+  display: none;
 }
 
 body:not(.loaded) .footer {
@@ -353,7 +331,7 @@ body.loaded .footer {
   padding: 0 20px;
 }
 
-/* Garland */
+/* Garland
 .lightrope {
   text-align: center;
   white-space: nowrap;
@@ -459,7 +437,6 @@ body.loaded .footer {
   pointer-events: none;
 }
 
-/* Halloween Effects */
 #halloween-effects {
   position: fixed;
   inset: 0;
@@ -539,7 +516,7 @@ body.loaded .footer {
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
-}
+} */
 
 .header {
   background-color: var(--md-header-blur);
@@ -1073,6 +1050,7 @@ img {
 .category-guide-link {
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-left: 3px;
     font-size: 15px;
     color: var(--md-sys-color-primary);
     font-weight: 600;

@@ -1050,111 +1050,111 @@ function setupThemeToggle() {
 }
 
 // Winter & Halloween FX
-function initSeasonalEffects() {
-    const now = new Date();
-    const month = now.getMonth();
-    const day = now.getDate();
+// function initSeasonalEffects() {
+//     const now = new Date();
+//     const month = now.getMonth();
+//     const day = now.getDate();
 
-    const isWinter = (month === 11) || (month === 0) || (month === 1);
+//     const isWinter = (month === 11) || (month === 0) || (month === 1);
 
-    const isHalloween = (month === 9);
+//     const isHalloween = (month === 9);
     
-    const garland = document.querySelector('.lightrope');
-    const particles = document.getElementById('particles-js');
-    const halloweenEffects = document.getElementById('halloween-effects');
+//     const garland = document.querySelector('.lightrope');
+//     const particles = document.getElementById('particles-js');
+//     const halloweenEffects = document.getElementById('halloween-effects');
     
-    if (isWinter) {
-        if (garland) garland.style.display = 'block';
-        if (particles) particles.style.display = 'block';
-        if (halloweenEffects) halloweenEffects.style.display = 'none';
-        initParticles();
-    } else if (isHalloween) {
-        if (garland) garland.style.display = 'none';
-        if (particles) particles.style.display = 'none';
-        if (halloweenEffects) halloweenEffects.style.display = 'block';
-    } else {
-        if (garland) garland.style.display = 'none';
-        if (particles) particles.style.display = 'none';
-        if (halloweenEffects) halloweenEffects.style.display = 'none';
-    }
-}
+//     if (isWinter) {
+//         if (garland) garland.style.display = 'block';
+//         if (particles) particles.style.display = 'block';
+//         if (halloweenEffects) halloweenEffects.style.display = 'none';
+//         initParticles();
+//     } else if (isHalloween) {
+//         if (garland) garland.style.display = 'none';
+//         if (particles) particles.style.display = 'none';
+//         if (halloweenEffects) halloweenEffects.style.display = 'block';
+//     } else {
+//         if (garland) garland.style.display = 'none';
+//         if (particles) particles.style.display = 'none';
+//         if (halloweenEffects) halloweenEffects.style.display = 'none';
+//     }
+// }
 
 // Snow
-function initParticles() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const snowColor = isDark ? '#ffffff' : '#000000';
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        setTimeout(initParticles, 100);
-      });
-    }
+// function initParticles() {
+//     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+//     const snowColor = isDark ? '#ffffff' : '#000000';
+//     const themeToggle = document.getElementById('themeToggle');
+//     if (themeToggle) {
+//       themeToggle.addEventListener('click', () => {
+//         setTimeout(initParticles, 100);
+//       });
+//     }
     
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 45,
-                    density: {
-                        enable: true,
-                        value_area: 200
-                    }
-                },
-                color: {
-                    value: snowColor
-                },
-                shape: {
-                    type: 'circle'
-                },
-                opacity: {
-                    value: isDark ? 0.8 : 0.6,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.5,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 4,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        size_min: 2,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: false
-                },
-                move: {
-                    enable: true,
-                    speed: 1.5,
-                    direction: 'bottom',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: false
-                    },
-                    onclick: {
-                        enable: false
-                    },
-                    resize: false
-                }
-            },
-            retina_detect: true
-        });
-    }
-}
+//     if (typeof particlesJS !== 'undefined') {
+//         particlesJS('particles-js', {
+//             particles: {
+//                 number: {
+//                     value: 45,
+//                     density: {
+//                         enable: true,
+//                         value_area: 200
+//                     }
+//                 },
+//                 color: {
+//                     value: snowColor
+//                 },
+//                 shape: {
+//                     type: 'circle'
+//                 },
+//                 opacity: {
+//                     value: isDark ? 0.8 : 0.6,
+//                     random: true,
+//                     anim: {
+//                         enable: true,
+//                         speed: 1,
+//                         opacity_min: 0.5,
+//                         sync: false
+//                     }
+//                 },
+//                 size: {
+//                     value: 4,
+//                     random: true,
+//                     anim: {
+//                         enable: true,
+//                         speed: 1,
+//                         size_min: 2,
+//                         sync: false
+//                     }
+//                 },
+//                 line_linked: {
+//                     enable: false
+//                 },
+//                 move: {
+//                     enable: true,
+//                     speed: 1.5,
+//                     direction: 'bottom',
+//                     random: false,
+//                     straight: false,
+//                     out_mode: 'out',
+//                     bounce: false
+//                 }
+//             },
+//             interactivity: {
+//                 detect_on: 'canvas',
+//                 events: {
+//                     onhover: {
+//                         enable: false
+//                     },
+//                     onclick: {
+//                         enable: false
+//                     },
+//                     resize: false
+//                 }
+//             },
+//             retina_detect: true
+//         });
+//     }
+// }
 
 // Recently Added Carousel
 function calculateItemsPerPage() {
@@ -1375,13 +1375,13 @@ function setupRecentlyAdded() {
             linkButtonElements.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
-            
+
                     const guideId = button.getAttribute('data-guide-id');
                     if (guideId) {
                         openGuideForMod({ guideId });
                         return;
                     }
-            
+
                     const url = button.getAttribute('data-url');
                     const isVideo = button.getAttribute('data-video') === 'true';
                     if (isVideo) {
@@ -1392,25 +1392,25 @@ function setupRecentlyAdded() {
                 });
             });
 
-const copyLinkBtn = newCard.querySelector('.copy-link-btn');
-if (copyLinkBtn) {
-    copyLinkBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const link = generateModLink(recentMod.category, recentMod.name, groupId);
-        copyToClipboard(link, 'Mod link copied!');
-    });
-}
+            const copyLinkBtn = newCard.querySelector('.copy-link-btn');
+            if (copyLinkBtn) {
+                copyLinkBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const link = generateModLink(recentMod.category, recentMod.name, groupId);
+                    copyToClipboard(link, 'Mod link copied!');
+                });
+            }
 
-newCard.addEventListener('click', (e) => {
-    if (e.target.classList.contains('link-button') || 
-        e.target.closest('.link-button') ||
-        e.target.classList.contains('copy-link-btn') || 
-        e.target.closest('.copy-link-btn')) {
-        return;
-    }
-    openCategoryAndHighlightMod(recentMod.category, recentMod.name);
-    vibrate(10);
-});
+            newCard.addEventListener('click', (e) => {
+                if (e.target.classList.contains('link-button') ||
+                    e.target.closest('.link-button') ||
+                    e.target.classList.contains('copy-link-btn') ||
+                    e.target.closest('.copy-link-btn')) {
+                    return;
+                }
+                openCategoryAndHighlightMod(recentMod.category, recentMod.name);
+                vibrate(10);
+            });
             track.appendChild(newCard);
         }
     });
@@ -1458,7 +1458,7 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
-    initSeasonalEffects();
+    // initSeasonalEffects();
     handleUrlParams();
 }
 
@@ -1593,25 +1593,18 @@ function showCategoryPage(categoryId) {
     resetSort();
 
     elements.categoryTitle.textContent = translations[category.key];
-    elements.categoryDescription.textContent = translations[category.key + '-desc'];
 
-    const existingGuideLink = document.querySelector('.category-guide-link');
-    if (existingGuideLink) {
-        existingGuideLink.remove();
-    }
-
+    const descriptionText = translations[category.key + '-desc'];
     if (category.guideId) {
-        const guideLink = document.createElement('p');
-        guideLink.className = 'category-guide-link';
-        guideLink.textContent = translations['how-to-install'];
-        guideLink.setAttribute('data-guide-id', category.guideId);
-        
+        elements.categoryDescription.innerHTML = `${descriptionText} <span class="category-guide-link" data-guide-id="${category.guideId}">${translations['how-to-install']}</span>`;
+
+        const guideLink = elements.categoryDescription.querySelector('.category-guide-link');
         guideLink.addEventListener('click', () => {
             openGuideForMod({ guideId: category.guideId });
             vibrate(10);
         });
-
-        elements.categoryDescription.insertAdjacentElement('afterend', guideLink);
+    } else {
+        elements.categoryDescription.textContent = descriptionText;
     }
 
     renderMods(categoryId);
