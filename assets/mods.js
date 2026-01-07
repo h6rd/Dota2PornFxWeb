@@ -66,7 +66,7 @@ const modsData = {
         { name: 'Wave Lite Blue', preview: 'Wave Lite Blue.webp', file: 'pak23_dir.vpk' },
         { name: 'Wave Lite Aqua', preview: 'Wave Lite Aqua.webp', file: 'pak24_dir.vpk' },
         { name: 'Wave Lite Pink', preview: 'Wave Lite Pink.webp', file: 'pak25_dir.vpk' },
-        { name: 'Wave Lite Purple', preview: 'Wave Lite Purple.webp', file: 'pak26_dir.vpk' },
+        // { name: 'Wave Lite Purple', preview: 'Wave Lite Purple.webp', file: 'pak26_dir.vpk' },
         { name: 'Wave Lite Peach', preview: 'Wave Lite Peach.webp', file: 'pak27_dir.vpk' },
         { name: 'Wave Lite Green', preview: 'Wave Lite Green.webp', file: 'pak28_dir.vpk' },
         { name: 'Wave Lite Red', preview: 'Wave Lite Red.webp', file: 'pak29_dir.vpk' },
