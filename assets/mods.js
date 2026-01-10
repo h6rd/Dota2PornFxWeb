@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'SF Broodmother', category: 'heroes' },
     { name: 'Azur Lane Medals', category: 'ranks' },
     { name: 'Azur Lane Cursor', category: 'cursors' },
     { name: 'Nikaido Hiro', category: 'backgrounds' },
@@ -595,6 +596,7 @@ const modsData = {
         { name: 'Undying Archange', preview: 'Undying Archange.webp', file: 'Undying Archange.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Nude Drow Ranger v2', preview: 'Nude Drow Ranger v2.webp', file: 'Nude Drow Ranger v2.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Ancient Sand Naga Siren', preview: 'Ancient Sand Naga Siren.webp', file: 'Ancient Sand Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'SF Broodmother', preview: 'SF Broodmother.webp', file: 'SF Broodmother.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
