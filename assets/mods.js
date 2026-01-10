@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Nemestice Radiant Creeps', category: 'creeps' },
+    { name: 'Nemestice Dire Creeps', category: 'creeps' },
+    { name: 'Anti-Mage Creep', category: 'heroes' },
     { name: 'SF Broodmother', category: 'heroes' },
     { name: 'Azur Lane Medals', category: 'ranks' },
     { name: 'Azur Lane Cursor', category: 'cursors' },
@@ -597,6 +600,7 @@ const modsData = {
         { name: 'Nude Drow Ranger v2', preview: 'Nude Drow Ranger v2.webp', file: 'Nude Drow Ranger v2.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Ancient Sand Naga Siren', preview: 'Ancient Sand Naga Siren.webp', file: 'Ancient Sand Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'SF Broodmother', preview: 'SF Broodmother.webp', file: 'SF Broodmother.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
+        { name: 'Anti-Mage Creep', preview: 'Anti-Mage Creep.webp', file: 'Anti-Mage Creep.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
