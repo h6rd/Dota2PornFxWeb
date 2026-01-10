@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Azur Lane Medals', category: 'ranks' },
+    { name: 'Azur Lane Cursor', category: 'cursors' },
     { name: 'Nikaido Hiro', category: 'backgrounds' },
     { name: 'Fallen Paladin', category: 'backgrounds' },
     { name: 'Cat Under Rain', category: 'backgrounds' },
@@ -835,10 +837,11 @@ const modsData = {
         { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
     ],
     'ranks': [
-        { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk' },
-        { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk' },
+        { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3138412507' },
+        { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk', linkType: 'source', linkUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3138412507' },
         { name: 'Void Medals', preview: 'Void Medals.webp', file: 'pak12_dir.vpk' },
         { name: 'Bear Medals', preview: 'Bear Medals.webp', file: 'pak13_dir.vpk' },
+        { name: 'Azur Lane Medals', preview: 'Azur Lane Medals.webp', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://vk.com/@dota2animemods-ui-dota-mod' },
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
@@ -899,6 +902,7 @@ const modsData = {
         { name: 'Timbersaw Cursor', preview: 'Timbersaw Cursor.webp', file: 'Timbersaw Cursor.zip' },
         { name: 'Vengeful Spirit Cursor', preview: 'Vengeful Spirit Cursor.webp', file: 'Vengeful Spirit Cursor.zip' },
         { name: 'Simple Cursor', preview: 'Simple Cursor.webp', file: 'Simple Cursor.zip', linkType: 'author', linkUrl: 'https://t.me/slipersone' },
+        { name: 'Azur Lane Cursor', preview: 'Azur Lane Cursor.webp', file: 'Azur Lane Cursor.zip', linkType: 'source', linkUrl: 'https://vk.com/@dota2animemods-ui-dota-mod' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
