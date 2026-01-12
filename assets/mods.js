@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Aghanim Baby Roshan Radiant', category: 'couriers' },
+    { name: 'Aghanim Baby Roshan Dire', category: 'couriers' },
     { name: 'Jade Baby Roshan', category: 'couriers' },
     { name: 'Baby Roshan 2018', category: 'couriers' },
     { name: 'Gingerbread Baby Roshan', category: 'couriers' },
@@ -877,6 +879,8 @@ const modsData = {
         { name: 'Gingerbread Baby Roshan', preview: 'Gingerbread Baby Roshan.webp', file: 'pak17_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Baby Roshan 2018', preview: 'Baby Roshan 2018.webp', file: 'pak18_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Jade Baby Roshan', preview: 'Jade Baby Roshan.webp', file: 'pak19_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Aghanim Baby Roshan Radiant', preview: 'Aghanims Baby Roshan Radiant.webp', file: 'pak20_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Aghanim Baby Roshan Dire', preview: 'Aghanims Baby Roshan Dire.webp', file: 'pak21_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack' },

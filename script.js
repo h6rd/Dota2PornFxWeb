@@ -190,7 +190,7 @@ const LINK_ICONS = {
     'guide': 'description',
     'bug': 'bug_report',
     'not-safe': 'warning',
-    'info': 'priority_high'
+    'info': 'warning'
 };
 
 const TAG_CONFIGS = {
@@ -2004,7 +2004,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
         const isNotSafe = mod.guideType === 'not-safe';
         const isInfo = mod.guideType === 'info';
         const guideClass = isNotSafe ? 'not-safe' : (isInfo ? 'info' : '');
-        const guideIcon = isNotSafe ? 'warning' : (isInfo ? 'priority_high' : 'description');
+        const guideIcon = isNotSafe ? 'warning' : (isInfo ? 'text_snippet' : 'description');
         const guideText = isNotSafe ? 'not-safe' : (isInfo ? 'info' : 'guide');
 
         linkButtons.push(`
