@@ -771,13 +771,11 @@ const guidesData = {
           steps: [
             {
               icon: "priority_high",
-              text: "This courier has effects. For them to work, you must select the courier <code>Dolfrat and Roshinante Scholar Edition</code>",
+              text: "This courier has effects. For them to work, you must select the courier <code>Dolfrat and Roshinante Scholar Edition</code> - Reward for completing the tier 1 welcoming quests",
             },
           ],
-          info: "If you do not have this courier, choose a standard courier, but it will be without effects 😢",
+          info: "If you do not have this courier, choose a standard courier, but it will be without effects",
           infoPosition: "bottom",
-          image: "assets/previews/guides/courier-info.webp",
-          imagePosition: 'bottom',
         },
       ],
       ru: [
@@ -787,13 +785,11 @@ const guidesData = {
           steps: [
             {
               icon: "priority_high",
-              text: "Этот курьер имеет эффекты. Чтобы они работали, необходимо выбрать курьера <code>Dolfrat and Roshinante Scholar Edition</code>",
+              text: "Этот курьер имеет эффекты. Чтобы они работали, необходимо выбрать курьера <code>Dolfrat and Roshinante Scholar Edition</code> - Его дают за выполнение заданий обучения 1 разряда",
             },
           ],
-          info: "Если у вас нет этого курьера, выберите стандартного курьера, но он будет без эффектов 😢",
+          info: "Если у вас нет этого курьера, выберите стандартного курьера, но он будет без эффектов",
           infoPosition: "bottom",
-          image: "assets/previews/guides/courier-info.webp",
-          imagePosition: 'bottom',
         },
       ],
     },
