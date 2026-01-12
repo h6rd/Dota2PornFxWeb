@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Jade Baby Roshan', category: 'couriers' },
+    { name: 'Baby Roshan 2018', category: 'couriers' },
+    { name: 'Gingerbread Baby Roshan', category: 'couriers' },
     { name: 'Dark Moon Baby Roshan', category: 'couriers' },
     { name: 'Nemestice Radiant Creeps', category: 'creeps' },
     { name: 'Nemestice Dire Creeps', category: 'creeps' },
@@ -868,9 +871,12 @@ const modsData = {
         { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
         { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
         { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
-        { name: 'Dark Moon Baby Roshan', preview: 'Dark Moon Baby Roshan.webp', file: 'pak14_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Ice Baby Roshan', preview: 'Ice Baby Roshan.webp', file: 'pak15_dir.vpk' },
         { name: 'Baby Roshan', preview: 'Baby Roshan.webp', file: 'pak16_dir.vpk' },
+        { name: 'Dark Moon Baby Roshan', preview: 'Dark Moon Baby Roshan.webp', file: 'pak14_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Gingerbread Baby Roshan', preview: 'Gingerbread Baby Roshan.webp', file: 'pak17_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Baby Roshan 2018', preview: 'Baby Roshan 2018.webp', file: 'pak18_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Jade Baby Roshan', preview: 'Jade Baby Roshan.webp', file: 'pak19_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack' },
