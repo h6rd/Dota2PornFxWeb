@@ -1325,6 +1325,47 @@ img {
   color: var(--md-sys-color-primary);
 }
 
+.guide-step-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+[data-theme="light"] .guide-step-image {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.guide-image {
+  margin: 16px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--md-sys-color-surface-container);
+  padding: 12px;
+}
+
+[data-theme="light"] .guide-image {
+  background: var(--md-sys-color-surface-container);
+}
+
+.guide-image img {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+[data-theme="light"] .guide-image img {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* code */
 code {
   background: var(--md-sys-color-surface-container-highest);

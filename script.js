@@ -88,6 +88,7 @@ const translations = {
     'hero-sounds-desc': 'Custom hero sounds',
     'how-to-install': 'How to install?',
     'not-safe': 'Not Safe',
+    'info': 'info',
 };
 
 const categories = [
@@ -188,7 +189,8 @@ const LINK_ICONS = {
     'source': 'captive_portal',
     'guide': 'description',
     'bug': 'bug_report',
-    'not-safe': 'warning'
+    'not-safe': 'warning',
+    'info': 'priority_high'
 };
 
 const TAG_CONFIGS = {
@@ -557,6 +559,13 @@ function createGuideSection(section) {
         sectionDiv.appendChild(createInfoBlock(section.info));
     }
 
+    if (section.image && (!section.imagePosition || section.imagePosition === 'top')) {
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'guide-image';
+        imageDiv.innerHTML = `<img src="${section.image}" alt="${section.title || 'Guide illustration'}">`;
+        sectionDiv.appendChild(imageDiv);
+    }
+
     section.steps.forEach((step, index) => {
         const stepDiv = createGuideStep(step, index);
         sectionDiv.appendChild(stepDiv);
@@ -576,6 +585,13 @@ function createGuideSection(section) {
         sectionDiv.appendChild(createInfoBlock(section.info));
     }
 
+    if (section.image && section.imagePosition === 'bottom') {
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'guide-image';
+        imageDiv.innerHTML = `<img src="${section.image}" alt="${section.title || 'Guide illustration'}">`;
+        sectionDiv.appendChild(imageDiv);
+    }
+
     return sectionDiv;
 }
 
@@ -593,7 +609,8 @@ function createGuideStep(step, index) {
     const stepDiv = document.createElement('div');
     stepDiv.className = 'guide-step';
 
-    const stepText = typeof step === 'object' && step.icon ? step.text : step;
+    const stepText = typeof step === 'object' && step.icon ? step.text : 
+                     typeof step === 'object' && step.text ? step.text : step;
     const stepNumber = typeof step === 'object' && step.icon
         ? `<span class="material-symbols-rounded">${step.icon}</span>`
         : index + 1;
@@ -602,6 +619,7 @@ function createGuideStep(step, index) {
         <div class="guide-step-number">${stepNumber}</div>
         <div class="guide-step-content">
             <p class="guide-step-text">${stepText}</p>
+            ${typeof step === 'object' && step.image ? `<img src="${step.image}" class="guide-step-image" alt="Guide step illustration">` : ''}
         </div>
     `;
 
@@ -1984,12 +2002,17 @@ function generateLinkButtonsHtml(mod, categoryId) {
     const hideGuideButtonCategories = ['guides'];
     if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
         const isNotSafe = mod.guideType === 'not-safe';
+        const isInfo = mod.guideType === 'info';
+        const guideClass = isNotSafe ? 'not-safe' : (isInfo ? 'info' : '');
+        const guideIcon = isNotSafe ? 'warning' : (isInfo ? 'priority_high' : 'description');
+        const guideText = isNotSafe ? 'not-safe' : (isInfo ? 'info' : 'guide');
+
         linkButtons.push(`
-            <span class="link-button guide-button ${isNotSafe ? 'not-safe' : ''}" data-guide-id="${mod.guideId}">
-                <span class="material-symbols-rounded">${isNotSafe ? 'warning' : 'description'}</span>
-                ${translations[isNotSafe ? 'not-safe' : 'guide']}
-            </span>
-        `);
+        <span class="link-button guide-button ${guideClass}" data-guide-id="${mod.guideId}">
+            <span class="material-symbols-rounded">${guideIcon}</span>
+            ${translations[guideText]}
+        </span>
+    `);
     }
 
     return linkButtons.length > 0 ? `<div class="link-buttons">${linkButtons.join('')}</div>` : '';

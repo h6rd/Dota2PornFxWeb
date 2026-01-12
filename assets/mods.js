@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dark Moon Baby Roshan', category: 'couriers' },
     { name: 'Nemestice Radiant Creeps', category: 'creeps' },
     { name: 'Nemestice Dire Creeps', category: 'creeps' },
     { name: 'Anti-Mage Creep', category: 'heroes' },
@@ -867,7 +868,7 @@ const modsData = {
         { name: 'Baby Roshan Crownfall', preview: 'BabyRoshan Crownfall.webp', file: 'pak11_dir.vpk' },
         { name: 'Billy Bounceback', preview: 'Billy Bounceback.webp', file: 'pak12_dir.vpk' },
         { name: 'Palico Odogaron', preview: 'Palico Odogaron.webp', file: 'pak13_dir.vpk' },
-        { name: 'Dark Moon Baby Roshan', preview: 'Dark Moon Baby Roshan.webp', file: 'pak14_dir.vpk' },
+        { name: 'Dark Moon Baby Roshan', preview: 'Dark Moon Baby Roshan.webp', file: 'pak14_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Ice Baby Roshan', preview: 'Ice Baby Roshan.webp', file: 'pak15_dir.vpk' },
         { name: 'Baby Roshan', preview: 'Baby Roshan.webp', file: 'pak16_dir.vpk' },
     ],

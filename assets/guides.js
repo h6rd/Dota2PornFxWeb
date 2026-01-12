@@ -761,4 +761,41 @@ const guidesData = {
       ],
     },
   },
+  "couriers-info": {
+    title: "Courier Info",
+    content: {
+      en: [
+        {
+          title: "Effects",
+          icon: "wand_stars",
+          steps: [
+            {
+              icon: "priority_high",
+              text: "This courier has effects. For them to work, you must select the courier <code>Dolfrat and Roshinante Scholar Edition</code>",
+            },
+          ],
+          info: "If you do not have this courier, choose a standard courier, but it will be without effects 😢",
+          infoPosition: "bottom",
+          image: "assets/previews/guides/courier-info.webp",
+          imagePosition: 'bottom',
+        },
+      ],
+      ru: [
+        {
+          title: "Эффекты",
+          icon: "wand_stars",
+          steps: [
+            {
+              icon: "priority_high",
+              text: "Этот курьер имеет эффекты. Чтобы они работали, необходимо выбрать курьера <code>Dolfrat and Roshinante Scholar Edition</code>",
+            },
+          ],
+          info: "Если у вас нет этого курьера, выберите стандартного курьера, но он будет без эффектов 😢",
+          infoPosition: "bottom",
+          image: "assets/previews/guides/courier-info.webp",
+          imagePosition: 'bottom',
+        },
+      ],
+    },
+  },
 };
