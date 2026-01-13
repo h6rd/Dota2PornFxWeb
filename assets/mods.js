@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Skywrath Mage Thanatos', category: 'heroes' },
     { name: 'Slark Barracuda Re', category: 'heroes' },
     { name: 'Nian Courier', category: 'couriers' },
     { name: 'Strongback the Swift', category: 'couriers' },
@@ -38,7 +39,6 @@ const recentlyAddedMods = [
     { name: 'LowPoly & Trees', category: 'terrains' },
     { name: 'LowPoly', category: 'terrains' },
     { name: 'Dark Bounty Rune', category: 'item-effects' },
-    { name: 'Rubick Plagueroad Apothacary', category: 'heroes' },
 ];
 
 const modsData = {
@@ -592,6 +592,7 @@ const modsData = {
         { name: 'SF Broodmother', preview: 'SF Broodmother.webp', file: 'SF Broodmother.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Anti-Mage Creep', preview: 'Anti-Mage Creep.webp', file: 'Anti-Mage Creep.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Slark Barracuda Re', preview: 'Slark Barracuda Re.webp', file: 'Slark Barracuda Re.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
+        { name: 'Skywrath Mage Thanatos', preview: 'Skywrath Mage Thanatos.webp', file: ' Thanatos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
