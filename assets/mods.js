@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Darkness Naga Siren', category: 'heroes' },
     { name: 'Skywrath Mage Thanatos', category: 'heroes' },
     { name: 'Slark Barracuda Re', category: 'heroes' },
     { name: 'Nian Courier', category: 'couriers' },
@@ -593,6 +594,7 @@ const modsData = {
         { name: 'Anti-Mage Creep', preview: 'Anti-Mage Creep.webp', file: 'Anti-Mage Creep.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Slark Barracuda Re', preview: 'Slark Barracuda Re.webp', file: 'Slark Barracuda Re.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Skywrath Mage Thanatos', preview: 'Skywrath Mage Thanatos.webp', file: ' Thanatos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Darkness Naga Siren', preview: 'Darkness Naga Siren.webp', file: 'Darkness Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'sender', url: 'https://t.me/NahuiToSay' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
