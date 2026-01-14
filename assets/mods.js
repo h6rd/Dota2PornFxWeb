@@ -368,11 +368,11 @@ const modsData = {
         { name: 'TI9 Overgrown Empire', preview: 'TI9 Overgrown Empire.webp', file: 'TI9 Overgrown Empire.zip' },
         { name: 'TI10 Sanctum of the Divine', preview: 'TI10 Sanctum of the Divine.webp', file: 'TI10 Sanctum of the Divine.zip' },
         { name: 'The Kings New Journey', preview: 'The Kings New Journey.webp', file: 'The Kings New Journey.zip' },
-        { name: 'Winter', preview: 'Winter.webp', file: 'Winter.zip' },
-        { name: 'Spring', preview: 'Spring.webp', file: 'Spring.zip' },
-        { name: 'Summer', preview: 'Summer.webp', file: 'Summer.zip' },
-        { name: 'Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
-        { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' }
+        { name: 'Crownfall', preview: 'Crownfall.webp', file: 'Crownfall.zip' },
+        { name: 'Dota+ Winter', preview: 'Winter.webp', file: 'Winter.zip' },
+        { name: 'Dota+ Spring', preview: 'Spring.webp', file: 'Spring.zip' },
+        { name: 'Dota+ Summer', preview: 'Summer.webp', file: 'Summer.zip' },
+        { name: 'Dota+ Autumn', preview: 'Autumn.webp', file: 'Autumn.zip' },
     ],
     'trees': [
         { name: 'Pumpkin Trees', preview: 'Pumpkin Trees.webp', file: 'pak25_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/' },
