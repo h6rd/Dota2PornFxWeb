@@ -241,7 +241,7 @@ const HEROES_LIST = [
     'Skywrath Mage', 'Abaddon', 'Elder Titan', 'Legion Commander', 'Techies', 'Ember Spirit',
     'Earth Spirit', 'Underlord', 'Terrorblade', 'Phoenix', 'Oracle', 'Winter Wyvern', 'Arc Warden',
     'Monkey King', 'Dark Willow', 'Pangolier', 'Grimstroke', 'Hoodwink', 'Void Spirit', 'Snapfire',
-    'Mars', 'Dawnbreaker', 'Marci', 'Primal Beast', 'Muerta', 'Ringmaster', 'Kez'
+    'Mars', 'Dawnbreaker', 'Marci', 'Primal Beast', 'Muerta', 'Ringmaster', 'Kez', 'Largo'
 ];
 
 const debounce = (func, wait) => {
