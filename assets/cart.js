@@ -58,6 +58,7 @@ function loadAssembly(assemblyId) {
     updateCartBadge();
     renderCartItems();
     updateCartButtons();
+    renderAssembliesList();
     showToast(`Loaded <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name}</span> pack`);
     vibrate(10);
 }
@@ -97,6 +98,11 @@ function renderAssembliesList() {
         const assemblyItem = document.createElement('div');
         assemblyItem.className = 'assembly-item';
 
+        const isSelected = isAssemblyMatchingCurrentCart(assembly);
+        if (isSelected) {
+            assemblyItem.classList.add('selected');
+        }
+
         const date = new Date(assembly.date);
         const dateStr = date.toLocaleDateString();
 
@@ -105,17 +111,96 @@ function renderAssembliesList() {
                 <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
                 <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
             </div>
+            <button class="assembly-edit-btn" data-id="${assembly.id}" title="Edit name">
+                <span class="material-symbols-rounded">edit</span>
+            </button>
             <button class="assembly-delete-btn" data-id="${assembly.id}" title="Delete">
                 <span class="material-symbols-rounded">close</span>
             </button>
         `;
 
-        assemblyItem.addEventListener('click', () => loadAssembly(assembly.id));
+        assemblyItem.addEventListener('click', (e) => {
+            if (!e.target.closest('.assembly-edit-btn') && !e.target.closest('.assembly-delete-btn')) {
+                loadAssembly(assembly.id);
+            }
+        });
+
+        const editBtn = assemblyItem.querySelector('.assembly-edit-btn');
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showEditAssemblyDialog(assembly.id);
+        });
 
         const deleteBtn = assemblyItem.querySelector('.assembly-delete-btn');
         deleteBtn.addEventListener('click', (e) => deleteAssembly(assembly.id, e));
 
         assembliesContainer.appendChild(assemblyItem);
+    });
+}
+
+function isAssemblyMatchingCurrentCart(assembly) {
+    if (cart.length !== assembly.items.length) return false;
+
+    const cartIds = cart.map(item => item.id).sort();
+    const assemblyIds = assembly.items.map(item => item.id).sort();
+
+    return JSON.stringify(cartIds) === JSON.stringify(assemblyIds);
+}
+
+function showEditAssemblyDialog(assemblyId) {
+    const assembly = savedAssemblies.find(a => a.id === assemblyId);
+    if (!assembly) return;
+
+    const dialog = document.createElement('div');
+    dialog.className = 'assembly-dialog-overlay';
+    dialog.innerHTML = `
+        <div class="assembly-dialog">
+            <h3>Edit pack name</h3>
+            <input type="text" class="assembly-name-input" placeholder="Enter pack name..." maxlength="30" value="${escapeHtml(assembly.name)}">
+            <div class="assembly-dialog-actions">
+                <button class="assembly-cancel-btn">Cancel</button>
+                <button class="assembly-save-btn">Save</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(dialog);
+
+    const input = dialog.querySelector('.assembly-name-input');
+    const saveBtn = dialog.querySelector('.assembly-save-btn');
+    const cancelBtn = dialog.querySelector('.assembly-cancel-btn');
+
+    const closeDialog = () => {
+        dialog.classList.remove('active');
+        setTimeout(() => dialog.remove(), 200);
+    };
+
+    saveBtn.addEventListener('click', () => {
+        const newName = input.value.trim();
+        if (newName && newName !== assembly.name) {
+            assembly.name = newName;
+            saveAssemblies();
+            renderAssembliesList();
+            showToast(`Pack renamed to <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(newName)}</span>`);
+        }
+        closeDialog();
+    });
+
+    cancelBtn.addEventListener('click', closeDialog);
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) closeDialog();
+    });
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            saveBtn.click();
+        }
+    });
+
+    requestAnimationFrame(() => {
+        dialog.classList.add('active');
+        input.focus();
+        input.select();
     });
 }
 
@@ -362,6 +447,7 @@ function clearCart() {
     saveCart();
     updateCartBadge();
     renderCartItems();
+    renderAssembliesList();
     showToast('Cart cleared');
 }
 

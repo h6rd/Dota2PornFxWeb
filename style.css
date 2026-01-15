@@ -2933,6 +2933,54 @@ fcode {
   transform: translateX(2px) scale(0.98);
 }
 
+.assembly-item.selected {
+    border: 3px solid var(--md-sys-color-primary);
+    padding: 10px;
+}
+
+.assembly-item.selected .assembly-name {
+    color: var(--md-sys-color-on-primary-container);
+}
+
+.assembly-item.selected .assembly-meta {
+    color: var(--md-sys-color-on-primary-container);
+    opacity: 0.7;
+}
+
+.assembly-edit-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.assembly-item:hover .assembly-edit-btn {
+    opacity: 1;
+}
+
+.assembly-edit-btn .material-symbols-rounded {
+    font-size: 16px;
+}
+
+.assembly-edit-btn:hover {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    transform: scale(1.1);
+}
+
+.assembly-edit-btn:active {
+    transform: scale(0.9);
+}
+
 .assembly-info {
   flex: 1;
   min-width: 0;
