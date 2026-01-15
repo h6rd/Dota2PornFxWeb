@@ -45,7 +45,7 @@ function saveCurrentAssembly(name) {
     savedAssemblies.push(assembly);
     saveAssemblies();
     renderAssembliesList();
-    showToast(`Pack "${name}" saved`);
+    showToast(`Pack <span style="color: var(--md-sys-color-shit); font-weight: bold;">${name}</span> saved`);
     vibrate(20);
 }
 
@@ -73,7 +73,7 @@ function deleteAssembly(assemblyId, event) {
     savedAssemblies = savedAssemblies.filter(a => a.id !== assemblyId);
     saveAssemblies();
     renderAssembliesList();
-    showToast(`Deleted <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name} pack`);
+    showToast(`Deleted <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name}</span> pack`);
     vibrate(10);
 }
 
