@@ -1,6 +1,177 @@
 let cart = [];
 const MAX_CART_ITEMS = 100;
 
+let savedAssemblies = [];
+const MAX_ASSEMBLIES = 10;
+
+function loadAssemblies() {
+    const saved = localStorage.getItem('savedAssemblies');
+    if (saved) {
+        try {
+            savedAssemblies = JSON.parse(saved);
+        } catch (e) {
+            savedAssemblies = [];
+        }
+    }
+}
+
+function saveAssemblies() {
+    localStorage.setItem('savedAssemblies', JSON.stringify(savedAssemblies));
+}
+
+function saveCurrentAssembly(name) {
+    if (!name || !name.trim()) {
+        showToast('Enter a name');
+        return;
+    }
+
+    if (cart.length === 0) {
+        showToast('Cart is empty');
+        return;
+    }
+
+    if (savedAssemblies.length >= MAX_ASSEMBLIES) {
+        showToast(`Maximum ${MAX_ASSEMBLIES} packs allowed`);
+        return;
+    }
+
+    const assembly = {
+        id: Date.now().toString(),
+        name: name.trim(),
+        items: [...cart],
+        date: new Date().toISOString()
+    };
+
+    savedAssemblies.push(assembly);
+    saveAssemblies();
+    renderAssembliesList();
+    showToast(`Pack "${name}" saved`);
+    vibrate(20);
+}
+
+function loadAssembly(assemblyId) {
+    const assembly = savedAssemblies.find(a => a.id === assemblyId);
+    if (!assembly) return;
+
+    cart = [...assembly.items];
+    saveCart();
+    updateCartBadge();
+    renderCartItems();
+    updateCartButtons();
+    showToast(`Loaded <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name}</span> pack`);
+    vibrate(10);
+}
+
+function deleteAssembly(assemblyId, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const assembly = savedAssemblies.find(a => a.id === assemblyId);
+    if (!assembly) return;
+
+    savedAssemblies = savedAssemblies.filter(a => a.id !== assemblyId);
+    saveAssemblies();
+    renderAssembliesList();
+    showToast(`Deleted <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name} pack`);
+    vibrate(10);
+}
+
+function renderAssembliesList() {
+    const assembliesContainer = document.getElementById('assembliesList');
+    if (!assembliesContainer) return;
+
+    if (savedAssemblies.length === 0) {
+        assembliesContainer.innerHTML = `
+            <div class="assemblies-empty">
+                <span class="material-symbols-rounded">inventory_2</span>
+                <p>No saved packs</p>
+            </div>
+        `;
+        return;
+    }
+
+    assembliesContainer.innerHTML = '';
+
+    savedAssemblies.forEach(assembly => {
+        const assemblyItem = document.createElement('div');
+        assemblyItem.className = 'assembly-item';
+
+        const date = new Date(assembly.date);
+        const dateStr = date.toLocaleDateString();
+
+        assemblyItem.innerHTML = `
+            <div class="assembly-info">
+                <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
+                <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
+            </div>
+            <button class="assembly-delete-btn" data-id="${assembly.id}" title="Delete">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+        `;
+
+        assemblyItem.addEventListener('click', () => loadAssembly(assembly.id));
+
+        const deleteBtn = assemblyItem.querySelector('.assembly-delete-btn');
+        deleteBtn.addEventListener('click', (e) => deleteAssembly(assembly.id, e));
+
+        assembliesContainer.appendChild(assemblyItem);
+    });
+}
+
+function showSaveAssemblyDialog() {
+    if (cart.length === 0) {
+        showToast('Cart is empty');
+        return;
+    }
+
+    const dialog = document.createElement('div');
+    dialog.className = 'assembly-dialog-overlay';
+    dialog.innerHTML = `
+        <div class="assembly-dialog">
+            <h3>Save Pack</h3>
+            <input type="text" class="assembly-name-input" placeholder="Enter pack name..." maxlength="50">
+            <div class="assembly-dialog-actions">
+                <button class="assembly-cancel-btn">Cancel</button>
+                <button class="assembly-save-btn">Save</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(dialog);
+
+    const input = dialog.querySelector('.assembly-name-input');
+    const saveBtn = dialog.querySelector('.assembly-save-btn');
+    const cancelBtn = dialog.querySelector('.assembly-cancel-btn');
+
+    const closeDialog = () => {
+        dialog.classList.remove('active');
+        setTimeout(() => dialog.remove(), 200);
+    };
+
+    saveBtn.addEventListener('click', () => {
+        saveCurrentAssembly(input.value);
+        closeDialog();
+    });
+
+    cancelBtn.addEventListener('click', closeDialog);
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) closeDialog();
+    });
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            saveCurrentAssembly(input.value);
+            closeDialog();
+        }
+    });
+
+    requestAnimationFrame(() => {
+        dialog.classList.add('active');
+        input.focus();
+    });
+}
+
 function escapeHtml(unsafe) {
     if (unsafe === null || unsafe === undefined) return '';
     return unsafe
@@ -224,6 +395,11 @@ function setupCartModal() {
     const closeCartModal = document.getElementById('closeCartModal');
     const clearCartBtn = document.getElementById('clearCartBtn');
     const packBtn = document.getElementById('packBtn');
+
+    const saveAssemblyBtn = document.getElementById('saveAssemblyBtn');
+    if (saveAssemblyBtn) {
+        saveAssemblyBtn.addEventListener('click', showSaveAssemblyDialog);
+    }
 
     const openCart = () => {
         cartModal.classList.remove('expanded');
@@ -801,11 +977,15 @@ function showReplaceModal(existingItem, newItem) {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         loadCart();
+        loadAssemblies();
         setupCartModal();
         updateCartButtons();
+        renderAssembliesList();
     });
 } else {
     loadCart();
+    loadAssemblies();
     setupCartModal();
     updateCartButtons();
+    renderAssembliesList();
 }

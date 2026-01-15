@@ -300,8 +300,12 @@
     <button class="info-modal-close" id="closeCartModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
-    <div class="cart-main-content">
 
+    <div class="assemblies-panel" id="assembliesPanel">
+      <div class="assemblies-list" id="assembliesList"></div>
+    </div>
+
+    <div class="cart-main-content">
       <div class="info-modal-content">
         <h2 class="info-modal-title">Cart</h2>
 
@@ -314,13 +318,17 @@
         <div id="cartItems" class="cart-items"></div>
 
         <div id="cartActions" class="cart-actions hidden">
+          <button class="cart-save-assembly-btn" id="saveAssemblyBtn">
+            <span class="material-symbols-rounded">bookmark_add</span>
+            Save Pack
+          </button>
           <button class="cart-clear-btn" id="clearCartBtn">
             <span class="material-symbols-rounded">delete</span>
             Clear Cart
           </button>
           <button class="cart-pack-btn" id="packBtn">
             <span class="material-symbols-rounded">archive</span>
-            Pack & Download
+            Download
           </button>
         </div>
       </div>
@@ -340,7 +348,8 @@
 
   <footer class="footer">
     <div class="container">
-      <p>this shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a> / <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">source code</a></p>
+      <p>this shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a> / <a
+          href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">source code</a></p>
     </div>
   </footer>
 

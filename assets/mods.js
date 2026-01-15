@@ -596,7 +596,7 @@ const modsData = {
         { name: 'SF Broodmother', preview: 'SF Broodmother.webp', file: 'SF Broodmother.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Anti-Mage Creep', preview: 'Anti-Mage Creep.webp', file: 'Anti-Mage Creep.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Slark Barracuda Re', preview: 'Slark Barracuda Re.webp', file: 'Slark Barracuda Re.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
-        { name: 'Skywrath Mage Thanatos', preview: 'Skywrath Mage Thanatos.webp', file: ' Thanatos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Skywrath Mage Thanatos', preview: 'Skywrath Mage Thanatos.webp', file: 'Skywrath Mage Thanatos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Darkness Naga Siren', preview: 'Darkness Naga Siren.webp', file: 'Darkness Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }, { type: 'sender', url: 'https://t.me/NahuiToSay' }] },
         { name: 'Bloody Ancient Apparition', preview: 'Bloody Ancient Apparition.webp', file: 'Bloody Ancient Apparition.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Custom Largo', preview: 'Custom Largo.webp', file: 'Custom Largo.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
