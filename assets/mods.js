@@ -1,5 +1,9 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Tiny Banana', category: 'heroes' },
+    { name: 'Abaddon Fallen King', category: 'heroes' },
+    { name: 'Night Stalker Relict', category: 'heroes' },
+    { name: 'Disruptor Tractor', category: 'heroes' },
     { name: 'Magnus Vortexbull', category: 'heroes' },
     { name: 'Custom Largo', category: 'heroes' },
     { name: 'Bloody Ancient Apparition', category: 'heroes' },
@@ -601,6 +605,10 @@ const modsData = {
         { name: 'Bloody Ancient Apparition', preview: 'Bloody Ancient Apparition.webp', file: 'Bloody Ancient Apparition.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Custom Largo', preview: 'Custom Largo.webp', file: 'Custom Largo.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Magnus Vortexbull', preview: 'Magnus Vortexbull.webp', file: 'Magnus Vortexbull.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Disruptor Tractor', preview: 'Disruptor Tractor.webp', file: 'Disruptor Tractor.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-distractor/' }] },
+        { name: 'Night Stalker Relict', preview: 'Night Stalker Relict.webp', file: 'Night Stalker Relict.zip', tags: { effects: false, icons: false } },
+        { name: 'Abaddon Fallen King', preview: 'Abaddon Fallen King.webp', file: 'Abaddon Fallen King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
