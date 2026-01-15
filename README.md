@@ -10,7 +10,7 @@
 
 ## 🎮 About
 
-**Dota2PornFxWeb** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2 environment.
+**Dota2PornFx** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2 environment.
 
 ### 🌟 Features
 
@@ -156,14 +156,11 @@ This project contains content from various sources:
   - [Defiree2Mods](https://vk.com/defiree2mods) - Heroes
   - [Kisilev_ind](https://vk.com/id363951132) - Heroes
   - [Amir4an](https://vk.com/amir4an) - Heroes
-  - And many other contributors
-
-> **Note**: Mods without a source/author link are original contributions to this project
+  - And many other authors
 
 ---
 
 ## ⚠️ Disclaimer
 
 **All actions to modify the game files you do at your OWN RISK. In case of a ban, the responsibility lies entirely with YOU.**
-
-This project is not affiliated with Valve or Dota 2. Use at your own discretion.
+This project is not affiliated with Valve or Dota2. Use at your own discretion.
