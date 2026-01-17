@@ -111,11 +111,11 @@ function renderAssembliesList() {
                 <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
                 <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
             </div>
-            <button class="assembly-edit-btn" data-id="${assembly.id}" title="Edit name">
+            <button class="assembly-edit-btn" data-id="${assembly.id}">
                 <span class="material-symbols-rounded">edit</span>
             </button>
-            <button class="assembly-delete-btn" data-id="${assembly.id}" title="Delete">
-                <span class="material-symbols-rounded">close</span>
+            <button class="assembly-delete-btn" data-id="${assembly.id}">
+                <span class="material-symbols-rounded">delete</span>
             </button>
         `;
 
@@ -389,6 +389,8 @@ function removeFromCart(itemId) {
     saveCart();
     updateCartBadge();
     renderCartItems();
+    renderAssembliesList();
+    updateCartButtons();
 
     if (itemName) {
         showToast(`Removed <span style="color: var(--md-sys-color-primary)">${escapeHtml(itemName)}</span>`);
