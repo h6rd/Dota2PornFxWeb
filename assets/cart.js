@@ -718,6 +718,8 @@ async function packAndDownload() {
 
     let packSuccess = false;
 
+    const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack'];
+
     try {
         addLog('Starting pack creation...', 'start');
 
@@ -761,6 +763,7 @@ async function packAndDownload() {
 
                     const isTerrainMod = item.categoryId === 'terrains';
                     const isCursorMod = item.categoryId === 'cursors';
+                    const shouldRename = RENAME_CATEGORIES.includes(item.categoryId);
 
                     const zipFiles = Object.entries(zipContent.files);
 
@@ -789,7 +792,11 @@ async function packAndDownload() {
                             } else {
                                 const fileName = relativePath.split('/').pop();
                                 if (fileName) {
-                                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
+                                    let finalFileName = fileName;
+                                    if (shouldRename) {
+                                        finalFileName = '!' + fileName;
+                                    }
+                                    const uniqueName = getUniqueFileName(finalFileName, existingFileNames);
                                     modsFolder.file(uniqueName, fileBlob);
                                     extractedFiles.push(uniqueName);
                                 }
@@ -813,7 +820,11 @@ async function packAndDownload() {
                         addLog(`No files extracted from ${item.name}`, 'warning');
                     }    
                 } else {
-                    const uniqueName = getUniqueFileName(item.file, existingFileNames);
+                    let fileName = item.file;
+                    if (RENAME_CATEGORIES.includes(item.categoryId)) {
+                        fileName = '!' + fileName;
+                    }
+                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
                     modsFolder.file(uniqueName, blob);
                     modFileNames[item.name] = uniqueName;
                     addLog(`Added ${item.name}`, 'success');
