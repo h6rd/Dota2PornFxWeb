@@ -89,6 +89,8 @@ const translations = {
     'how-to-install': 'How to install?',
     'not-safe': 'Not Safe',
     'info': 'info',
+    'hero-items': 'Hero Items',
+    'hero-items-desc': 'Individual items of heroes',
 };
 
 const categories = [
@@ -101,18 +103,19 @@ const categories = [
     { id: 'creep-deny', emoji: '🎯', key: 'creep-deny', preview: 'creep-deny.webp', guideId: 'install' },
     { id: 'emblems', emoji: '🏵', key: 'emblems', preview: 'emblems.webp', guideId: 'install' },
     { id: 'backgrounds', emoji: '🖼️', key: 'backgrounds', preview: 'backgrounds.webp', guideId: 'install' },
+    { id: 'hero-items', emoji: '👤', key: 'hero-items', preview: 'hero-items.webp', guideId: 'install-heroes' },
+    { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp', guideId: 'install' },
+    { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp', guideId: 'install' },
     { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp', guideId: 'install' },
     { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp', guideId: 'install' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp', guideId: 'install' },
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp', guideId: 'install' },
-    { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp', guideId: 'install' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp', guideId: 'install' },
     { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp', guideId: 'install' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp', guideId: 'install' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp', guideId: 'install' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp', guideId: 'install' },
     { id: 'music', emoji: '🔊', key: 'music', preview: 'music.webp', guideId: 'install' },
-    { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp', guideId: 'install' },
     { id: 'roshan', emoji: '🦖', key: 'roshan', preview: 'roshan.webp', guideId: 'install' },
     { id: 'ancient', emoji: '🗻', key: 'ancient', preview: 'ancient.webp', guideId: 'install' },
     { id: 'tormentor', emoji: '🎈', key: 'tormentor', preview: 'tormentor.webp', guideId: 'install' },
@@ -209,6 +212,10 @@ const TAG_CONFIGS = {
     herofx: {
         allowForGuides: false,
         map: { effects: 'Effects', icons: 'Icons', sounds: 'Sounds' }
+    },
+    "hero-items": {
+        allowForGuides: false,
+        map: { weapon: 'Weapon', mount: 'Mount', effects: 'Effects', icons: 'Icons', sounds: 'Sounds', totem: 'Totem' }
     }
 };
 
