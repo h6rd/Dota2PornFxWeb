@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Shadow Fiend 1000-7', category: 'heroes' },
+    { name: 'Lollipop Juggernaut', category: 'heroes' },
     { name: 'Tiny Banana', category: 'heroes' },
     { name: 'Abaddon Fallen King', category: 'heroes' },
     { name: 'Night Stalker Relict', category: 'heroes' },
@@ -609,6 +611,8 @@ const modsData = {
         { name: 'Night Stalker Relict', preview: 'Night Stalker Relict.webp', file: 'Night Stalker Relict.zip', tags: { effects: false, icons: false } },
         { name: 'Abaddon Fallen King', preview: 'Abaddon Fallen King.webp', file: 'Abaddon Fallen King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false } },
+        { name: 'Lollipop Juggernaut', preview: 'Lollipop Juggernaut.webp', file: 'Lollipop Juggernaut.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-lollipop_juggernaut_v_3_0/' }] },
+        { name: 'Shadow Fiend 1000-7', preview: 'Shadow Fiend 1000-7.webp', file: 'Shadow Fiend 1000-7.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'roshan': [
