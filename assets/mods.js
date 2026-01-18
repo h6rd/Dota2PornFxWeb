@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Cursed Shadow Fiend', category: 'heroes' },
     { name: 'Sniper Dragon Lore', category: 'hero-items' },
     { name: 'Earthshaker Carrot', category: 'hero-items' },
     { name: 'Shadow Fiend 1000-7', category: 'heroes' },
@@ -266,7 +267,7 @@ const modsData = {
         { name: 'Maid Marci', preview: 'Maid Marci.webp', file: 'Maid Marci.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/@mrkliromin7723' }] },
         { name: 'Terrorblade Unblinking Horror', preview: 'Terrorblade Unblinking Horror.webp', file: 'Terrorblade Unblinking Horror.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: 'Purple Shadow Fiend', preview: 'Purple Shadow Fiend.webp', file: 'Purple Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
-        // { name: 'Cursed Shadow Fiend', preview: 'Cursed Shadow Fiend.webp', file: 'Cursed Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Cursed Shadow Fiend', preview: 'Cursed Shadow Fiend.webp', file: 'Cursed Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Juggernaut Ice and Fire', preview: 'Juggernaut Ice and Fire.webp', file: 'Juggernaut Ice and Fire.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Cosmic Alchemist', preview: 'Cosmic Alchemist.webp', file: 'Cosmic Alchemist.zip', tags: { effects: true, icons: false } },
         { name: 'Frostivus Alchemist', preview: 'Frostivus Alchemist.webp', file: 'Frostivus Alchemist.zip', tags: { effects: true, icons: false } },
