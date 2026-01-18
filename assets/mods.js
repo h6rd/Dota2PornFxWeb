@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Image Compiler', category: 'tools' },
     { name: 'Cursed Shadow Fiend', category: 'heroes' },
     { name: 'Sniper Dragon Lore', category: 'hero-items' },
     { name: 'Earthshaker Carrot', category: 'hero-items' },
@@ -626,6 +627,7 @@ const modsData = {
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: 'vpk-tool' },
         { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip'},
         { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'Cosmetics.zip', guideId: 'warning', guideType: 'not-safe'},
+        { name: 'Image Compiler', preview: 'Image Compiler.webp', file: 'Compiler.zip', guideId: 'image-compiler' },
         // { name: 'Patcher - Lifetime Pack [NotSafe]', preview: 'patcher.webp', file: 'Patcher.zip'},
         // { name: 'Extract - Extract Hero From VPKs', preview: 'Extract.webp', file: 'Extract.zip' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },

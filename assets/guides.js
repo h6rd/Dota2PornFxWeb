@@ -794,4 +794,29 @@ const guidesData = {
       ],
     },
   },
+  "image-compiler": {
+    title: "Image Compiler Guide",
+    content: {
+      en: [
+        {
+          steps: [
+            "Download <a href='https://dota2.fandom.com/wiki/Dota_2_Workshop_Tools#Installation' target='_blank'><span id='tg'>Dota 2 Workshop Tools DLC</span></a>",
+            "Place png files next to Compiler.exe",
+            "Run Compiler.exe",
+          ],
+          result: "vtex_c files will be compiled",
+        }
+      ],
+      ru: [
+        {
+          steps: [
+            "Устаноите <a href='https://dota2.fandom.com/ru/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B_%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B9_Dota_2#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0' target='_blank'><span id='tg'>Dota 2 Workshop Tools DLC</span></a>",
+            "Положите png файлы рядом с Compiler.exe",
+            "Запустите Compiler.exe",
+          ],
+          result: "Файлы vtex_c будут скомпилированы",
+        }
+      ],
+    },
+  },
 };
