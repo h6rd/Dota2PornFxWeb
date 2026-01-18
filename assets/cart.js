@@ -450,6 +450,7 @@ function clearCart() {
     updateCartBadge();
     renderCartItems();
     renderAssembliesList();
+    updateCartButtons();
     showToast('Cart cleared');
 }
 

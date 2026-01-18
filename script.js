@@ -138,7 +138,7 @@ const NOTES_DATA = [
         type: 'update',
         icon: 'new_releases',
         title: 'Update',
-        text: 'Added a button to copy the link to mod or category'
+        text: 'Added a button to copy the link to mod or category. Added option to save packs in cart'
     },
     {
         type: 'warning',
@@ -448,10 +448,41 @@ function handleUrlParams() {
     const modName = params.get('mod');
     const groupId = params.get('group');
 
-    if (categoryId && modName) {
-        openCategoryAndHighlightMod(categoryId, modName);
-    } else if (categoryId) {
-        showCategoryPage(categoryId);
+    if (categoryId) {
+        const category = categories.find(cat => cat.id === categoryId);
+        if (!category) {
+            console.warn(`Category "${categoryId}" not found`);
+            showToast('Category not found');
+            window.history.replaceState({}, '', window.location.pathname);
+            return;
+        }
+
+        if (modName) {
+            const categoryData = modsData[categoryId];
+            let modExists = false;
+
+            if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+                for (const group of categoryData.groups) {
+                    if (group.mods.some(m => m.name === modName)) {
+                        modExists = true;
+                        break;
+                    }
+                }
+            } else if (Array.isArray(categoryData)) {
+                modExists = categoryData.some(m => m.name === modName);
+            }
+
+            if (!modExists) {
+                console.warn(`Mod "${modName}" not found in category "${categoryId}"`);
+                showToast('Mod not found');
+                showCategoryPage(categoryId);
+                return;
+            }
+
+            openCategoryAndHighlightMod(categoryId, modName);
+        } else {
+            showCategoryPage(categoryId);
+        }
     }
 }
 
@@ -616,8 +647,8 @@ function createGuideStep(step, index) {
     const stepDiv = document.createElement('div');
     stepDiv.className = 'guide-step';
 
-    const stepText = typeof step === 'object' && step.icon ? step.text : 
-                     typeof step === 'object' && step.text ? step.text : step;
+    const stepText = typeof step === 'object' && step.icon ? step.text :
+        typeof step === 'object' && step.text ? step.text : step;
     const stepNumber = typeof step === 'object' && step.icon
         ? `<span class="material-symbols-rounded">${step.icon}</span>`
         : index + 1;
@@ -689,14 +720,14 @@ function sortMods(mods, mode) {
                         const foundHeroes = HEROES_LIST.filter(hero =>
                             modName.toLowerCase().includes(hero.toLowerCase())
                         );
-                        
+
                         if (foundHeroes.length === 0) {
                             return modName;
                         }
 
                         let earliestHero = foundHeroes[0];
                         let earliestPosition = modName.toLowerCase().indexOf(earliestHero.toLowerCase());
-                        
+
                         foundHeroes.forEach(hero => {
                             const position = modName.toLowerCase().indexOf(hero.toLowerCase());
                             if (position < earliestPosition) {
@@ -704,10 +735,10 @@ function sortMods(mods, mode) {
                                 earliestHero = hero;
                             }
                         });
-                        
+
                         return earliestHero;
                     };
-                    
+
                     const aHero = getHeroName(a.name);
                     const bHero = getHeroName(b.name);
 
@@ -716,7 +747,7 @@ function sortMods(mods, mode) {
                     if (heroComparison === 0) {
                         return a.name.localeCompare(b.name);
                     }
-                    
+
                     return heroComparison;
                 });
             }
@@ -775,13 +806,24 @@ function setupVideoModal() {
 
     const closeVideoWindow = () => {
         state.isClosing = true;
+        if (spinnerTimeout) {
+            clearTimeout(spinnerTimeout);
+            spinnerTimeout = null;
+        }
+        if (hideSpinnerTimeout) {
+            clearTimeout(hideSpinnerTimeout);
+            hideSpinnerTimeout = null;
+        }
+        if (videoSpinner) {
+            videoSpinner.classList.add('hidden');
+        }
+
         videoModal.classList.remove('active');
         videoOverlay.classList.remove('active');
         document.body.style.overflow = '';
         modalVideo.pause();
         modalVideo.currentTime = 0;
         if (playIcon) playIcon.textContent = 'play_arrow';
-        videoSpinner?.classList.add('hidden');
 
         setTimeout(() => {
             modalVideo.src = '';
@@ -798,15 +840,44 @@ function setupVideoModal() {
         }
     });
 
-    modalVideo.addEventListener('loadstart', () => {
-        if (!state.isClosing) videoSpinner?.classList.remove('hidden');
-    });
-    modalVideo.addEventListener('waiting', () => {
-        if (!state.isClosing) videoSpinner?.classList.remove('hidden');
-    });
-    modalVideo.addEventListener('canplay', () => videoSpinner?.classList.add('hidden'));
-    modalVideo.addEventListener('playing', () => videoSpinner?.classList.add('hidden'));
-    modalVideo.addEventListener('stalled', () => videoSpinner?.classList.remove('hidden'));
+    let spinnerTimeout = null;
+    let hideSpinnerTimeout = null;
+
+    const showSpinner = () => {
+        if (state.isClosing) return;
+        if (hideSpinnerTimeout) {
+            clearTimeout(hideSpinnerTimeout);
+            hideSpinnerTimeout = null;
+        }
+        if (spinnerTimeout) clearTimeout(spinnerTimeout);
+        spinnerTimeout = setTimeout(() => {
+            if (!state.isClosing && videoSpinner) {
+                videoSpinner.classList.remove('hidden');
+            }
+            spinnerTimeout = null;
+        }, 200);
+    };
+
+    const hideSpinner = () => {
+        if (spinnerTimeout) {
+            clearTimeout(spinnerTimeout);
+            spinnerTimeout = null;
+        }
+        if (hideSpinnerTimeout) clearTimeout(hideSpinnerTimeout);
+        hideSpinnerTimeout = setTimeout(() => {
+            if (videoSpinner) {
+                videoSpinner.classList.add('hidden');
+            }
+            hideSpinnerTimeout = null;
+        }, 100);
+    };
+
+    modalVideo.addEventListener('loadstart', showSpinner);
+    modalVideo.addEventListener('waiting', showSpinner);
+    modalVideo.addEventListener('canplay', hideSpinner);
+    modalVideo.addEventListener('playing', hideSpinner);
+    modalVideo.addEventListener('loadeddata', hideSpinner);
+    modalVideo.addEventListener('stalled', showSpinner);
 
     modalVideo.addEventListener('click', (e) => {
         e.preventDefault();
@@ -887,13 +958,21 @@ function setupVideoModal() {
     });
 
     window.openVideoModal = (videoUrl) => {
-        videoSpinner?.classList.remove('hidden');
+        if (spinnerTimeout) clearTimeout(spinnerTimeout);
+        if (hideSpinnerTimeout) clearTimeout(hideSpinnerTimeout);
+
+        if (videoSpinner) {
+            videoSpinner.classList.remove('hidden');
+        }
         videoModal.classList.add('no-transition', 'active');
         videoOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         modalVideo.src = videoUrl;
 
         const enableAndShow = () => {
+            modalVideo.removeEventListener('loadedmetadata', enableAndShow);
+            modalVideo.removeEventListener('canplay', enableAndShow);
+
             setTimeout(() => {
                 videoModal.classList.remove('no-transition');
                 videoModal.offsetHeight;
@@ -901,12 +980,10 @@ function setupVideoModal() {
                 videoSpinner?.classList.add('hidden');
                 if (playIcon) playIcon.textContent = 'pause';
             }, 40);
-            modalVideo.removeEventListener('loadedmetadata', enableAndShow);
-            modalVideo.removeEventListener('canplay', enableAndShow);
         };
 
-        modalVideo.addEventListener('loadedmetadata', enableAndShow);
-        modalVideo.addEventListener('canplay', enableAndShow);
+        modalVideo.addEventListener('loadedmetadata', enableAndShow, { once: true });
+        modalVideo.addEventListener('canplay', enableAndShow, { once: true });
 
         setTimeout(() => {
             if (!videoModal.classList.contains('active')) enableAndShow();
