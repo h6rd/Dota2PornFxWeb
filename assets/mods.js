@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'LowPoly Trees', category: 'trees' },
     { name: 'Fog Ember Spirit', category: 'heroes' },
     { name: 'Pangolier Gentleman', category: 'heroes' },
     { name: 'Green Earth Spirit', category: 'heroes' },
@@ -187,12 +188,13 @@ const modsData = {
         { name: 'Crystals Trees', preview: 'Crystals Trees.webp', file: 'pak22_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-blue_crystals_trees/' },
         { name: 'Wooden Trees', preview: 'Wooden Trees.webp', file: 'pak23_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-wooden_trees/' },
         { name: 'Stone Trees', preview: 'Stone Trees.webp', file: 'pak31_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-stone_forest_trees/' },
-        { name: 'Low Poly Trees', preview: 'Low Poly Trees.webp', file: 'pak91_dir.vpk' },
+        { name: 'LowPoly Trees v1', preview: 'LowPoly Trees v1.webp', file: 'pak91_dir.vpk' },
         { name: 'Cartoon Trees', preview: 'Cartoon Trees.webp', file: 'pak92_dir.vpk', links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Pine Cone Trees', preview: 'Pine Cone Trees.webp', file: 'pak32_dir.vpk' },
         // { name: 'Purple Reef Trees', preview: 'Purple Reef Trees.webp', file: 'pak10_dir.vpk' }, govno, mne ne nrav
         { name: 'Cone Trees', preview: 'Cone Trees.webp', file: 'pak11_dir.vpk' },
         { name: 'LowPoly Shrub Trees', preview: 'LowPoly Shrub Trees.webp', file: 'pak12_dir.vpk' },
+        { name: 'LowPoly Trees', preview: 'LowPoly Trees.webp', file: 'pak13_dir.vpk', links: [{ type: 'author', url: 'https://www.youtube.com/@Lenz13377' }] },
     ],
     'heroes': [
         { name: 'Bare Brewmaster 🥰', preview: 'Bare Brewmaster.webp', file: 'Bare Brewmaster.zip', tags: { effects: false, icons: false } },
