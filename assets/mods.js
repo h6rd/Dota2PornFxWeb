@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Fog Ember Spirit', category: 'heroes' },
+    { name: 'Pangolier Gentleman', category: 'heroes' },
+    { name: 'Green Earth Spirit', category: 'heroes' },
     { name: 'Image Compiler', category: 'tools' },
     { name: 'Cursed Shadow Fiend', category: 'heroes' },
     { name: 'Sniper Dragon Lore', category: 'hero-items' },
@@ -405,6 +408,9 @@ const modsData = {
         { name: 'Abaddon Fallen King', preview: 'Abaddon Fallen King.webp', file: 'Abaddon Fallen King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Lollipop Juggernaut', preview: 'Lollipop Juggernaut.webp', file: 'Lollipop Juggernaut.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-lollipop_juggernaut_v_3_0/' }] },
         { name: 'Shadow Fiend 1000-7', preview: 'Shadow Fiend 1000-7.webp', file: 'Shadow Fiend 1000-7.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
+        { name: 'Green Earth Spirit', preview: 'Green Earth Spirit.webp', file: 'Green Earth Spirit.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Pangolier Gentleman', preview: 'Pangolier Gentleman.webp', file: 'Pangolier Gentleman.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Fog Ember Spirit', preview: 'Fog Ember Spirit.webp', file: 'Fog Ember Spirit.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-fog_spirit_v_3_0/' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
