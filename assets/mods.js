@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dark Items', category: 'item-icons' },
     { name: 'Winter Lycan', category: 'heroes' },
     { name: 'LowPoly Trees', category: 'trees' },
     { name: 'Fog Ember Spirit', category: 'heroes' },
@@ -675,6 +676,7 @@ const modsData = {
         { name: 'Arcanas Items', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/hitman47attacks' },
         { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
         { name: 'Allstars Items', preview: 'Allstars Items.webp', file: 'pak11_dir.vpk' },
+        { name: 'Dark Items', preview: 'Dark Items.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/itdoesntmattertoallmorons' },
     ],
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
