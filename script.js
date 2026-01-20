@@ -148,6 +148,13 @@ const NOTES_DATA = [
     },
 ];
 
+const categoryNotes = {
+    'item-effects': {
+        enabled: true,
+        text: "During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use Effect Packs."
+    }
+};
+
 const addToCartRules = {
     hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
     allowedMods: {
@@ -1707,6 +1714,24 @@ function showCategoryPage(categoryId) {
         });
     } else {
         elements.categoryDescription.textContent = descriptionText;
+    }
+
+    const existingNote = document.querySelector('.category-note');
+    if (existingNote) {
+        existingNote.remove();
+    }
+
+    if (categoryNotes[categoryId] && categoryNotes[categoryId].enabled) {
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'category-note';
+        noteDiv.innerHTML = `
+        <span class="material-symbols-rounded">info</span>
+        <p>${categoryNotes[categoryId].text}</p>
+    `;
+        const categoryHeader = document.querySelector('.category-header');
+        if (categoryHeader && categoryHeader.parentElement) {
+            categoryHeader.parentElement.insertBefore(noteDiv, categoryHeader.nextSibling);
+        }
     }
 
     renderMods(categoryId);

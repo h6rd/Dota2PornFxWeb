@@ -2200,6 +2200,43 @@ fcode {
   text-decoration: underline;
 }
 
+/* Category Note */
+.category-note {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: 16px;
+  border-left: 4px solid var(--md-sys-color-primary);
+  margin-bottom: 20px;
+  margin-top: -30px;
+}
+
+.category-note .material-symbols-rounded {
+  font-size: 24px;
+  color: var(--md-sys-color-primary);
+  flex-shrink: 0;
+}
+
+.category-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+[data-theme="light"] .category-note {
+  background: var(--md-sys-color-secondary-container);
+}
+
+[data-theme="light"] .category-note .material-symbols-rounded {
+  color: var(--md-sys-color-primary);
+}
+
+[data-theme="light"] .category-note p {
+  color: var(--md-sys-color-on-secondary-container);
+}
+
 /* Recently Added */
 .recently-added-section {
   margin-bottom: 32px;
