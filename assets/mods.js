@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dark Reaper Invoker', category: 'heroes' },
     { name: 'Compiler', category: 'tools' },
     { name: 'Dark Items', category: 'item-icons' },
     { name: 'Winter Lycan', category: 'heroes' },
@@ -416,6 +417,7 @@ const modsData = {
         { name: 'Pangolier Gentleman', preview: 'Pangolier Gentleman.webp', file: 'Pangolier Gentleman.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Fog Ember Spirit', preview: 'Fog Ember Spirit.webp', file: 'Fog Ember Spirit.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-fog_spirit_v_3_0/' }] },
         { name: 'Winter Lycan', preview: 'Winter Lycan.webp', file: 'Winter Lycan.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Dark Reaper Invoker', preview: 'Dark Reaper Invoker.webp', file: 'Dark Reaper Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
