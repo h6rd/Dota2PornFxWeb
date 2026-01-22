@@ -496,6 +496,7 @@ const guidesData = {
           steps: [
             "Place video next to Changer.exe (I advise you to use 1920x1080, extensions: mp4, avi, mkv, mov, wmv, flv, webm)",
             "Run <fcode>Changer.exe</fcode> and wait for the end (the longer the video, the longer it takes to process)",
+            "Press 1 - to replace full background, 2 - for the current patch/event (may not work).",
             "Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder",
           ],
         },
@@ -517,6 +518,7 @@ const guidesData = {
             'If it\'s heavy, you can compress it here: <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
             "Rename it to <code>zxc.webm</code> and place it next to <code>Changer.exe</code>",
             "Run <fcode>Changer.exe</fcode>",
+            "Press 1 - to replace full background, 2 - for the current patch/event (may not work).",
             "Put <fcode>pak33_dir.vpk</fcode> into <fcode>dota_123</fcode> game language folder",
           ],
         },
@@ -528,6 +530,7 @@ const guidesData = {
           steps: [
             "Положите видео рядом с <fcode>Changer.exe</fcode> (советую использовать 1920x1080, расширения: mp4, avi, mkv, mov, wmv, flv, webm)",
             "Запустите <fcode>Changer.exe</fcode> и дождитесь окончания (чем длинее видос, тем дольше он обрабатывает его)",
+            "Нажмите 1 - для замены всего фона, 2 - под текущий патч/ивент (может не работать)",
             "Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>",
           ],
         },
@@ -549,6 +552,7 @@ const guidesData = {
             'Если дохуя весит, то можете сжать его вот тут <a href="https://ezgif.com/video-compressor" target="_blank"><span id="tg">ezgif.com/video-compressor</span></a>',
             "Переименуйте в <code>zxc.webm</code> и положите рядом с <code>Changer.exe/</code>",
             "Запустите <fcode>Changer.exe</fcode>",
+            "Нажмите 1 - для замены всего фона, 2 - под текущий патч/ивент (может не работать)",
             "Готовый <fcode>pak33_dir.vpk</fcode> поместите в <code>dota_russian</code> или <code>dota_123</code>",
           ],
         },
