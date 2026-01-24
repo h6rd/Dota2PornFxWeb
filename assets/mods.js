@@ -1,5 +1,9 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Lina Aerial Aphrodite Flame', category: 'heroes' },
+    { name: 'Abaddon Bloody Fallen King', category: 'heroes' },
+    { name: 'Immortal Lich', category: 'heroes' },
+    { name: 'Gothic Lifestealer', category: 'heroes' },
     { name: 'Sven Guts Sword', category: 'hero-items' },
     { name: 'Dark Ancient Slark', category: 'heroes' },
     { name: 'Dark Reaper Invoker', category: 'heroes' },
@@ -421,6 +425,10 @@ const modsData = {
         { name: 'Winter Lycan', preview: 'Winter Lycan.webp', file: 'Winter Lycan.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Dark Reaper Invoker', preview: 'Dark Reaper Invoker.webp', file: 'Dark Reaper Invoker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Dark Ancient Slark', preview: 'Dark Ancient Slark.webp', file: 'Dark Ancient Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Gothic Lifestealer', preview: 'Gothic Lifestealer.webp', file: 'Gothic Lifestealer.zip', tags: { effects: false, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Immortal Lich', preview: 'Immortal Lich.webp', file: 'Immortal Lich.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Abaddon Bloody Fallen King', preview: 'Abaddon Bloody Fallen King.webp', file: 'Abaddon Bloody Fallen King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Lina Aerial Aphrodite Flame', preview: 'Lina Aerial Aphrodite Flame.webp', file: 'Lina Aerial Aphrodite Flame.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
