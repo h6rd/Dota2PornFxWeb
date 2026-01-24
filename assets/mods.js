@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Nuclear Clockwerk', category: 'heroes' },
     { name: 'VPKTool - Extract & Pack VPKs', category: 'tools' },
     { name: 'Young Invoker', category: 'heroes' },
     { name: 'Lina Aerial Aphrodite Flame', category: 'heroes' },
@@ -432,6 +433,7 @@ const modsData = {
         { name: 'Abaddon Bloody Fallen King', preview: 'Abaddon Bloody Fallen King.webp', file: 'Abaddon Bloody Fallen King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Lina Aerial Aphrodite Flame', preview: 'Lina Aerial Aphrodite Flame.webp', file: 'Lina Aerial Aphrodite Flame.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Young Invoker', preview: 'Young Invoker.webp', file: 'Young Invoker.zip', tags: { effects: false, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Nuclear Clockwerk', preview: 'Nuclear Clockwerk.webp', file: 'Nuclear Clockwerk.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-nuclear_clockwerk/' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
