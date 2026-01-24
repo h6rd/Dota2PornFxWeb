@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'VPKTool - Extract & Pack VPKs', category: 'tools' },
     { name: 'Young Invoker', category: 'heroes' },
     { name: 'Lina Aerial Aphrodite Flame', category: 'heroes' },
     { name: 'Abaddon Bloody Fallen King', category: 'heroes' },

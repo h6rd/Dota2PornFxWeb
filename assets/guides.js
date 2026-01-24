@@ -17,7 +17,7 @@ const guidesData = {
           icon: "inventory_2",
           title: "Building VPK",
           steps: ["Place folders/files next to VPKTool.exe", "Run VPKTool.exe"],
-          result: "Folders/files will be packed into pak20_dir.vpk",
+          result: "Folders/files will be packed into vpk",
         },
       ],
       ru: [
@@ -38,7 +38,7 @@ const guidesData = {
             "Положите папки/файлы рядом с VPKTool.exe",
             "Запустите VPKTool.exe",
           ],
-          result: "Папки/файлы будут упакованы в pak20_dir.vpk",
+          result: "Папки/файлы будут упакованы в vpk",
         },
       ],
     },
