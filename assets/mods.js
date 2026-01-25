@@ -1,5 +1,5 @@
 const recentlyAddedMods = [
-    // { name: '', category: '' },
+    { name: 'IO Histoire', category: 'heroes' },
     { name: 'Nuclear Clockwerk', category: 'heroes' },
     { name: 'VPKTool - Extract & Pack VPKs', category: 'tools' },
     { name: 'Young Invoker', category: 'heroes' },
@@ -434,6 +434,7 @@ const modsData = {
         { name: 'Lina Aerial Aphrodite Flame', preview: 'Lina Aerial Aphrodite Flame.webp', file: 'Lina Aerial Aphrodite Flame.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Young Invoker', preview: 'Young Invoker.webp', file: 'Young Invoker.zip', tags: { effects: false, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Nuclear Clockwerk', preview: 'Nuclear Clockwerk.webp', file: 'Nuclear Clockwerk.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-nuclear_clockwerk/' }] },
+        { name: 'IO Histoire', preview: 'IO Histoire.webp', file: 'IO Histoire.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://vk.com/iselestiawaifu' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
@@ -454,45 +455,6 @@ const modsData = {
         { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' },
         { name: 'Santa Hat Roshan', preview: 'Santa Hat Roshan.webp', file: 'pak65_dir.vpk' },
     ],
-    'creeps': {
-        groups: [
-            {
-                id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
-                    { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
-                    { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
-                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
-                    { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
-                    { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
-                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
-                    { name: 'Pine Radiant Creeps', preview: 'Pine Radiant Creeps.webp', file: 'pak26_dir.vpk' },
-                    { name: 'USSR Radiant Creeps', preview: 'USSR Radiant Creeps.webp', file: 'pak28_dir.vpk' },
-                ]
-            },
-            {
-                id: 'dire-creeps', name: 'Dire Creeps', mods: [
-                    { name: 'Nemestice Dire Creeps', preview: 'Nemestice Dire.webp', file: 'pak15_dir.vpk' },
-                    { name: 'Woodland Dire Creeps', preview: 'Woodland Dire.webp', file: 'pak11_dir.vpk' },
-                    { name: 'Reptilian Dire Creeps', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
-                    { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
-                    { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
-                    { name: 'Purple Reptilian Dire', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
-                    { name: 'Pine Dire Creeps', preview: 'Pine Dire Creeps.webp', file: 'pak27_dir.vpk' },
-                ]
-            },
-            {
-                id: 'radiant-siege', name: 'Radiant Siege', mods: [
-                    { name: 'Woodland Radiant Siege', preview: 'Woodland Radiant Siege.webp', file: 'pak12_dir.vpk' },
-                    { name: 'Crownfall Radiant Siege', preview: 'Crownfall Radiant Siege.webp', file: 'pak20_dir.vpk' },
-                ]
-            },
-            {
-                id: 'dire-siege', name: 'Dire Siege', mods: [
-                    { name: 'Woodland Dire Siege', preview: 'Woodland Dire Siege.webp', file: 'pak13_dir.vpk' },
-                    { name: 'Crownfall Dire Siege', preview: 'Crownfall Dire Siege.webp', file: 'pak21_dir.vpk' },
-                ]
-            },
-        ]
-    },
     'ancient': [
         { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/' },
         { name: 'Frostivus Ancient', preview: 'Frostivus Ancient.webp', file: 'pak74_dir.vpk' }
@@ -500,23 +462,6 @@ const modsData = {
     'tormentor': [
         { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.webp', file: 'pak75_dir.vpk' }
     ],
-    'towers': {
-        groups: [
-            {
-                id: 'radiant-tower', name: 'Radiant Tower', mods: [
-                    { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' },
-                    // { name: 'TI7 Radiant Tower', preview: 'TI7 Radiant Tower.webp', file: 'pak11_dir.vpk' },
-                    // { name: 'Dragon Radiant Tower', preview: 'Dragon Radiant Tower.webp', file: 'pak13_dir.vpk' },
-                ]
-            },
-            {
-                id: 'dire-tower', name: 'Dire Tower', mods: [
-                    // { name: 'TI7 Dire Tower', preview: 'TI7 Dire Tower.webp', file: 'pak12_dir.vpk' },
-                    // { name: 'Dragon Dire Tower', preview: 'Dragon Dire Tower.webp', file: 'pak14_dir.vpk' },
-                ]
-            }
-        ]
-    },
     'ranged-attack': [
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.webp', file: 'pak13_dir.vpk' },
         { name: 'Aghanim Ranged Attack', preview: 'Aghanim Ranged Attack.webp', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/' },
@@ -780,6 +725,62 @@ const modsData = {
         { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
         { name: 'Largo Serega Pirat v2', preview: 'Largo Serega Pirat v2.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4' }] },
     ],
+    'creeps': {
+        groups: [
+            {
+                id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
+                    { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
+                    { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
+                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
+                    { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
+                    { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
+                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
+                    { name: 'Pine Radiant Creeps', preview: 'Pine Radiant Creeps.webp', file: 'pak26_dir.vpk' },
+                    { name: 'USSR Radiant Creeps', preview: 'USSR Radiant Creeps.webp', file: 'pak28_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-creeps', name: 'Dire Creeps', mods: [
+                    { name: 'Nemestice Dire Creeps', preview: 'Nemestice Dire.webp', file: 'pak15_dir.vpk' },
+                    { name: 'Woodland Dire Creeps', preview: 'Woodland Dire.webp', file: 'pak11_dir.vpk' },
+                    { name: 'Reptilian Dire Creeps', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
+                    { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
+                    { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
+                    { name: 'Purple Reptilian Dire', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
+                    { name: 'Pine Dire Creeps', preview: 'Pine Dire Creeps.webp', file: 'pak27_dir.vpk' },
+                ]
+            },
+            {
+                id: 'radiant-siege', name: 'Radiant Siege', mods: [
+                    { name: 'Woodland Radiant Siege', preview: 'Woodland Radiant Siege.webp', file: 'pak12_dir.vpk' },
+                    { name: 'Crownfall Radiant Siege', preview: 'Crownfall Radiant Siege.webp', file: 'pak20_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-siege', name: 'Dire Siege', mods: [
+                    { name: 'Woodland Dire Siege', preview: 'Woodland Dire Siege.webp', file: 'pak13_dir.vpk' },
+                    { name: 'Crownfall Dire Siege', preview: 'Crownfall Dire Siege.webp', file: 'pak21_dir.vpk' },
+                ]
+            },
+        ]
+    },
+    'towers': {
+        groups: [
+            {
+                id: 'radiant-tower', name: 'Radiant Tower', mods: [
+                    { name: 'Holiday Radiant Tower', preview: 'Holiday Radiant Tower.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/' },
+                    // { name: 'TI7 Radiant Tower', preview: 'TI7 Radiant Tower.webp', file: 'pak11_dir.vpk' },
+                    // { name: 'Dragon Radiant Tower', preview: 'Dragon Radiant Tower.webp', file: 'pak13_dir.vpk' },
+                ]
+            },
+            {
+                id: 'dire-tower', name: 'Dire Tower', mods: [
+                    // { name: 'TI7 Dire Tower', preview: 'TI7 Dire Tower.webp', file: 'pak12_dir.vpk' },
+                    // { name: 'Dragon Dire Tower', preview: 'Dragon Dire Tower.webp', file: 'pak14_dir.vpk' },
+                ]
+            }
+        ]
+    },
     'item-effects': {
         groups: [
             {
