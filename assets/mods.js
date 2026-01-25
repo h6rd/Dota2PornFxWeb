@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Cartoon Shader', category: 'shaders' },
     { name: 'IO Histoire', category: 'heroes' },
     { name: 'Nuclear Clockwerk', category: 'heroes' },
     { name: 'VPKTool - Extract & Pack VPKs', category: 'tools' },
@@ -101,6 +102,7 @@ const modsData = {
         { name: 'Aghanim White Lite', preview: 'Aghanim White Lite.webp', file: 'pak34_dir.vpk' },
         { name: 'Aghanim Yellow Lite', preview: 'Aghanim Yellow Lite.webp', file: 'pak35_dir.vpk' },
         { name: 'Aghanim Red Lite', preview: 'Aghanim Red Lite.webp', file: 'pak36_dir.vpk' },
+        { name: 'Cartoon Shader', preview: 'Cartoon Shader.webp', file: 'pak37_dir.vpk' },
     ],
     'ti-bp-effects': [
         { name: 'TI 2019 Battle Pass', preview: 'TI 2019 Battle Pass.webp', file: 'pak09_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
