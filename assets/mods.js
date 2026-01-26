@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Drow Ranger Diretide', category: 'heroes' },
     { name: 'Cartoon Shader', category: 'shaders' },
     { name: 'IO Histoire', category: 'heroes' },
     { name: 'Nuclear Clockwerk', category: 'heroes' },
@@ -437,6 +438,7 @@ const modsData = {
         { name: 'Young Invoker', preview: 'Young Invoker.webp', file: 'Young Invoker.zip', tags: { effects: false, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Nuclear Clockwerk', preview: 'Nuclear Clockwerk.webp', file: 'Nuclear Clockwerk.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-nuclear_clockwerk/' }] },
         { name: 'IO Histoire', preview: 'IO Histoire.webp', file: 'IO Histoire.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://vk.com/iselestiawaifu' }] },
+        { name: 'Drow Ranger Diretide', preview: 'Drow Ranger Diretide.webp', file: 'Drow Ranger Diretide.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-custom_megapack_drow_ranger_sylvanas_live_diretide/' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
