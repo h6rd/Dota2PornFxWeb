@@ -1232,96 +1232,35 @@ if (document.readyState === 'loading') {
 
 // Workers
 function compressAssembly(assembly) {
-    const catMap = {
-        'heroes': 'h', 'shaders': 's', 'terrains': 't', 'trees': 'r',
-        'creeps': 'c', 'ti-bp-effects': 'e', 'item-effects': 'i',
-        'creep-deny': 'd', 'emblems': 'b', 'versus-screens': 'v',
-        'roshan': 'o', 'ancient': 'a', 'tormentor': 'm', 'towers': 'w',
-        'high-five': 'f', 'ranged-attack': 'g', 'mega-kill': 'k',
-        'pedestal': 'p', 'other': 'x', 'backgrounds': 'z', 'river': 'l',
-        'ranks': 'n', 'item-icons': 'y', 'wards': 'u', 'couriers': 'q',
-        'announcers': 'j', 'music': '1', 'cursors': '2', 'pings': '3',
-        'herofx': '4', 'hero-sounds': '5', 'hero-items': '6'
-    };
-
-    const items = assembly.items.map(item => {
-        const fileName = item.file.replace('.zip', '').replace(/\s+/g, '');
-        const parts = [
-            catMap[item.categoryId] || item.categoryId,
-            fileName,
-            item.groupId || ''
-        ];
-        return parts.filter(p => p).join('~');
-    });
-
-    const data = assembly.name + '^' + items.join('^');
-    const compressed = LZString.compressToEncodedURIComponent(data);
-    
-    const base64 = btoa(compressed)
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/, '');
-    
-    return base64;
+    return btoa(encodeURIComponent(JSON.stringify({
+        name: assembly.name,
+        items: assembly.items.map(item => ({
+            n: item.name,
+            f: item.file,
+            c: item.categoryId,
+            g: item.groupId
+        }))
+    })));
 }
 
 function decompressAssembly(compressed) {
     try {
-        let base64 = compressed
-            .replace(/-/g, '+')
-            .replace(/_/g, '/');
+        const data = JSON.parse(decodeURIComponent(atob(compressed)));
         
-        while (base64.length % 4) {
-            base64 += '=';
-        }
-        
-        const lzData = atob(base64);
-        const data = LZString.decompressFromEncodedURIComponent(lzData);
-        
-        if (!data) return null;
-
-        const catMap = {
-            'h': 'heroes', 's': 'shaders', 't': 'terrains', 'r': 'trees',
-            'c': 'creeps', 'e': 'ti-bp-effects', 'i': 'item-effects',
-            'd': 'creep-deny', 'b': 'emblems', 'v': 'versus-screens',
-            'o': 'roshan', 'a': 'ancient', 'm': 'tormentor', 'w': 'towers',
-            'f': 'high-five', 'g': 'ranged-attack', 'k': 'mega-kill',
-            'p': 'pedestal', 'x': 'other', 'z': 'backgrounds', 'l': 'river',
-            'n': 'ranks', 'y': 'item-icons', 'u': 'wards', 'q': 'couriers',
-            'j': 'announcers', '1': 'music', '2': 'cursors', '3': 'pings',
-            '4': 'herofx', '5': 'hero-sounds', '6': 'hero-items'
-        };
-
-        const parts = data.split('^');
-        const name = parts[0];
-
-        const items = parts.slice(1).map(itemStr => {
-            const [catCode, file, groupId] = itemStr.split('~');
-            const categoryId = catMap[catCode] || catCode;
-            const fullFile = file.includes('.') ? file : file + '.zip';
-
-            const categoryData = modsData[categoryId];
-            let modName = file;
-
-            if (categoryData?.groups && groupId) {
-                const group = categoryData.groups.find(g => g.id === groupId);
-                const mod = group?.mods.find(m => m.file === fullFile);
-                if (mod) modName = mod.name;
-            } else if (Array.isArray(categoryData)) {
-                const mod = categoryData.find(m => m.file === fullFile);
-                if (mod) modName = mod.name;
-            }
-
+        const items = data.items.map(item => {
+            const categoryId = item.c;
+            const groupId = item.g || null;
+            
             return {
-                id: groupId ? `${categoryId}-${groupId}-${modName}` : `${categoryId}-${modName}`,
-                name: modName,
-                file: fullFile,
+                id: groupId ? `${categoryId}-${groupId}-${item.n}` : `${categoryId}-${item.n}`,
+                name: item.n,
+                file: item.f,
                 categoryId: categoryId,
-                groupId: groupId || null
+                groupId: groupId
             };
         });
 
-        return { name, items };
+        return { name: data.name, items };
     } catch (e) {
         console.error('Failed to decompress pack:', e);
         return null;
@@ -1331,7 +1270,7 @@ function decompressAssembly(compressed) {
 function generateShortCode() {
     const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let code = '';
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
         code += chars[Math.floor(Math.random() * chars.length)];
     }
     return code;
