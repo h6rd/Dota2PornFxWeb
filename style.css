@@ -2821,6 +2821,8 @@ fcode {
 
 .cart-item-remove .material-symbols-rounded {
   font-size: 18px;
+  line-height: 1;
+  transform: translateY(1px);
 }
 
 .cart-actions {
