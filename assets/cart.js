@@ -107,16 +107,19 @@ function renderAssembliesList() {
         const dateStr = date.toLocaleDateString();
 
         assemblyItem.innerHTML = `
-            <div class="assembly-info">
-                <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
-                <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
-            </div>
-            <button class="assembly-edit-btn" data-id="${assembly.id}">
-                <span class="material-symbols-rounded">edit</span>
-            </button>
-            <button class="assembly-delete-btn" data-id="${assembly.id}">
-                <span class="material-symbols-rounded">delete</span>
-            </button>
+        <div class="assembly-info">
+            <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
+            <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
+        </div>
+        <button class="assembly-share-btn" data-id="${assembly.id}">
+            <span class="material-symbols-rounded">share</span>
+        </button>
+        <button class="assembly-edit-btn" data-id="${assembly.id}">
+            <span class="material-symbols-rounded">edit</span>
+        </button>
+        <button class="assembly-delete-btn" data-id="${assembly.id}">
+            <span class="material-symbols-rounded">delete</span>
+        </button>
         `;
 
         assemblyItem.addEventListener('click', (e) => {
@@ -129,6 +132,12 @@ function renderAssembliesList() {
         editBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             showEditAssemblyDialog(assembly.id);
+        });
+
+        const shareBtn = assemblyItem.querySelector('.assembly-share-btn');
+        shareBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            shareAssembly(assembly.id);
         });
 
         const deleteBtn = assemblyItem.querySelector('.assembly-delete-btn');
@@ -331,18 +340,29 @@ function addToCart(mod, categoryId) {
     }
 
     if (categoryId === 'heroes') {
-        const newHeroName = HEROES_LIST.find(hero =>
+        const foundHeroes = HEROES_LIST.filter(hero =>
             mod.name.toLowerCase().includes(hero.toLowerCase())
         );
 
-        if (newHeroName) {
+        if (foundHeroes.length > 0) {
+            const newHeroName = foundHeroes.reduce((longest, current) =>
+                current.length > longest.length ? current : longest
+            );
+
             const existingHeroMod = cart.find(item => {
                 if (item.categoryId !== 'heroes') return false;
 
-                return HEROES_LIST.some(hero =>
-                    item.name.toLowerCase().includes(hero.toLowerCase()) &&
-                    hero.toLowerCase() === newHeroName.toLowerCase()
+                const existingHeroes = HEROES_LIST.filter(hero =>
+                    item.name.toLowerCase().includes(hero.toLowerCase())
                 );
+
+                if (existingHeroes.length === 0) return false;
+
+                const existingHeroName = existingHeroes.reduce((longest, current) =>
+                    current.length > longest.length ? current : longest
+                );
+
+                return existingHeroName.toLowerCase() === newHeroName.toLowerCase();
             });
 
             if (existingHeroMod) {
@@ -1081,6 +1101,7 @@ if (document.readyState === 'loading') {
         setupCartModal();
         updateCartButtons();
         renderAssembliesList();
+        loadSharedAssembly();
     });
 } else {
     loadCart();
@@ -1088,4 +1109,294 @@ if (document.readyState === 'loading') {
     setupCartModal();
     updateCartButtons();
     renderAssembliesList();
+    loadSharedAssembly();
+}
+
+// Base64
+// function compressAssembly(assembly) {
+//     const catMap = {
+//         'heroes': 'h', 'shaders': 's', 'terrains': 't', 'trees': 'r',
+//         'creeps': 'c', 'ti-bp-effects': 'e', 'item-effects': 'i',
+//         'creep-deny': 'd', 'emblems': 'b', 'versus-screens': 'v',
+//         'roshan': 'o', 'ancient': 'a', 'tormentor': 'm', 'towers': 'w',
+//         'high-five': 'f', 'ranged-attack': 'g', 'mega-kill': 'k',
+//         'pedestal': 'p', 'other': 'x', 'backgrounds': 'z', 'river': 'l',
+//         'ranks': 'n', 'item-icons': 'y', 'wards': 'u', 'couriers': 'q',
+//         'announcers': 'j', 'music': '1', 'cursors': '2', 'pings': '3',
+//         'herofx': '4', 'hero-sounds': '5', 'hero-items': '6'
+//     };
+
+//     const items = assembly.items.map(item => {
+//         const parts = [
+//             catMap[item.categoryId] || item.categoryId,
+//             item.file.replace('.zip', ''),
+//             item.groupId || ''
+//         ];
+//         return parts.filter(p => p).join(',');
+//     });
+
+//     const data = assembly.name + '|' + items.join('|');
+//     return LZString.compressToEncodedURIComponent(data);
+// }
+
+// function decompressAssembly(compressed) {
+//     try {
+//         const data = LZString.decompressFromEncodedURIComponent(compressed);
+//         if (!data) return null;
+
+//         const catMap = {
+//             'h': 'heroes', 's': 'shaders', 't': 'terrains', 'r': 'trees',
+//             'c': 'creeps', 'e': 'ti-bp-effects', 'i': 'item-effects',
+//             'd': 'creep-deny', 'b': 'emblems', 'v': 'versus-screens',
+//             'o': 'roshan', 'a': 'ancient', 'm': 'tormentor', 'w': 'towers',
+//             'f': 'high-five', 'g': 'ranged-attack', 'k': 'mega-kill',
+//             'p': 'pedestal', 'x': 'other', 'z': 'backgrounds', 'l': 'river',
+//             'n': 'ranks', 'y': 'item-icons', 'u': 'wards', 'q': 'couriers',
+//             'j': 'announcers', '1': 'music', '2': 'cursors', '3': 'pings',
+//             '4': 'herofx', '5': 'hero-sounds', '6': 'hero-items'
+//         };
+
+//         const parts = data.split('|');
+//         const name = parts[0];
+
+//         const items = parts.slice(1).map(itemStr => {
+//             const [catCode, file, groupId] = itemStr.split(',');
+//             const categoryId = catMap[catCode] || catCode;
+//             const fullFile = file.includes('.') ? file : file + '.zip';
+
+//             const categoryData = modsData[categoryId];
+//             let modName = file;
+
+//             if (categoryData?.groups && groupId) {
+//                 const group = categoryData.groups.find(g => g.id === groupId);
+//                 const mod = group?.mods.find(m => m.file === fullFile);
+//                 if (mod) modName = mod.name;
+//             } else if (Array.isArray(categoryData)) {
+//                 const mod = categoryData.find(m => m.file === fullFile);
+//                 if (mod) modName = mod.name;
+//             }
+
+//             return {
+//                 id: groupId ? `${categoryId}-${groupId}-${modName}` : `${categoryId}-${modName}`,
+//                 name: modName,
+//                 file: fullFile,
+//                 categoryId: categoryId,
+//                 groupId: groupId || null
+//             };
+//         });
+
+//         return { name, items };
+//     } catch (e) {
+//         console.error('Failed to decompress pack:', e);
+//         return null;
+//     }
+// }
+
+// function shareAssembly(assemblyId) {
+//     const assembly = savedAssemblies.find(a => a.id === assemblyId);
+//     if (!assembly) return;
+
+//     const compressed = compressAssembly(assembly);
+//     const baseUrl = window.location.origin + window.location.pathname;
+//     const shareUrl = `${baseUrl}?pack=${compressed}`;
+
+//     copyToClipboard(shareUrl, `Share link copied for <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
+// }
+
+// function loadSharedAssembly() {
+//     const params = new URLSearchParams(window.location.search);
+//     const packData = params.get('pack');
+
+//     if (!packData) return;
+
+//     const assembly = decompressAssembly(packData);
+//     if (!assembly) {
+//         showToast('Invalid pack link');
+//         return;
+//     }
+
+//     cart = [...assembly.items];
+//     saveCart();
+//     updateCartBadge();
+//     renderCartItems();
+//     updateCartButtons();
+
+//     showToast(`Loaded pack: <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
+
+//     window.history.replaceState({}, '', window.location.pathname);
+
+//     const cartButton = document.getElementById('cartButton');
+//     if (cartButton) cartButton.click();
+// }
+
+
+// Workers
+function compressAssembly(assembly) {
+    const catMap = {
+        'heroes': 'h', 'shaders': 's', 'terrains': 't', 'trees': 'r',
+        'creeps': 'c', 'ti-bp-effects': 'e', 'item-effects': 'i',
+        'creep-deny': 'd', 'emblems': 'b', 'versus-screens': 'v',
+        'roshan': 'o', 'ancient': 'a', 'tormentor': 'm', 'towers': 'w',
+        'high-five': 'f', 'ranged-attack': 'g', 'mega-kill': 'k',
+        'pedestal': 'p', 'other': 'x', 'backgrounds': 'z', 'river': 'l',
+        'ranks': 'n', 'item-icons': 'y', 'wards': 'u', 'couriers': 'q',
+        'announcers': 'j', 'music': '1', 'cursors': '2', 'pings': '3',
+        'herofx': '4', 'hero-sounds': '5', 'hero-items': '6'
+    };
+
+    const items = assembly.items.map(item => {
+        const fileName = item.file.replace('.zip', '').replace(/\s+/g, '');
+        const parts = [
+            catMap[item.categoryId] || item.categoryId,
+            fileName,
+            item.groupId || ''
+        ];
+        return parts.filter(p => p).join('~');
+    });
+
+    const data = assembly.name + '^' + items.join('^');
+    const compressed = LZString.compressToEncodedURIComponent(data);
+    
+    const base64 = btoa(compressed)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+    
+    return base64;
+}
+
+function decompressAssembly(compressed) {
+    try {
+        let base64 = compressed
+            .replace(/-/g, '+')
+            .replace(/_/g, '/');
+        
+        while (base64.length % 4) {
+            base64 += '=';
+        }
+        
+        const lzData = atob(base64);
+        const data = LZString.decompressFromEncodedURIComponent(lzData);
+        
+        if (!data) return null;
+
+        const catMap = {
+            'h': 'heroes', 's': 'shaders', 't': 'terrains', 'r': 'trees',
+            'c': 'creeps', 'e': 'ti-bp-effects', 'i': 'item-effects',
+            'd': 'creep-deny', 'b': 'emblems', 'v': 'versus-screens',
+            'o': 'roshan', 'a': 'ancient', 'm': 'tormentor', 'w': 'towers',
+            'f': 'high-five', 'g': 'ranged-attack', 'k': 'mega-kill',
+            'p': 'pedestal', 'x': 'other', 'z': 'backgrounds', 'l': 'river',
+            'n': 'ranks', 'y': 'item-icons', 'u': 'wards', 'q': 'couriers',
+            'j': 'announcers', '1': 'music', '2': 'cursors', '3': 'pings',
+            '4': 'herofx', '5': 'hero-sounds', '6': 'hero-items'
+        };
+
+        const parts = data.split('^');
+        const name = parts[0];
+
+        const items = parts.slice(1).map(itemStr => {
+            const [catCode, file, groupId] = itemStr.split('~');
+            const categoryId = catMap[catCode] || catCode;
+            const fullFile = file.includes('.') ? file : file + '.zip';
+
+            const categoryData = modsData[categoryId];
+            let modName = file;
+
+            if (categoryData?.groups && groupId) {
+                const group = categoryData.groups.find(g => g.id === groupId);
+                const mod = group?.mods.find(m => m.file === fullFile);
+                if (mod) modName = mod.name;
+            } else if (Array.isArray(categoryData)) {
+                const mod = categoryData.find(m => m.file === fullFile);
+                if (mod) modName = mod.name;
+            }
+
+            return {
+                id: groupId ? `${categoryId}-${groupId}-${modName}` : `${categoryId}-${modName}`,
+                name: modName,
+                file: fullFile,
+                categoryId: categoryId,
+                groupId: groupId || null
+            };
+        });
+
+        return { name, items };
+    } catch (e) {
+        console.error('Failed to decompress pack:', e);
+        return null;
+    }
+}
+
+function generateShortCode() {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = '';
+    for (let i = 0; i < 6; i++) {
+        code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return code;
+}
+
+async function shareAssembly(assemblyId) {
+    const assembly = savedAssemblies.find(a => a.id === assemblyId);
+    if (!assembly) return;
+
+    const compressed = compressAssembly(assembly);
+    const baseUrl = window.location.origin + window.location.pathname;
+    const longUrl = `${baseUrl}?pack=${compressed}`;
+
+    try {
+        const shortCode = generateShortCode();
+        
+        const response = await fetch('https://share.d2pfx.workers.dev/api/shorten', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                code: shortCode, 
+                url: longUrl 
+            })
+        });
+
+        if (!response.ok) throw new Error('Failed to shorten URL');
+
+        const data = await response.json();
+        const shortUrl = data.shortUrl;
+
+        copyToClipboard(
+            shortUrl,
+            `Share link copied for <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`
+        );
+    } catch (e) {
+        console.error('Error creating short link:', e);
+        copyToClipboard(
+            longUrl,
+            `Share link copied for <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`
+        );
+    }
+}
+
+function loadSharedAssembly() {
+    const params = new URLSearchParams(window.location.search);
+    const packData = params.get('pack');
+
+    if (!packData) return;
+
+    const assembly = decompressAssembly(packData);
+    if (!assembly) {
+        showToast('Invalid pack link');
+        return;
+    }
+
+    cart = [...assembly.items];
+    saveCart();
+    updateCartBadge();
+    renderCartItems();
+    updateCartButtons();
+
+    showToast(`Loaded pack <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
+
+    window.history.replaceState({}, '', window.location.pathname);
+
+    const cartButton = document.getElementById('cartButton');
+    if (cartButton) cartButton.click();
 }

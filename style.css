@@ -3074,6 +3074,40 @@ fcode {
   transform: scale(0.9);
 }
 
+.assembly-share-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.assembly-item:hover .assembly-share-btn {
+    opacity: 1;
+}
+
+.assembly-share-btn .material-symbols-rounded {
+    font-size: 16px;
+}
+
+.assembly-share-btn:hover {
+    background: var(--md-sys-color-shit-light);
+    color: var(--md-sys-color-on-primary);
+    transform: scale(1.1);
+}
+
+.assembly-share-btn:active {
+    transform: scale(0.9);
+}
+
 .cart-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

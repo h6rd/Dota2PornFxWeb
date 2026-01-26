@@ -129,7 +129,7 @@ const categories = [
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
-    { id: 'sites', emoji: '🌐', key: 'sites', preview: '.webp' }
+    { id: 'sites', emoji: '🌐', key: 'sites', preview: '' }
     // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
 ];
 
