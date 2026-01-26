@@ -1331,6 +1331,7 @@ function loadSharedAssembly() {
     updateCartBadge();
     renderCartItems();
     updateCartButtons();
+    renderAssembliesList();
 
     showToast(`Loaded pack <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
 
