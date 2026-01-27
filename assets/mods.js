@@ -446,7 +446,7 @@ const modsData = {
         { name: 'Disruptor Tractor', preview: 'Disruptor Tractor.webp', file: 'Disruptor Tractor.zip', tags: { effects: false, icons: false, mount: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-distractor/' }] },
         { name: 'Earthshaker Carrot', preview: 'Earthshaker Carrot.webp', file: 'Earthshaker Carrot.zip', tags: { effects: false, icons: false, totem: true } },
         { name: 'Sniper Dragon Lore', preview: 'Sniper Dragon Lore.webp', file: 'Sniper Dragon Lore.zip', tags: { effects: true, icons: false, weapon: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
-        { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
+        { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
