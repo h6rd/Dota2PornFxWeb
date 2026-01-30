@@ -1,4 +1,11 @@
 const recentlyAddedMods = [
+    { name: 'Anti-Mage Ronin Warrior', category: 'heroes' },
+    { name: 'Red Monkey King', category: 'heroes' },
+    { name: 'Pudgling v2', category: 'couriers' },
+    { name: 'Pudgling', category: 'couriers' },
+    { name: 'Default Wards', category: 'optimization' },
+    { name: 'Effects Guide', category: 'guides' },
+    { name: 'Models Guide', category: 'guides' },
     { name: 'Drow Ranger Diretide', category: 'heroes' },
     { name: 'Cartoon Shader', category: 'shaders' },
     { name: 'IO Histoire', category: 'heroes' },
@@ -439,6 +446,8 @@ const modsData = {
         { name: 'Nuclear Clockwerk', preview: 'Nuclear Clockwerk.webp', file: 'Nuclear Clockwerk.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-nuclear_clockwerk/' }] },
         { name: 'IO Histoire', preview: 'IO Histoire.webp', file: 'IO Histoire.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://vk.com/iselestiawaifu' }] },
         { name: 'Drow Ranger Diretide', preview: 'Drow Ranger Diretide.webp', file: 'Drow Ranger Diretide.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-custom_megapack_drow_ranger_sylvanas_live_diretide/' }] },
+        { name: 'Red Monkey King', preview: 'Red Monkey King.webp', file: 'Red Monkey King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
+        { name: 'Anti-Mage Ronin Warrior', preview: 'Anti-Mage Ronin Warrior.webp', file: 'Anti-Mage Ronin Warrior.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
@@ -617,7 +626,9 @@ const modsData = {
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify/', type: 'guide' },
-        { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' }
+        { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' },
+        { name: 'Default Wards', preview: 'Default Wards.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://discord.com/channels/984169062735151174/1311143842631909408' },
+        // { name: 'Default Couriers', preview: 'Default Couriers.webp', file: 'Default Couriers.zip', linkType: 'source', linkUrl: 'https://discord.com/channels/984169062735151174/1311143842631909408' },
     ],
     'sites': [
         { name: 'Stratz', preview: 'stratz.webp', file: 'https://stratz.com/', type: 'guide', tags: { stats: true, meta: true } },
@@ -630,7 +641,9 @@ const modsData = {
     'guides': [
         { name: 'Minimap Icons', preview: 'minimap.webp', guideId: 'minimap-icons', type: 'guide' },
         { name: 'Install Mods', preview: '', guideId: 'install', type: 'guide' },
-        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' }
+        { name: 'Commands & Binds', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md', type: 'guide' },
+        { name: 'Effects Guide', preview: 'Effects Guide.webp', file: 'https://youtu.be/xx8x77X6qRY', type: 'guide' },
+        { name: 'Models Guide', preview: 'Models Guide.webp', file: 'https://youtu.be/QJ993E-RB1s', type: 'guide' },
     ],
     'ranks': [
         { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3138412507' },
@@ -676,6 +689,8 @@ const modsData = {
         { name: 'Jadehoof', preview: 'Jadehoof.webp', file: 'pak29_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Strongback the Swift', preview: 'Strongback the Swift.webp', file: 'pak30_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Nian Courier', preview: 'Nian Courier.webp', file: 'pak31_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Pudgling', preview: 'Pudgling.webp', file: 'pak32_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        { name: 'Pudgling v2', preview: 'Pudgling lvl 2.webp', file: 'pak33_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack' },

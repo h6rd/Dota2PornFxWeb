@@ -156,9 +156,10 @@ const categoryNotes = {
 };
 
 const addToCartRules = {
-    hiddenCategories: ['guides', 'optimization', 'packs', 'tools'],
+    hiddenCategories: ['guides', 'packs', 'tools'],
     allowedMods: {
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'Rage Voice Icon', 'Gabe Shopkeeper'],
+        optimization: ['Default Wards', 'Default Couriers'],
     }
 };
 
@@ -2086,24 +2087,43 @@ function generateLinkButtonsHtml(mod, categoryId) {
         mod.links.forEach(link => {
             const icon = LINK_ICONS[link.type] || 'link';
             const isNotSafe = link.type === 'not-safe';
+
+            let displayText = translations[link.type];
+            let hasCustomName = false;
+
+            if (link.type === 'sender' && link.name) {
+                displayText = link.name;
+                hasCustomName = true;
+            }
+
             linkButtons.push(`
                 <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
                       data-url="${link.url}" 
-                      data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}">
+                      data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}"
+                      ${hasCustomName ? 'data-custom-name="true"' : ''}>
                     <span class="material-symbols-rounded">${icon}</span>
-                    ${translations[link.type]}
+                    ${displayText}
                 </span>
             `);
         });
     } else if (mod.linkType && mod.linkUrl) {
         const icon = LINK_ICONS[mod.linkType] || 'link';
         const isNotSafe = mod.linkType === 'not-safe';
+
+        let displayText = translations[mod.linkType];
+        let hasCustomName = false;
+
+        if (mod.linkType === 'sender' && mod.senderName) {
+            displayText = mod.senderName;
+            hasCustomName = true;
+        }
         linkButtons.push(`
             <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
                   data-url="${mod.linkUrl}" 
-                  data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}">
+                  data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}"
+                  ${hasCustomName ? 'data-custom-name="true"' : ''}>
                 <span class="material-symbols-rounded">${icon}</span>
-                ${translations[mod.linkType]}
+                ${displayText}
             </span>
         `);
     }
