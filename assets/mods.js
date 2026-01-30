@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Final ZanKEZuga', category: 'heroes' },
     { name: 'Anti-Mage Ronin Warrior', category: 'heroes' },
     { name: 'Red Monkey King', category: 'heroes' },
     { name: 'Pudgling v2', category: 'couriers' },
@@ -448,6 +449,7 @@ const modsData = {
         { name: 'Drow Ranger Diretide', preview: 'Drow Ranger Diretide.webp', file: 'Drow Ranger Diretide.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-custom_megapack_drow_ranger_sylvanas_live_diretide/' }] },
         { name: 'Red Monkey King', preview: 'Red Monkey King.webp', file: 'Red Monkey King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Anti-Mage Ronin Warrior', preview: 'Anti-Mage Ronin Warrior.webp', file: 'Anti-Mage Ronin Warrior.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
+        { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }, { type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
