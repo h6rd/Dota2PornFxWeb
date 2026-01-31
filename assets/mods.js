@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Black River', category: 'river' },
     { name: 'Final ZanKEZuga', category: 'heroes' },
     { name: 'Anti-Mage Ronin Warrior', category: 'heroes' },
     { name: 'Red Monkey King', category: 'heroes' },
