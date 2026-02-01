@@ -814,6 +814,43 @@ const modsData = {
     'item-effects': {
         groups: [
             {
+                id: 'dagon', name: 'Dagon', mods: [
+                    { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
+                    { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
+                    { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
+                    { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
+                    { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
+                ]
+            },
+            {
+                id: 'branch', name: 'Iron Branch', mods: [
+                    { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
+                    { name: 'Christmas Iron Branch', preview: 'christmas_branch.mp4', file: 'pak68_dir.vpk' },
+                ]
+            },
+            {
+                id: 'ethereal', name: 'Ethereal', mods: [
+                    { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
+                ]
+            },
+            {
+                id: 'hex', name: 'Hex', mods: [
+                    { name: 'Purple Hex', preview: 'Purple Hex.webp', file: 'pak70_dir.vpk' },
+                    { name: 'Winter Hex', preview: 'Winter Hex.webp', file: 'pak71_dir.vpk' },
+                ]
+            },
+            {
+                id: 'aegis', name: 'Aegis', mods: [
+                    { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
+                ]
+            },
+            {
+                id: 'runes', name: 'Runes', mods: [
+                    { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
+                    { name: 'Dark Bounty Rune', preview: 'Dark Bounty Rune.mp4', file: 'pak10_dir.vpk' },
+                ]
+            },
+            {
                 id: 'blink', name: 'Blink Dagger', mods: [
                     // { name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Blink Dagger', preview: 'TI9 Blink Dagger.webp', file: 'TI9 Blink Dagger.zip' },
@@ -979,44 +1016,7 @@ const modsData = {
                 id: 'aghanim', name: 'Aghanim Aura', mods: [
                     { name: 'TI10 Aghanim Aura', preview: 'TI10 Aghanim Aura.webp', file: 'TI10 Aghanim Aura.zip' },
                 ]
-            },
-            {
-                id: 'dagon', name: 'Dagon', mods: [
-                    { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
-                    { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
-                    { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
-                    { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
-                    { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
-                ]
-            },
-            {
-                id: 'branch', name: 'Iron Branch', mods: [
-                    { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
-                    { name: 'Christmas Iron Branch', preview: 'christmas_branch.mp4', file: 'pak68_dir.vpk' },
-                ]
-            },
-            {
-                id: 'ethereal', name: 'Ethereal', mods: [
-                    { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
-                ]
-            },
-            {
-                id: 'hex', name: 'Hex', mods: [
-                    { name: 'Purple Hex', preview: 'Purple Hex.webp', file: 'pak70_dir.vpk' },
-                    { name: 'Winter Hex', preview: 'Winter Hex.webp', file: 'pak71_dir.vpk' },
-                ]
-            },
-            {
-                id: 'aegis', name: 'Aegis', mods: [
-                    { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
-                ]
-            },
-            {
-                id: 'runes', name: 'Runes', mods: [
-                    { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
-                    { name: 'Dark Bounty Rune', preview: 'Dark Bounty Rune.mp4', file: 'pak10_dir.vpk' },
-                ]
-            },
+            }
         ]
     },
 }

@@ -1,0 +1,47 @@
+const CACHE_VERSION = 1;
+const CACHE_NAME = `d2pfx-previews-v${CACHE_VERSION}`;
+
+self.addEventListener('install', (event) => {
+    self.skipWaiting();
+});
+
+self.addEventListener('fetch', (event) => {
+    const url = new URL(event.request.url);
+
+    if (url.pathname.includes('/assets/previews/') &&
+        (url.pathname.endsWith('.webp') ||
+            url.pathname.endsWith('.mp4') ||
+            url.pathname.endsWith('.gif') ||
+            url.pathname.endsWith('.webm') ||
+            url.pathname.endsWith('.png'))) {
+
+        event.respondWith(
+            caches.open(CACHE_NAME).then((cache) => {
+                return cache.match(event.request).then((cachedResponse) => {
+                    if (cachedResponse) {
+                        return cachedResponse;
+                    }
+
+                    return fetch(event.request).then((networkResponse) => {
+                        if (networkResponse && networkResponse.status === 200) {
+                            cache.put(event.request, networkResponse.clone());
+                        }
+                        return networkResponse;
+                    });
+                });
+            })
+        );
+    }
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.filter(name => name.startsWith('d2pfx-previews-') && name !== CACHE_NAME)
+                    .map(name => caches.delete(name))
+            );
+        })
+    );
+    self.clients.claim();
+});
