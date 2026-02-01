@@ -745,7 +745,7 @@ const guidesData = {
               text: "This tool patches the <fcode>dota.signatures</fcode> and <fcode>gameinfo_branchspecific.gi</fcode> files. This is not safe. Use at your own risk, I am not responsible for any consequences.",
             },
           ],
-          info: "So far no one has been banned for this, but who knows what Valve may come up with in the future",
+          info: "No one has been banned for this yet, but who knows what Valve might come up with",
           infoPosition: "bottom",
         },
       ],
@@ -756,10 +756,10 @@ const guidesData = {
           steps: [
             {
               icon: "exclamation",
-              text: "Этот инструмент патчит файлы <fcode>dota.signatures</fcode> и <fcode>gameinfo_branchspecific.gi</fcode>, это не безопасно. Используйте на свой риск, не несу ответственности за последствия.",
+              text: "Этот инструмент патчит файлы <fcode>dota.signatures</fcode> и <fcode>gameinfo_branchspecific.gi</fcode>, это не безопасно. Используйте на свой страх и риск, я не несу ответственности за последствия.",
             },
           ],
-          info: "За это ещё никого не банили, но кто знает, что Valve придумает в будущем",
+          info: "За это ещё никого не банили, но кто знает, что Valve может придумать",
           infoPosition: "bottom",
         },
       ],

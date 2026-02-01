@@ -2196,10 +2196,16 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
         if (e.target.classList.contains('copy-link-btn') || e.target.closest('.copy-link-btn')) {
             return;
         }
-        if (mod.type === 'guide' && mod.guideId) {
-            openGuideForMod({ guideId: mod.guideId });
-        } else if (mod.type === 'guide' && !mod.guideId) {
-            window.open(mod.file, '_blank');
+        if (mod.type === 'guide') {
+            if (mod.guideId) {
+                if (!mod.file || !mod.file.startsWith('http')) {
+                    openGuideForMod({ guideId: mod.guideId });
+                } else {
+                    window.open(mod.file, '_blank');
+                }
+            } else {
+                window.open(mod.file, '_blank');
+            }
         } else {
             downloadMod(mod, categoryId);
         }

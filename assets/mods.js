@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'ArdysaModsTools', category: 'tools' },
     { name: 'Chen Lelouch', category: 'heroes' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Custom Slark', category: 'heroes' },
@@ -632,6 +633,7 @@ const modsData = {
         { name: 'VPKTool Linux', preview: 'VPKTool-Linux.webp', file: 'VPKTool Linux.zip', guideId: "vpk-tool-linux" },
         { name: 'Source2Viewer', preview: 's2v.webp', file: 'https://github.com/ValveResourceFormat/ValveResourceFormat', type: 'guide' },
         { name: 'VPKEdit', preview: 'VPKEdit.webp', file: 'https://github.com/craftablescience/VPKEdit', type: 'guide' },
+        { name: 'ArdysaModsTools', preview: 'ArdysaModsTools.webp', file: 'https://ardysamods.my.id/', type: 'guide', guideId: 'warning', guideType: 'not-safe' },
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify/', type: 'guide' },
