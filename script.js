@@ -152,6 +152,10 @@ const categoryNotes = {
     'item-effects': {
         enabled: true,
         text: "During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use Effect Packs."
+    },
+    'emblems': {
+        enabled: true,
+        text: "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
     }
 };
 
