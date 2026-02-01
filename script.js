@@ -300,6 +300,19 @@ const highlightHeroNames = (text) => {
 };
 
 // FAB Menu
+function closeFABMenu() {
+    const fab = document.getElementById('fab');
+    const fabMenu = document.getElementById('fabMenu');
+    const fabMenuBackground = document.getElementById('fabMenuBackground');
+    
+    if (fab) fab.classList.remove('active');
+    if (fabMenu) fabMenu.classList.remove('active');
+    if (fabMenuBackground) {
+        fabMenuBackground.classList.remove('active');
+        fabMenuBackground.style.height = '0px';
+    }
+}
+
 function setupFAB() {
     const fab = document.getElementById('fab');
     const fabMenu = document.getElementById('fabMenu');
@@ -327,13 +340,6 @@ function setupFAB() {
         } else {
             fabMenuBackground.style.height = '0px';
         }
-    };
-
-    const closeFABMenu = () => {
-        fab.classList.remove('active');
-        fabMenu.classList.remove('active');
-        fabMenuBackground.classList.remove('active');
-        fabMenuBackground.style.height = '0px';
     };
 
     const closeInfoModal = () => {

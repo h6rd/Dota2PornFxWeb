@@ -1,5 +1,6 @@
 const CACHE_VERSION = 1;
 const CACHE_NAME = `d2pfx-previews-v${CACHE_VERSION}`;
+const BASE_PATH = '/Dota2PornFxWeb';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -8,7 +9,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
 
-    if (url.pathname.includes('/assets/previews/') &&
+    if (url.pathname.includes(`${BASE_PATH}/assets/previews/`) &&
         (url.pathname.endsWith('.webp') ||
             url.pathname.endsWith('.mp4') ||
             url.pathname.endsWith('.gif') ||
@@ -27,7 +28,7 @@ self.addEventListener('fetch', (event) => {
                             cache.put(event.request, networkResponse.clone());
                         }
                         return networkResponse;
-                    });
+                    }).catch(() => cachedResponse);
                 });
             })
         );
