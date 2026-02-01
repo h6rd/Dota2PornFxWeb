@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Chen Lelouch', category: 'heroes' },
+    { name: 'Kez Zangetsu Sword', category: 'hero-items' },
+    { name: 'Custom Slark', category: 'heroes' },
     { name: 'Black River', category: 'river' },
     { name: 'Final ZanKEZuga', category: 'heroes' },
     { name: 'Anti-Mage Ronin Warrior', category: 'heroes' },
@@ -451,6 +454,8 @@ const modsData = {
         { name: 'Red Monkey King', preview: 'Red Monkey King.webp', file: 'Red Monkey King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Anti-Mage Ronin Warrior', preview: 'Anti-Mage Ronin Warrior.webp', file: 'Anti-Mage Ronin Warrior.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }, { type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
+        { name: 'Custom Slark', preview: 'Custom Slark.webp', file: 'Custom Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
+        { name: 'Chen Lelouch', preview: 'Chen Lelouch.webp', file: 'Chen Lelouch.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'http://www.dota2rpg.com/forum.php?mod=viewthread&tid=2959&extra=page%3D1' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
@@ -459,6 +464,7 @@ const modsData = {
         { name: 'Earthshaker Carrot', preview: 'Earthshaker Carrot.webp', file: 'Earthshaker Carrot.zip', tags: { effects: false, icons: false, totem: true } },
         { name: 'Sniper Dragon Lore', preview: 'Sniper Dragon Lore.webp', file: 'Sniper Dragon Lore.zip', tags: { effects: true, icons: false, weapon: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
         { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
+        { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }] },
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
