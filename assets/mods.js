@@ -1,4 +1,10 @@
 const recentlyAddedMods = [
+    { name: 'Spectre Arcana', category: 'heroes' },
+    { name: 'Spectre Arcana II', category: 'heroes' },
+    { name: 'Bloodseeker Strygwyr', category: 'heroes' },
+    { name: 'Faceless Void Arcana II', category: 'heroes' },
+    { name: 'Kez Peacock', category: 'heroes' },
+    { name: 'Bloodelf Silencer', category: 'heroes' },
     { name: 'Kez Captain Anchorbeak', category: 'heroes' },
     { name: 'ArdysaModsTools', category: 'tools' },
     { name: 'Chen Lelouch', category: 'heroes' },
@@ -459,6 +465,12 @@ const modsData = {
         { name: 'Custom Slark', preview: 'Custom Slark.webp', file: 'Custom Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Chen Lelouch', preview: 'Chen Lelouch.webp', file: 'Chen Lelouch.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'http://www.dota2rpg.com/forum.php?mod=viewthread&tid=2959&extra=page%3D1' }] },
         { name: 'Kez Captain Anchorbeak', preview: 'Kez Captain Anchorbeak.webp', file: 'Kez Captain Anchorbeak.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198016243370' }, { type: 'source', url: 'https://discord.gg/uSQ8WUtxWC' }] },
+        { name: 'Bloodelf Silencer', preview: 'Bloodelf Silencer.webp', file: 'Bloodelf Silencer.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw' }] },
+        { name: 'Kez Peacock', preview: 'Kez Peacock.webp', file: 'Kez Peacock.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198127797541' }, { type: 'source', url: 'https://discord.gg/uSQ8WUtxWC' }] },
+        { name: 'Faceless Void Arcana II', preview: 'Faceless Void Arcana Style 2.webp', file: 'Faceless Void Arcana Style 2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
+        { name: 'Bloodseeker Strygwyr', preview: 'Bloodseeker Strygwyr.webp', file: 'Bloodseeker Strygwyr.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw' }] },
+        { name: 'Spectre Arcana II', preview: 'Spectre Arcana Style 2.webp', file: 'Spectre Arcana Style 2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
+        { name: 'Spectre Arcana', preview: 'Spectre Arcana.webp', file: 'Spectre Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
