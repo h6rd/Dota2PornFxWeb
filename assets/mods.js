@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Kez Captain Anchorbeak', category: 'heroes' },
     { name: 'ArdysaModsTools', category: 'tools' },
     { name: 'Chen Lelouch', category: 'heroes' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
@@ -457,6 +458,7 @@ const modsData = {
         { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }, { type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Custom Slark', preview: 'Custom Slark.webp', file: 'Custom Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Chen Lelouch', preview: 'Chen Lelouch.webp', file: 'Chen Lelouch.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'http://www.dota2rpg.com/forum.php?mod=viewthread&tid=2959&extra=page%3D1' }] },
+        { name: 'Kez Captain Anchorbeak', preview: 'Kez Captain Anchorbeak.webp', file: 'Kez Captain Anchorbeak.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198016243370' }, { type: 'source', url: 'https://discord.gg/uSQ8WUtxWC' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
