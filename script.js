@@ -2066,7 +2066,7 @@ function createModCard(mod, categoryId, groupId = null) {
                 <div class="card-buttons-group">
                     ${linkButtonsHtml}
                     <button class="copy-link-btn" title="Copy link">
-                        <span class="material-symbols-rounded">share</span>
+                        <span class="material-symbols-rounded">link</span>
                     </button>
                 </div>
             </div>
