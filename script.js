@@ -152,16 +152,12 @@ const NOTES_DATA = [
 const categoryNotes = {
     'item-effects': {
         enabled: true,
-        text: "During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use Effect Packs."
+        text: `During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=ti-bp-effects"><span id="tg">Effect Packs</span></a>.`
     },
     'emblems': {
         enabled: true,
         text: "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
     },
-    // 'backgrounds': {
-    //     enabled: true,
-    //     text: "This backgrounds hides all events, thanks for fix to "
-    // }
 };
 
 const addToCartRules = {

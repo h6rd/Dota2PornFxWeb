@@ -192,7 +192,7 @@ const guidesData = {
             "Put the downloaded mods in the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
           ],
-          info: 'You can also use <span id="tg">VPKMerge</span> to combine the mods',
+          info: 'You can also use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> to combine the mods',
           infoPosition: "bottom",
           warning:
             'If files are duplicated, rename the repeated file to pak<span id="tg">XX</span>_dir.vpk, where <span id="tg">XX</span> is 10, 11, 12, 13...99.',
@@ -205,7 +205,7 @@ const guidesData = {
             "Переместите их в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
           ],
-          info: 'Вы можете использовать <span id="tg">VPKMerge</span> для объединения модов',
+          info: 'Вы можете использовать <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> для объединения модов',
           infoPosition: "bottom",
           warning:
             'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99',
@@ -225,7 +225,7 @@ const guidesData = {
             "Put the vpk in the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
           ],
-          info: 'You can also use <span id="tg">VPKMerge</span> to combine the mods',
+          info: 'You can also use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> to combine the mods',
           infoPosition: "bottom",
           warning:
             'If files are duplicated, rename the repeated file to pak<span id="tg">XX</span>_dir.vpk, where <span id="tg">XX</span> is 10, 11, 12, 13...99.',
@@ -239,7 +239,7 @@ const guidesData = {
             "Переместите vpk в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
           ],
-          info: 'Вы можете использовать <span id="tg">VPKMerge</span> для объединения модов',
+          info: 'Вы можете использовать <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> для объединения модов',
           infoPosition: "bottom",
           warning:
             'Если файлы дублируются, переименуйте повторяющийся файл в pak<span id="tg">XX</span>_dir.vpk, где <span id="tg">XX</span> = 10, 11, 12, 13...99',

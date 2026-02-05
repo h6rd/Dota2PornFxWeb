@@ -625,8 +625,8 @@ const modsData = {
         { name: 'Models Guide', preview: 'Models Guide.webp', file: 'https://youtu.be/QJ993E-RB1s', type: 'guide' },
     ],
     'ranks': [
-        { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3138412507' },
-        { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk', linkType: 'source', linkUrl: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3138412507' },
+        { name: 'Imperial Medals', preview: 'Imperial Medals.webp', file: 'pak10_dir.vpk' },
+        { name: 'Flaming Medals', preview: 'Flaming Medals.webp', file: 'pak11_dir.vpk' },
         { name: 'Void Medals', preview: 'Void Medals.webp', file: 'pak12_dir.vpk' },
         { name: 'Bear Medals', preview: 'Bear Medals.webp', file: 'pak13_dir.vpk' },
         { name: 'Azur Lane Medals', preview: 'Azur Lane Medals.webp', file: 'pak14_dir.vpk', linkType: 'source', linkUrl: 'https://vk.com/@dota2animemods-ui-dota-mod' },

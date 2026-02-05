@@ -3491,12 +3491,12 @@ fcode {
 /* Grouped Mods */
 .mod-group-header {
   grid-column: 1 / -1;
-  margin-top: 32px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 
 .mod-group-header:first-child {
-  margin-top: 0;
+  margin-top: -10px;
 }
 
 .mod-group-title {
