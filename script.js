@@ -112,6 +112,7 @@ const categories = [
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp', guideId: 'install' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp', guideId: 'install' },
     { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp', guideId: 'install' },
+    { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp', guideId: 'install' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp', guideId: 'install' },
     { id: 'announcers', emoji: '🔊', key: 'announcers', preview: 'Announcers.webp', guideId: 'install' },
@@ -156,11 +157,15 @@ const categoryNotes = {
     'emblems': {
         enabled: true,
         text: "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
-    }
+    },
+    // 'backgrounds': {
+    //     enabled: true,
+    //     text: "This backgrounds hides all events, thanks for fix to "
+    // }
 };
 
 const addToCartRules = {
-    hiddenCategories: ['guides', 'packs', 'tools'],
+    hiddenCategories: ['guides', 'tools'],
     allowedMods: {
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'Rage Voice Icon', 'Gabe Shopkeeper'],
         optimization: ['Default Wards', 'Default Couriers'],
@@ -2061,7 +2066,7 @@ function createModCard(mod, categoryId, groupId = null) {
                 <div class="card-buttons-group">
                     ${linkButtonsHtml}
                     <button class="copy-link-btn" title="Copy link">
-                        <span class="material-symbols-rounded">link</span>
+                        <span class="material-symbols-rounded">share</span>
                     </button>
                 </div>
             </div>
@@ -2070,6 +2075,88 @@ function createModCard(mod, categoryId, groupId = null) {
 
     attachCardEventListeners(card, mod, categoryId, groupId);
     return card;
+}
+
+function loadPackToCart(pack) {
+    const currentCartIsPack = savedAssemblies.some(assembly =>
+        assembly.name !== 'Backup' && isAssemblyMatchingCurrentCart(assembly)
+    );
+
+    if (cart.length > 0 && !currentCartIsPack) {
+
+        const backupAssembly = {
+            id: Date.now().toString(),
+            name: 'Backup',
+            items: [...cart],
+            date: new Date().toISOString()
+        };
+
+        savedAssemblies.unshift(backupAssembly);
+        if (savedAssemblies.length > MAX_ASSEMBLIES) {
+            savedAssemblies.pop();
+        }
+        saveAssemblies();
+    }
+
+    cart = [];
+
+    pack.mods.forEach(modName => {
+        let found = false;
+        for (const categoryId in modsData) {
+            if (found) break;
+            
+            const categoryData = modsData[categoryId];
+            if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+                for (const group of categoryData.groups) {
+                    const mod = group.mods.find(m => m.name === modName);
+                    if (mod) {
+                        cart.push({
+                            id: `${categoryId}-${group.id}-${mod.name}`,
+                            name: mod.name,
+                            file: mod.file,
+                            categoryId: categoryId,
+                            groupId: group.id
+                        });
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            else if (Array.isArray(categoryData)) {
+                const mod = categoryData.find(m => m.name === modName);
+                if (mod) {
+                    cart.push({
+                        id: `${categoryId}-${mod.name}`,
+                        name: mod.name,
+                        file: mod.file,
+                        categoryId: categoryId,
+                        groupId: null
+                    });
+                    found = true;
+                }
+            }
+        }
+        if (!found) {
+            console.warn(`Mod not found: ${modName}`);
+        }
+    });
+
+    saveCart();
+    updateCartBadge();
+    renderCartItems();
+    updateCartButtons();
+    renderAssembliesList();
+
+    const foundCount = cart.length;
+    const totalCount = pack.mods.length;
+    const message = foundCount === totalCount
+        ? `Loaded: <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(pack.name)}</span>`
+        : `Loaded: <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(pack.name)}</span> (${foundCount}/${totalCount} mods found)`;
+
+    showToast(message);
+
+    const cartButton = document.getElementById('cartButton');
+    if (cartButton) cartButton.click();
 }
 
 function generateTagsHtml(mod, categoryId) {
@@ -2204,6 +2291,10 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             return;
         }
         if (e.target.classList.contains('copy-link-btn') || e.target.closest('.copy-link-btn')) {
+            return;
+        }
+        if (mod.type === 'pack') {
+            loadPackToCart(mod);
             return;
         }
         if (mod.type === 'guide') {

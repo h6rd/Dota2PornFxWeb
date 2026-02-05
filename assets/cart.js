@@ -728,9 +728,11 @@ async function packAndDownload() {
             download: 'download'
         };
 
+        const highlightedMessage = message
+            .replace(/Added (.*?)(?=$)/g, 'Added <span style="color: var(--md-sys-color-primary); font-weight: 600;">$1</span>');
         entry.innerHTML = `
             <span class="material-symbols-rounded">${icons[type]}</span>
-            <span>${escapeHtml(message)}</span>
+            <span>${highlightedMessage}</span>
         `;
 
         logContainer.appendChild(entry);
@@ -738,23 +740,20 @@ async function packAndDownload() {
     }
 
     let packSuccess = false;
-
     const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items'];
 
     try {
         addLog('Starting pack creation...', 'start');
 
         if (typeof JSZip === 'undefined') {
-            addLog('Loading JSZip library...', 'loading');
             const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+            script.src = 'assets/jszip.min.js';
             document.head.appendChild(script);
 
             await new Promise((resolve, reject) => {
                 script.onload = resolve;
                 script.onerror = reject;
             });
-            addLog('JSZip loaded successfully', 'success');
         }
 
         addLog(`Creating archive for ${cart.length} mods...`, 'archive');
@@ -763,104 +762,113 @@ async function packAndDownload() {
         const mainZip = new JSZip();
         const modsFolder = mainZip.folder('mods');
         const existingFileNames = new Set();
+        const modFileNames = {};
+        const BATCH_SIZE = 8;
+        const batches = [];
+
+        for (let i = 0; i < cart.length; i += BATCH_SIZE) {
+            batches.push(cart.slice(i, i + BATCH_SIZE));
+        }
 
         let processedCount = 0;
 
-        const modFileNames = {};
+        for (const batch of batches) {
+            await Promise.all(batch.map(async (item) => {
+                const filePath = `assets/files/${item.categoryId}/${item.file}`;
 
-        for (const item of cart) {
-            const filePath = `assets/files/${item.categoryId}/${item.file}`;
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) throw new Error(`Failed to fetch ${item.file}`);
 
-            try {
-                const response = await fetch(filePath);
-                if (!response.ok) throw new Error(`Failed to fetch ${item.file}`);
+                    const blob = await response.blob();
 
-                const blob = await response.blob();
+                    if (isZipFile(item.file)) {
+                        const zipContent = await JSZip.loadAsync(blob);
+                        const extractedFiles = [];
 
-                if (isZipFile(item.file)) {
-                    addLog(`Extracting: ${item.name}`, 'extract');
-                    const zipContent = await JSZip.loadAsync(blob);
-                    const extractedFiles = [];
+                        const isTerrainMod = item.categoryId === 'terrains';
+                        const isCursorMod = item.categoryId === 'cursors';
+                        const shouldRename = RENAME_CATEGORIES.includes(item.categoryId);
 
-                    const isTerrainMod = item.categoryId === 'terrains';
-                    const isCursorMod = item.categoryId === 'cursors';
-                    const shouldRename = RENAME_CATEGORIES.includes(item.categoryId);
+                        const zipFiles = Object.entries(zipContent.files);
 
-                    const zipFiles = Object.entries(zipContent.files);
+                        if (zipFiles.length === 0) {
+                            addLog(`Warning: ${item.name} appears to be empty`, 'warning');
+                        }
 
-                    if (zipFiles.length === 0) {
-                        addLog(`Warning: ${item.name} appears to be empty`, 'warning');
-                    }
+                        for (const [relativePath, zipEntry] of zipFiles) {
+                            if (zipEntry.dir) continue;
 
-                    for (const [relativePath, zipEntry] of zipFiles) {
-                        if (zipEntry.dir) continue;
+                            try {
+                                const fileBlob = await zipEntry.async('blob');
 
-                        try {
-                            const fileBlob = await zipEntry.async('blob');
-                            if (isTerrainMod) {
-                                if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
-                                    const pathParts = relativePath.split('/');
-                                    const mapsIndex = pathParts.indexOf('maps');
-                                    if (mapsIndex !== -1) {
-                                        const relativeMapsPath = pathParts.slice(mapsIndex).join('/');
-                                        modsFolder.file(relativeMapsPath, fileBlob);
-                                        extractedFiles.push(relativeMapsPath);
+                                if (isTerrainMod) {
+                                    if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
+                                        const pathParts = relativePath.split('/');
+                                        const mapsIndex = pathParts.indexOf('maps');
+                                        if (mapsIndex !== -1) {
+                                            const relativeMapsPath = pathParts.slice(mapsIndex).join('/');
+                                            modsFolder.file(relativeMapsPath, fileBlob);
+                                            extractedFiles.push(relativeMapsPath);
+                                        }
+                                    }
+                                } else if (isCursorMod) {
+                                    mainZip.file(relativePath, fileBlob);
+                                    extractedFiles.push(relativePath);
+                                } else {
+                                    const fileName = relativePath.split('/').pop();
+                                    if (fileName) {
+                                        let finalFileName = fileName;
+                                        if (shouldRename) {
+                                            finalFileName = '!' + fileName;
+                                        }
+                                        const uniqueName = getUniqueFileName(finalFileName, existingFileNames);
+                                        modsFolder.file(uniqueName, fileBlob);
+                                        extractedFiles.push(uniqueName);
                                     }
                                 }
-                            } else if (isCursorMod) {
-                                mainZip.file(relativePath, fileBlob);
-                                extractedFiles.push(relativePath);    
-                            } else {
-                                const fileName = relativePath.split('/').pop();
-                                if (fileName) {
-                                    let finalFileName = fileName;
-                                    if (shouldRename) {
-                                        finalFileName = '!' + fileName;
-                                    }
-                                    const uniqueName = getUniqueFileName(finalFileName, existingFileNames);
-                                    modsFolder.file(uniqueName, fileBlob);
-                                    extractedFiles.push(uniqueName);
-                                }
+                            } catch (err) {
+                                console.error(`Error extracting file ${relativePath} from ${item.name}:`, err);
+                                addLog(`Failed to extract file from ${item.name}`, 'warning');
                             }
-                        } catch (err) {
-                            console.error(`Error extracting file ${relativePath} from ${item.name}:`, err);
-                            addLog(`Failed to extract file from ${item.name}`, 'warning');
                         }
-                    }
 
-                    if (extractedFiles.length > 0) {
-                        if (isCursorMod && extractedFiles.length > 0) {
-                            const folderName = extractedFiles[0].split('/')[0];
-                            modFileNames[item.name] = folderName + '/';
+                        if (extractedFiles.length > 0) {
+                            if (isCursorMod && extractedFiles.length > 0) {
+                                const folderName = extractedFiles[0].split('/')[0];
+                                modFileNames[item.name] = folderName + '/';
+                            } else {
+                                modFileNames[item.name] = extractedFiles.join(', ');
+                            }
+                            addLog(`Added ${item.name}`, 'success');
                         } else {
-                            modFileNames[item.name] = extractedFiles.join(', ');
+                            modFileNames[item.name] = 'No files extracted';
+                            addLog(`No files extracted from ${item.name}`, 'warning');
                         }
-                        addLog(`Added ${item.name}`, 'success');
                     } else {
-                        modFileNames[item.name] = 'No files extracted';
-                        addLog(`No files extracted from ${item.name}`, 'warning');
-                    }    
-                } else {
-                    let fileName = item.file;
-                    if (RENAME_CATEGORIES.includes(item.categoryId)) {
-                        fileName = '!' + fileName;
+                        let fileName = item.file;
+                        if (RENAME_CATEGORIES.includes(item.categoryId)) {
+                            fileName = '!' + fileName;
+                        }
+                        const uniqueName = getUniqueFileName(fileName, existingFileNames);
+                        modsFolder.file(uniqueName, blob);
+                        modFileNames[item.name] = uniqueName;
+                        addLog(`Added ${item.name}`, 'success');
                     }
-                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
-                    modsFolder.file(uniqueName, blob);
-                    modFileNames[item.name] = uniqueName;
-                    addLog(`Added ${item.name}`, 'success');
-                }
 
-                processedCount++;
-            } catch (error) {
-                console.error(`Error processing ${item.name}:`, error);
-                addLog(`Failed to add ${item.name}`, 'warning');
-            }
+                    processedCount++;
+                } catch (error) {
+                    console.error(`Error processing ${item.name}:`, error);
+                    addLog(`Failed to add ${item.name}`, 'warning');
+                }
+            }));
+
+            statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
         }
 
-        addLog('Creating mods list...', 'info');
-        let modsListText = 'Mods in this pack:\n';
-        modsListText += '='.repeat(50) + '\n\n';
+        let modsListText = `╔══════════════════════════════════════════╗
+              MODS IN THIS PACK
+╚══════════════════════════════════════════╝\n\n`;
 
         const modsByCategory = {};
         cart.forEach(item => {
@@ -882,42 +890,30 @@ async function packAndDownload() {
             modsListText += '\n';
         }
 
-        modsListText += '='.repeat(50) + '\n';
-        modsListText += `Total mods: ${cart.length}\n`;
-        modsListText += `Generated: ${new Date().toLocaleString()}\n`;
+        modsListText += `╔══════════════════════════════════════════╗\n`;
+        modsListText += `              TOTAL MODS: ${cart.length}\n`;
+        modsListText += `      GENERATED: ${new Date().toLocaleString()}\n`;
+        modsListText += `╚══════════════════════════════════════════╝\n`;
+        modsListText += `    Thanks for downloading, have fun! 😘`;
 
-        mainZip.file('Mods_List.txt', modsListText);
+        mainZip.file('Mods.txt', modsListText);
         addLog('Mods list created', 'success');
 
-        addLog('Adding installation guide...', 'info');
-        const guideText = `Dota2PornFX Installation Guide
-===============================
-
-EN WINDOWS 
------------
-1. Open the mods folder
-2. Run VPKMerge.exe and wait until it finishes
-3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
-- If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
-- If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
-5. Add to launch options: -language 123 (or "-language minify" if you're using it)
-
-When using VPKMerge, some mods or heroes may not display correctly
-If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
-Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods_List.txt file
+        const guideText = `╔══════════════════════════════════════════╗
+       Dota2PornFX Installation Guide      
+╚══════════════════════════════════════════╝
 
 
 RU WINDOWS
------------
+═══════════
 1. Откройте папку mods
 2. Запустите VPKMerge.exe и дождитесь окончания
 3. Переместите готовый pak10_dir.vpk в папку с языком игры:
-   • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
-   • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
-   • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
+   • Для русского: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_russian
+   • Для английского: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_123
+   • Для англ Minify: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
-- Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
+- Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor)
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
@@ -926,35 +922,35 @@ RU WINDOWS
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
 Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Telegram: https://t.me/f4cks0ciety
-Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods_List.txt
+Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
 
-EN LINUX
----------
-1. Open the mods folder in terminal
-2. Make VPKMerge executable: chmod +x VPKMerge
-3. Run VPKMerge: ./VPKMerge
-4. Move the generated pak10_dir.vpk to your game language folder: dota_123 (If you are using Minify, put vpk in dota_minify folder)
+EN WINDOWS 
+═══════════
+1. Open the mods folder
+2. Run VPKMerge.exe and wait until it finishes
+3. Create folder dota_123 in C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\
+4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
-- If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
-5. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
+- If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor)
+5. Add to launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
-Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods_List.txt file
+Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
 
 
 RU LINUX
----------
+═════════
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
-3. Запустите VPKMerge: ./VPKMerge
+3. Запустите VPKMerge: ./VPKMerge 
 4. Переместите готовый pak10_dir.vpk в папку с языком игры:
    • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
    • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
    • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
-- Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
+- Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor
 
 4. Добавьте в параметры запуска игры:
    • Для русского: -language russian
@@ -963,32 +959,53 @@ RU LINUX
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
 Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Telegram: https://t.me/f4cks0ciety
-Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods_List.txt`;
+Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
+
+
+EN LINUX
+═════════
+1. Open the mods folder in terminal
+2. Make VPKMerge executable: chmod +x VPKMerge
+3. Run VPKMerge: ./VPKMerge
+4. Move the generated pak10_dir.vpk to your game language folder: dota_123 (If you are using Minify, put vpk in dota_minify folder)
+- If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
+- If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\steamapps\common\dota 2 beta\game\dota\resource\cursor
+5. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
+
+When using VPKMerge, some mods or heroes may not display correctly
+If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
+Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file`;
 
         mainZip.file('Guide.txt', guideText);
         addLog('Guide added', 'success');
+        addLog('Adding VPKMerge scripts...', 'info');
 
-        addLog('Adding VPKMerge files...', 'info');
-        try {
-            const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
-            if (exeResponse.ok) {
-                const exeBlob = await exeResponse.blob();
-                modsFolder.file('VPKMerge.exe', exeBlob);
-                addLog('VPKMerge.exe added', 'success');
-            } else {
-                addLog('VPKMerge.exe not found', 'warning');
-            }
+        const [exeResponse, linuxResponse] = await Promise.all([
+            fetch('assets/files/VPKMerge/VPKMerge.exe'),
+            fetch('assets/files/VPKMerge/VPKMerge')
+        ]);
 
-            const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
-            if (linuxResponse.ok) {
-                const linuxBlob = await linuxResponse.blob();
-                modsFolder.file('VPKMerge', linuxBlob);
-                addLog('VPKMerge Linux added', 'success');
-            } else {
-                addLog('VPKMerge Linux not found', 'warning');
-            }
-        } catch (error) {
-            addLog('Could not add VPKMerge files', 'warning');
+        let exeAdded = false;
+        let linuxAdded = false;
+
+        if (exeResponse.ok) {
+            const exeBlob = await exeResponse.blob();
+            modsFolder.file('VPKMerge.exe', exeBlob);
+            exeAdded = true;
+        } else {
+            addLog('VPKMerge.exe not found', 'warning');
+        }
+
+        if (linuxResponse.ok) {
+            const linuxBlob = await linuxResponse.blob();
+            modsFolder.file('VPKMerge', linuxBlob);
+            linuxAdded = true;
+        } else {
+            addLog('VPKMerge Linux not found', 'warning');
+        }
+
+        if (exeAdded || linuxAdded) {
+            addLog('VPKMerge added', 'success');
         }
 
         addLog('Compressing files...', 'archive');
@@ -1000,14 +1017,14 @@ RU LINUX
         const content = await mainZip.generateAsync({
             type: 'blob',
             compression: 'DEFLATE',
-            compressionOptions: { level: 6 }
+            compressionOptions: { level: 1 }
         }, (metadata) => {
             const percent = metadata.percent.toFixed(0);
             statusText.textContent = `Compressing... ${percent}%`;
         });
 
         addLog('Archive compressed', 'success');
-        addLog('Starting download...', 'info');
+        addLog('Downloading...');
         statusText.textContent = 'Download starting...';
 
         const url = URL.createObjectURL(content);
@@ -1016,6 +1033,8 @@ RU LINUX
         link.download = `d2pfxPack-${timestamp}.zip`;
         link.click();
         URL.revokeObjectURL(url);
+
+        showToast('Thanks for downloading, have fun! 😘');
 
         addLog('Pack downloaded successfully!', 'download');
         statusText.textContent = '';
@@ -1029,7 +1048,7 @@ RU LINUX
 
     } catch (error) {
         console.error('Pack error:', error);
-        addLog(`✗ Error: ${error.message}`, 'error');
+        addLog(`Error: ${error.message}`, 'error');
         statusText.textContent = 'Failed!';
 
         logHeader.innerHTML = `

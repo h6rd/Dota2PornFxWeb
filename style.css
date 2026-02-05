@@ -3383,8 +3383,13 @@ fcode {
   margin-top: 2px;
 }
 
+.pack-log-entry.info,
+.pack-log-entry.extract,
+.pack-log-entry.archive,
+.pack-log-entry.loading,
+.pack-log-entry.start,
 .pack-log-entry.success {
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .pack-log-entry.error,
@@ -3392,16 +3397,9 @@ fcode {
   color: var(--md-sys-color-error);
 }
 
-.pack-log-entry.info,
-.pack-log-entry.extract,
-.pack-log-entry.archive,
-.pack-log-entry.loading,
-.pack-log-entry.start {
-  color: var(--md-sys-color-on-surface-variant);
-}
-
 .pack-log-entry.download {
   color: var(--md-sys-color-primary);
+  font-weight: 600;
 }
 
 .pack-log-footer {
