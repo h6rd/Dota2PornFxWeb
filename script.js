@@ -128,7 +128,7 @@ const categories = [
     { id: 'item-icons', emoji: '👀', key: 'item-icons', preview: 'item-icons.webp', guideId: 'install' },
     { id: 'ranks', emoji: '🎖️', key: 'ranks', preview: 'ranks.webp', guideId: 'install' },
     { id: 'cursors', emoji: '🛠️', key: 'cursors', preview: 'cursors.webp' },
-    { id: 'fonts', emoji: '🔣', key: 'fonts', preview: '' },
+    { id: 'fonts', emoji: '🔤', key: 'fonts', preview: '' },
     { id: 'other', emoji: '⚙️', key: 'other', preview: 'other.webp', guideId: 'install' },
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
@@ -164,7 +164,7 @@ const categoryNotes = {
 };
 
 const addToCartRules = {
-    hiddenCategories: ['guides', 'tools', 'fonts'],
+    hiddenCategories: ['guides', 'tools'],
     allowedMods: {
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'Rage Voice Icon', 'Gabe Shopkeeper'],
         optimization: ['Default Wards', 'Default Couriers'],
