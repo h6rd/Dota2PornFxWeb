@@ -164,7 +164,7 @@ const categoryNotes = {
 };
 
 const addToCartRules = {
-    hiddenCategories: ['guides', 'tools'],
+    hiddenCategories: ['guides', 'tools', 'fonts'],
     allowedMods: {
         other: ['Profile Graffiti & Phrases', 'Showcase Rotation', 'Rage Voice Icon', 'Gabe Shopkeeper'],
         optimization: ['Default Wards', 'Default Couriers'],
