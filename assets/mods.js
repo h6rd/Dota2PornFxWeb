@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Kez Zangetsu Sword', category: 'hero-items' },
+    { name: 'Final ZanKEZuga', category: 'heroes' },
     { name: 'Skywrath Mage Arcana II', category: 'heroes' },
     { name: 'Skywrath Mage Arcana I', category: 'heroes' },
     { name: 'Templar Assassin Whisper Gates', category: 'heroes' },
@@ -15,10 +17,8 @@ const recentlyAddedMods = [
     { name: 'Kez Captain Anchorbeak', category: 'heroes' },
     { name: 'ArdysaModsTools', category: 'tools' },
     { name: 'Chen Lelouch', category: 'heroes' },
-    { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Custom Slark', category: 'heroes' },
     { name: 'Black River', category: 'river' },
-    { name: 'Final ZanKEZuga', category: 'heroes' },
     { name: 'Anti-Mage Ronin Warrior', category: 'heroes' },
     { name: 'Red Monkey King', category: 'heroes' },
     { name: 'Pudgling v2', category: 'couriers' },
