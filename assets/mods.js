@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Skywrath Mage Arcana II', category: 'heroes' },
+    { name: 'Skywrath Mage Arcana I', category: 'heroes' },
     { name: 'Templar Assassin Whisper Gates', category: 'heroes' },
     { name: 'Bunshinjutsu Meepo', category: 'heroes' },
     { name: 'Templar Assassin PlayBoy', category: 'heroes' },
@@ -429,6 +431,8 @@ const modsData = {
         { name: 'Templar Assassin PlayBoy', preview: 'Templar Assassin PlayBoy.webp', file: 'Templar Assassin PlayBoy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Bunshinjutsu Meepo', preview: 'Bunshinjutsu Meepo.webp', file: 'Bunshinjutsu Meepo.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Templar Assassin Whisper Gates', preview: 'Templar Assassin Whisper Gates.webp', file: 'Templar Assassin Whisper Gates.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Skywrath Mage Arcana I', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Skywrath Mage Arcana II', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
