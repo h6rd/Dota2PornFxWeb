@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Divagon', category: 'fonts' },
     { name: 'Monocraft', category: 'fonts' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Final ZanKEZuga', category: 'heroes' },
@@ -716,7 +717,8 @@ const modsData = {
         { name: 'Azur Lane Cursor', preview: 'Azur Lane Cursor.webp', file: 'Azur Lane Cursor.zip', linkType: 'source', linkUrl: 'https://vk.com/@dota2animemods-ui-dota-mod' },
     ],
     'fonts': [
-        { name: 'Monocraft', preview: 'Monocraft.webp', file: 'Monocraft Font.zip' }
+        { name: 'Monocraft', preview: 'Monocraft.webp', file: 'Monocraft Font.zip' },
+        { name: 'Divagon', preview: 'Divagon.webp', file: 'Divagon Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
