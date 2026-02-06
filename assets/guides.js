@@ -298,6 +298,59 @@ const guidesData = {
           ],
         },
         {
+          icon: "build",
+          title: "If the mod doesn't work",
+          steps: [
+            "Create a folder named <code>dota_test</code> in <code>steamapps\\common\\dota 2 beta\\game\\</code>",
+            "Place the required mod inside it",
+            "Add this to launch options: <code>-language test</code>",
+            {
+              icon: "sentiment_satisfied",
+              text: "If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods.",
+            },
+            {
+              icon: "sentiment_dissatisfied",
+              text: "If the problem persists, the issue lies within the mod itself.",
+            },
+          ],
+        },
+        {
+          icon: "cell_merge",
+          title: "Mod merging issues",
+          steps: [
+            {
+              icon: "error",
+              text: 'When combining mods using <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank" ><span id="tg"><span id="tg">VPKMerge</span></a>, display issues may occur - try installing the buggy mod separately from the combined ones',
+            },
+          ],
+        },
+        {
+          icon: "award_star",
+          title: "Problems with emblems",
+          steps: [
+            {
+              icon: "error",
+              text: "If you don't see the emblems, try entering this command <code>r_draw_selected_ring 1</code> in the game console, and also make sure you are not using the Misc Optimization mod in Minify (but this applies to standard emblems)",
+            },
+          ],
+        },
+        {
+          icon: "video_library",
+          title: "Background issues",
+          steps: [
+            "The video must be no longer than 30 seconds",
+            'Format must be <span id="tg">.webm</span>',
+            {
+              icon: "error",
+              text: "<fcode>An error occurred during playback</fcode>: Try another video.",
+            },
+            {
+              icon: "error",
+              text: '<fcode>Background doesn\'t change</fcode>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.',
+            },
+          ],
+        },
+        {
           icon: "person",
           title: "Mod authors",
           steps: [
@@ -339,49 +392,6 @@ const guidesData = {
             },
           ],
         },
-        {
-          icon: "build",
-          title: "If the mod doesn't work",
-          steps: [
-            "Create a folder named <code>dota_test</code> in <code>steamapps\\common\\dota 2 beta\\game\\</code>",
-            "Place the required mod inside it",
-            "Add this to launch options: <code>-language test</code>",
-            {
-              icon: "sentiment_satisfied",
-              text: "If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods.",
-            },
-            {
-              icon: "sentiment_dissatisfied",
-              text: "If the problem persists, the issue lies within the mod itself.",
-            },
-          ],
-        },
-        {
-          icon: "merge",
-          title: "Mod merging issues",
-          steps: [
-            {
-              icon: "error",
-              text: "When merging mods you may have problems - try installing the buggy mod separately from the merged mods",
-            },
-          ],
-        },
-        {
-          icon: "video_library",
-          title: "Background replacement issues",
-          steps: [
-            "The video must be no longer than 30 seconds",
-            'Format must be <span id="tg">.webm</span>',
-            {
-              icon: "error",
-              text: "<fcode>An error occurred during playback</fcode>: Try another video.",
-            },
-            {
-              icon: "error",
-              text: '<fcode>Background doesn\'t change</fcode>: See the section <span id="tg">"If the mod doesn\'t work"</span> above.',
-            },
-          ],
-        },
       ],
       ru: [
         {
@@ -395,6 +405,59 @@ const guidesData = {
             {
               icon: "keep",
               text: 'Моды, у которых внизу нет кнопки <span id="tg">source</span>/<span id="tg">author</span> - мои (за исключением некоторых модов)',
+            },
+          ],
+        },
+        {
+          icon: "build",
+          title: "Если мод не работает",
+          steps: [
+            "Создайте папку <code>dota_test</code> в <code>steamapps\\common\\dota 2 beta\\game\\</code>",
+            "Поместите туда нужный мод",
+            "Добавьте в параметры запуска: <code>-language test</code>",
+            {
+              icon: "sentiment_satisfied",
+              text: "Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды.",
+            },
+            {
+              icon: "sentiment_dissatisfied",
+              text: "Если проблема сохраняется - дело в самом моде.",
+            },
+          ],
+        },
+        {
+          icon: "cell_merge",
+          title: "Проблемы при совмещении модов",
+          steps: [
+            {
+              icon: "error",
+              text: 'При совмещении модов через <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых.',
+            },
+          ],
+        },
+        {
+          icon: "award_star",
+          title: "Проблемы с эмблемами",
+          steps: [
+            {
+              icon: "error",
+              text: "Если у вас не отображаются эмблемы, попробуйте ввести эту команду <code>r_draw_selected_ring 1</code> в консоль игры, также убедитесь что вы не успользуете мод Misc Optimization в Minify (но это касается стандартных эмблем)",
+            },
+          ],
+        },
+        {
+          icon: "video_library",
+          title: "Проблемы с заменой фона",
+          steps: [
+            "Видео должно быть не длиннее 30 секунд",
+            'Формат <span id="tg">.webm</span>',
+            {
+              icon: "error",
+              text: "<fcode>An error occurred during playback</fcode>: Попробуйте другой видос.",
+            },
+            {
+              icon: "error",
+              text: '<fcode>Фон не меняется</fcode>: См. раздел <span id="tg">"Если моды не работают"</span> выше.',
             },
           ],
         },
@@ -437,49 +500,6 @@ const guidesData = {
             {
               icon: "person",
               text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>',
-            },
-          ],
-        },
-        {
-          icon: "build",
-          title: "Если мод не работает",
-          steps: [
-            "Создайте папку <code>dota_test</code> в <code>steamapps\\common\\dota 2 beta\\game\\</code>",
-            "Поместите туда нужный мод",
-            "Добавьте в параметры запуска: <code>-language test</code>",
-            {
-              icon: "sentiment_satisfied",
-              text: "Если после этого всё заработало - значит ранее была допущена ошибка в установке, проверьте папку с вашим языком и переустановите моды.",
-            },
-            {
-              icon: "sentiment_dissatisfied",
-              text: "Если проблема сохраняется - дело в самом моде.",
-            },
-          ],
-        },
-        {
-          icon: "merge",
-          title: "Проблемы при совмещении модов",
-          steps: [
-            {
-              icon: "error",
-              text: "При совмещении модов могут возникать проблемы с отображением - попробуйте установить багованный мод отдельно от объединённых.",
-            },
-          ],
-        },
-        {
-          icon: "video_library",
-          title: "Если возникли проблемы с заменой фона",
-          steps: [
-            "Видео должно быть не длиннее 30 секунд",
-            'Формат <span id="tg">.webm</span>',
-            {
-              icon: "error",
-              text: "<fcode>An error occurred during playback</fcode>: Попробуйте другой видос.",
-            },
-            {
-              icon: "error",
-              text: '<fcode>Фон не меняется</fcode>: См. раздел <span id="tg">"Если моды не работают"</span> выше.',
             },
           ],
         },

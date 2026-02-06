@@ -977,8 +977,8 @@ img {
   left: 0;
   width: 24px;
   height: 24px;
-  background: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-surface-variant);
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-primary);
   border-radius: 12px;
   display: flex;
   align-items: center;
