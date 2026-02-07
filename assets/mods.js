@@ -1,4 +1,6 @@
 const recentlyAddedMods = [
+    { name: 'Viper Elephant Hawk Moth', category: 'heroes' },
+    { name: '10th Anniversary Tormentor', category: 'tormentor' },
     { name: 'Divagon', category: 'fonts' },
     { name: 'Monocraft', category: 'fonts' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
@@ -435,6 +437,7 @@ const modsData = {
         { name: 'Templar Assassin Whisper Gates', preview: 'Templar Assassin Whisper Gates.webp', file: 'Templar Assassin Whisper Gates.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Skywrath Mage Arcana I', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Skywrath Mage Arcana II', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Viper Elephant Hawk Moth', preview: 'Viper Elephant Hawk Moth.webp', file: 'Viper Elephant Hawk Moth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
@@ -461,7 +464,8 @@ const modsData = {
         { name: 'Frostivus Ancient', preview: 'Frostivus Ancient.webp', file: 'pak74_dir.vpk' }
     ],
     'tormentor': [
-        { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.webp', file: 'pak75_dir.vpk' }
+        { name: 'Frostivus Tormentor', preview: 'Frostivus Tormentor.webp', file: 'pak10_dir.vpk' },
+        { name: '10th Anniversary Tormentor', preview: 'Anniversary Tormentor.webp', file: 'pak11_dir.vpk' },
     ],
     'ranged-attack': [
         { name: 'Nemestice Ranged Attack', preview: 'Nemestice Ranged Attack.webp', file: 'pak13_dir.vpk' },
