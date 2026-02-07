@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Blue Muerta', category: 'heroes' },
     { name: 'Viper Elephant Hawk Moth', category: 'heroes' },
     { name: '10th Anniversary Tormentor', category: 'tormentor' },
     { name: 'Divagon', category: 'fonts' },
@@ -438,6 +439,7 @@ const modsData = {
         { name: 'Skywrath Mage Arcana I', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Skywrath Mage Arcana II', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Viper Elephant Hawk Moth', preview: 'Viper Elephant Hawk Moth.webp', file: 'Viper Elephant Hawk Moth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Blue Muerta', preview: 'Blue Muerta.webp', file: 'Blue Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
