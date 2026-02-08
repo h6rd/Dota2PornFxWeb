@@ -1,4 +1,7 @@
 const recentlyAddedMods = [
+    { name: 'Ursa Alpine Stalker', category: 'heroes' },
+    { name: 'Ursa Feast of the Damned', category: 'heroes' },
+    { name: 'Ursa Roshan Hunter', category: 'heroes' },
     { name: 'Kez Guts Sword', category: 'hero-items' },
     { name: 'Defiree Disruptor', category: 'heroes' },
     { name: 'Faceless Void Arcana', category: 'heroes' },
@@ -445,6 +448,9 @@ const modsData = {
         { name: 'Blue Muerta', preview: 'Blue Muerta.webp', file: 'Blue Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Faceless Void Arcana', preview: 'Faceless Void Arcana.webp', file: 'Faceless Void Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
         { name: 'Defiree Disruptor', preview: 'Defiree Disruptor.webp', file: 'Defiree Disruptor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Ursa Roshan Hunter', preview: 'Ursa Roshan Hunter.webp', file: 'Ursa Roshan Hunter.zip', tags: { effects: false, icons: false } },
+        { name: 'Ursa Feast of the Damned', preview: 'Ursa Feast of the Damned.webp', file: 'Ursa Feast of the Damned.zip', tags: { effects: false, icons: false } },
+        { name: 'Ursa Alpine Stalker', preview: 'Ursa Alpine Stalker.webp', file: 'Ursa Alpine Stalker.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
