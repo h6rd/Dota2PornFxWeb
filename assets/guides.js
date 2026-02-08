@@ -364,7 +364,7 @@ const guidesData = {
             },
             {
               icon: "person",
-              text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness🖤</span></a> <fcode>Heroes</fcode>',
+              text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a> <fcode>Heroes</fcode>',
             },
             {
               icon: "person",
@@ -388,7 +388,15 @@ const guidesData = {
             },
             {
               icon: "person",
-              text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>',
+              text: '<a href="https://t.me/turnoffyourlebensinhalt" target="_blank"><span id="tg">lebensinhalt</span></a> <fcode>Arcanas Items & Dark Items</fcode>',
+            },
+            {
+              icon: "person",
+              text: '<a href="https://t.me/laskotdota" target="_blank"><span id="tg">laskotdota</span></a> <fcode>Heroes</fcode>',
+            },
+            {
+              icon: "person",
+              text: '<a href="https://t.me/NahuiToSay" target="_blank"><span id="tg">NahuiToSay</span></a> <fcode>Hero Items</fcode>',
             },
           ],
         },
@@ -475,7 +483,7 @@ const guidesData = {
             },
             {
               icon: "person",
-              text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness🖤</span></a> <fcode>Heroes</fcode>',
+              text: '<a href="https://t.me/Darkness_Logovo" target="_blank"><span id="tg">Darkness</span></a> <fcode>Heroes</fcode>',
             },
             {
               icon: "person",
@@ -499,7 +507,15 @@ const guidesData = {
             },
             {
               icon: "person",
-              text: '<a href="https://t.me/hitman47attacks" target="_blank"><span id="tg">hitman47attacks</span></a> <fcode>Arcanas Items</fcode>',
+              text: '<a href="https://t.me/turnoffyourlebensinhalt" target="_blank"><span id="tg">lebensinhalt</span></a> <fcode>Arcanas Items</fcode> <fcode>Dark Items</fcode>',
+            },
+            {
+              icon: "person",
+              text: '<a href="https://t.me/laskotdota" target="_blank"><span id="tg">laskotdota</span></a> <fcode>Heroes</fcode>',
+            },
+            {
+              icon: "person",
+              text: '<a href="https://t.me/NahuiToSay" target="_blank"><span id="tg">NahuiToSay</span></a> <fcode>Hero Items</fcode>',
             },
           ],
         },
