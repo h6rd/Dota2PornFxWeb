@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Kez Guts Sword', category: 'hero-items' },
     { name: 'Defiree Disruptor', category: 'heroes' },
     { name: 'Faceless Void Arcana', category: 'heroes' },
     { name: 'Blue Muerta', category: 'heroes' },
@@ -453,6 +454,7 @@ const modsData = {
         { name: 'Sniper Dragon Lore', preview: 'Sniper Dragon Lore.webp', file: 'Sniper Dragon Lore.zip', tags: { effects: true, icons: false, weapon: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
         { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }] },
+        { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }, { type: 'author', url: 'https://t.me/laskotdota' }] },
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
