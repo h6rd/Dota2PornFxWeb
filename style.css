@@ -3410,6 +3410,23 @@ fcode {
   font-weight: 500;
 }
 
+.pack-log-entry a {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pack-log-entry a:hover {
+  color: var(--md-sys-color-shit-light);
+  text-shadow: 0 0 8px var(--md-sys-color-outline);
+}
+
+.pack-log-entry a:active {
+  color: var(--md-sys-color-primary);
+}
+
 /* Toast Notifications */
 .toast {
   position: fixed;

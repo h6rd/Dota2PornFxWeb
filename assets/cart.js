@@ -731,9 +731,9 @@ async function packAndDownload() {
         const highlightedMessage = message
             .replace(/Added (.*?)(?=$)/g, 'Added <span style="color: var(--md-sys-color-primary); font-weight: 600;">$1</span>');
         entry.innerHTML = `
-            <span class="material-symbols-rounded">${icons[type]}</span>
-            <span>${highlightedMessage}</span>
-        `;
+    <span class="material-symbols-rounded">${icons[type]}</span>
+    <span style="word-break: break-word;">${highlightedMessage}</span>
+    `;
 
         logContainer.appendChild(entry);
         logContainer.scrollTop = logContainer.scrollHeight;
@@ -771,6 +771,8 @@ async function packAndDownload() {
         }
 
         let processedCount = 0;
+        let hasFileErrors = false;
+        const fileErrors = [];
 
         for (const batch of batches) {
             await Promise.all(batch.map(async (item) => {
@@ -860,11 +862,22 @@ async function packAndDownload() {
                     processedCount++;
                 } catch (error) {
                     console.error(`Error processing ${item.name}:`, error);
-                    addLog(`Failed to add ${item.name}`, 'warning');
+                    const errorMsg = error.message || 'Unknown error';
+                    addLog(`Failed to add ${item.name}: ${errorMsg}`, 'error');
+                    hasFileErrors = true;
+                    fileErrors.push(item.name);
                 }
             }));
-
             statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+        }
+
+        if (hasFileErrors) {
+            const compressed = compressAssembly({
+                name: 'Recovery Pack',
+                items: cart
+            });
+            const mirrorUrl = `https://d2pfx.netlify.app/?pack=${compressed}`;
+            addLog(`Errors found, follow this <a href="${mirrorUrl}" target="_blank" style="color: var(--md-sys-color-primary); text-decoration: underline; cursor: pointer; font-weight: 600;">LINK</a> and try again.`, 'error');
         }
 
         let modsListText = `╔══════════════════════════════════════════╗
@@ -1053,7 +1066,17 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
     } catch (error) {
         console.error('Pack error:', error);
-        addLog(`Error: ${error.message}`, 'error');
+        addLog(`Critical Error: ${error.message || 'Unknown error occurred'}`, 'error');
+
+        // Generate mirror link with cart data
+        const compressed = compressAssembly({
+            name: 'Recovery Pack',
+            items: cart
+        });
+        const mirrorUrl = `https://d2pfx.netlify.app/?pack=${compressed}`;
+
+        addLog(`If errors persist, follow this <a href="${mirrorUrl}" target="_blank" style="color: var(--md-sys-color-primary); text-decoration: underline; cursor: pointer; font-weight: 600;">link</a> and try again.`, 'error');
+
         statusText.textContent = 'Failed!';
 
         logHeader.innerHTML = `
