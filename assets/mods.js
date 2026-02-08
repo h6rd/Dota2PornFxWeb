@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Faceless Void Arcana', category: 'heroes' },
     { name: 'Blue Muerta', category: 'heroes' },
     { name: 'Viper Elephant Hawk Moth', category: 'heroes' },
     { name: '10th Anniversary Tormentor', category: 'tormentor' },
@@ -436,10 +437,11 @@ const modsData = {
         { name: 'Templar Assassin PlayBoy', preview: 'Templar Assassin PlayBoy.webp', file: 'Templar Assassin PlayBoy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Bunshinjutsu Meepo', preview: 'Bunshinjutsu Meepo.webp', file: 'Bunshinjutsu Meepo.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Templar Assassin Whisper Gates', preview: 'Templar Assassin Whisper Gates.webp', file: 'Templar Assassin Whisper Gates.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
-        { name: 'Skywrath Mage Arcana I', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        { name: 'Skywrath Mage Arcana', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Skywrath Mage Arcana II', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Viper Elephant Hawk Moth', preview: 'Viper Elephant Hawk Moth.webp', file: 'Viper Elephant Hawk Moth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Blue Muerta', preview: 'Blue Muerta.webp', file: 'Blue Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
+        { name: 'Faceless Void Arcana', preview: 'Faceless Void Arcana.webp', file: 'Faceless Void Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
