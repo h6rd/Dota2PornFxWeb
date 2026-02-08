@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Defiree Disruptor', category: 'heroes' },
     { name: 'Faceless Void Arcana', category: 'heroes' },
     { name: 'Blue Muerta', category: 'heroes' },
     { name: 'Viper Elephant Hawk Moth', category: 'heroes' },
@@ -442,6 +443,7 @@ const modsData = {
         { name: 'Viper Elephant Hawk Moth', preview: 'Viper Elephant Hawk Moth.webp', file: 'Viper Elephant Hawk Moth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Blue Muerta', preview: 'Blue Muerta.webp', file: 'Blue Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Faceless Void Arcana', preview: 'Faceless Void Arcana.webp', file: 'Faceless Void Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
+        { name: 'Defiree Disruptor', preview: 'Defiree Disruptor.webp', file: 'Defiree Disruptor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
