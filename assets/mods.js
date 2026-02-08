@@ -620,7 +620,7 @@ const modsData = {
         { name: 'ArdysaModsTools', preview: 'ArdysaModsTools.webp', file: 'https://ardysamods.my.id/', type: 'guide', guideId: 'warning', guideType: 'not-safe' },
     ],
     'optimization': [
-        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://github.com/egezenn/dota2-minify/', type: 'guide' },
+        { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
         { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' },
         { name: 'Default Wards', preview: 'Default Wards.webp', file: 'pak10_dir.vpk', linkType: 'source', linkUrl: 'https://discord.com/channels/984169062735151174/1311143842631909408' },
         // { name: 'Default Couriers', preview: 'Default Couriers.webp', file: 'Default Couriers.zip', linkType: 'source', linkUrl: 'https://discord.com/channels/984169062735151174/1311143842631909408' },
