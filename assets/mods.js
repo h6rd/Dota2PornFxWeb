@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Invoker Bloody Wizard', category: 'heroes' },
     { name: 'Ursa Alpine Stalker', category: 'heroes' },
     { name: 'Ursa Feast of the Damned', category: 'heroes' },
     { name: 'Ursa Roshan Hunter', category: 'heroes' },
