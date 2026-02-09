@@ -153,15 +153,13 @@ const modsData = {
         { name: 'Bard Frog Emblem v2', preview: 'Bard Frog Emblem v2.mp4', file: 'pak40_dir.vpk' },
     ],
     'versus-screens': [
-        { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.webp', file: 'pak45_dir.vpk' },
-        { name: 'TI9 Versus Screen I', preview: 'TI9 Versus Screen I.webp', file: 'pak46_dir.vpk' },
-        { name: 'TI9 Versus Screen II', preview: 'TI9 Versus Screen II.webp', file: 'pak47_dir.vpk' },
-        { name: 'Nemestice Versus Screen', preview: 'Nemestice Versus Screen.webp', file: 'pak48_dir.vpk' },
-        { name: 'TI 2024 Versus Screen', preview: 'TI 2024 Versus Screen.webp', file: 'pak69_dir.vpk' },
-        { name: 'Muerta Radiant Versus Screen', preview: 'Muerta Radiant Versus Screen.webp', file: 'pak70_dir.vpk' },
-        { name: 'Muerta Dire Versus Screen', preview: 'Muerta Dire Versus Screen.webp', file: 'pak71_dir.vpk' },
-        { name: 'Diretide Radiant Versus Screen', preview: 'Diretide Radiant Versus Screen.webp', file: 'pak72_dir.vpk' },
-        { name: 'Diretide Dire Versus Screen', preview: 'Diretide Dire Versus Screen.webp', file: 'pak73_dir.vpk' }
+        { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.webp', file: 'pak10_dir.vpk' },
+        { name: 'TI9 Versus Screen I', preview: 'TI9 Versus Screen I.webp', file: 'pak11_dir.vpk' },
+        { name: 'TI9 Versus Screen II', preview: 'TI9 Versus Screen II.webp', file: 'pak12_dir.vpk' },
+        { name: 'Nemestice Versus Screen', preview: 'Nemestice Versus Screen.webp', file: 'pak13_dir.vpk' },
+        { name: 'TI 2024 Versus Screen', preview: 'TI 2024 Versus Screen.webp', file: 'pak14_dir.vpk' },
+        { name: 'Muerta Versus Screen', preview: 'Muerta Radiant Versus Screen.webp', file: 'pak15_dir.vpk' },
+        { name: 'Diretide Versus Screen', preview: 'Diretide Radiant Versus Screen.webp', file: 'pak16_dir.vpk' },
     ],
     'terrains': [
         { name: 'DarkPoly & Trees', preview: 'DarkPoly+Trees.webp', file: 'pak35_dir.vpk' },
