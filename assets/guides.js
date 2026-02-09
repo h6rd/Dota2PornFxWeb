@@ -190,7 +190,11 @@ const guidesData = {
             "Download the required .vpk files",
             "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Put the downloaded mods in the folder <code>dota_123</code>",
-            "Add to launch options: <code>-language 123</code>",
+            "Add to the launch options: <code>-language 123</code>",
+            {
+              icon: "info",
+              text: 'If you are using Minify, place mods in the <code>dota_minify</code> folder and add <code>-language minify</code> to launch options',
+            },
           ],
           info: 'You can also use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> to combine the mods',
           infoPosition: "bottom",
@@ -204,6 +208,10 @@ const guidesData = {
             "Скачайте нужные .vpk файлы",
             "Переместите их в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
+            {
+              icon: "info",
+              text: 'Если вы используете Minify, положите моды в папку <code>dota_minify</code> и добавьте в параметры запуска <code>-language minify</code>',
+            },
           ],
           info: 'Вы можете использовать <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> для объединения модов',
           infoPosition: "bottom",
@@ -224,6 +232,10 @@ const guidesData = {
             "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Put the vpk in the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
+            {
+              icon: "info",
+              text: 'If you are using Minify, place mods in the <code>dota_minify</code> folder and add <code>-language minify</code> to launch options',
+            },
           ],
           info: 'You can also use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> to combine the mods',
           infoPosition: "bottom",
@@ -238,6 +250,10 @@ const guidesData = {
             "Распакуйте архив, в нем лежит vpk",
             "Переместите vpk в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
+            {
+              icon: "info",
+              text: 'Если вы используете Minify, положите моды в папку <code>dota_minify</code> и добавьте в параметры запуска <code>-language minify</code>',
+            },
           ],
           info: 'Вы можете использовать <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> для объединения модов',
           infoPosition: "bottom",
@@ -258,6 +274,10 @@ const guidesData = {
             "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Move the vpk or maps folder from the archive to the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
+            {
+              icon: "info",
+              text: 'If you are using Minify, place mods in the <code>dota_minify</code> folder and add <code>-language minify</code> to launch options',
+            },
           ],
           infoPosition: "bottom",
           warning:
@@ -271,6 +291,10 @@ const guidesData = {
             "Он будет в виде vpk, или архива с папкой maps внутри",
             "Переместите vpk или папку maps из архива в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
+            {
+              icon: "info",
+              text: 'Если вы используете Minify, положите моды в папку <code>dota_minify</code> и добавьте в параметры запуска <code>-language minify</code>',
+            },
           ],
           infoPosition: "bottom",
           warning:
