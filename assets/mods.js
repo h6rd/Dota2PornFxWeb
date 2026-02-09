@@ -616,7 +616,7 @@ const modsData = {
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: 'vpk-tool' },
-        { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip'},
+        { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip', guideId: 'items-fix'},
         { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'Cosmetics.zip', guideId: 'warning', guideType: 'not-safe'},
         { name: 'Compiler', preview: 'Image Compiler.webp', file: 'Compiler.zip', guideId: 'compiler' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },

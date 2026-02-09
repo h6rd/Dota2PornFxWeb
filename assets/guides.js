@@ -887,4 +887,31 @@ const guidesData = {
       ],
     },
   },
+  "items-fix": {
+    title: "ItemsFix Guide",
+    content: {
+      en: [
+        {
+          title: "Script for restructuring the items_game.txt file from dota2changer/mor, making it readable and convenient for analysis",
+          steps: [
+            "Unpack the archive",
+            "Place the <fcode>items_game.txt</fcode> file in the folder next to ItemsFix.exe",
+            "Launch ItemsFix.exe",
+          ],
+          result: "It will change the file structure and save the result in output.txt",
+        },
+      ],
+      ru: [
+        {
+          title: "Скрипт для изменения структуры файла items_game.txt из dota2changer/mor. Делает его читаемым и удобным для анализа",
+          steps: [
+            "Распакуйте архив",
+            "Поместите <fcode>items_game.txt</fcode> в папку рядом с ItemsFix.exe",
+            "Запустите ItemsFix.exe",
+          ],
+          result: "Он изменит структуру файла и сохранит результат в output.txt",
+        },
+      ],
+    },
+  },
 };
