@@ -8,20 +8,20 @@
 
 ---
 
-## 🎮 About
+# About
 
-**Dota2PornFx** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2 environment.
+**Dota2PornFx** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2.
 
-### 🌟 Features
+### Features
 
 - **Extensive Categories**: Over 30+ categories including heroes, terrains, shaders, item effects, backgrounds, announcers, and more
 - **Easy Access**: Simple web interface to browse and download mods
-- **Regular Updates**: New content added regularly with latest updates from the community
+- **Regular Updates**: New content added regularly with latest updates
 - **User-Friendly**: Intuitive interface with search, sorting, and cart functionality
 - **Previews Available**: Video and image previews for most mods
 - **Installation Guides**: Comprehensive instructions for installation and troubleshooting
 
-### 📚 Available Categories
+### Available Categories
 
 <details>
 <summary><b>Click to expand all categories</b></summary>
@@ -39,8 +39,7 @@
 - **Creeps** - Custom creeps
 - **Ancient** - Ancient mods
 - **Tormentor** - Custom Tormentor
-- **Towers** - Custom towers
-- **High Five** - Custom high five animations
+- **High Five** - Custom high five
 - **Ranged Attack** - Custom ranged attack effects
 - **Mega-Kill** - Custom mega-kill announcers
 - **Pedestal** - Custom hero pedestals
@@ -65,23 +64,22 @@
 ## 🚀 Quick Start
 
 1. **Browse**: Explore the various categories on the website
-2. **Download**: Click on any mod to download it
+2. **Download**: Click on any mod to download it, or add it to cart to make a pack
 3. **Install**: Follow the installation instructions in the guides section
 
-### 📥 Installation Guide
+### Installation Guide
 
 <details>
 <summary><b>How to install mods 🇺🇸</b></summary>
 
 1. **Download the required `.vpk` files**
-2. **Create folder `dota_123` in:**
-   ```
-   Steam\steamapps\common\dota 2 beta\game\dota_123\
-   ```
+2. **Create folder `dota_123` in:** `Steam\steamapps\common\dota 2 beta\game\`
 3. **Put the downloaded mods in the folder `dota_123`**
 4. **Add to launch options: `-language 123`**
-
+   - If you are using **Minify**, place mods in the `dota_minify` folder and add `-language minify` to launch options
+ 
 > **Note:** If files are duplicated, rename the repeated file to `pakXX_dir.vpk`, where XX is 10, 11, 12, 13...99
+- You can also use **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** to combine the mods
 
 </details>
 
@@ -91,17 +89,16 @@
 1. Скачайте нужный файл `.vpk`
 2. Переместите его в папку с языком игры:
 
-**Для русского языка используйте папку `dota_russian`:**
-```
-Steam\steamapps\common\dota 2 beta\game\dota_russian\
-```
+Для **русского языка** используйте папку `dota_russian`: `Steam\steamapps\common\dota 2 beta\game\dota_russian\` 
+- добавьте в параметры запуска `-language russian`
 
-**Для английского языка создайте папку `dota_123`:**
-```
-Steam\steamapps\common\dota 2 beta\game\dota_123\
-```
+Для **английского языка** создайте папку `dota_123`: `Steam\steamapps\common\dota 2 beta\game\dota_123\` 
+- добавьте в параметры запуска `-language 123`
+
+Если вы используете **Minify**, положите моды в папку  `dota_minify` и добавьте в параметры запуска `-language minify`
 
 > **Важно:** Если файлы дублируются, переименуйте повторяющийся файл в `pakXX_dir.vpk`, где XX = 10, 11, 12, 13...99
+- Вы можете использовать **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** для объединения модов
 
 </details>
 
@@ -111,10 +108,11 @@ Steam\steamapps\common\dota 2 beta\game\dota_123\
 
 The project includes several useful tools for modding:
 
-- **VPKTool**: Extract and pack VPK files
-- **VPKMerge**: Combine multiple VPKs into one
-- **Weather Changer**: Change weather effects in-game
-- **Background Changer**: Create custom background videos
+- [**VPKTool**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKTool+-+Extract+%26+Pack+VPKs): Extract and pack VPK files
+- [**VPKMerge**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs): Combine multiple VPKs into one
+- [**Compiler**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Compiler): Script for compiling: vtex_c, vpcf_c, vsnd_c, vxml_c, vcss_c
+- [**Cosmetics**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Cosmetics+-+Weather+%26+More): Change weather, killstreak, towers and more 
+- [**Background Changer**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Background+Changer): Create custom backgrounds images/videos
 - **More tools**: Various utilities for different modding needs
 
 ---
@@ -128,8 +126,8 @@ The project includes several useful tools for modding:
 1. Create a folder named `dota_test` in `steamapps\common\dota 2 beta\game\`
 2. Place the required mod inside it
 3. Add this to your launch options: `-language test`
-
-> If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods. If the problem persists, the issue lies within the mod itself.
+ - If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods 😊
+ - If the problem persists, the issue lies within the mod itself 😔
 
 ### Mod merging issues:
 - When merging mods you may have problems - try installing the buggy mod separately from the merged mods
@@ -140,6 +138,9 @@ The project includes several useful tools for modding:
 - **"An error occurred during playback"**: Try another video
 - **"Background doesn't change"**: See the section "If the mod doesn't work" above
 
+### Emblems issues:
+- If you don't see the emblems, try entering this command `r_draw_selected_ring 1` in the game console, and also make sure you are not using the Misc Optimization mod in Minify (but this applies to standard emblems)
+
 </details>
 
 ---
@@ -148,7 +149,9 @@ The project includes several useful tools for modding:
 
 This project contains content from various sources:
 
-- **Dota2Changer** - Original mod sources (leaked packs)
+- [**Dota2Changer**](https://dota2changer.com/)
+- [**MOR**](https://vk.com/amir4anmods)
+- [**ARKADIUM MODS**](https://discord.gg/uSQ8WUtxWC)
 - **Mod Authors**:
   - [Egezenn](https://github.com/Egezenn) - Minify Background
   - [Robbyz512](https://github.com/robbyz512) - Minify Terrains & Trees
@@ -163,4 +166,4 @@ This project contains content from various sources:
 ## ⚠️ Disclaimer
 
 **All actions to modify the game files you do at your OWN RISK. In case of a ban, the responsibility lies entirely with YOU.**
-This project is not affiliated with Valve or Dota2. Use at your own discretion.
+This project is not affiliated with Valve or Dota 2. Use at your own discretion.
