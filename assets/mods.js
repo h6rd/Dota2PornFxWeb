@@ -1,4 +1,5 @@
 const recentlyAddedMods = [
+    { name: 'Broodmother Silken Queen', category: 'heroes' },
     { name: 'Invoker Bloody Wizard', category: 'heroes' },
     { name: 'Ursa Alpine Stalker', category: 'heroes' },
     { name: 'Ursa Feast of the Damned', category: 'heroes' },
@@ -450,6 +451,7 @@ const modsData = {
         { name: 'Ursa Roshan Hunter', preview: 'Ursa Roshan Hunter.webp', file: 'Ursa Roshan Hunter.zip', tags: { effects: false, icons: false } },
         { name: 'Ursa Feast of the Damned', preview: 'Ursa Feast of the Damned.webp', file: 'Ursa Feast of the Damned.zip', tags: { effects: false, icons: false } },
         { name: 'Ursa Alpine Stalker', preview: 'Ursa Alpine Stalker.webp', file: 'Ursa Alpine Stalker.zip', tags: { effects: false, icons: false } },
+        { name: 'Broodmother Silken Queen', preview: 'Broodmother Silken Queen.webp', file: 'Broodmother Silken Queen.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'hero-items': [
