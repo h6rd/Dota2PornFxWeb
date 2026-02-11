@@ -2344,16 +2344,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
     }
 }
 
-const GITHUB_RAW_ENDPOINT = 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
-const ALLOWED_DOMAINS = ['h6rd.github.io', 'd2pfx.netlify.app', '127.0.0.1'];
-
 function downloadMod(mod, categoryId) {
-    if (!ALLOWED_DOMAINS.some(domain => window.location.hostname.includes(domain))) {
-        console.error('Unauthorized access attempt');
-        showToast('Access denied');
-        return;
-    }
-
     const link = document.createElement('a');
     link.href = `assets/files/${categoryId}/${mod.file}`;
     link.download = mod.file;
