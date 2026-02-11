@@ -2,6 +2,10 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
 });
 
+document.fonts.ready.then(() => {
+  document.documentElement.classList.add('fonts-loaded');
+});
+
 const translations = {
     'shaders': 'Shaders',
     'shaders-desc': 'Replaces the fog of war effect',
@@ -1173,113 +1177,6 @@ function setupThemeToggle() {
     });
 }
 
-// Winter & Halloween FX
-// function initSeasonalEffects() {
-//     const now = new Date();
-//     const month = now.getMonth();
-//     const day = now.getDate();
-
-//     const isWinter = (month === 11) || (month === 0) || (month === 1);
-
-//     const isHalloween = (month === 9);
-    
-//     const garland = document.querySelector('.lightrope');
-//     const particles = document.getElementById('particles-js');
-//     const halloweenEffects = document.getElementById('halloween-effects');
-    
-//     if (isWinter) {
-//         if (garland) garland.style.display = 'block';
-//         if (particles) particles.style.display = 'block';
-//         if (halloweenEffects) halloweenEffects.style.display = 'none';
-//         initParticles();
-//     } else if (isHalloween) {
-//         if (garland) garland.style.display = 'none';
-//         if (particles) particles.style.display = 'none';
-//         if (halloweenEffects) halloweenEffects.style.display = 'block';
-//     } else {
-//         if (garland) garland.style.display = 'none';
-//         if (particles) particles.style.display = 'none';
-//         if (halloweenEffects) halloweenEffects.style.display = 'none';
-//     }
-// }
-
-// Snow
-// function initParticles() {
-//     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-//     const snowColor = isDark ? '#ffffff' : '#000000';
-//     const themeToggle = document.getElementById('themeToggle');
-//     if (themeToggle) {
-//       themeToggle.addEventListener('click', () => {
-//         setTimeout(initParticles, 100);
-//       });
-//     }
-    
-//     if (typeof particlesJS !== 'undefined') {
-//         particlesJS('particles-js', {
-//             particles: {
-//                 number: {
-//                     value: 45,
-//                     density: {
-//                         enable: true,
-//                         value_area: 200
-//                     }
-//                 },
-//                 color: {
-//                     value: snowColor
-//                 },
-//                 shape: {
-//                     type: 'circle'
-//                 },
-//                 opacity: {
-//                     value: isDark ? 0.8 : 0.6,
-//                     random: true,
-//                     anim: {
-//                         enable: true,
-//                         speed: 1,
-//                         opacity_min: 0.5,
-//                         sync: false
-//                     }
-//                 },
-//                 size: {
-//                     value: 4,
-//                     random: true,
-//                     anim: {
-//                         enable: true,
-//                         speed: 1,
-//                         size_min: 2,
-//                         sync: false
-//                     }
-//                 },
-//                 line_linked: {
-//                     enable: false
-//                 },
-//                 move: {
-//                     enable: true,
-//                     speed: 1.5,
-//                     direction: 'bottom',
-//                     random: false,
-//                     straight: false,
-//                     out_mode: 'out',
-//                     bounce: false
-//                 }
-//             },
-//             interactivity: {
-//                 detect_on: 'canvas',
-//                 events: {
-//                     onhover: {
-//                         enable: false
-//                     },
-//                     onclick: {
-//                         enable: false
-//                     },
-//                     resize: false
-//                 }
-//             },
-//             retina_detect: true
-//         });
-//     }
-// }
-
 // Recently Added Carousel
 function calculateItemsPerPage() {
     const width = window.innerWidth;
@@ -1582,7 +1479,6 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
-    // initSeasonalEffects();
     handleUrlParams();
 }
 

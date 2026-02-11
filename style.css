@@ -299,10 +299,28 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100px;
+  margin: 6px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline);
+  border-radius: 100px;
+  border: 2px solid var(--md-sys-color-surface-container);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-primary);
 }
 
 body:not(.loaded) .footer {
@@ -325,198 +343,24 @@ body.loaded .footer {
   transition: opacity 0.3s ease;
 }
 
+.material-symbols-rounded {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: scale(0.80);
+  filter: blur(0.4px);
+}
+
+.fonts-loaded .material-symbols-rounded {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
-/* Garland
-.lightrope {
-  text-align: center;
-  white-space: nowrap;
-  overflow: visible;
-  position: fixed;
-  z-index: 1000;
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
-.lightrope li {
-  position: relative;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 0 12px;
-  animation-name: glow;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-}
-
-.lightrope li:nth-child(4n) {
-  background: rgb(127, 255, 146);
-  box-shadow: 0px 2px 24px 3px rgba(87, 244, 134, 0.7);
-}
-
-.lightrope li:nth-child(4n+1) {
-  background: rgb(136, 255, 255);
-  box-shadow: 0px 2px 24px 3px rgba(110, 255, 255, 0.7);
-  animation-delay: 0.5s;
-}
-
-.lightrope li:nth-child(4n+2) {
-  background: rgb(255, 133, 133);
-  box-shadow: 0px 2px 24px 3px rgba(255, 129, 115, 0.8);
-  animation-delay: 1s;
-}
-
-.lightrope li:nth-child(4n+3) {
-  background: rgb(255, 239, 145);
-  box-shadow: 0px 2px 24px 3px rgba(255, 236, 131, 0.75);
-  animation-delay: 1.5s;
-}
-
-.lightrope li:before {
-  content: "";
-  position: absolute;
-  background: #000000;
-  width: 6px;
-  height: 3px;
-  border-radius: 2px;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.lightrope li:after {
-  content: "";
-  top: -2px;
-  left: 9px;
-  position: absolute;
-  width: 52px;
-  height: 1px;
-  border-bottom: solid #000000 1px;
-}
-
-.lightrope li:last-child:after {
-  content: none;
-}
-
-.lightrope li:first-child {
-  margin-left: -40px;
-}
-
-@keyframes glow {
-  0%, 100% {
-    opacity: 1;
-    filter: brightness(1);
-  }
-  50% {
-    opacity: 0.4;
-    filter: brightness(0.6);
-  }
-}
-
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-#halloween-effects {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.halloween-ghost {
-  position: absolute;
-  width: 150px;
-  height: auto;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.692));
-}
-
-.ghost-1 {
-  right: -1%;
-  top: 20%;
-  animation: ghost-float-1 12s ease-in-out infinite;
-}
-
-.ghost-2 {
-  left: -1%;
-  bottom: 2%;
-  animation: ghost-float-2 15s ease-in-out infinite;
-}
-
-@keyframes ghost-float-1 {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  15% {
-    transform: translate(-12px, -8px) rotate(-2deg);
-  }
-  30% {
-    transform: translate(-18px, 5px) rotate(1deg);
-  }
-  45% {
-    transform: translate(-10px, 12px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-20px, 3px) rotate(2deg);
-  }
-  75% {
-    transform: translate(-8px, -5px) rotate(-1deg);
-  }
-  90% {
-    transform: translate(-15px, 8px) rotate(1deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-
-@keyframes ghost-float-2 {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  12% {
-    transform: translate(15px, -10px) rotate(2deg);
-  }
-  28% {
-    transform: translate(8px, 8px) rotate(-1deg);
-  }
-  42% {
-    transform: translate(22px, -5px) rotate(2deg);
-  }
-  58% {
-    transform: translate(12px, 10px) rotate(-2deg);
-  }
-  70% {
-    transform: translate(25px, -8px) rotate(1deg);
-  }
-  85% {
-    transform: translate(10px, 6px) rotate(-1deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-} */
 
 .header {
   background-color: var(--md-header-blur);
