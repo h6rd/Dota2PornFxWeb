@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Cosmic Roshan', category: 'roshan' },
     { name: 'Winter Train', category: 'backgrounds' },
     { name: 'Station', category: 'backgrounds' },
     { name: 'Sakura', category: 'backgrounds' },
@@ -451,6 +452,7 @@ const modsData = {
         { name: 'Journey Roshan', preview: 'Journey Roshan.webp', file: 'pak63_dir.vpk' },
         { name: 'Reef Roshan', preview: 'Reef Roshan.webp', file: 'pak64_dir.vpk' },
         { name: 'Santa Hat Roshan', preview: 'Santa Hat Roshan.webp', file: 'pak65_dir.vpk' },
+        { name: 'Cosmic Roshan', preview: 'Cosmic Roshan.webp', file: 'pak66_dir.vpk' },
     ],
     'ancient': [
         { name: 'Ancient Dragon King', preview: 'Ancient Dragon King.webp', file: 'pak30_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/' },
