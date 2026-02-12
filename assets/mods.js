@@ -1,7 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'DM Mono', category: 'fonts' },
     { name: 'Cosmic Roshan', category: 'roshan' },
-    { name: 'Winter Train', category: 'backgrounds' },
+    // { name: 'Winter Train', category: 'backgrounds' },
     { name: 'Station', category: 'backgrounds' },
     { name: 'Sakura', category: 'backgrounds' },
     { name: 'Pine Forest', category: 'backgrounds' },
@@ -601,7 +602,7 @@ const modsData = {
         { name: 'Pine Forest', preview: 'Pine Forest.webp', file: 'pak51_dir.vpk', tags: { image: false, video: true } },
         { name: 'Sakura', preview: 'Sakura.webp', file: 'pak52_dir.vpk', tags: { image: false, video: true } },
         { name: 'Station', preview: 'Station.webp', file: 'pak53_dir.vpk', tags: { image: false, video: true } },
-        { name: 'Winter Train', preview: 'Winter Train.webp', file: 'pak54_dir.vpk', tags: { image: false, video: true } },
+        // { name: 'Winter Train', preview: 'Winter Train.webp', file: 'pak54_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
@@ -727,6 +728,7 @@ const modsData = {
     'fonts': [
         { name: 'Monocraft', preview: 'Monocraft.webp', file: 'Monocraft Font.zip' },
         { name: 'Divagon', preview: 'Divagon.webp', file: 'Divagon Font.zip' },
+        { name: 'DM Mono', preview: 'DM Mono.webp', file: 'DM Mono Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
