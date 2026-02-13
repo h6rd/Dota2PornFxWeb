@@ -296,15 +296,28 @@ const formatTime = (seconds) => {
 const highlightHeroNames = (text) => {
     if (!text) return text;
 
-    let result = text;
+    let firstMatch = null;
+    let firstMatchIndex = text.length;
+    let firstMatchHero = null;
+
     HEROES_LIST.forEach(hero => {
-        const regex = new RegExp(`\\b${hero}\\b`, 'gi');
-        result = result.replace(regex, (match) => {
-            return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
-        });
+        const regex = new RegExp(`\\b${hero}\\b`, 'i');
+        const match = text.match(regex);
+        if (match && match.index < firstMatchIndex) {
+            firstMatchIndex = match.index;
+            firstMatch = match[0];
+            firstMatchHero = hero;
+        }
     });
 
-    return result;
+    if (firstMatch) {
+        const regex = new RegExp(`\\b${firstMatchHero}\\b`, 'i');
+        return text.replace(regex, (match) => {
+            return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
+        });
+    }
+
+    return text;
 };
 
 // FAB Menu
