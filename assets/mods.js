@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Shadow Fiend King of Vipers III', category: 'heroes' },
+    { name: 'Shadow Fiend King of Vipers II', category: 'heroes' },
     { name: 'Invoker Fate Meridian', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers', category: 'heroes' },
     { name: 'Muerta Blackwing Bandolera', category: 'heroes' },
@@ -301,6 +303,8 @@ const modsData = {
         { name: 'Muerta Blackwing Bandolera', preview: 'Muerta Blackwing Bandolera.webp', file: 'Muerta Blackwing Bandolera.zip', tags: { effects: false, icons: false } },
         { name: 'Shadow Fiend King of Vipers', preview: 'Shadow Fiend King of Vipers.webp', file: 'Shadow Fiend King of Vipers.zip', tags: { effects: false, icons: false } },
         { name: 'Invoker Fate Meridian', preview: 'Invoker Fate Meridian.webp', file: 'Invoker Fate Meridian.zip', tags: { effects: false, icons: false } },
+        { name: 'Shadow Fiend King of Vipers II', preview: 'Shadow Fiend King of Vipers II.webp', file: 'Shadow Fiend King of Vipers II.zip', tags: { effects: false, icons: false } },
+        { name: 'Shadow Fiend King of Vipers III', preview: 'Shadow Fiend King of Vipers III.webp', file: 'Shadow Fiend King of Vipers III.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
