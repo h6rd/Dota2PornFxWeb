@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Shadow Fiend King of Viper', category: 'heroes' },
     { name: 'Muerta Blackwing Bandolera', category: 'heroes' },
     { name: 'DM Mono', category: 'fonts' },
     { name: 'Cosmic Roshan', category: 'roshan' },
@@ -297,6 +298,7 @@ const modsData = {
         { name: 'Ursa Alpine Stalker', preview: 'Ursa Alpine Stalker.webp', file: 'Ursa Alpine Stalker.zip', tags: { effects: false, icons: false } },
         { name: 'Broodmother Silken Queen', preview: 'Broodmother Silken Queen.webp', file: 'Broodmother Silken Queen.zip', tags: { effects: false, icons: false } },
         { name: 'Muerta Blackwing Bandolera', preview: 'Muerta Blackwing Bandolera.webp', file: 'Muerta Blackwing Bandolera.zip', tags: { effects: false, icons: false } },
+        { name: 'Shadow Fiend King of Viper', preview: 'Shadow Fiend King of Viper.webp', file: 'Shadow Fiend King of Viper.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
