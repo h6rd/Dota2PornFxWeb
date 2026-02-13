@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Muerta Blackwing Bandolera', category: 'heroes' },
     { name: 'DM Mono', category: 'fonts' },
     { name: 'Cosmic Roshan', category: 'roshan' },
     // { name: 'Winter Train', category: 'backgrounds' },
@@ -295,6 +296,7 @@ const modsData = {
         { name: 'Ursa Feast of the Damned', preview: 'Ursa Feast of the Damned.webp', file: 'Ursa Feast of the Damned.zip', tags: { effects: false, icons: false } },
         { name: 'Ursa Alpine Stalker', preview: 'Ursa Alpine Stalker.webp', file: 'Ursa Alpine Stalker.zip', tags: { effects: false, icons: false } },
         { name: 'Broodmother Silken Queen', preview: 'Broodmother Silken Queen.webp', file: 'Broodmother Silken Queen.zip', tags: { effects: false, icons: false } },
+        { name: 'Muerta Blackwing Bandolera', preview: 'Muerta Blackwing Bandolera.webp', file: 'Muerta Blackwing Bandolera.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
