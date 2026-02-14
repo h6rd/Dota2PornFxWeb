@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Witch Doctor True Maledict', category: 'hero-sounds' },
     { name: 'Ember Spirit Master of Searing Path', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers III', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers II', category: 'heroes' },
@@ -754,6 +755,7 @@ const modsData = {
     'hero-sounds': [
         { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
         { name: 'Largo Serega Pirat v2', preview: 'Largo Serega Pirat v2.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4' }] },
+        { name: 'Witch Doctor True Maledict', preview: 'Witch Doctor True Maledict.webp', file: 'pak12_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Witch Doctor True Maledict.mp4' }] },
     ],
     'packs': [
         {
@@ -841,22 +843,22 @@ const modsData = {
         groups: [
             {
                 id: 'dagon', name: 'Dagon', mods: [
-                    { name: 'Purple Dagon', preview: 'purple_dagon.mp4', file: 'pak41_dir.vpk' },
-                    { name: 'Blue Dagon', preview: 'blue_dagon.mp4', file: 'pak42_dir.vpk' },
-                    { name: 'Snow Dagon', preview: 'snow_dagon.mp4', file: 'pak43_dir.vpk' },
-                    { name: 'Green Dagon', preview: 'green_dagon.mp4', file: 'pak12_dir.vpk' },
-                    { name: 'White Dagon', preview: 'white_dagon.mp4', file: 'pak21_dir.vpk' },
+                    { name: 'Purple Dagon', preview: 'Purple Dagon.webp', file: 'pak41_dir.vpk' },
+                    { name: 'Blue Dagon', preview: 'Blue Dagon.webp', file: 'pak42_dir.vpk' },
+                    { name: 'Snow Dagon', preview: 'Winter Dagon.webp', file: 'pak43_dir.vpk' },
+                    { name: 'Green Dagon', preview: 'Green Dagon.webp', file: 'pak12_dir.vpk' },
+                    { name: 'White Dagon', preview: 'White Dagon.webp', file: 'pak21_dir.vpk' },
                 ]
             },
             {
                 id: 'branch', name: 'Iron Branch', mods: [
                     { name: 'GG Iron Branch', preview: 'gg_branch.webp', file: 'pak20_dir.vpk' },
-                    { name: 'Christmas Iron Branch', preview: 'christmas_branch.mp4', file: 'pak68_dir.vpk' },
+                    { name: 'Christmas Iron Branch', preview: 'Christmas Branch.webp', file: 'pak68_dir.vpk' },
                 ]
             },
             {
                 id: 'ethereal', name: 'Ethereal', mods: [
-                    { name: 'White Ethereal', preview: 'White Ethereal.mp4', file: 'pak49_dir.vpk' },
+                    { name: 'White Ethereal', preview: 'White Ethereal.webp', file: 'pak49_dir.vpk' },
                 ]
             },
             {
@@ -867,13 +869,13 @@ const modsData = {
             },
             {
                 id: 'aegis', name: 'Aegis', mods: [
-                    { name: 'Aegis Hearts', preview: 'aegis_hearts.mp4', file: 'pak34_dir.vpk' },
+                    { name: 'Aegis Hearts', preview: 'Aegis Hearts.webp', file: 'pak34_dir.vpk' },
                 ]
             },
             {
                 id: 'runes', name: 'Runes', mods: [
-                    { name: 'Custom Runes', preview: 'сustom_runes.mp4', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
-                    { name: 'Dark Bounty Rune', preview: 'Dark Bounty Rune.mp4', file: 'pak10_dir.vpk' },
+                    { name: 'Custom Runes', preview: 'Runes_v1.webp', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
+                    { name: 'Dark Bounty Rune', preview: 'Dark Bounty.webp', file: 'pak10_dir.vpk' },
                 ]
             },
             {
