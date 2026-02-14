@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Ember Spirit Master of Searing Path', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers III', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers II', category: 'heroes' },
     { name: 'Invoker Fate Meridian', category: 'heroes' },
@@ -305,6 +306,7 @@ const modsData = {
         { name: 'Invoker Fate Meridian', preview: 'Invoker Fate Meridian.webp', file: 'Invoker Fate Meridian.zip', tags: { effects: false, icons: false } },
         { name: 'Shadow Fiend King of Vipers II', preview: 'Shadow Fiend King of Vipers II.webp', file: 'Shadow Fiend King of Vipers II.zip', tags: { effects: false, icons: false } },
         { name: 'Shadow Fiend King of Vipers III', preview: 'Shadow Fiend King of Vipers III.webp', file: 'Shadow Fiend King of Vipers III.zip', tags: { effects: false, icons: false } },
+        { name: 'Ember Spirit Master of Searing Path', preview: 'Ember Spirit Master of Searing Path.webp', file: 'Ember Spirit Master of Searing Path.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
