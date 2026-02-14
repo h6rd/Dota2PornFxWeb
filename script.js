@@ -146,7 +146,7 @@ const NOTES_DATA = [
         type: 'update',
         icon: 'new_releases',
         title: 'Update',
-        text: 'Added a button to copy the link to mod or category. Added option to save packs in cart'
+        text: 'New themes: meepo, axe, bounty hunter. Improved card highlighting animation'
     },
     {
         type: 'warning',
@@ -245,9 +245,12 @@ const GIF_CONFIG = {
         'assets/files/hueta/brew.gif',
         'assets/files/hueta/fura.gif',
         'assets/files/hueta/storm.gif',
-        'assets/files/hueta/invoker.gif'
+        'assets/files/hueta/invoker.gif',
+        'assets/files/hueta/meepo.gif',
+        'assets/files/hueta/bh.gif',
+        'assets/files/hueta/axe.gif'
     ],
-    themes: ['ursa', 'brew', 'fura', 'storm', 'invoker']
+    themes: ['ursa', 'brew', 'fura', 'storm', 'invoker', 'meepo', 'bh', 'axe']
 };
 
 const HEROES_LIST = [
@@ -1304,20 +1307,31 @@ function openCategoryAndHighlightMod(categoryId, modName) {
         );
 
         if (targetCard) {
-            targetCard.classList.remove('fade-in');
             targetCard.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
                 inline: 'nearest'
             });
 
-            setTimeout(() => {
+            let scrollTimeout;
+            const startAnimation = () => {
                 requestAnimationFrame(() => targetCard.classList.add('highlighted'));
                 vibrate([50, 100, 50]);
                 setTimeout(() => {
                     requestAnimationFrame(() => targetCard.classList.remove('highlighted'));
                 }, 1500);
-            }, 800);
+            };
+
+            const onScrollEnd = () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    startAnimation();
+                    window.removeEventListener('scroll', onScrollEnd);
+                }, 200);
+            };
+
+            window.addEventListener('scroll', onScrollEnd);
+            onScrollEnd();
         }
     }, 100);
 }

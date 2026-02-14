@@ -4,7 +4,7 @@
     const savedTheme = localStorage.getItem('theme') || 'dark';
     const hasClicked = localStorage.getItem('gifClicked') === 'true';
 
-    const themes = ['ursa', 'brew', 'fura', 'storm', 'invoker'];
+    const themes = ['ursa', 'brew', 'fura', 'storm', 'invoker', 'meepo', 'bh', 'axe'];
     const defaultTheme = 'ursa';
 
     document.documentElement.setAttribute('data-theme', savedTheme);
