@@ -874,7 +874,7 @@ const modsData = {
             },
             {
                 id: 'runes', name: 'Runes', mods: [
-                    { name: 'Custom Runes', preview: 'Runes_v1.webp', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
+                    { name: 'Custom Runes', preview: 'Custom Runes.webp', file: 'pak33_dir.vpk', linkType: 'source', linkUrl: 'https://dota2changer.com/skins_dota_2_mods-custom_runes/' },
                     { name: 'Dark Bounty Rune', preview: 'Dark Bounty.webp', file: 'pak10_dir.vpk' },
                 ]
             },
