@@ -138,7 +138,6 @@ const categories = [
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
     { id: 'sites', emoji: '🌐', key: 'sites', preview: '' }
-    // { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
 ];
 
 const NOTES_DATA = [
@@ -1327,7 +1326,7 @@ function openCategoryAndHighlightMod(categoryId, modName) {
                 scrollTimeout = setTimeout(() => {
                     startAnimation();
                     window.removeEventListener('scroll', onScrollEnd);
-                }, 200);
+                }, 100);
             };
 
             window.addEventListener('scroll', onScrollEnd);
