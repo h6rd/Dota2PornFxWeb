@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Skywrath Mage Thanatos', category: 'heroes' },
     { name: 'Faceless Void Rita', category: 'heroes' },
     { name: 'Legion Commander Chen', category: 'heroes' },
     { name: 'Kez Nanami Yachiyo Kai', category: 'heroes' },
@@ -818,7 +819,7 @@ const modsData = {
     'packs': [
         {
             name: 'Winter Pack',
-            preview: 'winter Pack.mp4',
+            preview: 'Winter.webp',
             type: 'pack',
             mods: [
                 'Aghanim Labyrinth',
@@ -838,6 +839,26 @@ const modsData = {
                 'Frostivus Ancient',
                 'Holiday Radiant Tower',
                 'Snow Pedestal',
+            ]
+        },
+        {
+            name: 'Autumn Pack',
+            preview: 'Autumn.webp',
+            type: 'pack',
+            mods: [
+                'Wave Lite Peach',
+                'Quarteros Curios',
+                'Dota+ Autumn',
+                'Woodland Radiant Creeps',
+                'Woodland Dire Creeps',
+                'Woodland Radiant Siege',
+                'Woodland Dire Siege',
+                'Deny Fall 2022',
+                'Station',
+                'Golden Huntling',
+                'TI 2024 Versus Screen',
+                'Gardens Roshan',
+                '10th Anniversary Tormentor',
             ]
         },
     ],

@@ -1415,8 +1415,10 @@ function setupRecentlyAdded() {
             newCard.querySelector('.add-to-cart-btn')?.remove();
             newCard.querySelector('.copy-link-btn')?.remove();
 
-            const downloadIcon = newCard.querySelector('.download-icon .material-symbols-rounded');
-            if (downloadIcon) downloadIcon.textContent = 'expand_circle_down';
+            const downloadIconDiv = document.createElement('div');
+            downloadIconDiv.className = 'download-icon';
+            downloadIconDiv.innerHTML = '<span class="material-symbols-rounded">expand_circle_down</span>';
+            newCard.querySelector('.card-media').appendChild(downloadIconDiv);
 
             const linkButtonElements = newCard.querySelectorAll('.link-button');
             linkButtonElements.forEach(button => {
@@ -1976,9 +1978,6 @@ function createModCard(mod, categoryId, groupId = null) {
                     <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
                 </button>
             ` : ''}
-            <div class="download-icon">
-                <span class="material-symbols-rounded">${downloadIcon}</span>
-            </div>
         </div>
         <div class="card-content">
             <h3 class="card-title">${categoryId === 'heroes' ? highlightHeroNames(mod.name) : mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
