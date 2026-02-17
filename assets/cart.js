@@ -1068,7 +1068,6 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         console.error('Pack error:', error);
         addLog(`Critical Error: ${error.message || 'Unknown error occurred'}`, 'error');
 
-        // Generate mirror link with cart data
         const compressed = compressAssembly({
             name: 'Recovery Pack',
             items: cart
@@ -1159,125 +1158,6 @@ if (document.readyState === 'loading') {
     loadSharedAssembly();
 }
 
-// Base64
-// function compressAssembly(assembly) {
-//     const catMap = {
-//         'heroes': 'h', 'shaders': 's', 'terrains': 't', 'trees': 'r',
-//         'creeps': 'c', 'ti-bp-effects': 'e', 'item-effects': 'i',
-//         'creep-deny': 'd', 'emblems': 'b', 'versus-screens': 'v',
-//         'roshan': 'o', 'ancient': 'a', 'tormentor': 'm', 'towers': 'w',
-//         'high-five': 'f', 'ranged-attack': 'g', 'mega-kill': 'k',
-//         'pedestal': 'p', 'other': 'x', 'backgrounds': 'z', 'river': 'l',
-//         'ranks': 'n', 'item-icons': 'y', 'wards': 'u', 'couriers': 'q',
-//         'announcers': 'j', 'music': '1', 'cursors': '2', 'pings': '3',
-//         'herofx': '4', 'hero-sounds': '5', 'hero-items': '6'
-//     };
-
-//     const items = assembly.items.map(item => {
-//         const parts = [
-//             catMap[item.categoryId] || item.categoryId,
-//             item.file.replace('.zip', ''),
-//             item.groupId || ''
-//         ];
-//         return parts.filter(p => p).join(',');
-//     });
-
-//     const data = assembly.name + '|' + items.join('|');
-//     return LZString.compressToEncodedURIComponent(data);
-// }
-
-// function decompressAssembly(compressed) {
-//     try {
-//         const data = LZString.decompressFromEncodedURIComponent(compressed);
-//         if (!data) return null;
-
-//         const catMap = {
-//             'h': 'heroes', 's': 'shaders', 't': 'terrains', 'r': 'trees',
-//             'c': 'creeps', 'e': 'ti-bp-effects', 'i': 'item-effects',
-//             'd': 'creep-deny', 'b': 'emblems', 'v': 'versus-screens',
-//             'o': 'roshan', 'a': 'ancient', 'm': 'tormentor', 'w': 'towers',
-//             'f': 'high-five', 'g': 'ranged-attack', 'k': 'mega-kill',
-//             'p': 'pedestal', 'x': 'other', 'z': 'backgrounds', 'l': 'river',
-//             'n': 'ranks', 'y': 'item-icons', 'u': 'wards', 'q': 'couriers',
-//             'j': 'announcers', '1': 'music', '2': 'cursors', '3': 'pings',
-//             '4': 'herofx', '5': 'hero-sounds', '6': 'hero-items'
-//         };
-
-//         const parts = data.split('|');
-//         const name = parts[0];
-
-//         const items = parts.slice(1).map(itemStr => {
-//             const [catCode, file, groupId] = itemStr.split(',');
-//             const categoryId = catMap[catCode] || catCode;
-//             const fullFile = file.includes('.') ? file : file + '.zip';
-
-//             const categoryData = modsData[categoryId];
-//             let modName = file;
-
-//             if (categoryData?.groups && groupId) {
-//                 const group = categoryData.groups.find(g => g.id === groupId);
-//                 const mod = group?.mods.find(m => m.file === fullFile);
-//                 if (mod) modName = mod.name;
-//             } else if (Array.isArray(categoryData)) {
-//                 const mod = categoryData.find(m => m.file === fullFile);
-//                 if (mod) modName = mod.name;
-//             }
-
-//             return {
-//                 id: groupId ? `${categoryId}-${groupId}-${modName}` : `${categoryId}-${modName}`,
-//                 name: modName,
-//                 file: fullFile,
-//                 categoryId: categoryId,
-//                 groupId: groupId || null
-//             };
-//         });
-
-//         return { name, items };
-//     } catch (e) {
-//         console.error('Failed to decompress pack:', e);
-//         return null;
-//     }
-// }
-
-// function shareAssembly(assemblyId) {
-//     const assembly = savedAssemblies.find(a => a.id === assemblyId);
-//     if (!assembly) return;
-
-//     const compressed = compressAssembly(assembly);
-//     const baseUrl = window.location.origin + window.location.pathname;
-//     const shareUrl = `${baseUrl}?pack=${compressed}`;
-
-//     copyToClipboard(shareUrl, `Share link copied for <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
-// }
-
-// function loadSharedAssembly() {
-//     const params = new URLSearchParams(window.location.search);
-//     const packData = params.get('pack');
-
-//     if (!packData) return;
-
-//     const assembly = decompressAssembly(packData);
-//     if (!assembly) {
-//         showToast('Invalid pack link');
-//         return;
-//     }
-
-//     cart = [...assembly.items];
-//     saveCart();
-//     updateCartBadge();
-//     renderCartItems();
-//     updateCartButtons();
-
-//     showToast(`Loaded pack: <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span>`);
-
-//     window.history.replaceState({}, '', window.location.pathname);
-
-//     const cartButton = document.getElementById('cartButton');
-//     if (cartButton) cartButton.click();
-// }
-
-
-// Workers
 function compressAssembly(assembly) {
     return btoa(encodeURIComponent(JSON.stringify({
         name: assembly.name,
