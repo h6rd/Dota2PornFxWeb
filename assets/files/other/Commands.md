@@ -19,7 +19,7 @@
 - `Enter` - `kp_enter`
 
 ## Say Hero Phrases
-- **[List Phrases](https://gist.githubusercontent.com/h6rd/24364c1cea9083db99791c35c2cfe5d9/raw/5f18ed01ce3436376089e6236c4fcdb70ef5fb37/gistfile1.txt)**
+- **[List Phrases](https://gist.githubusercontent.com/h6rd/e570a0fec1a774cec71b3ee5e8d608ab/raw/cde6b536988960bf3ddc66edbc93428985466a1d/gistfile1.txt)**
 - Console command - `chatwheel_say 73001`
 - Bind command - `bind "kp_ins" "chatwheel_say 73001"`
 
