@@ -681,7 +681,7 @@ const modsData = {
         { name: 'VPKMerge - Combine VPKs', preview: 'VPKMerge.webp', file: 'VPKMerge.zip', guideId: 'vpk-merge' },
         { name: 'VPKTool - Extract & Pack VPKs', preview: 'VPKTool.webp', file: 'VPKTool.zip', guideId: 'vpk-tool' },
         { name: 'ItemsFix - Fix items_game structure', preview: 'itemsfix.webp', file: 'ItemsFix.zip', guideId: 'items-fix'},
-        { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'https://github.com/h6rd/Cosmetics/releases/latest/', type: 'guide', guideId: 'warning', guideType: 'not-safe'},
+        { name: 'Cosmetics - Weather & More', preview: 'Cosmetics.webp', file: 'Cosmetics.zip', guideId: 'warning', guideType: 'not-safe'},
         { name: 'Compiler', preview: 'Image Compiler.webp', file: 'Compiler.zip', guideId: 'compiler' },
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'VPKMerge Linux', preview: 'VPKMerge Linux.webp', file: 'VPKMerge Linux.zip', guideId: 'vpk-merge-linux' },
