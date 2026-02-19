@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     { name: 'Black River', category: 'river' },
+    { name: 'Mason', category: 'fonts' },
     { name: 'Skywrath Mage Thanatos', category: 'heroes' },
     { name: 'Faceless Void Rita', category: 'heroes' },
     { name: 'Legion Commander Chen', category: 'heroes' },
@@ -802,6 +803,7 @@ const modsData = {
         { name: 'Monocraft', preview: 'Monocraft.webp', file: 'Monocraft Font.zip' },
         { name: 'Divagon', preview: 'Divagon.webp', file: 'Divagon Font.zip' },
         { name: 'DM Mono', preview: 'DM Mono.webp', file: 'DM Mono Font.zip' },
+        { name: 'Mason', preview: 'Mason.webp', file: 'Mason Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
