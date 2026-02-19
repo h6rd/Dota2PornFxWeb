@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Black River', category: 'river' },
     { name: 'Skywrath Mage Thanatos', category: 'heroes' },
     { name: 'Faceless Void Rita', category: 'heroes' },
     { name: 'Legion Commander Chen', category: 'heroes' },
