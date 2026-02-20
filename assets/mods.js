@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Anti-Mage Blue Illidan', category: 'heroes' },
+    { name: 'Night Stalker Frost Walker', category: 'heroes' },
     { name: 'Black River', category: 'river' },
     { name: 'Mason', category: 'fonts' },
     { name: 'Skywrath Mage Thanatos', category: 'heroes' },
@@ -368,6 +370,8 @@ const modsData = {
         { name: 'Kez Nanami Yachiyo Kai', preview: 'Kez Nanami Yachiyo Kai.webp', file: 'Kez Nanami Yachiyo Kai.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Legion Commander Chen', preview: 'Legion Commander Chen.webp', file: 'Legion Commander Chen.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Faceless Void Rita', preview: 'Faceless Void Rita.webp', file: 'Faceless Void Rita.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
+        { name: 'Night Stalker Frost Walker', preview: 'Night Stalker Frost Walker.webp', file: 'Night Stalker Frost Walker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
+        { name: 'Anti-Mage Blue Illidan', preview: 'Anti-Mage Blue Illidan.webp', file: 'Anti-Mage Blue Illidan.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
