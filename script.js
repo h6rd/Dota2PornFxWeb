@@ -97,6 +97,7 @@ const translations = {
     'hero-items-desc': 'Individual items of heroes',
     'fonts': 'Fonts',
     'fonts-desc': 'Custom fonts',
+    'source-code': 'Source Code',
 };
 
 const categories = [
@@ -212,7 +213,8 @@ const LINK_ICONS = {
     'guide': 'description',
     'bug': 'bug_report',
     'not-safe': 'warning',
-    'info': 'warning'
+    'info': 'warning',
+    'source-code': 'code'
 };
 
 const TAG_CONFIGS = {
@@ -235,6 +237,10 @@ const TAG_CONFIGS = {
     "hero-items": {
         allowForGuides: false,
         map: { weapon: 'Weapon', mount: 'Mount', effects: 'Effects', icons: 'Icons', sounds: 'Sounds', totem: 'Totem' }
+    },
+    tools: {
+        allowForGuides: false,
+        map: {"source-code": 'Source Code' }
     }
 };
 
@@ -2217,6 +2223,10 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             loadPackToCart(mod);
             return;
         }
+        if (mod.multiPlatform) {
+            openOsPickerModal(mod);
+            return;
+        }
         if (mod.type === 'guide') {
             if (mod.guideId) {
                 if (!mod.file || !mod.file.startsWith('http')) {
@@ -2275,6 +2285,37 @@ function downloadMod(mod, categoryId) {
     document.body.removeChild(link);
     console.log(`Downloading: ${mod.name}`);
 }
+
+function openOsPickerModal(mod) {
+    document.getElementById('osPickerTitle').textContent = mod.name;
+    document.getElementById('osPickerOverlay').classList.add('active');
+    document.getElementById('osPickerModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const btnWin = document.getElementById('osBtnWindows');
+    const btnLinux = document.getElementById('osBtnLinux');
+    const newBtnWin = btnWin.cloneNode(true);
+    const newBtnLinux = btnLinux.cloneNode(true);
+    btnWin.parentNode.replaceChild(newBtnWin, btnWin);
+    btnLinux.parentNode.replaceChild(newBtnLinux, btnLinux);
+
+    newBtnWin.addEventListener('click', () => {
+        window.open(mod.fileWin, '_blank');
+        closeOsPickerModal();
+    });
+    newBtnLinux.addEventListener('click', () => {
+        window.open(mod.fileLinux, '_blank');
+        closeOsPickerModal();
+    });
+}
+
+function closeOsPickerModal() {
+    document.getElementById('osPickerOverlay').classList.remove('active');
+    document.getElementById('osPickerModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('osPickerOverlay').onclick = closeOsPickerModal;
 
 function openGuideForMod(mod) {
     if (!mod.guideId || !guidesData[mod.guideId]) {

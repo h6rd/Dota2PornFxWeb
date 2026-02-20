@@ -3513,6 +3513,47 @@ fcode {
   justify-content: flex-end;
 }
 
+/* Platform Modal */
+.os-picker-modal {
+  max-width: 480px;
+  width: 90%;
+}
+
+.os-picker-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.os-picker-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.os-picker-btn i {
+  font-size: 1.4rem;
+}
+
+.os-picker-btn:hover {
+  transform: translateY(-1px);
+}
+
+.os-picker-btn:active {
+  transform: scale(0.97);
+}
+
 /* Grouped Mods */
 .mod-group-header {
   grid-column: 1 / -1;
