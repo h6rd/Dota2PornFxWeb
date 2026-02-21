@@ -1,10 +1,55 @@
-window.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('loaded');
+document.fonts.ready.then(() => {
+    document.documentElement.classList.add('fonts-loaded');
 });
 
-document.fonts.ready.then(() => {
-  document.documentElement.classList.add('fonts-loaded');
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+    const markNoTranslate = (root) => {
+        root.querySelectorAll('.material-symbols-rounded, .material-symbols-outlined, .material-symbols-sharp').forEach(el => {
+            el.setAttribute('translate', 'no');
+        });
+    };
+
+    markNoTranslate(document);
+
+    new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    if (node.matches?.('.material-symbols-rounded, .material-symbols-outlined, .material-symbols-sharp')) {
+                        node.setAttribute('translate', 'no');
+                    }
+                    markNoTranslate(node);
+                }
+            });
+        });
+    }).observe(document.body, { childList: true, subtree: true });
 });
+
+function openModal() {
+    document.body.classList.add('modal-open');
+}
+
+document.addEventListener('wheel', (e) => {
+    if (!document.body.classList.contains('modal-open')) return;
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+    if (!scrollable) {
+        e.preventDefault();
+        return;
+    }
+    const scrollingDown = e.deltaY > 0;
+    const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
+    const atTop = scrollable.scrollTop <= 0;
+    if ((scrollingDown && atBottom) || (!scrollingDown && atTop)) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+document.addEventListener('touchmove', (e) => {
+    if (!document.body.classList.contains('modal-open')) return;
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+    if (!scrollable) e.preventDefault();
+}, { passive: false });
 
 const translations = {
     'shaders': 'Shaders',
@@ -349,7 +394,7 @@ function setupFAB() {
     const infoButton = document.getElementById('infoButton');
     const infoModal = document.getElementById('infoModal');
     const infoOverlay = document.getElementById('infoOverlay');
-    const closeModal = document.getElementById('closeModal');
+    const closeModalBtn = document.getElementById('closeModal');
 
     if (!fab || !fabMenu) return;
 
@@ -377,7 +422,7 @@ function setupFAB() {
 
         const guideModal = document.getElementById('guideModal');
         if (!guideModal || !guideModal.classList.contains('active')) {
-            document.body.style.overflow = '';
+            closeModal();
         }
 
         setTimeout(() => {
@@ -396,12 +441,12 @@ function setupFAB() {
             e.stopPropagation();
             infoModal.classList.add('active');
             infoOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModal();
             closeFABMenu();
         });
     }
 
-    closeModal?.addEventListener('click', closeInfoModal);
+    closeModalBtn?.addEventListener('click', closeInfoModal);
     infoOverlay?.addEventListener('click', closeInfoModal);
 
     document.addEventListener('keydown', (e) => {
@@ -549,7 +594,7 @@ function setupGuideModal() {
 
         const infoModal = document.getElementById('infoModal');
         if (!infoModal || !infoModal.classList.contains('active')) {
-            document.body.style.overflow = '';
+            closeModal();
         }
 
         setTimeout(() => {
@@ -585,7 +630,7 @@ function setupGuideModal() {
 
         guideModal.classList.add('active');
         guideOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal();
 
         requestAnimationFrame(() => {
             guideModalContent.scrollTop = 0;
@@ -867,7 +912,7 @@ function setupVideoModal() {
 
         videoModal.classList.remove('active');
         videoOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+        closeModal();
         modalVideo.pause();
         modalVideo.currentTime = 0;
         if (playIcon) playIcon.textContent = 'play_arrow';
@@ -1013,7 +1058,7 @@ function setupVideoModal() {
         }
         videoModal.classList.add('no-transition', 'active');
         videoOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal();
         modalVideo.src = videoUrl;
 
         const enableAndShow = () => {
@@ -1096,7 +1141,7 @@ function setupNotesModal() {
 
         notesModal.classList.add('active');
         notesOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal();
 
         const currentHash = generateNotesHash();
         localStorage.setItem('lastSeenNotesHash', currentHash);
@@ -1111,7 +1156,7 @@ function setupNotesModal() {
     const closeNotesWindow = () => {
         notesModal.classList.remove('active');
         notesOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+        closeModal();
 
         setTimeout(() => {
             const modalContent = notesModal.querySelector('.info-modal-content');
@@ -1296,7 +1341,18 @@ function openCategoryAndHighlightMod(categoryId, modName) {
     resetSort();
 
     elements.categoryTitle.textContent = translations[category.key];
-    elements.categoryDescription.textContent = translations[category.key + '-desc'];
+
+    const descriptionText = translations[category.key + '-desc'];
+    if (category.guideId) {
+        elements.categoryDescription.innerHTML = `${descriptionText} <span class="category-guide-link" data-guide-id="${category.guideId}">${translations['how-to-install']}</span>`;
+        const guideLink = elements.categoryDescription.querySelector('.category-guide-link');
+        guideLink.addEventListener('click', () => {
+            openGuideForMod({ guideId: category.guideId });
+            vibrate(10);
+        });
+    } else {
+        elements.categoryDescription.textContent = descriptionText;
+    }
 
     renderMods(categoryId);
 
@@ -2290,7 +2346,7 @@ function openOsPickerModal(mod) {
     document.getElementById('osPickerTitle').textContent = mod.name;
     document.getElementById('osPickerOverlay').classList.add('active');
     document.getElementById('osPickerModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+    openModal();
 
     const btnWin = document.getElementById('osBtnWindows');
     const btnLinux = document.getElementById('osBtnLinux');
@@ -2312,7 +2368,7 @@ function openOsPickerModal(mod) {
 function closeOsPickerModal() {
     document.getElementById('osPickerOverlay').classList.remove('active');
     document.getElementById('osPickerModal').classList.remove('active');
-    document.body.style.overflow = '';
+    closeModal();
 }
 
 document.getElementById('osPickerOverlay').onclick = closeOsPickerModal;

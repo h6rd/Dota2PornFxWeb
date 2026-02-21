@@ -460,11 +460,11 @@ body {
   color: var(--md-sys-color-on-surface);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: scroll;
   -ms-overflow-style: none;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  scrollbar-gutter: stable;
   scrollbar-width: thin;
 }
 
@@ -828,7 +828,7 @@ img {
   height: 100%;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
-  z-index: 1100;
+  z-index: 9999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -842,6 +842,18 @@ img {
   backdrop-filter: blur(6px);
 }
 
+body.modal-open {
+  overscroll-behavior: none;
+}
+
+.info-modal-content,
+.cart-items,
+.pack-log-container,
+.assemblies-list,
+.notes-content {
+  touch-action: pan-y;
+}
+
 .info-modal {
   position: fixed;
   top: 50%;
@@ -853,7 +865,7 @@ img {
   background: var(--md-sys-color-surface-container-high);
   border-radius: 28px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  z-index: 1101;
+  z-index: 10000;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -886,7 +898,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 100;
   transition: background 0.2s cubic-bezier(0.2, 0, 0, 1),
     transform 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
@@ -3208,7 +3220,7 @@ fcode {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3000;
+  z-index: 10001;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -3448,7 +3460,7 @@ fcode {
   font-size: 14px;
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  z-index: 2000;
+  z-index: 10001;
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
@@ -3474,7 +3486,7 @@ fcode {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3000;
+  z-index: 10001;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;

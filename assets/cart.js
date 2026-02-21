@@ -4,6 +4,32 @@ const MAX_CART_ITEMS = 100;
 let savedAssemblies = [];
 const MAX_ASSEMBLIES = 10;
 
+function openModal() {
+    document.body.classList.add('modal-open');
+}
+
+function closeModal() {
+    document.body.classList.remove('modal-open');
+}
+
+if (!window.modalScrollListenersAdded) {
+    document.addEventListener('wheel', (e) => {
+        if (document.body.classList.contains('modal-open')) {
+            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+            if (!scrollable) e.preventDefault();
+        }
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+        if (document.body.classList.contains('modal-open')) {
+            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+            if (!scrollable) e.preventDefault();
+        }
+    }, { passive: false });
+
+    window.modalScrollListenersAdded = true;
+}
+
 function loadAssemblies() {
     const saved = localStorage.getItem('savedAssemblies');
     if (saved) {
@@ -537,7 +563,7 @@ function setupCartModal() {
             renderCartItems();
             cartModal.classList.add('active');
             cartOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            openModal();
         });
     };
 
@@ -545,7 +571,7 @@ function setupCartModal() {
         cartModal.classList.remove('active');
         cartModal.classList.remove('expanded');
         cartOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+        closeModal();
 
         const logPanel = document.getElementById('packLogPanel');
         if (logPanel) {
@@ -1117,15 +1143,15 @@ function showReplaceModal(existingItem, newItem) {
     `;
 
     document.body.appendChild(overlay);
-    document.body.style.overflow = 'hidden';
+    openModal();
 
-    const closeModal = () => {
+    const closeModalFunc = () => {
         overlay.classList.remove('active');
         setTimeout(() => overlay.remove(), 200);
-        document.body.style.overflow = '';
+        closeModal();
     };
 
-    document.getElementById('replaceCancel').addEventListener('click', closeModal);
+    document.getElementById('replaceCancel').addEventListener('click', closeModalFunc);
     document.getElementById('replaceConfirm').addEventListener('click', () => {
         removeFromCart(existingItem.id);
         cart.push(newItem);
