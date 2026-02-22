@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Outworld Destroyer Dark Metter', category: 'heroes' },
     { name: 'Oracle Immortal Silence', category: 'heroes' },
     { name: 'Sniper Howling Wolf', category: 'heroes' },
     { name: 'Pudge Rotzo the Clown', category: 'heroes' },
@@ -390,6 +391,7 @@ const modsData = {
         { name: 'Pudge Rotzo the Clown', preview: 'Pudge Rotzo the Clown.webp', file: 'Pudge Rotzo the Clown.zip', tags: { effects: false, icons: false } },
         { name: 'Sniper Howling Wolf', preview: 'Sniper Howling Wolf.webp', file: 'Sniper Howling Wolf.zip', tags: { effects: true, icons: true } },
         { name: 'Oracle Immortal Silence', preview: 'Oracle Immortal Silence.webp', file: 'Oracle Immortal Silence.zip', tags: { effects: true, icons: true } },
+        { name: 'Outworld Destroyer Dark Metter', preview: 'Outworld Destroyer Dark Metter.webp', file: 'Outworld Destroyer Dark Metter.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
