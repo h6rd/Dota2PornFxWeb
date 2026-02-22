@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Correction Tape', category: 'fonts' },
     { name: 'Outworld Destroyer Dark Metter', category: 'heroes' },
     { name: 'Oracle Immortal Silence', category: 'heroes' },
     { name: 'Sniper Howling Wolf', category: 'heroes' },
@@ -825,6 +826,7 @@ const modsData = {
         { name: 'Divagon', preview: 'Divagon.webp', file: 'Divagon Font.zip' },
         { name: 'DM Mono', preview: 'DM Mono.webp', file: 'DM Mono Font.zip' },
         { name: 'Mason', preview: 'Mason.webp', file: 'Mason Font.zip' },
+        { name: 'Correction Tape', preview: 'Correction Tape.webp', file: 'Correction Tape Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
