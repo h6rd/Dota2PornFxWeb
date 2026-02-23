@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Grimstroke Gloom Shroud', category: 'heroes' },
     { name: 'Audex', category: 'fonts' },
     { name: 'LowPoly Barrel Trees', category: 'trees' },
     { name: 'Correction Tape', category: 'fonts' },
@@ -395,6 +396,7 @@ const modsData = {
         { name: 'Sniper Howling Wolf', preview: 'Sniper Howling Wolf.webp', file: 'Sniper Howling Wolf.zip', tags: { effects: true, icons: true } },
         { name: 'Oracle Immortal Silence', preview: 'Oracle Immortal Silence.webp', file: 'Oracle Immortal Silence.zip', tags: { effects: true, icons: true } },
         { name: 'Outworld Destroyer Dark Metter', preview: 'Outworld Destroyer Dark Metter.webp', file: 'Outworld Destroyer Dark Metter.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
+        { name: 'Grimstroke Gloom Shroud', preview: 'Grimstroke Gloom Shroud.webp', file: 'Grimstroke Gloom Shroud.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
