@@ -1160,7 +1160,7 @@ function showReplaceModal(existingItem, newItem) {
         renderCartItems();
         updateCartButtons();
         showToast('Replaced successfully');
-        closeModal();
+        closeModalFunc();
     });
 
     requestAnimationFrame(() => overlay.classList.add('active'));
