@@ -2013,7 +2013,20 @@ function createModCard(mod, categoryId, groupId = null) {
     card.setAttribute('data-category-id', categoryId);
     if (groupId) card.setAttribute('data-group-id', groupId);
 
-    const preview = mod.preview || '';
+    const hasStyles = mod.styles && mod.styles.length > 1;
+    let activeStyleIndex = 0;
+    if (hasStyles) {
+        const fromCart = mod.styles.findIndex(s => {
+            const sName = mod.name + ' ' + s.label.replace('Style ', '');
+            const sId = groupId ? `${categoryId}-${groupId}-${sName}` : `${categoryId}-${sName}`;
+            return cart.some(item => item.id === sId);
+        });
+        activeStyleIndex = fromCart !== -1 ? fromCart : (mod._styleIndex || 0);
+        mod._styleIndex = activeStyleIndex;
+    }
+    const activeMod = hasStyles ? { ...mod, ...mod.styles[activeStyleIndex] } : mod;
+    const activeModName = hasStyles ? mod.name + ' ' + mod.styles[activeStyleIndex].label.replace('Style ', '') : mod.name;
+    const preview = activeMod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
     const mediaAttrs = isVideo && categoryId !== 'backgrounds'
@@ -2029,20 +2042,30 @@ function createModCard(mod, categoryId, groupId = null) {
     card.innerHTML = `
         <div class="card-media">
             ${preview
-                ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
+            ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
                      onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>`
-                : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
-            }
+            : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
+        }
             ${tagsHtml}
+            ${hasStyles ? `
+                <div class="style-circles">
+                    ${mod.styles.map((s, i) => `
+                        <span class="style-circle ${i === activeStyleIndex ? 'active' : ''}"
+                              data-style-index="${i}"
+                              style="background:${s.color}"
+                              title="${s.label}"></span>
+                    `).join('')}
+                </div>
+            ` : ''}
             ${!hideAddToCart ? `
-                <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: mod.name, file: mod.file })}' data-category="${categoryId}">
+                <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: activeModName, file: activeMod.file, preview: activeMod.preview || '' })}' data-category="${categoryId}">
                     <span class="material-symbols-rounded">add</span>
                     <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
                 </button>
             ` : ''}
         </div>
         <div class="card-content">
-            <h3 class="card-title">${categoryId === 'heroes' ? highlightHeroNames(mod.name) : mod.name}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
+            <h3 class="card-title">${['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(categoryId) ? highlightHeroNames(activeMod.name || mod.name) : (activeMod.name || mod.name)}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
                 <div class="card-buttons-group">
@@ -2294,7 +2317,8 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
                 window.open(mod.file, '_blank');
             }
         } else {
-            downloadMod(mod, categoryId);
+            const activestyle = mod.styles ? mod.styles[mod._styleIndex || 0] : mod;
+            downloadMod({ ...mod, ...activestyle }, categoryId);
         }
     });
 
@@ -2329,6 +2353,52 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             updateCartButtons();
         });
     }
+
+    const styleCircles = card.querySelectorAll('.style-circle');
+    styleCircles.forEach(circle => {
+        circle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = +circle.dataset.styleIndex;
+            mod._styleIndex = idx;
+
+            const img = card.querySelector('.card-media img, .card-media video');
+            if (img) img.src = `assets/previews/${categoryId}/${mod.styles[idx].preview}`;
+
+            const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
+            const newId = groupId ? `${categoryId}-${groupId}-${newName}` : `${categoryId}-${newName}`;
+
+            const cartBtn = card.querySelector('.add-to-cart-btn');
+            if (cartBtn) {
+                cartBtn.setAttribute('data-mod', JSON.stringify({
+                    name: newName,
+                    file: mod.styles[idx].file,
+                    preview: mod.styles[idx].preview
+                }));
+            }
+
+            for (let si = 0; si < mod.styles.length; si++) {
+                const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
+                const sId = groupId ? `${categoryId}-${groupId}-${sName}` : `${categoryId}-${sName}`;
+                const existingIdx = cart.findIndex(item => item.id === sId);
+                if (existingIdx !== -1) {
+                    cart[existingIdx] = {
+                        ...cart[existingIdx],
+                        id: newId,
+                        name: newName,
+                        file: mod.styles[idx].file,
+                        preview: mod.styles[idx].preview
+                    };
+                    saveCart();
+                    updateCartBadge();
+                    renderCartItems();
+                    updateCartButtons();
+                    break;
+                }
+            }
+
+            styleCircles.forEach(c => c.classList.toggle('active', c === circle));
+        });
+    });
 }
 
 function downloadMod(mod, categoryId) {

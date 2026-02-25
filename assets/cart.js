@@ -336,6 +336,7 @@ function addToCart(mod, categoryId) {
         id: groupId ? `${categoryId}-${groupId}-${mod.name}` : `${categoryId}-${mod.name}`,
         name: mod.name,
         file: mod.file,
+        preview: mod.preview || null,
         categoryId: categoryId,
         groupId: groupId || null
     };
@@ -653,6 +654,9 @@ function renderCartItems() {
         if (mod && mod.preview) {
             previewPath = `assets/previews/${item.categoryId}/${mod.preview}`;
             isVideo = mod.preview.endsWith('.mp4');
+        } else if (item.preview) {
+            previewPath = `assets/previews/${item.categoryId}/${item.preview}`;
+            isVideo = item.preview.endsWith('.mp4');
         }
 
         let previewHtml = '';

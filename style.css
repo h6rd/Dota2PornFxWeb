@@ -1982,6 +1982,38 @@ fcode {
   white-space: nowrap;
 }
 
+.style-circles {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+}
+
+.style-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: outline-color 0.15s, filter 0.15s, opacity 0.15s;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.396);
+    opacity: 0.75;
+}
+
+.style-circle:hover {
+    filter: brightness(1.2);
+    opacity: 1;
+}
+
+.style-circle.active {
+    outline-color: var(--md-sys-color-primary);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+    opacity: 1;
+}
+
 .card-buttons-group {
   display: flex;
   gap: 4px;

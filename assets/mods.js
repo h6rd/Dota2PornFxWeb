@@ -55,45 +55,6 @@ const recentlyAddedMods = [
     { name: 'Shadow Fiend King of Vipers II', category: 'heroes' },
     { name: 'Invoker Fate Meridian', category: 'heroes' },
     { name: 'Shadow Fiend King of Vipers', category: 'heroes' },
-    { name: 'Muerta Blackwing Bandolera', category: 'heroes' },
-    { name: 'DM Mono', category: 'fonts' },
-    { name: 'Cosmic Roshan', category: 'roshan' },
-    // { name: 'Winter Train', category: 'backgrounds' },
-    { name: 'Station', category: 'backgrounds' },
-    { name: 'Sakura', category: 'backgrounds' },
-    { name: 'Pine Forest', category: 'backgrounds' },
-    { name: 'Old Bus Stop', category: 'backgrounds' },
-    { name: 'Minecraft Rain', category: 'backgrounds' },
-    { name: 'Guts', category: 'backgrounds' },
-    { name: 'Knight Artorias', category: 'backgrounds' },
-    { name: 'Winter Forest', category: 'backgrounds' },
-    { name: 'Broodmother Silken Queen', category: 'heroes' },
-    { name: 'Invoker Bloody Wizard', category: 'heroes' },
-    { name: 'Ursa Alpine Stalker', category: 'heroes' },
-    { name: 'Ursa Feast of the Damned', category: 'heroes' },
-    { name: 'Ursa Roshan Hunter', category: 'heroes' },
-    { name: 'Kez Guts Sword', category: 'hero-items' },
-    { name: 'Defiree Disruptor', category: 'heroes' },
-    { name: 'Faceless Void Arcana', category: 'heroes' },
-    { name: 'Blue Muerta', category: 'heroes' },
-    { name: 'Viper Elephant Hawk Moth', category: 'heroes' },
-    { name: '10th Anniversary Tormentor', category: 'tormentor' },
-    { name: 'Divagon', category: 'fonts' },
-    { name: 'Monocraft', category: 'fonts' },
-    { name: 'Kez Zangetsu Sword', category: 'hero-items' },
-    { name: 'Final ZanKEZuga', category: 'heroes' },
-    { name: 'Skywrath Mage Arcana II', category: 'heroes' },
-    { name: 'Skywrath Mage Arcana I', category: 'heroes' },
-    { name: 'Templar Assassin Whisper Gates', category: 'heroes' },
-    { name: 'Bunshinjutsu Meepo', category: 'heroes' },
-    { name: 'Templar Assassin PlayBoy', category: 'heroes' },
-    { name: 'Magnus White Tiger', category: 'heroes' },
-    { name: 'Razor Rizelencer', category: 'heroes' },
-    { name: 'Spectre Arcana', category: 'heroes' },
-    { name: 'Spectre Arcana II', category: 'heroes' },
-    { name: 'Bloodseeker Strygwyr', category: 'heroes' },
-    { name: 'Faceless Void Arcana II', category: 'heroes' },
-    { name: 'Kez Peacock', category: 'heroes' }
 ];
 
 const modsData = {
@@ -331,30 +292,57 @@ const modsData = {
         { name: 'Kez Captain Anchorbeak', preview: 'Kez Captain Anchorbeak.webp', file: 'Kez Captain Anchorbeak.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198016243370' }] },
         { name: 'Bloodelf Silencer', preview: 'Bloodelf Silencer.webp', file: 'Bloodelf Silencer.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw' }] },
         { name: 'Kez Peacock', preview: 'Kez Peacock.webp', file: 'Kez Peacock.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198127797541' }] },
-        { name: 'Faceless Void Arcana II', preview: 'Faceless Void Arcana Style 2.webp', file: 'Faceless Void Arcana Style 2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
         { name: 'Bloodseeker Strygwyr', preview: 'Bloodseeker Strygwyr.webp', file: 'Bloodseeker Strygwyr.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw' }] },
-        { name: 'Spectre Arcana II', preview: 'Spectre Arcana Style 2.webp', file: 'Spectre Arcana Style 2.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
-        { name: 'Spectre Arcana', preview: 'Spectre Arcana.webp', file: 'Spectre Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
+        {
+            name: 'Spectre Arcana',
+            styles: [
+                { label: 'Style I', color: '#d4caff', preview: 'Spectre Arcana.webp', file: 'Spectre Arcana.zip' },
+                { label: 'Style II', color: '#ff8f8f', preview: 'Spectre Arcana Style 2.webp', file: 'Spectre Arcana Style 2.zip' },
+            ],
+            tags: { effects: true, icons: true },
+            links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }]
+        },
         { name: 'Razor Rizelencer', preview: 'Razor Rizelencer.webp', file: 'Razor Rizelencer.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Magnus White Tiger', preview: 'Magnus White Tiger.webp', file: 'Magnus White Tiger.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Templar Assassin PlayBoy', preview: 'Templar Assassin PlayBoy.webp', file: 'Templar Assassin PlayBoy.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Bunshinjutsu Meepo', preview: 'Bunshinjutsu Meepo.webp', file: 'Bunshinjutsu Meepo.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/Darkness_Logovo' }] },
         { name: 'Templar Assassin Whisper Gates', preview: 'Templar Assassin Whisper Gates.webp', file: 'Templar Assassin Whisper Gates.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
-        { name: 'Skywrath Mage Arcana', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
-        { name: 'Skywrath Mage Arcana II', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
+        {
+            name: 'Skywrath Mage Arcana',
+            styles: [
+                { label: 'Style I', color: '#75ccff', preview: 'Skywrath Mage Arcana I.webp', file: 'Skywrath Mage Arcana I.zip' },
+                { label: 'Style II', color: '#ffc44f', preview: 'Skywrath Mage Arcana II.webp', file: 'Skywrath Mage Arcana II.zip' },
+            ],
+            tags: { effects: true, icons: true },
+            links: [{ type: 'author', url: 'https://vk.com/id363951132' }]
+        },
         { name: 'Viper Elephant Hawk Moth', preview: 'Viper Elephant Hawk Moth.webp', file: 'Viper Elephant Hawk Moth.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://vk.com/id363951132' }] },
         { name: 'Blue Muerta', preview: 'Blue Muerta.webp', file: 'Blue Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
-        { name: 'Faceless Void Arcana', preview: 'Faceless Void Arcana.webp', file: 'Faceless Void Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }] },
+        {
+            name: 'Faceless Void Arcana',
+            styles: [
+                { label: 'Style I', color: '#9175ff', preview: 'Faceless Void Arcana.webp', file: 'Faceless Void Arcana.zip' },
+                { label: 'Style II', color: '#ffb7ff', preview: 'Faceless Void Arcana Style 2.webp', file: 'Faceless Void Arcana Style 2.zip' },
+            ],
+            tags: { effects: true, icons: true },
+            links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }]
+        },
         { name: 'Defiree Disruptor', preview: 'Defiree Disruptor.webp', file: 'Defiree Disruptor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/defiree2mods' }] },
         { name: 'Ursa Roshan Hunter', preview: 'Ursa Roshan Hunter.webp', file: 'Ursa Roshan Hunter.zip', tags: { effects: false, icons: false } },
         { name: 'Ursa Feast of the Damned', preview: 'Ursa Feast of the Damned.webp', file: 'Ursa Feast of the Damned.zip', tags: { effects: false, icons: false } },
         { name: 'Ursa Alpine Stalker', preview: 'Ursa Alpine Stalker.webp', file: 'Ursa Alpine Stalker.zip', tags: { effects: false, icons: false } },
         { name: 'Broodmother Silken Queen', preview: 'Broodmother Silken Queen.webp', file: 'Broodmother Silken Queen.zip', tags: { effects: false, icons: false } },
         { name: 'Muerta Blackwing Bandolera', preview: 'Muerta Blackwing Bandolera.webp', file: 'Muerta Blackwing Bandolera.zip', tags: { effects: false, icons: false } },
-        { name: 'Shadow Fiend King of Vipers', preview: 'Shadow Fiend King of Vipers.webp', file: 'Shadow Fiend King of Vipers.zip', tags: { effects: false, icons: false } },
+        {
+            name: 'Shadow Fiend King of Vipers',
+            styles: [
+                { label: 'Style I', color: 'linear-gradient(135deg, #ffb253 50%, #ffffff 50%)', preview: 'Shadow Fiend King of Vipers.webp', file: 'Shadow Fiend King of Vipers.zip' },
+                { label: 'Style II', color: 'linear-gradient(135deg, #ffb253 50%, #000000 50%)', preview: 'Shadow Fiend King of Vipers II.webp', file: 'Shadow Fiend King of Vipers II.zip' },
+                { label: 'Style III', color: 'linear-gradient(135deg, #ff2b2b 50%, #1a1a1a 50%)', preview: 'Shadow Fiend King of Vipers III.webp', file: 'Shadow Fiend King of Vipers III.zip' },
+            ],
+            tags: { effects: false, icons: false }
+        },
         { name: 'Invoker Fate Meridian', preview: 'Invoker Fate Meridian.webp', file: 'Invoker Fate Meridian.zip', tags: { effects: false, icons: false } },
-        { name: 'Shadow Fiend King of Vipers II', preview: 'Shadow Fiend King of Vipers II.webp', file: 'Shadow Fiend King of Vipers II.zip', tags: { effects: false, icons: false } },
-        { name: 'Shadow Fiend King of Vipers III', preview: 'Shadow Fiend King of Vipers III.webp', file: 'Shadow Fiend King of Vipers III.zip', tags: { effects: false, icons: false } },
         { name: 'Ember Spirit Master of Searing Path', preview: 'Ember Spirit Master of Searing Path.webp', file: 'Ember Spirit Master of Searing Path.zip', tags: { effects: false, icons: false } },
         { name: 'Ancient Apparition Yoshino', preview: 'Ancient Apparition Yoshino.webp', file: 'Ancient Apparition Yoshino.zip', tags: { effects: false, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Axe Heracles', preview: 'Axe Heracles.webp', file: 'Axe Heracles.zip', tags: { effects: false, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
@@ -783,8 +771,15 @@ const modsData = {
         { name: 'Jadehoof', preview: 'Jadehoof.webp', file: 'pak29_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Strongback the Swift', preview: 'Strongback the Swift.webp', file: 'pak30_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
         { name: 'Nian Courier', preview: 'Nian Courier.webp', file: 'pak31_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
-        { name: 'Pudgling', preview: 'Pudgling.webp', file: 'pak32_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
-        { name: 'Pudgling v2', preview: 'Pudgling lvl 2.webp', file: 'pak33_dir.vpk', guideId: 'couriers-info', guideType: 'info' },
+        {
+            name: 'Pudgling',
+            styles: [
+                { label: 'Style I', color: '#afafaf', preview: 'Pudgling.webp', file: 'pak32_dir.vpk' },
+                { label: 'Style II', color: '#ffc87a', preview: 'Pudgling lvl 2.webp', file: 'pak33_dir.vpk' },
+            ],
+            tags: { effects: true, icons: true },
+            guideId: 'couriers-info', guideType: 'info'
+        },
     ],
     'music': [
         { name: 'TheFatRat Warrior', preview: 'TheFatRat Warrior.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack' },
@@ -899,10 +894,15 @@ const modsData = {
                 id: 'radiant-creeps', name: 'Radiant Creeps', mods: [
                     { name: 'Nemestice Radiant Creeps', preview: 'Nemestice Radiant.webp', file: 'pak14_dir.vpk' },
                     { name: 'Woodland Radiant Creeps', preview: 'Woodland Radiant.webp', file: 'pak10_dir.vpk' },
-                    { name: 'Reptilian Radiant Creeps', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
+                    {
+                        name: 'Reptilian Radiant Creeps',
+                        styles: [
+                            { label: 'Style I', color: '#67cd3f', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
+                            { label: 'Style II', color: '#4aaed9', preview: 'Blue Reptilian Radiant.webp', file: 'pak2s5_dir.vpk' },
+                        ],
+                    },
                     { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
                     { name: 'Diretide Radiant Creeps', preview: 'Diretide Radiant.webp', file: 'pak22_dir.vpk' },
-                    { name: 'Blue Reptilian Radiant', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
                     { name: 'Pine Radiant Creeps', preview: 'Pine Radiant Creeps.webp', file: 'pak26_dir.vpk' },
                     { name: 'USSR Radiant Creeps', preview: 'USSR Radiant Creeps.webp', file: 'pak28_dir.vpk' },
                 ]
@@ -911,10 +911,15 @@ const modsData = {
                 id: 'dire-creeps', name: 'Dire Creeps', mods: [
                     { name: 'Nemestice Dire Creeps', preview: 'Nemestice Dire.webp', file: 'pak15_dir.vpk' },
                     { name: 'Woodland Dire Creeps', preview: 'Woodland Dire.webp', file: 'pak11_dir.vpk' },
-                    { name: 'Reptilian Dire Creeps', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
+                    {
+                        name: 'Reptilian Dire Creeps',
+                        styles: [
+                            { label: 'Style I', color: '#6a4133', preview: 'Reptilian Dire.webp', file: 'pak17_dir.vpk' },
+                            { label: 'Style II', color: '#7f4ec5', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
+                        ],
+                    },
                     { name: 'Crownfall Dire Creeps', preview: 'Crownfall Dire.webp', file: 'pak19_dir.vpk' },
                     { name: 'Diretide Dire Creeps', preview: 'Diretide Dire.webp', file: 'pak23_dir.vpk' },
-                    { name: 'Purple Reptilian Dire', preview: 'Purple Reptilian Dire.webp', file: 'pak24_dir.vpk' },
                     { name: 'Pine Dire Creeps', preview: 'Pine Dire Creeps.webp', file: 'pak27_dir.vpk' },
                 ]
             },
