@@ -39,6 +39,9 @@
           <span class="material-symbols-rounded">arrow_back</span>
           <span data-translate="back">Back</span>
         </button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
         <h1 class="logo">
           <a href="https://t.me/dota2pornfx" target="_blank"><span id="tg">Dota2</span>PornFx</a>
         </h1>
@@ -51,18 +54,48 @@
             </button>
           </div>
         </div>
-        <button class="notes-button" id="notesButton" aria-label="Updates & Notes">
-          <span class="material-symbols-rounded">edit_note</span>
-          <span class="notes-badge" id="notesBadge"></span>
-        </button>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="material-symbols-rounded theme-icon sun">light_mode</span>
-          <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
-        </button>
-        <button class="cart-button" id="cartButton" aria-label="Cart">
-          <span class="material-symbols-rounded">shopping_bag</span>
-          <span class="cart-badge" id="cartBadge">0</span>
-        </button>
+        <div class="header-actions-desktop">
+          <button class="notes-button" id="notesButton" aria-label="Updates & Notes">
+            <span class="material-symbols-rounded">edit_note</span>
+            <span class="notes-badge" id="notesBadge"></span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span class="material-symbols-rounded theme-icon sun">light_mode</span>
+            <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
+          </button>
+          <button class="cart-button" id="cartButton" aria-label="Cart">
+            <span class="material-symbols-rounded">shopping_bag</span>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-search">
+          <div class="search-box">
+            <span class="material-symbols-rounded search-icon">search</span>
+            <input type="text" class="search-input" id="mobileSearchInput" placeholder="Search mods...">
+            <button class="search-clear" id="mobileSearchClear" style="display: none;">
+              <span class="material-symbols-rounded">close</span>
+            </button>
+          </div>
+        </div>
+        <div class="mobile-menu-actions">
+          <button class="mobile-menu-item" id="mobileNotesButton" aria-label="Updates & Notes">
+            <span class="material-symbols-rounded">edit_note</span>
+            <span>Notes</span>
+            <span class="notes-badge" id="mobileNotesBadge"></span>
+          </button>
+          <button class="mobile-menu-item" id="mobileThemeToggle" aria-label="Toggle theme">
+            <span class="material-symbols-rounded theme-icon sun">light_mode</span>
+            <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
+            <span>Theme</span>
+          </button>
+          <button class="mobile-menu-item" id="mobileCartButton" aria-label="Cart">
+            <span class="material-symbols-rounded">shopping_bag</span>
+            <span>Cart</span>
+            <span class="cart-badge" id="mobileCartBadge">0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>

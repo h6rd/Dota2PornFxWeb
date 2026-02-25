@@ -503,11 +503,21 @@ function clearCart() {
 
 function updateCartBadge() {
     const badge = document.getElementById('cartBadge');
+    const mobileBadge = document.getElementById('mobileCartBadge');
     const count = cart.length;
 
     if (badge) {
         badge.textContent = count;
         badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+
+    if (mobileBadge) {
+        mobileBadge.textContent = count;
+        if (count > 0) {
+            mobileBadge.classList.add('show');
+        } else {
+            mobileBadge.classList.remove('show');
+        }
     }
 }
 

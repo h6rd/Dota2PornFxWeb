@@ -1105,9 +1105,13 @@ function setupNotesModal() {
 
     const lastSeenNotesHash = localStorage.getItem('lastSeenNotesHash') || '';
     const currentNotesHash = generateNotesHash();
-    
+
     if (currentNotesHash !== lastSeenNotesHash && NOTES_DATA.length > 0) {
         notesBadge.classList.add('show');
+        const mobileNotesBadge = document.getElementById('mobileNotesBadge');
+        if (mobileNotesBadge) {
+            mobileNotesBadge.classList.add('show');
+        }
     }
 
     const openNotesModal = () => {
@@ -1146,6 +1150,10 @@ function setupNotesModal() {
         const currentHash = generateNotesHash();
         localStorage.setItem('lastSeenNotesHash', currentHash);
         notesBadge.classList.remove('show');
+        const mobileNotesBadge = document.getElementById('mobileNotesBadge');
+        if (mobileNotesBadge) {
+            mobileNotesBadge.classList.remove('show');
+        }
 
         setTimeout(() => {
             const modalContent = notesModal.querySelector('.info-modal-content');
@@ -1241,6 +1249,109 @@ function setupThemeToggle() {
         localStorage.setItem('theme', newTheme);
         vibrate(10);
     });
+}
+
+// Mobile Menu
+function setupMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    const mobileSearchClear = document.getElementById('mobileSearchClear');
+    const mobileNotesButton = document.getElementById('mobileNotesButton');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const mobileCartButton = document.getElementById('mobileCartButton');
+    const html = document.documentElement;
+
+    if (!mobileMenuToggle || !mobileMenu) return;
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        vibrate(10);
+    });
+
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('input', (e) => {
+            state.searchQuery = e.target.value.toLowerCase().trim();
+            if (mobileSearchClear) {
+                mobileSearchClear.style.display = state.searchQuery ? 'flex' : 'none';
+            }
+            if (elements.searchInput) elements.searchInput.value = e.target.value;
+            window.debouncedSearch();
+        });
+    }
+
+    if (mobileSearchClear) {
+        mobileSearchClear.addEventListener('click', () => {
+            mobileSearchInput.value = '';
+            if (elements.searchInput) elements.searchInput.value = '';
+            state.searchQuery = '';
+            mobileSearchClear.style.display = 'none';
+            showHomePage();
+        });
+    }
+
+    if (mobileNotesButton) {
+        mobileNotesButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                const notesButton = document.getElementById('notesButton');
+                if (notesButton) notesButton.click();
+            }, 150);
+            vibrate(10);
+        });
+    }
+
+    if (mobileThemeToggle) {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+
+        mobileThemeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            vibrate(10);
+        });
+    }
+
+    if (mobileCartButton) {
+        mobileCartButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                const cartButton = document.getElementById('cartButton');
+                if (cartButton) cartButton.click();
+            }, 150);
+            vibrate(10);
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+        }
+    });
+
+    syncMobileBadges();
+}
+
+function syncMobileBadges() {
+    const notesBadge = document.getElementById('notesBadge');
+    const mobileNotesBadge = document.getElementById('mobileNotesBadge');
+    const cartBadge = document.getElementById('cartBadge');
+    const mobileCartBadge = document.getElementById('mobileCartBadge');
+
+    if (notesBadge && mobileNotesBadge) {
+        mobileNotesBadge.className = notesBadge.className;
+        mobileNotesBadge.style.display = notesBadge.style.display;
+    }
+
+    if (cartBadge && mobileCartBadge) {
+        mobileCartBadge.textContent = cartBadge.textContent;
+        mobileCartBadge.className = cartBadge.className;
+        if (parseInt(cartBadge.textContent) > 0) {
+            mobileCartBadge.classList.add('show');
+        }
+    }
 }
 
 // Recently Added Carousel
@@ -1415,7 +1526,9 @@ function setupRecentlyAdded() {
     section?.classList.remove('hidden');
     if (track) track.innerHTML = '';
 
-    const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') === 'true';
+    const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') !== null
+    ? localStorage.getItem('recentlyAddedCollapsed') === 'true'
+    : window.innerWidth <= 768;
     state.isCollapsed = savedCollapsed;
 
     if (state.isCollapsed) {
@@ -1569,6 +1682,7 @@ function init() {
     setupRecentlyAdded();
     setupGifSwitcher();
     setupThemeToggle();
+    setupMobileMenu();
     handleUrlParams();
 }
 
@@ -1583,7 +1697,7 @@ function setupEventListeners() {
 }
 
 function setupSearch() {
-    const debouncedSearch = debounce(() => {
+    window.debouncedSearch = debounce(() => {
         if (state.searchQuery) {
             if (!state.currentCategory && state.scrollPosition === 0) {
                 state.scrollPosition = window.pageYOffset;
@@ -1602,7 +1716,7 @@ function setupSearch() {
     elements.searchInput.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.toLowerCase().trim();
         elements.searchClear.style.display = state.searchQuery ? 'flex' : 'none';
-        debouncedSearch();
+        window.debouncedSearch();
     });
 
     elements.searchClear.addEventListener('click', () => {
