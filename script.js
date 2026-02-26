@@ -1494,7 +1494,10 @@ function openCategoryAndHighlightMod(categoryId, modName) {
                 }, 1500);
             };
 
+            let scrollStarted = false;
+
             const onScrollEnd = () => {
+                scrollStarted = true;
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(() => {
                     startAnimation();
@@ -1503,7 +1506,13 @@ function openCategoryAndHighlightMod(categoryId, modName) {
             };
 
             window.addEventListener('scroll', onScrollEnd);
-            onScrollEnd();
+
+            setTimeout(() => {
+                if (!scrollStarted) {
+                    window.removeEventListener('scroll', onScrollEnd);
+                    startAnimation();
+                }
+            }, 900);
         }
     }, 100);
 }
