@@ -424,6 +424,7 @@ function addToCart(mod, categoryId) {
     });
 
     updateCartButtons();
+    renderAssembliesList();
 
     if ('vibrate' in navigator) navigator.vibrate([10, 50, 10]);
 }
@@ -431,13 +432,49 @@ function addToCart(mod, categoryId) {
 function removeFromCart(itemId) {
     const item = cart.find(i => i.id === itemId);
     const itemName = item ? item.name : '';
+    const cartItemsEl = document.getElementById('cartItems');
+    const domItem = cartItemsEl
+        ?.querySelector(`.cart-item-remove[data-id="${CSS.escape(itemId)}"]`)
+        ?.closest('.cart-item');
+    const doRemove = () => {
+        cart = cart.filter(i => i.id !== itemId);
+        saveCart();
+        updateCartBadge();
+        updateCartButtons();
+        renderAssembliesList();
 
-    cart = cart.filter(item => item.id !== itemId);
-    saveCart();
-    updateCartBadge();
-    renderCartItems();
-    renderAssembliesList();
-    updateCartButtons();
+        if (cart.length === 0) {
+            renderCartItems();
+        }
+    };
+
+    if (domItem) {
+        domItem.style.transition =
+            'opacity 0.18s cubic-bezier(0.4, 0, 1, 1), ' +
+            'transform 0.18s cubic-bezier(0.4, 0, 1, 1), ' +
+            'max-height 0.25s cubic-bezier(0.4, 0, 1, 1), ' +
+            'padding 0.25s cubic-bezier(0.4, 0, 1, 1), ' +
+            'margin 0.25s cubic-bezier(0.4, 0, 1, 1)';
+        domItem.style.maxHeight = domItem.offsetHeight + 'px';
+        domItem.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+            domItem.style.opacity = '0';
+            domItem.style.transform = 'translateX(12px)';
+            domItem.style.maxHeight = '0';
+            domItem.style.paddingTop = '0';
+            domItem.style.paddingBottom = '0';
+            domItem.style.marginBottom = '0';
+        });
+
+        setTimeout(() => {
+            domItem.remove();
+            doRemove();
+        }, 260);
+    } else {
+        doRemove();
+        renderCartItems();
+    }
 
     if (itemName) {
         showToast(`Removed <span style="color: var(--md-sys-color-primary)">${escapeHtml(itemName)}</span>`);
@@ -445,9 +482,7 @@ function removeFromCart(itemId) {
         showToast('Removed from cart');
     }
 
-    if ('vibrate' in navigator) {
-        navigator.vibrate(10);
-    }
+    if ('vibrate' in navigator) navigator.vibrate(10);
 }
 
 function updateCartButtons() {
