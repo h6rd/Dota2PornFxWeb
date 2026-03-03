@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Techies Alien', category: 'heroes' },
+    { name: 'Techies Mine Radius', category: 'other' },
+    { name: 'HondaC', category: 'fonts' },
     { name: 'Grimstroke Gloom Shroud', category: 'heroes' },
     { name: 'Audex', category: 'fonts' },
     { name: 'LowPoly Barrel Trees', category: 'trees' },
@@ -385,6 +388,7 @@ const modsData = {
         { name: 'Oracle Immortal Silence', preview: 'Oracle Immortal Silence.webp', file: 'Oracle Immortal Silence.zip', tags: { effects: true, icons: true } },
         { name: 'Outworld Destroyer Dark Metter', preview: 'Outworld Destroyer Dark Metter.webp', file: 'Outworld Destroyer Dark Metter.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Grimstroke Gloom Shroud', preview: 'Grimstroke Gloom Shroud.webp', file: 'Grimstroke Gloom Shroud.zip', tags: { effects: true, icons: true } },
+        { name: 'Techies Alien', preview: 'Techies Alien.webp', file: 'Techies Alien.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -622,9 +626,10 @@ const modsData = {
     ],
     'other': [
         { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
-        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak36_dir.vpk' },
-        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak53_dir.vpk' },
-        { name: 'Gabe Shopkeeper', preview: 'Gabe Shopkeeper.webp', file: 'pak10_dir.vpk' },
+        { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak11_dir.vpk' },
+        { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak12_dir.vpk' },
+        { name: 'Gabe Shopkeeper', preview: 'Gabe Shopkeeper.webp', file: 'pak13_dir.vpk' },
+        { name: 'Techies Mine Radius', preview: 'Techies Mine Radius.webp', file: 'pak14_dir.vpk' },
     ],
     'river': [
         { name: 'Black River', preview: 'Black.webp', file: 'pak10_dir.vpk' },
@@ -827,6 +832,7 @@ const modsData = {
         { name: 'Mason', preview: 'Mason2.webp', file: 'Mason Font.zip' },
         { name: 'Correction Tape', preview: 'Correction Tape.webp', file: 'Correction Tape Font.zip' },
         { name: 'Audex', preview: 'Audex.webp', file: 'Audex Font.zip' },
+        { name: 'HondaC', preview: 'HondaC.webp', file: 'HondaC Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/Darkness_Logovo' },
