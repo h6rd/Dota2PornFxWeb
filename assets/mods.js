@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Pugna Nightwither Revenant', category: 'heroes' },
     { name: 'Techies Alien', category: 'heroes' },
     { name: 'Techies Mine Radius', category: 'other' },
     { name: 'HondaC', category: 'fonts' },
@@ -389,6 +390,7 @@ const modsData = {
         { name: 'Outworld Destroyer Dark Metter', preview: 'Outworld Destroyer Dark Metter.webp', file: 'Outworld Destroyer Dark Metter.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://vk.com/amir4an' }] },
         { name: 'Grimstroke Gloom Shroud', preview: 'Grimstroke Gloom Shroud.webp', file: 'Grimstroke Gloom Shroud.zip', tags: { effects: true, icons: true } },
         { name: 'Techies Alien', preview: 'Techies Alien.webp', file: 'Techies Alien.zip', tags: { effects: false, icons: false } },
+        { name: 'Pugna Nightwither Revenant', preview: 'Pugna Nightwither Revenant.webp', file: 'Pugna Nightwither Revenant.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
