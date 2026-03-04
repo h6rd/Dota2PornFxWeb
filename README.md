@@ -39,7 +39,6 @@
 - **Creeps** - Custom creeps
 - **Ancient** - Ancient mods
 - **Tormentor** - Custom Tormentor
-- **High Five** - Custom high five
 - **Ranged Attack** - Custom ranged attack effects
 - **Mega-Kill** - Custom mega-kill announcers
 - **Pedestal** - Custom hero pedestals

@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Luna Bloodmoon Stalker', category: 'heroes' },
     { name: 'Pugna Nightwither Revenant', category: 'heroes' },
     { name: 'Techies Alien', category: 'heroes' },
     { name: 'Techies Mine Radius', category: 'other' },
@@ -391,6 +393,7 @@ const modsData = {
         { name: 'Grimstroke Gloom Shroud', preview: 'Grimstroke Gloom Shroud.webp', file: 'Grimstroke Gloom Shroud.zip', tags: { effects: true, icons: true } },
         { name: 'Techies Alien', preview: 'Techies Alien.webp', file: 'Techies Alien.zip', tags: { effects: false, icons: false } },
         { name: 'Pugna Nightwither Revenant', preview: 'Pugna Nightwither Revenant.webp', file: 'Pugna Nightwither Revenant.zip', tags: { effects: true, icons: true } },
+        { name: 'Luna Bloodmoon Stalker', preview: 'Luna Bloodmoon Stalker.webp', file: 'Luna Bloodmoon Stalker.zip', tags: { effects: true, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -539,6 +542,15 @@ const modsData = {
         { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/laskotdota' }] },
         { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }] },
         { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'https://t.me/NahuiToSay' }, { type: 'author', url: 'https://t.me/laskotdota' }] },
+        // {
+        //     name: 'Underlord Emerald Subjugation',
+        //     styles: [
+        //         { label: '', color: '#27dd24', preview: 'Underlord Emerald Subjugation.webp', file: 'Underlord Emerald Subjugation.zip' },
+        //         { label: 'Crimson', color: '#dc2929', preview: 'Underlord Emerald Subjugation Crimson.webp', file: 'Underlord Emerald Subjugation Crimson.zip' }
+        //     ],
+        //     tags: { effects: true, icons: true, head: true }
+        // },
+
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },

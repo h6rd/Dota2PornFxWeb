@@ -280,7 +280,7 @@ const TAG_CONFIGS = {
     },
     "hero-items": {
         allowForGuides: false,
-        map: { weapon: 'Weapon', mount: 'Mount', effects: 'Effects', icons: 'Icons', sounds: 'Sounds', totem: 'Totem' }
+        map: { weapon: 'Weapon', mount: 'Mount', effects: 'Effects', icons: 'Icons', sounds: 'Sounds', totem: 'Totem', head: 'Head' }
     },
     tools: {
         allowForGuides: false,

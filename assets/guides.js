@@ -8,15 +8,15 @@ const guidesData = {
           title: "Unpacking VPK",
           steps: [
             "Unpack the archive",
-            "Place .vpk files next to VPKTool.exe",
-            "Run VPKTool.exe",
+            "Place .vpk files next to VPKTool",
+            "Run VPKTool",
           ],
           result: "VPK files will be unpacked",
         },
         {
           icon: "inventory_2",
           title: "Building VPK",
-          steps: ["Place folders/files next to VPKTool.exe", "Run VPKTool.exe"],
+          steps: ["Place folders/files next to VPKTool", "Run VPKTool"],
           result: "Folders/files will be packed into vpk",
         },
       ],
@@ -26,8 +26,8 @@ const guidesData = {
           title: "Распаковка VPK",
           steps: [
             "Распакуйте архив",
-            "Положите .vpk файлы рядом с VPKTool.exe",
-            "Запустите VPKTool.exe",
+            "Положите .vpk файлы рядом с VPKTool",
+            "Запустите VPKTool",
           ],
           result: "VPK файлы будут распакованы",
         },
@@ -35,8 +35,8 @@ const guidesData = {
           icon: "inventory_2",
           title: "Сборка в VPK",
           steps: [
-            "Положите папки/файлы рядом с VPKTool.exe",
-            "Запустите VPKTool.exe",
+            "Положите папки/файлы рядом с VPKTool",
+            "Запустите VPKTool",
           ],
           result: "Папки/файлы будут упакованы в vpk",
         },
@@ -101,8 +101,8 @@ const guidesData = {
         {
           steps: [
             "Unpack the archive",
-            "Place the vpk files in the folder next to VPKMerge.exe",
-            "Launch VPKMerge.exe",
+            "Place the vpk files in the folder next to VPKMerge",
+            "Launch VPKMerge",
           ],
           result: "It will combine all VPKs into pak10_dir.vpk",
           warning:
@@ -115,8 +115,8 @@ const guidesData = {
             "Не работает с паками Dota2Changer - не может объединить файлы items_game.txt!",
           steps: [
             "Распакуйте архив",
-            "Поместите vpk файлы в папку рядом с VPKMerge.exe",
-            "Запустите VPKMerge.exe",
+            "Поместите vpk файлы в папку рядом с VPKMerge",
+            "Запустите VPKMerge",
           ],
           result: "Он объединит все vpk в pak10_dir.vpk",
         },
