@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Natures Prophet Spectral Sage', category: 'heroes' },
     { name: 'Luna Bloodmoon Stalker', category: 'heroes' },
     { name: 'Pugna Nightwither Revenant', category: 'heroes' },
     { name: 'Techies Alien', category: 'heroes' },
@@ -394,6 +395,7 @@ const modsData = {
         { name: 'Techies Alien', preview: 'Techies Alien.webp', file: 'Techies Alien.zip', tags: { effects: false, icons: false } },
         { name: 'Pugna Nightwither Revenant', preview: 'Pugna Nightwither Revenant.webp', file: 'Pugna Nightwither Revenant.zip', tags: { effects: true, icons: true } },
         { name: 'Luna Bloodmoon Stalker', preview: 'Luna Bloodmoon Stalker.webp', file: 'Luna Bloodmoon Stalker.zip', tags: { effects: true, icons: false } },
+        { name: 'Natures Prophet Spectral Sage', preview: 'Natures Prophet Spectral Sage.webp', file: 'Natures Prophet Spectral Sage.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
