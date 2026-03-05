@@ -1637,6 +1637,7 @@ fcode {
   margin-left: auto;
   max-width: 180px;
   z-index: 2;
+  position: relative;
 }
 
 .search-box {
@@ -1714,6 +1715,50 @@ fcode {
 
 .search-clear .material-symbols-rounded {
   font-size: 18px;
+}
+
+.search-hints {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-radius: 12px;
+  padding: 6px 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.search-hints.visible {
+  display: block;
+}
+
+.search-hint-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.search-hint-item:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.search-hint-prefix {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--md-sys-color-primary);
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.search-hint-text {
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .footer .fuck {
@@ -2107,19 +2152,20 @@ fcode {
 .link-button {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+  opacity: 0.8;
   font-size: 9px;
   font-weight: 700;
   padding: 3px 6px;
   border-radius: 10px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.636);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .link-button[data-custom-name="true"] {
@@ -2138,7 +2184,8 @@ fcode {
 .link-button:hover {
   background-color: var(--md-sys-color-shit-light);
   transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  opacity: 1;
 }
 
 .link-button:active {

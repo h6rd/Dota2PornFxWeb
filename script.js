@@ -143,6 +143,7 @@ const translations = {
     'fonts': 'Fonts',
     'fonts-desc': 'Custom fonts',
     'source-code': 'Source Code',
+    'author-search-results': 'Mods by author:',
 };
 
 const categories = [
@@ -343,6 +344,32 @@ const formatTime = (seconds) => {
     const secs = Math.floor(seconds % 60);
     return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
+
+const MOD_AUTHOR = {
+  'Darkness': 'https://t.me/Darkness_Logovo',
+  'Defiree': 'https://vk.com/defiree2mods',
+  'Amir4an': 'https://vk.com/amir4an',
+  'Kisilev': 'https://vk.com/id363951132',
+  'Skratch': 'https://www.youtube.com/@skratch',
+  'Lenz': 'https://www.youtube.com/@Lenz13377',
+  'Robbyz': 'https://github.com/robbyz512',
+  'Egezenn': 'https://github.com/Egezenn',
+  'Kliromin': 'https://www.youtube.com/@mrkliromin7723',
+  'Pinkpapa': 'https://www.patreon.com/Pinkpapa',
+  'laskotdota': 'https://t.me/laskotdota',
+  'NahuiToSay': 'https://t.me/NahuiToSay',
+  'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
+};
+
+const MOD_SENDER = {
+  'dabaqz': '',
+  'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
+};
+
+function resolveNickname(value, map) {
+    if (map[value]) return map[value];
+    return value;
+}
 
 //Highlight Hero Names
 const highlightHeroNames = (text) => {
@@ -1711,8 +1738,10 @@ function setupSearch() {
                 state.scrollPosition = window.pageYOffset;
             }
             state.currentCategory = null;
-            if (state.searchQuery.startsWith('#')) {
+            if (state.searchQuery.startsWith("#")) {
                 renderFileSearch(state.searchQuery.substring(1));
+            } else if (state.searchQuery.startsWith("@")) {
+                renderAuthorSearch(state.searchQuery.substring(1));
             } else {
                 renderAllModsSearch();
             }
@@ -1721,19 +1750,53 @@ function setupSearch() {
         }
     }, 360);
 
-    elements.searchInput.addEventListener('input', (e) => {
+    elements.searchInput.addEventListener("input", (e) => {
         state.searchQuery = e.target.value.toLowerCase().trim();
-        elements.searchClear.style.display = state.searchQuery ? 'flex' : 'none';
+        elements.searchClear.style.display = state.searchQuery ? "flex" : "none";
         window.debouncedSearch();
     });
 
-    elements.searchClear.addEventListener('click', () => {
-        elements.searchInput.value = '';
-        state.searchQuery = '';
-        elements.searchClear.style.display = 'none';
+    elements.searchClear.addEventListener("click", () => {
+        elements.searchInput.value = "";
+        state.searchQuery = "";
+        elements.searchClear.style.display = "none";
         showHomePage();
         elements.searchInput.focus();
     });
+
+    const searchHints = document.getElementById('searchHints');
+
+    if (searchHints) {
+        elements.searchInput.addEventListener('focus', () => {
+            if (!state.searchQuery) searchHints.classList.add('visible');
+        });
+
+        elements.searchInput.addEventListener('input', () => {
+            if (state.searchQuery) {
+                searchHints.classList.remove('visible');
+            } else {
+                searchHints.classList.add('visible');
+            }
+        });
+
+        searchHints.querySelectorAll('.search-hint-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const prefix = item.querySelector('.search-hint-prefix').textContent;
+                elements.searchInput.value = prefix;
+                elements.searchInput.focus();
+                state.searchQuery = prefix;
+                elements.searchClear.style.display = 'flex';
+                searchHints.classList.remove('visible');
+                window.debouncedSearch();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchHints.classList.remove('visible');
+            }
+        });
+    }
 }
 
 function resetSort() {
@@ -2099,7 +2162,7 @@ function renderFileSearch(filename) {
         return;
     }
 
-    elements.categoryTitle.textContent = `${translations['file-search-results']} #${filename}`;
+    elements.categoryTitle.textContent = `${translations['file-search-results']} ${filename}`;
     elements.categoryDescription.textContent = `Found ${totalResults} mod${totalResults !== 1 ? 's' : ''} in ${Object.keys(resultsByCategory).length} categor${Object.keys(resultsByCategory).length !== 1 ? 'ies' : 'y'}`;
 
     Object.values(resultsByCategory).forEach(({ category, mods }) => {
@@ -2126,6 +2189,116 @@ function renderFileSearch(filename) {
     if (typeof updateCartButtons === 'function') {
         updateCartButtons();
     }
+}
+
+function renderAuthorSearch(nickname) {
+  elements.modsGrid.innerHTML = "";
+  elements.modsGrid.style.display = "";
+  elements.homePage.classList.add("hidden");
+  elements.categoryPage.classList.remove("hidden");
+  elements.backButton.style.display = "flex";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  const sortToggle = document.getElementById("sortToggle");
+  if (sortToggle) sortToggle.style.display = "none";
+
+  const existingGuideLink = document.querySelector(".category-guide-link");
+  if (existingGuideLink) existingGuideLink.remove();
+
+  function modMatchesAuthor(mod) {
+    const links =
+      mod.links ||
+      (mod.linkType && mod.linkUrl
+        ? [{ type: mod.linkType, url: mod.linkUrl }]
+        : []);
+    return links.some((link) => {
+      if (link.type !== "author") return false;
+      if (link.url.toLowerCase().includes(nickname.toLowerCase())) return true;
+      const matchedNickname =
+        MOD_AUTHOR[link.url] ||
+        Object.keys(MOD_AUTHOR).find((nick) => MOD_AUTHOR[nick] === link.url);
+      return matchedNickname
+        ? matchedNickname.toLowerCase().includes(nickname.toLowerCase())
+        : false;
+    });
+  }
+
+  const resultsByCategory = {};
+
+  for (const category of categories) {
+    const categoryData = modsData[category.id];
+    const isGroupedCategory =
+      categoryData?.groups && Array.isArray(categoryData.groups);
+
+    if (isGroupedCategory) {
+      categoryData.groups.forEach((group) => {
+        const matchingMods = group.mods.filter(modMatchesAuthor);
+        if (matchingMods.length > 0) {
+          if (!resultsByCategory[category.id]) {
+            resultsByCategory[category.id] = { category, mods: [] };
+          }
+          matchingMods.forEach((mod) => {
+            resultsByCategory[category.id].mods.push({
+              mod,
+              groupId: group.id,
+            });
+          });
+        }
+      });
+    } else {
+      const mods = categoryData || [];
+      const matchingMods = mods.filter(modMatchesAuthor);
+      if (matchingMods.length > 0) {
+        resultsByCategory[category.id] = {
+          category,
+          mods: matchingMods.map((mod) => ({ mod })),
+        };
+      }
+    }
+  }
+
+  const totalResults = Object.values(resultsByCategory).reduce(
+    (sum, cat) => sum + cat.mods.length,
+    0,
+  );
+
+  if (totalResults === 0) {
+    elements.modsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--md-sys-color-on-surface-variant); padding: 40px;">
+                <p>No mods found for author: <code>${nickname}</code></p>
+            </div>
+        `;
+    elements.categoryTitle.textContent = "Author search results";
+    elements.categoryDescription.textContent = "";
+    return;
+  }
+
+  elements.categoryTitle.textContent = `${translations["author-search-results"]} ${nickname}`;
+  elements.categoryDescription.textContent = `Found ${totalResults} mod${totalResults !== 1 ? "s" : ""} in ${Object.keys(resultsByCategory).length} categor${Object.keys(resultsByCategory).length !== 1 ? "ies" : "y"}`;
+
+  Object.values(resultsByCategory).forEach(({ category, mods }) => {
+    const categoryHeader = document.createElement("div");
+    categoryHeader.className = "mod-group-header";
+    categoryHeader.innerHTML = `
+            <h3 class="mod-group-title">${translations[category.key]}</h3>
+            <div class="mod-group-divider"></div>
+        `;
+    elements.modsGrid.appendChild(categoryHeader);
+
+    const categoryContainer = document.createElement("div");
+    categoryContainer.className = "mod-group-container";
+    categoryContainer.setAttribute("data-category-id", category.id);
+
+    mods.forEach(({ mod, groupId }) => {
+      const card = createModCard(mod, category.id, groupId);
+      categoryContainer.appendChild(card);
+    });
+
+    elements.modsGrid.appendChild(categoryContainer);
+  });
+
+  if (typeof updateCartButtons === "function") {
+    updateCartButtons();
+  }
 }
 
 function createModCard(mod, categoryId, groupId = null) {
@@ -2305,70 +2478,103 @@ function generateTagsHtml(mod, categoryId) {
 }
 
 function generateLinkButtonsHtml(mod, categoryId) {
-    const linkButtons = [];
+  const linkButtons = [];
 
-    if (mod.links && mod.links.length > 0) {
-        mod.links.forEach(link => {
-            const icon = LINK_ICONS[link.type] || 'link';
-            const isNotSafe = link.type === 'not-safe';
+  if (mod.links && mod.links.length > 0) {
+    mod.links.forEach((link) => {
+      const resolvedUrl =
+        link.type === "author"
+          ? resolveNickname(link.url, MOD_AUTHOR)
+          : link.type === "sender"
+            ? resolveNickname(link.url, MOD_SENDER)
+            : link.url;
 
-            let displayText = translations[link.type];
-            let hasCustomName = false;
+      const icon = LINK_ICONS[link.type] || "link";
+      const isNotSafe = link.type === "not-safe";
 
-            if (link.type === 'sender' && link.name) {
-                displayText = link.name;
-                hasCustomName = true;
-            }
+      let displayText = translations[link.type];
+      let hasCustomName = false;
 
-            linkButtons.push(`
-                <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
-                      data-url="${link.url}" 
-                      data-video="${link.url.endsWith('.mp4') || link.url.endsWith('.webm')}"
-                      ${hasCustomName ? 'data-custom-name="true"' : ''}>
+      if (link.type === "sender" && link.name) {
+        displayText = link.name;
+        hasCustomName = true;
+      } else if (link.type === "sender" && MOD_SENDER[link.url]) {
+        displayText = link.url;
+        hasCustomName = true;
+      } else if (link.type === "author" && MOD_AUTHOR[link.url]) {
+        displayText = link.url;
+        hasCustomName = true;
+      }
+
+      linkButtons.push(`
+                <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
+                      data-url="${resolvedUrl}" 
+                      data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
+                      ${hasCustomName ? 'data-custom-name="true"' : ""}>
                     <span class="material-symbols-rounded">${icon}</span>
                     ${displayText}
                 </span>
             `);
-        });
-    } else if (mod.linkType && mod.linkUrl) {
-        const icon = LINK_ICONS[mod.linkType] || 'link';
-        const isNotSafe = mod.linkType === 'not-safe';
+    });
+  } else if (mod.linkType && mod.linkUrl) {
+    const resolvedUrl =
+      mod.linkType === "author"
+        ? resolveNickname(mod.linkUrl, MOD_AUTHOR)
+        : mod.linkType === "sender"
+          ? resolveNickname(mod.linkUrl, MOD_SENDER)
+          : mod.linkUrl;
 
-        let displayText = translations[mod.linkType];
-        let hasCustomName = false;
+    const icon = LINK_ICONS[mod.linkType] || "link";
+    const isNotSafe = mod.linkType === "not-safe";
 
-        if (mod.linkType === 'sender' && mod.senderName) {
-            displayText = mod.senderName;
-            hasCustomName = true;
-        }
-        linkButtons.push(`
-            <span class="link-button ${isNotSafe ? 'not-safe' : ''}" 
-                  data-url="${mod.linkUrl}" 
-                  data-video="${mod.linkUrl.endsWith('.mp4') || mod.linkUrl.endsWith('.webm')}"
-                  ${hasCustomName ? 'data-custom-name="true"' : ''}>
+    let displayText = translations[mod.linkType];
+    let hasCustomName = false;
+
+    if (mod.linkType === "sender" && mod.senderName) {
+      displayText = mod.senderName;
+      hasCustomName = true;
+    } else if (mod.linkType === "sender" && MOD_SENDER[mod.linkUrl]) {
+      displayText = mod.linkUrl;
+      hasCustomName = true;
+    } else if (mod.linkType === "author" && MOD_AUTHOR[mod.linkUrl]) {
+      displayText = mod.linkUrl;
+      hasCustomName = true;
+    }
+
+    linkButtons.push(`
+            <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
+                  data-url="${resolvedUrl}" 
+                  data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
+                  ${hasCustomName ? 'data-custom-name="true"' : ""}>
                 <span class="material-symbols-rounded">${icon}</span>
                 ${displayText}
             </span>
         `);
-    }
+  }
 
-    const hideGuideButtonCategories = ['guides'];
-    if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
-        const isNotSafe = mod.guideType === 'not-safe';
-        const isInfo = mod.guideType === 'info';
-        const guideClass = isNotSafe ? 'not-safe' : (isInfo ? 'info' : '');
-        const guideIcon = isNotSafe ? 'warning' : (isInfo ? 'text_snippet' : 'description');
-        const guideText = isNotSafe ? 'not-safe' : (isInfo ? 'info' : 'guide');
+  const hideGuideButtonCategories = ["guides"];
+  if (mod.guideId && !hideGuideButtonCategories.includes(categoryId)) {
+    const isNotSafe = mod.guideType === "not-safe";
+    const isInfo = mod.guideType === "info";
+    const guideClass = isNotSafe ? "not-safe" : isInfo ? "info" : "";
+    const guideIcon = isNotSafe
+      ? "warning"
+      : isInfo
+        ? "text_snippet"
+        : "description";
+    const guideText = isNotSafe ? "not-safe" : isInfo ? "info" : "guide";
 
-        linkButtons.push(`
+    linkButtons.push(`
         <span class="link-button guide-button ${guideClass}" data-guide-id="${mod.guideId}">
             <span class="material-symbols-rounded">${guideIcon}</span>
             ${translations[guideText]}
         </span>
     `);
-    }
+  }
 
-    return linkButtons.length > 0 ? `<div class="link-buttons">${linkButtons.join('')}</div>` : '';
+  return linkButtons.length > 0
+    ? `<div class="link-buttons">${linkButtons.join("")}</div>`
+    : "";
 }
 
 function shouldHideAddToCart(mod, categoryId) {
