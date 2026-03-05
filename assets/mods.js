@@ -1,6 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
-    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' }, suka
     { name: 'Natures Prophet Spectral Sage', category: 'heroes' },
     { name: 'Luna Bloodmoon Stalker', category: 'heroes' },
     { name: 'Pugna Nightwither Revenant', category: 'heroes' },
