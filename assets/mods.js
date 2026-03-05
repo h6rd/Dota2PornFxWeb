@@ -1,6 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
-    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' }, suka
+    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Simple Minify Shader', category: 'shaders' },
+    { name: 'Simple Dark Terrain Minify', category: 'terrains' },
     { name: 'Natures Prophet Spectral Sage', category: 'heroes' },
     { name: 'Luna Bloodmoon Stalker', category: 'heroes' },
     { name: 'Pugna Nightwither Revenant', category: 'heroes' },
@@ -430,6 +432,7 @@ const modsData = {
         { name: 'Aghanim Yellow Lite', preview: 'Aghanim Yellow Lite.webp', file: 'pak35_dir.vpk' },
         { name: 'Aghanim Red Lite', preview: 'Aghanim Red Lite.webp', file: 'pak36_dir.vpk' },
         { name: 'Cartoon Shader', preview: 'Cartoon Shader.webp', file: 'pak37_dir.vpk' },
+        { name: 'Simple Minify Shader', preview: 'Simple Minify Shader.webp', file: 'pak38_dir.vpk', links: [{ type: 'source', url: 'https://github.com/egezenn/dota2-minify' }] },
     ],
     'ti-bp-effects': [
         { name: 'TI 2019 Battle Pass', preview: 'bp_ti9.webp', file: 'pak10_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4' },
@@ -501,14 +504,21 @@ const modsData = {
         { name: 'Diretide Versus Screen', preview: 'Diretide Radiant Versus Screen.webp', file: 'pak16_dir.vpk' },
     ],
     'terrains': [
-        { name: 'DarkPoly & Trees', preview: 'DarkPoly+Trees.webp', file: 'pak35_dir.vpk' },
-        { name: 'DarkPoly', preview: 'DarkPoly.webp', file: 'pak36_dir.vpk' },
-        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak96_dir.vpk' },
-        { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak20_dir.vpk' },
-        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak55_dir.vpk', links: [{ type: 'author', url: 'Robbyz' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify'}] },
-        { name: 'Simple Dark Terrain Minify', preview: 'Flat Dark Terrain.mp4', file: 'pak56_dir.vpk', links: [{ type: 'author', url: 'Robbyz' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify'}] },
-        { name: 'LowPoly & Trees', preview: 'LowPoly+Trees.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
-        { name: 'LowPoly', preview: 'LowPoly.webp', file: 'pak11_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
+        { name: 'DarkPoly & Trees', preview: 'DarkPoly+Trees.webp', file: 'pak10_dir.vpk' },
+        { name: 'DarkPoly', preview: 'DarkPoly.webp', file: 'pak11_dir.vpk' },
+        { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak12_dir.vpk' },
+        { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak13_dir.vpk' },
+        { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak14_dir.vpk', links: [{ type: 'author', url: 'Robbyz' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify'}] },
+        {
+            name: 'Simple Dark Terrain Minify',
+            styles: [
+                { label: '', color: '#42322f', preview: 'Flat Dark Terrain.mp4', file: 'pak15_dir.vpk' },
+                { label: 'Green', color: '#8ee487', preview: 'Flat Green Terrain.mp4', file: 'pak16_dir.vpk' },
+            ],
+            links: [{ type: 'author', url: 'Robbyz' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify'}]
+        },
+        { name: 'LowPoly & Trees', preview: 'LowPoly+Trees.webp', file: 'pak17_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
+        { name: 'LowPoly', preview: 'LowPoly.webp', file: 'pak18_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'TI5 Desert Terrain', preview: 'TI5 Desert Terrain.webp', file: 'TI5 Desert Terrain.zip' },
         { name: 'TI6 Immortal Gardens', preview: 'TI6 Immortal Gardens.webp', file: 'TI6 Immortal Gardens.zip' },
         { name: 'TI7 Reefs Edge', preview: 'TI7 Reefs Edge.webp', file: 'TI7 Reefs Edge.zip' },
@@ -547,8 +557,8 @@ const modsData = {
         // {
         //     name: 'Underlord Emerald Subjugation',
         //     styles: [
-        //         { label: '', color: '#27dd24', preview: 'Underlord Emerald Subjugation.webp', file: 'Underlord Emerald Subjugation.zip' },
-        //         { label: 'Crimson', color: '#dc2929', preview: 'Underlord Emerald Subjugation Crimson.webp', file: 'Underlord Emerald Subjugation Crimson.zip' }
+        //         { label: '', color: '#7eff7c', preview: 'Underlord Emerald Subjugation.webp', file: 'Underlord Emerald Subjugation.zip' },
+        //         { label: 'Crimson', color: '#ff4646', preview: 'Underlord Emerald Subjugation Crimson.webp', file: 'Underlord Emerald Subjugation Crimson.zip' }
         //     ],
         //     tags: { effects: true, icons: true, head: true }
         // },
