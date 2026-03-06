@@ -932,7 +932,7 @@ const modsData = {
                         name: 'Reptilian Radiant Creeps',
                         styles: [
                             { label: 'Style I', color: '#67cd3f', preview: 'Reptilian Radiant.webp', file: 'pak16_dir.vpk' },
-                            { label: 'Style II', color: '#4aaed9', preview: 'Blue Reptilian Radiant.webp', file: 'pak2s5_dir.vpk' },
+                            { label: 'Style II', color: '#4aaed9', preview: 'Blue Reptilian Radiant.webp', file: 'pak25_dir.vpk' },
                         ],
                     },
                     { name: 'Crownfall Radiant Creeps', preview: 'Crownfall Radiant.webp', file: 'pak18_dir.vpk' },
