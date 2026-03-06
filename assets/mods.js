@@ -643,10 +643,10 @@ const modsData = {
         { name: 'Tusk', preview: 'Tusk.webp', file: 'pak18_dir.vpk' },
     ],
     'pedestal': [
-        { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.webp', file: 'pak78_dir.vpk' },
-        { name: 'Earthshaker Pedestal', preview: 'Earthshaker Pedestal.webp', file: 'pak79_dir.vpk' },
-        { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.webp', file: 'pak80_dir.vpk' },
-        { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak16_dir.vpk', links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }] }
+        { name: 'Drow Ranger Pedestal', preview: 'Drow Ranger Pedestal.webp', file: 'pak10_dir.vpk' },
+        { name: 'Earthshaker Pedestal', preview: 'Earthshaker Pedestal.webp', file: 'pak11_dir.vpk' },
+        { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.webp', file: 'pak12_dir.vpk' },
+        { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak13_dir.vpk', links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }] }
     ],
     'high-five': [
         { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
