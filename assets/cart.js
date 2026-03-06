@@ -100,9 +100,7 @@ function loadAssembly(assemblyId) {
                     const btn = card.querySelector('.add-to-cart-btn');
                     if (btn) {
                         btn.setAttribute('data-mod', JSON.stringify({
-                            name: item.name,
-                            file: item.file,
-                            preview: item.preview || ''
+                            name: item.name
                         }));
                     }
                     card.querySelectorAll('.style-circle').forEach(c => {
@@ -354,6 +352,38 @@ function saveCart() {
     localStorage.setItem('modCart', JSON.stringify(cart));
 }
 
+function resolveItemFiles(item) {
+    const categoryData = modsData[item.categoryId];
+    let mod = null;
+
+    function findMod(mods) {
+        return mods.find(m =>
+            m.name === item.name ||
+            (m.styles && m.styles.some(s =>
+                m.name + ' ' + s.label.replace('Style ', '') === item.name
+            ))
+        );
+    }
+
+    if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+        const group = categoryData.groups.find(g => g.id === item.groupId);
+        if (group) mod = findMod(group.mods);
+    } else if (Array.isArray(categoryData)) {
+        mod = findMod(categoryData);
+    }
+
+    if (!mod) return { file: null, preview: null };
+
+    if (mod.styles) {
+        const idx = mod.styles.findIndex(s =>
+            mod.name + ' ' + s.label.replace('Style ', '') === item.name
+        );
+        if (idx !== -1) return { file: mod.styles[idx].file, preview: mod.styles[idx].preview || null };
+    }
+
+    return { file: mod.file, preview: mod.preview || null };
+}
+
 function addToCart(mod, categoryId) {
     const FORBIDDEN_CATEGORIES = ['guides', 'tools'];
     const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts'];
@@ -370,8 +400,6 @@ function addToCart(mod, categoryId) {
     const cartItem = {
         id: groupId ? `${categoryId}-${groupId}-${mod.name}` : `${categoryId}-${mod.name}`,
         name: mod.name,
-        file: mod.file,
-        preview: mod.preview || null,
         categoryId: categoryId,
         groupId: groupId || null
     };
@@ -743,7 +771,8 @@ function renderCartItems() {
             mod = findBaseMod(categoryData);
         }
 
-        const previewFile = item.preview || (mod && mod.preview) || '';
+        const { preview: resolvedPreview } = resolveItemFiles(item);
+        const previewFile = resolvedPreview || '';
         if (previewFile) {
             previewPath = `assets/previews/${item.categoryId}/${previewFile}`;
             isVideo = previewFile.endsWith('.mp4');
@@ -813,8 +842,6 @@ function renderCartItems() {
                         };
                         item.id = newId;
                         item.name = newName;
-                        item.file = mod.styles[idx].file;
-                        item.preview = mod.styles[idx].preview;
                         saveCart();
                         updateCartButtons();
                     }
@@ -979,15 +1006,16 @@ async function packAndDownload() {
 
         for (const batch of batches) {
             await Promise.all(batch.map(async (item) => {
-                const filePath = `assets/files/${item.categoryId}/${item.file}`;
+                const { file: liveFile } = resolveItemFiles(item);
+                const filePath = `assets/files/${item.categoryId}/${liveFile}`;
 
                 try {
                     const response = await fetch(filePath);
-                    if (!response.ok) throw new Error(`Failed to fetch ${item.file}`);
+                    if (!response.ok) throw new Error(`Failed to fetch ${liveFile}`);
 
                     const blob = await response.blob();
 
-                    if (isZipFile(item.file)) {
+                    if (isZipFile(liveFile)) {
                         const zipContent = await JSZip.loadAsync(blob);
                         const extractedFiles = [];
 
@@ -1052,7 +1080,7 @@ async function packAndDownload() {
                             addLog(`No files extracted from ${item.name}`, 'warning');
                         }
                     } else {
-                        let fileName = item.file;
+                        let fileName = liveFile;
                         if (RENAME_CATEGORIES.includes(item.categoryId)) {
                             fileName = '!' + fileName;
                         }
@@ -1366,7 +1394,6 @@ function compressAssembly(assembly) {
         name: assembly.name,
         items: assembly.items.map(item => ({
             n: item.name,
-            f: item.file,
             c: item.categoryId,
             g: item.groupId
         }))
@@ -1384,7 +1411,6 @@ function decompressAssembly(compressed) {
             return {
                 id: groupId ? `${categoryId}-${groupId}-${item.n}` : `${categoryId}-${item.n}`,
                 name: item.n,
-                file: item.f,
                 categoryId: categoryId,
                 groupId: groupId
             };
