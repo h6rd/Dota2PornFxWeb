@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Naga Siren Izayoi Miku', category: 'heroes' },
     { name: 'Simple Minify Shader', category: 'shaders' },
     { name: 'Simple Dark Terrain Minify', category: 'terrains' },
     { name: 'Natures Prophet Spectral Sage', category: 'heroes' },
@@ -398,6 +399,7 @@ const modsData = {
         { name: 'Pugna Nightwither Revenant', preview: 'Pugna Nightwither Revenant.webp', file: 'Pugna Nightwither Revenant.zip', tags: { effects: true, icons: true } },
         { name: 'Luna Bloodmoon Stalker', preview: 'Luna Bloodmoon Stalker.webp', file: 'Luna Bloodmoon Stalker.zip', tags: { effects: true, icons: false } },
         { name: 'Natures Prophet Spectral Sage', preview: 'Natures Prophet Spectral Sage.webp', file: 'Natures Prophet Spectral Sage.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Naga Siren Izayoi Miku', preview: 'Naga Siren Izayoi Miku.webp', file: 'Naga Siren Izayoi Miku.zip', tags: { effects: false, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [

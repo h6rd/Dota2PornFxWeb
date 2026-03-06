@@ -64,7 +64,7 @@ function saveCurrentAssembly(name) {
     const assembly = {
         id: Date.now().toString(),
         name: name.trim(),
-        items: [...cart],
+        items: cart.map(item => ({ ...item })),
         date: new Date().toISOString()
     };
 
@@ -79,7 +79,42 @@ function loadAssembly(assemblyId) {
     const assembly = savedAssemblies.find(a => a.id === assemblyId);
     if (!assembly) return;
 
-    cart = [...assembly.items];
+    cart = assembly.items.map(item => ({ ...item }));
+
+    cart.forEach(item => {
+        const categoryData = modsData[item.categoryId];
+        const mods = categoryData?.groups
+            ? categoryData.groups.flatMap(g => g.mods)
+            : (Array.isArray(categoryData) ? categoryData : []);
+        const mod = mods.find(m => m.styles && m.styles.some(s =>
+            m.name + ' ' + s.label.replace('Style ', '') === item.name
+        ));
+        if (mod) {
+            const idx = mod.styles.findIndex(s =>
+                mod.name + ' ' + s.label.replace('Style ', '') === item.name
+            );
+            if (idx !== -1) {
+                saveStyleIndex(mod.name, idx);
+
+                document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(card => {
+                    const btn = card.querySelector('.add-to-cart-btn');
+                    if (btn) {
+                        btn.setAttribute('data-mod', JSON.stringify({
+                            name: item.name,
+                            file: item.file,
+                            preview: item.preview || ''
+                        }));
+                    }
+                    card.querySelectorAll('.style-circle').forEach(c => {
+                        c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                    });
+                    const img = card.querySelector('.card-media img, .card-media video');
+                    if (img) img.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
+                });
+            }
+        }
+    });
+
     saveCart();
     updateCartBadge();
     renderCartItems();
@@ -687,21 +722,31 @@ function renderCartItems() {
         let previewPath = '';
         let isVideo = false;
 
+        function findBaseMod(mods) {
+            return mods.find(m => {
+                if (m.name === item.name) return true;
+                if (m.styles && m.styles.length > 1) {
+                    return m.styles.some(s =>
+                        m.name + ' ' + s.label.replace('Style ', '') === item.name
+                    );
+                }
+                return false;
+            });
+        }
+
         if (categoryData?.groups && Array.isArray(categoryData.groups)) {
             const group = categoryData.groups.find(g => g.id === item.groupId);
             if (group) {
-                mod = group.mods.find(m => m.name === item.name);
+                mod = findBaseMod(group.mods);
             }
         } else if (Array.isArray(categoryData)) {
-            mod = categoryData.find(m => m.name === item.name);
+            mod = findBaseMod(categoryData);
         }
 
-        if (mod && mod.preview) {
-            previewPath = `assets/previews/${item.categoryId}/${mod.preview}`;
-            isVideo = mod.preview.endsWith('.mp4');
-        } else if (item.preview) {
-            previewPath = `assets/previews/${item.categoryId}/${item.preview}`;
-            isVideo = item.preview.endsWith('.mp4');
+        const previewFile = item.preview || (mod && mod.preview) || '';
+        if (previewFile) {
+            previewPath = `assets/previews/${item.categoryId}/${previewFile}`;
+            isVideo = previewFile.endsWith('.mp4');
         }
 
         let previewHtml = '';
@@ -713,16 +758,99 @@ function renderCartItems() {
             }
         }
 
+        const hasStyles = mod && mod.styles && mod.styles.length > 1;
+        const activeStyleIndex = hasStyles
+            ? Math.max(0, mod.styles.findIndex(s =>
+                mod.name + ' ' + s.label.replace('Style ', '') === item.name
+            ))
+            : 0;
+
+        const styleSwitcherHtml = hasStyles ? `
+            <div class="cart-style-circles">
+                ${mod.styles.map((s, i) => `
+                    <span class="style-circle ${i === activeStyleIndex ? 'active' : ''}"
+                          data-style-index="${i}"
+                          style="background:${s.color}"
+                          title="${s.label}"></span>
+                `).join('')}
+            </div>
+        ` : '';
+
         cartItem.innerHTML = `
-    ${previewHtml}
-    <div class="cart-item-info">
-        <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
-        <p class="cart-item-category">${escapeHtml(categoryName)}</p>
-    </div>
-    <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
-        <span class="material-symbols-rounded">close</span>
-    </button>
-`;
+                ${previewHtml}
+                <div class="cart-item-info">
+                    <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
+                    <div class="cart-item-meta">
+                        <p class="cart-item-category">${escapeHtml(categoryName)}</p>
+                        ${styleSwitcherHtml}
+                    </div>
+                </div>
+                <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+        `;
+
+        if (hasStyles) {
+            cartItem.querySelectorAll('.style-circle').forEach(circle => {
+                circle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const idx = +circle.dataset.styleIndex;
+                    saveStyleIndex(mod.name, idx);
+
+                    const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
+                    const newId = item.groupId
+                        ? `${item.categoryId}-${item.groupId}-${newName}`
+                        : `${item.categoryId}-${newName}`;
+
+                    const cartIdx = cart.findIndex(i => i.id === item.id);
+                    if (cartIdx !== -1) {
+                        cart[cartIdx] = {
+                            ...cart[cartIdx],
+                            id: newId,
+                            name: newName,
+                            file: mod.styles[idx].file,
+                            preview: mod.styles[idx].preview
+                        };
+                        item.id = newId;
+                        item.name = newName;
+                        item.file = mod.styles[idx].file;
+                        item.preview = mod.styles[idx].preview;
+                        saveCart();
+                        updateCartButtons();
+                    }
+
+                    const previewEl = cartItem.querySelector('.cart-item-image');
+                    if (previewEl) previewEl.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
+
+                    const nameEl = cartItem.querySelector('.cart-item-name');
+                    if (nameEl) nameEl.textContent = newName;
+
+                    document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
+                        const otherImg = otherCard.querySelector('.card-media img, .card-media video');
+                        if (otherImg) otherImg.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
+
+                        const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
+                        if (otherCartBtn) {
+                            otherCartBtn.setAttribute('data-mod', JSON.stringify({
+                                name: newName,
+                                file: mod.styles[idx].file,
+                                preview: mod.styles[idx].preview
+                            }));
+                        }
+
+                        otherCard.querySelectorAll('.style-circle').forEach(c => {
+                            c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                        });
+                    });
+
+                    updateCartButtons();
+
+                    cartItem.querySelectorAll('.style-circle').forEach(c => {
+                        c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                    });
+                });
+            });
+        }
 
         cartItems.appendChild(cartItem);
     });

@@ -232,6 +232,20 @@ const state = {
     isClosing: false
 };
 
+const styleIndexMap = (() => {
+    try { return JSON.parse(localStorage.getItem('styleIndexMap') || '{}'); }
+    catch { return {}; }
+})();
+
+function saveStyleIndex(modName, index) {
+    styleIndexMap[modName] = index;
+    localStorage.setItem('styleIndexMap', JSON.stringify(styleIndexMap));
+}
+
+function getStyleIndex(modName) {
+    return styleIndexMap[modName] ?? 0;
+}
+
 const elements = {
     homePage: document.getElementById('homePage'),
     categoryPage: document.getElementById('categoryPage'),
@@ -1562,8 +1576,8 @@ function setupRecentlyAdded() {
     if (track) track.innerHTML = '';
 
     const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') !== null
-    ? localStorage.getItem('recentlyAddedCollapsed') === 'true'
-    : window.innerWidth <= 768;
+        ? localStorage.getItem('recentlyAddedCollapsed') === 'true'
+        : window.innerWidth <= 768;
     state.isCollapsed = savedCollapsed;
 
     if (state.isCollapsed) {
@@ -1622,13 +1636,7 @@ function setupRecentlyAdded() {
                 }
             }
 
-            newCard.querySelector('.add-to-cart-btn')?.remove();
             newCard.querySelector('.copy-link-btn')?.remove();
-
-            const downloadIconDiv = document.createElement('div');
-            downloadIconDiv.className = 'download-icon';
-            downloadIconDiv.innerHTML = '<span class="material-symbols-rounded">expand_circle_down</span>';
-            newCard.querySelector('.card-media').appendChild(downloadIconDiv);
 
             const linkButtonElements = newCard.querySelectorAll('.link-button');
             linkButtonElements.forEach(button => {
@@ -1664,12 +1672,79 @@ function setupRecentlyAdded() {
                 if (e.target.classList.contains('link-button') ||
                     e.target.closest('.link-button') ||
                     e.target.classList.contains('copy-link-btn') ||
-                    e.target.closest('.copy-link-btn')) {
+                    e.target.closest('.copy-link-btn') ||
+                    e.target.classList.contains('style-circle') ||
+                    e.target.closest('.style-circle') ||
+                    e.target.classList.contains('add-to-cart-btn') ||
+                    e.target.closest('.add-to-cart-btn')) {
                     return;
                 }
                 openCategoryAndHighlightMod(recentMod.category, recentMod.name);
                 vibrate(10);
             });
+
+            const styleCircles = newCard.querySelectorAll('.style-circle');
+            styleCircles.forEach(circle => {
+                circle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const idx = +circle.dataset.styleIndex;
+                    mod._styleIndex = idx;
+                    saveStyleIndex(mod.name, idx);
+
+                    const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
+                    const newId = groupId ? `${recentMod.category}-${groupId}-${newName}` : `${recentMod.category}-${newName}`;
+
+                    document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
+                        const otherImg = otherCard.querySelector('.card-media img, .card-media video');
+                        if (otherImg) otherImg.src = `assets/previews/${recentMod.category}/${mod.styles[idx].preview}`;
+
+                        const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
+                        if (otherCartBtn) {
+                            otherCartBtn.setAttribute('data-mod', JSON.stringify({
+                                name: newName,
+                                file: mod.styles[idx].file,
+                                preview: mod.styles[idx].preview
+                            }));
+                        }
+
+                        otherCard.querySelectorAll('.style-circle').forEach(c => {
+                            c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                        });
+                    });
+
+                    for (let si = 0; si < mod.styles.length; si++) {
+                        const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
+                        const sId = groupId ? `${recentMod.category}-${groupId}-${sName}` : `${recentMod.category}-${sName}`;
+                        const existingIdx = cart.findIndex(item => item.id === sId);
+                        if (existingIdx !== -1) {
+                            cart[existingIdx] = {
+                                ...cart[existingIdx],
+                                id: newId,
+                                name: newName,
+                                file: mod.styles[idx].file,
+                                preview: mod.styles[idx].preview
+                            };
+                            saveCart();
+                            updateCartBadge();
+                            renderCartItems();
+                            updateCartButtons();
+                            break;
+                        }
+                    }
+                });
+            });
+
+            const addToCartBtn = newCard.querySelector('.add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const modData = JSON.parse(addToCartBtn.getAttribute('data-mod'));
+                    const category = addToCartBtn.getAttribute('data-category');
+                    addToCart(modData, category);
+                    updateCartButtons();
+                });
+            }
+
             track.appendChild(newCard);
         }
     });
@@ -2311,12 +2386,7 @@ function createModCard(mod, categoryId, groupId = null) {
     const hasStyles = mod.styles && mod.styles.length > 1;
     let activeStyleIndex = 0;
     if (hasStyles) {
-        const fromCart = mod.styles.findIndex(s => {
-            const sName = mod.name + ' ' + s.label.replace('Style ', '');
-            const sId = groupId ? `${categoryId}-${groupId}-${sName}` : `${categoryId}-${sName}`;
-            return cart.some(item => item.id === sId);
-        });
-        activeStyleIndex = fromCart !== -1 ? fromCart : (mod._styleIndex || 0);
+        activeStyleIndex = getStyleIndex(mod.name);
         mod._styleIndex = activeStyleIndex;
     }
     const activeMod = hasStyles ? { ...mod, ...mod.styles[activeStyleIndex] } : mod;
@@ -2387,7 +2457,7 @@ function loadPackToCart(pack) {
         const backupAssembly = {
             id: Date.now().toString(),
             name: 'Backup',
-            items: [...cart],
+            items: cart.map(item => ({ ...item })),
             date: new Date().toISOString()
         };
 
@@ -2404,7 +2474,7 @@ function loadPackToCart(pack) {
         let found = false;
         for (const categoryId in modsData) {
             if (found) break;
-            
+
             const categoryData = modsData[categoryId];
             if (categoryData?.groups && Array.isArray(categoryData.groups)) {
                 for (const group of categoryData.groups) {
@@ -2688,21 +2758,28 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             e.stopPropagation();
             const idx = +circle.dataset.styleIndex;
             mod._styleIndex = idx;
-
-            const img = card.querySelector('.card-media img, .card-media video');
-            if (img) img.src = `assets/previews/${categoryId}/${mod.styles[idx].preview}`;
+            saveStyleIndex(mod.name, idx);
 
             const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
             const newId = groupId ? `${categoryId}-${groupId}-${newName}` : `${categoryId}-${newName}`;
 
-            const cartBtn = card.querySelector('.add-to-cart-btn');
-            if (cartBtn) {
-                cartBtn.setAttribute('data-mod', JSON.stringify({
-                    name: newName,
-                    file: mod.styles[idx].file,
-                    preview: mod.styles[idx].preview
-                }));
-            }
+            document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
+                const otherImg = otherCard.querySelector('.card-media img, .card-media video');
+                if (otherImg) otherImg.src = `assets/previews/${categoryId}/${mod.styles[idx].preview}`;
+
+                const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
+                if (otherCartBtn) {
+                    otherCartBtn.setAttribute('data-mod', JSON.stringify({
+                        name: newName,
+                        file: mod.styles[idx].file,
+                        preview: mod.styles[idx].preview
+                    }));
+                }
+
+                otherCard.querySelectorAll('.style-circle').forEach(c => {
+                    c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                });
+            });
 
             for (let si = 0; si < mod.styles.length; si++) {
                 const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
@@ -2723,8 +2800,6 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
                     break;
                 }
             }
-
-            styleCircles.forEach(c => c.classList.toggle('active', c === circle));
         });
     });
 }

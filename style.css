@@ -2076,6 +2076,24 @@ fcode {
     opacity: 1;
 }
 
+.cart-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-style-circles {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.cart-style-circles .style-circle {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
 .card-buttons-group {
   display: flex;
   gap: 4px;
