@@ -1,6 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Spring Quarteros Curios', category: 'ti-bp-effects' },
+    { name: 'Remove Seasonal Effects', category: 'ti-bp-effects' },
     { name: 'Naga Siren Izayoi Miku', category: 'heroes' },
     { name: 'Simple Minify Shader', category: 'shaders' },
     { name: 'Simple Dark Terrain Minify', category: 'terrains' },
@@ -448,8 +450,9 @@ const modsData = {
         { name: 'Quarteros Curios', preview: 'Quarteros Curios.webp', file: 'pak18_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Quarteros_Curios.mp4' },
         { name: 'Purple Quarteros Curios', preview: 'Purple Quarteros Curios.webp', file: 'pak19_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4' },
         { name: 'Darkness Pack', preview: 'Darkness Pack.webp', file: 'pak20_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/ti-bp-effects/Darkness_Pack.mp4' }, { type: 'author', url: 'Darkness' }] },
-        { name: 'Winter Quarteros Curios', preview: 'Winter Quarteros Curios.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4' }] },
+        { name: 'Winter Quarteros Curios', preview: 'Winter Quarteros Curios.webp', file: 'pak21_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4' }] },
         { name: 'Remove Seasonal Effects', preview: 'Remove Seasonal Effects.webp', file: 'pak22_dir.vpk' },
+        { name: 'Spring Quarteros Curios', preview: 'Spring Quarteros Curios.webp', file: 'pak23_dir.vpk', linkType: 'preview', linkUrl: 'assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4' },
     ],
     'creep-deny': [
         { name: 'Deny ?', preview: 'deny_huh.webp', file: 'pak08_dir.vpk' },
