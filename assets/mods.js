@@ -1,6 +1,9 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Dark Souls Razor', category: 'heroes' },
+    { name: 'Tusk King Kong', category: 'heroes' },
+    { name: 'Emerald Dragon Knight', category: 'heroes' },
     { name: 'Spring Quarteros Curios', category: 'ti-bp-effects' },
     { name: 'Remove Seasonal Effects', category: 'ti-bp-effects' },
     { name: 'Naga Siren Izayoi Miku', category: 'heroes' },
@@ -402,6 +405,9 @@ const modsData = {
         { name: 'Luna Bloodmoon Stalker', preview: 'Luna Bloodmoon Stalker.webp', file: 'Luna Bloodmoon Stalker.zip', tags: { effects: true, icons: false } },
         { name: 'Natures Prophet Spectral Sage', preview: 'Natures Prophet Spectral Sage.webp', file: 'Natures Prophet Spectral Sage.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Naga Siren Izayoi Miku', preview: 'Naga Siren Izayoi Miku.webp', file: 'Naga Siren Izayoi Miku.zip', tags: { effects: false, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
+        { name: 'Emerald Dragon Knight', preview: 'Emerald Dragon Knight.webp', file: 'Emerald Dragon Knight.zip', tags: { effects: true, icons: true } },
+        { name: 'Tusk King Kong', preview: 'Tusk King Kong.webp', file: 'Tusk King Kong.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Dark Souls Razor', preview: 'Dark Souls Razor.webp', file: 'Dark Souls Razor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kynomi' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [

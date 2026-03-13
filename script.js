@@ -373,6 +373,7 @@ const MOD_AUTHOR = {
   'laskotdota': 'https://t.me/laskotdota',
   'NahuiToSay': 'https://t.me/NahuiToSay',
   'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
+  'Kynomi': 'https://vk.com/kynomi',
 };
 
 const MOD_SENDER = {
