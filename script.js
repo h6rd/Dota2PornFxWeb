@@ -204,7 +204,7 @@ const NOTES_DATA = [
 
 const categoryNotes = {
     'item-effects': {
-        enabled: true,
+        enabled: false,
         text: `During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=ti-bp-effects"><span id="tg">Effect Packs</span></a>.`
     },
     'emblems': {

@@ -411,7 +411,9 @@ function addToCart(mod, categoryId) {
         return;
     }
 
-    if (groupId) {
+    const MULTI_ITEM_GROUPS = ['runes'];
+
+    if (groupId && !MULTI_ITEM_GROUPS.includes(groupId)) {
         const existingInGroup = cart.find(item =>
             item.categoryId === categoryId && item.groupId === groupId
         );
