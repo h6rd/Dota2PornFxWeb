@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Ice Phoenix', category: 'heroes' },
     { name: 'Dark Souls Razor', category: 'heroes' },
     { name: 'Tusk King Kong', category: 'heroes' },
     { name: 'Emerald Dragon Knight', category: 'heroes' },
