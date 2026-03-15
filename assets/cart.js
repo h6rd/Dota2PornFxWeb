@@ -464,6 +464,33 @@ function addToCart(mod, categoryId) {
         }
     }
 
+    if (categoryId === 'hero-items') {
+        const heroItemsData = modsData['hero-items'] || [];
+        const newModData = heroItemsData.find(m => m.name === mod.name);
+        const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head'];
+
+        if (newModData && newModData.tags) {
+            const newSlots = SLOT_TAGS.filter(tag => newModData.tags[tag]);
+            const newHero = mod.name.split(' ')[0].toLowerCase();
+
+            const existingHeroItem = cart.find(item => {
+                if (item.categoryId !== 'hero-items') return false;
+                const existingHero = item.name.split(' ')[0].toLowerCase();
+                if (existingHero !== newHero) return false;
+
+                const existingModData = heroItemsData.find(m => m.name === item.name);
+                if (!existingModData || !existingModData.tags) return false;
+
+                return SLOT_TAGS.some(tag => newModData.tags[tag] && existingModData.tags[tag]);
+            });
+
+            if (existingHeroItem) {
+                showReplaceModal(existingHeroItem, cartItem);
+                return;
+            }
+        }
+    }
+
     if (cart.length >= MAX_CART_ITEMS) {
         showToast('Cart is full (max 100 items)');
         return;

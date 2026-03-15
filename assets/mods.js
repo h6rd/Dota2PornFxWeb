@@ -1,6 +1,11 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Wraith King Arcana', category: 'heroes' },
+    { name: 'Hell Muerta', category: 'heroes' },
+    { name: 'Disruptor Faceless Rex', category: 'hero-items' },
+    { name: 'Warden Phantom Assassin', category: 'heroes' },
+    { name: 'Zuljin Troll Warlord', category: 'heroes' },
     { name: 'Ice Phoenix', category: 'heroes' },
     { name: 'Dark Souls Razor', category: 'heroes' },
     { name: 'Tusk King Kong', category: 'heroes' },
@@ -316,7 +321,7 @@ const modsData = {
                 { label: 'Style II', color: '#ff8f8f', preview: 'Spectre Arcana Style 2.webp', file: 'Spectre Arcana Style 2.zip' },
             ],
             tags: { effects: true, icons: true },
-            links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }]
+            links: [{ type: 'author', url: 'Pinkie' }]
         },
         { name: 'Razor Rizelencer', preview: 'Razor Rizelencer.webp', file: 'Razor Rizelencer.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Magnus White Tiger', preview: 'Magnus White Tiger.webp', file: 'Magnus White Tiger.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
@@ -341,7 +346,7 @@ const modsData = {
                 { label: 'Style II', color: '#ffb7ff', preview: 'Faceless Void Arcana Style 2.webp', file: 'Faceless Void Arcana Style 2.zip' },
             ],
             tags: { effects: true, icons: true },
-            links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198142595363' }]
+            links: [{ type: 'author', url: 'Pinkie' }]
         },
         { name: 'Defiree Disruptor', preview: 'Defiree Disruptor.webp', file: 'Defiree Disruptor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Ursa Roshan Hunter', preview: 'Ursa Roshan Hunter.webp', file: 'Ursa Roshan Hunter.zip', tags: { effects: false, icons: false } },
@@ -409,6 +414,10 @@ const modsData = {
         { name: 'Emerald Dragon Knight', preview: 'Emerald Dragon Knight.webp', file: 'Emerald Dragon Knight.zip', tags: { effects: true, icons: true } },
         { name: 'Tusk King Kong', preview: 'Tusk King Kong.webp', file: 'Tusk King Kong.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Dark Souls Razor', preview: 'Dark Souls Razor.webp', file: 'Dark Souls Razor.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kynomi' }] },
+        { name: 'Zuljin Troll Warlord', preview: 'Zuljin Troll Warlord.webp', file: 'Zuljin Troll Warlord.zip', tags: { effects: true, icons: true } },
+        { name: 'Warden Phantom Assassin', preview: 'Warden Phantom Assassin.webp', file: 'Warden Phantom Assassin.zip', tags: { effects: true, icons: true } },
+        { name: 'Hell Muerta', preview: 'Hell Muerta.webp', file: 'Hell Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
+        { name: 'Wraith King Arcana', preview: 'Wraith King Arcana.webp', file: 'Wraith King Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -566,6 +575,7 @@ const modsData = {
         { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'laskotdota' }] },
         { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }] },
         { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'laskotdota' }] },
+        { name: 'Disruptor Faceless Rex', preview: 'Disruptor Faceless Rex.webp', file: 'Disruptor Faceless Rex.zip', tags: { mount: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         // {
         //     name: 'Underlord Emerald Subjugation',
         //     styles: [

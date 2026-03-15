@@ -374,6 +374,7 @@ const MOD_AUTHOR = {
   'NahuiToSay': 'https://t.me/NahuiToSay',
   'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
   'Kynomi': 'https://vk.com/kynomi',
+  'Pinkie': 'https://steamcommunity.com/profiles/76561198142595363',
 };
 
 const MOD_SENDER = {
