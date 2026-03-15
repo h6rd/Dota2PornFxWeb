@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Tinker Lite Machines', category: 'optimization' },
     { name: 'Wraith King Arcana', category: 'heroes' },
     { name: 'Hell Muerta', category: 'heroes' },
     { name: 'Disruptor Faceless Rex', category: 'hero-items' },
@@ -763,6 +764,7 @@ const modsData = {
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },
         { name: 'Commands', preview: 'Commands.mp4', file: 'https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md', type: 'guide' },
         { name: 'Default Wards', preview: 'Default Wards.webp', file: 'pak10_dir.vpk', links: [{ type: 'source', url: 'https://discord.com/channels/984169062735151174/1311143842631909408' }] },
+        { name: 'Tinker Lite Machines', preview: 'Tinker Lite Machines.webp', file: 'pak11_dir.vpk' },
         // { name: 'Default Couriers', preview: 'Default Couriers.webp', file: 'Default Couriers.zip', links: [{ type: 'source', url: 'https://discord.com/channels/984169062735151174/1311143842631909408' }] },
     ],
     'sites': [

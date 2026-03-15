@@ -216,7 +216,7 @@ const categoryNotes = {
 const addToCartRules = {
     hiddenCategories: ['guides', 'tools'],
     allowedMods: {
-        optimization: ['Default Wards', 'Default Couriers'],
+        optimization: ['Default Wards', 'Default Couriers', 'Tinker Lite Machines'],
     }
 };
 

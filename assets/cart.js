@@ -999,7 +999,7 @@ async function packAndDownload() {
     }
 
     let packSuccess = false;
-    const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items'];
+    const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items', 'optimization'];
 
     try {
         addLog('Starting pack creation...', 'start');
