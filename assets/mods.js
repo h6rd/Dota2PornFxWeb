@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Nude Marci', category: 'heroes' },
     { name: 'Tinker Lite Machines', category: 'optimization' },
     { name: 'Wraith King Arcana', category: 'heroes' },
     { name: 'Hell Muerta', category: 'heroes' },
@@ -419,6 +420,7 @@ const modsData = {
         { name: 'Warden Phantom Assassin', preview: 'Warden Phantom Assassin.webp', file: 'Warden Phantom Assassin.zip', tags: { effects: true, icons: true } },
         { name: 'Hell Muerta', preview: 'Hell Muerta.webp', file: 'Hell Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         { name: 'Wraith King Arcana', preview: 'Wraith King Arcana.webp', file: 'Wraith King Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
+        { name: 'Nude Marci', preview: 'Nude Marci.webp', file: 'Nude Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
