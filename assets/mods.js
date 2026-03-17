@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Naga Siren Serega Pirat', category: 'hero-sounds' },
     { name: 'Nude Marci', category: 'heroes' },
     { name: 'Tinker Lite Machines', category: 'optimization' },
     { name: 'Wraith King Arcana', category: 'heroes' },
@@ -899,6 +900,7 @@ const modsData = {
         { name: 'Largo Serega Pirat', preview: 'Largo Serega Pirat.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat.mp4' }] },
         { name: 'Largo Serega Pirat v2', preview: 'Largo Serega Pirat v2.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4' }] },
         { name: 'Witch Doctor True Maledict', preview: 'Witch Doctor True Maledict.webp', file: 'pak12_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Witch Doctor True Maledict.mp4' }] },
+        { name: 'Naga Siren Serega Pirat', preview: 'Naga Siren Serega Pirat.webp', file: 'pak13_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Naga Siren Serega Pirat.mp4' }, {type: 'author', url:'NahuiToSay'}] },
     ],
     'packs': [
         {
