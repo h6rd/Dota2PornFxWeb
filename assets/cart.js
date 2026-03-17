@@ -946,6 +946,263 @@ function getUniqueFileName(fileName, existingNames) {
     return newFileName;
 }
 
+function generateWindowsBat(langFolder) {
+    const lines = [
+        '@echo off',
+        'setlocal enabledelayedexpansion',
+        'set "ROOT_DIR=%~dp0"',
+        'cd /d "%ROOT_DIR%mods"',
+        '',
+        'echo Running VPKMerge...',
+        'start /wait VPKMerge.exe',
+        '',
+        'set "DOTA_PATH="',
+        '',
+        'for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
+        '    set "DOTA_PATH=%%b\\game"',
+        ')',
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
+        '        set "DOTA_PATH=%%b\\game"',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKCU\\SOFTWARE\\Valve\\Steam" /v "SteamPath" 2^>nul\') do (',
+        '        set "STEAM_REG=%%b"',
+        '        set "STEAM_REG=!STEAM_REG:/=\\!"',
+        '        if exist "!STEAM_REG!\\steamapps\\common\\dota 2 beta\\game" (',
+        '            set "DOTA_PATH=!STEAM_REG!\\steamapps\\common\\dota 2 beta\\game"',
+        '        )',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (',
+        '        if not defined DOTA_PATH (',
+        '            for %%p in (',
+        '                "%%d:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Program Files\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Games\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\SteamLibrary\\steamapps\\common\\dota 2 beta\\game"',
+        '            ) do (',
+        '                if exist %%p (',
+        '                    set "DOTA_PATH=%%~p"',
+        '                )',
+        '            )',
+        '        )',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    echo [ERROR] Dota 2 not found. Please move files manually.',
+        '    pause',
+        '    exit /b 1',
+        ')',
+        '',
+        'echo [OK] Found Dota 2 at: !DOTA_PATH!',
+        '',
+        'set "LANG_DIR=!DOTA_PATH!\\' + langFolder + '"',
+        'if not exist "!LANG_DIR!" (',
+        '    mkdir "!LANG_DIR!"',
+        '    echo [OK] Created folder: !LANG_DIR!',
+        ')',
+        '',
+        'if exist "pak10_dir.vpk" (',
+        '    move /y "pak10_dir.vpk" "!LANG_DIR!\\"',
+        '    echo [OK] Moved pak10_dir.vpk to !LANG_DIR!',
+        ')',
+        '',
+        'if exist "!LANG_DIR!\\maps" (',
+        '    echo [INFO] Removing existing maps folder...',
+        '    rmdir /s /q "!LANG_DIR!\\maps"',
+        ')',
+        'if exist "maps" (',
+        '    xcopy /e /i /y "maps" "!LANG_DIR!\\maps"',
+        '    rmdir /s /q "maps"',
+        '    echo [OK] Moved maps to !LANG_DIR!',
+        ')',
+        '',
+        'cd /d "%ROOT_DIR%"',
+        'for /d %%f in (*) do (',
+        '    echo "%%f" | findstr /i /c:"cursor" /c:"font" >nul 2>&1',
+        '    if not errorlevel 1 (',
+        '        if exist "%%f\\install.bat" (',
+        '            echo [INFO] Running install in "%%f"...',
+        '            pushd "%ROOT_DIR%%%f"',
+        '            echo. | call install.bat',
+        '            popd',
+        '        )',
+        '    )',
+        ')',
+        '',
+        'echo.',
+        'echo [DONE] Installation complete!',
+        'pause',
+    ];
+    return lines.join('\r\n');
+}
+
+function generateLinuxSh(langFolder) {
+    const nl = '\n';
+    const s = [
+        '#!/bin/bash',
+        'set -uo pipefail',
+        'SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"',
+        'MODS_DIR="$SCRIPT_DIR/mods"',
+        'cd "$MODS_DIR"',
+        '',
+        'echo "Making VPKMerge executable..."',
+        'chmod +x VPKMerge',
+        '',
+        'echo "Running VPKMerge..."',
+        './VPKMerge',
+        '',
+        'DOTA_PATH=""',
+        '',
+        'find_in_vdf() {',
+        '    local vdf="$1"',
+        '    [ -f "$vdf" ] || return',
+        '    while IFS= read -r line; do',
+        '        val=$(echo "$line" | grep -i \'"path"\' | sed \'s/.*"[Pp]ath"[[:space:]]*"\\(.*\\)"/\\1/\')',
+        '        [ -z "$val" ] && continue',
+        '        local candidate="$val/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            echo "$candidate"',
+        '            return',
+        '        fi',
+        '    done < "$vdf"',
+        '}',
+        '',
+        'for vdf in \\',
+        '    "$HOME/.steam/steam/steamapps/libraryfolders.vdf" \\',
+        '    "$HOME/.local/share/Steam/steamapps/libraryfolders.vdf" \\',
+        '    "$HOME/.steam/root/steamapps/libraryfolders.vdf"',
+        'do',
+        '    result=$(find_in_vdf "$vdf")',
+        '    if [ -n "$result" ]; then',
+        '        DOTA_PATH="$result"',
+        '        break',
+        '    fi',
+        'done',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for root in \\',
+        '        "$HOME/.steam/steam" \\',
+        '        "$HOME/.local/share/Steam" \\',
+        '        "$HOME/.steam/root" \\',
+        '        "/usr/local/steam" \\',
+        '        "/opt/steam" \\',
+        '        "$HOME/Steam" \\',
+        '        "$HOME/Games/Steam"',
+        '    do',
+        '        candidate="$root/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            DOTA_PATH="$candidate"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for root in \\',
+        '        "$HOME/.var/app/com.valvesoftware.Steam/.steam/steam" \\',
+        '        "$HOME/.var/app/com.valvesoftware.Steam/.local/share/Steam"',
+        '    do',
+        '        candidate="$root/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            DOTA_PATH="$candidate"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    result=$(find "$HOME" /mnt /media -maxdepth 8 -type d -name "dota 2 beta" 2>/dev/null | head -1)',
+        '    if [ -n "$result" ]; then',
+        '        DOTA_PATH="$result/game"',
+        '    fi',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    echo "[ERROR] Dota 2 not found. Please move files manually."',
+        '    exit 1',
+        'fi',
+        '',
+        'echo "[OK] Found Dota 2 at: $DOTA_PATH"',
+        '',
+        'LANG_DIR="$DOTA_PATH/' + langFolder + '"',
+        'if [ ! -d "$LANG_DIR" ]; then',
+        '    mkdir -p "$LANG_DIR"',
+        '    echo "[OK] Created folder: $LANG_DIR"',
+        'fi',
+        '',
+        'trash_item() {',
+        '    local target="$1"',
+        '    [ -e "$target" ] || return 0',
+        '    local trash_files="$HOME/.local/share/Trash/files"',
+        '    local trash_info="$HOME/.local/share/Trash/info"',
+        '    mkdir -p "$trash_files" "$trash_info"',
+        '    local bname',
+        '    bname=$(basename "$target")',
+        '    local dest="$trash_files/$bname"',
+        '    local n=1',
+        '    while [ -e "$dest" ]; do',
+        '        dest="$trash_files/${bname%.*}_${n}.${bname##*.}"',
+        '        n=$((n + 1))',
+        '    done',
+        '    mv "$target" "$dest"',
+        '    printf "[Trash Info]\\nPath=%s\\nDeletionDate=%s\\n" "$target" "$(date +%Y-%m-%dT%H:%M:%S)" > "$trash_info/${bname}.trashinfo"',
+        '    echo "[INFO] Moved existing $bname to Trash"',
+        '}',
+        '',
+        'if [ -f "pak10_dir.vpk" ]; then',
+        '    mv -f "pak10_dir.vpk" "$LANG_DIR/"',
+        '    echo "[OK] Moved pak10_dir.vpk to $LANG_DIR"',
+        'fi',
+        '',
+        'rm -rf "$LANG_DIR/maps"',
+        'if [ -d "maps" ]; then',
+        '    cp -r "maps" "$LANG_DIR/"',
+        '    rm -rf "maps"',
+        '    echo "[OK] Moved maps to $LANG_DIR"',
+        'fi',
+        '',
+        'for dir in */; do',
+        '    [ -d "$dir" ] || continue',
+        '    dirlow=$(echo "$dir" | tr \'[:upper:]\' \'[:lower:]\')',
+        '    case "$dirlow" in',
+        '        *cursor*)',
+        '            CURSOR_DST="$DOTA_PATH/dota/resource/cursor"',
+        '            mkdir -p "$CURSOR_DST"',
+        '            if [ -d "${dir%/}" ]; then',
+        '                cp -r "${dir%/}/." "$CURSOR_DST/"',
+        '                echo "[OK] Installed cursor from $dir to $CURSOR_DST"',
+        '            fi',
+        '            ;;',
+        '        *font*)',
+        '            FONTS_DST="$DOTA_PATH/dota/panorama/fonts"',
+        '            mkdir -p "$FONTS_DST"',
+        '            echo "[INFO] Clearing existing fonts..."',
+        '            rm -f "$FONTS_DST"/*',
+        '            if [ -d "${dir%/}/assets/custom" ]; then',
+        '                cp -r "${dir%/}/assets/custom/." "$FONTS_DST/"',
+        '                echo "[OK] Installed font from ${dir}assets/custom/ to $FONTS_DST"',
+        '            else',
+        '                echo "[WARN] assets/custom/ not found in $dir, skipping font install"',
+        '            fi',
+        '            ;;',
+        '    esac',
+        'done',
+        '',
+        'echo ""',
+        'echo "[DONE] Installation complete!"',
+    ];
+    return s.join(nl);
+}
+
+
 async function packAndDownload() {
     if (cart.length === 0) return;
     const packBtn = document.getElementById('packBtn');
@@ -1019,7 +1276,12 @@ async function packAndDownload() {
         statusText.textContent = 'Creating archive...';
 
         const mainZip = new JSZip();
-        const modsFolder = mainZip.folder('mods');
+        const now = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const timestamp = `${pad(now.getHours())}.${pad(now.getMinutes())}-${pad(now.getDate())}.${pad(now.getMonth() + 1)}`;
+        const archiveName = `d2pfxPack-${timestamp}`;
+        const rootFolder = mainZip.folder(archiveName);
+        const modsFolder = rootFolder.folder('mods');
         const existingFileNames = new Set();
         const modFileNames = {};
         const BATCH_SIZE = 8;
@@ -1076,7 +1338,7 @@ async function packAndDownload() {
                                         }
                                     }
                                 } else if (isCursorMod || isFontMod) {
-                                    mainZip.file(relativePath, fileBlob);
+                                    rootFolder.file(relativePath, fileBlob);
                                     extractedFiles.push(relativePath);
                                 } else {
                                     const fileName = relativePath.split('/').pop();
@@ -1168,9 +1430,9 @@ async function packAndDownload() {
         modsListText += `              TOTAL MODS: ${cart.length}\n`;
         modsListText += `      GENERATED: ${new Date().toLocaleString()}\n`;
         modsListText += `╚══════════════════════════════════════════╝\n`;
-        modsListText += `    Thanks for downloading, have fun! 😘`;
+        modsListText += `      Thanks for downloading, have fun!`;
 
-        mainZip.file('Mods.txt', modsListText);
+        rootFolder.file('Mods.txt', modsListText);
         addLog('Mods list created', 'success');
 
         const guideText = `╔══════════════════════════════════════════╗
@@ -1179,6 +1441,8 @@ async function packAndDownload() {
 
 RU WINDOWS
 ═══════════
+Запустите Auto-Install.bat. Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
+
 1. Откройте папку mods
 2. Запустите VPKMerge.exe и дождитесь окончания
 3. Переместите готовый pak10_dir.vpk в папку с языком игры:
@@ -1201,6 +1465,8 @@ RU WINDOWS
 
 EN WINDOWS 
 ═══════════
+Run Auto-Install.bat. If you encounter any issues while using it or if it doesn't work, use the manual method below.
+
 1. Open the mods folder
 2. Run VPKMerge.exe and wait until it finishes
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
@@ -1217,6 +1483,8 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
 RU LINUX
 ═════════
+Запустите Auto-Install.sh (chmod +x Auto-Install.sh ➜ .//Auto-Install.sh) Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
+
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
 3. Запустите VPKMerge: ./VPKMerge 
@@ -1240,6 +1508,8 @@ RU LINUX
 
 EN LINUX
 ═════════
+Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ .//Auto-Install.sh). If you encounter any issues or it doesn't work, use the manual method below.
+
 1. Open the mods folder in terminal
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
@@ -1254,43 +1524,76 @@ When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Telegram: https://t.me/f4cks0ciety
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file`;
 
-        mainZip.file('Guide.txt', guideText);
+        rootFolder.file('Guide.txt', guideText);
         addLog('Guide added', 'success');
-        addLog('Adding VPKMerge scripts...', 'info');
+        addLog('Adding VPKMerge...', 'info');
 
-        const [exeResponse, linuxResponse] = await Promise.all([
-            fetch('assets/files/VPKMerge/VPKMerge.exe'),
-            fetch('assets/files/VPKMerge/VPKMerge')
-        ]);
+        const settings = (() => {
+            try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
+        })();
+        const selectedOS = settings.os || 'default';
+        const selectedLang = settings.gameLang || 'default';
+        const langFolderMap = {
+            russian: 'dota_russian', english: 'dota_123', minify: 'dota_minify',
+            koreana: 'dota_koreana', schinese: 'dota_schinese', tchinese: 'dota_tchinese',
+            brazilian: 'dota_brazilian', latam: 'dota_latam', spanish: 'dota_spanish',
+            french: 'dota_french', italian: 'dota_italian', german: 'dota_german',
+            greek: 'dota_greek', thai: 'dota_thai', japanese: 'dota_japanese',
+            portuguese: 'dota_portuguese', polish: 'dota_polish', danish: 'dota_danish',
+            dutch: 'dota_dutch', finnish: 'dota_finnish', norwegian: 'dota_norwegian',
+            swedish: 'dota_swedish', czech: 'dota_czech', hungarian: 'dota_hungarian',
+            romanian: 'dota_romanian', bulgarian: 'dota_bulgarian', turkish: 'dota_turkish',
+            vietnamese: 'dota_vietnamese'
+        };
+        const langFolder = langFolderMap[selectedLang] || 'dota_123';
 
-        let exeAdded = false;
-        let linuxAdded = false;
-
-        if (exeResponse.ok) {
-            const exeBlob = await exeResponse.blob();
-            modsFolder.file('VPKMerge.exe', exeBlob);
-            exeAdded = true;
+        if (selectedOS === 'default') {
+            const [exeResponse, linuxResponse] = await Promise.all([
+                fetch('assets/files/VPKMerge/VPKMerge.exe'),
+                fetch('assets/files/VPKMerge/VPKMerge')
+            ]);
+            if (exeResponse.ok) {
+                modsFolder.file('VPKMerge.exe', await exeResponse.blob());
+            } else {
+                addLog('VPKMerge.exe not found', 'warning');
+            }
+            if (linuxResponse.ok) {
+                modsFolder.file('VPKMerge', await linuxResponse.blob());
+            } else {
+                addLog('VPKMerge Linux not found', 'warning');
+            }
+            if (exeResponse.ok || linuxResponse.ok) {
+                addLog('VPKMerge added', 'success');
+            }
+        } else if (selectedOS === 'windows') {
+            const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
+            if (exeResponse.ok) {
+                modsFolder.file('VPKMerge.exe', await exeResponse.blob());
+                addLog('VPKMerge.exe added', 'success');
+            } else {
+                addLog('VPKMerge.exe not found', 'warning');
+            }
         } else {
-            addLog('VPKMerge.exe not found', 'warning');
+            const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
+            if (linuxResponse.ok) {
+                modsFolder.file('VPKMerge', await linuxResponse.blob());
+                addLog('VPKMerge (Linux) added', 'success');
+            } else {
+                addLog('VPKMerge Linux not found', 'warning');
+            }
         }
+        addLog('Generating install script...', 'info');
 
-        if (linuxResponse.ok) {
-            const linuxBlob = await linuxResponse.blob();
-            modsFolder.file('VPKMerge', linuxBlob);
-            linuxAdded = true;
-        } else {
-            addLog('VPKMerge Linux not found', 'warning');
-        }
-
-        if (exeAdded || linuxAdded) {
-            addLog('VPKMerge added', 'success');
+        if (selectedOS === 'windows') {
+            rootFolder.file('Auto-Install.bat', generateWindowsBat(langFolder));
+            addLog('Auto-Install.bat added', 'success');
+        } else if (selectedOS === 'linux') {
+            rootFolder.file('Auto-Install.sh', generateLinuxSh(langFolder));
+            addLog('Auto-Install.sh added', 'success');
         }
 
         addLog('Compressing files...', 'archive');
         statusText.textContent = 'Compressing...';
-
-        const now = new Date();
-        const timestamp = `${now.getHours()}.${now.getMinutes()}-${now.getDate()}.${now.getMonth() + 1}`;
 
         const content = await mainZip.generateAsync({
             type: 'blob',
@@ -1308,11 +1611,11 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         const url = URL.createObjectURL(content);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `d2pfxPack-${timestamp}.zip`;
+        link.download = archiveName + '.zip';
         link.click();
         URL.revokeObjectURL(url);
 
-        showToast('Thanks for downloading, have fun! 😘');
+        showToast('Thanks for downloading, have fun!');
 
         addLog('Pack downloaded successfully!', 'download');
         statusText.textContent = '';

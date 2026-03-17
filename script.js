@@ -192,7 +192,7 @@ const NOTES_DATA = [
         type: 'update',
         icon: 'new_releases',
         title: 'Update',
-        text: 'New themes: meepo, axe, bounty hunter. Improved card highlighting animation'
+        text: 'Added Settings: there, you can select your preferred game language and OS. When you download the archive, it will include an auto-install script to set everything up in your chosen language.'
     },
     {
         type: 'warning',
@@ -1240,12 +1240,20 @@ function setupGifSwitcher() {
         gifElement.src = GIF_CONFIG.gifs[currentIndex];
     }
 
+    const syncGifIndex = () => {
+        const idx = parseInt(localStorage.getItem('gifIndex') || '0');
+        if (idx !== currentIndex) {
+            currentIndex = idx;
+        }
+    };
+
     const hasClicked = localStorage.getItem('gifClicked') === 'true';
     if (!hasClicked && hintElement) {
         hintElement.classList.add('show');
     }
 
     gifElement.addEventListener('click', () => {
+        syncGifIndex();
         if (hintElement && !hasClicked) {
             hintElement.classList.remove('show');
             setTimeout(() => hintElement.style.display = 'none', 300);
@@ -1274,23 +1282,9 @@ function setupGifSwitcher() {
     });
 }
 
-// Theme
 function setupThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-
-    if (!themeToggle) return;
-
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        vibrate(10);
-    });
+    document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
 // Mobile Menu
@@ -1300,9 +1294,8 @@ function setupMobileMenu() {
     const mobileSearchInput = document.getElementById('mobileSearchInput');
     const mobileSearchClear = document.getElementById('mobileSearchClear');
     const mobileNotesButton = document.getElementById('mobileNotesButton');
-    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const mobileSettingsButton = document.getElementById('mobileSettingsButton');
     const mobileCartButton = document.getElementById('mobileCartButton');
-    const html = document.documentElement;
 
     if (!mobileMenuToggle || !mobileMenu) return;
 
@@ -1343,15 +1336,13 @@ function setupMobileMenu() {
         });
     }
 
-    if (mobileThemeToggle) {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-
-        mobileThemeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+    if (mobileSettingsButton) {
+        mobileSettingsButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                const settingsButton = document.getElementById('settingsButton');
+                if (settingsButton) settingsButton.click();
+            }, 150);
             vibrate(10);
         });
     }
@@ -1795,6 +1786,7 @@ function init() {
     setupGifSwitcher();
     setupThemeToggle();
     setupMobileMenu();
+    setupSettingsModal();
     handleUrlParams();
 }
 
@@ -2889,3 +2881,182 @@ function showHomePage() {
 }
 
 init();
+
+// settings
+const SETTINGS_KEY = 'd2pfx_settings';
+
+function loadSettings() {
+    try {
+        const raw = localStorage.getItem(SETTINGS_KEY);
+        return raw ? JSON.parse(raw) : {};
+    } catch { return {}; }
+}
+
+function saveSettings(patch) {
+    const s = { ...loadSettings(), ...patch };
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+    return s;
+}
+
+function applySettings(s) {
+    if (s.theme) {
+        document.documentElement.setAttribute('data-theme', s.theme);
+        localStorage.setItem('theme', s.theme);
+    }
+    const activeTheme = s.theme || 'dark';
+    const activeOS = s.os || 'default';
+    const activeLang = s.gameLang || 'default';
+
+    document.querySelectorAll('.settings-theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === activeTheme);
+    });
+    document.querySelectorAll('.settings-os-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.os === activeOS);
+    });
+    const sel = document.getElementById('gameLangSelect');
+    if (sel) sel.value = activeLang;
+}
+
+function exportSettings() {
+    const s = loadSettings();
+    const cartData = JSON.parse(localStorage.getItem('modCart') || '[]');
+    const assemblies = JSON.parse(localStorage.getItem('savedAssemblies') || '[]');
+    const styleIndices = JSON.parse(localStorage.getItem('styleIndexMap') || '{}');
+
+    const obj = {
+        version: 1,
+        theme: s.theme || 'dark',
+        accentColor: s.accentColor || localStorage.getItem('accentColor') || null,
+        gifTheme: localStorage.getItem('gifIndex') !== null
+            ? GIF_CONFIG.themes[parseInt(localStorage.getItem('gifIndex'))]
+            : 'ursa',
+        gifIndex: localStorage.getItem('gifIndex') || '0',
+        styles: styleIndices,
+        cart: cartData,
+        gameLang: s.gameLang || 'default',
+        os: s.os || 'default',
+        assemblies: assemblies,
+        exported: new Date().toISOString()
+    };
+
+    const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'd2pfx-settings.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Settings exported as d2pfx-settings.txt');
+}
+
+function importSettings(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        try {
+            const obj = JSON.parse(e.target.result);
+            if (obj.version !== 1) throw new Error('Unknown format');
+
+            if (obj.cart) localStorage.setItem('modCart', JSON.stringify(obj.cart));
+            if (obj.styles) localStorage.setItem('styleIndexMap', JSON.stringify(obj.styles));
+            if (obj.assemblies) localStorage.setItem('savedAssemblies', JSON.stringify(obj.assemblies));
+
+            const patch = {};
+            if (obj.theme) patch.theme = obj.theme;
+            if (obj.gifIndex !== undefined) {
+                localStorage.setItem('gifIndex', String(obj.gifIndex));
+                const idx = parseInt(obj.gifIndex);
+                document.documentElement.setAttribute('data-gif-theme', GIF_CONFIG.themes[idx] || 'ursa');
+                const gifEl = document.getElementById('clickable-gif');
+                if (gifEl) gifEl.src = GIF_CONFIG.gifs[idx] || GIF_CONFIG.gifs[0];
+            }
+            if (obj.gameLang) patch.gameLang = obj.gameLang;
+            if (obj.os) patch.os = obj.os;
+            if (obj.accentColor) patch.accentColor = obj.accentColor;
+            saveSettings(patch);
+            applySettings(patch);
+
+            if (typeof loadCart === 'function') {
+                loadCart();
+                updateCartBadge();
+                renderCartItems();
+                updateCartButtons();
+            }
+            if (typeof loadAssemblies === 'function') {
+                loadAssemblies();
+                renderAssembliesList();
+            }
+
+            showToast('Settings imported from d2pfx-settings.txt');
+        } catch (err) {
+            showToast('Import error: invalid d2pfx-settings.txt');
+            console.error(err);
+        }
+    };
+    reader.readAsText(file);
+}
+
+function setupSettingsModal() {
+    const btn = document.getElementById('settingsButton');
+    const overlay = document.getElementById('settingsOverlay');
+    const modal = document.getElementById('settingsModal');
+    const closeBtn = document.getElementById('closeSettingsModal');
+
+    if (!modal || !overlay) return;
+
+    applySettings(loadSettings());
+
+    function openSettings() {
+        applySettings(loadSettings());
+        overlay.classList.add('active');
+        modal.classList.add('active');
+        openModal();
+        vibrate(10);
+    }
+
+    function closeSettings() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        closeModal();
+    }
+
+    btn?.addEventListener('click', openSettings);
+    closeBtn?.addEventListener('click', closeSettings);
+    overlay?.addEventListener('click', closeSettings);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeSettings();
+        }
+    });
+
+    document.querySelectorAll('.settings-theme-btn').forEach(b => {
+        b.addEventListener('click', () => {
+            saveSettings({ theme: b.dataset.theme });
+            applySettings(loadSettings());
+            vibrate(10);
+        });
+    });
+
+    document.querySelectorAll('.settings-os-btn').forEach(b => {
+        b.addEventListener('click', () => {
+            saveSettings({ os: b.dataset.os });
+            applySettings(loadSettings());
+            vibrate(10);
+        });
+    });
+
+    document.getElementById('gameLangSelect')?.addEventListener('change', e => {
+        saveSettings({ gameLang: e.target.value });
+        vibrate(10);
+    });
+
+    document.getElementById('exportSettingsBtn')?.addEventListener('click', exportSettings);
+
+    document.getElementById('importSettingsBtn')?.addEventListener('click', () => {
+        document.getElementById('importSettingsFile').click();
+    });
+    document.getElementById('importSettingsFile')?.addEventListener('change', e => {
+        if (e.target.files[0]) importSettings(e.target.files[0]);
+        e.target.value = '';
+    });
+}

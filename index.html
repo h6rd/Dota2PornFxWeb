@@ -69,9 +69,8 @@
             <span class="material-symbols-rounded">edit_note</span>
             <span class="notes-badge" id="notesBadge"></span>
           </button>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <span class="material-symbols-rounded theme-icon sun">light_mode</span>
-            <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
+          <button class="settings-button" id="settingsButton" aria-label="Settings">
+            <span class="material-symbols-rounded">settings</span>
           </button>
           <button class="cart-button" id="cartButton" aria-label="Cart">
             <span class="material-symbols-rounded">shopping_bag</span>
@@ -95,10 +94,9 @@
             <span>Notes</span>
             <span class="notes-badge" id="mobileNotesBadge"></span>
           </button>
-          <button class="mobile-menu-item" id="mobileThemeToggle" aria-label="Toggle theme">
-            <span class="material-symbols-rounded theme-icon sun">light_mode</span>
-            <span class="material-symbols-rounded theme-icon moon">dark_mode</span>
-            <span>Theme</span>
+          <button class="mobile-menu-item" id="mobileSettingsButton" aria-label="Settings">
+            <span class="material-symbols-rounded">settings</span>
+            <span>Settings</span>
           </button>
           <button class="mobile-menu-item" id="mobileCartButton" aria-label="Cart">
             <span class="material-symbols-rounded">shopping_bag</span>
@@ -334,6 +332,91 @@
           <i class="bxl bx-microsoft-windows"></i>Windows</button>
         <button class="os-picker-btn" id="osBtnLinux">
           <i class='bxl bx-tux'></i>Linux</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- settings modal -->
+  <div id="settingsOverlay" class="info-overlay"></div>
+  <div id="settingsModal" class="info-modal settings-modal">
+    <button class="info-modal-close" id="closeSettingsModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <h2 class="info-modal-title">Settings</h2>
+  
+      <div class="settings-section">
+        <h3 class="settings-section-title">Theme</h3>
+        <div class="settings-option-row">
+          <button class="settings-theme-btn" data-theme="dark">
+            <span class="material-symbols-rounded">dark_mode</span> Dark
+          </button>
+          <button class="settings-theme-btn" data-theme="light">
+            <span class="material-symbols-rounded">light_mode</span> Light
+          </button>
+        </div>
+      </div>
+  
+      <div class="settings-section">
+        <h3 class="settings-section-title">Game Language</h3>
+        <select class="settings-select" id="gameLangSelect">
+          <option value="default" selected>Default</option>
+          <option value="russian">Russian [dota_russian]</option>
+          <option value="english">English [dota_123]</option>
+          <option value="minify">Minify [dota_minify]</option>
+          <option value="ukrainian">Ukrainian [dota_ukrainian]</option>
+          <option value="koreana">한국어 [dota_koreana]</option>
+          <option value="schinese">简体中文 [dota_schinese]</option>
+          <option value="tchinese">繁體中文 [dota_tchinese]</option>
+          <option value="brazilian">Português [dota_brazilian]</option>
+          <option value="latam">Español latinoamericano [dota_latam]</option>
+          <option value="spanish">Español [dota_spanish]</option>
+          <option value="french">Français [dota_french]</option>
+          <option value="italian">Italiano [dota_italian]</option>
+          <option value="german">Deutsch [dota_german]</option>
+          <option value="greek">Ελληνικά [dota_greek]</option>
+          <option value="thai">ไทย [dota_thai]</option>
+          <option value="japanese">日本語 [dota_japanese]</option>
+          <option value="portuguese">Português [dota_portuguese]</option>
+          <option value="polish">Polski [dota_polish]</option>
+          <option value="danish">Dansk [dota_danish]</option>
+          <option value="dutch">Nederlands [dota_dutch]</option>
+          <option value="finnish">Suomi [dota_finnish]</option>
+          <option value="norwegian">Norsk [dota_norwegian]</option>
+          <option value="swedish">Svenska [dota_swedish]</option>
+          <option value="czech">Čeština [dota_czech]</option>
+          <option value="hungarian">Magyar [dota_hungarian]</option>
+          <option value="romanian">Română [dota_romanian]</option>
+          <option value="bulgarian">Български [dota_bulgarian]</option>
+          <option value="turkish">Türkçe [dota_turkish]</option>
+          <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
+        </select>
+      </div>
+  
+      <div class="settings-section">
+        <h3 class="settings-section-title">System</h3>
+        <div class="settings-option-row">
+          <button class="settings-os-btn" data-os="default">Default</button>
+          <button class="settings-os-btn" data-os="windows">
+            <i class="bxl bx-microsoft-windows"></i> Windows
+          </button>
+          <button class="settings-os-btn" data-os="linux">
+            <i class="bxl bx-tux"></i> Linux
+          </button>
+        </div>
+      </div>
+  
+      <div class="settings-section">
+        <h3 class="settings-section-title">Export / Import Settings</h3>
+        <div class="settings-option-row">
+          <button class="settings-action-btn" id="exportSettingsBtn">
+            <span class="material-symbols-rounded">upload_file</span> Export
+          </button>
+          <button class="settings-action-btn" id="importSettingsBtn">
+            <span class="material-symbols-rounded">download</span> Import
+          </button>
+          <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
+        </div>
       </div>
     </div>
   </div>

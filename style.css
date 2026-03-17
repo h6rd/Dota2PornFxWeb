@@ -561,6 +561,9 @@ body.loaded .footer {
 .header-actions-desktop {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -1638,6 +1641,7 @@ fcode {
   max-width: 180px;
   z-index: 2;
   position: relative;
+  pointer-events: auto;
 }
 
 .search-box {
@@ -4094,6 +4098,140 @@ fcode {
   }
 }
 
+/* settings button */
+.settings-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  margin-left: 12px;
+}
+
+.settings-button:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+  transform: scale(1.05);
+}
+
+.settings-button:active {
+  transform: scale(0.95);
+}
+
+.settings-button .material-symbols-rounded {
+  font-size: 20px;
+}
+
+/* settings modal */
+.settings-modal {
+  max-width: 480px;
+}
+
+.settings-section {
+  margin-bottom: 1.5rem;
+}
+
+.settings-section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 0.6rem;
+}
+
+.settings-option-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.settings-theme-btn,
+.settings-os-btn,
+.settings-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s, border-color 0.15s;
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-theme-btn.active,
+.settings-os-btn.active {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 15%, transparent);
+  color: var(--md-sys-color-primary);
+}
+
+.settings-theme-btn:hover,
+.settings-os-btn:hover,
+.settings-action-btn:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.settings-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.settings-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.5rem 2.2rem 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  outline: none;
+  width: 100%;
+}
+
+.settings-select:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.settings-select:focus {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.settings-select-wrapper::after {
+  content: 'expand_more';
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.1rem;
+  color: var(--md-sys-color-on-surface-variant);
+  position: absolute;
+  right: 0.5rem;
+  pointer-events: none;
+}
+
+.settings-select option {
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+
 /* Media */
 @media (max-width: 1024px) {
   .carousel-track .card {
@@ -4562,5 +4700,9 @@ fcode {
   .cart-clear-btn,
   .cart-pack-btn {
     width: 100%;
+  }
+
+  .settings-button {
+    display: none;
   }
 }
