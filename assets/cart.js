@@ -1207,6 +1207,50 @@ function generateLinuxSh(langFolder, customDotaPath) {
     return s.join(nl);
 }
 
+function diagnoseFetchError(error, filePath) {
+    const msg = (error?.message || '').toLowerCase();
+    const name = (error?.name || '').toLowerCase();
+
+    if (window.location.protocol === 'file:') {
+        return {
+            message: 'Page opened as a local file (file://)',
+            suggestion: '💡 Open the site via a normal https:// link, not as a local file'
+        };
+    }
+
+    if (msg.includes('failed to fetch') || name === 'typeerror') {
+        return {
+            message: 'Browser blocked the file download',
+            suggestion: '💡 Disable AdBlock / uBlock / browser extensions, or try Incognito mode (Ctrl+Shift+N)'
+        };
+    }
+
+    if (msg.includes('timeout') || msg.includes('aborted') || name === 'aborterror') {
+        return {
+            message: 'File download timed out',
+            suggestion: '💡 Check your internet connection and try again'
+        };
+    }
+
+    if (msg.includes('jszip') || (filePath === 'pack' && msg.includes('script'))) {
+        return {
+            message: 'Failed to load JSZip library',
+            suggestion: '💡 Reload the page (F5) and try again. If that doesn\'t help - disable browser extensions'
+        };
+    }
+
+    if (msg.includes('network') || msg.includes('net::')) {
+        return {
+            message: 'No internet connection',
+            suggestion: '💡 Check your internet connection and try again'
+        };
+    }
+
+    return {
+        message: error?.message || 'Unknown error',
+        suggestion: '💡 Try reloading the page, disabling VPN, or switching to a different browser'
+    };
+}
 
 async function packAndDownload() {
     if (cart.length === 0) return;
@@ -1306,8 +1350,24 @@ async function packAndDownload() {
                 const filePath = `assets/files/${item.categoryId}/${liveFile}`;
 
                 try {
-                    const response = await fetch(filePath);
-                    if (!response.ok) throw new Error(`Failed to fetch ${liveFile}`);
+                    let response;
+                    try {
+                        response = await fetch(filePath);
+                    } catch (networkErr) {
+                        const reason = diagnoseFetchError(networkErr, filePath);
+                        addLog(`❌ ${item.name}: ${reason.message}`, 'error');
+                        addLog(reason.suggestion, 'warning');
+                        hasFileErrors = true;
+                        fileErrors.push(item.name);
+                        return;
+                    }
+                    if (!response.ok) {
+                        addLog(`❌ ${item.name}: File not found on server (HTTP ${response.status})`, 'error');
+                        addLog('💡 Try downloading it later - file may be temporarily unavailable', 'warning');
+                        hasFileErrors = true;
+                        fileErrors.push(item.name);
+                        return;
+                    }
 
                     const blob = await response.blob();
 
@@ -1554,38 +1614,55 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         const langFolder = langFolderMap[selectedLang] || 'dota_123';
 
         if (selectedOS === 'default') {
-            const [exeResponse, linuxResponse] = await Promise.all([
-                fetch('assets/files/VPKMerge/VPKMerge.exe'),
-                fetch('assets/files/VPKMerge/VPKMerge')
-            ]);
-            if (exeResponse.ok) {
-                modsFolder.file('VPKMerge.exe', await exeResponse.blob());
-            } else {
-                addLog('VPKMerge.exe not found', 'warning');
-            }
-            if (linuxResponse.ok) {
-                modsFolder.file('VPKMerge', await linuxResponse.blob());
-            } else {
-                addLog('VPKMerge Linux not found', 'warning');
-            }
-            if (exeResponse.ok || linuxResponse.ok) {
-                addLog('VPKMerge added', 'success');
+            try {
+                const [exeResponse, linuxResponse] = await Promise.all([
+                    fetch('assets/files/VPKMerge/VPKMerge.exe'),
+                    fetch('assets/files/VPKMerge/VPKMerge')
+                ]);
+                if (exeResponse.ok) {
+                    modsFolder.file('VPKMerge.exe', await exeResponse.blob());
+                } else {
+                    addLog('VPKMerge.exe not found', 'warning');
+                }
+                if (linuxResponse.ok) {
+                    modsFolder.file('VPKMerge', await linuxResponse.blob());
+                } else {
+                    addLog('VPKMerge Linux not found', 'warning');
+                }
+                if (exeResponse.ok || linuxResponse.ok) addLog('VPKMerge added', 'success');
+            } catch (err) {
+                const reason = diagnoseFetchError(err, 'VPKMerge');
+                addLog(`VPKMerge not loaded: ${reason.message}`, 'warning');
+                addLog(reason.suggestion, 'warning');
+                addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else if (selectedOS === 'windows') {
-            const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
-            if (exeResponse.ok) {
-                modsFolder.file('VPKMerge.exe', await exeResponse.blob());
-                addLog('VPKMerge.exe added', 'success');
-            } else {
-                addLog('VPKMerge.exe not found', 'warning');
+            try {
+                const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
+                if (exeResponse.ok) {
+                    modsFolder.file('VPKMerge.exe', await exeResponse.blob());
+                    addLog('VPKMerge.exe added', 'success');
+                } else {
+                    addLog('VPKMerge.exe not found', 'warning');
+                }
+            } catch (err) {
+                const reason = diagnoseFetchError(err, 'VPKMerge.exe');
+                addLog(`VPKMerge.exe is not loaded: ${reason.message}`, 'warning');
+                addLog(reason.suggestion, 'warning');
             }
         } else {
-            const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
-            if (linuxResponse.ok) {
-                modsFolder.file('VPKMerge', await linuxResponse.blob());
-                addLog('VPKMerge (Linux) added', 'success');
-            } else {
-                addLog('VPKMerge Linux not found', 'warning');
+            try {
+                const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
+                if (linuxResponse.ok) {
+                    modsFolder.file('VPKMerge', await linuxResponse.blob());
+                    addLog('VPKMerge (Linux) added', 'success');
+                } else {
+                    addLog('VPKMerge Linux not found', 'warning');
+                }
+            } catch (err) {
+                const reason = diagnoseFetchError(err, 'VPKMerge');
+                addLog(`VPKMerge not loaded: ${reason.message}`, 'warning');
+                addLog(reason.suggestion, 'warning');
             }
         }
         
@@ -1636,7 +1713,9 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
     } catch (error) {
         console.error('Pack error:', error);
-        addLog(`Critical Error: ${error.message || 'Unknown error occurred'}`, 'error');
+        const reason = diagnoseFetchError(error, 'pack');
+        addLog(`❌ Critical error: ${reason.message}`, 'error');
+        addLog(`💡 ${reason.suggestion}`, 'warning');
 
         const compressed = compressAssembly({
             name: 'Recovery Pack',
