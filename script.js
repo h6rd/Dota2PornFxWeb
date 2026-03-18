@@ -380,6 +380,7 @@ const MOD_AUTHOR = {
 const MOD_SENDER = {
   'dabaqz': '',
   'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
+  'NahuiToSay': 'https://t.me/NahuiToSay',
 };
 
 function resolveNickname(value, map) {
@@ -388,6 +389,8 @@ function resolveNickname(value, map) {
 }
 
 //Highlight Hero Names
+const HERO_NAME_EXCEPTIONS = ['Kez'];
+
 const highlightHeroNames = (text) => {
     if (!text) return text;
 
@@ -396,7 +399,9 @@ const highlightHeroNames = (text) => {
     let firstMatchHero = null;
 
     HEROES_LIST.forEach(hero => {
-        const regex = new RegExp(`\\b${hero}\\b`, 'i');
+        const regex = HERO_NAME_EXCEPTIONS.includes(hero)
+            ? new RegExp(hero, 'i')
+            : new RegExp(`\\b${hero}\\b`, 'i');
         const match = text.match(regex);
         if (match && match.index < firstMatchIndex) {
             firstMatchIndex = match.index;
@@ -406,7 +411,9 @@ const highlightHeroNames = (text) => {
     });
 
     if (firstMatch) {
-        const regex = new RegExp(`\\b${firstMatchHero}\\b`, 'i');
+        const regex = HERO_NAME_EXCEPTIONS.includes(firstMatchHero)
+            ? new RegExp(firstMatchHero, 'i')
+            : new RegExp(`\\b${firstMatchHero}\\b`, 'i');
         return text.replace(regex, (match) => {
             return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
         });
