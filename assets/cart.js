@@ -946,7 +946,8 @@ function getUniqueFileName(fileName, existingNames) {
     return newFileName;
 }
 
-function generateWindowsBat(langFolder) {
+function generateWindowsBat(langFolder, customDotaPath) {
+    const hasCustomPath = customDotaPath && customDotaPath.length > 0;
     const lines = [
         '@echo off',
         'setlocal enabledelayedexpansion',
@@ -958,8 +959,20 @@ function generateWindowsBat(langFolder) {
         '',
         'set "DOTA_PATH="',
         '',
-        'for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
-        '    set "DOTA_PATH=%%b\\game"',
+        ...(hasCustomPath ? [
+            'REM Try user-specified path first',
+            'if exist "' + customDotaPath + '\\" (',
+            '    set "DOTA_PATH=' + customDotaPath + '"',
+            '    echo [OK] Using user path',
+            ') else (',
+            '    echo [WARN] User path not found, falling back to auto detect...',
+            ')',
+            '',
+        ] : []),
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
+        '        set "DOTA_PATH=%%b\\game"',
+        '    )',
         ')',
         'if not defined DOTA_PATH (',
         '    for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
@@ -1044,7 +1057,8 @@ function generateWindowsBat(langFolder) {
     return lines.join('\r\n');
 }
 
-function generateLinuxSh(langFolder) {
+function generateLinuxSh(langFolder, customDotaPath) {
+    const hasCustomPath = customDotaPath && customDotaPath.length > 0;
     const nl = '\n';
     const s = [
         '#!/bin/bash',
@@ -1057,15 +1071,25 @@ function generateLinuxSh(langFolder) {
         'chmod +x VPKMerge',
         '',
         'echo "Running VPKMerge..."',
-        './VPKMerge',
+        './VPKMerge || { echo "[ERROR] VPKMerge failed. Aborting."; exit 1; }',
         '',
         'DOTA_PATH=""',
         '',
+        ...(hasCustomPath ? [
+            'CUSTOM_PATH="' + customDotaPath.replace(/"/g, '\\"') + '"',
+            'if [ -d "$CUSTOM_PATH" ]; then',
+            '    DOTA_PATH="$CUSTOM_PATH"',
+            '    echo "[OK] Using user path: $CUSTOM_PATH"',
+            'else',
+            '    echo "[WARN] User path not found, falling back to auto detect..."',
+            'fi',
+            '',
+        ] : []),
         'find_in_vdf() {',
         '    local vdf="$1"',
         '    [ -f "$vdf" ] || return',
         '    while IFS= read -r line; do',
-        '        val=$(echo "$line" | grep -i \'"path"\' | sed \'s/.*"[Pp]ath"[[:space:]]*"\\(.*\\)"/\\1/\')',
+        '        val=$(echo "$line" | grep -i \'"path"\' | sed \'s/.*"[Pp]ath"[[:space:]]*"\\(.*\\)"/\\1/\' | sed \'s|\\\\\\\\|/|g\')',
         '        [ -z "$val" ] && continue',
         '        local candidate="$val/steamapps/common/dota 2 beta/game"',
         '        if [ -d "$candidate" ]; then',
@@ -1075,17 +1099,19 @@ function generateLinuxSh(langFolder) {
         '    done < "$vdf"',
         '}',
         '',
-        'for vdf in \\',
-        '    "$HOME/.steam/steam/steamapps/libraryfolders.vdf" \\',
-        '    "$HOME/.local/share/Steam/steamapps/libraryfolders.vdf" \\',
-        '    "$HOME/.steam/root/steamapps/libraryfolders.vdf"',
-        'do',
-        '    result=$(find_in_vdf "$vdf")',
-        '    if [ -n "$result" ]; then',
-        '        DOTA_PATH="$result"',
-        '        break',
-        '    fi',
-        'done',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for vdf in \\',
+        '        "$HOME/.steam/steam/steamapps/libraryfolders.vdf" \\',
+        '        "$HOME/.local/share/Steam/steamapps/libraryfolders.vdf" \\',
+        '        "$HOME/.steam/root/steamapps/libraryfolders.vdf"',
+        '    do',
+        '        result=$(find_in_vdf "$vdf")',
+        '        if [ -n "$result" ]; then',
+        '            DOTA_PATH="$result"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
         '',
         'if [ -z "$DOTA_PATH" ]; then',
         '    for root in \\',
@@ -1119,7 +1145,7 @@ function generateLinuxSh(langFolder) {
         'fi',
         '',
         'if [ -z "$DOTA_PATH" ]; then',
-        '    result=$(find "$HOME" /mnt /media -maxdepth 8 -type d -name "dota 2 beta" 2>/dev/null | head -1)',
+        '    result=$(find "$HOME" /mnt /media -maxdepth 5 -type d -name "dota 2 beta" 2>/dev/null | head -1)',
         '    if [ -n "$result" ]; then',
         '        DOTA_PATH="$result/game"',
         '    fi',
@@ -1138,37 +1164,19 @@ function generateLinuxSh(langFolder) {
         '    echo "[OK] Created folder: $LANG_DIR"',
         'fi',
         '',
-        'trash_item() {',
-        '    local target="$1"',
-        '    [ -e "$target" ] || return 0',
-        '    local trash_files="$HOME/.local/share/Trash/files"',
-        '    local trash_info="$HOME/.local/share/Trash/info"',
-        '    mkdir -p "$trash_files" "$trash_info"',
-        '    local bname',
-        '    bname=$(basename "$target")',
-        '    local dest="$trash_files/$bname"',
-        '    local n=1',
-        '    while [ -e "$dest" ]; do',
-        '        dest="$trash_files/${bname%.*}_${n}.${bname##*.}"',
-        '        n=$((n + 1))',
-        '    done',
-        '    mv "$target" "$dest"',
-        '    printf "[Trash Info]\\nPath=%s\\nDeletionDate=%s\\n" "$target" "$(date +%Y-%m-%dT%H:%M:%S)" > "$trash_info/${bname}.trashinfo"',
-        '    echo "[INFO] Moved existing $bname to Trash"',
-        '}',
-        '',
         'if [ -f "pak10_dir.vpk" ]; then',
         '    mv -f "pak10_dir.vpk" "$LANG_DIR/"',
         '    echo "[OK] Moved pak10_dir.vpk to $LANG_DIR"',
         'fi',
         '',
-        'rm -rf "$LANG_DIR/maps"',
         'if [ -d "maps" ]; then',
+        '    rm -rf "$LANG_DIR/maps"',
         '    cp -r "maps" "$LANG_DIR/"',
         '    rm -rf "maps"',
         '    echo "[OK] Moved maps to $LANG_DIR"',
         'fi',
         '',
+        'cd "$SCRIPT_DIR"',
         'for dir in */; do',
         '    [ -d "$dir" ] || continue',
         '    dirlow=$(echo "$dir" | tr \'[:upper:]\' \'[:lower:]\')',
@@ -1176,17 +1184,14 @@ function generateLinuxSh(langFolder) {
         '        *cursor*)',
         '            CURSOR_DST="$DOTA_PATH/dota/resource/cursor"',
         '            mkdir -p "$CURSOR_DST"',
-        '            if [ -d "${dir%/}" ]; then',
-        '                cp -r "${dir%/}/." "$CURSOR_DST/"',
-        '                echo "[OK] Installed cursor from $dir to $CURSOR_DST"',
-        '            fi',
+        '            cp -r "${dir%/}/." "$CURSOR_DST/"',
+        '            echo "[OK] Installed cursor from $dir to $CURSOR_DST"',
         '            ;;',
         '        *font*)',
         '            FONTS_DST="$DOTA_PATH/dota/panorama/fonts"',
-        '            mkdir -p "$FONTS_DST"',
-        '            echo "[INFO] Clearing existing fonts..."',
-        '            rm -f "$FONTS_DST"/*',
         '            if [ -d "${dir%/}/assets/custom" ]; then',
+        '                mkdir -p "$FONTS_DST"',
+        '                rm -f "$FONTS_DST"/*',
         '                cp -r "${dir%/}/assets/custom/." "$FONTS_DST/"',
         '                echo "[OK] Installed font from ${dir}assets/custom/ to $FONTS_DST"',
         '            else',
@@ -1533,6 +1538,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         })();
         const selectedOS = settings.os || 'default';
         const selectedLang = settings.gameLang || 'default';
+        const customDotaPath = (settings.dotaPath || '').trim();
         const langFolderMap = {
             russian: 'dota_russian', english: 'dota_123', minify: 'dota_minify',
             koreana: 'dota_koreana', schinese: 'dota_schinese', tchinese: 'dota_tchinese',
@@ -1582,13 +1588,14 @@ Specify which mods are displaying incorrectly and attach the full list of instal
                 addLog('VPKMerge Linux not found', 'warning');
             }
         }
-        addLog('Generating install script...', 'info');
-
+        
         if (selectedOS === 'windows') {
-            rootFolder.file('Auto-Install.bat', generateWindowsBat(langFolder));
+            addLog('Generating install script...', 'info');
+            rootFolder.file('Auto-Install.bat', generateWindowsBat(langFolder, customDotaPath));
             addLog('Auto-Install.bat added', 'success');
         } else if (selectedOS === 'linux') {
-            rootFolder.file('Auto-Install.sh', generateLinuxSh(langFolder));
+            addLog('Generating install script...', 'info');
+            rootFolder.file('Auto-Install.sh', generateLinuxSh(langFolder, customDotaPath));
             addLog('Auto-Install.sh added', 'success');
         }
 

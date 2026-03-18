@@ -358,6 +358,19 @@
       </div>
   
       <div class="settings-section">
+        <h3 class="settings-section-title">System</h3>
+        <div class="settings-option-row">
+          <button class="settings-os-btn" data-os="default">Default</button>
+          <button class="settings-os-btn" data-os="windows">
+            <i class="bxl bx-microsoft-windows"></i> Windows
+          </button>
+          <button class="settings-os-btn" data-os="linux">
+            <i class="bxl bx-tux"></i> Linux
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
         <h3 class="settings-section-title">Game Language</h3>
         <select class="settings-select" id="gameLangSelect">
           <option value="default" selected>Default</option>
@@ -392,18 +405,12 @@
           <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
         </select>
       </div>
-  
+
       <div class="settings-section">
-        <h3 class="settings-section-title">System</h3>
-        <div class="settings-option-row">
-          <button class="settings-os-btn" data-os="default">Default</button>
-          <button class="settings-os-btn" data-os="windows">
-            <i class="bxl bx-microsoft-windows"></i> Windows
-          </button>
-          <button class="settings-os-btn" data-os="linux">
-            <i class="bxl bx-tux"></i> Linux
-          </button>
-        </div>
+        <h3 class="settings-section-title">Dota 2 Path</h3>
+        <input type="text" class="settings-path-input" id="dotaPathInput" placeholder="Auto detect" autocomplete="off"
+          spellcheck="false" />
+          <span class="settings-section-hint">e.g. C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game</span>
       </div>
   
       <div class="settings-section">

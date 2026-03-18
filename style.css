@@ -4134,6 +4134,10 @@ fcode {
   max-width: 480px;
 }
 
+.settings-modal .info-modal-content {
+  overflow-y: visible;
+}
+
 .settings-section {
   margin-bottom: 1.5rem;
 }
@@ -4230,6 +4234,44 @@ fcode {
 .settings-select option {
   background: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);
+}
+
+.settings-path-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+  outline: none;
+}
+
+.settings-path-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.settings-path-input:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.settings-path-input:focus {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.settings-section-hint {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.8;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 0.4rem;
+  font-style: italic;
 }
 
 /* Media */

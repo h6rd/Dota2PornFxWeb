@@ -2915,6 +2915,11 @@ function applySettings(s) {
     });
     const sel = document.getElementById('gameLangSelect');
     if (sel) sel.value = activeLang;
+
+    const pathInput = document.getElementById('dotaPathInput');
+    if (pathInput) {
+        pathInput.value = s.dotaPath || '';
+    }
 }
 
 function exportSettings() {
@@ -2935,6 +2940,7 @@ function exportSettings() {
         cart: cartData,
         gameLang: s.gameLang || 'default',
         os: s.os || 'default',
+        dotaPath: s.dotaPath || '',
         assemblies: assemblies,
         exported: new Date().toISOString()
     };
@@ -2971,6 +2977,7 @@ function importSettings(file) {
             }
             if (obj.gameLang) patch.gameLang = obj.gameLang;
             if (obj.os) patch.os = obj.os;
+            if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
             if (obj.accentColor) patch.accentColor = obj.accentColor;
             saveSettings(patch);
             applySettings(patch);
@@ -3049,6 +3056,21 @@ function setupSettingsModal() {
         saveSettings({ gameLang: e.target.value });
         vibrate(10);
     });
+
+    const pathInput = document.getElementById('dotaPathInput');
+    if (pathInput) {
+        pathInput.addEventListener('input', () => {
+            const val = pathInput.value.trim();
+            saveSettings({ dotaPath: val });
+        });
+        pathInput.addEventListener('blur', () => {
+            const val = pathInput.value.trim();
+            if (!val) {
+                pathInput.value = '';
+                saveSettings({ dotaPath: '' });
+            }
+        });
+    }
 
     document.getElementById('exportSettingsBtn')?.addEventListener('click', exportSettings);
 
