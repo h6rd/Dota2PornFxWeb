@@ -1,6 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Purple Queen of Pain', category: 'heroes' },
+    { name: 'Necrophos Serpent Spite', category: 'heroes' },
     { name: 'Naga Siren Serega Pirat', category: 'hero-sounds' },
     { name: 'Nude Marci', category: 'heroes' },
     { name: 'Tinker Lite Machines', category: 'optimization' },
@@ -422,6 +424,8 @@ const modsData = {
         { name: 'Hell Muerta', preview: 'Hell Muerta.webp', file: 'Hell Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         { name: 'Wraith King Arcana', preview: 'Wraith King Arcana.webp', file: 'Wraith King Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         { name: 'Nude Marci', preview: 'Nude Marci.webp', file: 'Nude Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Necrophos Serpent Spite', preview: 'Necrophos Serpent Spite.webp', file: 'Necrophos Serpent Spite.zip', tags: { effects: false, icons: false }},
+        { name: 'Purple Queen of Pain', preview: 'Purple Queen of Pain.webp', file: 'Purple Queen of Pain.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }, { type: 'author', url: 'Pinkie' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [

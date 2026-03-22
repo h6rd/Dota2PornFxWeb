@@ -2065,7 +2065,7 @@ fcode {
     transition: outline-color 0.15s, filter 0.15s, opacity 0.15s;
     outline: 2px solid transparent;
     outline-offset: 2px;
-    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.396);
+    box-shadow: 0 1px 3px rgba(186, 186, 186, 0.442);
     opacity: 0.75;
 }
 
