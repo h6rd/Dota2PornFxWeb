@@ -681,7 +681,7 @@ const modsData = {
         { name: 'High Five Crownfall', preview: 'High Five Crownfall.mp4', file: 'pak77_dir.vpk' }
     ],
     'other': [
-        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak44_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
+        { name: 'Profile Graffiti & Phrases', preview: 'Profile Graffiti & Phrases.webp', file: 'pak10_dir.vpk', linkType: 'author', linkUrl: 'https://steamcommunity.com/profiles/76561199145739904' },
         { name: 'Showcase Rotation', preview: 'Showcase Rotation.mp4', file: 'pak11_dir.vpk' },
         { name: 'Rage Voice Icon', preview: 'Rage Voice Icon.webp', file: 'pak12_dir.vpk' },
         { name: 'Gabe Shopkeeper', preview: 'Gabe Shopkeeper.webp', file: 'pak13_dir.vpk' },

@@ -1,5 +1,5 @@
 let cart = [];
-const MAX_CART_ITEMS = 100;
+const MAX_CART_ITEMS = 150;
 
 let savedAssemblies = [];
 const MAX_ASSEMBLIES = 10;
@@ -492,7 +492,7 @@ function addToCart(mod, categoryId) {
     }
 
     if (cart.length >= MAX_CART_ITEMS) {
-        showToast('Cart is full (max 100 items)');
+        showToast('Cart is full (max 150 items)');
         return;
     }
 
@@ -1362,7 +1362,7 @@ async function packAndDownload() {
                         return;
                     }
                     if (!response.ok) {
-                        addLog(`❌ ${item.name}: File not found on server (HTTP ${response.status})`, 'error');
+                        addLog(`❌ ${item.name}: File not found (HTTP ${response.status})`, 'error');
                         addLog('💡 Try downloading it later - file may be temporarily unavailable', 'warning');
                         hasFileErrors = true;
                         fileErrors.push(item.name);
@@ -1459,7 +1459,7 @@ async function packAndDownload() {
         }
 
         if (hasFileErrors) {
-            const compressed = compressAssembly({
+            const compressed = await compressAssembly({
                 name: 'Recovery Pack',
                 items: cart
             });
@@ -1649,6 +1649,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
                 const reason = diagnoseFetchError(err, 'VPKMerge.exe');
                 addLog(`VPKMerge.exe is not loaded: ${reason.message}`, 'warning');
                 addLog(reason.suggestion, 'warning');
+                addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else {
             try {
@@ -1663,6 +1664,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
                 const reason = diagnoseFetchError(err, 'VPKMerge');
                 addLog(`VPKMerge not loaded: ${reason.message}`, 'warning');
                 addLog(reason.suggestion, 'warning');
+                addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         }
         
@@ -1681,8 +1683,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
         const content = await mainZip.generateAsync({
             type: 'blob',
-            compression: 'DEFLATE',
-            compressionOptions: { level: 1 }
+            compression: 'STORE',
         }, (metadata) => {
             const percent = metadata.percent.toFixed(0);
             statusText.textContent = `Compressing... ${percent}%`;
@@ -1717,7 +1718,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         addLog(`❌ Critical error: ${reason.message}`, 'error');
         addLog(`💡 ${reason.suggestion}`, 'warning');
 
-        const compressed = compressAssembly({
+        const compressed = await compressAssembly({
             name: 'Recovery Pack',
             items: cart
         });
@@ -1807,37 +1808,76 @@ if (document.readyState === 'loading') {
     loadSharedAssembly();
 }
 
-function compressAssembly(assembly) {
-    return btoa(encodeURIComponent(JSON.stringify({
+async function compressAssembly(assembly) {
+    const json = JSON.stringify({
         name: assembly.name,
         items: assembly.items.map(item => ({
             n: item.name,
             c: item.categoryId,
             g: item.groupId
         }))
-    })));
+    });
+
+    const stream = new CompressionStream('deflate-raw');
+    const writer = stream.writable.getWriter();
+    writer.write(new TextEncoder().encode(json));
+    writer.close();
+
+    const compressed = await new Response(stream.readable).arrayBuffer();
+    const bytes = new Uint8Array(compressed);
+
+    let binary = '';
+    bytes.forEach(b => binary += String.fromCharCode(b));
+
+    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-function decompressAssembly(compressed) {
+async function decompressAssembly(compressed) {
     try {
-        const data = JSON.parse(decodeURIComponent(atob(compressed)));
-        
+        const standard = compressed.replace(/-/g, '+').replace(/_/g, '/');
+        const padded = standard + '=='.slice(0, (4 - standard.length % 4) % 4);
+        const binary = atob(padded);
+        const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+
+        const stream = new DecompressionStream('deflate-raw');
+        const writer = stream.writable.getWriter();
+        writer.write(bytes);
+        writer.close();
+
+        const decompressed = await new Response(stream.readable).arrayBuffer();
+        const json = new TextDecoder().decode(decompressed);
+        const data = JSON.parse(json);
+
         const items = data.items.map(item => {
             const categoryId = item.c;
             const groupId = item.g || null;
-            
             return {
                 id: groupId ? `${categoryId}-${groupId}-${item.n}` : `${categoryId}-${item.n}`,
                 name: item.n,
-                categoryId: categoryId,
-                groupId: groupId
+                categoryId,
+                groupId
             };
         });
 
         return { name: data.name, items };
     } catch (e) {
-        console.error('Failed to decompress pack:', e);
-        return null;
+        try {
+            const data = JSON.parse(decodeURIComponent(atob(compressed)));
+            const items = data.items.map(item => {
+                const categoryId = item.c;
+                const groupId = item.g || null;
+                return {
+                    id: groupId ? `${categoryId}-${groupId}-${item.n}` : `${categoryId}-${item.n}`,
+                    name: item.n,
+                    categoryId,
+                    groupId
+                };
+            });
+            return { name: data.name, items };
+        } catch (e2) {
+            console.error('Failed to decompress pack:', e2);
+            return null;
+        }
     }
 }
 
@@ -1854,19 +1894,19 @@ async function shareAssembly(assemblyId) {
     const assembly = savedAssemblies.find(a => a.id === assemblyId);
     if (!assembly) return;
 
-    const compressed = compressAssembly(assembly);
+    const compressed = await compressAssembly(assembly);
     const baseUrl = window.location.origin + window.location.pathname;
     const longUrl = `${baseUrl}?pack=${compressed}`;
 
     try {
         const shortCode = generateShortCode();
-        
+
         const response = await fetch('https://share.d2pfx.workers.dev/api/shorten', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                code: shortCode, 
-                url: longUrl 
+            body: JSON.stringify({
+                code: shortCode,
+                url: longUrl
             })
         });
 
@@ -1888,16 +1928,28 @@ async function shareAssembly(assemblyId) {
     }
 }
 
-function loadSharedAssembly() {
+async function loadSharedAssembly() {
     const params = new URLSearchParams(window.location.search);
     const packData = params.get('pack');
 
     if (!packData) return;
 
-    const assembly = decompressAssembly(packData);
+    const assembly = await decompressAssembly(packData);
     if (!assembly) {
         showToast('Invalid pack link');
         return;
+    }
+
+    if (cart.length > 0 && savedAssemblies.length < MAX_ASSEMBLIES) {
+        const recovery = {
+            id: Date.now().toString(),
+            name: 'Recovery Pack',
+            items: cart.map(item => ({ ...item })),
+            date: new Date().toISOString()
+        };
+        savedAssemblies.push(recovery);
+        saveAssemblies();
+        showToast('Previous cart saved as <span style="color: var(--md-sys-color-shit); font-weight: bold;">Recovery Pack</span>');
     }
 
     cart = [...assembly.items];
