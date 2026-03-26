@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Nothing', category: 'fonts' },
     { name: 'Purple Queen of Pain', category: 'heroes' },
     { name: 'Necrophos Serpent Spite', category: 'heroes' },
     { name: 'Naga Siren Serega Pirat', category: 'hero-sounds' },
@@ -890,6 +891,7 @@ const modsData = {
         { name: 'Correction Tape', preview: 'Correction Tape.webp', file: 'Correction Tape Font.zip' },
         { name: 'Audex', preview: 'Audex.webp', file: 'Audex Font.zip' },
         { name: 'HondaC', preview: 'HondaC.webp', file: 'HondaC Font.zip' },
+        { name: 'Nothing', preview: 'Nothing.webp', file: 'Nothing Font.zip' },
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
