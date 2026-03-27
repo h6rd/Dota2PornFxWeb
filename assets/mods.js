@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
     { name: 'Nothing', category: 'fonts' },
     { name: 'Purple Queen of Pain', category: 'heroes' },
     { name: 'Necrophos Serpent Spite', category: 'heroes' },
