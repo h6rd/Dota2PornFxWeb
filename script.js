@@ -375,6 +375,7 @@ const MOD_AUTHOR = {
   'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
   'Kynomi': 'https://vk.com/kynomi',
   'Pinkie': 'https://steamcommunity.com/profiles/76561198142595363',
+  'VPKDota': 'https://t.me/vpkdota'
 };
 
 const MOD_SENDER = {

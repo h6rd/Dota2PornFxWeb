@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Catbuns Trees', category: 'trees' },
     { name: 'Terrorblade Unblinking Horror', category: 'heroes' },
     { name: 'Nothing', category: 'fonts' },
     { name: 'Purple Queen of Pain', category: 'heroes' },
@@ -314,7 +315,7 @@ const modsData = {
         { name: 'Drow Ranger Diretide', preview: 'Drow Ranger Diretide.webp', file: 'Drow Ranger Diretide.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-custom_megapack_drow_ranger_sylvanas_live_diretide/' }] },
         { name: 'Red Monkey King', preview: 'Red Monkey King.webp', file: 'Red Monkey King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Anti-Mage Ronin Warrior', preview: 'Anti-Mage Ronin Warrior.webp', file: 'Anti-Mage Ronin Warrior.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
-        { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'Darkness' }] },
+        // { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'Darkness' }] },
         { name: 'Custom Slark', preview: 'Custom Slark.webp', file: 'Custom Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Chen Lelouch', preview: 'Chen Lelouch.webp', file: 'Chen Lelouch.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'http://www.dota2rpg.com/forum.php?mod=viewthread&tid=2959&extra=page%3D1' }] },
         { name: 'Kez Captain Anchorbeak', preview: 'Kez Captain Anchorbeak.webp', file: 'Kez Captain Anchorbeak.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198016243370' }] },
@@ -576,6 +577,7 @@ const modsData = {
         { name: 'LowPoly Shrub Trees', preview: 'LowPoly Shrub Trees.webp', file: 'pak19_dir.vpk' },
         { name: 'LowPoly Trees', preview: 'LowPoly Trees.webp', file: 'pak20_dir.vpk', links: [{ type: 'author', url: 'Lenz' }] },
         { name: 'LowPoly Barrel Trees', preview: 'LowPoly Barrel Trees.webp', file: 'pak21_dir.vpk' },
+        { name: 'Catbuns Trees', preview: 'Catbuns Trees.webp', file: 'pak22_dir.vpk', links: [{ type: 'author', url: 'VPKDota' }] },
     ],
     'hero-items': [
         { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false, weapon: true } },
