@@ -1,6 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Joker Ringmaster', category: 'heroes' },
+    { name: 'Shaolin Master Oracle', category: 'heroes' },
     { name: 'Axe Kratos', category: 'heroes' },
     { name: 'Lion Witcher', category: 'heroes' },
     { name: 'Earthshaker Purple Arcana', category: 'heroes' },
@@ -371,6 +373,8 @@ const modsData = {
         { name: 'Earthshaker Purple Arcana', preview: 'Earthshaker Purple Arcana.webp', file: 'Earthshaker Purple Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Lion Witcher', preview: 'Lion Witcher.webp', file: 'Lion Witcher.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Axe Kratos', preview: 'Axe Kratos.webp', file: 'Axe Kratos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Shaolin Master Oracle', preview: 'Shaolin Master Oracle.webp', file: 'Shaolin Master Oracle.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Joker Ringmaster', preview: 'Joker Ringmaster.webp', file: 'Joker Ringmaster.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
