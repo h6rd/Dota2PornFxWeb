@@ -19,7 +19,6 @@
 - **Regular Updates**: New content added regularly with latest updates
 - **User-Friendly**: Intuitive interface with search, sorting, and cart functionality
 - **Previews Available**: Video and image previews for most mods
-- **Installation Guides**: Comprehensive instructions for installation and troubleshooting
 
 ### Available Categories
 
