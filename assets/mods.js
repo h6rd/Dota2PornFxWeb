@@ -2,6 +2,8 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Earthshaker Deep Magma', category: 'heroes' },
+    { name: 'Invoker Dark Artistry v3', category: 'heroes' },
     { name: 'Ashes Arc Warden', category: 'heroes' },
     { name: 'Purple Legion Commander', category: 'heroes' },
     { name: 'Joker Ringmaster', category: 'heroes' },
@@ -379,6 +381,8 @@ const modsData = {
         { name: 'Shaolin Master Oracle', preview: 'Shaolin Master Oracle.webp', file: 'Shaolin Master Oracle.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Joker Ringmaster', preview: 'Joker Ringmaster.webp', file: 'Joker Ringmaster.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Purple Legion Commander', preview: 'Purple Legion Commander.webp', file: 'Purple Legion Commander.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kisilev' }] },
+        { name: 'Invoker Dark Artistry v3', preview: 'Invoker Dark Artistry v3.webp', file: 'Invoker Dark Artistry v3.zip', tags: { effects: true, icons: false }, links: [{ type: 'sender', url: 'papapodzaborniy' }] },
+        { name: 'Earthshaker Deep Magma', preview: 'Earthshaker Deep Magma.webp', file: 'Earthshaker Deep Magma.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [

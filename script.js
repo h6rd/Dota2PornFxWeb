@@ -385,6 +385,7 @@ const MOD_SENDER = {
   'dabaqz': '',
   'lebensinhalt': 'https://t.me/turnoffyourlebensinhalt',
   'NahuiToSay': 'https://t.me/NahuiToSay',
+  'papapodzaborniy': 'https://t.me/papapodzaborniy2'
 };
 
 function resolveNickname(value, map) {
