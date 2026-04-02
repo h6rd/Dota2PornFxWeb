@@ -1,9 +1,12 @@
 <div align="center">
   <img src="assets/banner-git.png" alt="Dota2PornFxWeb Banner" width="100%">
-
-  [**Website**](https://h6rd.github.io/Dota2PornFxWeb/) • [**Website Mirror**](https://d2pfx.netlify.app/) • [**Telegram**](https://t.me/dota2pornfx)
-
+  
   <p><b>Discover and download a vast collection of Dota 2 customization mods</b></p>
+  
+  [![website](https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white)](https://h6rd.github.io/Dota2PornFxWeb)
+  [![website mirror](https://custom-icon-badges.demolab.com/badge/Website%20Mirror-404040?style=for-the-badge&logo=globe&logoColor=white)](https://d2pfx.netlify.app)
+  [![telegram](https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dota2pornfx)
+  [![discord](https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/PBvG8D9MxT)
 </div>
 
 ---
