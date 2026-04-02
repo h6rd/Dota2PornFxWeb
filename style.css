@@ -803,6 +803,10 @@ img {
   transition-delay: 0.12s;
 }
 
+.fab-menu.active .fab-menu-item:nth-child(5) {
+  transition-delay: 0.15s;
+}
+
 .fab-menu-item:hover {
   background: var(--md-sys-color-shit-light);
   color: var(--md-sys-color-surface-container);

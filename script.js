@@ -144,6 +144,8 @@ const translations = {
     'fonts-desc': 'Custom fonts',
     'source-code': 'Source Code',
     'author-search-results': 'Mods by author:',
+    'news': 'News',
+    'news-desc': 'News and announcements',
 };
 
 const categories = [
@@ -184,7 +186,8 @@ const categories = [
     { id: 'tools', emoji: '🛠️', key: 'tools', preview: 'tools.webp' },
     { id: 'optimization', emoji: '🛠️', key: 'optimization', preview: 'optimization.webp' },
     { id: 'guides', emoji: '📖', key: 'guides', preview: 'guides.webp' },
-    { id: 'sites', emoji: '🌐', key: 'sites', preview: '' }
+    { id: 'sites', emoji: '🌐', key: 'sites', preview: '' },
+    { id: 'news', emoji: '📢', key: 'news', preview: '', hidden: true }
 ];
 
 const NOTES_DATA = [
@@ -1595,6 +1598,29 @@ function setupRecentlyAdded() {
     }
 
     recentlyAddedMods.forEach(recentMod => {
+        if (recentMod.category === 'news') {
+            const newsItem = (modsData['news'] || []).find(n => n.name === recentMod.name);
+            if (newsItem && track) {
+                const card = document.createElement('div');
+                card.className = 'card fade-in';
+                card.style.cursor = 'pointer';
+                card.innerHTML = `
+                <div class="card-media">
+                    <img src="${newsItem.preview}" alt="${newsItem.name}" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${newsItem.name}</h3>
+                    <div class="card-subtitle-wrapper">
+                        <p class="card-subtitle">${newsItem.description || ''}</p>
+                    </div>
+                </div>
+            `;
+                card.addEventListener('click', () => window.open(newsItem.url, '_blank'));
+                track.appendChild(card);
+            }
+            return;
+        }
+
         const category = categories.find(cat => cat.id === recentMod.category);
         if (!category) return;
 
@@ -1891,10 +1917,10 @@ function resetSort() {
 
 function renderCategories() {
     elements.categoriesGrid.innerHTML = '';
-    let filteredCategories = categories;
+    let filteredCategories = categories.filter(c => !c.hidden);
 
     if (state.searchQuery) {
-        filteredCategories = categories.filter(category =>
+        filteredCategories = categories.filter(c => !c.hidden).filter(category =>
             translations[category.key].toLowerCase().includes(state.searchQuery) ||
             translations[category.key + '-desc'].toLowerCase().includes(state.searchQuery)
         );

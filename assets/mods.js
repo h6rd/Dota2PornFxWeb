@@ -1,6 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
+    { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Purple Legion Commander', category: 'heroes' },
     { name: 'Joker Ringmaster', category: 'heroes' },
     { name: 'Shaolin Master Oracle', category: 'heroes' },
     { name: 'Axe Kratos', category: 'heroes' },
@@ -46,7 +48,7 @@ const modsData = {
         { name: 'Ancients Lina', preview: 'Ancients Lina.webp', file: 'Ancients Lina.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-ancients_lina/' }] },
         { name: 'Arc Warden Black Hole', preview: 'Arc Warden Black Hole.webp', file: 'Arc Warden Black Hole.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-black_hole_custom_arc_warden/' }] },
         { name: 'Arc Warden Sakura Winter', preview: 'Arc Warden Sakura Winter.webp', file: 'Arc Warden Sakura Winter.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-sakura_arc_warden/' }] },
-        { name: 'Ashes Arc Warden', preview: 'Ashes Arc Warden.webp', file: 'Ashes Arc Warden.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-ashes_arc_warden/' }] },
+        // { name: 'Ashes Arc Warden', preview: 'Ashes Arc Warden.webp', file: 'Ashes Arc Warden.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-ashes_arc_warden/' }] },
         { name: 'Axe Immortal Bootblack', preview: 'Axe Immortal Bootblack.webp', file: 'Axe Immortal Bootblack.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com/' }] },
         { name: 'Bloody Enigma', preview: 'Bloody Enigma.webp', file: 'Bloody Enigma.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-bloody_enigma/' }] },
         { name: 'Bloody Kez', preview: 'Bloody Kez.webp', file: 'Bloody Kez.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Darkness' }] },
@@ -375,6 +377,7 @@ const modsData = {
         { name: 'Axe Kratos', preview: 'Axe Kratos.webp', file: 'Axe Kratos.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Shaolin Master Oracle', preview: 'Shaolin Master Oracle.webp', file: 'Shaolin Master Oracle.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Joker Ringmaster', preview: 'Joker Ringmaster.webp', file: 'Joker Ringmaster.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Purple Legion Commander', preview: 'Purple Legion Commander.webp', file: 'Purple Legion Commander.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kisilev' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -1175,4 +1178,7 @@ const modsData = {
             }
         ]
     },
+    'news': [
+        { name: 'Join Discord Server', url: 'https://discord.gg/PBvG8D9MxT', description: 'Chat & get support', preview: 'assets/previews/news/Discord.webp' },
+    ],
 }

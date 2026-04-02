@@ -150,7 +150,6 @@ This project contains content from various sources:
 
 - [**Dota2Changer**](https://dota2changer.com/)
 - [**MOR**](https://vk.com/amir4anmods)
-- [**ARKADIUM MODS**](https://discord.gg/uSQ8WUtxWC)
 - **Mod Authors**:
   - [Egezenn](https://github.com/Egezenn) - Minify Background
   - [Robbyz512](https://github.com/robbyz512) - Minify Terrains & Trees
