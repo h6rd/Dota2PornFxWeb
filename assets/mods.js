@@ -2,6 +2,9 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Kunkka Shadow Blade', category: 'hero-items' },
+    { name: 'Slates of the Damned', category: 'ranks' },
+    { name: 'Magnus Magnataur', category: 'heroes' },
     { name: 'Earthshaker Deep Magma', category: 'heroes' },
     { name: 'Invoker Dark Artistry v3', category: 'heroes' },
     { name: 'Ashes Arc Warden', category: 'heroes' },
@@ -383,6 +386,7 @@ const modsData = {
         { name: 'Purple Legion Commander', preview: 'Purple Legion Commander.webp', file: 'Purple Legion Commander.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kisilev' }] },
         { name: 'Invoker Dark Artistry v3', preview: 'Invoker Dark Artistry v3.webp', file: 'Invoker Dark Artistry v3.zip', tags: { effects: true, icons: false }, links: [{ type: 'sender', url: 'papapodzaborniy' }] },
         { name: 'Earthshaker Deep Magma', preview: 'Earthshaker Deep Magma.webp', file: 'Earthshaker Deep Magma.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
+        { name: 'Magnus Magnataur', preview: 'Magnus Magnataur.webp', file: 'Magnus Magnataur.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -475,7 +479,7 @@ const modsData = {
         { name: 'Overgrown Emblem', preview: 'Overgrown Emblem.webp', file: 'pak36_dir.vpk' },
         { name: 'Aghanims Emblem', preview: 'Aghanims Emblem.webp', file: 'pak37_dir.vpk' },
         { name: 'Sunken Emblem', preview: 'Sunken Emblem.webp', file: 'pak38_dir.vpk' },
-        { name: 'Emblem Black Star', preview: 'Emblem Black Star.webp', file: 'pak19_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
+        { name: 'Emblem Lsq Black Star', preview: 'Emblem Black Star.webp', file: 'pak19_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Emblem Darkness', preview: 'Emblem Darkness.webp', file: 'pak20_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Bard Frog Emblem', preview: 'Bard Frog Emblem.mp4', file: 'pak39_dir.vpk' },
         { name: 'Bard Frog Emblem v2', preview: 'Bard Frog Emblem v2.mp4', file: 'pak40_dir.vpk' },
@@ -490,8 +494,8 @@ const modsData = {
         { name: 'Diretide Versus Screen', preview: 'Diretide Radiant Versus Screen.webp', file: 'pak16_dir.vpk' },
     ],
     'terrains': [
-        { name: 'DarkPoly & Trees', preview: 'DarkPoly+Trees.webp', file: 'pak10_dir.vpk' },
-        { name: 'DarkPoly', preview: 'DarkPoly.webp', file: 'pak11_dir.vpk' },
+        { name: 'DarkPoly & Trees', preview: 'DarkPoly+Trees.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
+        { name: 'DarkPoly', preview: 'DarkPoly.webp', file: 'pak11_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Mossy Cobblestone', preview: 'Mossy Cobblestone.webp', file: 'pak12_dir.vpk' },
         { name: 'Bedrock', preview: 'Bedrock.webp', file: 'pak13_dir.vpk' },
         { name: 'Dark Terrain Minify', preview: 'Dark Terrain.webp', file: 'pak14_dir.vpk', links: [{ type: 'author', url: 'Robbyz' }, { type: 'source', url: 'https://github.com/Egezenn/dota2-minify'}] },
@@ -542,6 +546,7 @@ const modsData = {
         { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }] },
         { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'laskotdota' }] },
         { name: 'Disruptor Faceless Rex', preview: 'Disruptor Faceless Rex.webp', file: 'Disruptor Faceless Rex.zip', tags: { mount: true }, links: [{ type: 'author', url: 'Pinkie' }] },
+        { name: 'Kunkka Shadow Blade', preview: 'Kunkka Shadow Blade.webp', file: 'Kunkka Shadow Blade.zip', tags: { effects: true, weapon: true } },
         // {
         //     name: 'Underlord Emerald Subjugation',
         //     styles: [
@@ -550,7 +555,6 @@ const modsData = {
         //     ],
         //     tags: { effects: true, icons: true, head: true }
         // },
-
     ],
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
@@ -753,6 +757,7 @@ const modsData = {
         { name: 'Void Medals', preview: 'Void Medals.webp', file: 'pak12_dir.vpk' },
         { name: 'Bear Medals', preview: 'Bear Medals.webp', file: 'pak13_dir.vpk' },
         { name: 'Azur Lane Medals', preview: 'Azur Lane Medals.webp', file: 'pak14_dir.vpk', links: [{ type: 'source', url: 'https://vk.com/@dota2animemods-ui-dota-mod' }] },
+        { name: 'Slates of the Damned', preview: 'Slates of the Damned.webp', file: 'pak15_dir.vpk', links: [{ type: 'author', url: 'ya_lyosha' }] },
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
@@ -852,7 +857,7 @@ const modsData = {
     ],
     'pings': [
         { name: 'Skeleton Black Ping', preview: 'Skeleton Black Ping.webp', file: 'pak10_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
-        { name: 'Skeleton Blue Ping', preview: 'Skeleton Blue Ping.webp', file: 'pak11_dir.vpk' },
+        { name: 'Skeleton Blue Ping', preview: 'Skeleton Blue Ping.webp', file: 'pak11_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Skeleton Purple Ping', preview: 'Skeleton Purple Ping.webp', file: 'pak12_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
     ],
     'herofx': [
