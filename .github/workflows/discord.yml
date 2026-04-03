@@ -1,0 +1,25 @@
+name: Discord Webhook
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Send discord notification
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+            "content": "✅ Site has been updated!\n🔗 https://h6rd.github.io/Dota2PornFxWeb/",
+            "embeds": [{
+              "title": "New deployment",
+              "description": "Commit: ${{ github.event.workflow_run.head_commit.message }}",
+              "color": 5763719
+            }]
+          }' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}

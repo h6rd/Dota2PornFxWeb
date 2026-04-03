@@ -2,6 +2,7 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Kunkka Whale Blade', category: 'hero-items' },
     { name: 'Kunkka Shadow Blade', category: 'hero-items' },
     { name: 'Slates of the Damned', category: 'ranks' },
     { name: 'Magnus Magnataur', category: 'heroes' },
@@ -547,6 +548,15 @@ const modsData = {
         { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'laskotdota' }] },
         { name: 'Disruptor Faceless Rex', preview: 'Disruptor Faceless Rex.webp', file: 'Disruptor Faceless Rex.zip', tags: { mount: true }, links: [{ type: 'author', url: 'Pinkie' }] },
         { name: 'Kunkka Shadow Blade', preview: 'Kunkka Shadow Blade.webp', file: 'Kunkka Shadow Blade.zip', tags: { effects: true, weapon: true } },
+        {
+            name: 'Kunkka Whale Blade',
+            styles: [
+                { label: '', color: '#7afff2', preview: 'Kunkka Whale Blade.webp', file: 'Kunkka Whale Blade.zip' },
+                { label: 'Eminent Revival', color: '#7cff7a', preview: 'Kunkka Whale Blade of Eminent Revival.webp', file: 'Kunkka Whale Blade of Eminent Revival.zip' },
+                { label: 'Eminent Revival Exceptional', color: '#d0ff71', preview: 'Kunkka Whale Blade of Eminent Revival Exceptional.webp', file: 'Kunkka Whale Blade of Eminent Revival Exceptional.zip' }
+            ],
+            tags: { effects: true, icons: true, weapon: true }
+        },
         // {
         //     name: 'Underlord Emerald Subjugation',
         //     styles: [

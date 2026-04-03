@@ -466,7 +466,7 @@ function addToCart(mod, categoryId) {
 
     if (categoryId === 'hero-items') {
         const heroItemsData = modsData['hero-items'] || [];
-        const newModData = heroItemsData.find(m => m.name === mod.name);
+        const newModData = heroItemsData.find(m => mod.name === m.name || mod.name.startsWith(m.name + ' '));
         const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head'];
 
         if (newModData && newModData.tags) {
@@ -478,7 +478,7 @@ function addToCart(mod, categoryId) {
                 const existingHero = item.name.split(' ')[0].toLowerCase();
                 if (existingHero !== newHero) return false;
 
-                const existingModData = heroItemsData.find(m => m.name === item.name);
+                const existingModData = heroItemsData.find(m => item.name === m.name || item.name.startsWith(m.name + ' '));
                 if (!existingModData || !existingModData.tags) return false;
 
                 return SLOT_TAGS.some(tag => newModData.tags[tag] && existingModData.tags[tag]);
