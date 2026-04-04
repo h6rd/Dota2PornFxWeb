@@ -15,11 +15,11 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -d '{
-            "content": "✅ Site has been updated!",
+            "content": "Site has been updated!",
             "embeds": [{
               "title": "New deployment",
-              "description": "**${{ github.event.workflow_run.head_commit.message }}**\n\n[🌐 Open site](https://your-site.github.io) • [📝 View commit](https://github.com/${{ github.repository }}/commit/${{ github.event.workflow_run.head_sha }})",
-              "color": 5763719
+              "description": "**${{ github.event.workflow_run.head_commit.message }}**\n\n[🌐 Site](https://h6rd.github.io/Dota2PornFxWeb/)  •  [📝 Commit](https://github.com/${{ github.repository }}/commit/${{ github.event.workflow_run.head_sha }})",
+              "color": 12370112
             }]
           }' \
           ${{ secrets.DISCORD_WEBHOOK_URL }}

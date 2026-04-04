@@ -146,6 +146,8 @@ const translations = {
     'author-search-results': 'Mods by author:',
     'news': 'News',
     'news-desc': 'News and announcements',
+    'item-sounds': 'Item Sounds',
+    'item-sounds-desc': 'Custom item sounds',
 };
 
 const categories = [
@@ -161,6 +163,7 @@ const categories = [
     { id: 'hero-items', emoji: '👤', key: 'hero-items', preview: 'hero-items.webp', guideId: 'install-heroes' },
     { id: 'herofx', emoji: '✨', key: 'herofx', preview: 'herofx.webp', guideId: 'install' },
     { id: 'hero-sounds', emoji: '🔊', key: 'hero-sounds', preview: 'hero-sounds.webp', guideId: 'install' },
+    // { id: 'item-sounds', emoji: '🔊', key: 'item-sounds', preview: 'item-sounds.webp', guideId: 'install' },
     { id: 'wards', emoji: '📖', key: 'wards', preview: 'wards.webp', guideId: 'install' },
     { id: 'couriers', emoji: '📖', key: 'couriers', preview: 'couriers.webp', guideId: 'install' },
     { id: 'river', emoji: '📖', key: 'river', preview: 'river.webp', guideId: 'install' },
@@ -394,7 +397,7 @@ function resolveNickname(value, map) {
     return value;
 }
 
-//Highlight Hero Names
+// Highlight Hero Names
 const HERO_NAME_EXCEPTIONS = ['Kez'];
 
 const highlightHeroNames = (text) => {

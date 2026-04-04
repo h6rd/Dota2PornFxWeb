@@ -891,6 +891,9 @@ const modsData = {
         { name: 'Witch Doctor True Maledict', preview: 'Witch Doctor True Maledict.webp', file: 'pak12_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Witch Doctor True Maledict.mp4' }] },
         { name: 'Naga Siren Serega Pirat', preview: 'Naga Siren Serega Pirat.webp', file: 'pak13_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/hero-sounds/Naga Siren Serega Pirat.mp4' }, {type: 'author', url:'NahuiToSay'}] },
     ],
+    'item-sounds': [
+        // { name: '', preview: '.webp', file: 'pak_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/item-sounds/.mp4' }, {type: 'author', url:'NahuiToSay'}] },
+    ],
     'packs': [
         {
             name: 'Winter Pack',
@@ -936,6 +939,15 @@ const modsData = {
                 '10th Anniversary Tormentor',
             ]
         },
+        // {
+        //     name: 'Bleach Pack',
+        //     preview: '.webp',
+        //     type: 'pack',
+        //     mods: [
+        //         'Bloody Kez',
+        //         'Kez Zangetsu Sword',,
+        //     ]
+        // },
     ],
     'creeps': {
         groups: [

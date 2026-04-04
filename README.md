@@ -112,9 +112,6 @@ The project includes several useful tools for modding:
 - [**VPKTool**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKTool+-+Extract+%26+Pack+VPKs): Extract and pack VPK files
 - [**VPKMerge**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs): Combine multiple VPKs into one
 - [**Compiler**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Compiler): Script for compiling: vtex_c, vpcf_c, vsnd_c, vxml_c, vcss_c
-- [**Cosmetics**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Cosmetics+-+Weather+%26+More): Change weather, killstreak, towers and more 
-- [**Background Changer**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Background+Changer): Create custom backgrounds images/videos
-- **More tools**: Various utilities for different modding needs
 
 ---
 
