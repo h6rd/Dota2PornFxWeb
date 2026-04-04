@@ -2,6 +2,8 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Wraith King Unbroken Arcana', category: 'heroes' },
+    { name: 'Wraith King Arcana', category: 'heroes' },
     { name: 'Kunkka Whale Blade', category: 'hero-items' },
     { name: 'Kunkka Shadow Blade', category: 'hero-items' },
     { name: 'Slates of the Damned', category: 'ranks' },
@@ -226,16 +228,16 @@ const modsData = {
         { name: 'Troll Warlord Reimu', preview: 'Troll Warlord Reimu.webp', file: 'Troll Warlord Reimu.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Weaver Kurumi', preview: 'Weaver Kurumi.webp', file: 'Weaver Kurumi.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Tinker Sakuya', preview: 'Tinker Sakuya.webp', file: 'Tinker Sakuya.zip', tags: { effects: true, icons: false }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
-        { name: 'Nude Naga Siren', preview: 'Nude Naga Siren.webp', file: 'Nude Naga Siren.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Pinkpapa' }] },
-        { name: 'Nude Drow Ranger', preview: 'Nude Drow Ranger.webp', file: 'Nude Drow Ranger.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Pinkpapa' }] },
-        { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
+        { name: 'Nude Naga Siren', preview: 'Nude Naga Siren.webp', file: 'Nude Naga Siren.zip', tags: { effects: false, icons: false, adult: true }, links: [{ type: 'author', url: 'Pinkpapa' }] },
+        { name: 'Nude Drow Ranger', preview: 'Nude Drow Ranger.webp', file: 'Nude Drow Ranger.zip', tags: { effects: false, icons: false, adult: true }, links: [{ type: 'author', url: 'Pinkpapa' }] },
+        { name: 'Nude Queen of Pain', preview: 'Nude Queen of Pain.webp', file: 'Nude Queen of Pain.zip', tags: { effects: false, icons: false, adult: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/' }] },
         { name: 'Shadow Fiend Trenbolone', preview: 'Shadow Fiend Trenbolone.webp', file: 'Shadow Fiend Trenbolone.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/id/hooorde' }] },
         { name: 'Rubick Plagueroad Apothacary', preview: 'Rubick Plagueroad Apothacary.webp', file: 'Rubick Plagueroad Apothacary.zip', tags: { effects: true, icons: false }},
         { name: 'Rubick Dark Mage', preview: 'Rubick Dark Mage.webp', file: 'Rubick Dark Mage.zip', tags: { effects: true, icons: false } },
         { name: 'Riki Hunger Howling Wilds', preview: 'Riki Hunger of the Howling Wilds.webp', file: 'Riki Hunger of the Howling Wilds.zip', tags: { effects: true, icons: true } },
         { name: 'Bloody Gore Spectre', preview: 'Bloody Gore Spectre.webp', file: 'Bloody Gore Spectre.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Undying Archange', preview: 'Undying Archange.webp', file: 'Undying Archange.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }] },
-        { name: 'Nude Drow Ranger v2', preview: 'Nude Drow Ranger v2.webp', file: 'Nude Drow Ranger v2.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Amir4an' }] },
+        { name: 'Nude Drow Ranger v2', preview: 'Nude Drow Ranger v2.webp', file: 'Nude Drow Ranger v2.zip', tags: { effects: true, icons: false, adult: true }, links: [{ type: 'author', url: 'Amir4an' }] },
         { name: 'Ancient Sand Naga Siren', preview: 'Ancient Sand Naga Siren.webp', file: 'Ancient Sand Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'SF Broodmother', preview: 'SF Broodmother.webp', file: 'SF Broodmother.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'laskotdota' }] },
         { name: 'Anti-Mage Creep', preview: 'Anti-Mage Creep.webp', file: 'Anti-Mage Creep.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'laskotdota' }] },
@@ -375,8 +377,17 @@ const modsData = {
         { name: 'Zuljin Troll Warlord', preview: 'Zuljin Troll Warlord.webp', file: 'Zuljin Troll Warlord.zip', tags: { effects: true, icons: true } },
         { name: 'Warden Phantom Assassin', preview: 'Warden Phantom Assassin.webp', file: 'Warden Phantom Assassin.zip', tags: { effects: true, icons: true } },
         { name: 'Hell Muerta', preview: 'Hell Muerta.webp', file: 'Hell Muerta.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
-        { name: 'Wraith King Arcana', preview: 'Wraith King Arcana.webp', file: 'Wraith King Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Pinkie' }] },
-        { name: 'Nude Marci', preview: 'Nude Marci.webp', file: 'Nude Marci.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        {
+            name: 'Wraith King Arcana',
+            styles: [
+                { label: 'Style I', color: '#d7d2ec', preview: 'Wraith King Arcana.webp', file: 'Wraith King Arcana.zip' },
+                { label: 'Style II', color: '#ff9b9b', preview: 'Wraith King Arcana 2.webp', file: 'Wraith King Arcana 2.zip' },
+            ],
+            tags: { effects: true, icons: true },
+            links: [{ type: 'author', url: 'Pinkie' }, { type: 'author', url: 'Kisilev' }]
+        },
+
+        { name: 'Nude Marci', preview: 'Nude Marci.webp', file: 'Nude Marci.zip', tags: { effects: true, icons: true, adult: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Necrophos Serpent Spite', preview: 'Necrophos Serpent Spite.webp', file: 'Necrophos Serpent Spite.zip', tags: { effects: false, icons: false }},
         { name: 'Purple Queen of Pain', preview: 'Purple Queen of Pain.webp', file: 'Purple Queen of Pain.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }, { type: 'author', url: 'Pinkie' }] },
         { name: 'Earthshaker Purple Arcana', preview: 'Earthshaker Purple Arcana.webp', file: 'Earthshaker Purple Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
@@ -388,6 +399,7 @@ const modsData = {
         { name: 'Invoker Dark Artistry v3', preview: 'Invoker Dark Artistry v3.webp', file: 'Invoker Dark Artistry v3.zip', tags: { effects: true, icons: false }, links: [{ type: 'sender', url: 'papapodzaborniy' }] },
         { name: 'Earthshaker Deep Magma', preview: 'Earthshaker Deep Magma.webp', file: 'Earthshaker Deep Magma.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
         { name: 'Magnus Magnataur', preview: 'Magnus Magnataur.webp', file: 'Magnus Magnataur.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
+        { name: 'Wraith King Unbroken Arcana', preview: 'Wraith King Unbroken Arcana.webp', file: 'Wraith King Unbroken Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -726,7 +738,6 @@ const modsData = {
         { name: 'Pine Forest', preview: 'Pine Forest.webp', file: 'pak51_dir.vpk', tags: { image: false, video: true } },
         { name: 'Sakura', preview: 'Sakura.webp', file: 'pak52_dir.vpk', tags: { image: false, video: true } },
         { name: 'Station', preview: 'Station.webp', file: 'pak53_dir.vpk', tags: { image: false, video: true } },
-        // { name: 'Winter Train', preview: 'Winter Train.webp', file: 'pak54_dir.vpk', tags: { image: false, video: true } },
     ],
     'tools': [
         { name: 'Background Changer', preview: 'Background Changer.webp', file: 'Background Changer.zip', guideId: 'background-changer' },
@@ -1060,7 +1071,6 @@ const modsData = {
             },
             {
                 id: 'eul', name: "Eul's / Wind Waker", mods: [
-                    // { name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Euls Scepter', preview: 'TI9 Eul.webp', file: 'TI9 Eul.zip' },
                     { name: 'TI8 Euls Scepter', preview: 'TI8 Eul.webp', file: 'TI8 Eul.zip' },
                     { name: 'TI7 Euls Scepter', preview: 'TI7 Eul.webp', file: 'TI7 Eul.zip' },
@@ -1072,7 +1082,6 @@ const modsData = {
             },
             {
                 id: 'force-staff', name: "Force Staff", mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Force Staff', preview: 'TI9 Force Staff.webp', file: 'TI9 Force Staff.zip' },
                     { name: 'TI8 Force Staff', preview: 'TI8 Force Staff.webp', file: 'TI8 Force Staff.zip' },
                     { name: 'TI7 Force Staff', preview: 'TI7 Force Staff.webp', file: 'TI7 Force Staff.zip' },
@@ -1083,7 +1092,6 @@ const modsData = {
             },
             {
                 id: 'lvlup', name: 'Lvl Up', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Lvl Up', preview: 'TI9 Lvl Up.webp', file: 'TI9 Lvl Up.zip' },
                     { name: 'TI8 Lvl Up', preview: 'TI8 Lvl Up.webp', file: 'TI8 Lvl Up.zip' },
                     { name: 'TI7 Lvl Up', preview: 'TI7 Lvl Up.webp', file: 'TI7 Lvl Up.zip' },
@@ -1094,7 +1102,6 @@ const modsData = {
             },
             {
                 id: 'shivas', name: "Shiva's Guard", mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Shiva', preview: 'TI9 Shiva.webp', file: 'TI9 Shiva.zip' },
                     { name: 'TI8 Shiva', preview: 'TI8 Shiva.webp', file: 'TI8 Shiva.zip' },
                     { name: 'TI7 Shiva', preview: 'TI7 Shiva.webp', file: 'TI7 Shiva.zip' },
@@ -1104,7 +1111,6 @@ const modsData = {
             },
             {
                 id: 'mekanism', name: 'Mekanism', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Mekanism', preview: 'TI9 Mekanism.webp', file: 'TI9 Mekanism.zip' },
                     { name: 'TI8 Mekanism', preview: 'TI8 Mekanism.webp', file: 'TI8 Mekanism.zip' },
                     { name: 'TI7 Mekanism', preview: 'TI7 Mekanism.webp', file: 'TI7 Mekanism.zip' },
@@ -1115,7 +1121,6 @@ const modsData = {
             },
             {
                 id: 'mjollnir', name: 'Maelstrom / Mjollnir', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Maelstrom Mjollnir', preview: 'TI9 Maelstrom Mjollnir.webp', file: 'TI9 Maelstrom Mjollnir.zip' },
                     { name: 'TI8 Maelstrom Mjollnir', preview: 'TI8 Maelstrom Mjollnir.webp', file: 'TI8 Maelstrom Mjollnir.zip' },
                     { name: 'TI7 Maelstrom Mjollnir', preview: 'TI7 Maelstrom Mjollnir.webp', file: 'TI7 Maelstrom Mjollnir.zip' },
@@ -1126,7 +1131,6 @@ const modsData = {
             },
             {
                 id: 'radiance', name: 'Radiance', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Radiance', preview: 'TI9 Radiance.webp', file: 'TI9 Radiance.zip' },
                     { name: 'TI8 Radiance', preview: 'TI8 Radiance.webp', file: 'TI8 Radiance.zip' },
                     { name: 'TI7 Radiance', preview: 'TI7 Radiance.webp', file: 'TI7 Radiance.zip' },
@@ -1137,7 +1141,6 @@ const modsData = {
             },
             {
                 id: 'phase-boots', name: 'Phase Boots', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Phase Boots', preview: 'TI9 Phase Boots.webp', file: 'TI9 Phase Boots.zip' },
                     { name: 'TI8 Phase Boots', preview: 'TI8 Phase Boots.webp', file: 'TI8 Phase Boots.zip' },
                     { name: 'TI7 Phase Boots', preview: 'TI7 Phase Boots.webp', file: 'TI7 Phase Boots.zip' },
@@ -1148,7 +1151,6 @@ const modsData = {
             },
             {
                 id: 'teleport', name: 'Teleport', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Teleport', preview: 'TI9 Teleport.webp', file: 'TI9 Teleport.zip' },
                     { name: 'TI9 Teleport II', preview: 'TI9 Teleport II.webp', file: 'TI9 Teleport II.zip' },
                     { name: 'TI9 Teleport III', preview: 'TI9 Teleport III.webp', file: 'TI9 Teleport III.zip' },
@@ -1170,7 +1172,6 @@ const modsData = {
             },
             {
                 id: 'fountain', name: 'Fountain Regen', mods: [
-                    //{ name: '', preview: '.webp', file: '.zip' },
                     { name: 'TI9 Fountain Regen', preview: 'TI9 Fountain Regen.webp', file: 'TI9 Fountain Regen.zip' },
                     { name: 'TI9 Fountain Regen II', preview: 'TI9 Fountain Regen II.webp', file: 'TI9 Fountain Regen II.zip' },
                     { name: 'TI9 Fountain Regen III', preview: 'TI9 Fountain Regen III.webp', file: 'TI9 Fountain Regen III.zip' },

@@ -26,7 +26,16 @@
   <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/transformations.min.css' rel='stylesheet'>
-  <script data-goatcounter="https://hrdq.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://hrdq.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+  <script>
+    fetch('https://hrdq.goatcounter.com/counter/TOTAL.json')
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('stats')
+        if (el) el.innerHTML = 'TOTAL VISITORS: <span class="stats-count">' + data.count + '</span>'
+      })
+      .catch(() => { })
+  </script>
   <script src="assets/theme.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
@@ -485,8 +494,9 @@
 
   <footer class="footer">
     <div class="container">
-      <p>this shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a> / <a
-          href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">source code</a></p>
+      <div id="stats"></div>
+      <p>this shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a>
+        / <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">source code</a></p>
     </div>
   </footer>
 

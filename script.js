@@ -2573,7 +2573,9 @@ function generateTagsHtml(mod, categoryId) {
             activeTags.push(`<span class="mod-tag">${tagMap[key]}</span>`);
         }
     }
-
+    
+    if (mod.tags.adult) activeTags.push(`<span class="mod-tag mod-tag--adult">18+</span>`);
+    
     return activeTags.length > 0 ? `<div class="mod-tags">${activeTags.join('')}</div>` : '';
 }
 
