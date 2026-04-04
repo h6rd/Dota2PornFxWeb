@@ -2,6 +2,8 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Meepo Lotus Bear', category: 'heroes' },
+    { name: 'Meepo Mocking Bird', category: 'heroes' },
     { name: 'Wraith King Unbroken Arcana', category: 'heroes' },
     { name: 'Wraith King Arcana', category: 'heroes' },
     { name: 'Kunkka Whale Blade', category: 'hero-items' },
@@ -400,6 +402,8 @@ const modsData = {
         { name: 'Earthshaker Deep Magma', preview: 'Earthshaker Deep Magma.webp', file: 'Earthshaker Deep Magma.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
         { name: 'Magnus Magnataur', preview: 'Magnus Magnataur.webp', file: 'Magnus Magnataur.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Wraith King Unbroken Arcana', preview: 'Wraith King Unbroken Arcana.webp', file: 'Wraith King Unbroken Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'papapodzaborniy' }] },
+        { name: 'Meepo Mocking Bird', preview: 'Meepo Mocking Bird.webp', file: 'Meepo Mocking Bird.zip', tags: { effects: false, icons: false } },
+        { name: 'Meepo Lotus Bear', preview: 'Meepo Lotus Bear.webp', file: 'Meepo Lotus Bear.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
