@@ -1524,7 +1524,7 @@ RU WINDOWS
    • Для англ Minify: -language minify
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
-Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Discord: .hrdq
+Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
 
@@ -1542,7 +1542,7 @@ Run Auto-Install.bat. If you encounter any issues while using it or if it doesn'
 5. Add to launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
-If you encounter this issue, please contact me on Discord: .hrdq
+If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
 
 
@@ -1567,7 +1567,7 @@ RU LINUX
    • Для англ Minify: -language minify
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
-Если вы столкнулись с такой проблемой, пожалуйста, напишите мне в Discord: .hrdq
+Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
 
@@ -1586,7 +1586,7 @@ Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ .//Auto-Install.sh). If you en
 6. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
-If you encounter this issue, please contact me on Discord: .hrdq
+If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file`;
 
         rootFolder.file('Guide.txt', guideText);
