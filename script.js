@@ -384,6 +384,7 @@ const MOD_AUTHOR = {
   'VPKDota': 'https://t.me/vpkdota',
   'ya_lyosha': 'https://www.twitch.tv/ya_lyosha',
   'SanyaBane': 'https://steamcommunity.com/profiles/76561198072955043',
+  'translation': 'https://t.me/skinDota2byPapich',
 };
 
 const MOD_SENDER = {

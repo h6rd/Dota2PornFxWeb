@@ -2,6 +2,7 @@ const recentlyAddedMods = [
     // { name: '', category: '' },
     // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Shadow Fiend Desolation', category: 'heroes' },
     { name: 'Oracle Irisviel von Einzbern', category: 'heroes' },
     { name: 'Omniknight Akashi', category: 'heroes' },
     { name: 'Necrophos Eucliwood Halsace', category: 'heroes' },
@@ -433,6 +434,7 @@ const modsData = {
         { name: 'Necrophos Eucliwood Halsace', preview: 'Necrophos Eucliwood Halsace.webp', file: 'Necrophos Eucliwood Halsace.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Omniknight Akashi', preview: 'Omniknight Akashi.webp', file: 'Omniknight Akashi.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Oracle Irisviel von Einzbern', preview: 'Oracle Irisviel von Einzbern.webp', file: 'Oracle Irisviel von Einzbern.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
+        { name: 'Shadow Fiend Desolation', preview: 'Shadow Fiend Desolation.webp', file: 'Shadow Fiend Desolation.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'translation' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
