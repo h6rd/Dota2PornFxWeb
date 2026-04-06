@@ -18,7 +18,7 @@ jobs:
             "content": "Site has been updated!",
             "embeds": [{
               "title": "New deployment",
-              "description": "**${{ github.event.workflow_run.head_commit.message }}**\n\n[🌐 Site](https://h6rd.github.io/Dota2PornFxWeb/)  •  [📝 Commit](https://github.com/${{ github.repository }}/commit/${{ github.event.workflow_run.head_sha }})",
+              "description": "**${{ github.event.workflow_run.head_commit.message }}**\n\n[🌐 Open Site](https://h6rd.github.io/Dota2PornFxWeb/)",
               "color": 12370112
             }]
           }' \
