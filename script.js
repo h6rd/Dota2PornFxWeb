@@ -382,7 +382,8 @@ const MOD_AUTHOR = {
   'Kynomi': 'https://vk.com/kynomi',
   'Pinkie': 'https://steamcommunity.com/profiles/76561198142595363',
   'VPKDota': 'https://t.me/vpkdota',
-  'ya_lyosha': 'https://www.twitch.tv/ya_lyosha'
+  'ya_lyosha': 'https://www.twitch.tv/ya_lyosha',
+  'SanyaBane': 'https://steamcommunity.com/profiles/76561198072955043',
 };
 
 const MOD_SENDER = {
