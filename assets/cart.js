@@ -386,7 +386,7 @@ function resolveItemFiles(item) {
 
 function addToCart(mod, categoryId) {
     const FORBIDDEN_CATEGORIES = ['guides', 'tools'];
-    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts'];
+    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts', 'huds'];
 
     if (FORBIDDEN_CATEGORIES.includes(categoryId)) {
         showToast('Cannot add mods from this category.');
@@ -465,7 +465,10 @@ function addToCart(mod, categoryId) {
     }
 
     if (categoryId === 'hero-items') {
-        const heroItemsData = modsData['hero-items'] || [];
+        const heroItemsCategoryData = modsData['hero-items'];
+        const heroItemsData = heroItemsCategoryData?.groups
+            ? heroItemsCategoryData.groups.flatMap(g => g.mods)
+            : (Array.isArray(heroItemsCategoryData) ? heroItemsCategoryData : []);
         const newModData = heroItemsData.find(m => mod.name === m.name || mod.name.startsWith(m.name + ' '));
         const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head'];
 
@@ -1214,41 +1217,50 @@ function diagnoseFetchError(error, filePath) {
     if (window.location.protocol === 'file:') {
         return {
             message: 'Page opened as a local file (file://)',
-            suggestion: '💡 Open the site via a normal https:// link, not as a local file'
+            suggestion: 'Open the site via a normal https:// link, not as a local file'
         };
     }
 
     if (msg.includes('failed to fetch') || name === 'typeerror') {
         return {
             message: 'Browser blocked the file download',
-            suggestion: '💡 Disable AdBlock / uBlock / browser extensions, or try Incognito mode (Ctrl+Shift+N)'
+            suggestion: 'Disable AdBlock / uBlock / browser extensions, or try Incognito mode (Ctrl+Shift+N)'
         };
     }
 
     if (msg.includes('timeout') || msg.includes('aborted') || name === 'aborterror') {
         return {
             message: 'File download timed out',
-            suggestion: '💡 Check your internet connection and try again'
+            suggestion: 'Check your internet connection and try again'
         };
     }
 
     if (msg.includes('jszip') || (filePath === 'pack' && msg.includes('script'))) {
         return {
             message: 'Failed to load JSZip library',
-            suggestion: '💡 Reload the page (F5) and try again. If that doesn\'t help - disable browser extensions'
+            suggestion: 'Reload the page (F5) and try again. If that doesn\'t help - disable browser extensions'
         };
     }
 
     if (msg.includes('network') || msg.includes('net::')) {
         return {
             message: 'No internet connection',
-            suggestion: '💡 Check your internet connection and try again'
+            suggestion: 'Check your internet connection and try again'
+        };
+    }
+
+    if (msg.includes('array buffer allocation failed') || 
+        msg.includes('out of memory') || 
+        msg.includes('allocation failed')) {
+        return {
+            message: 'Not enough memory to create the archive',
+            suggestion: 'Try reducing the number of mods in the cart, closing other browser tabs, or use a PC instead of mobile'
         };
     }
 
     return {
         message: error?.message || 'Unknown error',
-        suggestion: '💡 Try reloading the page, disabling VPN, or switching to a different browser'
+        suggestion: 'Try reloading the page, disabling VPN, or switching to a different browser'
     };
 }
 

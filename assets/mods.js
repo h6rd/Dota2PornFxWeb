@@ -1,7 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
-    // { name: 'Underlord Emerald Subjugation', category: 'hero-items' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Black Hud', category: 'huds' },
+    { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Shadow Fiend Desolation', category: 'heroes' },
     { name: 'Oracle Irisviel von Einzbern', category: 'heroes' },
     { name: 'Omniknight Akashi', category: 'heroes' },
@@ -289,7 +290,6 @@ const modsData = {
         { name: 'Drow Ranger Diretide', preview: 'Drow Ranger Diretide.webp', file: 'Drow Ranger Diretide.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-custom_megapack_drow_ranger_sylvanas_live_diretide/' }] },
         { name: 'Red Monkey King', preview: 'Red Monkey King.webp', file: 'Red Monkey King.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Anti-Mage Ronin Warrior', preview: 'Anti-Mage Ronin Warrior.webp', file: 'Anti-Mage Ronin Warrior.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
-        // { name: 'Final ZanKEZuga', preview: 'Kez Zanketzuga.webp', file: 'Kez Zanketzuga.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'Darkness' }] },
         { name: 'Custom Slark', preview: 'Custom Slark.webp', file: 'Custom Slark.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }, { type: 'sender', url: '', name: 'dabaqz' }] },
         { name: 'Chen Lelouch', preview: 'Chen Lelouch.webp', file: 'Chen Lelouch.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'http://www.dota2rpg.com/forum.php?mod=viewthread&tid=2959&extra=page%3D1' }] },
         { name: 'Kez Captain Anchorbeak', preview: 'Kez Captain Anchorbeak.webp', file: 'Kez Captain Anchorbeak.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'https://steamcommunity.com/profiles/76561198016243370' }] },
@@ -585,34 +585,189 @@ const modsData = {
         { name: 'LowPoly Barrel Trees', preview: 'LowPoly Barrel Trees.webp', file: 'pak21_dir.vpk' },
         { name: 'Catbuns Trees', preview: 'Catbuns Trees.webp', file: 'pak22_dir.vpk', links: [{ type: 'author', url: 'VPKDota' }] },
     ],
-    'hero-items': [
-        { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false, weapon: true } },
-        { name: 'Disruptor Tractor', preview: 'Disruptor Tractor.webp', file: 'Disruptor Tractor.zip', tags: { effects: false, icons: false, mount: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-distractor/' }] },
-        { name: 'Earthshaker Carrot', preview: 'Earthshaker Carrot.webp', file: 'Earthshaker Carrot.zip', tags: { effects: false, icons: false, totem: true } },
-        { name: 'Sniper Dragon Lore', preview: 'Sniper Dragon Lore.webp', file: 'Sniper Dragon Lore.zip', tags: { effects: true, icons: false, weapon: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
-        { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'laskotdota' }] },
-        { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }] },
-        { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'laskotdota' }] },
-        { name: 'Disruptor Faceless Rex', preview: 'Disruptor Faceless Rex.webp', file: 'Disruptor Faceless Rex.zip', tags: { mount: true }, links: [{ type: 'author', url: 'Pinkie' }] },
-        { name: 'Kunkka Shadow Blade', preview: 'Kunkka Shadow Blade.webp', file: 'Kunkka Shadow Blade.zip', tags: { effects: true, weapon: true } },
-        {
-            name: 'Kunkka Whale Blade',
-            styles: [
-                { label: '', color: '#7afff2', preview: 'Kunkka Whale Blade.webp', file: 'Kunkka Whale Blade.zip' },
-                { label: 'Eminent Revival', color: '#7cff7a', preview: 'Kunkka Whale Blade of Eminent Revival.webp', file: 'Kunkka Whale Blade of Eminent Revival.zip' },
-                { label: 'Eminent Revival Exceptional', color: '#d0ff71', preview: 'Kunkka Whale Blade of Eminent Revival Exceptional.webp', file: 'Kunkka Whale Blade of Eminent Revival Exceptional.zip' }
-            ],
-            tags: { effects: true, icons: true, weapon: true }
-        },
-        // {
-        //     name: 'Underlord Emerald Subjugation',
-        //     styles: [
-        //         { label: '', color: '#7eff7c', preview: 'Underlord Emerald Subjugation.webp', file: 'Underlord Emerald Subjugation.zip' },
-        //         { label: 'Crimson', color: '#ff4646', preview: 'Underlord Emerald Subjugation Crimson.webp', file: 'Underlord Emerald Subjugation Crimson.zip' }
-        //     ],
-        //     tags: { effects: true, icons: true, head: true }
-        // },
-    ],
+    'hero-items': {
+        groups: [
+            { id: 'abaddon', name: 'Abaddon', mods: [] },
+            { id: 'alchemist', name: 'Alchemist', mods: [] },
+            { id: 'ancient-apparition', name: 'Ancient Apparition', mods: [] },
+            { id: 'anti-mage', name: 'Anti-Mage', mods: [] },
+            { id: 'arc-warden', name: 'Arc Warden', mods: [] },
+            { id: 'axe', name: 'Axe', mods: [] },
+            { id: 'bane', name: 'Bane', mods: [] },
+            { id: 'batrider', name: 'Batrider', mods: [] },
+            { id: 'beastmaster', name: 'Beastmaster', mods: [] },
+            { id: 'bloodseeker', name: 'Bloodseeker', mods: [] },
+            { id: 'bounty-hunter', name: 'Bounty Hunter', mods: [] },
+            { id: 'brewmaster', name: 'Brewmaster', mods: [] },
+            { id: 'bristleback', name: 'Bristleback', mods: [] },
+            { id: 'broodmother', name: 'Broodmother', mods: [] },
+            { id: 'centaur', name: 'Centaur', mods: [] },
+            { id: 'chaos-knight', name: 'Chaos Knight', mods: [] },
+            { id: 'chen', name: 'Chen', mods: [] },
+            { id: 'clinkz', name: 'Clinkz', mods: [] },
+            { id: 'clockwerk', name: 'Clockwerk', mods: [] },
+            { id: 'crystal-maiden', name: 'Crystal Maiden', mods: [] },
+            { id: 'dark-seer', name: 'Dark Seer', mods: [] },
+            { id: 'dark-willow', name: 'Dark Willow', mods: [] },
+            { id: 'dawnbreaker', name: 'Dawnbreaker', mods: [] },
+            { id: 'dazzle', name: 'Dazzle', mods: [] },
+            { id: 'death-prophet', name: 'Death Prophet', mods: [] },
+            {
+                id: 'disruptor', name: 'Disruptor', mods: [
+                    { name: 'Disruptor Tractor', preview: 'Disruptor Tractor.webp', file: 'Disruptor Tractor.zip', tags: { effects: false, icons: false, mount: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-distractor/' }] },
+                    { name: 'Disruptor Faceless Rex', preview: 'Disruptor Faceless Rex.webp', file: 'Disruptor Faceless Rex.zip', tags: { mount: true }, links: [{ type: 'author', url: 'Pinkie' }] },
+                ]
+            },
+            { id: 'doom', name: 'Doom', mods: [] },
+            { id: 'dragon-knight', name: 'Dragon Knight', mods: [] },
+            { id: 'drow-ranger', name: 'Drow Ranger', mods: [] },
+            { id: 'earth-spirit', name: 'Earth Spirit', mods: [] },
+            {
+                id: 'earthshaker', name: 'Earthshaker', mods: [
+                    { name: 'Earthshaker Carrot', preview: 'Earthshaker Carrot.webp', file: 'Earthshaker Carrot.zip', tags: { effects: false, icons: false, totem: true } },
+
+                ]
+            },
+            { id: 'elder-titan', name: 'Elder Titan', mods: [] },
+            { id: 'ember-spirit', name: 'Ember Spirit', mods: [] },
+            { id: 'enchantress', name: 'Enchantress', mods: [] },
+            { id: 'enigma', name: 'Enigma', mods: [] },
+            { id: 'faceless-void', name: 'Faceless Void', mods: [] },
+            { id: 'grimstroke', name: 'Grimstroke', mods: [] },
+            { id: 'gyrocopter', name: 'Gyrocopter', mods: [] },
+            { id: 'hoodwink', name: 'Hoodwink', mods: [] },
+            { id: 'huskar', name: 'Huskar', mods: [] },
+            { id: 'invoker', name: 'Invoker', mods: [] },
+            { id: 'io', name: 'Io', mods: [] },
+            { id: 'jakiro', name: 'Jakiro', mods: [] },
+            { id: 'juggernaut', name: 'Juggernaut', mods: [] },
+            {
+                id: 'kez', name: 'Kez', mods: [
+                    { name: 'Kez Zangetsu Sword', preview: 'Kez Zangetsu Sword.webp', file: 'Kez Zangetsu Sword.zip', tags: { effects: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }] },
+                    { name: 'Kez Guts Sword', preview: 'Kez Guts Sword.webp', file: 'Kez Guts Sword.zip', tags: { sounds: true, weapon: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'laskotdota' }] },
+                ]
+            },
+            { id: 'keeper-of-the-light', name: 'Keeper of the Light', mods: [] },
+            {
+                id: 'kunkka', name: 'Kunkka', mods: [
+                    { name: 'Kunkka Shadow Blade', preview: 'Kunkka Shadow Blade.webp', file: 'Kunkka Shadow Blade.zip', tags: { effects: true, weapon: true } },
+                    {
+                        name: 'Kunkka Whale Blade',
+                        styles: [
+                            { label: '', color: '#7afff2', preview: 'Kunkka Whale Blade.webp', file: 'Kunkka Whale Blade.zip' },
+                            { label: 'Eminent Revival', color: '#7cff7a', preview: 'Kunkka Whale Blade of Eminent Revival.webp', file: 'Kunkka Whale Blade of Eminent Revival.zip' },
+                            { label: 'Eminent Revival Exceptional', color: '#d0ff71', preview: 'Kunkka Whale Blade of Eminent Revival Exceptional.webp', file: 'Kunkka Whale Blade of Eminent Revival Exceptional.zip' }
+                        ],
+                        tags: { effects: true, icons: true, weapon: true }
+                    },
+                ]
+            },
+            { id: 'legion-commander', name: 'Legion Commander', mods: [] },
+            { id: 'leshrac', name: 'Leshrac', mods: [] },
+            { id: 'lich', name: 'Lich', mods: [] },
+            { id: 'lifestealer', name: 'Lifestealer', mods: [] },
+            { id: 'lina', name: 'Lina', mods: [] },
+            { id: 'lion', name: 'Lion', mods: [] },
+            { id: 'lone-druid', name: 'Lone Druid', mods: [] },
+            { id: 'luna', name: 'Luna', mods: [] },
+            { id: 'lycan', name: 'Lycan', mods: [] },
+            { id: 'magnus', name: 'Magnus', mods: [] },
+            { id: 'marci', name: 'Marci', mods: [] },
+            { id: 'mars', name: 'Mars', mods: [] },
+            { id: 'medusa', name: 'Medusa', mods: [] },
+            { id: 'meepo', name: 'Meepo', mods: [] },
+            { id: 'mirana', name: 'Mirana', mods: [] },
+            { id: 'monkey-king', name: 'Monkey King', mods: [] },
+            { id: 'morphling', name: 'Morphling', mods: [] },
+            { id: 'muerta', name: 'Muerta', mods: [] },
+            { id: 'naga-siren', name: 'Naga Siren', mods: [] },
+            { id: 'natures-prophet', name: 'Natures Prophet', mods: [] },
+            { id: 'necrophos', name: 'Necrophos', mods: [] },
+            { id: 'night-stalker', name: 'Night Stalker', mods: [] },
+            { id: 'nyx-assassin', name: 'Nyx Assassin', mods: [] },
+            { id: 'ogre-magi', name: 'Ogre Magi', mods: [] },
+            { id: 'omniknight', name: 'Omniknight', mods: [] },
+            { id: 'oracle', name: 'Oracle', mods: [] },
+            { id: 'outworld-destroyer', name: 'Outworld Destroyer', mods: [] },
+            { id: 'pangolier', name: 'Pangolier', mods: [] },
+            { id: 'phantom-assassin', name: 'Phantom Assassin', mods: [] },
+            { id: 'phantom-lancer', name: 'Phantom Lancer', mods: [] },
+            { id: 'phoenix', name: 'Phoenix', mods: [] },
+            { id: 'primal-beast', name: 'Primal Beast', mods: [] },
+            { id: 'puck', name: 'Puck', mods: [] },
+            { id: 'pudge', name: 'Pudge', mods: [] },
+            { id: 'pugna', name: 'Pugna', mods: [] },
+            { id: 'queen-of-pain', name: 'Queen of Pain', mods: [] },
+            { id: 'razor', name: 'Razor', mods: [] },
+            { id: 'riki', name: 'Riki', mods: [] },
+            { id: 'ringmaster', name: 'Ringmaster', mods: [] },
+            { id: 'rubick', name: 'Rubick', mods: [] },
+            { id: 'sand-king', name: 'Sand King', mods: [] },
+            { id: 'shadow-demon', name: 'Shadow Demon', mods: [] },
+            { id: 'shadow-fiend', name: 'Shadow Fiend', mods: [] },
+            { id: 'shadow-shaman', name: 'Shadow Shaman', mods: [] },
+            { id: 'silencer', name: 'Silencer', mods: [] },
+            { id: 'skywrath-mage', name: 'Skywrath Mage', mods: [] },
+            { id: 'slardar', name: 'Slardar', mods: [] },
+            { id: 'slark', name: 'Slark', mods: [] },
+            { id: 'snapfire', name: 'Snapfire', mods: [] },
+            {
+                id: 'sniper', name: 'Sniper', mods: [
+                    { name: 'Sniper Dragon Lore', preview: 'Sniper Dragon Lore.webp', file: 'Sniper Dragon Lore.zip', tags: { effects: true, icons: false, weapon: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/' }] },
+
+                ]
+            },
+            { id: 'spectre', name: 'Spectre', mods: [] },
+            { id: 'spirit-breaker', name: 'Spirit Breaker', mods: [] },
+            { id: 'storm-spirit', name: 'Storm Spirit', mods: [] },
+            {
+                id: 'sven', name: 'Sven', mods: [
+                    { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'laskotdota' }] },
+
+                ]
+            },
+            { id: 'techies', name: 'Techies', mods: [] },
+            { id: 'templar-assassin', name: 'Templar Assassin', mods: [] },
+            { id: 'terrorblade', name: 'Terrorblade', mods: [] },
+            { id: 'tidehunter', name: 'Tidehunter', mods: [] },
+            { id: 'timbersaw', name: 'Timbersaw', mods: [] },
+            { id: 'tinker', name: 'Tinker', mods: [] },
+            {
+                id: 'tiny', name: 'Tiny', mods: [
+                    { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false, weapon: true } },
+                ]
+            },
+            { id: 'treant', name: 'Treant', mods: [] },
+            { id: 'troll-warlord', name: 'Troll Warlord', mods: [] },
+            { id: 'tusk', name: 'Tusk', mods: [] },
+            {
+                id: 'underlord', name: 'Underlord', mods: [
+                    // {
+                    //     name: 'Underlord Emerald Subjugation',
+                    //     styles: [
+                    //         { label: '', color: '#7eff7c', preview: 'Underlord Emerald Subjugation.webp', file: 'Underlord Emerald Subjugation.zip' },
+                    //         { label: 'Crimson', color: '#ff4646', preview: 'Underlord Emerald Subjugation Crimson.webp', file: 'Underlord Emerald Subjugation Crimson.zip' }
+                    //     ],
+                    //     tags: { effects: true, icons: true, head: true }
+                    // },
+                ]
+            },
+            { id: 'undying', name: 'Undying', mods: [] },
+            { id: 'ursa', name: 'Ursa', mods: [] },
+            { id: 'vengeful-spirit', name: 'Vengeful Spirit', mods: [] },
+            { id: 'venomancer', name: 'Venomancer', mods: [] },
+            { id: 'viper', name: 'Viper', mods: [] },
+            { id: 'visage', name: 'Visage', mods: [] },
+            { id: 'void-spirit', name: 'Void Spirit', mods: [] },
+            { id: 'warlock', name: 'Warlock', mods: [] },
+            { id: 'weaver', name: 'Weaver', mods: [] },
+            { id: 'windranger', name: 'Windranger', mods: [] },
+            { id: 'winter-wyvern', name: 'Winter Wyvern', mods: [] },
+            { id: 'witch-doctor', name: 'Witch Doctor', mods: [] },
+            { id: 'wraith-king', name: 'Wraith King', mods: [] },
+            { id: 'zeus', name: 'Zeus', mods: [] }
+        ]
+    },
     'roshan': [
         { name: 'Aghanims Roshan', preview: 'Aghanims Roshan.webp', file: 'pak52_dir.vpk' },
         { name: 'Greevil Grief Roshan', preview: 'Greevil Grief Roshan.webp', file: 'pak58_dir.vpk' },
@@ -647,7 +802,7 @@ const modsData = {
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' }, { type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }] },
         { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Siega-Mega-Kill.mp4' }, { type: 'source', url: 'https://t.me/f0ner/1053' }] },
-        { name: 'Stray228 Mega-Kill', preview: 'Stray228 Mega-Kill.webp', file: 'pak41_dir.vpk', links: [, { type: 'preview', url: 'assets/previews/mega-kill/Stray228-Mega-Kill.mp4' }, { type: 'source', url: 'https://t.me/f0ner/1085' }] },
+        { name: 'Stray228 Mega-Kill', preview: 'Stray228 Mega-Kill.webp', file: 'pak41_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Stray228-Mega-Kill.mp4' }, { type: 'source', url: 'https://t.me/f0ner/1085' }] },
         { name: 'Kunkka & Tidehunter', preview: 'kunkatide.webp', file: 'pak16_dir.vpk' },
         { name: 'Rick & Morty', preview: 'rickmorty.webp', file: 'pak15_dir.vpk' },
         { name: 'Axe', preview: 'axe.webp', file: 'pak12_dir.vpk' },
@@ -694,6 +849,9 @@ const modsData = {
         { name: 'Earthshaker Pedestal', preview: 'Earthshaker Pedestal.webp', file: 'pak11_dir.vpk' },
         { name: 'Windranger Pedestal', preview: 'Windranger Pedestal.webp', file: 'pak12_dir.vpk' },
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak13_dir.vpk', links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }] }
+    ],
+    'huds': [
+        { name: 'Black Hud', preview: 'Black Hud.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Black Hud Preview.mp4' }, { type: 'author', url: 'VPKDota' }] }
     ],
     'high-five': [
         { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
