@@ -352,7 +352,7 @@ const modsData = {
         { name: 'Beastmaster Yuuki Yuuna', preview: 'Beastmaster Yuuki Yuuna.webp', file: 'Beastmaster Yuuki Yuuna.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Bounty Hunter Hei', preview: 'Bounty Hunter Hei.webp', file: 'Bounty Hunter Hei.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Axe Gawr Gura', preview: 'Axe Gawr Gura.webp', file: 'Axe Gawr Gura.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
-        { name: 'Centaur Meliodas', preview: 'Centaur Meliodas.webp', file: 'Centaur Meliodas.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
+        // { name: 'Centaur Meliodas', preview: 'Centaur Meliodas.webp', file: 'Centaur Meliodas.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] }, vpk dead
         { name: 'Chaos Knight Flandre Scarlet', preview: 'Chaos Knight Flandre Scarlet.webp', file: 'Chaos Knight Flandre Scarlet.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Death Prophet BB', preview: 'Death Prophet BB.webp', file: 'Death Prophet BB.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'SanyaBane' }] },
         { name: 'Doom Jeanne Alter', preview: 'Doom Jeanne Alter.webp', file: 'Doom Jeanne Alter.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'SanyaBane' }] },
@@ -801,8 +801,8 @@ const modsData = {
     ],
     'mega-kill': [
         { name: 'Nedotrax Mega-Kill', preview: 'Nedotrax Mega-Kill.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4' }, { type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-sexy_woman_mega-kill/' }] },
-        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Siega-Mega-Kill.mp4' }, { type: 'source', url: 'https://t.me/f0ner/1053' }] },
-        { name: 'Stray228 Mega-Kill', preview: 'Stray228 Mega-Kill.webp', file: 'pak41_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Stray228-Mega-Kill.mp4' }, { type: 'source', url: 'https://t.me/f0ner/1085' }] },
+        { name: 'Siega Mega-Kill', preview: 'Siega Mega-Kill.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Siega-Mega-Kill.mp4' }, { type: 'author', url: 'VPKDota' }] },
+        { name: 'Stray228 Mega-Kill', preview: 'Stray228 Mega-Kill.webp', file: 'pak41_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/mega-kill/Stray228-Mega-Kill.mp4' }, { type: 'author', url: 'VPKDota' }] },
         { name: 'Kunkka & Tidehunter', preview: 'kunkatide.webp', file: 'pak16_dir.vpk' },
         { name: 'Rick & Morty', preview: 'rickmorty.webp', file: 'pak15_dir.vpk' },
         { name: 'Axe', preview: 'axe.webp', file: 'pak12_dir.vpk' },

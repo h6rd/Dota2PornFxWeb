@@ -172,7 +172,7 @@ const categories = [
     { id: 'item-effects', emoji: '✨', key: 'item-effects', preview: 'item-effects.webp', guideId: 'install' },
     { id: 'ranged-attack', emoji: '🏹', key: 'ranged-attack', preview: 'ranged-attack.webp', guideId: 'install' },
     { id: 'pings', emoji: '🏹', key: 'pings', preview: 'pings.webp', guideId: 'install' },
-    { id: 'huds', emoji: '🎴', key: 'huds', preview: 'hud.webp', guideId: 'install' },
+    { id: 'huds', emoji: '🎴', key: 'huds', preview: '', guideId: 'install' },
     { id: 'packs', emoji: '📦', key: 'packs', preview: 'packs.webp' },
     { id: 'versus-screens', emoji: '🆚', key: 'versus-screens', preview: 'vs.webp', guideId: 'install' },
     { id: 'mega-kill', emoji: '🔊', key: 'mega-kill', preview: 'mega-kill.webp', guideId: 'install' },

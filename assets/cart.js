@@ -1254,7 +1254,7 @@ function diagnoseFetchError(error, filePath) {
         msg.includes('allocation failed')) {
         return {
             message: 'Not enough memory to create the archive',
-            suggestion: 'Try reducing the number of mods in the cart, closing other browser tabs, or use a PC instead of mobile'
+            suggestion: 'Try reducing the number of mods in the cart'
         };
     }
 
@@ -1262,6 +1262,39 @@ function diagnoseFetchError(error, filePath) {
         message: error?.message || 'Unknown error',
         suggestion: 'Try reloading the page, disabling VPN, or switching to a different browser'
     };
+}
+
+async function fetchWithRetry(url, retries = 3) {
+    let lastError;
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response;
+        } catch (error) {
+            lastError = error;
+            if (i < retries - 1) {
+                await new Promise(r => setTimeout(r, 1000 * Math.pow(2, i)));
+            }
+        }
+    }
+    throw lastError;
+}
+
+async function asyncPool(concurrency, iterable, iteratorFn) {
+    const ret = [];
+    const executing = new Set();
+    for (const item of iterable) {
+        const p = Promise.resolve().then(() => iteratorFn(item, iterable));
+        ret.push(p);
+        executing.add(p);
+        const clean = () => executing.delete(p);
+        p.then(clean).catch(clean);
+        if (executing.size >= concurrency) {
+            await Promise.race(executing);
+        }
+    }
+    return Promise.all(ret);
 }
 
 async function packAndDownload() {
@@ -1322,155 +1355,97 @@ async function packAndDownload() {
     try {
         addLog('Starting pack creation...', 'start');
 
-        if (typeof JSZip === 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'assets/jszip.min.js';
-            document.head.appendChild(script);
-
-            await new Promise((resolve, reject) => {
-                script.onload = resolve;
-                script.onerror = reject;
-            });
+        if (typeof zip === 'undefined') {
+            throw new Error('zip.js library not loaded');
         }
 
         addLog(`Creating archive for ${cart.length} mods...`, 'archive');
         statusText.textContent = 'Creating archive...';
 
-        const mainZip = new JSZip();
         const now = new Date();
         const pad = n => String(n).padStart(2, '0');
         const timestamp = `${pad(now.getHours())}.${pad(now.getMinutes())}-${pad(now.getDate())}.${pad(now.getMonth() + 1)}`;
         const archiveName = `d2pfxPack-${timestamp}`;
-        const rootFolder = mainZip.folder(archiveName);
-        const modsFolder = rootFolder.folder('mods');
+
+        const blobWriter = new zip.BlobWriter('application/zip');
+        const zipWriter = new zip.ZipWriter(blobWriter, { level: 0 });
+
         const existingFileNames = new Set();
         const modFileNames = {};
-        const BATCH_SIZE = 8;
-        const batches = [];
-
-        for (let i = 0; i < cart.length; i += BATCH_SIZE) {
-            batches.push(cart.slice(i, i + BATCH_SIZE));
-        }
-
-        let processedCount = 0;
-        let hasFileErrors = false;
         const fileErrors = [];
+        let processedCount = 0;
 
-        for (const batch of batches) {
-            await Promise.all(batch.map(async (item) => {
-                const { file: liveFile } = resolveItemFiles(item);
-                const filePath = `assets/files/${item.categoryId}/${liveFile}`;
+        const addToRoot = async (path, blob) => {
+            await zipWriter.add(path, new zip.BlobReader(blob));
+        };
 
-                try {
-                    let response;
-                    try {
-                        response = await fetch(filePath);
-                    } catch (networkErr) {
-                        const reason = diagnoseFetchError(networkErr, filePath);
-                        addLog(`❌ ${item.name}: ${reason.message}`, 'error');
-                        addLog(reason.suggestion, 'warning');
-                        hasFileErrors = true;
-                        fileErrors.push(item.name);
-                        return;
-                    }
-                    if (!response.ok) {
-                        addLog(`❌ ${item.name}: File not found (HTTP ${response.status})`, 'error');
-                        addLog('💡 Try downloading it later - file may be temporarily unavailable', 'warning');
-                        hasFileErrors = true;
-                        fileErrors.push(item.name);
-                        return;
-                    }
+        await asyncPool(8, cart, async (item) => {
+            const { file: liveFile } = resolveItemFiles(item);
+            const filePath = `assets/files/${item.categoryId}/${liveFile}`;
 
-                    const blob = await response.blob();
+            try {
+                const response = await fetchWithRetry(filePath);
+                const blob = await response.blob();
 
-                    if (isZipFile(liveFile)) {
-                        const zipContent = await JSZip.loadAsync(blob);
-                        const extractedFiles = [];
+                if (isZipFile(liveFile)) {
+                    const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
+                    const entries = await zipReader.getEntries();
 
-                        const isTerrainMod = item.categoryId === 'terrains';
-                        const isCursorMod = item.categoryId === 'cursors';
-                        const isFontMod = item.categoryId === 'fonts';
-                        const shouldRename = RENAME_CATEGORIES.includes(item.categoryId);
+                    for (const entry of entries) {
+                        if (entry.directory) continue;
 
-                        const zipFiles = Object.entries(zipContent.files);
+                        const entryBlob = await entry.getData(new zip.BlobWriter());
+                        const relativePath = entry.filename;
 
-                        if (zipFiles.length === 0) {
-                            addLog(`Warning: ${item.name} appears to be empty`, 'warning');
-                        }
-
-                        for (const [relativePath, zipEntry] of zipFiles) {
-                            if (zipEntry.dir) continue;
-
-                            try {
-                                const fileBlob = await zipEntry.async('blob');
-
-                                if (isTerrainMod) {
-                                    if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
-                                        const pathParts = relativePath.split('/');
-                                        const mapsIndex = pathParts.indexOf('maps');
-                                        if (mapsIndex !== -1) {
-                                            const relativeMapsPath = pathParts.slice(mapsIndex).join('/');
-                                            modsFolder.file(relativeMapsPath, fileBlob);
-                                            extractedFiles.push(relativeMapsPath);
-                                        }
-                                    }
-                                } else if (isCursorMod || isFontMod) {
-                                    rootFolder.file(relativePath, fileBlob);
-                                    extractedFiles.push(relativePath);
-                                } else {
-                                    const fileName = relativePath.split('/').pop();
-                                    if (fileName) {
-                                        let finalFileName = fileName;
-                                        if (shouldRename) {
-                                            finalFileName = '!' + fileName;
-                                        }
-                                        const uniqueName = getUniqueFileName(finalFileName, existingFileNames);
-                                        modsFolder.file(uniqueName, fileBlob);
-                                        extractedFiles.push(uniqueName);
-                                    }
+                        if (item.categoryId === 'terrains') {
+                            if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
+                                const pathParts = relativePath.split('/');
+                                const mapsIndex = pathParts.indexOf('maps');
+                                if (mapsIndex !== -1) {
+                                    const mapsPath = pathParts.slice(mapsIndex).join('/');
+                                    await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
                                 }
-                            } catch (err) {
-                                console.error(`Error extracting file ${relativePath} from ${item.name}:`, err);
-                                addLog(`Failed to extract file from ${item.name}`, 'warning');
                             }
-                        }
-
-                        if (extractedFiles.length > 0) {
-                            if ((isCursorMod || isFontMod) && extractedFiles.length > 0) {
-                                const folderName = extractedFiles[0].split('/')[0];
-                                modFileNames[item.name] = folderName + '/';
-                            } else {
-                                modFileNames[item.name] = extractedFiles.join(', ');
-                            }
-                            addLog(`Added ${item.name}`, 'success');
+                        } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
+                            await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
                         } else {
-                            modFileNames[item.name] = 'No files extracted';
-                            addLog(`No files extracted from ${item.name}`, 'warning');
+                            let fileName = relativePath.split('/').pop();
+                            if (fileName) {
+                                if (RENAME_CATEGORIES.includes(item.categoryId)) {
+                                    fileName = '!' + fileName;
+                                }
+                                const uniqueName = getUniqueFileName(fileName, existingFileNames);
+                                await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
+                                if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                                modFileNames[item.name].push(uniqueName);
+                            }
                         }
-                    } else {
-                        let fileName = liveFile;
-                        if (RENAME_CATEGORIES.includes(item.categoryId)) {
-                            fileName = '!' + fileName;
-                        }
-                        const uniqueName = getUniqueFileName(fileName, existingFileNames);
-                        modsFolder.file(uniqueName, blob);
-                        modFileNames[item.name] = uniqueName;
-                        addLog(`Added ${item.name}`, 'success');
                     }
-
-                    processedCount++;
-                } catch (error) {
-                    console.error(`Error processing ${item.name}:`, error);
-                    const errorMsg = error.message || 'Unknown error';
-                    addLog(`Failed to add ${item.name}: ${errorMsg}`, 'error');
-                    hasFileErrors = true;
-                    fileErrors.push(item.name);
+                    await zipReader.close();
+                    addLog(`Added ${item.name}`, 'success');
+                } else {
+                    let fileName = liveFile;
+                    if (RENAME_CATEGORIES.includes(item.categoryId)) {
+                        fileName = '!' + fileName;
+                    }
+                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
+                    await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
+                    modFileNames[item.name] = uniqueName;
+                    addLog(`Added ${item.name}`, 'success');
                 }
-            }));
-            statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
-        }
 
-        if (hasFileErrors) {
+                processedCount++;
+                statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+            } catch (error) {
+                console.error(`Error processing ${item.name}:`, error);
+                const reason = diagnoseFetchError(error, filePath);
+                addLog(`❌ ${item.name}: ${reason.message}`, 'error');
+                addLog(reason.suggestion, 'warning');
+                fileErrors.push(item.name);
+            }
+        });
+
+        if (fileErrors.length > 0) {
             const compressed = await compressAssembly({
                 name: 'Recovery Pack',
                 items: cart
@@ -1497,8 +1472,9 @@ async function packAndDownload() {
         for (const [categoryName, mods] of Object.entries(modsByCategory)) {
             modsListText += `${categoryName}:\n`;
             mods.forEach(modName => {
-                const fileName = modFileNames[modName] || '';
-                modsListText += `  • ${modName} ➜ ${fileName}\n`;
+                const fileNames = modFileNames[modName];
+                const displayName = Array.isArray(fileNames) ? fileNames.join(', ') : (fileNames || '');
+                modsListText += `  • ${modName} ➜ ${displayName}\n`;
             });
             modsListText += '\n';
         }
@@ -1509,7 +1485,7 @@ async function packAndDownload() {
         modsListText += `╚══════════════════════════════════════════╝\n`;
         modsListText += `      Thanks for downloading, have fun!`;
 
-        rootFolder.file('Mods.txt', modsListText);
+        await addToRoot(`${archiveName}/Mods.txt`, new Blob([modsListText], { type: 'text/plain' }));
         addLog('Mods list created', 'success');
 
         const guideText = `╔══════════════════════════════════════════╗
@@ -1601,9 +1577,8 @@ When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file`;
 
-        rootFolder.file('Guide.txt', guideText);
+        await addToRoot(`${archiveName}/Guide.txt`, new Blob([guideText], { type: 'text/plain' }));
         addLog('Guide added', 'success');
-        addLog('Adding VPKMerge...', 'info');
 
         const settings = (() => {
             try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
@@ -1625,87 +1600,65 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         };
         const langFolder = langFolderMap[selectedLang] || 'dota_123';
 
+        addLog('Adding VPKMerge...', 'info');
         if (selectedOS === 'default') {
             try {
                 const [exeResponse, linuxResponse] = await Promise.all([
-                    fetch('assets/files/VPKMerge/VPKMerge.exe'),
-                    fetch('assets/files/VPKMerge/VPKMerge')
+                    fetchWithRetry('assets/files/VPKMerge/VPKMerge.exe'),
+                    fetchWithRetry('assets/files/VPKMerge/VPKMerge')
                 ]);
                 if (exeResponse.ok) {
-                    modsFolder.file('VPKMerge.exe', await exeResponse.blob());
-                } else {
-                    addLog('VPKMerge.exe not found', 'warning');
+                    await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
                 }
                 if (linuxResponse.ok) {
-                    modsFolder.file('VPKMerge', await linuxResponse.blob());
-                } else {
-                    addLog('VPKMerge Linux not found', 'warning');
+                    await addToRoot(`${archiveName}/mods/VPKMerge`, await linuxResponse.blob());
                 }
-                if (exeResponse.ok || linuxResponse.ok) addLog('VPKMerge added', 'success');
+                addLog('VPKMerge added', 'success');
             } catch (err) {
-                const reason = diagnoseFetchError(err, 'VPKMerge');
-                addLog(`VPKMerge not loaded: ${reason.message}`, 'warning');
-                addLog(reason.suggestion, 'warning');
+                addLog(`VPKMerge not loaded: ${err.message}`, 'warning');
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else if (selectedOS === 'windows') {
             try {
-                const exeResponse = await fetch('assets/files/VPKMerge/VPKMerge.exe');
-                if (exeResponse.ok) {
-                    modsFolder.file('VPKMerge.exe', await exeResponse.blob());
-                    addLog('VPKMerge.exe added', 'success');
-                } else {
-                    addLog('VPKMerge.exe not found', 'warning');
-                }
+                const exeResponse = await fetchWithRetry('assets/files/VPKMerge/VPKMerge.exe');
+                await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
+                addLog('VPKMerge.exe added', 'success');
             } catch (err) {
-                const reason = diagnoseFetchError(err, 'VPKMerge.exe');
-                addLog(`VPKMerge.exe is not loaded: ${reason.message}`, 'warning');
-                addLog(reason.suggestion, 'warning');
+                addLog(`VPKMerge.exe is not loaded: ${err.message}`, 'warning');
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else {
             try {
-                const linuxResponse = await fetch('assets/files/VPKMerge/VPKMerge');
-                if (linuxResponse.ok) {
-                    modsFolder.file('VPKMerge', await linuxResponse.blob());
-                    addLog('VPKMerge (Linux) added', 'success');
-                } else {
-                    addLog('VPKMerge Linux not found', 'warning');
-                }
+                const linuxResponse = await fetchWithRetry('assets/files/VPKMerge/VPKMerge');
+                await addToRoot(`${archiveName}/mods/VPKMerge`, await linuxResponse.blob());
+                addLog('VPKMerge (Linux) added', 'success');
             } catch (err) {
-                const reason = diagnoseFetchError(err, 'VPKMerge');
-                addLog(`VPKMerge not loaded: ${reason.message}`, 'warning');
-                addLog(reason.suggestion, 'warning');
+                addLog(`VPKMerge not loaded: ${err.message}`, 'warning');
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         }
-        
+
         if (selectedOS === 'windows') {
             addLog('Generating install script...', 'info');
-            rootFolder.file('Auto-Install.bat', generateWindowsBat(langFolder, customDotaPath));
+            await addToRoot(`${archiveName}/Auto-Install.bat`, new Blob([generateWindowsBat(langFolder, customDotaPath)], { type: 'text/plain' }));
             addLog('Auto-Install.bat added', 'success');
         } else if (selectedOS === 'linux') {
             addLog('Generating install script...', 'info');
-            rootFolder.file('Auto-Install.sh', generateLinuxSh(langFolder, customDotaPath));
+            await addToRoot(`${archiveName}/Auto-Install.sh`, new Blob([generateLinuxSh(langFolder, customDotaPath)], { type: 'text/plain' }));
             addLog('Auto-Install.sh added', 'success');
         }
 
-        addLog('Compressing files...', 'archive');
-        statusText.textContent = 'Compressing...';
+        addLog('Finalizing archive...', 'archive');
+        statusText.textContent = 'Finalizing...';
 
-        const content = await mainZip.generateAsync({
-            type: 'blob',
-            compression: 'STORE',
-        }, (metadata) => {
-            const percent = metadata.percent.toFixed(0);
-            statusText.textContent = `Compressing... ${percent}%`;
-        });
+        await zipWriter.close();
 
-        addLog('Archive compressed', 'success');
-        addLog('Downloading...');
+        const zipBlob = await blobWriter.getData();
+
+        addLog('Archive created, starting download...', 'success');
         statusText.textContent = 'Download starting...';
 
-        const url = URL.createObjectURL(content);
+        const url = URL.createObjectURL(zipBlob);
         const link = document.createElement('a');
         link.href = url;
         link.download = archiveName + '.zip';
@@ -1713,9 +1666,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         URL.revokeObjectURL(url);
 
         showToast('Thanks for downloading, have fun!');
-
         addLog('Pack downloaded successfully!', 'download');
-        statusText.textContent = '';
 
         logHeader.innerHTML = `
             <span class="material-symbols-rounded success">check_circle</span>
@@ -1730,13 +1681,15 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         addLog(`❌ Critical error: ${reason.message}`, 'error');
         addLog(`💡 ${reason.suggestion}`, 'warning');
 
-        const compressed = await compressAssembly({
-            name: 'Recovery Pack',
-            items: cart
-        });
-        const mirrorUrl = `https://d2pfx.netlify.app/?pack=${compressed}`;
-
-        addLog(`If errors persist, follow this <a href="${mirrorUrl}" target="_blank" style="color: var(--md-sys-color-primary); text-decoration: underline; cursor: pointer; font-weight: 600;">link</a> and try again.`, 'error');
+        try {
+            const compressed = await compressAssembly({
+                name: 'Recovery Pack',
+                items: cart
+            });
+            const mirrorUrl = `https://d2pfx.netlify.app/?pack=${compressed}`;
+            addLog(`If errors persist, follow this <a href="${mirrorUrl}" target="_blank" style="color: var(--md-sys-color-primary); text-decoration: underline; cursor: pointer; font-weight: 600;">link</a> and try again.`, 'error');
+        } catch (e) {
+        }
 
         statusText.textContent = 'Failed!';
 
