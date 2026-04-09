@@ -252,7 +252,7 @@ const guidesData = {
             "В параметрах запуска добавьте: <code>-language russian</code>",
             {
               icon: "info",
-              text: 'unlockScroll();Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify',
+              text: 'Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify',
             },
           ],
           info: 'Вы можете использовать <a href="https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs" target="_blank"><span id="tg"><span id="tg">VPKMerge</span></a> для объединения модов',
@@ -293,7 +293,7 @@ const guidesData = {
             "В параметрах запуска добавьте: <code>-language russian</code>",
             {
               icon: "info",
-              text: 'unlockScroll();Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify',
+              text: 'Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify',
             },
           ],
           infoPosition: "bottom",
