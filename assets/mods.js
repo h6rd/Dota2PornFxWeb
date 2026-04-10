@@ -1,6 +1,9 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
     { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Curseding Anti-Mage', category: 'heroes' },
+    { name: 'Crimson Chains Emblem', category: 'emblems' },
+    { name: 'Blue Web Hud', category: 'huds' },
     { name: 'Black Hud', category: 'huds' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Shadow Fiend Desolation', category: 'heroes' },
@@ -435,6 +438,7 @@ const modsData = {
         { name: 'Omniknight Akashi', preview: 'Omniknight Akashi.webp', file: 'Omniknight Akashi.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Oracle Irisviel von Einzbern', preview: 'Oracle Irisviel von Einzbern.webp', file: 'Oracle Irisviel von Einzbern.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://www.3dmgame.com/' }] },
         { name: 'Shadow Fiend Desolation', preview: 'Shadow Fiend Desolation.webp', file: 'Shadow Fiend Desolation.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'translation' }] },
+        { name: 'Curseding Anti-Mage', preview: 'Curseding Anti-Mage.webp', file: 'Curseding Anti-Mage.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Darkness' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -531,6 +535,7 @@ const modsData = {
         { name: 'Emblem Darkness', preview: 'Emblem Darkness.webp', file: 'pak20_dir.vpk', links: [{ type: 'author', url: 'Darkness' }] },
         { name: 'Bard Frog Emblem', preview: 'Bard Frog Emblem.mp4', file: 'pak39_dir.vpk' },
         { name: 'Bard Frog Emblem v2', preview: 'Bard Frog Emblem v2.mp4', file: 'pak40_dir.vpk' },
+        { name: 'Crimson Chains Emblem', preview: 'Crimson Chains Emblem.webp', file: 'pak41_dir.vpk', links: [{ type: 'author', url: 'VPKDota' }] },
     ],
     'versus-screens': [
         { name: 'Winter Versus Screen', preview: 'Winter Versus Screen.webp', file: 'pak10_dir.vpk' },
@@ -851,7 +856,8 @@ const modsData = {
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak13_dir.vpk', links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }] }
     ],
     'huds': [
-        { name: 'Black Hud', preview: 'Black Hud.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Black Hud Preview.mp4' }, { type: 'author', url: 'VPKDota' }] }
+        { name: 'Black Hud', preview: 'Black Hud.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Black Hud Preview.mp4' }, { type: 'author', url: 'VPKDota' }] },
+        { name: 'Blue Web Hud', preview: 'Blue Web Hud.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Blue Web Hud Preview.mp4' }, { type: 'sender', url: 'synicalglobal' }] }
     ],
     'high-five': [
         { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
@@ -975,10 +981,10 @@ const modsData = {
     ],
     'item-icons': [
         { name: 'Beer Bottle', preview: 'Beer Bottle.webp', file: 'pak26_dir.vpk' },
-        { name: 'Arcanas Items', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/turnoffyourlebensinhalt' },
+        { name: 'Arcanas Items', preview: 'Arcanas Items.webp', file: 'pak83_dir.vpk', linkType: 'author', linkUrl: 'lebensinhalt' },
         { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
         { name: 'Allstars Items', preview: 'Allstars Items.webp', file: 'pak11_dir.vpk' },
-        { name: 'Dark Items', preview: 'Dark Items.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'https://t.me/itdoesntmattertoallmorons' },
+        { name: 'Dark Items', preview: 'Dark Items.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'lebensinhalt' },
     ],
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },

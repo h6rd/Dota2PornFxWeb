@@ -188,9 +188,13 @@ const guidesData = {
         {
           steps: [
             "Download the required .vpk files",
-            "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
+            "Create folder <code>dota_123</code> in <code>Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Put the downloaded mods in the folder <code>dota_123</code>",
             "Add to the launch options: <code>-language 123</code>",
+            {
+              icon: "info",
+              text: 'For other languages, use the relevant folders and launch options',
+            },
             {
               icon: "info",
               text: 'If you are using Minify, place the mods in the language folder selected in the Minify settings',
@@ -205,9 +209,13 @@ const guidesData = {
       ru: [
         {
           steps: [
-            "Скачайте нужные .vpk файлы",
-            "Переместите их в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
+            "Скачайте нужные .vpk файлы или воспользуйтесь корзиной",
+            "Переместите их в папку <code>dota_russian</code> по пути <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
+            {
+              icon: "info",
+              text: 'Для других языков используйте соответствующие папки и параметры запуска',
+            },
             {
               icon: "info",
               text: 'Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify',
@@ -229,7 +237,7 @@ const guidesData = {
           steps: [
             "Download the required mods",
             "Unzip the archive, it contains vpk",
-            "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
+            "Create folder <code>dota_123</code> in <code>Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Put the vpk in the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
             {
@@ -248,7 +256,7 @@ const guidesData = {
           steps: [
             "Скачайте нужные моды",
             "Распакуйте архив, в нем лежит vpk",
-            "Переместите vpk в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
+            "Переместите vpk в папку <code>dota_russian</code> по пути <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
             {
               icon: "info",
@@ -271,7 +279,7 @@ const guidesData = {
           steps: [
             "Download the required mod",
             "It will be a vpk or an archive with a maps folder inside",
-            "Create folder <code>dota_123</code> in <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game</code>",
+            "Create folder <code>dota_123</code> in <code>Steam\\steamapps\\common\\dota 2 beta\\game</code>",
             "Move the vpk or maps folder from the archive to the folder <code>dota_123</code>",
             "Add to launch options: <code>-language 123</code>",
             {
@@ -289,7 +297,7 @@ const guidesData = {
           steps: [
             "Скачайте нужный мод",
             "Он будет в виде vpk, или архива с папкой maps внутри",
-            "Переместите vpk или папку maps из архива в папку <code>dota_russian</code> по пути <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
+            "Переместите vpk или папку maps из архива в папку <code>dota_russian</code> по пути <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
             "В параметрах запуска добавьте: <code>-language russian</code>",
             {
               icon: "info",
@@ -703,7 +711,7 @@ const guidesData = {
           icon: "settings",
           title: "Creating Сfg",
           steps: [
-            "Open <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>",
+            "Open <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>",
             "Create a new text file",
             "Rename file to <code>autoexec.cfg</code>",
             "Add to launch options: <code>+exec autoexec.cfg</code>",
@@ -749,7 +757,7 @@ const guidesData = {
           icon: "settings",
           title: "Создание cfg",
           steps: [
-            "Откройте <code>C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>",
+            "Откройте <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg</code>",
             "Создайте новый текстовый файл",
             "Переименуйте файл в <code>autoexec.cfg</code>",
             "В параметрах запуска добавьте: <code>+exec autoexec.cfg</code>",
