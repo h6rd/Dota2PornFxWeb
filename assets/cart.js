@@ -1536,15 +1536,15 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
 RU LINUX
 ═════════
-Запустите Auto-Install.sh (chmod +x Auto-Install.sh ➜ .//Auto-Install.sh) Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
+Запустите Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh) Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
 
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
 3. Запустите VPKMerge: ./VPKMerge 
 4. Переместите готовый pak10_dir.vpk в папку с языком игры:
-   • Для русского: Steam//steamapps//common//dota 2 beta//game//dota_russian
-   • Для английского: Steam//steamapps//common//dota 2 beta//game//dota_123
-   • Для англ Minify: Steam//steamapps//common//dota 2 beta//game//dota_minify
+   • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
+   • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
+   • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
@@ -1561,12 +1561,12 @@ RU LINUX
 
 EN LINUX
 ═════════
-Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ .//Auto-Install.sh). If you encounter any issues or it doesn't work, use the manual method below.
+Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh). If you encounter any issues or it doesn't work, use the manual method below.
 
 1. Open the mods folder in terminal
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
-4. Create folder dota_123 in Steam//steamapps//common//dota 2 beta//game//
+4. Create folder dota_123 in Steam/steamapps/common/dota 2 beta/game/
 5. Move the generated pak10_dir.vpk to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
