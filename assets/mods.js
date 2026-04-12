@@ -1,6 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
-    { name: 'Join Discord Server', category: 'news', url: 'https://discord.gg/PBvG8D9MxT' },
+    { name: 'Shadow Fiend Arcana', category: 'heroes' },
+    { name: 'Hollow Kez', category: 'heroes' },
     { name: 'Old Shadow Fiend', category: 'heroes' },
     { name: 'SpearMa Cursor', category: 'cursors' },
     { name: 'White Necronub Cursor', category: 'cursors' },
@@ -445,6 +446,8 @@ const modsData = {
         { name: 'Invoker Dark Artistry v3', preview: 'Invoker Dark Artistry_V3.webp', file: 'Invoker Dark Artistry v3.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'translation' }] },
         { name: 'Meepo Diretide', preview: 'Meepo Diretide.webp', file: 'Meepo Diretide.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'translation' }] },
         { name: 'Old Shadow Fiend', preview: 'Old Shadow Fiend.webp', file: 'Old Shadow Fiend.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-old_model_shadow_fiend/' }] },
+        { name: 'Hollow Kez', preview: 'Hollow Kez.webp', file: 'Hollow Kez.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' },{ type: 'author', url: 'Darkness' }] },
+        { name: 'Shadow Fiend Arcana', preview: 'Shadow Fiend Arcana.webp', file: 'Shadow Fiend Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'translation' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -954,6 +957,7 @@ const modsData = {
         { name: 'Background Changer Linux', preview: 'Background Changer Linux.webp', file: 'Background Changer Linux.zip', guideId: 'background-changer-linux' },
         { name: 'Source2Viewer', preview: 's2v.webp', file: 'https://github.com/ValveResourceFormat/ValveResourceFormat', type: 'guide' },
         { name: 'VPKEdit', preview: 'VPKEdit.webp', file: 'https://github.com/craftablescience/VPKEdit', type: 'guide' },
+        // { name: 'Cursor Changer', preview: 'Cursor Changer.webp', file: 'Cursor Changer.zip', guideId: 'cursor-changer' },
     ],
     'optimization': [
         { name: 'Dota2 Minify', preview: 'Minify.webp', file: 'https://egezenn.github.io/dota2-minify/', type: 'guide' },

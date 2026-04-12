@@ -198,17 +198,17 @@ const categories = [
 
 const NOTES_DATA = [
     {
+        type: 'warning',
+        icon: 'error',
+        title: 'Known Issue',
+        text: 'When combining certain anime mods in the cart, you may encounter issue "FATAL ERROR: Failed to read 16 bytes", please use the anime mods separately from the cart',
+    },
+    {
         type: 'update',
         icon: 'new_releases',
         title: 'Update',
         text: 'Added Settings: there, you can select your preferred game language and OS. When you download the archive, it will include an auto-install script to set everything up in your chosen language.'
-    },
-    {
-        type: 'warning',
-        icon: 'error',
-        title: 'Known Issue',
-        text: 'Due to patch 7.40, some mods no longer display visual effects on models (in match). Unfortunately, I don\'t know how to fix this 😕',
-    },
+    }
 ];
 
 const categoryNotes = {
