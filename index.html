@@ -351,87 +351,109 @@
     <button class="info-modal-close" id="closeSettingsModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
-    <div class="info-modal-content">
-      <h2 class="info-modal-title">Settings</h2>
+    <div class="info-modal-content settings-modal-layout">
+      
+      <!-- left col -->
+      <div class="settings-col settings-col--left">
+        <h2 class="info-modal-title">Settings</h2>
+        <div class="settings-section">
+          <h3 class="settings-section-title">Theme</h3>
+          <div class="settings-option-row">
+            <button class="settings-theme-btn" data-theme="dark">
+              <span class="material-symbols-rounded">dark_mode</span> Dark
+            </button>
+            <button class="settings-theme-btn" data-theme="light">
+              <span class="material-symbols-rounded">light_mode</span> Light
+            </button>
+          </div>
+        </div>
   
-      <div class="settings-section">
-        <h3 class="settings-section-title">Theme</h3>
-        <div class="settings-option-row">
-          <button class="settings-theme-btn" data-theme="dark">
-            <span class="material-symbols-rounded">dark_mode</span> Dark
-          </button>
-          <button class="settings-theme-btn" data-theme="light">
-            <span class="material-symbols-rounded">light_mode</span> Light
-          </button>
+        <div class="settings-section">
+          <h3 class="settings-section-title">Content Filter</h3>
+          <div class="settings-toggle-row">
+            <label class="settings-toggle-label">
+              <span>Hide Anime mods</span>
+              <input type="checkbox" id="hideAnimeMods" class="settings-toggle-input">
+              <span class="settings-toggle-track"></span>
+            </label>
+            <label class="settings-toggle-label">
+              <span>Hide Adult (18+) mods</span>
+              <input type="checkbox" id="hideAdultMods" class="settings-toggle-input">
+              <span class="settings-toggle-track"></span>
+            </label>
+          </div>
+        </div>
+  
+        <div class="settings-section">
+          <h3 class="settings-section-title">Export / Import Settings</h3>
+          <div class="settings-option-row">
+            <button class="settings-action-btn" id="exportSettingsBtn">
+              <span class="material-symbols-rounded">upload_file</span> Export
+            </button>
+            <button class="settings-action-btn" id="importSettingsBtn">
+              <span class="material-symbols-rounded">download</span> Import
+            </button>
+            <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
+          </div>
         </div>
       </div>
   
-      <div class="settings-section">
-        <h3 class="settings-section-title">System</h3>
-        <div class="settings-option-row">
-          <button class="settings-os-btn" data-os="default">Default</button>
-          <button class="settings-os-btn" data-os="windows">
-            <i class="bxl bx-microsoft-windows"></i> Windows
-          </button>
-          <button class="settings-os-btn" data-os="linux">
-            <i class="bxl bx-tux"></i> Linux
-          </button>
+      <!-- right col -->
+      <div class="settings-col settings-col--right">
+        <div class="settings-section">
+          <h3 class="settings-section-title">System</h3>
+          <div class="settings-option-row">
+            <button class="settings-os-btn" data-os="default">Default</button>
+            <button class="settings-os-btn" data-os="windows">
+              <i class="bxl bx-microsoft-windows"></i> Windows
+            </button>
+            <button class="settings-os-btn" data-os="linux">
+              <i class="bxl bx-tux"></i> Linux
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div class="settings-section">
-        <h3 class="settings-section-title">Game Language</h3>
-        <select class="settings-select" id="gameLangSelect">
-          <option value="default" selected>Default</option>
-          <option value="russian">Russian [dota_russian]</option>
-          <option value="english">English [dota_123]</option>
-          <option value="minify">Minify [dota_minify]</option>
-          <option value="ukrainian">Ukrainian [dota_ukrainian]</option>
-          <option value="koreana">한국어 [dota_koreana]</option>
-          <option value="schinese">简体中文 [dota_schinese]</option>
-          <option value="tchinese">繁體中文 [dota_tchinese]</option>
-          <option value="brazilian">Português [dota_brazilian]</option>
-          <option value="latam">Español latinoamericano [dota_latam]</option>
-          <option value="spanish">Español [dota_spanish]</option>
-          <option value="french">Français [dota_french]</option>
-          <option value="italian">Italiano [dota_italian]</option>
-          <option value="german">Deutsch [dota_german]</option>
-          <option value="greek">Ελληνικά [dota_greek]</option>
-          <option value="thai">ไทย [dota_thai]</option>
-          <option value="japanese">日本語 [dota_japanese]</option>
-          <option value="portuguese">Português [dota_portuguese]</option>
-          <option value="polish">Polski [dota_polish]</option>
-          <option value="danish">Dansk [dota_danish]</option>
-          <option value="dutch">Nederlands [dota_dutch]</option>
-          <option value="finnish">Suomi [dota_finnish]</option>
-          <option value="norwegian">Norsk [dota_norwegian]</option>
-          <option value="swedish">Svenska [dota_swedish]</option>
-          <option value="czech">Čeština [dota_czech]</option>
-          <option value="hungarian">Magyar [dota_hungarian]</option>
-          <option value="romanian">Română [dota_romanian]</option>
-          <option value="bulgarian">Български [dota_bulgarian]</option>
-          <option value="turkish">Türkçe [dota_turkish]</option>
-          <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
-        </select>
-      </div>
-
-      <div class="settings-section">
-        <h3 class="settings-section-title">Dota 2 Path</h3>
-        <input type="text" class="settings-path-input" id="dotaPathInput" placeholder="Auto detect" autocomplete="off"
-          spellcheck="false" />
+  
+        <div class="settings-section">
+          <h3 class="settings-section-title">Game Language</h3>
+          <select class="settings-select" id="gameLangSelect">
+            <option value="default" selected>Default</option>
+            <option value="russian">Russian [dota_russian]</option>
+            <option value="english">English [dota_123]</option>
+            <option value="minify">Minify [dota_minify]</option>
+            <option value="ukrainian">Ukrainian [dota_ukrainian]</option>
+            <option value="koreana">한국어 [dota_koreana]</option>
+            <option value="schinese">简体中文 [dota_schinese]</option>
+            <option value="tchinese">繁體中文 [dota_tchinese]</option>
+            <option value="brazilian">Português [dota_brazilian]</option>
+            <option value="latam">Español latinoamericano [dota_latam]</option>
+            <option value="spanish">Español [dota_spanish]</option>
+            <option value="french">Français [dota_french]</option>
+            <option value="italian">Italiano [dota_italian]</option>
+            <option value="german">Deutsch [dota_german]</option>
+            <option value="greek">Ελληνικά [dota_greek]</option>
+            <option value="thai">ไทย [dota_thai]</option>
+            <option value="japanese">日本語 [dota_japanese]</option>
+            <option value="portuguese">Português [dota_portuguese]</option>
+            <option value="polish">Polski [dota_polish]</option>
+            <option value="danish">Dansk [dota_danish]</option>
+            <option value="dutch">Nederlands [dota_dutch]</option>
+            <option value="finnish">Suomi [dota_finnish]</option>
+            <option value="norwegian">Norsk [dota_norwegian]</option>
+            <option value="swedish">Svenska [dota_swedish]</option>
+            <option value="czech">Čeština [dota_czech]</option>
+            <option value="hungarian">Magyar [dota_hungarian]</option>
+            <option value="romanian">Română [dota_romanian]</option>
+            <option value="bulgarian">Български [dota_bulgarian]</option>
+            <option value="turkish">Türkçe [dota_turkish]</option>
+            <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
+          </select>
+        </div>
+  
+        <div class="settings-section">
+          <h3 class="settings-section-title">Dota 2 Path</h3>
+          <input type="text" class="settings-path-input" id="dotaPathInput" placeholder="Auto detect" autocomplete="off"
+            spellcheck="false" />
           <span class="settings-section-hint">e.g. C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game</span>
-      </div>
-  
-      <div class="settings-section">
-        <h3 class="settings-section-title">Export / Import Settings</h3>
-        <div class="settings-option-row">
-          <button class="settings-action-btn" id="exportSettingsBtn">
-            <span class="material-symbols-rounded">upload_file</span> Export
-          </button>
-          <button class="settings-action-btn" id="importSettingsBtn">
-            <span class="material-symbols-rounded">download</span> Import
-          </button>
-          <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
         </div>
       </div>
     </div>

@@ -2053,12 +2053,17 @@ function renderMods(categoryId) {
 
     const isGroupedCategory = mods.groups && Array.isArray(mods.groups);
 
+    const { hideAnimeMods, hideAdultMods } = loadSettings();
+
     if (isGroupedCategory) {
         renderGroupedMods(categoryId, mods.groups);
     } else {
         if (state.searchQuery) {
             mods = mods.filter(mod => mod.name.toLowerCase().includes(state.searchQuery));
         }
+
+        if (hideAnimeMods) mods = mods.filter(mod => !mod.tags?.anime);
+        if (hideAdultMods) mods = mods.filter(mod => !mod.tags?.adult);
 
         mods = sortMods(mods, state.sortMode);
 
@@ -2087,6 +2092,8 @@ function renderMods(categoryId) {
 }
 
 function renderGroupedMods(categoryId, groups) {
+    const { hideAnimeMods, hideAdultMods } = loadSettings();
+
     groups.forEach(group => {
         let filteredMods = group.mods;
 
@@ -2096,6 +2103,9 @@ function renderGroupedMods(categoryId, groups) {
                 group.name.toLowerCase().includes(state.searchQuery)
             );
         }
+
+        if (hideAnimeMods) filteredMods = filteredMods.filter(mod => !mod.tags?.anime);
+        if (hideAdultMods) filteredMods = filteredMods.filter(mod => !mod.tags?.adult);
 
         if (filteredMods.length === 0) return;
 
@@ -2143,11 +2153,14 @@ function renderAllModsSearch() {
         const isGroupedCategory = categoryData?.groups && Array.isArray(categoryData.groups);
 
         if (isGroupedCategory) {
+            const { hideAnimeMods, hideAdultMods } = loadSettings();
             categoryData.groups.forEach(group => {
-                const filtered = group.mods.filter(mod =>
-                    mod.name.toLowerCase().includes(state.searchQuery) ||
-                    group.name.toLowerCase().includes(state.searchQuery)
-                );
+                const filtered = group.mods.filter(mod => {
+                    if (hideAnimeMods && mod.tags?.anime) return false;
+                    if (hideAdultMods && mod.tags?.adult) return false;
+                    return mod.name.toLowerCase().includes(state.searchQuery) ||
+                        group.name.toLowerCase().includes(state.searchQuery);
+                });
                 filtered.forEach(mod => {
                     allResults.push({
                         mod,
@@ -2158,10 +2171,13 @@ function renderAllModsSearch() {
                 });
             });
         } else {
+            const { hideAnimeMods, hideAdultMods } = loadSettings();
             const mods = categoryData || [];
-            const filtered = mods.filter(mod =>
-                mod.name.toLowerCase().includes(state.searchQuery)
-            );
+            const filtered = mods.filter(mod => {
+                if (hideAnimeMods && mod.tags?.anime) return false;
+                if (hideAdultMods && mod.tags?.adult) return false;
+                return mod.name.toLowerCase().includes(state.searchQuery);
+            });
             filtered.forEach(mod => allResults.push({ mod, category }));
         }
     }
@@ -2967,6 +2983,11 @@ function applySettings(s) {
     if (pathInput) {
         pathInput.value = s.dotaPath || '';
     }
+    const animeToggle = document.getElementById('hideAnimeMods');
+    if (animeToggle) animeToggle.checked = !!s.hideAnimeMods;
+
+    const adultToggle = document.getElementById('hideAdultMods');
+    if (adultToggle) adultToggle.checked = !!s.hideAdultMods;
 }
 
 function exportSettings() {
@@ -2978,18 +2999,19 @@ function exportSettings() {
     const obj = {
         version: 1,
         theme: s.theme || 'dark',
-        accentColor: s.accentColor || localStorage.getItem('accentColor') || null,
         gifTheme: localStorage.getItem('gifIndex') !== null
             ? GIF_CONFIG.themes[parseInt(localStorage.getItem('gifIndex'))]
             : 'ursa',
         gifIndex: localStorage.getItem('gifIndex') || '0',
-        styles: styleIndices,
-        cart: cartData,
         gameLang: s.gameLang || 'default',
         os: s.os || 'default',
         dotaPath: s.dotaPath || '',
+        hideAnimeMods: !!s.hideAnimeMods,
+        hideAdultMods: !!s.hideAdultMods,
+        exported: new Date().toISOString(),
+        styles: styleIndices,
         assemblies: assemblies,
-        exported: new Date().toISOString()
+        cart: cartData,
     };
 
     const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'text/plain' });
@@ -3025,7 +3047,8 @@ function importSettings(file) {
             if (obj.gameLang) patch.gameLang = obj.gameLang;
             if (obj.os) patch.os = obj.os;
             if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
-            if (obj.accentColor) patch.accentColor = obj.accentColor;
+            patch.hideAnimeMods = !!obj.hideAnimeMods;
+            patch.hideAdultMods = !!obj.hideAdultMods;
             saveSettings(patch);
             applySettings(patch);
 
@@ -3127,5 +3150,17 @@ function setupSettingsModal() {
     document.getElementById('importSettingsFile')?.addEventListener('change', e => {
         if (e.target.files[0]) importSettings(e.target.files[0]);
         e.target.value = '';
+    });
+
+    document.getElementById('hideAnimeMods')?.addEventListener('change', function () {
+        saveSettings({ hideAnimeMods: this.checked });
+        if (state.currentCategory) renderMods(state.currentCategory);
+        vibrate(10);
+    });
+
+    document.getElementById('hideAdultMods')?.addEventListener('change', function () {
+        saveSettings({ hideAdultMods: this.checked });
+        if (state.currentCategory) renderMods(state.currentCategory);
+        vibrate(10);
     });
 }
