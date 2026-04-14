@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Spirit Breaker Savage Mettle', category: 'hero-items' },
+    { name: 'Spirit Breaker Elemental Imperator', category: 'heroes' },
     { name: 'Darkness Crimson Naga Siren', category: 'heroes' },
     { name: 'Shadow Fiend Arcana', category: 'heroes' },
     { name: 'Hollow Kez', category: 'heroes' },
@@ -450,6 +452,7 @@ const modsData = {
         { name: 'Hollow Kez', preview: 'Hollow Kez.webp', file: 'Hollow Kez.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' },{ type: 'author', url: 'Darkness' }] },
         { name: 'Shadow Fiend Arcana', preview: 'Shadow Fiend Arcana.webp', file: 'Shadow Fiend Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'translation' }] },
         { name: 'Darkness Crimson Naga Siren', preview: 'Darkness Naga Siren.webp', file: 'Darkness Crimson Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'Darkness' }] },
+        { name: 'Spirit Breaker Elemental Imperator', preview: 'Spirit Breaker Elemental Imperator.webp', file: 'Spirit Breaker Elemental Imperator.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -734,7 +737,9 @@ const modsData = {
                 ]
             },
             { id: 'spectre', name: 'Spectre', mods: [] },
-            { id: 'spirit-breaker', name: 'Spirit Breaker', mods: [] },
+            { id: 'spirit-breaker', name: 'Spirit Breaker', mods: [
+                { name: 'Spirit Breaker Savage Mettle', preview: 'Spirit Breaker Savage Mettle.webp', file: 'Spirit Breaker Savage Mettle.zip', tags: { weapon: true, effects: true, icons: true } },
+            ] },
             { id: 'storm-spirit', name: 'Storm Spirit', mods: [] },
             {
                 id: 'sven', name: 'Sven', mods: [
