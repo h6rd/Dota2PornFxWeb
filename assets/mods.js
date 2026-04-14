@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Lion Hell-Spar Anathema', category: 'hero-items' },
     { name: 'Spirit Breaker Savage Mettle', category: 'hero-items' },
     { name: 'Spirit Breaker Elemental Imperator', category: 'heroes' },
     { name: 'Darkness Crimson Naga Siren', category: 'heroes' },
@@ -686,7 +687,17 @@ const modsData = {
             { id: 'lich', name: 'Lich', mods: [] },
             { id: 'lifestealer', name: 'Lifestealer', mods: [] },
             { id: 'lina', name: 'Lina', mods: [] },
-            { id: 'lion', name: 'Lion', mods: [] },
+            { id: 'lion', name: 'Lion', mods: [
+                {
+                        name: 'Lion Hell-Spar Anathema',
+                        styles: [
+                            { label: '', color: '#74ff80', preview: 'Lion Hell-Spar Anathema.webp', file: 'Lion Hell-Spar Anathema.zip' },
+                            { label: 'Obsidian', color: '#7ac8ff', preview: 'Lion Hell-Spar Anathema Obsidian.webp', file: 'Lion Hell-Spar Anathema Obsidian.zip' },
+                            { label: 'Crimson', color: '#ff7a7a', preview: 'Lion Hell-Spar Anathema Crimson.webp', file: 'Lion Hell-Spar Anathema Crimson.zip' },
+                        ],
+                        tags: { effects: true, icons: true, arm: true }
+                    },
+            ] },
             { id: 'lone-druid', name: 'Lone Druid', mods: [] },
             { id: 'luna', name: 'Luna', mods: [] },
             { id: 'lycan', name: 'Lycan', mods: [] },
