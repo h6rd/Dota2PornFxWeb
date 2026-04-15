@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Lion Fin Kings Charm', category: 'hero-items' },
     { name: 'Spirit Breaker Crystal Colossus', category: 'heroes' },
     { name: 'Sniper Ardalan Interdictor', category: 'heroes' },
     { name: 'Lion Hell-Spar Anathema', category: 'hero-items' },
@@ -691,17 +692,27 @@ const modsData = {
             { id: 'lich', name: 'Lich', mods: [] },
             { id: 'lifestealer', name: 'Lifestealer', mods: [] },
             { id: 'lina', name: 'Lina', mods: [] },
-            { id: 'lion', name: 'Lion', mods: [
-                {
+            {
+                id: 'lion', name: 'Lion', mods: [
+                    {
                         name: 'Lion Hell-Spar Anathema',
                         styles: [
                             { label: '', color: '#74ff80', preview: 'Lion Hell-Spar Anathema.webp', file: 'Lion Hell-Spar Anathema.zip' },
                             { label: 'Obsidian', color: '#7ac8ff', preview: 'Lion Hell-Spar Anathema Obsidian.webp', file: 'Lion Hell-Spar Anathema Obsidian.zip' },
                             { label: 'Crimson', color: '#ff7a7a', preview: 'Lion Hell-Spar Anathema Crimson.webp', file: 'Lion Hell-Spar Anathema Crimson.zip' },
                         ],
-                        tags: { effects: true, icons: true, arm: true }
+                        tags: { arm: true, effects: true, icons: true }
                     },
-            ] },
+                    {
+                        name: 'Lion Fin Kings Charm',
+                        styles: [
+                            { label: '', color: '#74b7ff', preview: 'Lion Fin Kings Charm.webp', file: 'Lion Fin Kings Charm.zip' },
+                            { label: 'Retro', color: '#7aff83', preview: 'Lion Fin Kings Charm Retro.webp', file: 'Lion Fin Kings Charm Retro.zip' },
+                        ],
+                        tags: { weapon: true, effects: true, icons: true }
+                    },
+                ]
+            },
             { id: 'lone-druid', name: 'Lone Druid', mods: [] },
             { id: 'luna', name: 'Luna', mods: [] },
             { id: 'lycan', name: 'Lycan', mods: [] },
@@ -752,9 +763,11 @@ const modsData = {
                 ]
             },
             { id: 'spectre', name: 'Spectre', mods: [] },
-            { id: 'spirit-breaker', name: 'Spirit Breaker', mods: [
-                { name: 'Spirit Breaker Savage Mettle', preview: 'Spirit Breaker Savage Mettle.webp', file: 'Spirit Breaker Savage Mettle.zip', tags: { weapon: true, effects: true, icons: true } },
-            ] },
+            {
+                id: 'spirit-breaker', name: 'Spirit Breaker', mods: [
+                    { name: 'Spirit Breaker Savage Mettle', preview: 'Spirit Breaker Savage Mettle.webp', file: 'Spirit Breaker Savage Mettle.zip', tags: { weapon: true, effects: true, icons: true } },
+                ]
+            },
             { id: 'storm-spirit', name: 'Storm Spirit', mods: [] },
             {
                 id: 'sven', name: 'Sven', mods: [

@@ -2284,6 +2284,11 @@ fcode {
   padding: 0;
 }
 
+.mod-tag--slot {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+}
+
 .lazy-media {
   transition: opacity 0.3s ease;
   background: var(--md-sys-color-surface-variant);

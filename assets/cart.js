@@ -412,14 +412,33 @@ function addToCart(mod, categoryId) {
     }
 
     const MULTI_ITEM_GROUPS = ['runes'];
+    const SLOT_TAGS_GROUP_CHECK = ['totem', 'weapon', 'mount', 'head', 'arm'];
 
     if (groupId && !MULTI_ITEM_GROUPS.includes(groupId)) {
-        const existingInGroup = cart.find(item =>
-            item.categoryId === categoryId && item.groupId === groupId
-        );
-        if (existingInGroup) {
-            showReplaceModal(existingInGroup, cartItem);
-            return;
+        if (categoryId === 'hero-items') {
+            const heroItemsCategoryData = modsData['hero-items'];
+            const heroItemsData = heroItemsCategoryData?.groups
+                ? heroItemsCategoryData.groups.flatMap(g => g.mods)
+                : (Array.isArray(heroItemsCategoryData) ? heroItemsCategoryData : []);
+            const newModData = heroItemsData.find(m => mod.name === m.name || mod.name.startsWith(m.name + ' '));
+            const hasSlotTag = newModData?.tags && SLOT_TAGS_GROUP_CHECK.some(t => newModData.tags[t]);
+            if (!hasSlotTag) {
+                const existingInGroup = cart.find(item =>
+                    item.categoryId === categoryId && item.groupId === groupId
+                );
+                if (existingInGroup) {
+                    showReplaceModal(existingInGroup, cartItem);
+                    return;
+                }
+            }
+        } else {
+            const existingInGroup = cart.find(item =>
+                item.categoryId === categoryId && item.groupId === groupId
+            );
+            if (existingInGroup) {
+                showReplaceModal(existingInGroup, cartItem);
+                return;
+            }
         }
     }
 
@@ -470,7 +489,7 @@ function addToCart(mod, categoryId) {
             ? heroItemsCategoryData.groups.flatMap(g => g.mods)
             : (Array.isArray(heroItemsCategoryData) ? heroItemsCategoryData : []);
         const newModData = heroItemsData.find(m => mod.name === m.name || mod.name.startsWith(m.name + ' '));
-        const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head'];
+        const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm'];
 
         if (newModData && newModData.tags) {
             const newSlots = SLOT_TAGS.filter(tag => newModData.tags[tag]);

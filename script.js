@@ -304,7 +304,7 @@ const TAG_CONFIGS = {
     },
     "hero-items": {
         allowForGuides: false,
-        map: { weapon: 'Weapon', mount: 'Mount', effects: 'Effects', icons: 'Icons', sounds: 'Sounds', totem: 'Totem', head: 'Head', arm: 'Arm' }
+        map: { totem: 'Totem', weapon: 'Weapon', mount: 'Mount', head: 'Head', arm: 'Arm', effects: 'Effects', icons: 'Icons', sounds: 'Sounds' }
     },
     tools: {
         allowForGuides: false,
@@ -2593,14 +2593,17 @@ function generateTagsHtml(mod, categoryId) {
     const activeTags = [];
     const tagMap = cfg.map || {};
 
+    const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm'];
+
     for (const key in tagMap) {
         if (Object.prototype.hasOwnProperty.call(mod.tags, key) && mod.tags[key]) {
-            activeTags.push(`<span class="mod-tag">${tagMap[key]}</span>`);
+            const isSlot = SLOT_TAGS.includes(key);
+            activeTags.push(`<span class="mod-tag${isSlot ? ' mod-tag--slot' : ''}">${tagMap[key]}</span>`);
         }
     }
-    
+
     if (mod.tags.adult) activeTags.push(`<span class="mod-tag mod-tag--adult">18+</span>`);
-    
+
     return activeTags.length > 0 ? `<div class="mod-tags">${activeTags.join('')}</div>` : '';
 }
 
