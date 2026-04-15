@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Spirit Breaker Crystal Colossus', category: 'heroes' },
+    { name: 'Sniper Ardalan Interdictor', category: 'heroes' },
     { name: 'Lion Hell-Spar Anathema', category: 'hero-items' },
     { name: 'Spirit Breaker Savage Mettle', category: 'hero-items' },
     { name: 'Spirit Breaker Elemental Imperator', category: 'heroes' },
@@ -454,6 +456,8 @@ const modsData = {
         { name: 'Shadow Fiend Arcana', preview: 'Shadow Fiend Arcana.webp', file: 'Shadow Fiend Arcana.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'translation' }] },
         { name: 'Darkness Crimson Naga Siren', preview: 'Darkness Naga Siren.webp', file: 'Darkness Crimson Naga Siren.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'NahuiToSay' }, { type: 'author', url: 'Darkness' }] },
         { name: 'Spirit Breaker Elemental Imperator', preview: 'Spirit Breaker Elemental Imperator.webp', file: 'Spirit Breaker Elemental Imperator.zip', tags: { effects: false, icons: false } },
+        { name: 'Sniper Ardalan Interdictor', preview: 'Sniper Ardalan Interdictor.webp', file: 'Sniper Ardalan Interdictor.zip', tags: { effects: true, icons: true } },
+        { name: 'Spirit Breaker Crystal Colossus', preview: 'Spirit Breaker Crystal Colossus.webp', file: 'Spirit Breaker Crystal Colossus.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
