@@ -1,5 +1,9 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Visage Azure Phantom', category: 'heroes' },
+    { name: 'Bristleback Crimson Ring', category: 'heroes' },
+    { name: 'Cosmic Tinker', category: 'heroes' },
+    { name: 'Tinker Cripple', category: 'hero-items' },
     { name: 'Lion Fin Kings Charm', category: 'hero-items' },
     { name: 'Spirit Breaker Crystal Colossus', category: 'heroes' },
     { name: 'Sniper Ardalan Interdictor', category: 'heroes' },
@@ -156,7 +160,6 @@ const modsData = {
         { name: 'Windranger Autumn Arcana', preview: 'Windranger Autumn Arcana.webp', file: 'Windranger Autumn Arcana.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Viper Butch Dog', preview: 'Viper Butch Dog.webp', file: 'Viper Butch Dog.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Dawnbreaker Moonbreaker', preview: 'Dawnbreaker Moonbreaker.webp', file: 'Dawnbreaker Moonbreaker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
-        { name: 'Cosmic Tinker', preview: 'Cosmic Tinker.webp', file: 'Cosmic Tinker.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'lebensinhalt' }] },
         { name: 'Juggernaut Samurai of Wind', preview: 'Juggernaut Samurai of Wind.webp', file: 'Juggernaut Samurai of Wind.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'lebensinhalt' }] },
         { name: 'Sniper Odogaron Armor', preview: 'Sniper Odogaron Armor.webp', file: 'Sniper Odogaron Armor.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
@@ -217,7 +220,6 @@ const modsData = {
         { name: 'Primal Beast Prehistoric Predator', preview: 'Primal Beast Prehistoric Predator.webp', file: 'Primal Beast Prehistoric Predator.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Kisilev' }] },
         { name: 'Broodmother White Widow', preview: 'Broodmother White Widow.webp', file: 'Broodmother White Widow.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Kisilev' }] },
         { name: 'Devil Skywrath Mage', preview: 'Devil Skywrath Mage.webp', file: 'Devil Skywrath Mage.zip', tags: { effects: true, icons: false }, links: [{ type: 'author', url: 'https://vk.com/zzzfans' }] },
-        { name: 'Tinker Cripple', preview: 'Tinker Cripple.webp', file: 'Tinker Cripple.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Amir4an' }] },
         { name: 'Chaos IO', preview: 'Chaos IO.webp', file: 'Chaos IO.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Amir4an' }] },
         { name: 'Techies Sodbustin Saboteurs', preview: 'Techies Sodbustin Saboteurs.webp', file: 'Techies Sodbustin Saboteurs.zip', tags: { effects: false, icons: false } },
         { name: 'Sven Berseker', preview: 'Sven Berseker.webp', file: 'Sven Berseker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'https://t.me/BackSpaceHub' }] },
@@ -459,6 +461,9 @@ const modsData = {
         { name: 'Spirit Breaker Elemental Imperator', preview: 'Spirit Breaker Elemental Imperator.webp', file: 'Spirit Breaker Elemental Imperator.zip', tags: { effects: false, icons: false } },
         { name: 'Sniper Ardalan Interdictor', preview: 'Sniper Ardalan Interdictor.webp', file: 'Sniper Ardalan Interdictor.zip', tags: { effects: true, icons: true } },
         { name: 'Spirit Breaker Crystal Colossus', preview: 'Spirit Breaker Crystal Colossus.webp', file: 'Spirit Breaker Crystal Colossus.zip', tags: { effects: false, icons: false } },
+        { name: 'Cosmic Tinker', preview: 'Tinker Interstellar Astrarium.webp', file: 'Cosmic Tinker.zip', tags: { effects: true, icons: true } },
+        { name: 'Bristleback Crimson Ring', preview: 'Bristleback Crimson Ring.webp', file: 'Bristleback Crimson Ring.zip', tags: { effects: false, icons: false } },
+        { name: 'Visage Azure Phantom', preview: 'Visage Azure Phantom.webp', file: 'Visage Azure Phantom.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'VPKDota' }] },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -780,7 +785,9 @@ const modsData = {
             { id: 'terrorblade', name: 'Terrorblade', mods: [] },
             { id: 'tidehunter', name: 'Tidehunter', mods: [] },
             { id: 'timbersaw', name: 'Timbersaw', mods: [] },
-            { id: 'tinker', name: 'Tinker', mods: [] },
+            { id: 'tinker', name: 'Tinker', mods: [
+                { name: 'Tinker Cripple', preview: 'Tinker Cripple.webp', file: 'Tinker Cripple.zip', tags: { mount: true, effects: false, icons: false }, links: [{ type: 'author', url: 'Amir4an' }] },
+            ] },
             {
                 id: 'tiny', name: 'Tiny', mods: [
                     { name: 'Tiny Banana', preview: 'Tiny Banana.webp', file: 'Tiny Banana.zip', tags: { effects: false, icons: false, weapon: true } },
