@@ -2478,7 +2478,7 @@ function createModCard(mod, categoryId, groupId = null) {
                 </div>
             ` : ''}
             ${!hideAddToCart ? `
-                <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: activeModName, file: activeMod.file, preview: activeMod.preview || '' })}' data-category="${categoryId}">
+                <button class="add-to-cart-btn" data-mod='${JSON.stringify({ name: activeModName, file: activeMod.file, preview: activeMod.preview || '', tags: activeMod.tags || {} })}' data-category="${categoryId}">
                     <span class="material-symbols-rounded">add</span>
                     <span class="add-to-cart-text">${translations['addToCart'] || 'Add to cart'}</span>
                 </button>

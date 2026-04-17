@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Darkness Crimson Naga Siren', category: 'heroes' },
+    { name: 'Black Hud', category: 'huds' },
     { name: 'Slark Shadow in the Deep', category: 'heroes' }, 
     { name: 'Lion Mulctant Pall', category: 'hero-items' },
     { name: 'Lion Fin Kings Charm', category: 'hero-items' },
@@ -12,7 +14,6 @@ const recentlyAddedMods = [
     { name: 'Lion Hell-Spar Anathema', category: 'hero-items' },
     { name: 'Spirit Breaker Savage Mettle', category: 'hero-items' },
     { name: 'Spirit Breaker Elemental Imperator', category: 'heroes' },
-    { name: 'Darkness Crimson Naga Siren', category: 'heroes' },
     { name: 'Shadow Fiend Arcana', category: 'heroes' },
     { name: 'Hollow Kez', category: 'heroes' },
     { name: 'Old Shadow Fiend', category: 'heroes' },
@@ -23,7 +24,6 @@ const recentlyAddedMods = [
     { name: 'Curseding Anti-Mage', category: 'heroes' },
     { name: 'Crimson Chains Emblem', category: 'emblems' },
     { name: 'Blue Web Hud', category: 'huds' },
-    { name: 'Black Hud', category: 'huds' },
     { name: 'Kez Zangetsu Sword', category: 'hero-items' },
     { name: 'Shadow Fiend Desolation', category: 'heroes' },
     { name: 'Oracle Irisviel von Einzbern', category: 'heroes' },
