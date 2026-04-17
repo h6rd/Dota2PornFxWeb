@@ -1,0 +1,96 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache previews
+        uses: actions/cache@v4
+        with:
+          path: assets/previews
+          key: previews-${{ hashFiles('assets/previews/**') }}
+          restore-keys: previews-
+
+      - name: Cache mod files
+        uses: actions/cache@v4
+        with:
+          path: assets/files
+          key: modfiles-${{ hashFiles('assets/files/**') }}
+          restore-keys: modfiles-
+
+      - name: Install minification tools
+        run: |
+          npm install -g \
+            html-minifier-terser \
+            lightningcss-cli
+
+      - name: Prepare dist folder
+        run: |
+          rsync -a --exclude='.git' --exclude='node_modules' --exclude='.github' . dist/
+
+      - name: Minify CSS
+        run: |
+          lightningcss --minify style.css -o dist/style.css
+          echo "style.css: $(wc -c < style.css) → $(wc -c < dist/style.css) bytes"
+
+      - name: Minify HTML
+        run: |
+          html-minifier-terser \
+            --collapse-whitespace \
+            --remove-comments \
+            --remove-optional-tags \
+            --remove-redundant-attributes \
+            --remove-script-type-attributes \
+            --remove-tag-whitespace \
+            --use-short-doctype \
+            --minify-css true \
+            --minify-js true \
+            --input-dir . \
+            --output-dir dist \
+            --file-ext html
+          echo "index.html: $(wc -c < index.html) → $(wc -c < dist/index.html) bytes"
+
+      - name: Show build summary
+        run: |
+          echo "===== BUILD SUMMARY ====="
+          du -sh dist/
+          echo "========================="
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
