@@ -26,17 +26,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install minification tools
-        run: |
-          npm install -g \
-          html-minifier-terser \
-          csso-cli
-
       - name: Prepare dist folder
         run: |
           rsync -a \
@@ -45,28 +34,6 @@ jobs:
             --exclude='.github' \
             --exclude='assets/files' \
             . dist/
-
-      - name: Minify CSS
-        run: |
-          csso style.css --output dist/style.css
-          echo "style.css: $(wc -c < style.css) → $(wc -c < dist/style.css) bytes"
-
-      - name: Minify HTML
-        run: |
-          html-minifier-terser \
-            --collapse-whitespace \
-            --remove-comments \
-            --remove-optional-tags \
-            --remove-redundant-attributes \
-            --remove-script-type-attributes \
-            --remove-tag-whitespace \
-            --use-short-doctype \
-            --minify-css true \
-            --minify-js true \
-            --input-dir . \
-            --output-dir dist \
-            --file-ext html
-          echo "index.html: $(wc -c < index.html) → $(wc -c < dist/index.html) bytes"
 
       - name: Show build summary
         run: |
