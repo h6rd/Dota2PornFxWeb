@@ -31,33 +31,24 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Cache previews
-        uses: actions/cache@v4
-        with:
-          path: assets/previews
-          key: previews-${{ hashFiles('assets/previews/**') }}
-          restore-keys: previews-
-
-      - name: Cache mod files
-        uses: actions/cache@v4
-        with:
-          path: assets/files
-          key: modfiles-${{ hashFiles('assets/files/**') }}
-          restore-keys: modfiles-
-
       - name: Install minification tools
         run: |
           npm install -g \
-            html-minifier-terser \
-            lightningcss-cli
+          html-minifier-terser \
+          csso-cli
 
       - name: Prepare dist folder
         run: |
-          rsync -a --exclude='.git' --exclude='node_modules' --exclude='.github' . dist/
+          rsync -a \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.github' \
+            --exclude='assets/files' \
+            . dist/
 
       - name: Minify CSS
         run: |
-          lightningcss --minify style.css -o dist/style.css
+          csso style.css --output dist/style.css
           echo "style.css: $(wc -c < style.css) → $(wc -c < dist/style.css) bytes"
 
       - name: Minify HTML

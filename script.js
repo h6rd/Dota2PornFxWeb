@@ -1,3 +1,19 @@
+const FILES_BASE_URL = (() => {
+    const host = window.location.hostname;
+    if (host === 'd2pfx.onrender.com' || host === 'd2pfx.netlify.app') {
+        return '';
+    }
+    return 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
+})();
+
+function getFileUrl(categoryId, filename) {
+    if (filename.startsWith('http')) return filename;
+    if (FILES_BASE_URL) {
+        return `${FILES_BASE_URL}/assets/files/${categoryId}/${encodeURIComponent(filename)}`;
+    }
+    return `assets/files/${categoryId}/${filename}`;
+}
+
 document.fonts.ready.then(() => {
     document.documentElement.classList.add('fonts-loaded');
 });
@@ -2866,7 +2882,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
 
 function downloadMod(mod, categoryId) {
     const link = document.createElement('a');
-    link.href = `assets/files/${categoryId}/${mod.file}`;
+    link.href = getFileUrl(categoryId, mod.file);
     link.download = mod.file;
     link.style.display = 'none';
     document.body.appendChild(link);
@@ -3150,9 +3166,21 @@ function setupSettingsModal() {
     document.getElementById('importSettingsBtn')?.addEventListener('click', () => {
         document.getElementById('importSettingsFile').click();
     });
+
     document.getElementById('importSettingsFile')?.addEventListener('change', e => {
-        if (e.target.files[0]) importSettings(e.target.files[0]);
-        e.target.value = '';
+        const file = e.target.files[0];
+        if (!file) return;
+        const sniffer = new FileReader();
+        sniffer.onload = ev => {
+            const head = ev.target.result.trimStart();
+            if (head.startsWith('{')) {
+                importSettings(file);
+            } else {
+                importModsTxt(file);
+            }
+            e.target.value = '';
+        };
+        sniffer.readAsText(file);
     });
 
     document.getElementById('hideAnimeMods')?.addEventListener('change', function () {

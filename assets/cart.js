@@ -1405,8 +1405,8 @@ async function packAndDownload() {
 
         await asyncPool(8, cart, async (item) => {
             const { file: liveFile } = resolveItemFiles(item);
-            const filePath = `assets/files/${item.categoryId}/${liveFile}`;
-
+            const filePath = getFileUrl(item.categoryId, liveFile);
+            
             try {
                 const response = await fetchWithRetry(filePath);
                 const blob = await response.blob();
@@ -1628,8 +1628,8 @@ Specify which mods are displaying incorrectly and attach the full list of instal
         if (selectedOS === 'default') {
             try {
                 const [exeResponse, linuxResponse] = await Promise.all([
-                    fetchWithRetry('assets/files/VPKMerge/VPKMerge.exe'),
-                    fetchWithRetry('assets/files/VPKMerge/VPKMerge')
+                    fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge.exe')),
+                    fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge'))
                 ]);
                 if (exeResponse.ok) {
                     await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
@@ -1644,7 +1644,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
             }
         } else if (selectedOS === 'windows') {
             try {
-                const exeResponse = await fetchWithRetry('assets/files/VPKMerge/VPKMerge.exe');
+                const exeResponse = await fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge.exe'));
                 await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
                 addLog('VPKMerge.exe added', 'success');
             } catch (err) {
@@ -1653,7 +1653,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
             }
         } else {
             try {
-                const linuxResponse = await fetchWithRetry('assets/files/VPKMerge/VPKMerge');
+                const linuxResponse = await fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge'));
                 await addToRoot(`${archiveName}/mods/VPKMerge`, await linuxResponse.blob());
                 addLog('VPKMerge (Linux) added', 'success');
             } catch (err) {
@@ -1954,4 +1954,99 @@ async function loadSharedAssembly() {
 
     const cartButton = document.getElementById('cartButton');
     if (cartButton) cartButton.click();
+}
+
+function importModsTxt(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const text = e.target.result;
+        const lines = text.split('\n');
+
+        // reverse mapping
+        const translationReverse = {};
+        categories.forEach(cat => {
+            const translated = translations[cat.key];
+            if (translated) translationReverse[translated.toLowerCase()] = cat.id;
+        });
+
+        const allMods = [];
+        Object.entries(modsData).forEach(([categoryId, data]) => {
+            if (Array.isArray(data)) {
+                data.forEach(mod => {
+                    allMods.push({ name: mod.name, categoryId, groupId: null, preview: mod.preview });
+                    if (mod.styles) {
+                        mod.styles.forEach(s => {
+                            allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: null, preview: s.preview });
+                        });
+                    }
+                });
+            } else if (data?.groups) {
+                data.groups.forEach(group => {
+                    group.mods.forEach(mod => {
+                        allMods.push({ name: mod.name, categoryId, groupId: group.id, preview: mod.preview });
+                        if (mod.styles) {
+                            mod.styles.forEach(s => {
+                                allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: group.id, preview: s.preview });
+                            });
+                        }
+                    });
+                });
+            }
+        });
+
+        let currentCategoryId = null;
+        let imported = 0;
+        const notFound = [];
+
+        cart = [];
+
+        lines.forEach(line => {
+            const catMatch = line.match(/^([A-Za-z][^:•╔╚═\n]+):\s*$/);
+            if (catMatch) {
+                const catName = catMatch[1].trim().toLowerCase();
+                currentCategoryId = translationReverse[catName] || null;
+                return;
+            }
+
+            const modMatch = line.match(/^\s*•\s*(.+?)\s*➜/);
+            if (modMatch && currentCategoryId) {
+                const modName = modMatch[1].trim();
+                const found = allMods.find(m =>
+                    m.name === modName && m.categoryId === currentCategoryId
+                );
+                if (found) {
+                    const id = found.groupId
+                        ? `${found.categoryId}-${found.groupId}-${found.name}`
+                        : `${found.categoryId}-${found.name}`;
+
+                    if (!cart.find(c => c.id === id)) {
+                        cart.push({
+                            id,
+                            name: found.name,
+                            categoryId: found.categoryId,
+                            groupId: found.groupId,
+                            preview: found.preview || ''
+                        });
+                        imported++;
+                    }
+                } else {
+                    notFound.push(`${modName} (${currentCategoryId})`);
+                }
+            }
+        });
+
+        saveCart();
+        updateCartBadge();
+        renderCartItems();
+        updateCartButtons();
+
+        let msg = `Imported <b>${imported}</b> mods from Mods.txt`;
+        if (notFound.length > 0) {
+            console.warn('Mods not found:', notFound);
+            msg += `, <b>${notFound.length}</b> not found`;
+        }
+        showToast(msg);
+        vibrate(20);
+    };
+    reader.readAsText(file);
 }
