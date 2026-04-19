@@ -931,8 +931,8 @@ const modsData = {
         { name: 'Snow Pedestal', preview: 'Snow Pedestal.webp', file: 'pak13_dir.vpk', links: [{ type: 'source', url: 'https://dota2changer.com/skins_dota_2_mods-snow_pedestal/' }] }
     ],
     'huds': [
-        { name: 'Black Hud', preview: 'Black Hud.webp', file: 'pak10_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Black Hud Preview.mp4' }, { type: 'author', url: 'VPKDota' }] },
-        { name: 'Blue Web Hud', preview: 'Blue Web Hud.webp', file: 'pak11_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Blue Web Hud Preview.mp4' }, { type: 'sender', url: 'synicalglobal' }] }
+        { name: 'Black Hud', preview: 'Black Hud.webp', file: 'pak02_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Black Hud Preview.mp4' }, { type: 'author', url: 'VPKDota' }] },
+        { name: 'Blue Web Hud', preview: 'Blue Web Hud.webp', file: 'pak03_dir.vpk', links: [{ type: 'preview', url: 'assets/previews/huds/Blue Web Hud Preview.mp4' }, { type: 'sender', url: 'synicalglobal' }] }
     ],
     'high-five': [
         { name: 'High Five Aghanim Puppet', preview: 'High Five Aghanim Puppet.mp4', file: 'pak76_dir.vpk' },
