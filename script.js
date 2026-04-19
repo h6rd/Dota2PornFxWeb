@@ -330,14 +330,14 @@ const TAG_CONFIGS = {
 
 const GIF_CONFIG = {
     gifs: [
-        'assets/files/hueta/ursa.gif',
-        'assets/files/hueta/brew.gif',
-        'assets/files/hueta/fura.gif',
-        'assets/files/hueta/storm.gif',
-        'assets/files/hueta/invoker.gif',
-        'assets/files/hueta/meepo.gif',
-        'assets/files/hueta/bh.gif',
-        'assets/files/hueta/axe.gif'
+        'assets/previews/hueta/ursa.gif',
+        'assets/previews/hueta/brew.gif',
+        'assets/previews/hueta/fura.gif',
+        'assets/previews/hueta/storm.gif',
+        'assets/previews/hueta/invoker.gif',
+        'assets/previews/hueta/meepo.gif',
+        'assets/previews/hueta/bh.gif',
+        'assets/previews/hueta/axe.gif'
     ],
     themes: ['ursa', 'brew', 'fura', 'storm', 'invoker', 'meepo', 'bh', 'axe']
 };
