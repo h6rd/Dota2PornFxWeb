@@ -412,6 +412,7 @@ const MOD_SENDER = {
   'NahuiToSay': 'https://t.me/NahuiToSay',
   'papapodzaborniy': 'https://t.me/papapodzaborniy2',
   'synicalglobal': 'https://t.me/thelastopiumbender',
+  'Lenz': 'https://www.youtube.com/@Lenz13377',
 };
 
 function resolveNickname(value, map) {
