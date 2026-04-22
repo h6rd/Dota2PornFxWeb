@@ -1,5 +1,8 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Storm Spirit Lightning Orchid', category: 'hero-items' },
+    { name: 'Storm Spirit Stormborn Mandate', category: 'hero-items' },
+    { name: 'Storm Spirit Corridan Maestro', category: 'hero-items' },
     { name: 'Broodmother Undermount Gloom', category: 'heroes' },
     { name: 'Void Spirit Keqing', category: 'heroes' },
     { name: 'Tower re-aggro Radius', category: 'other' },
@@ -743,7 +746,28 @@ const modsData = {
                     { name: 'Spirit Breaker Savage Mettle', preview: 'Spirit Breaker Savage Mettle.webp', file: 'Spirit Breaker Savage Mettle.zip', tags: { weapon: true, effects: true, icons: true } },
                 ]
             },
-            { id: 'storm-spirit', name: 'Storm Spirit', mods: [] },
+            {
+                id: 'storm-spirit', name: 'Storm Spirit', mods: [
+                    { name: 'Storm Spirit Corridan Maestro', preview: 'Storm Spirit Corridan Maestro.webp', file: 'Storm Spirit Corridan Maestro.zip', tags: { armor: true, effects: false, icons: false } },
+                    {
+                        name: 'Storm Spirit Stormborn Mandate',
+                        styles: [
+                            { label: '', color: '#74b3ff', preview: 'Storm Spirit Stormborn.webp', file: 'Storm Spirit Stormborn.zip' },
+                            { label: 'Golden', color: '#ffde7a', preview: 'Storm Spirit Stormborn Golden.webp', file: 'Storm Spirit Stormborn Golden.zip' },
+                        ],
+                        tags: { shoulders: true, effects: true, icons: true }
+                    },
+                    {
+                        name: 'Storm Spirit Lightning Orchid',
+                        styles: [
+                            { label: '', color: '#ff7474', preview: 'Storm Spirit Lightning Orchid.webp', file: 'Storm Spirit Lightning Orchid.zip' },
+                            { label: 'Retro', color: '#83ff7a', preview: 'Storm Spirit Lightning Orchid Retro.webp', file: 'Storm Spirit Lightning Orchid Retro.zip' },
+                            { label: 'Retro v2', color: '#deff7a', preview: 'Storm Spirit Lightning Orchid Retro 2.webp', file: 'Storm Spirit Lightning Orchid Retro 2.zip' },
+                        ],
+                        tags: { head: true, effects: true, icons: true }
+                    },
+                ]
+            },
             {
                 id: 'sven', name: 'Sven', mods: [
                     { name: 'Sven Guts Sword', preview: 'Sven Guts Sword.webp', file: 'Sven Guts Sword.zip', tags: { effects: true, icons: true, weapon: true }, links: [{ type: 'author', url: 'laskotdota' }] },
