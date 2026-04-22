@@ -3041,7 +3041,7 @@ function exportSettings() {
     a.download = 'd2pfx-settings.txt';
     a.click();
     URL.revokeObjectURL(url);
-    showToast('Settings exported as d2pfx-settings.txt');
+    showToast('Settings exported as <span style="color: var(--md-sys-color-primary); font-weight: 600;">d2pfx-settings.txt</span>');
 }
 
 function importSettings(file) {
@@ -3083,9 +3083,9 @@ function importSettings(file) {
                 renderAssembliesList();
             }
 
-            showToast('Settings imported from d2pfx-settings.txt');
+            showToast('Settings imported from <span style="color: var(--md-sys-color-primary); font-weight: 600;">d2pfx-settings.txt</span>');
         } catch (err) {
-            showToast('Import error: invalid d2pfx-settings.txt');
+            showToast('Import error: invalid <span style="color: var(--md-sys-color-primary); font-weight: 600;">d2pfx-settings.txt</span>');
             console.error(err);
         }
     };

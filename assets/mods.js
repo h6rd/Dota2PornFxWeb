@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Broodmother Undermount Gloom', category: 'heroes' },
     { name: 'Void Spirit Keqing', category: 'heroes' },
     { name: 'Tower re-aggro Radius', category: 'other' },
     { name: 'Visage Azure Phantom', category: 'heroes' },
@@ -119,7 +120,6 @@ const modsData = {
         { name: 'Viper Butch Dog', preview: 'Viper Butch Dog.webp', file: 'Viper Butch Dog.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Dawnbreaker Moonbreaker', preview: 'Dawnbreaker Moonbreaker.webp', file: 'Dawnbreaker Moonbreaker.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'Defiree' }] },
         { name: 'Juggernaut Samurai of Wind', preview: 'Juggernaut Samurai of Wind.webp', file: 'Juggernaut Samurai of Wind.zip', tags: { effects: true, icons: true }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
-        { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }, links: [{ type: 'author', url: 'Kisilev' }, { type: 'sender', url: 'lebensinhalt' }] },
         { name: 'Sniper Odogaron Armor', preview: 'Sniper Odogaron Armor.webp', file: 'Sniper Odogaron Armor.zip', tags: { effects: false, icons: false }, links: [{ type: 'source', url: 'https://dota2changer.com' }] },
         { name: 'Tinker Submerged Hazard', preview: 'Tinker Submerged Hazard.webp', file: 'Tinker Submerged Hazard.zip', tags: { effects: true, icons: true } },
         { name: 'Lycan Red Wolf Clan', preview: 'Lycan Red Wolf Clan.webp', file: 'Lycan Red Wolf Clan.zip', tags: { effects: false, icons: false } },
@@ -423,6 +423,7 @@ const modsData = {
         { name: 'Visage Azure Phantom', preview: 'Visage Azure Phantom.webp', file: 'Visage Azure Phantom.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: 'VPKDota' }] },
         { name: 'Slark Shadow in the Deep', preview: 'Slark Shadow in the Deep.webp', file: 'Slark Shadow in the Deep.zip', tags: { effects: true, icons: true } },
         { name: 'Void Spirit Keqing', preview: 'Void Spirit Keqing.webp', file: 'Void Spirit Keqing.zip', tags: { effects: true, icons: false, anime: true }, links: [{ type: 'sender', url: 'Lenz' }, {type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-ke_cin_keqing_from_genshin_impact/' }] },
+        { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom2.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }},
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [

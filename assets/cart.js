@@ -341,6 +341,16 @@ function loadCart() {
     if (saved) {
         try {
             cart = JSON.parse(saved);
+            const before = cart.length;
+            cart = cart.filter(item => {
+                const { file } = resolveItemFiles(item);
+                return file !== null;
+            });
+            if (cart.length < before) {
+                saveCart();
+                const removed = before - cart.length;
+                console.info(`[Cart] Removed ${removed} unavailable mod(s) from cart`);
+            }
             updateCartBadge();
         } catch (e) {
             cart = [];
@@ -702,10 +712,12 @@ function setupCartModal() {
     }
 
     const openCart = () => {
-        cartModal.classList.remove('expanded');
+        if (!window._packingInProgress) {
+            cartModal.classList.remove('expanded');
+        }
 
         const logPanel = document.getElementById('packLogPanel');
-        if (logPanel) {
+        if (logPanel && !window._packingInProgress) {
             logPanel.classList.remove('active');
         }
 
@@ -729,6 +741,10 @@ function setupCartModal() {
             cartModal.classList.add('active');
             cartOverlay.classList.add('active');
             openModal();
+            if (window._packingInProgress) {
+                cartModal.classList.add('expanded');
+                logPanel.classList.add('active');
+            }
         });
     };
 
@@ -739,7 +755,7 @@ function setupCartModal() {
         closeModal();
 
         const logPanel = document.getElementById('packLogPanel');
-        if (logPanel) {
+        if (logPanel && !window._packingInProgress) {
             logPanel.classList.remove('active');
         }
 
@@ -971,6 +987,34 @@ function getUniqueFileName(fileName, existingNames) {
 
     existingNames.add(newFileName.toLowerCase());
     return newFileName;
+}
+
+// vpk renaming
+function createPakNameAllocator(existingFileNames) {
+    let priorityCounter = 2;
+    let normalCounter = 10;
+
+    function allocatePriority(originalName) {
+        if (priorityCounter <= 9) {
+            const candidate = `!pak${String(priorityCounter).padStart(2, '0')}_dir.vpk`;
+            priorityCounter++;
+            existingFileNames.add(candidate.toLowerCase());
+            return candidate;
+        }
+        return getUniqueFileName(originalName, existingFileNames);
+    }
+
+    function allocateNormal() {
+        if (normalCounter <= 99) {
+            const candidate = `pak${normalCounter}_dir.vpk`;
+            normalCounter++;
+            existingFileNames.add(candidate.toLowerCase());
+            return candidate;
+        }
+        return getUniqueFileName('pak99_dir.vpk', existingFileNames);
+    }
+
+    return { allocatePriority, allocateNormal };
 }
 
 function generateWindowsBat(langFolder, customDotaPath) {
@@ -1245,7 +1289,21 @@ function diagnoseFetchError(error, filePath) {
         };
     }
 
-    if (msg.includes('failed to fetch') || name === 'typeerror') {
+    if (msg.includes('http 404') || msg.includes('http 403')) {
+        return {
+            message: 'Mod not found (deleted or moved). Download will continue without this mod',
+            suggestion: 'Remove this mod from the cart'
+        };
+    }
+
+    if (msg === 'mod no longer exists') {
+        return {
+            message: 'Mod no longer exists (removed or renamed). Download will continue without this mod',
+            suggestion: 'Remove this mod from the cart'
+        };
+    }
+
+    if (name === 'typeerror' && (msg.includes('failed to fetch') || msg.includes('networkerror'))) {
         return {
             message: 'Browser blocked the file download',
             suggestion: 'Disable AdBlock / uBlock / browser extensions, or try Incognito mode (Ctrl+Shift+N)'
@@ -1273,8 +1331,8 @@ function diagnoseFetchError(error, filePath) {
         };
     }
 
-    if (msg.includes('array buffer allocation failed') || 
-        msg.includes('out of memory') || 
+    if (msg.includes('array buffer allocation failed') ||
+        msg.includes('out of memory') ||
         msg.includes('allocation failed')) {
         return {
             message: 'Not enough memory to create the archive',
@@ -1327,6 +1385,7 @@ async function packAndDownload() {
     const originalContent = packBtn.innerHTML;
 
     packBtn.disabled = true;
+    window._packingInProgress = true;
     packBtn.innerHTML = `
         <div class="spinner small"></div>
         Packing...
@@ -1398,76 +1457,105 @@ async function packAndDownload() {
         const modFileNames = {};
         const fileErrors = [];
         let processedCount = 0;
+        const pakAllocator = createPakNameAllocator(existingFileNames);
 
         const addToRoot = async (path, blob) => {
             await zipWriter.add(path, new zip.BlobReader(blob));
         };
 
+        let zipQueuePromise = Promise.resolve();
+        const enqueueZip = (fn) => {
+            zipQueuePromise = zipQueuePromise.then(fn);
+            return zipQueuePromise;
+        };
+
         await asyncPool(8, cart, async (item) => {
             const { file: liveFile } = resolveItemFiles(item);
-            const filePath = getFileUrl(item.categoryId, liveFile);
-            
+            const filePath = liveFile ? getFileUrl(item.categoryId, liveFile) : null;
             try {
+                if (!liveFile) throw new Error('Mod no longer exists');
+
                 const response = await fetchWithRetry(filePath);
                 const blob = await response.blob();
 
-                if (isZipFile(liveFile)) {
-                    const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
-                    const entries = await zipReader.getEntries();
+                await enqueueZip(async () => {
+                    if (isZipFile(liveFile)) {
+                        const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
+                        const entries = await zipReader.getEntries();
 
-                    for (const entry of entries) {
-                        if (entry.directory) continue;
+                        for (const entry of entries) {
+                            if (entry.directory) continue;
 
-                        const entryBlob = await entry.getData(new zip.BlobWriter());
-                        const relativePath = entry.filename;
+                            const entryBlob = await entry.getData(new zip.BlobWriter());
+                            const relativePath = entry.filename;
 
-                        if (item.categoryId === 'terrains') {
-                            if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
-                                const pathParts = relativePath.split('/');
-                                const mapsIndex = pathParts.indexOf('maps');
-                                if (mapsIndex !== -1) {
-                                    const mapsPath = pathParts.slice(mapsIndex).join('/');
-                                    await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
+                            if (item.categoryId === 'terrains') {
+                                if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
+                                    const pathParts = relativePath.split('/');
+                                    const mapsIndex = pathParts.indexOf('maps');
+                                    if (mapsIndex !== -1) {
+                                        const mapsPath = pathParts.slice(mapsIndex).join('/');
+                                        await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
+                                    }
                                 }
-                            }
-                        } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
-                            await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
-                        } else {
-                            let fileName = relativePath.split('/').pop();
-                            if (fileName) {
-                                if (RENAME_CATEGORIES.includes(item.categoryId)) {
-                                    fileName = '!' + fileName;
+                            } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
+                                await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
+                            } else {
+                                let fileName = relativePath.split('/').pop();
+                                if (fileName) {
+                                    const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
+                                    let uniqueName;
+                                    if (fileName.toLowerCase().endsWith('_dir.vpk')) {
+                                        if (isPriority) {
+                                            uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                                        } else {
+                                            uniqueName = pakAllocator.allocateNormal();
+                                        }
+                                    } else {
+                                        if (isPriority) fileName = '!' + fileName;
+                                        uniqueName = getUniqueFileName(fileName, existingFileNames);
+                                    }
+                                    await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
+                                    if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                                    modFileNames[item.name].push(uniqueName);
                                 }
-                                const uniqueName = getUniqueFileName(fileName, existingFileNames);
-                                await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
-                                if (!modFileNames[item.name]) modFileNames[item.name] = [];
-                                modFileNames[item.name].push(uniqueName);
                             }
                         }
+                        await zipReader.close();
+                    } else {
+                        let fileName = liveFile;
+                        const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
+                        let uniqueName;
+                        if (fileName.toLowerCase().endsWith('_dir.vpk')) {
+                            if (isPriority) {
+                                uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                            } else {
+                                uniqueName = pakAllocator.allocateNormal();
+                            }
+                        } else {
+                            if (isPriority) fileName = '!' + fileName;
+                            uniqueName = getUniqueFileName(fileName, existingFileNames);
+                        }
+                        await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
+                        modFileNames[item.name] = uniqueName;
                     }
-                    await zipReader.close();
-                    addLog(`Added ${item.name}`, 'success');
-                } else {
-                    let fileName = liveFile;
-                    if (RENAME_CATEGORIES.includes(item.categoryId)) {
-                        fileName = '!' + fileName;
-                    }
-                    const uniqueName = getUniqueFileName(fileName, existingFileNames);
-                    await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
-                    modFileNames[item.name] = uniqueName;
-                    addLog(`Added ${item.name}`, 'success');
-                }
 
-                processedCount++;
-                statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+                    addLog(`Added ${item.name}`, 'success');
+                    processedCount++;
+                    statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+                });
             } catch (error) {
                 console.error(`Error processing ${item.name}:`, error);
                 const reason = diagnoseFetchError(error, filePath);
-                addLog(`❌ ${item.name}: ${reason.message}`, 'error');
-                addLog(reason.suggestion, 'warning');
-                fileErrors.push(item.name);
+                enqueueZip(() => {
+                    addLog(`❌ ${item.name}: ${reason.message}`, 'error');
+                    addLog(reason.suggestion, 'warning');
+                    fileErrors.push(item.name);
+                });
             }
         });
+
+        await zipQueuePromise;
 
         if (fileErrors.length > 0) {
             const compressed = await compressAssembly({
@@ -1539,6 +1627,14 @@ RU WINDOWS
 Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
+Если у вас происходит краш игры с ошибкой: Failed to read 16 bytes или pak10.vpk corrupt
+Не используйте Auto-Install и VPKMerge, выполните ручную установку:
+1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
+2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
+3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
+Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
+Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
+
 
 EN WINDOWS 
 ═══════════
@@ -1556,6 +1652,14 @@ Run Auto-Install.bat. If you encounter any issues while using it or if it doesn'
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
+
+If your game crashes with the error: Failed to read 16 bytes or pak10.vpk corrupt
+Do not use Auto-Install or VPKMerge, use manual installation:
+1. Rename each duplicate .vpk file to the format pakXX_dir.vpk (use numbers from 02 to 99: pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk, etc.)
+2. Files that contain "!" in their name must have higher priority (assign them a lower number, e.g. pak02_dir.vpk)
+3. Move all .vpk files to the game language folder (dota_123 or another)
+Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
+If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file
 
 
 RU LINUX
@@ -1582,6 +1686,14 @@ RU LINUX
 Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
+Если у вас происходит краш игры с ошибкой: Failed to read 16 bytes или pak10.vpk corrupt
+Не используйте Auto-Install и VPKMerge, выполните ручную установку:
+1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
+2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
+3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
+Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
+Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
+
 
 EN LINUX
 ═════════
@@ -1599,7 +1711,15 @@ Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh). If you enc
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
-Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file`;
+Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
+
+If your game crashes with the error: Failed to read 16 bytes or pak10.vpk corrupt
+Do not use Auto-Install or VPKMerge, use manual installation:
+1. Rename each duplicate .vpk file to the format pakXX_dir.vpk (use numbers from 02 to 99: pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk, etc.)
+2. Files that contain "!" in their name must have higher priority (assign them a lower number, e.g. pak02_dir.vpk)
+3. Move all .vpk files to the game language folder (dota_123 or another)
+Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
+If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file`;
 
         await addToRoot(`${archiveName}/Guide.txt`, new Blob([guideText], { type: 'text/plain' }));
         addLog('Guide added', 'success');
@@ -1702,7 +1822,7 @@ Specify which mods are displaying incorrectly and attach the full list of instal
     } catch (error) {
         console.error('Pack error:', error);
         const reason = diagnoseFetchError(error, 'pack');
-        addLog(`❌ Critical error: ${reason.message}`, 'error');
+        addLog(`❌ ${reason.message}`, 'error');
         addLog(`💡 ${reason.suggestion}`, 'warning');
 
         try {
@@ -1724,8 +1844,18 @@ Specify which mods are displaying incorrectly and attach the full list of instal
 
         packSuccess = false;
     } finally {
+        window._packingInProgress = false;
         packBtn.disabled = false;
         packBtn.innerHTML = originalContent;
+
+        const cartModalEl = document.getElementById('cartModal');
+        if (!cartModalEl.classList.contains('active')) {
+            cartModalEl.classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
+            cartModalEl.classList.add('expanded');
+            logPanel.classList.add('active');
+            openModal();
+        }
     }
 }
 
@@ -2040,7 +2170,7 @@ function importModsTxt(file) {
         renderCartItems();
         updateCartButtons();
 
-        let msg = `Imported <b>${imported}</b> mods from Mods.txt`;
+        let msg = `Imported <b>${imported}</b> mods from <span style="color: var(--md-sys-color-primary); font-weight: 600;">Mods.txt</span>`;
         if (notFound.length > 0) {
             console.warn('Mods not found:', notFound);
             msg += `, <b>${notFound.length}</b> not found`;
