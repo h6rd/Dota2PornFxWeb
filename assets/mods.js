@@ -1,5 +1,6 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Cosmic Earthshaker', category: 'heroes' },
     { name: 'Storm Spirit Lightning Orchid', category: 'hero-items' },
     { name: 'Storm Spirit Stormborn Mandate', category: 'hero-items' },
     { name: 'Storm Spirit Corridan Maestro', category: 'hero-items' },
@@ -427,6 +428,7 @@ const modsData = {
         { name: 'Slark Shadow in the Deep', preview: 'Slark Shadow in the Deep.webp', file: 'Slark Shadow in the Deep.zip', tags: { effects: true, icons: true } },
         { name: 'Void Spirit Keqing', preview: 'Void Spirit Keqing.webp', file: 'Void Spirit Keqing.zip', tags: { effects: true, icons: false, anime: true }, links: [{ type: 'sender', url: 'Lenz' }, {type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-ke_cin_keqing_from_genshin_impact/' }] },
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom2.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }},
+        { name: 'Cosmic Earthshaker', preview: 'Cosmic Earthshaker.webp', file: 'Cosmic Earthshaker.zip', tags: { effects: true, icons: true } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
