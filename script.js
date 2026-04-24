@@ -320,7 +320,7 @@ const TAG_CONFIGS = {
     },
     "hero-items": {
         allowForGuides: false,
-        map: { totem: 'Totem', weapon: 'Weapon', mount: 'Mount', head: 'Head', arm: 'Arm', armor: 'Armor', shoulders: 'Shoulders', effects: 'Effects', icons: 'Icons', sounds: 'Sounds' }
+        map: { totem: 'Totem', weapon: 'Weapon', mount: 'Mount', head: 'Head', arm: 'Arm', armor: 'Armor', shoulders: 'Shoulders', back: 'Back', effects: 'Effects', icons: 'Icons', sounds: 'Sounds' }
     },
     tools: {
         allowForGuides: false,
@@ -2610,7 +2610,7 @@ function generateTagsHtml(mod, categoryId) {
     const activeTags = [];
     const tagMap = cfg.map || {};
 
-    const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'armor', 'shoulders'];
+    const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'armor', 'shoulders', 'back'];
 
     for (const key in tagMap) {
         if (Object.prototype.hasOwnProperty.call(mod.tags, key) && mod.tags[key]) {

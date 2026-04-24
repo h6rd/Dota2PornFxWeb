@@ -1,5 +1,7 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Dazzle Gates of Nothl', category: 'hero-items' },
+    { name: 'Dazzle Needlepoint Necromance', category: 'heroes' },
     { name: 'Cosmic Earthshaker', category: 'heroes' },
     { name: 'Storm Spirit Lightning Orchid', category: 'hero-items' },
     { name: 'Storm Spirit Stormborn Mandate', category: 'hero-items' },
@@ -429,6 +431,7 @@ const modsData = {
         { name: 'Void Spirit Keqing', preview: 'Void Spirit Keqing.webp', file: 'Void Spirit Keqing.zip', tags: { effects: true, icons: false, anime: true }, links: [{ type: 'sender', url: 'Lenz' }, {type: 'source', url: 'https://ru.dota2changer.com/skins_dota_2_mods-ke_cin_keqing_from_genshin_impact/' }] },
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom2.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }},
         { name: 'Cosmic Earthshaker', preview: 'Cosmic Earthshaker.webp', file: 'Cosmic Earthshaker.zip', tags: { effects: true, icons: true } },
+        { name: 'Dazzle Needlepoint Necromance', preview: 'Dazzle Needlepoint Necromance.webp', file: 'Dazzle Needlepoint Necromance.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -605,7 +608,18 @@ const modsData = {
             { id: 'dark-seer', name: 'Dark Seer', mods: [] },
             { id: 'dark-willow', name: 'Dark Willow', mods: [] },
             { id: 'dawnbreaker', name: 'Dawnbreaker', mods: [] },
-            { id: 'dazzle', name: 'Dazzle', mods: [] },
+            {
+                id: 'dazzle', name: 'Dazzle', mods: [
+                    {
+                        name: 'Dazzle Gates of Nothl',
+                        styles: [
+                            { label: '', color: '#ad65ff', preview: 'Dazzle Gates of Nothl.webp', file: 'Dazzle Gates of Nothl.zip' },
+                            { label: 'Crimson', color: '#ff7a7a', preview: 'Dazzle Gates of Nothl Crimson.webp', file: 'Dazzle Gates of Nothl Crimson.zip' },
+                        ],
+                        tags: { effects: true, icons: true, back: true }
+                    },
+                ]
+            },
             { id: 'death-prophet', name: 'Death Prophet', mods: [] },
             {
                 id: 'disruptor', name: 'Disruptor', mods: [
