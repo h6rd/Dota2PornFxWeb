@@ -1537,7 +1537,8 @@ async function packAndDownload() {
                             uniqueName = getUniqueFileName(fileName, existingFileNames);
                         }
                         await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
-                        modFileNames[item.name] = uniqueName;
+                        if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                        modFileNames[item.name].push(uniqueName);
                     }
 
                     addLog(`Added ${item.name}`, 'success');
