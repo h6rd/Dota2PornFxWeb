@@ -1,5 +1,11 @@
 const recentlyAddedMods = [
     // { name: '', category: '' },
+    { name: 'Magnus Ornate Cruelty', category: 'heroes' },
+    { name: 'Magnus Eyes of Ardenok', category: 'hero-items' },
+    { name: 'Magnus Shock of the Anvil', category: 'hero-items' },
+    { name: 'Ursa Swift Claw', category: 'hero-items' },
+    { name: 'Ursa Crystal Drift', category: 'heroes' },
+    { name: 'Meme Media Items', category: 'item-icons' },
     { name: 'Dazzle Gates of Nothl', category: 'hero-items' },
     { name: 'Dazzle Needlepoint Necromance', category: 'heroes' },
     { name: 'Cosmic Earthshaker', category: 'heroes' },
@@ -432,6 +438,8 @@ const modsData = {
         { name: 'Broodmother Undermount Gloom', preview: 'Broodmother Undermount Gloom2.webp', file: 'Broodmother Undermount Gloom.zip', tags: { effects: false, icons: false }},
         { name: 'Cosmic Earthshaker', preview: 'Cosmic Earthshaker.webp', file: 'Cosmic Earthshaker.zip', tags: { effects: true, icons: true } },
         { name: 'Dazzle Needlepoint Necromance', preview: 'Dazzle Needlepoint Necromance.webp', file: 'Dazzle Needlepoint Necromance.zip', tags: { effects: false, icons: false } },
+        { name: 'Magnus Ornate Cruelty', preview: 'Magnus Ornate Cruelty.webp', file: 'Magnus Ornate Cruelty.zip', tags: { effects: false, icons: false } },
+        { name: 'Ursa Crystal Drift', preview: 'Ursa Crystal Drift.webp', file: 'Ursa Crystal Drift.zip', tags: { effects: false, icons: false } },
         // { name: '', preview: '.webp', file: '.zip', tags: { effects: true, icons: true }, links: [{ type: 'author', url: '' }] },
     ],
     'shaders': [
@@ -710,7 +718,19 @@ const modsData = {
             { id: 'lone-druid', name: 'Lone Druid', mods: [] },
             { id: 'luna', name: 'Luna', mods: [] },
             { id: 'lycan', name: 'Lycan', mods: [] },
-            { id: 'magnus', name: 'Magnus', mods: [] },
+            {
+                id: 'magnus', name: 'Magnus', mods: [
+                    { name: 'Magnus Shock of the Anvil', preview: 'Magnus Shock of the Anvil.webp', file: 'Magnus Shock of the Anvil.zip', tags: { effects: true, icons: true, weapon: true } },
+                    {
+                        name: 'Magnus Eyes of Ardenok',
+                        styles: [
+                            { label: '', color: '#fffb7a', preview: 'Magnus Eyes of Ardenok.webp', file: 'Magnus Eyes of Ardenok.zip' },
+                            { label: 'Crimson', color: '#ff7a7a', preview: 'Magnus Eyes of Ardenok Crimson.webp', file: 'Magnus Eyes of Ardenok Crimson.zip' },
+                        ],
+                        tags: { effects: true, icons: true, head: true }
+                    },
+                ]
+            },
             { id: 'marci', name: 'Marci', mods: [] },
             { id: 'mars', name: 'Mars', mods: [] },
             { id: 'medusa', name: 'Medusa', mods: [] },
@@ -819,7 +839,11 @@ const modsData = {
                 ]
             },
             { id: 'undying', name: 'Undying', mods: [] },
-            { id: 'ursa', name: 'Ursa', mods: [] },
+            {
+                id: 'ursa', name: 'Ursa', mods: [
+                    { name: 'Ursa Swift Claw', preview: 'Ursa Swift Claw.webp', file: 'Ursa Swift Claw.zip', tags: { effects: true, icons: false, arms: true } },
+                ]
+            },
             { id: 'vengeful-spirit', name: 'Vengeful Spirit', mods: [] },
             { id: 'venomancer', name: 'Venomancer', mods: [] },
             { id: 'viper', name: 'Viper', mods: [] },
@@ -1048,6 +1072,7 @@ const modsData = {
         { name: 'Nyash Items', preview: 'Nyash Items.webp', file: 'pak10_dir.vpk' },
         { name: 'Allstars Items', preview: 'Allstars Items.webp', file: 'pak11_dir.vpk' },
         { name: 'Dark Items', preview: 'Dark Items.webp', file: 'pak12_dir.vpk', linkType: 'author', linkUrl: 'lebensinhalt' },
+        { name: 'Meme Media Items', preview: 'Meme Media Items.webp', file: 'pak13_dir.vpk', links: [{ type: 'author', url: 'NahuiToSay' }]},
     ],
     'wards': [
         { name: 'Curious Snaptrap', preview: 'Curious Snaptrap.webp', file: 'pak10_dir.vpk' },
