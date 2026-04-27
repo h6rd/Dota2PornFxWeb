@@ -44,7 +44,7 @@ jobs:
         run: python scripts/generate_data.py
 
       - name: Deploy Data to data branch
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./compressed
@@ -57,6 +57,7 @@ jobs:
             --exclude='node_modules' \
             --exclude='.github' \
             --exclude='assets/files' \
+            --exclude='compressed' \
             . dist/
 
       - name: Show build summary

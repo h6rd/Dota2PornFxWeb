@@ -22,20 +22,21 @@ def process_image(src_path, dst_path):
         os.makedirs(os.path.dirname(dst_path), exist_ok=True)
         
         # Run ImageMagick
-        result = subprocess.run(
-            ['magick', src_path, '-quality', '80', '-strip', dst_path],
-            capture_output=True,
-            text=True
-        )
-        
-        # Fallback to 'convert' if 'magick' is not the primary binary
-        if result.returncode != 0:
+        try:
+            result = subprocess.run(
+                ['magick', src_path, '-quality', '80', '-strip', dst_path],
+                capture_output=True,
+                text=True
+            )
+        except FileNotFoundError:
+            # Fallback to 'convert' if 'magick' is not available
             result = subprocess.run(
                 ['convert', src_path, '-quality', '80', '-strip', dst_path],
                 capture_output=True,
                 text=True
             )
-            
+        
+        # Check if either 'magick' or 'convert' succeeded
         if result.returncode == 0:
             print(f"Processed: {dst_path}")
             return True
@@ -63,13 +64,16 @@ def main():
     os.makedirs(OUTPUT_PREVIEWS_DIR, exist_ok=True)
     os.makedirs(OUTPUT_DATA_DIR, exist_ok=True)
 
+    success = True
+
     # 1. Compress JSON files
     if os.path.exists(DATA_DIR):
         for filename in os.listdir(DATA_DIR):
             if filename.endswith('.json'):
                 src_path = os.path.join(DATA_DIR, filename)
                 dst_path = os.path.join(OUTPUT_DATA_DIR, f"{filename}.gz")
-                compress_json(src_path, dst_path)
+                if not compress_json(src_path, dst_path):
+                    success = False
 
     # 2. Convert WebP images to compressed JPG
     image_tasks = []
@@ -95,9 +99,14 @@ def main():
             futures = [executor.submit(process_image, src, dst) for src, dst in image_tasks]
             
             for future in futures:
-                future.result()
+                if not future.result():
+                    success = False
 
-    print("Data generation and compression complete!")
+    if success:
+        print("Data generation and compression complete!")
+    else:
+        print("Data generation finished with errors.")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()

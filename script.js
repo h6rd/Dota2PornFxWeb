@@ -68,6 +68,65 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 
+const state = {
+    currentCategory: null,
+    searchQuery: '',
+    scrollPosition: 0,
+    sortMode: 'default',
+    currentSortModeIndex: 0,
+    carouselPosition: 0,
+    itemsPerPage: 3,
+    isCollapsed: false,
+    isClosing: false
+};
+
+const elements = {
+    homePage: document.getElementById('homePage'),
+    categoryPage: document.getElementById('categoryPage'),
+    categoriesGrid: document.getElementById('categoriesGrid'),
+    modsGrid: document.getElementById('modsGrid'),
+    categoryTitle: document.getElementById('categoryTitle'),
+    categoryDescription: document.getElementById('categoryDescription'),
+    backButton: document.getElementById('backButton'),
+    searchInput: document.getElementById('searchInput'),
+    searchClear: document.getElementById('searchClear')
+};
+
+const styleIndexMap = (() => {
+    try { return JSON.parse(localStorage.getItem('styleIndexMap') || '{}'); }
+    catch { return {}; }
+})();
+
+function saveStyleIndex(modName, index) {
+    styleIndexMap[modName] = index;
+    localStorage.setItem('styleIndexMap', JSON.stringify(styleIndexMap));
+}
+
+function getStyleIndex(modName) {
+    return styleIndexMap[modName] ?? 0;
+}
+
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+};
+
+const vibrate = (pattern = 10) => {
+    if ('vibrate' in navigator) {
+        navigator.vibrate(pattern);
+    }
+};
+
+const formatTime = (seconds) => {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+
 function resolveNickname(value, map) {
     if (map[value]) return map[value];
     return value;
