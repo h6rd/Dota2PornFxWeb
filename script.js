@@ -99,7 +99,11 @@ const styleIndexMap = (() => {
 
 function saveStyleIndex(modName, index) {
     styleIndexMap[modName] = index;
-    localStorage.setItem('styleIndexMap', JSON.stringify(styleIndexMap));
+    try {
+        localStorage.setItem('styleIndexMap', JSON.stringify(styleIndexMap));
+    } catch (e) {
+        console.error('Failed to save style index to localStorage:', e);
+    }
 }
 
 function getStyleIndex(modName) {
