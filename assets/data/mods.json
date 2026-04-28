@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Immortal Avilliva",
+      "category": "heroes"
+    },
+    {
       "name": "Magnus Ornate Cruelty",
       "category": "heroes"
     },
@@ -4891,6 +4895,15 @@
         "tags": {
           "effects": false,
           "icons": false
+        }
+      },
+      {
+        "name": "Phantom Lancer Immortal Avilliva",
+        "preview": "Phantom Lancer Immortal Avilliva.webp",
+        "file": "Phantom Lancer Immortal Avilliva.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
