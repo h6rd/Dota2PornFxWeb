@@ -107,7 +107,7 @@
             "Place the vpk files in the folder next to VPKMerge",
             "Launch VPKMerge"
           ],
-          "result": "It will combine all VPKs into pak10_dir.vpk",
+          "result": "It will combine all VPKs into pak10_dir.vpk + (pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc)",
           "warning": "Doesn't work with packs from dota2changer - can't merge items_game.txt files!"
         }
       ],
@@ -119,7 +119,7 @@
             "Поместите vpk файлы в папку рядом с VPKMerge",
             "Запустите VPKMerge"
           ],
-          "result": "Он объединит все vpk в pak10_dir.vpk"
+          "result": "Он объединит все vpk в pak10_dir.vpk + (pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд)"
         }
       ]
     }
@@ -135,7 +135,7 @@
             "Make VPKMerge executable: <code>chmod +x VPKMerge</code>",
             "Run VPKMerge: <code>./VPKMerge</code>"
           ],
-          "result": "It will combine all VPKs into pak10_dir.vpk",
+          "result": "It will combine all VPKs into pak10_dir.vpk + (pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc)",
           "warning": "Doesn't work with packs from dota2changer - can't merge items_game.txt files!"
         }
       ],
@@ -147,7 +147,7 @@
             "Сделайте VPKMerge исполняемым: <code>chmod +x VPKMerge</code>",
             "Запустите VPKMerge: <code>./VPKMerge</code>"
           ],
-          "result": "Он объединит все vpk в pak10_dir.vpk",
+          "result": "Он объединит все vpk в pak10_dir.vpk + (pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд)",
           "warning": "Не работает с паками Dota2Changer - не может объединить файлы items_game.txt!"
         }
       ]

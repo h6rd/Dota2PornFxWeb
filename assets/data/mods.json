@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Umbrella Medals",
+      "category": "ranks"
+    },
+    {
+      "name": "Dota2 Datawrapper",
+      "category": "sites"
+    },
+    {
+      "name": "OpenDota Guides",
+      "category": "sites"
+    },
+    {
       "name": "Phantom Lancer Immortal Avilliva",
       "category": "heroes"
     },
@@ -7872,6 +7884,36 @@
         "preview": "steamstatus.webp",
         "file": "https://steamstat.us/",
         "type": "guide"
+      },
+      {
+        "name": "OpenDota Guides",
+        "preview": "egezenn.webp",
+        "file": "https://egezenn.github.io/OpenDotaGuides/",
+        "type": "guide",
+        "tags": {
+          "meta": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Egezenn"
+          }
+        ]
+      },
+      {
+        "name": "Dota2 Datawrapper",
+        "preview": "egezenn.webp",
+        "file": "https://egezenn.github.io/dota2-datawrapper/",
+        "type": "guide",
+        "tags": {
+          "meta": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Egezenn"
+          }
+        ]
       }
     ],
     "guides": [
@@ -7946,6 +7988,17 @@
           {
             "type": "author",
             "url": "ya_lyosha"
+          }
+        ]
+      },
+      {
+        "name": "Umbrella Medals",
+        "preview": "Umbrella Medals.webp",
+        "file": "pak16_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "kebabmaker"
           }
         ]
       }

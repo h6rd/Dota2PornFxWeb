@@ -376,17 +376,17 @@
   ],
   "NOTES_DATA": [
     {
+      "type": "update",
+      "icon": "new_releases",
+      "title": "Update",
+      "text": "The new VPKMerge is being used, it creates several files - all of them need to be moved to the language folder / Используется новый VPKMerge, он создает несколько файлов - все их надо перенести в папку с языком"
+    },
+    {
       "type": "warning",
       "icon": "error",
       "title": "Known Issue",
       "text": "When combining certain anime mods in the cart, you may encounter issue \"FATAL ERROR: Failed to read 16 bytes\", please use the anime mods separately from the cart"
-    },
-    {
-      "type": "update",
-      "icon": "new_releases",
-      "title": "Update",
-      "text": "Added Settings: there, you can select your preferred game language and OS. When you download the archive, it will include an auto-install script to set everything up in your chosen language."
-    }
+    }    
   ],
   "categoryNotes": {
     "item-effects": {
@@ -401,8 +401,7 @@
   "addToCartRules": {
     "hiddenCategories": [
       "guides",
-      "tools",
-      "huds"
+      "tools"
     ],
     "allowedMods": {
       "optimization": [
@@ -666,7 +665,8 @@
     "VPKDota": "https://t.me/vpkdota",
     "ya_lyosha": "https://www.twitch.tv/ya_lyosha",
     "SanyaBane": "https://steamcommunity.com/profiles/76561198072955043",
-    "translation": "https://t.me/skinDota2byPapich"
+    "translation": "https://t.me/skinDota2byPapich",
+    "kebabmaker": ""
   },
   "MOD_SENDER": {
     "dabaqz": "",

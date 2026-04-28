@@ -395,7 +395,7 @@ function resolveItemFiles(item) {
 }
 
 function addToCart(mod, categoryId) {
-    const FORBIDDEN_CATEGORIES = ['guides', 'tools', 'huds'];
+    const FORBIDDEN_CATEGORIES = ['guides', 'tools'];
     const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts', 'huds'];
 
     if (FORBIDDEN_CATEGORIES.includes(categoryId)) {
@@ -1093,9 +1093,20 @@ function generateWindowsBat(langFolder, customDotaPath) {
         '    echo [OK] Created folder: !LANG_DIR!',
         ')',
         '',
-        'if exist "pak10_dir.vpk" (',
-        '    move /y "pak10_dir.vpk" "!LANG_DIR!\\"',
-        '    echo [OK] Moved pak10_dir.vpk to !LANG_DIR!',
+        'echo [INFO] Removing old pak10*.vpk from !LANG_DIR!...',
+        'for %%f in ("!LANG_DIR!\\pak10*.vpk") do (',
+        '    del /f /q "%%f"',
+        '    echo [OK] Deleted old %%~nxf',
+        ')',
+        '',
+        'set "VPK_MOVED=0"',
+        'for %%f in (pak10*.vpk) do (',
+        '    move /y "%%f" "!LANG_DIR!\\"',
+        '    echo [OK] Moved %%f to !LANG_DIR!',
+        '    set "VPK_MOVED=1"',
+        ')',
+        'if "!VPK_MOVED!"=="0" (',
+        '    echo [WARN] No pak10*.vpk files found in mods folder',
         ')',
         '',
         'if exist "!LANG_DIR!\\maps" (',
@@ -1235,9 +1246,22 @@ function generateLinuxSh(langFolder, customDotaPath) {
         '    echo "[OK] Created folder: $LANG_DIR"',
         'fi',
         '',
-        'if [ -f "pak10_dir.vpk" ]; then',
-        '    mv -f "pak10_dir.vpk" "$LANG_DIR/"',
-        '    echo "[OK] Moved pak10_dir.vpk to $LANG_DIR"',
+        'echo "[INFO] Removing old pak10*.vpk from $LANG_DIR..."',
+        'for f in "$LANG_DIR"/pak10*.vpk; do',
+        '    [ -f "$f" ] || continue',
+        '    rm -f "$f"',
+        '    echo "[OK] Deleted old $(basename $f)"',
+        'done',
+        '',
+        'VPK_MOVED=0',
+        'for f in pak10*.vpk; do',
+        '    [ -f "$f" ] || continue',
+        '    mv -f "$f" "$LANG_DIR/"',
+        '    echo "[OK] Moved $f to $LANG_DIR"',
+        '    VPK_MOVED=1',
+        'done',
+        'if [ "$VPK_MOVED" -eq 0 ]; then',
+        '    echo "[WARN] No pak10*.vpk files found in mods folder"',
         'fi',
         '',
         'if [ -d "maps" ]; then',
@@ -1611,7 +1635,7 @@ RU WINDOWS
 
 1. Откройте папку mods
 2. Запустите VPKMerge.exe и дождитесь окончания
-3. Переместите готовый pak10_dir.vpk в папку с языком игры:
+3. Переместите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
    • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
    • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
@@ -1644,7 +1668,7 @@ Run Auto-Install.bat. If you encounter any issues while using it or if it doesn'
 1. Open the mods folder
 2. Run VPKMerge.exe and wait until it finishes
 3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-4. Put the finished pak10_dir.vpk in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
+4. Put all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - If you added a font, you will have the folder "Name Font" in it, you must run Install.bat (if bat does not work, read guide.txt inside the folder)
@@ -1670,7 +1694,7 @@ RU LINUX
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
 3. Запустите VPKMerge: ./VPKMerge 
-4. Переместите готовый pak10_dir.vpk в папку с языком игры:
+4. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
    • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
    • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
@@ -1704,7 +1728,7 @@ Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh). If you enc
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
 4. Create folder dota_123 in Steam/steamapps/common/dota 2 beta/game/
-5. Move the generated pak10_dir.vpk to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
+5. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - If you added a font, you will have a folder "Name Cursor", read the guide.txt file inside the folder

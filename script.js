@@ -2364,7 +2364,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
       } else if (link.type === "sender" && MOD_SENDER[link.url]) {
         displayText = link.url;
         hasCustomName = true;
-      } else if (link.type === "author" && MOD_AUTHOR[link.url]) {
+      } else if (link.type === "author" && link.url) {
         displayText = link.url;
         hasCustomName = true;
       }
@@ -2399,7 +2399,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
     } else if (mod.linkType === "sender" && MOD_SENDER[mod.linkUrl]) {
       displayText = mod.linkUrl;
       hasCustomName = true;
-    } else if (mod.linkType === "author" && MOD_AUTHOR[mod.linkUrl]) {
+    } else if (mod.linkType === "author" && mod.linkUrl) {
       displayText = mod.linkUrl;
       hasCustomName = true;
     }
