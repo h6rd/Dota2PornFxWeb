@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -25,6 +25,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Generate Compressed Data
+        run: python scripts/generate_data.py
+
+      - name: Deploy Data to data branch
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./compressed
+          publish_branch: data
 
       - name: Prepare dist folder
         run: |
@@ -33,6 +57,7 @@ jobs:
             --exclude='node_modules' \
             --exclude='.github' \
             --exclude='assets/files' \
+            --exclude='compressed' \
             . dist/
 
       - name: Show build summary
