@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Lina",
+      "category": "heroes"
+    },
+    {
+      "name": "Timbersaw Clearcut Cavalier",
+      "category": "heroes"
+    },
+    {
+      "name": "Underlord Immortal Ravenous",
+      "category": "heroes"
+    },
+    {
       "name": "Umbrella Medals",
       "category": "ranks"
     },
@@ -4917,6 +4929,51 @@
           "effects": true,
           "icons": true
         }
+      },
+      {
+        "name": "Underlord Immortal Ravenous",
+        "preview": "Underlord Immortal Ravenous.webp",
+        "file": "Underlord Immortal Ravenous.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Timbersaw Clearcut Cavalier",
+        "preview": "Timbersaw Clearcut Cavalier.webp",
+        "file": "Timbersaw Clearcut Cavalier.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Lina",
+        "preview": "Immortal Lina.webp",
+        "file": "Immortal Lina.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
       }
     ],
     "shaders": [
