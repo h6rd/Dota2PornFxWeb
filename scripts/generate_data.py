@@ -21,17 +21,22 @@ def process_image(src_path, dst_path):
         # Create directory if it doesn't exist
         os.makedirs(os.path.dirname(dst_path), exist_ok=True)
         
+        # For MP4, take the first frame
+        input_spec = src_path
+        if src_path.lower().endswith('.mp4'):
+            input_spec = f"{src_path}[0]"
+
         # Run ImageMagick
         try:
             result = subprocess.run(
-                ['magick', src_path, '-quality', '80', '-strip', dst_path],
+                ['magick', input_spec, '-quality', '80', '-strip', dst_path],
                 capture_output=True,
                 text=True
             )
         except FileNotFoundError:
             # Fallback to 'convert' if 'magick' is not available
             result = subprocess.run(
-                ['convert', src_path, '-quality', '80', '-strip', dst_path],
+                ['convert', input_spec, '-quality', '80', '-strip', dst_path],
                 capture_output=True,
                 text=True
             )
@@ -75,12 +80,13 @@ def main():
                 if not compress_json(src_path, dst_path):
                     success = False
 
-    # 2. Convert WebP images to compressed JPG
+    # 2. Convert WebP and MP4 to compressed JPG
     image_tasks = []
     if os.path.exists(PREVIEWS_DIR):
         for root, _, files in os.walk(PREVIEWS_DIR):
             for filename in files:
-                if filename.lower().endswith('.webp'):
+                ext = filename.lower()
+                if ext.endswith(('.webp', '.mp4')):
                     src_path = os.path.join(root, filename)
                     
                     # Compute relative path to recreate directory structure
@@ -94,7 +100,7 @@ def main():
 
     # Process images concurrently with 5 workers
     if image_tasks:
-        print(f"Found {len(image_tasks)} webp images to process. Starting thread pool...")
+        print(f"Found {len(image_tasks)} media files to process. Starting thread pool...")
         with ThreadPoolExecutor(max_workers=5) as executor:
             futures = [executor.submit(process_image, src, dst) for src, dst in image_tasks]
             
