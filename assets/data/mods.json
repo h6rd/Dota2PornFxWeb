@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Orc Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Undead Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Night Elf Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Human Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Ancients Lina",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Lina",
       "category": "heroes"
     },
@@ -338,7 +362,11 @@
         "links": [
           {
             "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ancients_lina/"
+            "url": "https://t.me/skinDota2byPapich/110"
+          },
+          {
+            "type": "author",
+            "url": "Darkness"
           }
         ]
       },
@@ -8529,6 +8557,50 @@
           {
             "type": "author",
             "url": "ya_lyosha"
+          }
+        ]
+      },
+      {
+        "name": "Human Cursor",
+        "preview": "Human Cursor.webp",
+        "file": "Human Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YMOM77"
+          }
+        ]
+      },
+      {
+        "name": "Night Elf Cursor",
+        "preview": "Night Elf Cursor.webp",
+        "file": "Night Elf Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YMOM77"
+          }
+        ]
+      },
+      {
+        "name": "Undead Cursor",
+        "preview": "Undead Cursor.webp",
+        "file": "Undead Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YMOM77"
+          }
+        ]
+      },
+      {
+        "name": "Orc Cursor",
+        "preview": "Orc Cursor.webp",
+        "file": "Orc Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YMOM77"
           }
         ]
       }
