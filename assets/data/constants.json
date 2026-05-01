@@ -401,7 +401,8 @@
   "addToCartRules": {
     "hiddenCategories": [
       "guides",
-      "tools"
+      "tools",
+      "packs"
     ],
     "allowedMods": {
       "optimization": [
@@ -667,7 +668,11 @@
     "SanyaBane": "https://steamcommunity.com/profiles/76561198072955043",
     "translation": "https://t.me/skinDota2byPapich",
     "kebabmaker": "",
-    "YMOM77": "https://t.me/YMOM77"
+    "YMOM77": "https://t.me/YMOM77",
+    "Slipersone": "https://t.me/slipersone",
+    "Timmyone": "https://t.me/timmyone",
+    "topkun": "https://t.me/topkun2004",
+    "HiddenPool": "https://t.me/hiddenpoolcm"
   },
   "MOD_SENDER": {
     "dabaqz": "",

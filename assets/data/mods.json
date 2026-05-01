@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Black Phoenix",
+      "category": "heroes"
+    },
+    {
+      "name": "Umbrella Pack",
+      "category": "packs"
+    },
+    {
+      "name": "Old Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Pepepains Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Umbrella Mega-Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Orc Cursor",
       "category": "cursors"
     },
@@ -361,8 +381,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://t.me/skinDota2byPapich/110"
+            "type": "author",
+            "url": "topkun"
           },
           {
             "type": "author",
@@ -5002,6 +5022,21 @@
             "url": "translation"
           }
         ]
+      },
+      {
+        "name": "Black Phoenix",
+        "preview": "Black Phoenix.webp",
+        "file": "Black Phoenix.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -7167,6 +7202,21 @@
         "name": "Hestia",
         "preview": "Hestia.webp",
         "file": "pak40_dir.vpk"
+      },
+      {
+        "name": "Umbrella Mega-Kill",
+        "preview": "Umbrella Mega-Kill.webp",
+        "file": "pak42_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/mega-kill/Umbrella-Mega-Kill.mp4"
+          },
+          {
+            "type": "author",
+            "url": "HiddenPool"
+          }
+        ]
       }
     ],
     "announcers": [
@@ -7282,9 +7332,7 @@
       {
         "name": "Profile Graffiti & Phrases",
         "preview": "Profile Graffiti & Phrases.webp",
-        "file": "pak10_dir.vpk",
-        "linkType": "author",
-        "linkUrl": "https://steamcommunity.com/profiles/76561199145739904"
+        "file": "pak10_dir.vpk"
       },
       {
         "name": "Showcase Rotation",
@@ -8523,7 +8571,7 @@
         "links": [
           {
             "type": "author",
-            "url": "https://t.me/slipersone"
+            "url": "Slipersone"
           }
         ]
       },
@@ -8594,13 +8642,24 @@
         ]
       },
       {
-        "name": "Orc Cursor",
-        "preview": "Orc Cursor.webp",
-        "file": "Orc Cursor.zip",
+        "name": "Pepepains Cursor",
+        "preview": "Pepepains Cursor.webp",
+        "file": "Pepepains Cursor.zip",
         "links": [
           {
             "type": "author",
-            "url": "YMOM77"
+            "url": "Timmyone"
+          }
+        ]
+      },
+      {
+        "name": "Old Cursor",
+        "preview": "Old Cursor.webp",
+        "file": "Old Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Timmyone"
           }
         ]
       }
@@ -8798,6 +8857,19 @@
           "TI 2024 Versus Screen",
           "Gardens Roshan",
           "10th Anniversary Tormentor"
+        ]
+      },
+      {
+        "name": "Umbrella Pack",
+        "preview": "Umbrella.webp",
+        "type": "pack",
+        "mods": [
+          "Cartoon Shader",
+          "LowPoly & Trees",
+          "Umbrella Medals",
+          "Techies Mine Radius",
+          "Tower re-aggro Radius",
+          "Umbrella Mega-Kill"
         ]
       }
     ],
