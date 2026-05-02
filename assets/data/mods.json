@@ -333,7 +333,7 @@
           "date": 1758675825,
           "commit-sha": "d0086671bdabb5d7b2865a0d03912fa6c69a529a",
           "imageMissing": true,
-          "fallback": "favicon.ico"
+          "fallback": "assets/favicon.ico"
         }
       },
       {
@@ -3265,7 +3265,11 @@
             "type": "source",
             "url": "https://www.3dmgame.com/"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "Death Prophet Yuyuko",
@@ -4288,7 +4292,11 @@
             "type": "author",
             "url": "Pinkie"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "Razor Rizelencer",
@@ -4410,7 +4418,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "Viper Elephant Hawk Moth",
@@ -4475,7 +4487,11 @@
             "type": "author",
             "url": "Pinkie"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "Defiree Disruptor",
@@ -4586,6 +4602,10 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
         }
       },
       {
@@ -5524,7 +5544,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "Nude Marci",
@@ -6755,7 +6779,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4"
         }
       },
       {
@@ -6766,7 +6792,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4"
         }
       },
       {
@@ -6777,7 +6805,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4"
         }
       },
       {
@@ -6788,7 +6818,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4"
         }
       },
       {
@@ -6799,7 +6831,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4"
         }
       },
       {
@@ -6810,7 +6844,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4"
         }
       },
       {
@@ -6821,7 +6857,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4"
         }
       },
       {
@@ -6832,7 +6870,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4"
         }
       },
       {
@@ -6843,7 +6883,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4"
         }
       },
       {
@@ -6854,7 +6896,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4"
         }
       },
       {
@@ -6873,7 +6917,9 @@
         ],
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Darkness_Pack.mp4"
         }
       },
       {
@@ -6888,7 +6934,9 @@
         ],
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4"
         }
       },
       {
@@ -6908,7 +6956,9 @@
         "linkUrl": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4"
         }
       }
     ],
@@ -6921,32 +6971,64 @@
             {
               "name": "Deny ?",
               "preview": "deny_huh.webp",
-              "file": "pak08_dir.vpk"
+              "file": "pak08_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Soul Deny",
               "preview": "soul_deny.mp4",
-              "file": "pak11_dir.vpk"
+              "file": "pak11_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
+                "hasVideo": true,
+                "videoUrl": "assets/previews/creep-deny/soul_deny.mp4"
+              }
             },
             {
               "name": "Fuck Deny",
               "preview": "fuck_deny.webp",
-              "file": "pak12_dir.vpk"
+              "file": "pak12_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Deny Fall 2022",
               "preview": "deny_fall_2022.mp4",
-              "file": "pak21_dir.vpk"
+              "file": "pak21_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
+                "hasVideo": true,
+                "videoUrl": "assets/previews/creep-deny/deny_fall_2022.mp4"
+              }
             },
             {
               "name": "Deny Spring",
               "preview": "deny_spring.mp4",
-              "file": "pak22_dir.vpk"
+              "file": "pak22_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
+                "hasVideo": true,
+                "videoUrl": "assets/previews/creep-deny/deny_spring.mp4"
+              }
             },
             {
               "name": "Deny Fall 2021",
               "preview": "deny_fall_2021.mp4",
-              "file": "pak23_dir.vpk"
+              "file": "pak23_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
+                "hasVideo": true,
+                "videoUrl": "assets/previews/creep-deny/deny_fall_2021.mp4"
+              }
             }
           ]
         },
@@ -6957,7 +7039,13 @@
             {
               "name": "lasthit Golden Shards",
               "preview": "lasthit_golden_shards.mp4",
-              "file": "pak35_dir.vpk"
+              "file": "pak35_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
+                "hasVideo": true,
+                "videoUrl": "assets/previews/creep-deny/lasthit_golden_shards.mp4"
+              }
             }
           ]
         }
@@ -7099,7 +7187,9 @@
         "file": "pak39_dir.vpk",
         "meta": {
           "date": 1766335374,
-          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8"
+          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/emblems/Bard Frog Emblem.mp4"
         }
       },
       {
@@ -7108,7 +7198,9 @@
         "file": "pak40_dir.vpk",
         "meta": {
           "date": 1766335374,
-          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8"
+          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/emblems/Bard Frog Emblem v2.mp4"
         }
       },
       {
@@ -7285,7 +7377,11 @@
             "type": "source",
             "url": "https://github.com/Egezenn/dota2-minify"
           }
-        ]
+        ],
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       },
       {
         "name": "LowPoly & Trees",
@@ -7738,6 +7834,10 @@
                 "effects": true,
                 "icons": true,
                 "back": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             }
           ]
@@ -7765,7 +7865,11 @@
                   "type": "source",
                   "url": "https://ru.dota2changer.com/skins_dota_2_mods-distractor/"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1768637892,
+                "commit-sha": "76970f6977b7dc0c7343defd791b444d8f3f5845"
+              }
             },
             {
               "name": "Disruptor Faceless Rex",
@@ -7779,7 +7883,11 @@
                   "type": "author",
                   "url": "Pinkie"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773556978,
+                "commit-sha": "7bc1b4f5c27676246ae05e9e40969f40d48dccc2"
+              }
             }
           ]
         },
@@ -7815,6 +7923,10 @@
                 "effects": false,
                 "icons": false,
                 "totem": true
+              },
+              "meta": {
+                "date": 1768637892,
+                "commit-sha": "76970f6977b7dc0c7343defd791b444d8f3f5845"
               }
             }
           ]
@@ -7901,7 +8013,11 @@
                   "type": "author",
                   "url": "NahuiToSay"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1775573454,
+                "commit-sha": "ae14ba87fac21acd5344b54f83b6cf06be5b070d"
+              }
             },
             {
               "name": "Kez Guts Sword",
@@ -7920,7 +8036,11 @@
                   "type": "author",
                   "url": "laskotdota"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1770564664,
+                "commit-sha": "f43d796aa1bd00b9cc8746c62efbf1d2ab382da1"
+              }
             }
           ]
         },
@@ -7940,6 +8060,10 @@
               "tags": {
                 "effects": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1775190022,
+                "commit-sha": "98ae6e41e0e4345d41f66a7ce5dd80702d50d4fd"
               }
             },
             {
@@ -7968,6 +8092,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             }
           ]
@@ -8027,6 +8155,10 @@
                 "arm": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             },
             {
@@ -8055,6 +8187,10 @@
                 "weapon": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             },
             {
@@ -8083,6 +8219,10 @@
                 "armor": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             }
           ]
@@ -8114,6 +8254,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1777037538,
+                "commit-sha": "a8c22e9e6df2e2db9e0497711f777b7eeca63aa2"
               }
             },
             {
@@ -8136,6 +8280,10 @@
                 "effects": true,
                 "icons": true,
                 "head": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             }
           ]
@@ -8353,7 +8501,11 @@
                   "type": "source",
                   "url": "https://ru.dota2changer.com/skins_dota_2_mods-dragon_lore_awp/"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1768637892,
+                "commit-sha": "76970f6977b7dc0c7343defd791b444d8f3f5845"
+              }
             }
           ]
         },
@@ -8374,6 +8526,10 @@
                 "weapon": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "date": 1776169497,
+                "commit-sha": "13669d1f7190ca1ac7760fa31542c8358da97766"
               }
             }
           ]
@@ -8390,6 +8546,10 @@
                 "armor": true,
                 "effects": false,
                 "icons": false
+              },
+              "meta": {
+                "date": 1776836491,
+                "commit-sha": "4a5b7be977619e73d8cd18c04a6299949a9eaebb"
               }
             },
             {
@@ -8412,6 +8572,10 @@
                 "shoulders": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             },
             {
@@ -8440,6 +8604,10 @@
                 "head": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
               }
             }
           ]
@@ -8462,7 +8630,11 @@
                   "type": "author",
                   "url": "laskotdota"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1769078589,
+                "commit-sha": "d43f61b1f9b7c8af8501aa0b5f0da7536ef1d961"
+              }
             }
           ]
         },
@@ -8509,7 +8681,11 @@
                   "type": "author",
                   "url": "Amir4an"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1776304745,
+                "commit-sha": "74bf07b4732590b27133c6494eb48edd982e75a8"
+              }
             }
           ]
         },
@@ -8525,6 +8701,10 @@
                 "effects": false,
                 "icons": false,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1768637892,
+                "commit-sha": "76970f6977b7dc0c7343defd791b444d8f3f5845"
               }
             }
           ]
@@ -8566,6 +8746,10 @@
                 "effects": true,
                 "icons": false,
                 "arms": true
+              },
+              "meta": {
+                "date": 1777037538,
+                "commit-sha": "a8c22e9e6df2e2db9e0497711f777b7eeca63aa2"
               }
             }
           ]
@@ -8777,7 +8961,9 @@
         "file": "pak13_dir.vpk",
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Nemestice Ranged Attack.mp4"
         }
       },
       {
@@ -8792,7 +8978,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Aghanim Ranged Attack.mp4"
         }
       },
       {
@@ -8807,7 +8995,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Green Diretide Ranged Attack.mp4"
         }
       },
       {
@@ -8822,7 +9012,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Diretide Blue.mp4"
         }
       },
       {
@@ -8837,7 +9029,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Diretide Red.mp4"
         }
       },
       {
@@ -8852,7 +9046,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/Diretide Yellow.mp4"
         }
       },
       {
@@ -8867,7 +9063,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/ti12.mp4"
         }
       },
       {
@@ -8882,7 +9080,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/ti10.mp4"
         }
       },
       {
@@ -8897,7 +9097,9 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/ranged-attack/ti9.mp4"
         }
       }
     ],
@@ -8918,7 +9120,9 @@
         ],
         "meta": {
           "date": 1763202238,
-          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d"
+          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4"
         }
       },
       {
@@ -8937,7 +9141,9 @@
         ],
         "meta": {
           "date": 1763202238,
-          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d"
+          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/mega-kill/Siega-Mega-Kill.mp4"
         }
       },
       {
@@ -8956,7 +9162,9 @@
         ],
         "meta": {
           "date": 1766279803,
-          "commit-sha": "179f7c3c8c183bfae50f16b20489581e61338084"
+          "commit-sha": "179f7c3c8c183bfae50f16b20489581e61338084",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/mega-kill/Stray228-Mega-Kill.mp4"
         }
       },
       {
@@ -9236,7 +9444,9 @@
         ],
         "meta": {
           "date": 1777663732,
-          "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3"
+          "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/mega-kill/Umbrella-Mega-Kill.mp4"
         }
       }
     ],
@@ -9366,7 +9576,9 @@
         ],
         "meta": {
           "date": 1776610659,
-          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76"
+          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/huds/Black Hud Preview.mp4"
         }
       },
       {
@@ -9385,7 +9597,9 @@
         ],
         "meta": {
           "date": 1776610659,
-          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76"
+          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/huds/Blue Web Hud Preview.mp4"
         }
       }
     ],
@@ -9396,7 +9610,9 @@
         "file": "pak76_dir.vpk",
         "meta": {
           "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
+          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/high-five/High Five Aghanim Puppet.mp4"
         }
       },
       {
@@ -9405,7 +9621,9 @@
         "file": "pak77_dir.vpk",
         "meta": {
           "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
+          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/high-five/High Five Crownfall.mp4"
         }
       }
     ],
@@ -9431,7 +9649,9 @@
         "file": "pak11_dir.vpk",
         "meta": {
           "date": 1772534203,
-          "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442"
+          "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/other/Showcase Rotation.mp4"
         }
       },
       {
@@ -9696,7 +9916,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Moonflower Field.mp4"
         }
       },
       {
@@ -9709,7 +9931,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Forgotten Sword.mp4"
         }
       },
       {
@@ -9722,7 +9946,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Depressed SpongeBob.mp4"
         }
       },
       {
@@ -9735,7 +9961,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Lonely Quay.mp4"
         }
       },
       {
@@ -9748,7 +9976,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Code Geass.mp4"
         }
       },
       {
@@ -9761,7 +9991,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Winter.mp4"
         }
       },
       {
@@ -9774,7 +10006,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Tree.mp4"
         }
       },
       {
@@ -9787,7 +10021,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Zenitsu White.mp4"
         }
       },
       {
@@ -9800,7 +10036,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Nier Automata.mp4"
         }
       },
       {
@@ -9813,7 +10051,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Kurumi Tokisaki.mp4"
         }
       },
       {
@@ -9826,7 +10066,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Sad Maomao.mp4"
         }
       },
       {
@@ -9839,7 +10081,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Dead Eyes.mp4"
         }
       },
       {
@@ -9852,7 +10096,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Katana In Forest.mp4"
         }
       },
       {
@@ -9865,7 +10111,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Field Grass.mp4"
         }
       },
       {
@@ -9878,7 +10126,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Snowfall In Forest.mp4"
         }
       },
       {
@@ -9891,7 +10141,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Cyrene Song.mp4"
         }
       },
       {
@@ -9904,7 +10156,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Blossom Rem.mp4"
         }
       },
       {
@@ -9917,7 +10171,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Kakehashi Subaru.mp4"
         }
       },
       {
@@ -9930,7 +10186,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Ichigo.mp4"
         }
       },
       {
@@ -9943,7 +10201,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Liberalio Nikke.mp4"
         }
       },
       {
@@ -9956,7 +10216,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Rainy Girl.mp4"
         }
       },
       {
@@ -9969,7 +10231,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Rei Ayanami.mp4"
         }
       },
       {
@@ -9982,7 +10246,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Ulquiorra.mp4"
         }
       },
       {
@@ -10034,7 +10300,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Lelouch Lamperouge.mp4"
         }
       },
       {
@@ -10047,7 +10315,9 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Kira and Ryuk.mp4"
         }
       },
       {
@@ -10060,7 +10330,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Garden of Quiet Days.mp4"
         }
       },
       {
@@ -10073,7 +10345,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Floating Dog.mp4"
         }
       },
       {
@@ -10086,7 +10360,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Corgi Sleeping.mp4"
         }
       },
       {
@@ -10099,7 +10375,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Cat Under Rain.mp4"
         }
       },
       {
@@ -10112,7 +10390,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Fallen Paladin.mp4"
         }
       },
       {
@@ -10125,7 +10405,9 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Nikaido Hiro.mp4"
         }
       },
       {
@@ -10138,7 +10420,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Winter Forest.mp4"
         }
       },
       {
@@ -10151,7 +10435,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Knight Artorias.mp4"
         }
       },
       {
@@ -10164,7 +10450,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Guts.mp4"
         }
       },
       {
@@ -10177,7 +10465,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Minecraft Rain.mp4"
         }
       },
       {
@@ -10190,7 +10480,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Old Bus Stop.mp4"
         }
       },
       {
@@ -10203,7 +10495,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Pine Forest.mp4"
         }
       },
       {
@@ -10216,7 +10510,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Sakura.mp4"
         }
       },
       {
@@ -10229,7 +10525,9 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/backgrounds/Station.mp4"
         }
       }
     ],
@@ -10331,7 +10629,11 @@
         "name": "Commands",
         "preview": "Commands.mp4",
         "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md",
-        "type": "guide"
+        "type": "guide",
+        "meta": {
+          "hasVideo": true,
+          "videoUrl": "assets/previews/optimization/Commands.mp4"
+        }
       },
       {
         "name": "Default Wards",
@@ -10458,14 +10760,18 @@
         "type": "guide",
         "meta": {
           "imageMissing": true,
-          "fallback": "favicon.ico"
+          "fallback": "assets/favicon.ico"
         }
       },
       {
         "name": "Commands & Binds",
         "preview": "Commands.mp4",
         "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md",
-        "type": "guide"
+        "type": "guide",
+        "meta": {
+          "hasVideo": true,
+          "videoUrl": "assets/previews/guides/Commands.mp4"
+        }
       },
       {
         "name": "Effects Guide",
@@ -10928,7 +11234,11 @@
           "icons": true
         },
         "guideId": "couriers-info",
-        "guideType": "info"
+        "guideType": "info",
+        "meta": {
+          "imageMissing": true,
+          "fallback": "assets/favicon.ico"
+        }
       }
     ],
     "music": [
@@ -11555,7 +11865,9 @@
         ],
         "meta": {
           "date": 1766276827,
-          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74"
+          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/hero-sounds/Largo_Serega_Pirat.mp4"
         }
       },
       {
@@ -11570,7 +11882,9 @@
         ],
         "meta": {
           "date": 1766276827,
-          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74"
+          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4"
         }
       },
       {
@@ -11585,7 +11899,9 @@
         ],
         "meta": {
           "date": 1771081650,
-          "commit-sha": "bdfc1291ff7c73de99e87298da8087be97a831dc"
+          "commit-sha": "bdfc1291ff7c73de99e87298da8087be97a831dc",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/hero-sounds/Witch Doctor True Maledict.mp4"
         }
       },
       {
@@ -11604,7 +11920,9 @@
         ],
         "meta": {
           "date": 1773775316,
-          "commit-sha": "34dae1fc4704ea954814cb8b0591f2174587ec3c"
+          "commit-sha": "34dae1fc4704ea954814cb8b0591f2174587ec3c",
+          "hasVideo": true,
+          "videoUrl": "assets/previews/hero-sounds/Naga Siren Serega Pirat.mp4"
         }
       }
     ],
@@ -11677,12 +11995,20 @@
             {
               "name": "Nemestice Radiant Creeps",
               "preview": "Nemestice Radiant.webp",
-              "file": "pak14_dir.vpk"
+              "file": "pak14_dir.vpk",
+              "meta": {
+                "date": 1768070949,
+                "commit-sha": "bde42a279e69597e2357b70abb0f5e4699da2bab"
+              }
             },
             {
               "name": "Woodland Radiant Creeps",
               "preview": "Woodland Radiant.webp",
-              "file": "pak10_dir.vpk"
+              "file": "pak10_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Reptilian Radiant Creeps",
@@ -11699,27 +12025,47 @@
                   "preview": "Blue Reptilian Radiant.webp",
                   "file": "pak25_dir.vpk"
                 }
-              ]
+              ],
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
+              }
             },
             {
               "name": "Crownfall Radiant Creeps",
               "preview": "Crownfall Radiant.webp",
-              "file": "pak18_dir.vpk"
+              "file": "pak18_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Diretide Radiant Creeps",
               "preview": "Diretide Radiant.webp",
-              "file": "pak22_dir.vpk"
+              "file": "pak22_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Pine Radiant Creeps",
               "preview": "Pine Radiant Creeps.webp",
-              "file": "pak26_dir.vpk"
+              "file": "pak26_dir.vpk",
+              "meta": {
+                "date": 1766624100,
+                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+              }
             },
             {
               "name": "USSR Radiant Creeps",
               "preview": "USSR Radiant Creeps.webp",
-              "file": "pak28_dir.vpk"
+              "file": "pak28_dir.vpk",
+              "meta": {
+                "date": 1766624100,
+                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+              }
             }
           ]
         },
@@ -11730,12 +12076,20 @@
             {
               "name": "Nemestice Dire Creeps",
               "preview": "Nemestice Dire.webp",
-              "file": "pak15_dir.vpk"
+              "file": "pak15_dir.vpk",
+              "meta": {
+                "date": 1768070949,
+                "commit-sha": "bde42a279e69597e2357b70abb0f5e4699da2bab"
+              }
             },
             {
               "name": "Woodland Dire Creeps",
               "preview": "Woodland Dire.webp",
-              "file": "pak11_dir.vpk"
+              "file": "pak11_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Reptilian Dire Creeps",
@@ -11752,22 +12106,38 @@
                   "preview": "Purple Reptilian Dire.webp",
                   "file": "pak24_dir.vpk"
                 }
-              ]
+              ],
+              "meta": {
+                "imageMissing": true,
+                "fallback": "assets/favicon.ico"
+              }
             },
             {
               "name": "Crownfall Dire Creeps",
               "preview": "Crownfall Dire.webp",
-              "file": "pak19_dir.vpk"
+              "file": "pak19_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Diretide Dire Creeps",
               "preview": "Diretide Dire.webp",
-              "file": "pak23_dir.vpk"
+              "file": "pak23_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Pine Dire Creeps",
               "preview": "Pine Dire Creeps.webp",
-              "file": "pak27_dir.vpk"
+              "file": "pak27_dir.vpk",
+              "meta": {
+                "date": 1766624100,
+                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+              }
             }
           ]
         },
@@ -11778,12 +12148,20 @@
             {
               "name": "Woodland Radiant Siege",
               "preview": "Woodland Radiant Siege.webp",
-              "file": "pak12_dir.vpk"
+              "file": "pak12_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Crownfall Radiant Siege",
               "preview": "Crownfall Radiant Siege.webp",
-              "file": "pak20_dir.vpk"
+              "file": "pak20_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             }
           ]
         },
@@ -11794,12 +12172,20 @@
             {
               "name": "Woodland Dire Siege",
               "preview": "Woodland Dire Siege.webp",
-              "file": "pak13_dir.vpk"
+              "file": "pak13_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             },
             {
               "name": "Crownfall Dire Siege",
               "preview": "Crownfall Dire Siege.webp",
-              "file": "pak21_dir.vpk"
+              "file": "pak21_dir.vpk",
+              "meta": {
+                "date": 1763798331,
+                "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
+              }
             }
           ]
         }
@@ -11820,7 +12206,11 @@
                   "type": "source",
                   "url": "https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1766624100,
+                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+              }
             }
           ]
         },
@@ -11840,27 +12230,47 @@
             {
               "name": "Purple Dagon",
               "preview": "Purple Dagon.webp",
-              "file": "pak41_dir.vpk"
+              "file": "pak41_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Blue Dagon",
               "preview": "Blue Dagon.webp",
-              "file": "pak42_dir.vpk"
+              "file": "pak42_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Snow Dagon",
               "preview": "Winter Dagon.webp",
-              "file": "pak43_dir.vpk"
+              "file": "pak43_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Green Dagon",
               "preview": "Green Dagon.webp",
-              "file": "pak12_dir.vpk"
+              "file": "pak12_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "White Dagon",
               "preview": "White Dagon.webp",
-              "file": "pak21_dir.vpk"
+              "file": "pak21_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             }
           ]
         },
@@ -11871,12 +12281,20 @@
             {
               "name": "GG Iron Branch",
               "preview": "gg_branch.webp",
-              "file": "pak20_dir.vpk"
+              "file": "pak20_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Christmas Iron Branch",
               "preview": "Christmas Branch.webp",
-              "file": "pak68_dir.vpk"
+              "file": "pak68_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             }
           ]
         },
@@ -11887,7 +12305,11 @@
             {
               "name": "White Ethereal",
               "preview": "White Ethereal.webp",
-              "file": "pak49_dir.vpk"
+              "file": "pak49_dir.vpk",
+              "meta": {
+                "date": 1756478099,
+                "commit-sha": "72d394df15365860d2be1785e2ff4097ee2b89f1"
+              }
             }
           ]
         },
@@ -11898,12 +12320,20 @@
             {
               "name": "Purple Hex",
               "preview": "Purple Hex.webp",
-              "file": "pak70_dir.vpk"
+              "file": "pak70_dir.vpk",
+              "meta": {
+                "date": 1766555595,
+                "commit-sha": "7d8a161ce3f87ed5b2fed7201533fd03512a5dfd"
+              }
             },
             {
               "name": "Winter Hex",
               "preview": "Winter Hex.webp",
-              "file": "pak71_dir.vpk"
+              "file": "pak71_dir.vpk",
+              "meta": {
+                "date": 1766555595,
+                "commit-sha": "7d8a161ce3f87ed5b2fed7201533fd03512a5dfd"
+              }
             }
           ]
         },
@@ -11914,7 +12344,11 @@
             {
               "name": "Aegis Hearts",
               "preview": "Aegis Hearts.webp",
-              "file": "pak34_dir.vpk"
+              "file": "pak34_dir.vpk",
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             }
           ]
         },
@@ -11931,12 +12365,20 @@
                   "type": "source",
                   "url": "https://dota2changer.com/skins_dota_2_mods-custom_runes/"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1756459282,
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
             },
             {
               "name": "Dark Bounty Rune",
               "preview": "Dark Bounty.webp",
-              "file": "pak10_dir.vpk"
+              "file": "pak10_dir.vpk",
+              "meta": {
+                "date": 1767204615,
+                "commit-sha": "57430ca8394631e09c8cfc57c72922843f8ce897"
+              }
             }
           ]
         },
@@ -11947,57 +12389,101 @@
             {
               "name": "TI9 Blink Dagger",
               "preview": "TI9 Blink Dagger.webp",
-              "file": "TI9 Blink Dagger.zip"
+              "file": "TI9 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI9 Blink Dagger II",
               "preview": "TI9 Blink Dagger II.webp",
-              "file": "TI9 Blink Dagger II.zip"
+              "file": "TI9 Blink Dagger II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Blink Dagger",
               "preview": "TI8 Blink Dagger.webp",
-              "file": "TI8 Blink Dagger.zip"
+              "file": "TI8 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Blink Dagger II",
               "preview": "TI8 Blink Dagger II.webp",
-              "file": "TI8 Blink Dagger II.zip"
+              "file": "TI8 Blink Dagger II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Blink Dagger",
               "preview": "TI7 Blink Dagger.webp",
-              "file": "TI7 Blink Dagger.zip"
+              "file": "TI7 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Blink Dagger II",
               "preview": "TI7 Blink Dagger II.webp",
-              "file": "TI7 Blink Dagger II.zip"
+              "file": "TI7 Blink Dagger II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Blink Dagger",
               "preview": "Winter 2016 Blink Dagger.webp",
-              "file": "Winter 2016 Blink Dagger.zip"
+              "file": "Winter 2016 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Blink Dagger",
               "preview": "TI6 Blink Dagger.webp",
-              "file": "TI6 Blink Dagger.zip"
+              "file": "TI6 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Blink Dagger II",
               "preview": "TI6 Blink Dagger II.webp",
-              "file": "TI6 Blink Dagger II.zip"
+              "file": "TI6 Blink Dagger II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Blink Dagger",
               "preview": "TI10 Blink Dagger.webp",
-              "file": "TI10 Blink Dagger.zip"
+              "file": "TI10 Blink Dagger.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Blink Dagger II",
               "preview": "TI10 Blink Dagger II.webp",
-              "file": "TI10 Blink Dagger II.zip"
+              "file": "TI10 Blink Dagger II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Blink Dagger",
@@ -12008,7 +12494,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12019,27 +12509,47 @@
             {
               "name": "TI9 Bottle",
               "preview": "TI9 Bottle.webp",
-              "file": "TI9 Bottle.zip"
+              "file": "TI9 Bottle.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Bottle",
               "preview": "TI8 Bottle.webp",
-              "file": "TI8 Bottle.zip"
+              "file": "TI8 Bottle.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Bottle",
               "preview": "TI7 Bottle.webp",
-              "file": "TI7 Bottle.zip"
+              "file": "TI7 Bottle.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Bottle",
               "preview": "TI6 Bottle.webp",
-              "file": "TI6 Bottle.zip"
+              "file": "TI6 Bottle.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Bottle",
               "preview": "TI10 Bottle.webp",
-              "file": "TI10 Bottle.zip"
+              "file": "TI10 Bottle.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Red Bottle",
@@ -12050,7 +12560,11 @@
                   "type": "source",
                   "url": "https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1756478099,
+                "commit-sha": "72d394df15365860d2be1785e2ff4097ee2b89f1"
+              }
             },
             {
               "name": "Darkness Bottle",
@@ -12061,7 +12575,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12072,32 +12590,56 @@
             {
               "name": "TI9 Euls Scepter",
               "preview": "TI9 Eul.webp",
-              "file": "TI9 Eul.zip"
+              "file": "TI9 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Euls Scepter",
               "preview": "TI8 Eul.webp",
-              "file": "TI8 Eul.zip"
+              "file": "TI8 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Euls Scepter",
               "preview": "TI7 Eul.webp",
-              "file": "TI7 Eul.zip"
+              "file": "TI7 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Euls Scepter",
               "preview": "Winter 2016 Eul.webp",
-              "file": "Winter 2016 Eul.zip"
+              "file": "Winter 2016 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Euls Scepter",
               "preview": "TI6 Eul.webp",
-              "file": "TI6 Eul.zip"
+              "file": "TI6 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Euls Scepter",
               "preview": "TI10 Eul.webp",
-              "file": "TI10 Eul.zip"
+              "file": "TI10 Eul.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Euls Scepter",
@@ -12108,7 +12650,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12119,32 +12665,56 @@
             {
               "name": "TI9 Force Staff",
               "preview": "TI9 Force Staff.webp",
-              "file": "TI9 Force Staff.zip"
+              "file": "TI9 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Force Staff",
               "preview": "TI8 Force Staff.webp",
-              "file": "TI8 Force Staff.zip"
+              "file": "TI8 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Force Staff",
               "preview": "TI7 Force Staff.webp",
-              "file": "TI7 Force Staff.zip"
+              "file": "TI7 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Force Staff",
               "preview": "TI6 Force Staff.webp",
-              "file": "TI6 Force Staff.zip"
+              "file": "TI6 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Force Staff",
               "preview": "TI10 Force Staff.webp",
-              "file": "TI10 Force Staff.zip"
+              "file": "TI10 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Force Staff",
               "preview": "Winter 2016 Force Staff.webp",
-              "file": "Winter 2016 Force Staff.zip"
+              "file": "Winter 2016 Force Staff.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12155,27 +12725,47 @@
             {
               "name": "TI9 Lvl Up",
               "preview": "TI9 Lvl Up.webp",
-              "file": "TI9 Lvl Up.zip"
+              "file": "TI9 Lvl Up.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Lvl Up",
               "preview": "TI8 Lvl Up.webp",
-              "file": "TI8 Lvl Up.zip"
+              "file": "TI8 Lvl Up.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Lvl Up",
               "preview": "TI7 Lvl Up.webp",
-              "file": "TI7 Lvl Up.zip"
+              "file": "TI7 Lvl Up.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Lvl Up",
               "preview": "TI6 Lvl Up.webp",
-              "file": "TI6 Lvl Up.zip"
+              "file": "TI6 Lvl Up.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Lvl Up",
               "preview": "TI10 Lvl Up.webp",
-              "file": "TI10 Lvl Up.zip"
+              "file": "TI10 Lvl Up.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Lvl Up",
@@ -12186,7 +12776,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12197,22 +12791,38 @@
             {
               "name": "TI9 Shiva",
               "preview": "TI9 Shiva.webp",
-              "file": "TI9 Shiva.zip"
+              "file": "TI9 Shiva.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Shiva",
               "preview": "TI8 Shiva.webp",
-              "file": "TI8 Shiva.zip"
+              "file": "TI8 Shiva.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Shiva",
               "preview": "TI7 Shiva.webp",
-              "file": "TI7 Shiva.zip"
+              "file": "TI7 Shiva.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Shiva",
               "preview": "TI10 Shiva.webp",
-              "file": "TI10 Shiva.zip"
+              "file": "TI10 Shiva.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Shiva",
@@ -12223,7 +12833,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12234,27 +12848,47 @@
             {
               "name": "TI9 Mekanism",
               "preview": "TI9 Mekanism.webp",
-              "file": "TI9 Mekanism.zip"
+              "file": "TI9 Mekanism.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Mekanism",
               "preview": "TI8 Mekanism.webp",
-              "file": "TI8 Mekanism.zip"
+              "file": "TI8 Mekanism.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Mekanism",
               "preview": "TI7 Mekanism.webp",
-              "file": "TI7 Mekanism.zip"
+              "file": "TI7 Mekanism.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Mekanism",
               "preview": "TI6 Mekanism.webp",
-              "file": "TI6 Mekanism.zip"
+              "file": "TI6 Mekanism.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Mekanism",
               "preview": "TI10 Mekanism.webp",
-              "file": "TI10 Mekanism.zip"
+              "file": "TI10 Mekanism.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Mekanism",
@@ -12265,7 +12899,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12276,27 +12914,47 @@
             {
               "name": "TI9 Maelstrom Mjollnir",
               "preview": "TI9 Maelstrom Mjollnir.webp",
-              "file": "TI9 Maelstrom Mjollnir.zip"
+              "file": "TI9 Maelstrom Mjollnir.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Maelstrom Mjollnir",
               "preview": "TI8 Maelstrom Mjollnir.webp",
-              "file": "TI8 Maelstrom Mjollnir.zip"
+              "file": "TI8 Maelstrom Mjollnir.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Maelstrom Mjollnir",
               "preview": "TI7 Maelstrom Mjollnir.webp",
-              "file": "TI7 Maelstrom Mjollnir.zip"
+              "file": "TI7 Maelstrom Mjollnir.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Maelstrom Mjollnir",
               "preview": "TI6 Maelstrom Mjollnir.webp",
-              "file": "TI6 Maelstrom Mjollnir.zip"
+              "file": "TI6 Maelstrom Mjollnir.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Maelstrom Mjollnir",
               "preview": "TI10 Maelstrom Mjollnir.webp",
-              "file": "TI10 Maelstrom Mjollnir.zip"
+              "file": "TI10 Maelstrom Mjollnir.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Mjollnir",
@@ -12307,7 +12965,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12318,27 +12980,47 @@
             {
               "name": "TI9 Radiance",
               "preview": "TI9 Radiance.webp",
-              "file": "TI9 Radiance.zip"
+              "file": "TI9 Radiance.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Radiance",
               "preview": "TI8 Radiance.webp",
-              "file": "TI8 Radiance.zip"
+              "file": "TI8 Radiance.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Radiance",
               "preview": "TI7 Radiance.webp",
-              "file": "TI7 Radiance.zip"
+              "file": "TI7 Radiance.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Radiance",
               "preview": "TI6 Radiance.webp",
-              "file": "TI6 Radiance.zip"
+              "file": "TI6 Radiance.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Radiance",
               "preview": "TI10 Radiance.webp",
-              "file": "TI10 Radiance.zip"
+              "file": "TI10 Radiance.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Radiance",
@@ -12349,7 +13031,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12360,27 +13046,47 @@
             {
               "name": "TI9 Phase Boots",
               "preview": "TI9 Phase Boots.webp",
-              "file": "TI9 Phase Boots.zip"
+              "file": "TI9 Phase Boots.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Phase Boots",
               "preview": "TI8 Phase Boots.webp",
-              "file": "TI8 Phase Boots.zip"
+              "file": "TI8 Phase Boots.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Phase Boots",
               "preview": "TI7 Phase Boots.webp",
-              "file": "TI7 Phase Boots.zip"
+              "file": "TI7 Phase Boots.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Phase Boots",
               "preview": "TI6 Phase Boots.webp",
-              "file": "TI6 Phase Boots.zip"
+              "file": "TI6 Phase Boots.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Phase Boots",
               "preview": "TI10 Phase Boots.webp",
-              "file": "TI10 Phase Boots.zip"
+              "file": "TI10 Phase Boots.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Darkness Phase Boots",
@@ -12391,7 +13097,11 @@
                   "type": "author",
                   "url": "Darkness"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12402,87 +13112,155 @@
             {
               "name": "TI9 Teleport",
               "preview": "TI9 Teleport.webp",
-              "file": "TI9 Teleport.zip"
+              "file": "TI9 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI9 Teleport II",
               "preview": "TI9 Teleport II.webp",
-              "file": "TI9 Teleport II.zip"
+              "file": "TI9 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI9 Teleport III",
               "preview": "TI9 Teleport III.webp",
-              "file": "TI9 Teleport III.zip"
+              "file": "TI9 Teleport III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Teleport",
               "preview": "TI8 Teleport.webp",
-              "file": "TI8 Teleport.zip"
+              "file": "TI8 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Teleport II",
               "preview": "TI8 Teleport II.webp",
-              "file": "TI8 Teleport II.zip"
+              "file": "TI8 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Teleport III",
               "preview": "TI8 Teleport III.webp",
-              "file": "TI8 Teleport III.zip"
+              "file": "TI8 Teleport III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Teleport",
               "preview": "TI7 Teleport.webp",
-              "file": "TI7 Teleport.zip"
+              "file": "TI7 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Teleport II",
               "preview": "TI7 Teleport II.webp",
-              "file": "TI7 Teleport II.zip"
+              "file": "TI7 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Teleport III",
               "preview": "TI7 Teleport III.webp",
-              "file": "TI7 Teleport III.zip"
+              "file": "TI7 Teleport III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Teleport",
               "preview": "Winter 2016 Teleport.webp",
-              "file": "Winter 2016 Teleport.zip"
+              "file": "Winter 2016 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Teleport II",
               "preview": "Winter 2016 Teleport II.webp",
-              "file": "Winter 2016 Teleport II.zip"
+              "file": "Winter 2016 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Teleport III",
               "preview": "Winter 2016 Teleport III.webp",
-              "file": "Winter 2016 Teleport III.zip"
+              "file": "Winter 2016 Teleport III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Teleport",
               "preview": "TI6 Teleport.webp",
-              "file": "TI6 Teleport.zip"
+              "file": "TI6 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Teleport II",
               "preview": "TI6 Teleport II.webp",
-              "file": "TI6 Teleport II.zip"
+              "file": "TI6 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Teleport III",
               "preview": "TI6 Teleport III.webp",
-              "file": "TI6 Teleport III.zip"
+              "file": "TI6 Teleport III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Teleport",
               "preview": "TI10 Teleport.webp",
-              "file": "TI10 Teleport.zip"
+              "file": "TI10 Teleport.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Teleport II",
               "preview": "TI10 Teleport II.webp",
-              "file": "TI10 Teleport II.zip"
+              "file": "TI10 Teleport II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12493,92 +13271,164 @@
             {
               "name": "TI9 Fountain Regen",
               "preview": "TI9 Fountain Regen.webp",
-              "file": "TI9 Fountain Regen.zip"
+              "file": "TI9 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI9 Fountain Regen II",
               "preview": "TI9 Fountain Regen II.webp",
-              "file": "TI9 Fountain Regen II.zip"
+              "file": "TI9 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI9 Fountain Regen III",
               "preview": "TI9 Fountain Regen III.webp",
-              "file": "TI9 Fountain Regen III.zip"
+              "file": "TI9 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Fountain Regen",
               "preview": "TI8 Fountain Regen.webp",
-              "file": "TI8 Fountain Regen.zip"
+              "file": "TI8 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Fountain Regen II",
               "preview": "TI8 Fountain Regen II.webp",
-              "file": "TI8 Fountain Regen II.zip"
+              "file": "TI8 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI8 Fountain Regen III",
               "preview": "TI8 Fountain Regen III.webp",
-              "file": "TI8 Fountain Regen III.zip"
+              "file": "TI8 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Fountain Regen",
               "preview": "TI7 Fountain Regen.webp",
-              "file": "TI7 Fountain Regen.zip"
+              "file": "TI7 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Fountain Regen II",
               "preview": "TI7 Fountain Regen II.webp",
-              "file": "TI7 Fountain Regen II.zip"
+              "file": "TI7 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI7 Fountain Regen III",
               "preview": "TI7 Fountain Regen III.webp",
-              "file": "TI7 Fountain Regen III.zip"
+              "file": "TI7 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Fountain Regen",
               "preview": "Winter 2016 Fountain Regen.webp",
-              "file": "Winter 2016 Fountain Regen.zip"
+              "file": "Winter 2016 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Fountain Regen II",
               "preview": "Winter 2016 Fountain Regen II.webp",
-              "file": "Winter 2016 Fountain Regen II.zip"
+              "file": "Winter 2016 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "Winter 2016 Fountain Regen III",
               "preview": "Winter 2016 Fountain Regen III.webp",
-              "file": "Winter 2016 Fountain Regen III.zip"
+              "file": "Winter 2016 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Fountain Regen",
               "preview": "TI6 Fountain Regen.webp",
-              "file": "TI6 Fountain Regen.zip"
+              "file": "TI6 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Fountain Regen II",
               "preview": "TI6 Fountain Regen II.webp",
-              "file": "TI6 Fountain Regen II.zip"
+              "file": "TI6 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI6 Fountain Regen III",
               "preview": "TI6 Fountain Regen III.webp",
-              "file": "TI6 Fountain Regen III.zip"
+              "file": "TI6 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Fountain Regen",
               "preview": "TI10 Fountain Regen.webp",
-              "file": "TI10 Fountain Regen.zip"
+              "file": "TI10 Fountain Regen.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Fountain Regen II",
               "preview": "TI10 Fountain Regen II.webp",
-              "file": "TI10 Fountain Regen II.zip"
+              "file": "TI10 Fountain Regen II.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             },
             {
               "name": "TI10 Fountain Regen III",
               "preview": "TI10 Fountain Regen III.webp",
-              "file": "TI10 Fountain Regen III.zip"
+              "file": "TI10 Fountain Regen III.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         },
@@ -12589,7 +13439,11 @@
             {
               "name": "TI10 Aghanim Aura",
               "preview": "TI10 Aghanim Aura.webp",
-              "file": "TI10 Aghanim Aura.zip"
+              "file": "TI10 Aghanim Aura.zip",
+              "meta": {
+                "date": 1773464613,
+                "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
+              }
             }
           ]
         }
@@ -12603,7 +13457,7 @@
         "preview": "assets/previews/news/Discord.webp",
         "meta": {
           "imageMissing": true,
-          "fallback": "favicon.ico"
+          "fallback": "assets/favicon.ico"
         }
       }
     ]
