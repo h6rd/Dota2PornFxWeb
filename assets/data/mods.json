@@ -6478,7 +6478,11 @@
             "type": "source",
             "url": "https://ru.dota2changer.com/skins_dota_2_mods-cthugha_for_huskar_by_patchouli_knowledge/"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1777751902,
+          "commit-sha": "4d5a4fea25a2db6d4cbad1fa603c716f241ba82b"
+        }
       }
     ],
     "shaders": [
