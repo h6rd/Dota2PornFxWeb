@@ -2189,7 +2189,10 @@ function createModCard(mod, categoryId, groupId = null) {
     const tagsHtml = generateTagsHtml(mod, categoryId);
     const linkButtonsHtml = generateLinkButtonsHtml(mod, categoryId);
     const downloadIcon = mod.type === 'guide' ? 'captive_portal' : 'download';
-    const subtitleText = mod.type === 'guide' ? 'Open' : translations['download'];
+    const metaDate = mod.meta?.date
+    ? new Date(mod.meta.date * 1000).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+    : null;
+    const subtitleText = mod.type === 'guide' ? 'Open' : (metaDate || translations['download']);
     const hideAddToCart = shouldHideAddToCart(mod, categoryId);
 
     card.innerHTML = `

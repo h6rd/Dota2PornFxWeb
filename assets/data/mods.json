@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lone Druid Cauldron of Xahryx",
+      "category": "hero-items"
+    },
+    {
+      "name": "Lone Druid Claws of Nuranu",
+      "category": "hero-items"
+    },
+    {
       "name": "Immortal Anti-Mage",
       "category": "heroes"
     },
@@ -244,7 +252,7 @@
   "modsData": {
     "heroes": [
       {
-        "name": "Bare Brewmaster 🥰",
+        "name": "Bare Brewmaster",
         "preview": "Bare Brewmaster.webp",
         "file": "Bare Brewmaster.zip",
         "tags": {
@@ -8177,7 +8185,46 @@
         {
           "id": "lone-druid",
           "name": "Lone Druid",
-          "mods": []
+          "mods": [
+            {
+              "name": "Lone Druid Claws of Nuranu",
+              "preview": "Lone Druid Claws of Nuranu.webp",
+              "file": "Lone Druid Claws of Nuranu.zip",
+              "tags": {
+                "arms": true,
+                "effects": true,
+                "icons": true
+              }
+            },
+            {
+              "name": "Lone Druid Cauldron of Xahryx",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#735A3D",
+                  "preview": "Lone Druid Cauldron of Xahryx.webp",
+                  "file": "Lone Druid Cauldron of Xahryx.zip"
+                },
+                {
+                  "label": "Retro",
+                  "color": "#C6FF6B",
+                  "preview": "Lone Druid Cauldron of Xahryx Retro.webp",
+                  "file": "Lone Druid Cauldron of Xahryx Retro.zip"
+                },
+                {
+                  "label": "Retro v2",
+                  "color": "#8EFF7A",
+                  "preview": "Lone Druid Cauldron of Xahryx Retro v2.webp",
+                  "file": "Lone Druid Cauldron of Xahryx Retro v2.zip"
+                }
+              ],
+              "tags": {
+                "weapon": true,
+                "effects": true,
+                "icons": true
+              }
+            }
+          ]
         },
         {
           "id": "luna",
