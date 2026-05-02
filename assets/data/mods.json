@@ -332,8 +332,7 @@
         "meta": {
           "date": 1758675825,
           "commit-sha": "d0086671bdabb5d7b2865a0d03912fa6c69a529a",
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -3267,8 +3266,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -4294,8 +4292,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -4420,8 +4417,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -4489,8 +4485,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -4604,8 +4599,7 @@
           "icons": false
         },
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -5546,8 +5540,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -6779,9 +6772,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6792,9 +6783,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6805,9 +6794,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6818,9 +6805,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6831,9 +6816,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6844,9 +6827,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6857,9 +6838,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6870,9 +6849,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6883,9 +6860,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6896,9 +6871,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6917,9 +6890,7 @@
         ],
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Darkness_Pack.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6934,9 +6905,7 @@
         ],
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       },
       {
@@ -6956,9 +6925,7 @@
         "linkUrl": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4",
         "meta": {
           "date": 1773198098,
-          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4"
+          "commit-sha": "aa3938157c3221f33cc61630d05c2bfb64b40eeb"
         }
       }
     ],
@@ -6983,9 +6950,7 @@
               "file": "pak11_dir.vpk",
               "meta": {
                 "date": 1756459282,
-                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
-                "hasVideo": true,
-                "videoUrl": "assets/previews/creep-deny/soul_deny.mp4"
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
             },
             {
@@ -7003,9 +6968,7 @@
               "file": "pak21_dir.vpk",
               "meta": {
                 "date": 1756459282,
-                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
-                "hasVideo": true,
-                "videoUrl": "assets/previews/creep-deny/deny_fall_2022.mp4"
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
             },
             {
@@ -7014,9 +6977,7 @@
               "file": "pak22_dir.vpk",
               "meta": {
                 "date": 1756459282,
-                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
-                "hasVideo": true,
-                "videoUrl": "assets/previews/creep-deny/deny_spring.mp4"
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
             },
             {
@@ -7025,9 +6986,7 @@
               "file": "pak23_dir.vpk",
               "meta": {
                 "date": 1756459282,
-                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
-                "hasVideo": true,
-                "videoUrl": "assets/previews/creep-deny/deny_fall_2021.mp4"
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
             }
           ]
@@ -7042,9 +7001,7 @@
               "file": "pak35_dir.vpk",
               "meta": {
                 "date": 1756459282,
-                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572",
-                "hasVideo": true,
-                "videoUrl": "assets/previews/creep-deny/lasthit_golden_shards.mp4"
+                "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
             }
           ]
@@ -7187,9 +7144,7 @@
         "file": "pak39_dir.vpk",
         "meta": {
           "date": 1766335374,
-          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/emblems/Bard Frog Emblem.mp4"
+          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8"
         }
       },
       {
@@ -7198,9 +7153,7 @@
         "file": "pak40_dir.vpk",
         "meta": {
           "date": 1766335374,
-          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/emblems/Bard Frog Emblem v2.mp4"
+          "commit-sha": "64460d09488fb8293a0335541c7c77fa88d8b8b8"
         }
       },
       {
@@ -7379,8 +7332,7 @@
           }
         ],
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -7836,8 +7788,7 @@
                 "back": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             }
           ]
@@ -8094,8 +8045,7 @@
                 "weapon": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             }
           ]
@@ -8157,8 +8107,7 @@
                 "icons": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             },
             {
@@ -8189,8 +8138,7 @@
                 "icons": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             },
             {
@@ -8221,8 +8169,7 @@
                 "icons": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             }
           ]
@@ -8282,8 +8229,7 @@
                 "head": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             }
           ]
@@ -8574,8 +8520,7 @@
                 "icons": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             },
             {
@@ -8606,8 +8551,7 @@
                 "icons": true
               },
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             }
           ]
@@ -8961,9 +8905,7 @@
         "file": "pak13_dir.vpk",
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Nemestice Ranged Attack.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -8978,9 +8920,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Aghanim Ranged Attack.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -8995,9 +8935,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Green Diretide Ranged Attack.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9012,9 +8950,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Diretide Blue.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9029,9 +8965,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Diretide Red.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9046,9 +8980,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/Diretide Yellow.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9063,9 +8995,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/ti12.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9080,9 +9010,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/ti10.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       },
       {
@@ -9097,9 +9025,7 @@
         ],
         "meta": {
           "date": 1764003644,
-          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/ranged-attack/ti9.mp4"
+          "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
         }
       }
     ],
@@ -9120,9 +9046,7 @@
         ],
         "meta": {
           "date": 1763202238,
-          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/mega-kill/Nedotrax-Mega-Kill.mp4"
+          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d"
         }
       },
       {
@@ -9141,9 +9065,7 @@
         ],
         "meta": {
           "date": 1763202238,
-          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/mega-kill/Siega-Mega-Kill.mp4"
+          "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d"
         }
       },
       {
@@ -9162,9 +9084,7 @@
         ],
         "meta": {
           "date": 1766279803,
-          "commit-sha": "179f7c3c8c183bfae50f16b20489581e61338084",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/mega-kill/Stray228-Mega-Kill.mp4"
+          "commit-sha": "179f7c3c8c183bfae50f16b20489581e61338084"
         }
       },
       {
@@ -9444,9 +9364,7 @@
         ],
         "meta": {
           "date": 1777663732,
-          "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/mega-kill/Umbrella-Mega-Kill.mp4"
+          "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3"
         }
       }
     ],
@@ -9576,9 +9494,7 @@
         ],
         "meta": {
           "date": 1776610659,
-          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/huds/Black Hud Preview.mp4"
+          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76"
         }
       },
       {
@@ -9597,9 +9513,7 @@
         ],
         "meta": {
           "date": 1776610659,
-          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/huds/Blue Web Hud Preview.mp4"
+          "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76"
         }
       }
     ],
@@ -9610,9 +9524,7 @@
         "file": "pak76_dir.vpk",
         "meta": {
           "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/high-five/High Five Aghanim Puppet.mp4"
+          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
         }
       },
       {
@@ -9621,9 +9533,7 @@
         "file": "pak77_dir.vpk",
         "meta": {
           "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/high-five/High Five Crownfall.mp4"
+          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
         }
       }
     ],
@@ -9649,9 +9559,7 @@
         "file": "pak11_dir.vpk",
         "meta": {
           "date": 1772534203,
-          "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/other/Showcase Rotation.mp4"
+          "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442"
         }
       },
       {
@@ -9916,9 +9824,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Moonflower Field.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -9931,9 +9837,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Forgotten Sword.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -9946,9 +9850,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Depressed SpongeBob.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -9961,9 +9863,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Lonely Quay.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -9976,9 +9876,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Code Geass.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -9991,9 +9889,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Winter.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10006,9 +9902,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Tree.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10021,9 +9915,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Zenitsu White.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10036,9 +9928,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Nier Automata.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10051,9 +9941,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Kurumi Tokisaki.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10066,9 +9954,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Sad Maomao.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10081,9 +9967,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Dead Eyes.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10096,9 +9980,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Katana In Forest.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10111,9 +9993,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Field Grass.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10126,9 +10006,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Snowfall In Forest.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10141,9 +10019,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Cyrene Song.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10156,9 +10032,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Blossom Rem.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10171,9 +10045,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Kakehashi Subaru.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10186,9 +10058,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Ichigo.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10201,9 +10071,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Liberalio Nikke.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10216,9 +10084,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Rainy Girl.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10231,9 +10097,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Rei Ayanami.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10246,9 +10110,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Ulquiorra.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10300,9 +10162,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Lelouch Lamperouge.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10315,9 +10175,7 @@
         },
         "meta": {
           "date": 1766153308,
-          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Kira and Ryuk.mp4"
+          "commit-sha": "1a0eec9c8cc7a2c1e942bcd9198fbe34de5dae37"
         }
       },
       {
@@ -10330,9 +10188,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Garden of Quiet Days.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10345,9 +10201,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Floating Dog.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10360,9 +10214,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Corgi Sleeping.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10375,9 +10227,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Cat Under Rain.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10390,9 +10240,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Fallen Paladin.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10405,9 +10253,7 @@
         },
         "meta": {
           "date": 1767801281,
-          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Nikaido Hiro.mp4"
+          "commit-sha": "5d66c1f40d2e8a8fdc18f9842d3ff3c85acbd59d"
         }
       },
       {
@@ -10420,9 +10266,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Winter Forest.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10435,9 +10279,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Knight Artorias.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10450,9 +10292,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Guts.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10465,9 +10305,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Minecraft Rain.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10480,9 +10318,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Old Bus Stop.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10495,9 +10331,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Pine Forest.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10510,9 +10344,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Sakura.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       },
       {
@@ -10525,9 +10357,7 @@
         },
         "meta": {
           "date": 1770815074,
-          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/backgrounds/Station.mp4"
+          "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
       }
     ],
@@ -10630,10 +10460,7 @@
         "preview": "Commands.mp4",
         "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md",
         "type": "guide",
-        "meta": {
-          "hasVideo": true,
-          "videoUrl": "assets/previews/optimization/Commands.mp4"
-        }
+        "meta": {}
       },
       {
         "name": "Default Wards",
@@ -10759,8 +10586,7 @@
         "guideId": "install",
         "type": "guide",
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       },
       {
@@ -10768,10 +10594,7 @@
         "preview": "Commands.mp4",
         "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md",
         "type": "guide",
-        "meta": {
-          "hasVideo": true,
-          "videoUrl": "assets/previews/guides/Commands.mp4"
-        }
+        "meta": {}
       },
       {
         "name": "Effects Guide",
@@ -11236,8 +11059,7 @@
         "guideId": "couriers-info",
         "guideType": "info",
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       }
     ],
@@ -11865,9 +11687,7 @@
         ],
         "meta": {
           "date": 1766276827,
-          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/hero-sounds/Largo_Serega_Pirat.mp4"
+          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74"
         }
       },
       {
@@ -11882,9 +11702,7 @@
         ],
         "meta": {
           "date": 1766276827,
-          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/hero-sounds/Largo_Serega_Pirat_v2.mp4"
+          "commit-sha": "7ebdb5113b30e08e432dbd6c208ac2490dba5c74"
         }
       },
       {
@@ -11899,9 +11717,7 @@
         ],
         "meta": {
           "date": 1771081650,
-          "commit-sha": "bdfc1291ff7c73de99e87298da8087be97a831dc",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/hero-sounds/Witch Doctor True Maledict.mp4"
+          "commit-sha": "bdfc1291ff7c73de99e87298da8087be97a831dc"
         }
       },
       {
@@ -11920,9 +11736,7 @@
         ],
         "meta": {
           "date": 1773775316,
-          "commit-sha": "34dae1fc4704ea954814cb8b0591f2174587ec3c",
-          "hasVideo": true,
-          "videoUrl": "assets/previews/hero-sounds/Naga Siren Serega Pirat.mp4"
+          "commit-sha": "34dae1fc4704ea954814cb8b0591f2174587ec3c"
         }
       }
     ],
@@ -12027,8 +11841,7 @@
                 }
               ],
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             },
             {
@@ -12108,8 +11921,7 @@
                 }
               ],
               "meta": {
-                "imageMissing": true,
-                "fallback": "assets/favicon.ico"
+                "imageMissing": true
               }
             },
             {
@@ -13456,8 +13268,7 @@
         "description": "Chat & get support",
         "preview": "assets/previews/news/Discord.webp",
         "meta": {
-          "imageMissing": true,
-          "fallback": "assets/favicon.ico"
+          "imageMissing": true
         }
       }
     ]
