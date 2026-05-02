@@ -75,6 +75,17 @@ def main():
                 if not compress_json(src_path, dst_path):
                     success = False
 
+    # 1.5 Copy favicon.ico to compressed folder as fallback
+    favicon_src = os.path.join('assets', 'favicon.ico')
+    favicon_dst = os.path.join(OUTPUT_DIR, 'favicon.ico')
+    if os.path.exists(favicon_src):
+        try:
+            shutil.copy2(favicon_src, favicon_dst)
+            print(f"Copied fallback icon to: {favicon_dst}")
+        except Exception as e:
+            print(f"Error copying favicon: {e}")
+            success = False
+
     # 2. Convert WebP images to compressed JPG
     image_tasks = []
     if os.path.exists(PREVIEWS_DIR):
