@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Huskar Cthugha",
+      "category": "heroes"
+    },
+    {
       "name": "Lone Druid Cauldron of Xahryx",
       "category": "hero-items"
     },
@@ -6455,6 +6459,26 @@
           "date": 1777733026,
           "commit-sha": "880881b021d68e74495a3f83a49f8634ecf15466"
         }
+      },
+      {
+        "name": "Huskar Cthugha",
+        "preview": "Huskar Cthugha.webp",
+        "file": "Huskar Cthugha.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "anime": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "shiro_rez"
+          },
+          {
+            "type": "source",
+            "url": "https://ru.dota2changer.com/skins_dota_2_mods-cthugha_for_huskar_by_patchouli_knowledge/"
+          }
+        ]
       }
     ],
     "shaders": [
