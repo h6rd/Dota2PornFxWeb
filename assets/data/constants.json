@@ -97,7 +97,8 @@
     "item-sounds": "Item Sounds",
     "item-sounds-desc": "Custom item sounds",
     "huds": "Huds",
-    "huds-desc": "Custom Huds"
+    "huds-desc": "Custom Huds",
+    "modded": "Modded"
   },
   "categories": [
     {
@@ -438,7 +439,8 @@
     "bug": "bug_report",
     "not-safe": "warning",
     "info": "warning",
-    "source-code": "code"
+    "source-code": "code",
+    "modded": "construction"
   },
   "TAG_CONFIGS": {
     "heroes": {
@@ -672,7 +674,14 @@
     "Slipersone": "https://t.me/slipersone",
     "Timmyone": "https://t.me/timmyone",
     "topkun": "https://t.me/topkun2004",
-    "HiddenPool": "https://t.me/hiddenpoolcm"
+    "HiddenPool": "https://t.me/hiddenpoolcm",
+    "BackSpace": "https://t.me/BackSpaceHub",
+    "zzzebra": "https://vk.com/zzzfans",
+    "arti4e": "https://t.me/d2modsreborn",
+    "Hooorde": "https://steamcommunity.com/profiles/76561199405322406",
+    "HyrX": "https://steamcommunity.com/profiles/76561198016243370",
+    "Sarath": "https://steamcommunity.com/profiles/76561198127797541",
+    "Naix": "https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw"
   },
   "MOD_SENDER": {
     "dabaqz": "",

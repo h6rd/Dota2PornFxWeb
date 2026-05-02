@@ -2345,12 +2345,14 @@ function generateLinkButtonsHtml(mod, categoryId) {
 
   if (mod.links && mod.links.length > 0) {
     mod.links.forEach((link) => {
-      const resolvedUrl =
+    const resolvedUrl =
         link.type === "author"
-          ? resolveNickname(link.url, MOD_AUTHOR)
-          : link.type === "sender"
-            ? resolveNickname(link.url, MOD_SENDER)
-            : link.url;
+            ? resolveNickname(link.url, MOD_AUTHOR)
+            : link.type === "sender"
+                ? resolveNickname(link.url, MOD_SENDER)
+                : link.type === "modded"
+                    ? resolveNickname(link.url, MOD_AUTHOR)
+                    : link.url;
 
       const icon = LINK_ICONS[link.type] || "link";
       const isNotSafe = link.type === "not-safe";
@@ -2367,6 +2369,9 @@ function generateLinkButtonsHtml(mod, categoryId) {
       } else if (link.type === "author" && link.url) {
         displayText = link.url;
         hasCustomName = true;
+      } else if ((link.type === "author" || link.type === "modded") && link.url) {
+        displayText = link.url;
+        hasCustomName = true;
       }
 
       linkButtons.push(`
@@ -2381,12 +2386,13 @@ function generateLinkButtonsHtml(mod, categoryId) {
     });
   } else if (mod.linkType && mod.linkUrl) {
     const resolvedUrl =
-      mod.linkType === "author"
-        ? resolveNickname(mod.linkUrl, MOD_AUTHOR)
-        : mod.linkType === "sender"
-          ? resolveNickname(mod.linkUrl, MOD_SENDER)
-          : mod.linkUrl;
-
+        mod.linkType === "author"
+            ? resolveNickname(mod.linkUrl, MOD_AUTHOR)
+            : mod.linkType === "sender"
+                ? resolveNickname(mod.linkUrl, MOD_SENDER)
+                : mod.linkType === "modded"
+                    ? resolveNickname(mod.linkUrl, MOD_AUTHOR)
+                    : mod.linkUrl;  
     const icon = LINK_ICONS[mod.linkType] || "link";
     const isNotSafe = mod.linkType === "not-safe";
 
@@ -2400,6 +2406,9 @@ function generateLinkButtonsHtml(mod, categoryId) {
       displayText = mod.linkUrl;
       hasCustomName = true;
     } else if (mod.linkType === "author" && mod.linkUrl) {
+      displayText = mod.linkUrl;
+      hasCustomName = true;
+    } else if ((mod.linkType === "author" || mod.linkType === "modded") && mod.linkUrl) {
       displayText = mod.linkUrl;
       hasCustomName = true;
     }
