@@ -6495,8 +6495,12 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "date": 1777812843,
+          "commit-sha": "3d9d33e5a10177f80d66e1a36359e5f01cffbf49"
         }
-      }  
+      }
     ],
     "shaders": [
       {
