@@ -1,6 +1,6 @@
 const CACHE_VERSION = 2;
 const CACHE_NAME = `d2pfx-previews-v${CACHE_VERSION}`;
-const BASE_PATH = location.hostname.includes('netlify.app') ? '' : '/Dota2PornFxWeb';
+const BASE_PATH = (location.hostname.includes('netlify.app') || location.hostname.includes('onrender.com')) ? '' : '/Dota2PornFxWeb';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -19,16 +19,14 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.open(CACHE_NAME).then((cache) => {
                 return cache.match(event.request).then((cachedResponse) => {
-                    if (cachedResponse) {
-                        return cachedResponse;
-                    }
-
-                    return fetch(event.request).then((networkResponse) => {
+                    const fetchPromise = fetch(event.request).then((networkResponse) => {
                         if (networkResponse && networkResponse.status === 200) {
                             cache.put(event.request, networkResponse.clone());
                         }
                         return networkResponse;
                     }).catch(() => cachedResponse);
+
+                    return cachedResponse || fetchPromise;
                 });
             })
         );

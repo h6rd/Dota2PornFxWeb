@@ -1566,6 +1566,13 @@ function init() {
     setupMobileMenu();
     setupSettingsModal();
     handleUrlParams();
+
+    if (typeof loadCart === 'function') {
+        loadCart();
+        updateCartBadge();
+        renderCartItems();
+        updateCartButtons();
+    }
 }
 
 function setupEventListeners() {
@@ -2692,11 +2699,14 @@ function showHomePage() {
 }
 
 async function loadData() {
+    const dataBase = FILES_BASE_URL
+        ? `${FILES_BASE_URL}/assets/data`
+        : 'assets/data';
     try {
         const [modsRes, guidesRes, constantsRes] = await Promise.all([
-            fetch('assets/data/mods.json'),
-            fetch('assets/data/guides.json'),
-            fetch('assets/data/constants.json')
+            fetch(`${dataBase}/mods.json`),
+            fetch(`${dataBase}/guides.json`),
+            fetch(`${dataBase}/constants.json`)
         ]);
         
         const modsDataFile = await modsRes.json();
@@ -2744,7 +2754,7 @@ function applySettings(s) {
     }
     const activeTheme = s.theme || 'dark';
     const activeOS = s.os || 'default';
-    const activeLang = s.gameLang || 'default';
+    const activeLang = s.gameLang === 'default' || !s.gameLang ? 'english' : s.gameLang;
 
     document.querySelectorAll('.settings-theme-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.theme === activeTheme);
@@ -2779,7 +2789,7 @@ function exportSettings() {
             ? GIF_CONFIG.themes[parseInt(localStorage.getItem('gifIndex'))]
             : 'ursa',
         gifIndex: localStorage.getItem('gifIndex') || '0',
-        gameLang: s.gameLang || 'default',
+        gameLang: (s.gameLang === 'default' || !s.gameLang) ? 'english' : s.gameLang,
         os: s.os || 'default',
         dotaPath: s.dotaPath || '',
         hideAnimeMods: !!s.hideAnimeMods,

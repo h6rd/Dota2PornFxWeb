@@ -1753,7 +1753,7 @@ If you have more mods than the limit: remove the extra ones or merge them separa
             try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
         })();
         const selectedOS = settings.os || 'default';
-        const selectedLang = settings.gameLang || 'default';
+        const selectedLang = (settings.gameLang === 'default' || !settings.gameLang) ? 'english' : settings.gameLang;
         const customDotaPath = (settings.dotaPath || '').trim();
         const langFolderMap = {
             russian: 'dota_russian', english: 'dota_123', minify: 'dota_minify',
