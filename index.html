@@ -518,7 +518,7 @@
     </div>
   </footer>
 
-  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register(location.hostname.includes('netlify.app') ? '/sw.js' : '/Dota2PornFxWeb/sw.js') .then(reg => console.log('Service Worker registered')) .catch(err => console.log('Service Worker registration failed:', err)); }); }</script>
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register((location.hostname.includes('netlify.app') || location.hostname.includes('onrender.com')) ? '/sw.js' : '/Dota2PornFxWeb/sw.js') .then(reg => console.log('Service Worker registered')) .catch(err => console.log('Service Worker registration failed:', err)); }); }</script>
   <script src="assets/cart.js"></script>
   <script src="assets/zip.min.js"></script>
   <script src="assets/lz-string.min.js"></script>

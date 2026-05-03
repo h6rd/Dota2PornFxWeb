@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dragon Knight Silverwurm Sacrifice",
+      "category": "heroes"
+    },
+    {
       "name": "Huskar Cthugha",
       "category": "heroes"
     },
@@ -6483,7 +6487,16 @@
           "date": 1777751902,
           "commit-sha": "4d5a4fea25a2db6d4cbad1fa603c716f241ba82b"
         }
-      }
+      },
+      {
+        "name": "Dragon Knight Silverwurm Sacrifice",
+        "preview": "Dragon Knight Silverwurm Sacrifice.webp",
+        "file": "Dragon Knight Silverwurm Sacrifice.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
+      }  
     ],
     "shaders": [
       {
