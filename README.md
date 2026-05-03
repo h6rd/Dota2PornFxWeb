@@ -149,16 +149,43 @@ This project contains content from various sources:
 
 - [**Dota2Changer**](https://dota2changer.com/)
 - [**MOR**](https://vk.com/amir4anmods)
-- **Mod Authors**:
-  - [Egezenn](https://github.com/Egezenn) - Minify Background
-  - [Robbyz512](https://github.com/robbyz512) - Minify Terrains & Trees
-  - [Darkness](https://t.me/Darkness_Logovo) - Heroes
-  - [Defiree2Mods](https://vk.com/defiree2mods) - Heroes
-  - [Kisilev_ind](https://vk.com/id363951132) - Heroes
-  - [Amir4an](https://vk.com/amir4an) - Heroes
-  - And many other authors
-
----
+<details>
+<summary><b>Mod Authors:</b></summary>
+  
+  - [Egezenn](https://github.com/Egezenn)
+  - [Robbyz](https://github.com/robbyz512)
+  - [Darkness](https://t.me/Darkness_Logovo)
+  - [Defiree](https://vk.com/defiree2mods)
+  - [Kisilev](https://vk.com/id363951132)
+  - [Amir4an](https://vk.com/amir4an)
+  - [Skratch](https://www.youtube.com/@skratch)
+  - [Lenz](https://www.youtube.com/@Lenz13377)
+  - [Kliromin](https://www.youtube.com/@mrkliromin7723)
+  - [Pinkpapa](https://www.patreon.com/Pinkpapa)
+  - [laskotdota](https://t.me/laskotdota)
+  - [NahuiToSay](https://t.me/NahuiToSay)
+  - [lebensinhalt](https://t.me/turnoffyourlebensinhalt)
+  - [Kynomi](https://vk.com/kynomi)
+  - [Pinkie](https://steamcommunity.com/profiles/76561198142595363)
+  - [VPKDota](https://t.me/vpkdota)
+  - [ya_lyosha](https://www.twitch.tv/ya_lyosha)
+  - [SanyaBane](https://steamcommunity.com/profiles/76561198072955043)
+  - [translation](https://t.me/skinDota2byPapich)
+  - kebabmaker
+  - [YMOM77](https://t.me/YMOM77)
+  - [Slipersone](https://t.me/slipersone)
+  - [Timmyone](https://t.me/timmyone)
+  - [topkun](https://t.me/topkun2004)
+  - [HiddenPool](https://t.me/hiddenpoolcm)
+  - [BackSpace](https://t.me/BackSpaceHub)
+  - [zzzebra](https://vk.com/zzzfans)
+  - [arti4e](https://t.me/d2modsreborn)
+  - [Hooorde](https://steamcommunity.com/profiles/76561199405322406)
+  - [HyrX](https://steamcommunity.com/profiles/76561198016243370)
+  - [Sarath](https://steamcommunity.com/profiles/76561198127797541)
+  - [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw)
+  - [Shiro_R](https://t.me/shiro_rez)
+</details>
 
 ## ⚠️ Disclaimer
 
