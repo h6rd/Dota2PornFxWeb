@@ -175,7 +175,6 @@ This project contains content from various sources:
   - [YMOM77](https://t.me/YMOM77)
   - [Slipersone](https://t.me/slipersone)
   - [Timmyone](https://t.me/timmyone)
-  - [topkun](https://t.me/topkun2004)
   - [HiddenPool](https://t.me/hiddenpoolcm)
   - [BackSpace](https://t.me/BackSpaceHub)
   - [zzzebra](https://vk.com/zzzfans)
@@ -185,6 +184,7 @@ This project contains content from various sources:
   - [Sarath](https://steamcommunity.com/profiles/76561198127797541)
   - [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw)
   - [Shiro_R](https://t.me/shiro_rez)
+  - [apathydxd](https://discord.com/users/538760177470668810)
 </details>
 
 ## ⚠️ Disclaimer

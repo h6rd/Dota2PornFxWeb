@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Black",
+      "category": "heroes"
+    },
+    {
       "name": "Huskar Flashpoint Proselyte",
       "category": "heroes"
     },
@@ -2906,9 +2910,13 @@
         "file": "Shadow Fiend Black.zip",
         "tags": {
           "effects": true,
-          "icons": false
+          "icons": true
         },
         "links": [
+          {
+            "type": "modded",
+            "url": "apathydxd"
+          },
           {
             "type": "author",
             "url": "arti4e"
