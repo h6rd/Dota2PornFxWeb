@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Huskar Flashpoint Proselyte",
+      "category": "heroes"
+    },
+    {
+      "name": "Chaos Invoker",
+      "category": "heroes"
+    },
+    {
+      "name": "Dark Ancient Slark",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend White",
+      "category": "heroes"
+    },
+    {
+      "name": "Kez Bersexer",
+      "category": "heroes"
+    },
+    {
       "name": "Dragon Knight Silverwurm Sacrifice",
       "category": "heroes"
     },
@@ -459,7 +479,7 @@
         "links": [
           {
             "type": "modded",
-            "url": "topkun"
+            "url": "apathydxd"
           },
           {
             "type": "author",
@@ -1045,8 +1065,12 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/hero-tag:shadow%20fiend-list_skins_dlya_dota_2-0/#megapack"
+            "type": "modded",
+            "url": "apathydxd"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -3951,6 +3975,10 @@
         },
         "links": [
           {
+            "type": "modded",
+            "url": "apathydxd"
+          },
+          {
             "type": "author",
             "url": "Darkness"
           }
@@ -6500,6 +6528,51 @@
           "date": 1777812843,
           "commit-sha": "3d9d33e5a10177f80d66e1a36359e5f01cffbf49"
         }
+      },
+      {
+        "name": "Kez Bersexer",
+        "preview": "Kez Bersexer.webp",
+        "file": "Kez Bersexer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
+      },
+      {
+        "name": "Chaos Invoker",
+        "preview": "Chaos Invoker.webp",
+        "file": "Chaos Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
+      },
+      {
+        "name": "Huskar Flashpoint Proselyte",
+        "preview": "Huskar Flashpoint Proselyte.webp",
+        "file": "Huskar Flashpoint Proselyte.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
       }
     ],
     "shaders": [
