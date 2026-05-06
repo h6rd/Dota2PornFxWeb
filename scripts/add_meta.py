@@ -31,18 +31,45 @@ def process_mod_item(mod, category, git_previews):
         return
     mod_meta = mod.get("meta", {})
 
-    # 1. Git Metadata
+    files_to_check = []
+    previews_to_check = []
+
     if "file" in mod:
-        metadata = get_git_metadata(f"assets/files/{category}/{mod['file']}")
+        files_to_check.append(mod["file"])
+    if "preview" in mod:
+        previews_to_check.append(mod["preview"])
+
+    if "styles" in mod and isinstance(mod["styles"], list):
+        for style in mod["styles"]:
+            if "file" in style:
+                files_to_check.append(style["file"])
+            if "preview" in style:
+                previews_to_check.append(style["preview"])
+
+    # 1. Git Metadata (get latest)
+    latest_metadata = None
+    for file_name in files_to_check:
+        metadata = get_git_metadata(f"assets/files/{category}/{file_name}")
         if metadata:
-            mod_meta.update(metadata)
+            if latest_metadata is None or metadata["date"] > latest_metadata["date"]:
+                latest_metadata = metadata
+
+    if latest_metadata:
+        mod_meta.update(latest_metadata)
 
     # 2. Image Availability Check
-    preview_name = mod.get("preview", "")
-    if preview_name:
-        preview_path = f"assets/previews/{category}/{preview_name}".replace("\\", "/")
-        if preview_path not in git_previews:
-            mod_meta["imageMissing"] = True
+    image_missing = False
+    if previews_to_check:
+        for preview_name in previews_to_check:
+            preview_path = f"assets/previews/{category}/{preview_name}".replace("\\", "/")
+            if preview_path not in git_previews:
+                image_missing = True
+                break
+
+    if image_missing:
+        mod_meta["imageMissing"] = True
+    elif "imageMissing" in mod_meta:
+        del mod_meta["imageMissing"]
 
     if mod_meta:
         mod["meta"] = mod_meta
