@@ -2702,12 +2702,41 @@ async function loadData() {
     const dataBase = FILES_BASE_URL
         ? `${FILES_BASE_URL}/assets/data`
         : 'assets/data';
+
+    const grid = document.getElementById('categoriesGrid');
+    if (!grid) return;
+
+    grid.innerHTML = `
+        <div class="data-loading-state">
+            <div class="md3-circular-progress">
+                <svg class="md3-circular-progress-svg" viewBox="0 0 48 48">
+                    <circle class="md3-circular-progress-track" cx="24" cy="24" r="20"/>
+                    <circle class="md3-circular-progress-active" cx="24" cy="24" r="20"/>
+                </svg>
+            </div>
+            <div class="data-loading-label">Loading mods…</div>
+        </div>`;
+
+    const slowWarningTimer = setTimeout(() => {
+        const label = document.querySelector('.data-loading-label');
+        if (label) {
+            label.textContent = 'Slow connection…';
+            label.classList.add('data-loading-label--slow');
+        }
+    }, 5000);
+
+    const controller = new AbortController();
+    const hardTimeoutTimer = setTimeout(() => controller.abort(), 15000);
+
     try {
         const [modsRes, guidesRes, constantsRes] = await Promise.all([
-            fetch(`${dataBase}/mods.json`),
-            fetch(`${dataBase}/guides.json`),
-            fetch(`${dataBase}/constants.json`)
+            fetch(`${dataBase}/mods.json`, { signal: controller.signal }),
+            fetch(`${dataBase}/guides.json`, { signal: controller.signal }),
+            fetch(`${dataBase}/constants.json`, { signal: controller.signal })
         ]);
+
+        clearTimeout(slowWarningTimer);
+        clearTimeout(hardTimeoutTimer);
 
         if (!modsRes.ok) throw new Error(`HTTP ${modsRes.status}`);
         if (!guidesRes.ok) throw new Error(`HTTP ${guidesRes.status}`);
@@ -2725,31 +2754,34 @@ async function loadData() {
 
         init();
     } catch (e) {
+        clearTimeout(slowWarningTimer);
+        clearTimeout(hardTimeoutTimer);
         console.error("Failed to load application data:", e);
         setupFAB();
         setupScrollToTop();
         setupSettingsModal();
-        const grid = document.getElementById('categoriesGrid');
-        if (grid) {
-            grid.innerHTML = `
-                <div class="mirror-error">
-                    <span class="material-symbols-rounded mirror-error-icon">cloud_off</span>
-                    <div class="mirror-error-title">Failed to load data</div>
-                    <div class="mirror-error-subtitle">
-                        GitHub is blocked or unavailable. Try a VPN or one of the mirrors:
-                    </div>
-                    <div class="mirror-error-links">
-                        <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
-                            Render.com
-                            <span class="material-symbols-rounded">open_in_new</span>
-                        </a>
-                        <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
-                            Netlify.app
-                            <span class="material-symbols-rounded">open_in_new</span>
-                        </a>
-                    </div>
-                </div>`;
-        }
+
+        const isTimeout = e.name === 'AbortError';
+        grid.innerHTML = `
+            <div class="mirror-error">
+                <span class="material-symbols-rounded mirror-error-icon">cloud_off</span>
+                <div class="mirror-error-title">${isTimeout ? 'Connection timed out' : 'Failed to load data'}</div>
+                <div class="mirror-error-subtitle">
+                    ${isTimeout
+                ? 'GitHub is taking too long<br>Try a VPN or one of the mirrors:'
+                : 'GitHub is unavailable<br>Try a VPN or one of the mirrors:'}
+                </div>
+                <div class="mirror-error-links">
+                    <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
+                        d2pfx.onrender.com
+                        <span class="material-symbols-rounded">open_in_new</span>
+                    </a>
+                    <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
+                        d2pfx.netlify.app
+                        <span class="material-symbols-rounded">open_in_new</span>
+                    </a>
+                </div>
+            </div>`;
     }
 }
 

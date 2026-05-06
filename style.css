@@ -4007,6 +4007,69 @@ fcode {
   color: var(--md-sys-color-on-secondary-container);
 }
 
+/* data loading state */
+.data-loading-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 64px 24px;
+}
+
+.data-loading-label {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  letter-spacing: 0.25px;
+  transition: color 0.4s ease;
+  font-weight: 500;
+}
+
+.data-loading-label--slow {
+  color: var(--md-sys-color-error);
+  font-weight: 600;
+}
+
+.md3-circular-progress {
+  width: 48px;
+  height: 48px;
+  animation: md3-rotate 1.5s linear infinite;
+}
+
+.md3-circular-progress-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.md3-circular-progress-track {
+  fill: none;
+  stroke: var(--md-sys-color-surface-container-highest);
+  stroke-width: 4;
+}
+
+.md3-circular-progress-active {
+  fill: none;
+  stroke: var(--md-sys-color-primary);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+@keyframes md3-rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes md3-dash {
+  0%   { stroke-dasharray: 1 124; stroke-dashoffset: 0; }
+  50%  { stroke-dasharray: 100 24; stroke-dashoffset: -24; }
+  100% { stroke-dasharray: 1 124; stroke-dashoffset: -125; }
+}
+
+.md3-circular-progress-active {
+  animation: md3-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 80 45;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
