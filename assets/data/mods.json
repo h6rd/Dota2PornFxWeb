@@ -8097,6 +8097,10 @@
                 "effects": true,
                 "icons": true,
                 "hair": true
+              },
+              "meta": {
+                "date": 1778075019,
+                "commit-sha": "e352541a429e9ba6d2893648d28ac1b7abf3aea9"
               }
             }
           ]
