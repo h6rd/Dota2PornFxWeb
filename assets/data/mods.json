@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Invoker Magus Apex",
+      "category": "hero-items"
+    },
+    {
       "name": "Shadow Fiend Black",
       "category": "heroes"
     },
@@ -8084,7 +8088,18 @@
         {
           "id": "invoker",
           "name": "Invoker",
-          "mods": []
+          "mods": [
+            {
+              "name": "Invoker Magus Apex",
+              "preview": "Invoker Magus Apex.webp",
+              "file": "Invoker Magus Apex.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "hair": true
+              }
+            }
+          ]
         },
         {
           "id": "io",
