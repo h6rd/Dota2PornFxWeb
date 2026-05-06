@@ -3939,6 +3939,74 @@ fcode {
   line-height: 1.6;
 }
 
+/* mirrors */
+.mirror-error {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.mirror-error-icon {
+  font-size: 3rem;
+  color: var(--md-sys-color-error);
+}
+
+.mirror-error-title {
+  color: var(--md-sys-color-error);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mirror-error-subtitle {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.mirror-error-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.mirror-error-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.15s ease;
+}
+
+.mirror-error-btn:hover {
+  opacity: 0.85;
+}
+
+.mirror-error-btn .material-symbols-rounded {
+  font-size: 1.2rem;
+}
+
+.mirror-error-btn--primary {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.mirror-error-btn--secondary {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

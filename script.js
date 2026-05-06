@@ -2708,7 +2708,11 @@ async function loadData() {
             fetch(`${dataBase}/guides.json`),
             fetch(`${dataBase}/constants.json`)
         ]);
-        
+
+        if (!modsRes.ok) throw new Error(`HTTP ${modsRes.status}`);
+        if (!guidesRes.ok) throw new Error(`HTTP ${guidesRes.status}`);
+        if (!constantsRes.ok) throw new Error(`HTTP ${constantsRes.status}`);
+
         const modsDataFile = await modsRes.json();
         const guidesDataFile = await guidesRes.json();
         const constantsDataFile = await constantsRes.json();
@@ -2716,15 +2720,35 @@ async function loadData() {
         window.recentlyAddedMods = modsDataFile.recentlyAddedMods;
         window.modsData = modsDataFile.modsData;
         window.guidesData = guidesDataFile;
-        
+
         Object.assign(window, constantsDataFile);
-        
+
         init();
     } catch (e) {
         console.error("Failed to load application data:", e);
+        setupFAB();
+        setupScrollToTop();
+        setupSettingsModal();
         const grid = document.getElementById('categoriesGrid');
         if (grid) {
-            grid.innerHTML = '<div style="color:var(--md-sys-color-error); text-align:center; grid-column:1/-1; padding:2rem;">Failed to load data. Please refresh.</div>';
+            grid.innerHTML = `
+                <div class="mirror-error">
+                    <span class="material-symbols-rounded mirror-error-icon">cloud_off</span>
+                    <div class="mirror-error-title">Failed to load data</div>
+                    <div class="mirror-error-subtitle">
+                        GitHub is blocked or unavailable. Try a VPN or one of the mirrors:
+                    </div>
+                    <div class="mirror-error-links">
+                        <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
+                            Render.com
+                            <span class="material-symbols-rounded">open_in_new</span>
+                        </a>
+                        <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
+                            Netlify.app
+                            <span class="material-symbols-rounded">open_in_new</span>
+                        </a>
+                    </div>
+                </div>`;
         }
     }
 }
