@@ -2729,7 +2729,7 @@ async function loadData() {
             label.textContent = 'Slow connection…';
             label.classList.add('data-loading-label--slow');
         }
-    }, 5000);
+    }, 6000);
 
     const controller = new AbortController();
     const hardTimeoutTimer = setTimeout(() => controller.abort(), 15000);
@@ -2778,7 +2778,11 @@ async function loadData() {
                 : 'GitHub is unavailable<br>Try a VPN or one of the mirrors:'}
                 </div>
                 <div class="mirror-error-links">
-                    <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
+                    <a href="https://hrdq.codeberg.page/Dota2PornFxWeb/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
+                        hrdq.codeberg.page
+                        <span class="material-symbols-rounded">open_in_new</span>
+                    </a>
+                   <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
                         d2pfx.onrender.com
                         <span class="material-symbols-rounded">open_in_new</span>
                     </a>
