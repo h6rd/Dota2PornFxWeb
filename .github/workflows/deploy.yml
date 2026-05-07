@@ -93,3 +93,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Mirror to Codeberg
+        env:
+          CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
+        run: |
+          git fetch --all
+          git remote add codeberg https://hrdq:${CODEBERG_TOKEN}@codeberg.org/hrdq/Dota2PornFxWeb.git
+          git push codeberg refs/remotes/origin/main:refs/heads/main
+          git push codeberg refs/remotes/origin/data:refs/heads/data  
