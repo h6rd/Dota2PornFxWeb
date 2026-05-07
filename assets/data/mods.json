@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Broodmother Undermount Candles",
+      "category": "heroes"
+    },
+    {
       "name": "Invoker Magus Apex",
       "category": "hero-items"
     },
@@ -6603,6 +6607,21 @@
           "date": 1777911854,
           "commit-sha": "bc714569bc4571d7ef890bc9d41da3dce16d258f"
         }
+      },
+      {
+        "name": "Broodmother Undermount Candles",
+        "preview": "Broodmother Undermount Candles.webp",
+        "file": "Broodmother Undermount Candles.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
       }
     ],
     "shaders": [
