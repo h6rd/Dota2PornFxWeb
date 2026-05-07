@@ -172,7 +172,7 @@ This project contains content from various sources:
   - [SanyaBane](https://steamcommunity.com/profiles/76561198072955043)
   - [translation](https://t.me/skinDota2byPapich)
   - kebabmaker
-  - [YMOM77](https://t.me/YMOM77)
+  - [YMOM77](https://t.me/mod_dota)
   - [Slipersone](https://t.me/slipersone)
   - [Timmyone](https://t.me/timmyone)
   - [HiddenPool](https://t.me/hiddenpoolcm)

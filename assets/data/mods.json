@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft III",
+      "category": "fonts"
+    },
+    {
       "name": "Broodmother Undermount Candles",
       "category": "heroes"
     },
@@ -11846,6 +11850,17 @@
           "date": 1774532493,
           "commit-sha": "eb8ffb192621d6a0608cf62ce536f5f63ae1f388"
         }
+      },
+      {
+        "name": "Warcraft III",
+        "preview": "Warcraft III.webp",
+        "file": "Warcraft III Font.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YMOM77"
+          }
+        ]
       }
     ],
     "pings": [
