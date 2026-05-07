@@ -1,6 +1,12 @@
 const FILES_BASE_URL = (() => {
     const host = window.location.hostname;
-    if (host === 'd2pfx.onrender.com' || host === 'd2pfx.netlify.app' || host === '127.0.0.1') {
+    const localHosts = [
+        'd2pfx.onrender.com',
+        'd2pfx.netlify.app',
+        'hrdq.codeberg.page',
+        '127.0.0.1',
+    ];
+    if (localHosts.some(h => host === h || host.endsWith('.' + h))) {
         return '';
     }
     return 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
