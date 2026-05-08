@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Darkness Weaver",
+      "category": "heroes"
+    },
+    {
       "name": "Warcraft III",
       "category": "fonts"
     },
@@ -687,6 +691,10 @@
           "icons": true
         },
         "links": [
+          {
+            "type": "modded",
+            "url": "apathydxd"
+          },
           {
             "type": "source",
             "url": "https://dota2changer.com/skins_dota_2_mods-darkness_weaver_modpack/"
