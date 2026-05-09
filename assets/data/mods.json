@@ -6668,7 +6668,11 @@
             "type": "author",
             "url": "apathydxd"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778331617,
+          "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
+        }
       },
       {
         "name": "Bloody Dazzle",
@@ -6683,7 +6687,11 @@
             "type": "author",
             "url": "apathydxd"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778331617,
+          "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
+        }
       },
       {
         "name": "Phantom Assassin Arcana",
@@ -6698,7 +6706,11 @@
             "type": "author",
             "url": "apathydxd"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778331617,
+          "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
+        }
       }
     ],
     "shaders": [
@@ -9936,7 +9948,11 @@
             "type": "author",
             "url": "NahuiToSay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778331617,
+          "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
+        }
       }
     ],
     "river": [
