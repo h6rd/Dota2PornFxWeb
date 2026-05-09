@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Assassin Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Bloody Dazzle",
+      "category": "heroes"
+    },
+    {
+      "name": "Dazzle Darkclaw",
+      "category": "heroes"
+    },
+    {
+      "name": "Purple Click",
+      "category": "other"
+    },
+    {
       "name": "Darkness Weaver",
       "category": "heroes"
     },
@@ -6638,6 +6654,51 @@
           "date": 1778149447,
           "commit-sha": "588879a840f7c715456de8a6d7a6d40e896f52c6"
         }
+      },
+      {
+        "name": "Dazzle Darkclaw",
+        "preview": "Dazzle Darkclaw.webp",
+        "file": "Dazzle Darkclaw.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
+      },
+      {
+        "name": "Bloody Dazzle",
+        "preview": "Bloody Dazzle.webp",
+        "file": "Bloody Dazzle.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Assassin Arcana",
+        "preview": "Phantom Assassin Arcana.webp",
+        "file": "Phantom Assassin Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -7128,7 +7189,7 @@
           "mods": [
             {
               "name": "Deny ?",
-              "preview": "deny_huh.webp",
+              "preview": "Huh Deny.webp",
               "file": "pak08_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7137,7 +7198,7 @@
             },
             {
               "name": "Soul Deny",
-              "preview": "soul_deny.mp4",
+              "preview": "Soul Deny.webp",
               "file": "pak11_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7146,7 +7207,7 @@
             },
             {
               "name": "Fuck Deny",
-              "preview": "fuck_deny.webp",
+              "preview": "Fuck Deny.webp",
               "file": "pak12_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7155,7 +7216,7 @@
             },
             {
               "name": "Deny Fall 2022",
-              "preview": "deny_fall_2022.mp4",
+              "preview": "Fall 2022 Deny.webp",
               "file": "pak21_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7164,7 +7225,7 @@
             },
             {
               "name": "Deny Spring",
-              "preview": "deny_spring.mp4",
+              "preview": "Spring Deny.webp",
               "file": "pak22_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7173,7 +7234,7 @@
             },
             {
               "name": "Deny Fall 2021",
-              "preview": "deny_fall_2021.mp4",
+              "preview": "Fall 2021 Deny.webp",
               "file": "pak23_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7188,7 +7249,7 @@
           "mods": [
             {
               "name": "lasthit Golden Shards",
-              "preview": "lasthit_golden_shards.mp4",
+              "preview": "Lasthit Golden Shards.webp",
               "file": "pak35_dir.vpk",
               "meta": {
                 "date": 1756459282,
@@ -7331,7 +7392,7 @@
       },
       {
         "name": "Bard Frog Emblem",
-        "preview": "Bard Frog Emblem.mp4",
+        "preview": "Bard Frog Emblem.webp",
         "file": "pak39_dir.vpk",
         "meta": {
           "date": 1766335374,
@@ -7340,7 +7401,7 @@
       },
       {
         "name": "Bard Frog Emblem v2",
-        "preview": "Bard Frog Emblem v2.mp4",
+        "preview": "Bard Frog Emblem v2.webp",
         "file": "pak40_dir.vpk",
         "meta": {
           "date": 1766335374,
@@ -9782,7 +9843,7 @@
     "high-five": [
       {
         "name": "High Five Aghanim Puppet",
-        "preview": "High Five Aghanim Puppet.mp4",
+        "preview": "High Five Aghanim Puppet.webp",
         "file": "pak76_dir.vpk",
         "meta": {
           "date": 1762697877,
@@ -9791,7 +9852,7 @@
       },
       {
         "name": "High Five Crownfall",
-        "preview": "High Five Crownfall.mp4",
+        "preview": "High Five Crownfall.webp",
         "file": "pak77_dir.vpk",
         "meta": {
           "date": 1762697877,
@@ -9817,7 +9878,7 @@
       },
       {
         "name": "Showcase Rotation",
-        "preview": "Showcase Rotation.mp4",
+        "preview": "Showcase Rotation.webp",
         "file": "pak11_dir.vpk",
         "meta": {
           "date": 1772534203,
@@ -9865,6 +9926,17 @@
           "date": 1776801533,
           "commit-sha": "72c9c9c485ff0c71cad524130d4f3d54ee3be141"
         }
+      },
+      {
+        "name": "Purple Click",
+        "preview": "Purple Click.webp",
+        "file": "pak16_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "river": [
