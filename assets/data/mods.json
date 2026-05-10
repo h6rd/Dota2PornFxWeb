@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Ancient Apparition",
+      "category": "heroes"
+    },
+    {
       "name": "Beastmaster Primal Peacemaker",
       "category": "hero-items"
     },
@@ -6718,6 +6722,15 @@
         "meta": {
           "date": 1778331617,
           "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
+        }
+      },
+      {
+        "name": "Immortal Ancient Apparition",
+        "preview": "Immortal Ancient Apparition.webp",
+        "file": "Immortal Ancient Apparition.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
