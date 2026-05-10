@@ -1425,7 +1425,7 @@ async function packAndDownload() {
     logPanel.classList.add('active');
     logContainer.innerHTML = '';
     logHeader.innerHTML = `
-        <div class="spinner"></div>
+        <m3e-loading-indicator variant="contained" aria-label="Packing progress"></m3e-loading-indicator>
         <h3>Packing Progress</h3>
     `;
 

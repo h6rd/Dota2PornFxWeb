@@ -3494,13 +3494,13 @@ fcode {
 .pack-log-panel.active {
   width: 400px;
   opacity: 1;
-  padding: 51px 32px 32px 32px;
+  padding: 32px 32px 32px 32px;
 }
 
 .pack-log-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
   margin-bottom: 16px;
 }
 
@@ -3510,8 +3510,33 @@ fcode {
   border-width: 3px;
 }
 
+/* m3e loading indicator*/
+m3e-loading-indicator {
+  display: block;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+/* pack-log-header */
+.pack-log-header m3e-loading-indicator {
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+/* video modal */
+.video-loading-spinner m3e-loading-indicator {
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+/* loadData*/
+.data-loading-state m3e-loading-indicator {
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
 .pack-log-header .material-symbols-rounded {
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .pack-log-header .material-symbols-rounded.success {

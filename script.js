@@ -2713,15 +2713,10 @@ async function loadData() {
     if (!grid) return;
 
     grid.innerHTML = `
-        <div class="data-loading-state">
-            <div class="md3-circular-progress">
-                <svg class="md3-circular-progress-svg" viewBox="0 0 48 48">
-                    <circle class="md3-circular-progress-track" cx="24" cy="24" r="20"/>
-                    <circle class="md3-circular-progress-active" cx="24" cy="24" r="20"/>
-                </svg>
-            </div>
-            <div class="data-loading-label">Loading mods…</div>
-        </div>`;
+    <div class="data-loading-state">
+        <m3e-loading-indicator variant="contained" aria-label="Loading mods"></m3e-loading-indicator>
+        <div class="data-loading-label">Loading mods…</div>
+    </div>`;
 
     const slowWarningTimer = setTimeout(() => {
         const label = document.querySelector('.data-loading-label');

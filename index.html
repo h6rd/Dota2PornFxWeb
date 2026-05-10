@@ -26,6 +26,7 @@
   <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/transformations.min.css' rel='stylesheet'>
+  <script type="module" src="https://esm.sh/@m3e/web/dist/loading-indicator.js"></script>
   <script data-goatcounter="https://hrdq.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
   <script>
     fetch('https://hrdq.goatcounter.com/counter/TOTAL.json')
@@ -292,7 +293,7 @@
     <div class="video-modal-content">
 
       <div class="video-loading-spinner">
-        <div class="spinner"></div>
+        <m3e-loading-indicator variant="contained" aria-label="Video loading"></m3e-loading-indicator>
       </div>
 
       <video id="modalVideo" controlslist="nodownload" disablepictureinpicture autoplay></video>
@@ -500,7 +501,7 @@
 
     <div class="pack-log-panel" id="packLogPanel">
       <div class="pack-log-header">
-        <div class="spinner"></div>
+        <m3e-loading-indicator variant="contained" aria-label="Packing progress"></m3e-loading-indicator>
         <h3>Packing Progress</h3>
       </div>
       <div class="pack-log-container" id="packLog"></div>
