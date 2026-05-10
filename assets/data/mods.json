@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Huh Deny",
+      "category": "creep-deny"
+    },
+    {
       "name": "Immortal Ancient Apparition",
       "category": "heroes"
     },
@@ -7225,7 +7229,7 @@
           "name": "Deny",
           "mods": [
             {
-              "name": "Deny ?",
+              "name": "Huh Deny",
               "preview": "Huh Deny.webp",
               "file": "pak08_dir.vpk",
               "meta": {
