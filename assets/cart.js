@@ -1476,6 +1476,7 @@ async function packAndDownload() {
 
         const blobWriter = new zip.BlobWriter('application/zip');
         const zipWriter = new zip.ZipWriter(blobWriter, { level: 0 });
+        let zipWriterClosed = false;
 
         const existingFileNames = new Set();
         const modFileNames = {};
@@ -1503,71 +1504,77 @@ async function packAndDownload() {
                 const blob = await response.blob();
 
                 await enqueueZip(async () => {
-                    if (isZipFile(liveFile)) {
-                        const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
-                        const entries = await zipReader.getEntries();
+                    try {
+                        if (isZipFile(liveFile)) {
+                            const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
+                            const entries = await zipReader.getEntries();
 
-                        for (const entry of entries) {
-                            if (entry.directory) continue;
+                            for (const entry of entries) {
+                                if (entry.directory) continue;
 
-                            const entryBlob = await entry.getData(new zip.BlobWriter());
-                            const relativePath = entry.filename;
+                                const entryBlob = await entry.getData(new zip.BlobWriter());
+                                const relativePath = entry.filename;
 
-                            if (item.categoryId === 'terrains') {
-                                if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
-                                    const pathParts = relativePath.split('/');
-                                    const mapsIndex = pathParts.indexOf('maps');
-                                    if (mapsIndex !== -1) {
-                                        const mapsPath = pathParts.slice(mapsIndex).join('/');
-                                        await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
-                                    }
-                                }
-                            } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
-                                await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
-                            } else {
-                                let fileName = relativePath.split('/').pop();
-                                if (fileName) {
-                                    const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
-                                    let uniqueName;
-                                    if (fileName.toLowerCase().endsWith('_dir.vpk')) {
-                                        if (isPriority) {
-                                            uniqueName = pakAllocator.allocatePriority('!' + fileName);
-                                        } else {
-                                            uniqueName = pakAllocator.allocateNormal();
+                                if (item.categoryId === 'terrains') {
+                                    if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
+                                        const pathParts = relativePath.split('/');
+                                        const mapsIndex = pathParts.indexOf('maps');
+                                        if (mapsIndex !== -1) {
+                                            const mapsPath = pathParts.slice(mapsIndex).join('/');
+                                            await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
                                         }
-                                    } else {
-                                        if (isPriority) fileName = '!' + fileName;
-                                        uniqueName = getUniqueFileName(fileName, existingFileNames);
                                     }
-                                    await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
-                                    if (!modFileNames[item.name]) modFileNames[item.name] = [];
-                                    modFileNames[item.name].push(uniqueName);
+                                } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
+                                    await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
+                                } else {
+                                    let fileName = relativePath.split('/').pop();
+                                    if (fileName) {
+                                        const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
+                                        let uniqueName;
+                                        if (fileName.toLowerCase().endsWith('_dir.vpk')) {
+                                            if (isPriority) {
+                                                uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                                            } else {
+                                                uniqueName = pakAllocator.allocateNormal();
+                                            }
+                                        } else {
+                                            if (isPriority) fileName = '!' + fileName;
+                                            uniqueName = getUniqueFileName(fileName, existingFileNames);
+                                        }
+                                        await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
+                                        if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                                        modFileNames[item.name].push(uniqueName);
+                                    }
                                 }
                             }
-                        }
-                        await zipReader.close();
-                    } else {
-                        let fileName = liveFile;
-                        const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
-                        let uniqueName;
-                        if (fileName.toLowerCase().endsWith('_dir.vpk')) {
-                            if (isPriority) {
-                                uniqueName = pakAllocator.allocatePriority('!' + fileName);
-                            } else {
-                                uniqueName = pakAllocator.allocateNormal();
-                            }
+                            await zipReader.close();
                         } else {
-                            if (isPriority) fileName = '!' + fileName;
-                            uniqueName = getUniqueFileName(fileName, existingFileNames);
+                            let fileName = liveFile;
+                            const isPriority = RENAME_CATEGORIES.includes(item.categoryId);
+                            let uniqueName;
+                            if (fileName.toLowerCase().endsWith('_dir.vpk')) {
+                                if (isPriority) {
+                                    uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                                } else {
+                                    uniqueName = pakAllocator.allocateNormal();
+                                }
+                            } else {
+                                if (isPriority) fileName = '!' + fileName;
+                                uniqueName = getUniqueFileName(fileName, existingFileNames);
+                            }
+                            await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
+                            if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                            modFileNames[item.name].push(uniqueName);
                         }
-                        await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
-                        if (!modFileNames[item.name]) modFileNames[item.name] = [];
-                        modFileNames[item.name].push(uniqueName);
-                    }
 
-                    addLog(`Added ${item.name}`, 'success');
-                    processedCount++;
-                    statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+                        addLog(`Added ${item.name}`, 'success');
+                        processedCount++;
+                        statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+                    } catch (zipErr) {
+                        console.error(`Failed to add ${item.name} to archive:`, zipErr);
+                        addLog(`❌ ${item.name}: failed to write to archive`, 'error');
+                        fileErrors.push(item.name);
+                    }
                 });
             } catch (error) {
                 console.error(`Error processing ${item.name}:`, error);
@@ -1820,7 +1827,10 @@ If you have more mods than the limit: remove the extra ones or merge them separa
         addLog('Finalizing archive...', 'archive');
         statusText.textContent = 'Finalizing...';
 
-        await zipWriter.close();
+        if (!zipWriterClosed) {
+            zipWriterClosed = true;
+            await zipWriter.close();
+        }
 
         const zipBlob = await blobWriter.getData();
 
@@ -1846,6 +1856,10 @@ If you have more mods than the limit: remove the extra ones or merge them separa
 
     } catch (error) {
         console.error('Pack error:', error);
+        if (!zipWriterClosed) {
+            zipWriterClosed = true;
+            try { await zipWriter.close(); } catch (_) {}
+        }
         const reason = diagnoseFetchError(error, 'pack');
         addLog(`❌ ${reason.message}`, 'error');
         addLog(`💡 ${reason.suggestion}`, 'warning');
