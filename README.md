@@ -143,7 +143,15 @@ The project includes several useful tools for modding:
 
 ---
 
-## 📜 Credits
+## Special Thanks
+ 
+| Contributor | Contribution |
+| ----------- | ------------ |
+| [Egezenn](https://github.com/Egezenn) | Integrating mods into [Minify](https://github.com/Egezenn/dota2-minify) and [script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) for generating mods metadata |
+
+---
+
+## Credits
 
 This project contains content from various sources:
 
@@ -186,6 +194,18 @@ This project contains content from various sources:
   - [Shiro_R](https://t.me/shiro_rez)
   - [apathydxd](https://discord.com/users/538760177470668810)
 </details>
+
+---
+
+## 📦 Libraries
+
+| Library | Description |
+|---------|-------------|
+| [**zip.js**](https://github.com/gildas-lormeau/zip.js/) | ZIP file reading and writing in the browser |
+| [**lz-string**](https://github.com/pieroxy/lz-string) | String compression via LZ-based algorithm |
+| [**m3e**](https://github.com/matraic/m3e) | Material 3 Expressive Components  |
+
+---
 
 ## ⚠️ Disclaimer
 
