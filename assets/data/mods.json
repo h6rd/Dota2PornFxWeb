@@ -7972,6 +7972,10 @@
                 "effects": true,
                 "icons": true,
                 "shoulders": true
+              },
+              "meta": {
+                "date": 1778407359,
+                "commit-sha": "fbbb659a35679cb2da419cc0e337e202f8dc6715"
               }
             },
             {
@@ -7994,6 +7998,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1778407359,
+                "commit-sha": "fbbb659a35679cb2da419cc0e337e202f8dc6715"
               }
             }
           ]
