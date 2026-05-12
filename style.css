@@ -2377,9 +2377,31 @@ fcode {
   letter-spacing: 0.05em;
 }
 
-.stats-count {
-  color: var(--md-sys-color-primary);
-  font-weight: 700;
+.online-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--md-sys-color-shit-light);
+  border-radius: 50%;
+  margin-right: 3px;
+  animation: pulse-dot 2s infinite;
+}
+
+#online-count {
+  color: var(--md-sys-color-shit-light);
+  font-weight: bold;
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* Category Note */
