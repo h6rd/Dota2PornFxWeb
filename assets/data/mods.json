@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Black",
+      "category": "heroes"
+    },
+    {
       "name": "Huh Deny",
       "category": "creep-deny"
     },
@@ -47,10 +51,6 @@
     {
       "name": "Invoker Magus Apex",
       "category": "hero-items"
-    },
-    {
-      "name": "Shadow Fiend Black",
-      "category": "heroes"
     },
     {
       "name": "Huskar Flashpoint Proselyte",
