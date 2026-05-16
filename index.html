@@ -27,6 +27,7 @@
   <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link href='https://cdn.boxicons.com/3.0.3/fonts/transformations.min.css' rel='stylesheet'>
   <script type="module" src="assets/m3e/loading-indicator.bundle.js"></script>
+  <script type="module" src="assets/m3e/progress-indicator.bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="assets/online.js"></script>
   <script src="assets/theme.js"></script>
@@ -499,6 +500,7 @@
       <div class="pack-log-container" id="packLog"></div>
       <div class="pack-log-footer">
         <span id="packStatus">Ready</span>
+        <m3e-linear-progress-indicator id="packProgressBar" variant="wavy" value="0" max="100"></m3e-linear-progress-indicator>
       </div>
     </div>
   </div>

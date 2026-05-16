@@ -3647,6 +3647,10 @@ m3e-loading-indicator {
   color: var(--md-sys-color-primary);
 }
 
+#packProgressBar {
+    margin-top: 8px;
+}
+
 /* Toast Notifications */
 .toast {
   position: fixed;

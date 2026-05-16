@@ -1,0 +1,45 @@
+name: Update m3e components
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm init -y && npm install @m3e/web esbuild
+
+      - name: Build bundles
+        run: |
+          npx esbuild node_modules/@m3e/web/dist/progress-indicator.js \
+            --bundle --format=esm --minify \
+            --outfile=assets/m3e/progress-indicator.bundle.js
+
+          npx esbuild node_modules/@m3e/web/dist/loading-indicator.js \
+            --bundle --format=esm --minify \
+            --outfile=assets/m3e/loading-indicator.bundle.js
+
+      - name: Get m3e version
+        id: version
+        run: |
+          VERSION=$(node -e "console.log(require('./node_modules/@m3e/web/package.json').version)")
+          echo "value=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/m3e/
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "chore: update m3e components to v${{ steps.version.outputs.value }}"
+          git push

@@ -1457,6 +1457,28 @@ async function packAndDownload() {
     }
 
     let packSuccess = false;
+
+    let packProgressTarget = 0;
+    let packProgressCurrent = 0;
+    let packProgressRaf = null;
+
+    function setPackProgress(value) {
+        packProgressTarget = value;
+        if (packProgressRaf) return;
+        function step() {
+            packProgressCurrent += (packProgressTarget - packProgressCurrent) * 0.08;
+            const bar = document.getElementById('packProgressBar');
+            if (bar) bar.value = packProgressCurrent;
+            if (Math.abs(packProgressTarget - packProgressCurrent) > 0.1) {
+                packProgressRaf = requestAnimationFrame(step);
+            } else {
+                if (bar) bar.value = packProgressTarget;
+                packProgressRaf = null;
+            }
+        }
+        packProgressRaf = requestAnimationFrame(step);
+    }
+
     const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items', 'optimization'];
 
     try {
@@ -1468,6 +1490,8 @@ async function packAndDownload() {
 
         addLog(`Creating archive for ${cart.length} mods...`, 'archive');
         statusText.textContent = 'Creating archive...';
+        const packProgressBar = document.getElementById('packProgressBar');
+        packProgressCurrent = 0; packProgressTarget = 0; setPackProgress(0);
 
         const now = new Date();
         const pad = n => String(n).padStart(2, '0');
@@ -1570,6 +1594,8 @@ async function packAndDownload() {
                         addLog(`Added ${item.name}`, 'success');
                         processedCount++;
                         statusText.textContent = `Processing ${processedCount}/${cart.length} mods...`;
+                        const progressBar = document.getElementById('packProgressBar');
+                        setPackProgress((processedCount / cart.length) * 100);
                     } catch (zipErr) {
                         console.error(`Failed to add ${item.name} to archive:`, zipErr);
                         addLog(`❌ ${item.name}: failed to write to archive`, 'error');
@@ -1852,6 +1878,7 @@ If you have more mods than the limit: remove the extra ones or merge them separa
             <h3>Completed!</h3>
         `;
 
+        setPackProgress(100);
         packSuccess = true;
 
     } catch (error) {

@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Arc Warden Ancient Gaoler",
+      "category": "heroes"
+    },
+    {
+      "name": "Huskar White Screen Effect",
+      "category": "herofx"
+    },
+    {
       "name": "Shadow Fiend Black",
       "category": "heroes"
     },
@@ -6740,6 +6748,21 @@
           "date": 1778421509,
           "commit-sha": "442b5938b936c5e27bc8b538e2ff8a368cab8c86"
         }
+      },
+      {
+        "name": "Arc Warden Ancient Gaoler",
+        "preview": "Arc Warden Ancient Gaoler.webp",
+        "file": "Arc Warden Ancient Gaoler.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPKs"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12108,6 +12131,21 @@
           "date": 1766284079,
           "commit-sha": "89fa55e2b8bdab877576d70dee74b227325f2d20"
         }
+      },
+      {
+        "name": "Huskar White Screen Effect",
+        "preview": "Huskar White Screen Effect.webp",
+        "file": "pak12_dir.vpk",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "hero-sounds": [
@@ -12232,7 +12270,8 @@
           "Umbrella Medals",
           "Techies Mine Radius",
           "Tower re-aggro Radius",
-          "Umbrella Mega-Kill"
+          "Umbrella Mega-Kill",
+          "Huskar White Screen Effect"
         ]
       }
     ],
