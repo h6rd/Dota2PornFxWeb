@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Demon Cursor",
+      "category": "cursors"
+    },
+    {
       "name": "Arc Warden Ancient Gaoler",
       "category": "heroes"
     },
@@ -11969,6 +11977,17 @@
           "date": 1777663732,
           "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3"
         }
+      },
+      {
+        "name": "Demon Cursor",
+        "preview": "Demon Cursor.webp",
+        "file": "Demon Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "yoshimura"
+          }
+        ]
       }
     ],
     "fonts": [
