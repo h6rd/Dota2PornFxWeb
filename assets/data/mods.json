@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Hoodwink",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Arcana",
       "category": "heroes"
     },
@@ -6774,6 +6778,15 @@
         "meta": {
           "date": 1778935876,
           "commit-sha": "a65bc32ffefd7aedc39a7aa6c833a3f665799496"
+        }
+      },
+      {
+        "name": "Immortal Hoodwink",
+        "preview": "Immortal Hoodwink.webp",
+        "file": "Immortal Hoodwink.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
