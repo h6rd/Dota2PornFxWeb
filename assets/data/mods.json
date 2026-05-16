@@ -6253,8 +6253,8 @@
           }
         ],
         "meta": {
-          "date": 1777641425,
-          "commit-sha": "64d4940fe45db9d5c6f6a29151776f243e9a8af7"
+          "date": 1778939730,
+          "commit-sha": "47feb0cdd277504435de19eee93062de9c9d3b99"
         }
       },
       {
@@ -11987,7 +11987,11 @@
             "type": "author",
             "url": "yoshimura"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778939730,
+          "commit-sha": "47feb0cdd277504435de19eee93062de9c9d3b99"
+        }
       }
     ],
     "fonts": [
