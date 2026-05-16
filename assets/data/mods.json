@@ -6762,7 +6762,11 @@
             "type": "author",
             "url": "Dota2VPKs"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778935876,
+          "commit-sha": "a65bc32ffefd7aedc39a7aa6c833a3f665799496"
+        }
       }
     ],
     "shaders": [
@@ -12145,7 +12149,11 @@
             "type": "author",
             "url": "NahuiToSay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1778935876,
+          "commit-sha": "a65bc32ffefd7aedc39a7aa6c833a3f665799496"
+        }
       }
     ],
     "hero-sounds": [
