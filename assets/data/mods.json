@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Immortal Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Hoodwink",
       "category": "heroes"
     },
@@ -6792,6 +6796,21 @@
           "date": 1778951513,
           "commit-sha": "83aa1f7cfff59f69d5434bffd9aaa4ed92a3aed1"
         }
+      },
+      {
+        "name": "Terrorblade Immortal Arcana",
+        "preview": "Terrorblade Immortal Arcana.webp",
+        "file": "Terrorblade Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPKs"
+          }
+        ]
       }
     ],
     "shaders": [
