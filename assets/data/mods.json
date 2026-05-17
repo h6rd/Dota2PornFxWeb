@@ -6837,7 +6837,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779035386,
+          "commit-sha": "14175888e273666c7b940850af88313a155f1be1"
+        }
       }
     ],
     "shaders": [
