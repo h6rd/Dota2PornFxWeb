@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Puck",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Templar Assassin",
       "category": "heroes"
     },
@@ -1521,25 +1525,6 @@
         "meta": {
           "date": 1758312287,
           "commit-sha": "5d4b147aba221d71725623a3a6c34fb227dcc89a"
-        }
-      },
-      {
-        "name": "Morphling Darktrench Tears",
-        "preview": "Morphling Darktrench Tears.webp",
-        "file": "Morphling Darktrench Tears.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-darktrench_stalker_and_blade_of_tears/"
-          }
-        ],
-        "meta": {
-          "date": 1758430804,
-          "commit-sha": "fd05654b36ee709531df6960f05aa52d1bfb773f"
         }
       },
       {
@@ -6838,6 +6823,21 @@
           "date": 1779004575,
           "commit-sha": "1eed17b2499878c21528724a1995100eea749d6c"
         }
+      },
+      {
+        "name": "Immortal Puck",
+        "preview": "Immortal Puck.webp",
+        "file": "Immortal Puck.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
