@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Templar Assassin",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Immortal Arcana",
       "category": "heroes"
     },
@@ -6776,7 +6780,7 @@
         "links": [
           {
             "type": "author",
-            "url": "Dota2VPKs"
+            "url": "Dota2VPK"
           }
         ],
         "meta": {
@@ -6808,13 +6812,28 @@
         "links": [
           {
             "type": "author",
-            "url": "Dota2VPKs"
+            "url": "Dota2VPK"
           }
         ],
         "meta": {
           "date": 1778952372,
           "commit-sha": "ab28bf7aab1b90d41a1b1117d5b1e3e1af81b3ab"
         }
+      },
+      {
+        "name": "Immortal Templar Assassin",
+        "preview": "Immortal Templar Assassin.webp",
+        "file": "Immortal Templar Assassin.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
