@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Halloween Treant Protector",
+      "category": "heroes"
+    },
+    {
+      "name": "Void Spirit Hidden Vector",
+      "category": "heroes"
+    },
+    {
+      "name": "Meepo Diretide",
+      "category": "heroes"
+    },
+    {
       "name": "Honey Heist Baby Roshan",
       "category": "couriers"
     },
@@ -2662,7 +2674,7 @@
         }
       },
       {
-        "name": "Treant Frost Auburn Hideaway",
+        "name": "Treant Protector Frost Hideaway",
         "preview": "Treant Protector Frost Auburn Hideaway.webp",
         "file": "Treant Protector Frost Auburn Hideaway.zip",
         "tags": {
@@ -6961,6 +6973,36 @@
           "date": 1779092133,
           "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
         }
+      },
+      {
+        "name": "Void Spirit Hidden Vector",
+        "preview": "Void Spirit Hidden Vector.webp",
+        "file": "Void Spirit Hidden Vector.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Halloween Treant Protector",
+        "preview": "Halloween Treant Protector.webp",
+        "file": "Halloween Treant Protector.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
