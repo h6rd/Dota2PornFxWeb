@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Honey Heist Baby Roshan",
+      "category": "couriers"
+    },
+    {
+      "name": "Terrorblade Crimson Fractal Horns",
+      "category": "heroes"
+    },
+    {
+      "name": "Ember Spirit Cinder Sensei",
+      "category": "heroes"
+    },
+    {
+      "name": "Naga Siren Allure of the Deep",
+      "category": "heroes"
+    },
+    {
+      "name": "Dawnbreaker Starlorn Adjudicator",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Skeleton",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Puck",
       "category": "heroes"
     },
@@ -6842,6 +6866,81 @@
           "date": 1779035386,
           "commit-sha": "14175888e273666c7b940850af88313a155f1be1"
         }
+      },
+      {
+        "name": "Wraith King Skeleton",
+        "preview": "Wraith King Skeleton.webp",
+        "file": "Wraith King Skeleton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "source",
+            "url": "https://ru.dota2changer.com/skins_dota_2_mods-skeleton_king_return_final_v_3_0/"
+          }
+        ]
+      },
+      {
+        "name": "Dawnbreaker Starlorn Adjudicator",
+        "preview": "Dawnbreaker Starlorn Adjudicator.webp",
+        "file": "Dawnbreaker Starlorn Adjudicator.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Naga Siren Allure of the Deep",
+        "preview": "Naga Siren Allure of the Deep.webp",
+        "file": "Naga Siren Allure of the Deep.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Ember Spirit Cinder Sensei",
+        "preview": "Ember Spirit Cinder Sensei.webp",
+        "file": "Ember Spirit Cinder Sensei.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade Crimson Fractal Horns",
+        "preview": "Terrorblade Crimson Fractal Horns.webp",
+        "file": "Terrorblade Crimson Fractal Horns.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11584,6 +11683,19 @@
           "date": 1769787537,
           "commit-sha": "00ae445c84ca4c796a9b03b3ca5cbfeb6d3c3a2f"
         }
+      },
+      {
+        "name": "Honey Heist Baby Roshan",
+        "preview": "Honey Heist Baby Roshan.webp",
+        "file": "pak34_dir.vpk",
+        "guideId": "couriers-info",
+        "guideType": "info",
+        "links": [
+          {
+            "type": "author",
+            "url": "apathydxd"
+          }
+        ]
       }
     ],
     "music": [
