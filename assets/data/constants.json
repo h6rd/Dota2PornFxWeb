@@ -112,7 +112,7 @@
       "id": "ti-bp-effects",
       "emoji": "🌟",
       "key": "ti-bp-effects",
-      "preview": "Effect-Packs.webp",
+      "preview": "effect-packs.webp",
       "guideId": "install"
     },
     {
@@ -175,7 +175,7 @@
       "id": "herofx",
       "emoji": "✨",
       "key": "herofx",
-      "preview": "herofx.webp",
+      "preview": "hero-spells.webp",
       "guideId": "install"
     },
     {
@@ -217,7 +217,7 @@
       "id": "ranged-attack",
       "emoji": "🏹",
       "key": "ranged-attack",
-      "preview": "ranged-attack.webp",
+      "preview": "ranged-atk.webp",
       "guideId": "install"
     },
     {
@@ -231,7 +231,7 @@
       "id": "huds",
       "emoji": "🎴",
       "key": "huds",
-      "preview": "",
+      "preview": "huds.webp",
       "guideId": "install"
     },
     {
@@ -251,14 +251,14 @@
       "id": "mega-kill",
       "emoji": "🔊",
       "key": "mega-kill",
-      "preview": "mega-kill.webp",
+      "preview": "megakill.webp",
       "guideId": "install"
     },
     {
       "id": "announcers",
       "emoji": "🔊",
       "key": "announcers",
-      "preview": "Announcers.webp",
+      "preview": "announcers.webp",
       "guideId": "install"
     },
     {
@@ -321,7 +321,7 @@
       "id": "ranks",
       "emoji": "🎖️",
       "key": "ranks",
-      "preview": "ranks.webp",
+      "preview": "rank-icons.webp",
       "guideId": "install"
     },
     {
@@ -334,7 +334,7 @@
       "id": "fonts",
       "emoji": "🔤",
       "key": "fonts",
-      "preview": ""
+      "preview": "fonts.webp"
     },
     {
       "id": "other",
@@ -344,16 +344,16 @@
       "guideId": "install"
     },
     {
-      "id": "tools",
-      "emoji": "🛠️",
-      "key": "tools",
-      "preview": "tools.webp"
-    },
-    {
       "id": "optimization",
       "emoji": "🛠️",
       "key": "optimization",
       "preview": "optimization.webp"
+    },
+    {
+      "id": "tools",
+      "emoji": "🛠️",
+      "key": "tools",
+      "preview": "tools.webp"
     },
     {
       "id": "guides",
@@ -365,7 +365,7 @@
       "id": "sites",
       "emoji": "🌐",
       "key": "sites",
-      "preview": ""
+      "preview": "websites.webp"
     },
     {
       "id": "news",
