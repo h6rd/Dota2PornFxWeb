@@ -6880,7 +6880,11 @@
             "type": "source",
             "url": "https://ru.dota2changer.com/skins_dota_2_mods-skeleton_king_return_final_v_3_0/"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       },
       {
         "name": "Dawnbreaker Starlorn Adjudicator",
@@ -6895,7 +6899,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       },
       {
         "name": "Naga Siren Allure of the Deep",
@@ -6910,7 +6918,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       },
       {
         "name": "Ember Spirit Cinder Sensei",
@@ -6925,7 +6937,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       },
       {
         "name": "Terrorblade Crimson Fractal Horns",
@@ -6940,7 +6956,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       }
     ],
     "shaders": [
@@ -11695,7 +11715,11 @@
             "type": "author",
             "url": "apathydxd"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779092133,
+          "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
+        }
       }
     ],
     "music": [
