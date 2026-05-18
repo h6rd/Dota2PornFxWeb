@@ -112,7 +112,7 @@
       "id": "ti-bp-effects",
       "emoji": "🌟",
       "key": "ti-bp-effects",
-      "preview": "effect-packs.webp",
+      "preview": "effects-packs.webp",
       "guideId": "install"
     },
     {
@@ -258,7 +258,7 @@
       "id": "announcers",
       "emoji": "🔊",
       "key": "announcers",
-      "preview": "announcers.webp",
+      "preview": "announcer.webp",
       "guideId": "install"
     },
     {
