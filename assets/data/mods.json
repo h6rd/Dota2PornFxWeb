@@ -6225,8 +6225,8 @@
           }
         ],
         "meta": {
-          "date": 1775906972,
-          "commit-sha": "20ab3f12d66dde796061e71fe05a5de90efbe071"
+          "date": 1779111814,
+          "commit-sha": "b4245f4098a507dbd0ebf4495c73d518531438e6"
         }
       },
       {
@@ -6987,7 +6987,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779111814,
+          "commit-sha": "b4245f4098a507dbd0ebf4495c73d518531438e6"
+        }
       },
       {
         "name": "Halloween Treant Protector",
@@ -7002,7 +7006,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779111814,
+          "commit-sha": "b4245f4098a507dbd0ebf4495c73d518531438e6"
+        }
       }
     ],
     "shaders": [
