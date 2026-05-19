@@ -1931,21 +1931,33 @@ function showReplaceModal(existingItem, newItem) {
     const overlay = document.createElement('div');
     overlay.className = 'replace-modal-overlay';
 
+    function getPreviewHtml(item, label) {
+        const { preview } = resolveItemFiles(item);
+        if (!preview) return `<div class="replace-preview-slot replace-preview-slot--empty"><span class="material-symbols-rounded">hide_image</span><span class="replace-preview-name">${escapeHtml(item.name)}</span></div>`;
+        const src = `assets/previews/${item.categoryId}/${preview}`;
+        const isVideo = preview.endsWith('.mp4');
+        const media = isVideo
+            ? `<video src="${src}" class="replace-preview-img" autoplay muted loop playsinline onerror="this.style.display='none'"></video>`
+            : `<img src="${src}" alt="${escapeHtml(item.name)}" class="replace-preview-img" onerror="this.style.display='none'">`;
+        return `<div class="replace-preview-slot"><span class="replace-preview-label">${escapeHtml(label)}</span>${media}<span class="replace-preview-name">${escapeHtml(item.name)}</span></div>`;
+    }
+
     overlay.innerHTML = `
         <div class="replace-modal">
             <div class="replace-modal-header">
                 <h2>Replace Mod?</h2>
             </div>
-            <div class="replace-modal-body">
-                <p>You already have a mod from this category.</p>
-                <p>Replace <b>${escapeHtml(existingItem.name)}</b> with <b>${escapeHtml(newItem.name)}</b>?</p>
+            <div class="replace-modal-previews">
+                ${getPreviewHtml(existingItem, 'Current')}
+                <div class="replace-preview-arrow"><span class="material-symbols-rounded">arrow_forward</span></div>
+                ${getPreviewHtml(newItem, 'New')}
             </div>
             <div class="replace-modal-actions">
-                <button id="replaceConfirm" class="cart-pack-btn">
-                    <span class="material-symbols-rounded">sync</span> Replace
-                </button>
                 <button id="replaceCancel" class="cart-clear-btn">
                     <span class="material-symbols-rounded">close</span> Cancel
+                </button>
+                <button id="replaceConfirm" class="cart-pack-btn">
+                    <span class="material-symbols-rounded">sync</span> Replace
                 </button>
             </div>
         </div>

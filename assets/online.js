@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://latvdryfgdqzxaposkzm.supabase.co'
-const SUPABASE_ANON_KEY = 'sb_publishable_cNE6m0OcdPR0sjQaHCu_VA_ylPVmKDp'
+const SUPABASE_URL = ''
+const SUPABASE_ANON_KEY = ''
 
 const { createClient } = supabase
 const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
