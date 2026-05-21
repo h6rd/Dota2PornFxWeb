@@ -9,9 +9,7 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    if: >
-      ${{ github.event.workflow_run.conclusion == 'success' &&
-      startsWith(github.event.workflow_run.head_commit.message, 'mods:') }}
+    if: github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_commit.message, 'mods:')
     steps:
       - name: Send discord notification
         run: |
