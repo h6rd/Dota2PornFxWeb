@@ -2,7 +2,7 @@ name: Discord Webhook
 
 on:
   workflow_run:
-    workflows: ["pages-build-deployment"]
+    workflows: ["Deploy to GitHub Pages"]
     types:
       - completed
 
