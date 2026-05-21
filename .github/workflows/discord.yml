@@ -1,0 +1,40 @@
+name: Discord Webhook
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    if: >
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_commit.message, 'mods:') }}
+    steps:
+      - name: Send discord notification
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+            "content": "Site has been updated!",
+            "embeds": [
+              {
+                "title": "Changes",
+                "description": "*${{ github.event.workflow_run.head_commit.message }}*\n\n[🌐 **Open Site**](https://h6rd.github.io/Dota2PornFxWeb/)",
+                "color": 8585067,
+                "image": {
+                  "url": "https://i.postimg.cc/3NPGxJfP/animated.png"
+                }
+              },
+              {
+                "title": "Website Mirrors",
+                "description": "If the main site is unavailable, you can use one of the mirrors below\n\n[**Codeberg**](https://hrdq.codeberg.page/Dota2PornFxWeb/) ✦ [**Netlify**](https://d2pfx.netlify.app/) ✦ [**Onrender**](https://d2pfx.onrender.com/) ✦ [**Vercel**](https://d2pfx.vercel.app/)",
+                "color": 10054655,
+                "footer": {
+                  "text": "⚠️ Due to high load, some mirrors may be unavailable"
+                }
+              }
+            ]
+          }' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}

@@ -519,7 +519,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        const isRoot = ['netlify.app', 'onrender.com', 'codeberg.page']
+        const isRoot = ['netlify.app', 'onrender.com', 'codeberg.page', 'vercel.app']
           .some(h => location.hostname.includes(h));
         navigator.serviceWorker.register(isRoot ? '/sw.js' : '/Dota2PornFxWeb/sw.js')
           .then(reg => console.log('Service Worker registered'))

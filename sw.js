@@ -3,7 +3,8 @@ const CACHE_NAME = `d2pfx-previews-v${CACHE_VERSION}`;
 const BASE_PATH = (
     location.hostname.includes('netlify.app') ||
     location.hostname.includes('onrender.com') ||
-    location.hostname.includes('codeberg.page')
+    location.hostname.includes('codeberg.page') ||
+    location.hostname.includes('vercel.app')
 ) ? '' : '/Dota2PornFxWeb';
 
 self.addEventListener('install', (event) => {

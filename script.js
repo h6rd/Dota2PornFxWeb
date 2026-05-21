@@ -4,6 +4,7 @@ const FILES_BASE_URL = (() => {
         'd2pfx.onrender.com',
         'd2pfx.netlify.app',
         'hrdq.codeberg.page',
+        'd2pfx.vercel.app',
         '127.0.0.1',
     ];
     if (localHosts.some(h => host === h || host.endsWith('.' + h))) {
