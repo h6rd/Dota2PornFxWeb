@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Snapfire Desert Ardalan",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Medusa",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Phantom Lancer",
+      "category": "heroes"
+    },
+    {
       "name": "Halloween Treant Protector",
       "category": "heroes"
     },
@@ -7011,6 +7023,51 @@
           "date": 1779111814,
           "commit-sha": "b4245f4098a507dbd0ebf4495c73d518531438e6"
         }
+      },
+      {
+        "name": "Immortal Phantom Lancer",
+        "preview": "Immortal Phantom Lancer.webp",
+        "file": "Immortal Phantom Lancer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Medusa",
+        "preview": "Immortal Medusa.webp",
+        "file": "Immortal Medusa.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Snapfire Desert Ardalan",
+        "preview": "Snapfire Desert Ardalan.webp",
+        "file": "Snapfire Desert Ardalan.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [

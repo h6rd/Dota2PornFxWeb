@@ -2212,8 +2212,8 @@ function createModCard(mod, categoryId, groupId = null) {
         <div class="card-media">
             ${preview
             ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
-                     onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>📖</span>'"></${mediaElement}>`
-            : `<span style="font-size: 48px; opacity: 0.5;">📖</span>`
+                     onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🧩</span>'"></${mediaElement}>`
+            : `<span style="font-size: 48px; opacity: 0.5;">🧩</span>`
         }
             ${tagsHtml}
             ${hasStyles ? `
