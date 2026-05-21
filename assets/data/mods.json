@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Peashooter Turrets",
+      "category": "herofx"
+    },
+    {
+      "name": "ReZero Respawn Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Hollow Kez",
+      "category": "heroes"
+    },
+    {
       "name": "Sky Trees",
       "category": "backgrounds"
     },
@@ -12591,6 +12603,21 @@
           "date": 1778935876,
           "commit-sha": "a65bc32ffefd7aedc39a7aa6c833a3f665799496"
         }
+      },
+      {
+        "name": "Tinker Peashooter Turrets",
+        "preview": "Tinker Peashooter Turrets.webp",
+        "file": "pak13_dir.vpk",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Darkness"
+          }
+        ]
       }
     ],
     "hero-sounds": [
@@ -12657,6 +12684,21 @@
           "date": 1773775316,
           "commit-sha": "34dae1fc4704ea954814cb8b0591f2174587ec3c"
         }
+      },
+      {
+        "name": "ReZero Respawn Sound",
+        "preview": "ReZero Respawn Sound.webp",
+        "file": "pak14_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/ReZero Respawn Sound.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "item-sounds": [],
