@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sky Trees",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Stars",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Grave of the Fireflies",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Nemestice",
+      "category": "backgrounds"
+    },
+    {
       "name": "Snapfire Desert Ardalan",
       "category": "heroes"
     },
@@ -11119,6 +11135,66 @@
           "date": 1770815074,
           "commit-sha": "12751f65b4346982443a8b411f0ad4ab7620c7c9"
         }
+      },
+      {
+        "name": "Nemestice",
+        "preview": "Nemestice.webp",
+        "file": "pak54_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dabaqz"
+          }
+        ]
+      },
+      {
+        "name": "Grave of the Fireflies",
+        "preview": "Grave of the Fireflies.webp",
+        "file": "pak55_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dabaqz"
+          }
+        ]
+      },
+      {
+        "name": "Stars",
+        "preview": "Stars.webp",
+        "file": "pak56_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dabaqz"
+          }
+        ]
+      },
+      {
+        "name": "Sky Trees",
+        "preview": "Sky Trees.webp",
+        "file": "pak57_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dabaqz"
+          }
+        ]
       }
     ],
     "tools": [
