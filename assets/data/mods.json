@@ -7037,7 +7037,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779348987,
+          "commit-sha": "1e40a60984a92ff485be2f69d17657820a01414f"
+        }
       },
       {
         "name": "Immortal Medusa",
@@ -7052,7 +7056,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779348987,
+          "commit-sha": "1e40a60984a92ff485be2f69d17657820a01414f"
+        }
       },
       {
         "name": "Snapfire Desert Ardalan",
@@ -7067,7 +7075,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779348987,
+          "commit-sha": "1e40a60984a92ff485be2f69d17657820a01414f"
+        }
       }
     ],
     "shaders": [
