@@ -6307,8 +6307,8 @@
           }
         ],
         "meta": {
-          "date": 1775993556,
-          "commit-sha": "45023444efec947c3ee0750ec093f24ded954126"
+          "date": 1779386733,
+          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
         }
       },
       {
@@ -12617,7 +12617,11 @@
             "type": "author",
             "url": "Darkness"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779386733,
+          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
+        }
       }
     ],
     "hero-sounds": [
@@ -12698,7 +12702,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779386733,
+          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
+        }
       }
     ],
     "item-sounds": [],
