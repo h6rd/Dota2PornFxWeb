@@ -22,7 +22,7 @@ jobs:
                 "description": "*${{ github.event.workflow_run.head_commit.message }}*\n\n[🌐 **Open Site**](https://h6rd.github.io/Dota2PornFxWeb/)",
                 "color": 8585067,
                 "image": {
-                  "url": "https://i.postimg.cc/3NPGxJfP/animated.png"
+                  "url": "https://i.postimg.cc/vZmmMCWt/d2pfx-v4.gif"
                 }
               },
               {
