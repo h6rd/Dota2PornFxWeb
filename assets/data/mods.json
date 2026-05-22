@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Onibi",
+      "category": "couriers"
+    },
+    {
+      "name": "Alchemist Darkbrew Enforcer",
+      "category": "heroes"
+    },
+    {
+      "name": "Ursa Immortal Hallowed Hunt",
+      "category": "heroes"
+    },
+    {
       "name": "Tinker Peashooter Turrets",
       "category": "herofx"
     },
@@ -7108,6 +7120,36 @@
           "date": 1779348987,
           "commit-sha": "1e40a60984a92ff485be2f69d17657820a01414f"
         }
+      },
+      {
+        "name": "Ursa Immortal Hallowed Hunt",
+        "preview": "Ursa Immortal Hallowed Hunt.webp",
+        "file": "Ursa Immortal Hallowed Hunt.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Alchemist Darkbrew Enforcer",
+        "preview": "Alchemist Darkbrew Enforcer.webp",
+        "file": "Alchemist Darkbrew Enforcer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11943,6 +11985,13 @@
           "date": 1779092133,
           "commit-sha": "6291e7d1789c3ca5404bd1a6e9479d927cc8cc41"
         }
+      },
+      {
+        "name": "Onibi",
+        "preview": "Onibi.webp",
+        "file": "pak35_dir.vpk",
+        "guideId": "couriers-info",
+        "guideType": "info"
       }
     ],
     "music": [
