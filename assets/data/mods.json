@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Froglings",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Experiments Lain",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Light Yagami",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Windranger",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Shadow Fiend",
+      "category": "backgrounds"
+    },
+    {
+      "name": "River Vials",
+      "category": "backgrounds"
+    },
+    {
       "name": "Onibi",
       "category": "couriers"
     },
@@ -11272,6 +11296,60 @@
         "meta": {
           "date": 1779363086,
           "commit-sha": "b77a0c33d7dfa85d5d5d4d793c652226cdaaa590"
+        }
+      },
+      {
+        "name": "River Vials",
+        "preview": "River Vials.webp",
+        "file": "pak58_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
+      },
+      {
+        "name": "Shadow Fiend",
+        "preview": "Shadow Fiend.webp",
+        "file": "pak59_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
+      },
+      {
+        "name": "Windranger",
+        "preview": "Windranger.webp",
+        "file": "pak60_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
+      },
+      {
+        "name": "Light Yagami",
+        "preview": "Light Yagami.webp",
+        "file": "pak61_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
+      },
+      {
+        "name": "Experiments Lain",
+        "preview": "Experiments Lain.webp",
+        "file": "pak62_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        }
+      },
+      {
+        "name": "Froglings",
+        "preview": "Froglings.webp",
+        "file": "pak63_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
         }
       }
     ],
