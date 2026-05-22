@@ -1,215 +1,190 @@
 <div align="center">
-  <img src="assets/banner-git.png" alt="Dota2PornFxWeb Banner" width="100%">
+  <img src="assets/banner-git.png" alt="Dota2PornFx Banner" width="100%">
   
-  <p><b>Discover and download a vast collection of Dota 2 customization mods</b></p>
-  
-  [![website](https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white)](https://h6rd.github.io/Dota2PornFxWeb)
-  [![website mirror](https://custom-icon-badges.demolab.com/badge/Website%20Mirror-404040?style=for-the-badge&logo=globe&logoColor=white)](https://d2pfx.netlify.app)
-  [![telegram](https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dota2pornfx)
-  [![discord](https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/PBvG8D9MxT)
+  <h1>The largest free collection of Dota 2 customization mods</h1>
+
+  <p>
+    <a href="https://h6rd.github.io/Dota2PornFxWeb">
+      <img src="https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white" alt="Website">
+    </a>
+    <a href="https://d2pfx.netlify.app">
+      <img src="https://custom-icon-badges.demolab.com/badge/Mirror-404040?style=for-the-badge&logo=globe&logoColor=white" alt="Mirror">
+    </a>
+    <a href="https://t.me/dota2pornfx">
+      <img src="https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+    </a>
+    <a href="https://discord.com/invite/PBvG8D9MxT">
+      <img src="https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
+    </a>
+  </p>
 </div>
 
 ---
 
-# About
+## What is Dota2PornFx?
 
-**Dota2PornFx** is a comprehensive collection of mods for Dota 2 that allows players to customize their gaming experience. From hero skins and visual effects to backgrounds and announcers, this repository provides an extensive library of content to personalize your Dota 2.
-
-### Features
-
-- **Extensive Categories**: Over 30+ categories including heroes, terrains, shaders, item effects, backgrounds, announcers, and more
-- **Easy Access**: Simple web interface to browse and download mods
-- **Regular Updates**: New content added regularly with latest updates
-- **User-Friendly**: Intuitive interface with search, sorting, and cart functionality
-- **Previews Available**: Video and image previews for most mods
-
-### Available Categories
-
-<details>
-<summary><b>Click to expand all categories</b></summary>
-
-- **Shaders** - Replaces the fog of war effect
-- **Effect Packs** - Battle Pass / The International / Pack effects
-- **Item Effects** - Effects for various items
-- **Creep Deny** - Creep deny animations and effects
-- **Emblems** - Collection of various emblems
-- **Versus Screens** - Custom versus screen
-- **Terrains** - Terrains modifications
-- **Trees** - Custom trees
-- **Heroes** - Hero models and sets
-- **Roshan** - Custom Roshan models and skins
-- **Creeps** - Custom creeps
-- **Ancient** - Ancient mods
-- **Tormentor** - Custom Tormentor
-- **Ranged Attack** - Custom ranged attack effects
-- **Mega-Kill** - Custom mega-kill announcers
-- **Pedestal** - Custom hero pedestals
-- **Other** - Miscellaneous mods
-- **Backgrounds** - Custom backgrounds
-- **River** - Custom river colors
-- **Rank Icons** - Custom Rank Icons
-- **Item Icons** - Custom Icons for Items
-- **Wards** - Custom Wards
-- **Couriers** - Custom Couriers
-- **Announcers** - Custom Announcers
-- **Music** - Custom Music
-- **Cursors** - Custom Cursors
-- **Pings** - Custom Pings
-- **Hero Spells** - Effect sets for hero spells
-- **Tools** - Various tools for modding
-
-</details>
+**Dota2PornFx** is a comprehensive mod repository for Dota 2, giving players full control over the visual experience of their game. Browse and download custom hero skins, terrains, announcers, shaders, music, cursors, and much more.
 
 ---
 
-## 🚀 Quick Start
+## Features
 
-1. **Browse**: Explore the various categories on the website
-2. **Download**: Click on any mod to download it, or add it to cart to make a pack
-3. **Install**: Follow the installation instructions in the guides section
+| | |
+|---|---|
+| 🗂️ **30+ categories** | Heroes, terrains, shaders, announcers, music, cursors, and more |
+| 🔄 **Regular updates** | New content and community contributions added frequently |
+| 🛠️ **Tools** | VPK extraction, merging, and compilation utilities |
 
-### Installation Guide
+---
+
+## Installation Guide
+
+### Quick Start
+
+1. Download the `.vpk` file(s) you want
+2. Create the folder `dota_123` inside: `Steam\steamapps\common\dota 2 beta\game\`
+3. Place your downloaded mods into that folder
+4. Add `-language 123` to Dota 2 launch options in Steam
+
+> **Using multiple mods?** If file names conflict, rename duplicates to `pakXX_dir.vpk` (e.g. `pak10_dir.vpk`, `pak11_dir.vpk`, ...). Alternatively, use **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** to combine them into a single file.
+
+> **Using Minify?** Place mods in the `dota_minify` folder and add `-language minify` to launch options instead.
+
+---
 
 <details>
-<summary><b>How to install mods 🇺🇸</b></summary>
+<summary><b>🇷🇺 Инструкция по установке (Russian)</b></summary>
 
-1. **Download the required `.vpk` files**
-2. **Create folder `dota_123` in:** `Steam\steamapps\common\dota 2 beta\game\`
-3. **Put the downloaded mods in the folder `dota_123`**
-4. **Add to launch options: `-language 123`**
-   - If you are using **Minify**, place mods in the `dota_minify` folder and add `-language minify` to launch options
- 
-> **Note:** If files are duplicated, rename the repeated file to `pakXX_dir.vpk`, where XX is 10, 11, 12, 13...99
-- You can also use **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** to combine the mods
-
-</details>
-
-<details>
-<summary><b>Как установить моды 🇷🇺</b></summary>
+<br>
 
 1. Скачайте нужный файл `.vpk`
-2. Переместите его в папку с языком игры:
+2. Поместите его в нужную папку:
 
-Для **русского языка** используйте папку `dota_russian`: `Steam\steamapps\common\dota 2 beta\game\dota_russian\` 
-- добавьте в параметры запуска `-language russian`
+**Для русского языка** — используйте папку `dota_russian`:
+```
+Steam\steamapps\common\dota 2 beta\game\dota_russian\
+```
+Добавьте в параметры запуска: `-language russian`
 
-Для **английского языка** создайте папку `dota_123`: `Steam\steamapps\common\dota 2 beta\game\dota_123\` 
-- добавьте в параметры запуска `-language 123`
+**Для английского языка** — создайте папку `dota_123`:
+```
+Steam\steamapps\common\dota 2 beta\game\dota_123\
+```
+Добавьте в параметры запуска: `-language 123`
 
-Если вы используете **Minify**, положите моды в папку  `dota_minify` и добавьте в параметры запуска `-language minify`
+**Если используете Minify** — положите моды в папку `dota_minify` и добавьте `-language minify`
 
-> **Важно:** Если файлы дублируются, переименуйте повторяющийся файл в `pakXX_dir.vpk`, где XX = 10, 11, 12, 13...99
-- Вы можете использовать **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** для объединения модов
+> **Важно:** Если имена файлов совпадают, переименуйте повторяющийся в `pakXX_dir.vpk`, где XX — 10, 11, 12... 99.
+> Для объединения нескольких модов в один файл используйте **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)**.
 
 </details>
 
 ---
 
-## 🛠️ Tools & Utilities
+## Tools & Utilities
 
-The project includes several useful tools for modding:
-
-- [**VPKTool**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKTool+-+Extract+%26+Pack+VPKs): Extract and pack VPK files
-- [**VPKMerge**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs): Combine multiple VPKs into one
-- [**Compiler**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Compiler): Script for compiling: vtex_c, vpcf_c, vsnd_c, vxml_c, vcss_c
+| Tool | Description |
+|------|-------------|
+| [**VPKTool**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKTool+-+Extract+%26+Pack+VPKs) | Extract and repack VPK archives |
+| [**VPKMerge**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs) | Merge multiple VPK files into one |
+| [**Compiler**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Compiler) | Compile `.vtex_c`, `.vpcf_c`, `.vsnd_c`, `.vxml_c`, `.vcss_c` assets |
 
 ---
 
-## 📖 Troubleshooting
+## Troubleshooting
 
 <details>
-<summary><b>Common issues and solutions</b></summary>
+<summary><b>Mod doesn't work after installation</b></summary>
 
-### If the mod doesn't work:
-1. Create a folder named `dota_test` in `steamapps\common\dota 2 beta\game\`
-2. Place the required mod inside it
-3. Add this to your launch options: `-language test`
- - If everything works after that, the issue was in the installation process, check the folder with your language and reinstall the mods 😊
- - If the problem persists, the issue lies within the mod itself 😔
+<br>
 
-### Mod merging issues:
-- When merging mods you may have problems - try installing the buggy mod separately from the merged mods
+To check whether the issue is with the mod itself or your installation:
 
-### Background replacement issues:
-- The video must be no longer than 30 seconds
-- Format must be `.webm`
-- **"An error occurred during playback"**: Try another video
-- **"Background doesn't change"**: See the section "If the mod doesn't work" above
+1. Create a folder named `dota_test` inside `steamapps\common\dota 2 beta\game\`
+2. Place the mod there and set launch options to `-language test`
+3. Launch the game and check:
+   - ✅ Works? → The original installation had an issue. Re-check your language folder and reinstall.
+   - ❌ Still broken? → The mod itself is the problem.
 
-### Emblems issues:
-- If you don't see the emblems, try entering this command `r_draw_selected_ring 1` in the game console, and also make sure you are not using the Misc Optimization mod in Minify (but this applies to standard emblems)
+</details>
+
+<details>
+<summary><b>Merged mods cause issues</b></summary>
+
+<br>
+
+Try installing the problematic mod separately, outside of the merged pack. Some mods conflict at the file level when combined.
+
+</details>
+
+<details>
+<summary><b>Background replacement issues</b></summary>
+
+<br>
+
+- The video must be **30 seconds or shorter**
+- File format must be **`.webm`**
+- **"An error occurred during playback"** → Try a different source video
+- **"Background doesn't change"** → Follow the general troubleshooting steps above
+
+</details>
+
+<details>
+<summary><b>Emblems not visible</b></summary>
+
+<br>
+
+Open the in-game console and run:
+```
+r_draw_selected_ring 1
+```
+
+Also make sure you are not using the **Misc Optimization** mod from Minify, as it disables standard emblem rendering.
 
 </details>
 
 ---
 
 ## Special Thanks
- 
+
 | Contributor | Contribution |
-| ----------- | ------------ |
-| [Egezenn](https://github.com/Egezenn) | Integrating mods into [Minify](https://github.com/Egezenn/dota2-minify) and [script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) for generating mods metadata |
+|-------------|--------------|
+| [Egezenn](https://github.com/Egezenn) | Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) |
 
 ---
 
 ## Credits
 
-This project contains content from various sources:
+Content is sourced from the Dota 2 modding community. Original sources include:
 
 - [**Dota2Changer**](https://dota2changer.com/)
 - [**MOR**](https://vk.com/amir4anmods)
+
 <details>
-<summary><b>Mod Authors:</b></summary>
-  
-  - [Egezenn](https://github.com/Egezenn)
-  - [Robbyz](https://github.com/robbyz512)
-  - [Darkness](https://t.me/Darkness_Logovo)
-  - [Defiree](https://vk.com/defiree2mods)
-  - [Kisilev](https://vk.com/id363951132)
-  - [Amir4an](https://vk.com/amir4an)
-  - [Skratch](https://www.youtube.com/@skratch)
-  - [Lenz](https://www.youtube.com/@Lenz13377)
-  - [Kliromin](https://www.youtube.com/@mrkliromin7723)
-  - [Pinkpapa](https://www.patreon.com/Pinkpapa)
-  - [laskotdota](https://t.me/laskotdota)
-  - [NahuiToSay](https://t.me/NahuiToSay)
-  - [lebensinhalt](https://t.me/turnoffyourlebensinhalt)
-  - [Kynomi](https://vk.com/kynomi)
-  - [Pinkie](https://steamcommunity.com/profiles/76561198142595363)
-  - [VPKDota](https://t.me/vpkdota)
-  - [ya_lyosha](https://www.twitch.tv/ya_lyosha)
-  - [SanyaBane](https://steamcommunity.com/profiles/76561198072955043)
-  - [translation](https://t.me/skinDota2byPapich)
-  - kebabmaker
-  - [YMOM77](https://t.me/mod_dota)
-  - [Slipersone](https://t.me/slipersone)
-  - [Timmyone](https://t.me/timmyone)
-  - [HiddenPool](https://t.me/hiddenpoolcm)
-  - [BackSpace](https://t.me/BackSpaceHub)
-  - [zzzebra](https://vk.com/zzzfans)
-  - [arti4e](https://t.me/d2modsreborn)
-  - [Hooorde](https://steamcommunity.com/profiles/76561199405322406)
-  - [HyrX](https://steamcommunity.com/profiles/76561198016243370)
-  - [Sarath](https://steamcommunity.com/profiles/76561198127797541)
-  - [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw)
-  - [Shiro_R](https://t.me/shiro_rez)
-  - [apathydxd](https://discord.com/users/538760177470668810)
-  - [Dota2VPK](https://t.me/dota2freevpk)
-  - [yoshimura](https://sites.google.com/view/yosh1mur2)
+<summary><b>Mod Authors</b></summary>
+
+<br>
+
+[Egezenn](https://github.com/Egezenn) · [Robbyz](https://github.com/robbyz512) · [Darkness](https://t.me/Darkness_Logovo) · [Defiree](https://vk.com/defiree2mods) · [Kisilev](https://vk.com/id363951132) · [Amir4an](https://vk.com/amir4an) · [Skratch](https://www.youtube.com/@skratch) · [Lenz](https://www.youtube.com/@Lenz13377) · [Kliromin](https://www.youtube.com/@mrkliromin7723) · [Pinkpapa](https://www.patreon.com/Pinkpapa) · [laskotdota](https://t.me/laskotdota) · [NahuiToSay](https://t.me/NahuiToSay) · [lebensinhalt](https://t.me/turnoffyourlebensinhalt) · [Kynomi](https://vk.com/kynomi) · [Pinkie](https://steamcommunity.com/profiles/76561198142595363) · [VPKDota](https://t.me/vpkdota) · [ya_lyosha](https://www.twitch.tv/ya_lyosha) · [SanyaBane](https://steamcommunity.com/profiles/76561198072955043) · [translation](https://t.me/skinDota2byPapich) · kebabmaker · [YMOM77](https://t.me/mod_dota) · [Slipersone](https://t.me/slipersone) · [Timmyone](https://t.me/timmyone) · [HiddenPool](https://t.me/hiddenpoolcm) · [BackSpace](https://t.me/BackSpaceHub) · [zzzebra](https://vk.com/zzzfans) · [arti4e](https://t.me/d2modsreborn) · [Hooorde](https://steamcommunity.com/profiles/76561199405322406) · [HyrX](https://steamcommunity.com/profiles/76561198016243370) · [Sarath](https://steamcommunity.com/profiles/76561198127797541) · [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw) · [Shiro_R](https://t.me/shiro_rez) · [apathydxd](https://discord.com/users/538760177470668810) · [Dota2VPK](https://t.me/dota2freevpk) · [yoshimura](https://sites.google.com/view/yosh1mur2) · dabaqz · [Миша Талант](https://t.me/madberserker)
+
 </details>
 
 ---
 
-## 📦 Libraries
+## Libraries Used
 
-| Library | Description |
-|---------|-------------|
-| [**zip.js**](https://github.com/gildas-lormeau/zip.js/) | ZIP file reading and writing in the browser |
-| [**lz-string**](https://github.com/pieroxy/lz-string) | String compression via LZ-based algorithm |
-| [**m3e**](https://github.com/matraic/m3e) | Material 3 Expressive Components  |
+| Library | Purpose |
+|---------|---------|
+| [zip.js](https://github.com/gildas-lormeau/zip.js/) | ZIP read/write in the browser |
+| [lz-string](https://github.com/pieroxy/lz-string) | LZ-based string compression |
+| [m3e](https://github.com/matraic/m3e) | Material 3 Expressive UI components |
 
 ---
 
 ## ⚠️ Disclaimer
 
-**All actions to modify the game files you do at your OWN RISK. In case of a ban, the responsibility lies entirely with YOU.**
-This project is not affiliated with Valve or Dota 2. Use at your own discretion.
+Modifying game files is done **entirely at your own risk**. In the event of a ban or other consequences, responsibility lies solely with the user. This project is not affiliated with Valve Corporation or Dota 2.
+
+## License
+
+Contents of this repository are licensed under [GPL-3.0](LICENSE).
