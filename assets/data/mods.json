@@ -7134,7 +7134,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779436367,
+          "commit-sha": "c1176360888b454d3ca50c3ec96a59caa9668f97"
+        }
       },
       {
         "name": "Alchemist Darkbrew Enforcer",
@@ -7149,7 +7153,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779436367,
+          "commit-sha": "c1176360888b454d3ca50c3ec96a59caa9668f97"
+        }
       }
     ],
     "shaders": [
@@ -11991,7 +11999,11 @@
         "preview": "Onibi.webp",
         "file": "pak35_dir.vpk",
         "guideId": "couriers-info",
-        "guideType": "info"
+        "guideType": "info",
+        "meta": {
+          "date": 1779436367,
+          "commit-sha": "c1176360888b454d3ca50c3ec96a59caa9668f97"
+        }
       }
     ],
     "music": [
