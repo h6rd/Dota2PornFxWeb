@@ -1302,6 +1302,213 @@ function generateLinuxSh(langFolder, customDotaPath) {
     return s.join(nl);
 }
 
+function generateWindowsUninstallBat(langFolder, customDotaPath) {
+    const hasCustomPath = customDotaPath && customDotaPath.length > 0;
+    const lines = [
+        '@echo off',
+        'setlocal enabledelayedexpansion',
+        '',
+        'set "DOTA_PATH="',
+        '',
+        ...(hasCustomPath ? [
+            'REM Try user-specified path first',
+            'if exist "' + customDotaPath + '\\" (',
+            '    set "DOTA_PATH=' + customDotaPath + '"',
+            '    echo [OK] Using user path',
+            ') else (',
+            '    echo [WARN] User path not found, falling back to auto detect...',
+            ')',
+            '',
+        ] : []),
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
+        '        set "DOTA_PATH=%%b\\game"',
+        '    )',
+        ')',
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKLM\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 570" /v "InstallLocation" 2^>nul\') do (',
+        '        set "DOTA_PATH=%%b\\game"',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    for /f "tokens=2*" %%a in (\'reg query "HKCU\\SOFTWARE\\Valve\\Steam" /v "SteamPath" 2^>nul\') do (',
+        '        set "STEAM_REG=%%b"',
+        '        set "STEAM_REG=!STEAM_REG:/=\\!"',
+        '        if exist "!STEAM_REG!\\steamapps\\common\\dota 2 beta\\game" (',
+        '            set "DOTA_PATH=!STEAM_REG!\\steamapps\\common\\dota 2 beta\\game"',
+        '        )',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (',
+        '        if not defined DOTA_PATH (',
+        '            for %%p in (',
+        '                "%%d:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Program Files\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\Games\\Steam\\steamapps\\common\\dota 2 beta\\game"',
+        '                "%%d:\\SteamLibrary\\steamapps\\common\\dota 2 beta\\game"',
+        '            ) do (',
+        '                if exist %%p (',
+        '                    set "DOTA_PATH=%%~p"',
+        '                )',
+        '            )',
+        '        )',
+        '    )',
+        ')',
+        '',
+        'if not defined DOTA_PATH (',
+        '    echo [ERROR] Dota 2 not found. Please remove files manually.',
+        '    pause',
+        '    exit /b 1',
+        ')',
+        '',
+        'echo [OK] Found Dota 2 at: !DOTA_PATH!',
+        '',
+        'set "LANG_DIR=!DOTA_PATH!\\' + langFolder + '"',
+        '',
+        'echo [INFO] Removing pak10*.vpk from !LANG_DIR!...',
+        'set "DELETED=0"',
+        'for %%f in ("!LANG_DIR!\\pak10*.vpk") do (',
+        '    del /f /q "%%f"',
+        '    echo [OK] Deleted %%~nxf',
+        '    set "DELETED=1"',
+        ')',
+        'if "!DELETED!"=="0" (',
+        '    echo [WARN] No pak10*.vpk files found in !LANG_DIR!',
+        ')',
+        '',
+        'if exist "!LANG_DIR!\\maps" (',
+        '    rmdir /s /q "!LANG_DIR!\\maps"',
+        '    echo [OK] Deleted maps folder',
+        ')',
+        '',
+        'echo.',
+        'echo [DONE] Mods removed successfully!',
+        'pause',
+    ];
+    return lines.join('\r\n');
+}
+
+function generateLinuxUninstallSh(langFolder, customDotaPath) {
+    const hasCustomPath = customDotaPath && customDotaPath.length > 0;
+    const nl = '\n';
+    const s = [
+        '#!/bin/bash',
+        'set -uo pipefail',
+        '',
+        'DOTA_PATH=""',
+        '',
+        ...(hasCustomPath ? [
+            'CUSTOM_PATH="' + customDotaPath.replace(/"/g, '\\"') + '"',
+            'if [ -d "$CUSTOM_PATH" ]; then',
+            '    DOTA_PATH="$CUSTOM_PATH"',
+            '    echo "[OK] Using user path: $CUSTOM_PATH"',
+            'else',
+            '    echo "[WARN] User path not found, falling back to auto detect..."',
+            'fi',
+            '',
+        ] : []),
+        'find_in_vdf() {',
+        '    local vdf="$1"',
+        '    [ -f "$vdf" ] || return',
+        '    while IFS= read -r line; do',
+        '        val=$(echo "$line" | grep -i \'"path"\' | sed \'s/.*"[Pp]ath"[[:space:]]*"\\(.*\\)"/\\1/\' | sed \'s|\\\\\\\\|/|g\')',
+        '        [ -z "$val" ] && continue',
+        '        local candidate="$val/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            echo "$candidate"',
+        '            return',
+        '        fi',
+        '    done < "$vdf"',
+        '}',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for vdf in \\',
+        '        "$HOME/.steam/steam/steamapps/libraryfolders.vdf" \\',
+        '        "$HOME/.local/share/Steam/steamapps/libraryfolders.vdf" \\',
+        '        "$HOME/.steam/root/steamapps/libraryfolders.vdf"',
+        '    do',
+        '        result=$(find_in_vdf "$vdf")',
+        '        if [ -n "$result" ]; then',
+        '            DOTA_PATH="$result"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for root in \\',
+        '        "$HOME/.steam/steam" \\',
+        '        "$HOME/.local/share/Steam" \\',
+        '        "$HOME/.steam/root" \\',
+        '        "/usr/local/steam" \\',
+        '        "/opt/steam" \\',
+        '        "$HOME/Steam" \\',
+        '        "$HOME/Games/Steam"',
+        '    do',
+        '        candidate="$root/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            DOTA_PATH="$candidate"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    for root in \\',
+        '        "$HOME/.var/app/com.valvesoftware.Steam/.steam/steam" \\',
+        '        "$HOME/.var/app/com.valvesoftware.Steam/.local/share/Steam"',
+        '    do',
+        '        candidate="$root/steamapps/common/dota 2 beta/game"',
+        '        if [ -d "$candidate" ]; then',
+        '            DOTA_PATH="$candidate"',
+        '            break',
+        '        fi',
+        '    done',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    result=$(find "$HOME" /mnt /media -maxdepth 5 -type d -name "dota 2 beta" 2>/dev/null | head -1)',
+        '    if [ -n "$result" ]; then',
+        '        DOTA_PATH="$result/game"',
+        '    fi',
+        'fi',
+        '',
+        'if [ -z "$DOTA_PATH" ]; then',
+        '    echo "[ERROR] Dota 2 not found. Please remove files manually."',
+        '    exit 1',
+        'fi',
+        '',
+        'echo "[OK] Found Dota 2 at: $DOTA_PATH"',
+        '',
+        'LANG_DIR="$DOTA_PATH/' + langFolder + '"',
+        '',
+        'echo "[INFO] Removing pak10*.vpk from $LANG_DIR..."',
+        'DELETED=0',
+        'for f in "$LANG_DIR"/pak10*.vpk; do',
+        '    [ -f "$f" ] || continue',
+        '    rm -f "$f"',
+        '    echo "[OK] Deleted $(basename "$f")"',
+        '    DELETED=1',
+        'done',
+        'if [ "$DELETED" -eq 0 ]; then',
+        '    echo "[WARN] No pak10*.vpk files found in $LANG_DIR"',
+        'fi',
+        '',
+        'if [ -d "$LANG_DIR/maps" ]; then',
+        '    rm -rf "$LANG_DIR/maps"',
+        '    echo "[OK] Deleted maps folder"',
+        'fi',
+        '',
+        'echo ""',
+        'echo "[DONE] Mods removed successfully!"',
+    ];
+    return s.join(nl);
+}
+
 function diagnoseFetchError(error, filePath) {
     const msg = (error?.message || '').toLowerCase();
     const name = (error?.name || '').toLowerCase();
@@ -1693,6 +1900,15 @@ RU WINDOWS
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
+Удаление (скрипт Uninstall.bat автоматизирует первый пункт)
+1. Удаление модов
+   • Удалите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) из папки языка игры, которую вы использовали
+   • Если использовали ландшафт, удалите папку maps из папки языка игры, которую вы использовали
+2. Удаление шрифта
+   • Запустите Uninstall.bat из папки шрифта, или вручную удалите папку Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\panorama\\fonts и проверьте целостность файлов игры
+3. Удаление курсора
+   • Скачайте стандартный курсор с сайта и установите его, или вручную удалите папку Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor и проверьте целостность файлов игры
+
 
 EN WINDOWS 
 ═══════════
@@ -1718,6 +1934,15 @@ Do not use Auto-Install or VPKMerge, use manual installation:
 3. Move all .vpk files to the game language folder (dota_123 or another)
 Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
 If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file
+
+Uninstall (Uninstall.bat automates the first step)
+1. Removing mods
+   • Delete all pak10_ files (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) from the game language folder you used
+   • If you used a terrain, delete the maps folder from the game language folder you used
+2. Removing the font
+   • Run Uninstall.bat from the font folder, or manually delete the folder Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\panorama\\fonts and verify the integrity of game files
+3. Removing the cursor
+   • Download the default cursor from the website and install it, or manually delete the folder Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor and verify the integrity of game files
 
 
 RU LINUX
@@ -1752,6 +1977,15 @@ RU LINUX
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
+Удаление (скрипт Uninstall.sh автоматизирует первый пункт)
+1. Удаление модов
+   • Удалите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) из папки языка игры, которую вы использовали
+   • Если использовали ландшафт, удалите папку maps из папки языка игры, которую вы использовали
+2. Удаление шрифта
+   • Запустите Uninstall.sh из папки шрифта, или вручную удалите папку Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts и проверьте целостность файлов игры
+3. Удаление курсора
+   • Скачайте стандартный курсор с сайта и установите его, или вручную удалите папку Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor и проверьте целостность файлов игры
+
 
 EN LINUX
 ═════════
@@ -1764,7 +1998,7 @@ Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh). If you enc
 5. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
-- If you added a font, you will have a folder "Name Cursor", read the guide.txt file inside the folder
+- If you added a font, you will have a folder "Name Font", read the guide.txt file inside the folder
 6. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
@@ -1777,7 +2011,16 @@ Do not use Auto-Install or VPKMerge, use manual installation:
 2. Files that contain "!" in their name must have higher priority (assign them a lower number, e.g. pak02_dir.vpk)
 3. Move all .vpk files to the game language folder (dota_123 or another)
 Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
-If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file`;
+If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file
+
+Uninstall (Uninstall.sh automates the first step)
+1. Removing mods
+   • Delete all pak10_ files (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) from the game language folder you used
+   • If you used a terrain, delete the maps folder from the game language folder you used
+2. Removing the font
+   • Run Uninstall.sh from the font folder, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts and verify the integrity of game files
+3. Removing the cursor
+   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of game files`;
 
         await addToRoot(`${archiveName}/Guide.txt`, new Blob([guideText], { type: 'text/plain' }));
         addLog('Guide added', 'success');
@@ -1844,10 +2087,14 @@ If you have more mods than the limit: remove the extra ones or merge them separa
             addLog('Generating install script...', 'info');
             await addToRoot(`${archiveName}/Auto-Install.bat`, new Blob([generateWindowsBat(langFolder, customDotaPath)], { type: 'text/plain' }));
             addLog('Auto-Install.bat added', 'success');
+            await addToRoot(`${archiveName}/Uninstall.bat`, new Blob([generateWindowsUninstallBat(langFolder, customDotaPath)], { type: 'text/plain' }));
+            addLog('Uninstall.bat added', 'success');
         } else if (selectedOS === 'linux') {
             addLog('Generating install script...', 'info');
             await addToRoot(`${archiveName}/Auto-Install.sh`, new Blob([generateLinuxSh(langFolder, customDotaPath)], { type: 'text/plain' }));
             addLog('Auto-Install.sh added', 'success');
+            await addToRoot(`${archiveName}/Uninstall.sh`, new Blob([generateLinuxUninstallSh(langFolder, customDotaPath)], { type: 'text/plain' }));
+            addLog('Uninstall.sh added', 'success');
         }
 
         addLog('Finalizing archive...', 'archive');

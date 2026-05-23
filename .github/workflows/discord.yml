@@ -15,9 +15,9 @@ jobs:
         id: gif
         run: |
           GIFS=(
-            "https://i.postimg.cc/gkcSkk56/d2pfx-1.gif"
-            "https://i.postimg.cc/c41944jB/d2pfx-2.gif"
-            "https://i.postimg.cc/Prf3rrcM/d2pfx-3.gif"
+            "https://i.postimg.cc/B6vK2TkK/d2pfx-1.gif"
+            "https://i.postimg.cc/cH58hKGt/d2pfx-2.gif"
+            "https://i.postimg.cc/1tYNBg1n/d2pfx-3.gif"
           )
           INDEX=$(( ${{ github.run_number }} % ${#GIFS[@]} ))
           echo "url=${GIFS[$INDEX]}" >> $GITHUB_OUTPUT
@@ -26,7 +26,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -d '{
-            "content": "Site has been updated!",
+            "content": null,
             "embeds": [
               {
                 "title": "Changes",
@@ -44,6 +44,8 @@ jobs:
                   "text": "⚠️ Due to high load, some mirrors may be unavailable"
                 }
               }
-            ]
+            ],
+            "username": "Github",
+            "avatar_url": "https://i.postimg.cc/zGJTFHyj/github.webp"
           }' \
           ${{ secrets.DISCORD_WEBHOOK_URL }}
