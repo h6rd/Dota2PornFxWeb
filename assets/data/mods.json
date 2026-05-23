@@ -7214,6 +7214,10 @@
         "tags": {
           "effects": true,
           "icons": false
+        },
+        "meta": {
+          "date": 1779535888,
+          "commit-sha": "34f37497e565016055cf001cbe44b445570dac54"
         }
       }
     ],
@@ -8504,6 +8508,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1779535888,
+                "commit-sha": "34f37497e565016055cf001cbe44b445570dac54"
               }
             },
             {
@@ -8526,6 +8534,10 @@
                 "effects": true,
                 "icons": true,
                 "back": true
+              },
+              "meta": {
+                "date": 1779535888,
+                "commit-sha": "34f37497e565016055cf001cbe44b445570dac54"
               }
             }
           ]
