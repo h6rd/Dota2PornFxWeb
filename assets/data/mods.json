@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Bounty Hunter Old Man",
+      "category": "heroes"
+    },
+    {
+      "name": "Bounty Hunter Hunters Hoard",
+      "category": "hero-items"
+    },
+    {
+      "name": "Bounty Hunter Tines of Tybara",
+      "category": "hero-items"
+    },
+    {
       "name": "Froglings",
       "category": "backgrounds"
     },
@@ -7182,6 +7194,27 @@
           "date": 1779436367,
           "commit-sha": "c1176360888b454d3ca50c3ec96a59caa9668f97"
         }
+      },
+      {
+        "name": "Bounty Hunter Old Man",
+        "styles": [
+          {
+            "label": "",
+            "color": "#ffaf65",
+            "preview": "Bounty Hunter Old Man.webp",
+            "file": "Bounty Hunter Old Man.zip"
+          },
+          {
+            "label": "Night",
+            "color": "#658eff",
+            "preview": "Bounty Hunter Old Man Night.webp",
+            "file": "Bounty Hunter Old Man Night.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": false
+        }
       }
     ],
     "shaders": [
@@ -7844,21 +7877,6 @@
         }
       },
       {
-        "name": "Emblem Lsq Black Star",
-        "preview": "Emblem Black Star.webp",
-        "file": "pak19_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756459282,
-          "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
-        }
-      },
-      {
         "name": "Emblem Darkness",
         "preview": "Emblem Darkness.webp",
         "file": "pak20_dir.vpk",
@@ -8477,7 +8495,40 @@
         {
           "id": "bounty-hunter",
           "name": "Bounty Hunter",
-          "mods": []
+          "mods": [
+            {
+              "name": "Bounty Hunter Tines of Tybara",
+              "preview": "Bounty Hunter Tines of Tybara.webp",
+              "file": "Bounty Hunter Tines of Tybara.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            },
+            {
+              "name": "Bounty Hunter Hunters Hoard",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#ffe565",
+                  "preview": "Bounty Hunter Hunters Hoard.webp",
+                  "file": "Bounty Hunter Hunters Hoard.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7a7a",
+                  "preview": "Bounty Hunter Hunters Hoard Crimson.webp",
+                  "file": "Bounty Hunter Hunters Hoard Crimson.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              }
+            }
+          ]
         },
         {
           "id": "brewmaster",
