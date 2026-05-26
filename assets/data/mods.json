@@ -7284,7 +7284,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       },
       {
         "name": "Marci Bloomjewel Brawler",
@@ -7299,7 +7303,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       },
       {
         "name": "Marci Faithful Fortune",
@@ -7314,7 +7322,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       },
       {
         "name": "Marci School of the Solar Fang",
@@ -7329,7 +7341,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       },
       {
         "name": "Muerta Soul Warden",
@@ -7344,7 +7360,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       },
       {
         "name": "Juggernaut Ancient Exile",
@@ -7359,7 +7379,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1779803304,
+          "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+        }
       }
     ],
     "shaders": [
@@ -9412,11 +9436,15 @@
                 "head": true
               },
               "links": [
-                {     
-                 "type": "author",
-                 "url": "apathydxd"
+                {
+                  "type": "author",
+                  "url": "apathydxd"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1779803304,
+                "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
+              }
             }
           ]
         },
