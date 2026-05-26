@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Ancient Exile",
+      "category": "heroes"
+    },
+    {
+      "name": "Muerta Soul Warden",
+      "category": "heroes"
+    },
+    {
+      "name": "Marci School of the Solar Fang",
+      "category": "heroes"
+    },
+    {
+      "name": "Marci Faithful Fortune",
+      "category": "heroes"
+    },
+    {
+      "name": "Marci Bloomjewel Brawler",
+      "category": "heroes"
+    },
+    {
+      "name": "Cosmic Cartographer",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Hood of Defiance",
+      "category": "hero-items"
+    },
+    {
       "name": "Tusk Immortal",
       "category": "heroes"
     },
@@ -7242,6 +7270,96 @@
           "date": 1779564322,
           "commit-sha": "9db6280061e3f5aebd290fc0790e95106606d7bc"
         }
+      },
+      {
+        "name": "Cosmic Cartographer",
+        "preview": "Cosmic Cartographer.webp",
+        "file": "Cosmic Cartographer.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Marci Bloomjewel Brawler",
+        "preview": "Marci Bloomjewel Brawler.webp",
+        "file": "Marci Bloomjewel Brawler.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Marci Faithful Fortune",
+        "preview": "Marci Faithful Fortune.webp",
+        "file": "Marci Faithful Fortune.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Marci School of the Solar Fang",
+        "preview": "Marci School of the Solar Fang.webp",
+        "file": "Marci School of the Solar Fang.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Muerta Soul Warden",
+        "preview": "Muerta Soul Warden.webp",
+        "file": "Muerta Soul Warden.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Juggernaut Ancient Exile",
+        "preview": "Juggernaut Ancient Exile.webp",
+        "file": "Juggernaut Ancient Exile.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -9283,7 +9401,24 @@
         {
           "id": "pudge",
           "name": "Pudge",
-          "mods": []
+          "mods": [
+            {
+              "name": "Pudge Hood of Defiance",
+              "preview": "Pudge Hood of Defiance.webp",
+              "file": "Pudge Hood of Defiance.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "head": true
+              },
+              "links": [
+                {     
+                 "type": "author",
+                 "url": "apathydxd"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pugna",
