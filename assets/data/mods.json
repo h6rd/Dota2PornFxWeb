@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Cosmic Immortal Tinker",
+      "category": "heroes"
+    },
+    {
+      "name": "Sven Indomitable Legacy",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Concord Dominion",
+      "category": "hero-items"
+    },
+    {
+      "name": "ReZero Respawn Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Sea Of Flowers",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Ken Kaneki",
+      "category": "backgrounds"
+    },
+    {
       "name": "Juggernaut Ancient Exile",
       "category": "heroes"
     },
@@ -83,10 +107,6 @@
     {
       "name": "Tinker Peashooter Turrets",
       "category": "herofx"
-    },
-    {
-      "name": "ReZero Respawn Sound",
-      "category": "hero-sounds"
     },
     {
       "name": "Hollow Kez",
@@ -7384,6 +7404,36 @@
           "date": 1779803304,
           "commit-sha": "44f834075440799dadbcb05ca4cc41ac8e0f1fcc"
         }
+      },
+      {
+        "name": "Sven Indomitable Legacy",
+        "preview": "Sven Indomitable Legacy.webp",
+        "file": "Sven Indomitable Legacy.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Cosmic Immortal Tinker",
+        "preview": "Cosmic Immortal Tinker.webp",
+        "file": "Cosmic Immortal Tinker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -9405,7 +9455,24 @@
         {
           "id": "phantom-lancer",
           "name": "Phantom Lancer",
-          "mods": []
+          "mods": [
+            {
+              "name": "Phantom Lancer Concord Dominion",
+              "preview": "Phantom Lancer Concord Dominion.webp",
+              "file": "Phantom Lancer Concord Dominion.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "shoulders": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Dota2VPK"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "phoenix",
@@ -11624,6 +11691,36 @@
           "date": 1779483604,
           "commit-sha": "96c6be5c463e5c0d1497095db7a426eb88a13d24"
         }
+      },
+      {
+        "name": "Sea Of Flowers",
+        "preview": "Sea Of Flowers.webp",
+        "file": "pak64_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "yoshimura"
+          }
+        ]
+      },
+      {
+        "name": "Ken Kaneki",
+        "preview": "Ken Kaneki.webp",
+        "file": "pak65_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "tools": [
