@@ -7418,7 +7418,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+        }
       },
       {
         "name": "Cosmic Immortal Tinker",
@@ -7433,7 +7437,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+        }
       }
     ],
     "shaders": [
@@ -9470,7 +9478,11 @@
                   "type": "author",
                   "url": "Dota2VPK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1780059063,
+                "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+              }
             }
           ]
         },
@@ -11705,7 +11717,11 @@
             "type": "author",
             "url": "yoshimura"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+        }
       },
       {
         "name": "Ken Kaneki",
@@ -11720,7 +11736,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+        }
       }
     ],
     "tools": [
@@ -13213,8 +13233,8 @@
           }
         ],
         "meta": {
-          "date": 1779386733,
-          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
         }
       }
     ],
