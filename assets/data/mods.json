@@ -2043,8 +2043,8 @@
           }
         ],
         "meta": {
-          "date": 1763619888,
-          "commit-sha": "c37b3f6ca44faa4078bb46562f0a3b0915ecb6aa"
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
       },
       {
@@ -3807,8 +3807,8 @@
           }
         ],
         "meta": {
-          "date": 1767120602,
-          "commit-sha": "68e49d15b40a86c62be851c234bc97f7be0b4a3a"
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
       },
       {
@@ -7512,7 +7512,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Lifestealer Golden Maw",
@@ -7531,7 +7535,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Shadow Fiend Souls Tyrant",
@@ -7540,6 +7548,10 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
       },
       {
@@ -7559,7 +7571,11 @@
             "type": "author",
             "url": "Darkness"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Immortal Necrophos",
@@ -7574,7 +7590,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       }
     ],
     "shaders": [
@@ -10837,7 +10857,11 @@
             "type": "author",
             "url": "VPKDota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       }
     ],
     "high-five": [
@@ -13394,7 +13418,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Lion Taunt",
@@ -13409,7 +13437,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Shadow Shaman Taunt",
@@ -13424,7 +13456,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       },
       {
         "name": "Undying Taunt",
@@ -13439,7 +13475,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
       }
     ],
     "item-sounds": [],
