@@ -7630,7 +7630,11 @@
             "type": "author",
             "url": "Pinkpapa"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780160766,
+          "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
+        }
       },
       {
         "name": "Tidehunter Squid Girl",
@@ -7646,7 +7650,11 @@
             "type": "author",
             "url": "Pinkpapa"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780160766,
+          "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
+        }
       },
       {
         "name": "Bounty Hunter M1A2 Abrams",
@@ -7661,7 +7669,11 @@
             "type": "author",
             "url": "Pinkpapa"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780160766,
+          "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
+        }
       },
       {
         "name": "Sand King Black Sands",
@@ -7670,6 +7682,10 @@
         "tags": {
           "effects": true,
           "icons": true
+        },
+        "meta": {
+          "date": 1780160766,
+          "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
         }
       }
     ],
@@ -14424,7 +14440,11 @@
                   "type": "author",
                   "url": "Pinkpapa"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1780160766,
+                "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
+              }
             }
           ]
         },
