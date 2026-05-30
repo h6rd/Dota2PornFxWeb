@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sand King Black Sands",
+      "category": "heroes"
+    },
+    {
+      "name": "Bounty Hunter M1A2 Abrams",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Squid Girl",
+      "category": "heroes"
+    },
+    {
+      "name": "Outworld Destroyer Tatsumaki",
+      "category": "heroes"
+    },
+    {
+      "name": "RPG Lvl Up",
+      "category": "item-effects"
+    },
+    {
       "name": "Immortal Necrophos",
       "category": "heroes"
     },
@@ -7595,6 +7615,62 @@
           "date": 1780143296,
           "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
+      },
+      {
+        "name": "Outworld Destroyer Tatsumaki",
+        "preview": "Outworld Destroyer Tatsumaki.webp",
+        "file": "Outworld Destroyer Tatsumaki.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "anime": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Pinkpapa"
+          }
+        ]
+      },
+      {
+        "name": "Tidehunter Squid Girl",
+        "preview": "Tidehunter Squid Girl.webp",
+        "file": "Tidehunter Squid Girl.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "anime": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Pinkpapa"
+          }
+        ]
+      },
+      {
+        "name": "Bounty Hunter M1A2 Abrams",
+        "preview": "Bounty Hunter M1A2 Abrams.webp",
+        "file": "Bounty Hunter M1A2 Abrams.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Pinkpapa"
+          }
+        ]
+      },
+      {
+        "name": "Sand King Black Sands",
+        "preview": "Sand King Black Sands.webp",
+        "file": "Sand King Black Sands.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        }
       }
     ],
     "shaders": [
@@ -14338,6 +14414,17 @@
                 "date": 1773464613,
                 "commit-sha": "cb63e562f89a2fc1210da6ed374b0a79f5577de4"
               }
+            },
+            {
+              "name": "RPG Lvl Up",
+              "preview": "RPG Lvl Up.webp",
+              "file": "RPG Lvl Up.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Pinkpapa"
+                }
+              ]
             }
           ]
         },
