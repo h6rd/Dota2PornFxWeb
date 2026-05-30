@@ -1395,6 +1395,10 @@ function setupRecentlyAdded() {
         if (mod && track) {
             const card = createModCard(mod, recentMod.category, groupId);
             const newCard = card.cloneNode(true);
+            if (mod.tags?.adult && loadSettings().hideAdultMods) {
+                const media = newCard.querySelector('.card-media img, .card-media video');
+                if (media) media.style.filter = 'blur(10px)';
+            }
 
             const subtitleElement = newCard.querySelector('.card-subtitle');
             if (subtitleElement && mod.type !== 'guide') {

@@ -1,6 +1,54 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Necrophos",
+      "category": "heroes"
+    },
+    {
+      "name": "Green Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Nude Queen of Pain",
+      "category": "heroes"
+    },
+    {
+      "name": "Purple Kez",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Souls Tyrant",
+      "category": "heroes"
+    },
+    {
+      "name": "Lifestealer Golden Maw",
+      "category": "heroes"
+    },
+    {
+      "name": "Zeus Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Lion Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Shadow Shaman Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Undying Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Windranger Autumn Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "USSR and Germany Horn",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Cosmic Immortal Tinker",
       "category": "heroes"
     },
@@ -3744,11 +3792,15 @@
         "preview": "Nude Queen of Pain.webp",
         "file": "Nude Queen of Pain.zip",
         "tags": {
-          "effects": false,
+          "effects": true,
           "icons": false,
           "adult": true
         },
         "links": [
+          {
+            "type": "modded",
+            "url": "Fr0dech"
+          },
           {
             "type": "source",
             "url": "https://ru.dota2changer.com/skins_dota_2_mods-royal_decree_nsfw_edition/"
@@ -7442,6 +7494,87 @@
           "date": 1780059063,
           "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
         }
+      },
+      {
+        "name": "Zeus Arcana",
+        "preview": "Zeus Arcana.webp",
+        "file": "Zeus Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "DARK BLADE"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
+      },
+      {
+        "name": "Lifestealer Golden Maw",
+        "preview": "Lifestealer Golden Maw.webp",
+        "file": "Lifestealer Golden Maw.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "DARK BLADE"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
+      },
+      {
+        "name": "Shadow Fiend Souls Tyrant",
+        "preview": "Shadow Fiend Souls Tyrant.webp",
+        "file": "Shadow Fiend Souls Tyrant.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
+      },
+      {
+        "name": "Purple Kez",
+        "preview": "Purple Kez.webp",
+        "file": "Purple Kez.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "NahuiToSay"
+          },
+          {
+            "type": "author",
+            "url": "Darkness"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Necrophos",
+        "preview": "Immortal Necrophos.webp",
+        "file": "Immortal Necrophos.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -10690,6 +10823,21 @@
           "date": 1776610659,
           "commit-sha": "e7c60a90847f93832b534b770d95bba1d5c8af76"
         }
+      },
+      {
+        "name": "Green Hud",
+        "preview": "Green Hud.webp",
+        "file": "pak04_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Green Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -13236,6 +13384,62 @@
           "date": 1780059063,
           "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
         }
+      },
+      {
+        "name": "USSR and Germany Horn",
+        "preview": "USSR and Germany Horn.webp",
+        "file": "pak15_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Lion Taunt",
+        "preview": "Lion Taunt.webp",
+        "file": "pak16_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Lion Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Shadow Shaman Taunt",
+        "preview": "Shadow Shaman Taunt.webp",
+        "file": "pak17_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Shadow Shaman Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Undying Taunt",
+        "preview": "Undying Taunt.webp",
+        "file": "pak18_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Undying Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "item-sounds": [],
