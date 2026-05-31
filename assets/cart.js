@@ -427,7 +427,7 @@ function addToCart(mod, categoryId) {
     }
 
     const MULTI_ITEM_GROUPS = ['runes'];
-    const SLOT_TAGS_GROUP_CHECK = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'hair'];
+    const SLOT_TAGS_GROUP_CHECK = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', "shield", 'hair'];
 
     if (groupId && !MULTI_ITEM_GROUPS.includes(groupId)) {
         if (categoryId === 'hero-items') {
@@ -504,7 +504,7 @@ function addToCart(mod, categoryId) {
             ? heroItemsCategoryData.groups.flatMap(g => g.mods)
             : (Array.isArray(heroItemsCategoryData) ? heroItemsCategoryData : []);
         const newModData = heroItemsData.find(m => mod.name === m.name || mod.name.startsWith(m.name + ' '));
-        const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'hair'];
+        const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair'];
 
         if (newModData && newModData.tags) {
             const newSlots = SLOT_TAGS.filter(tag => newModData.tags[tag]);

@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Bloodseeker Harvest Hound",
+      "category": "heroes"
+    },
+    {
+      "name": "Bloodseeker Thirst of Eztzhok",
+      "category": "hero-items"
+    },
+    {
+      "name": "Luna Twilight Schism",
+      "category": "hero-items"
+    },
+    {
+      "name": "Luna Moonfall",
+      "category": "hero-items"
+    },
+    {
       "name": "Wraith King Veil Tyrant",
       "category": "heroes"
     },
@@ -7293,6 +7309,15 @@
           "date": 1780226470,
           "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
+      },
+      {
+        "name": "Bloodseeker Harvest Hound",
+        "preview": "Bloodseeker Harvest Hound.webp",
+        "file": "Bloodseeker Harvest Hound.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
       }
     ],
     "shaders": [
@@ -8577,7 +8602,18 @@
         {
           "id": "bloodseeker",
           "name": "Bloodseeker",
-          "mods": []
+          "mods": [
+            {
+              "name": "Bloodseeker Thirst of Eztzhok",
+              "preview": "Bloodseeker Thirst of Eztzhok.webp",
+              "file": "Bloodseeker Thirst of Eztzhok.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "bounty-hunter",
@@ -9187,7 +9223,58 @@
         {
           "id": "luna",
           "name": "Luna",
-          "mods": []
+          "mods": [
+            {
+              "name": "Luna Moonfall",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#7265ff",
+                  "preview": "Luna Moonfall.webp",
+                  "file": "Luna Moonfall.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffea65",
+                  "preview": "Luna Moonfall Golden.webp",
+                  "file": "Luna Moonfall Golden.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "shield": true
+              }
+            },
+            {
+              "name": "Luna Twilight Schism",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#7265ff",
+                  "preview": "Luna Twilight Schism.webp",
+                  "file": "Luna Twilight Schism.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffea65",
+                  "preview": "Luna Twilight Schism Golden.webp",
+                  "file": "Luna Twilight Schism Golden.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff6565",
+                  "preview": "Luna Twilight Schism Crimson.webp",
+                  "file": "Luna Twilight Schism Crimson.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "lycan",
