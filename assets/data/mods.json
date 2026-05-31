@@ -9231,6 +9231,10 @@
                 "effects": true,
                 "icons": false,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1780214981,
+                "commit-sha": "aa4ce375bbe85eaa5776073b3167c174a067fc1f"
               }
             }
           ]
@@ -10987,7 +10991,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780214981,
+          "commit-sha": "aa4ce375bbe85eaa5776073b3167c174a067fc1f"
+        }
       }
     ],
     "high-five": [
