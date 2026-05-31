@@ -2812,8 +2812,8 @@
           }
         ],
         "meta": {
-          "date": 1778846112,
-          "commit-sha": "eb8a24979fd7d2c8c129962d4200fd030081f70d"
+          "date": 1780226470,
+          "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
       },
       {
@@ -7275,6 +7275,10 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "date": 1780226470,
+          "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
       },
       {
@@ -7284,6 +7288,10 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "date": 1780226470,
+          "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
       }
     ],
@@ -7830,7 +7838,11 @@
             {
               "name": "Serega Pirat Deny",
               "preview": "Serega Pirat Deny.webp",
-              "file": "pak24_dir.vpk"
+              "file": "pak24_dir.vpk",
+              "meta": {
+                "date": 1780226470,
+                "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
+              }
             }
           ]
         },
@@ -9798,6 +9810,10 @@
                 "effects": true,
                 "icons": false,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1780226470,
+                "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
               }
             }
           ]
@@ -10599,8 +10615,8 @@
           }
         ],
         "meta": {
-          "date": 1780214981,
-          "commit-sha": "aa4ce375bbe85eaa5776073b3167c174a067fc1f"
+          "date": 1780226470,
+          "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
       }
     ],
