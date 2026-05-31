@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Watermelons",
+      "category": "backgrounds"
+    },
+    {
       "name": "Bloodseeker Harvest Hound",
       "category": "heroes"
     },
@@ -11772,6 +11776,21 @@
           "date": 1780059063,
           "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
         }
+      },
+      {
+        "name": "Watermelons",
+        "preview": "Watermelons.webp",
+        "file": "pak66_dir.vpk",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "deathrun"
+          }
+        ]
       }
     ],
     "tools": [
