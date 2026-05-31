@@ -11782,8 +11782,8 @@
         "preview": "Watermelons.webp",
         "file": "pak66_dir.vpk",
         "tags": {
-          "image": true,
-          "video": false
+          "image": false,
+          "video": true
         },
         "links": [
           {
