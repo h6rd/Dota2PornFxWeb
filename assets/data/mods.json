@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Wraith King Veil Tyrant",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Grim Destiny",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Winterblight",
+      "category": "hero-items"
+    },
+    {
+      "name": "Shadow Fiend Black",
+      "category": "heroes"
+    },
+    {
+      "name": "Serega Pirat Deny",
+      "category": "creep-deny"
+    },
+    {
       "name": "White Sora Hud",
       "category": "huds"
     },
@@ -163,454 +183,6 @@
     {
       "name": "Shadow Fiend",
       "category": "backgrounds"
-    },
-    {
-      "name": "River Vials",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Onibi",
-      "category": "couriers"
-    },
-    {
-      "name": "Alchemist Darkbrew Enforcer",
-      "category": "heroes"
-    },
-    {
-      "name": "Ursa Immortal Hallowed Hunt",
-      "category": "heroes"
-    },
-    {
-      "name": "Tinker Peashooter Turrets",
-      "category": "herofx"
-    },
-    {
-      "name": "Hollow Kez",
-      "category": "heroes"
-    },
-    {
-      "name": "Sky Trees",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Stars",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Grave of the Fireflies",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Nemestice",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Snapfire Desert Ardalan",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Medusa",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Phantom Lancer",
-      "category": "heroes"
-    },
-    {
-      "name": "Halloween Treant Protector",
-      "category": "heroes"
-    },
-    {
-      "name": "Void Spirit Hidden Vector",
-      "category": "heroes"
-    },
-    {
-      "name": "Meepo Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Honey Heist Baby Roshan",
-      "category": "couriers"
-    },
-    {
-      "name": "Terrorblade Crimson Fractal Horns",
-      "category": "heroes"
-    },
-    {
-      "name": "Ember Spirit Cinder Sensei",
-      "category": "heroes"
-    },
-    {
-      "name": "Naga Siren Allure of the Deep",
-      "category": "heroes"
-    },
-    {
-      "name": "Dawnbreaker Starlorn Adjudicator",
-      "category": "heroes"
-    },
-    {
-      "name": "Wraith King Skeleton",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Puck",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Templar Assassin",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Immortal Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Hoodwink",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Demon Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Arc Warden Ancient Gaoler",
-      "category": "heroes"
-    },
-    {
-      "name": "Huskar White Screen Effect",
-      "category": "herofx"
-    },
-    {
-      "name": "Shadow Fiend Black",
-      "category": "heroes"
-    },
-    {
-      "name": "Huh Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Immortal Ancient Apparition",
-      "category": "heroes"
-    },
-    {
-      "name": "Beastmaster Primal Peacemaker",
-      "category": "hero-items"
-    },
-    {
-      "name": "Beastmaster Primal Paean",
-      "category": "hero-items"
-    },
-    {
-      "name": "Phantom Assassin Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Bloody Dazzle",
-      "category": "heroes"
-    },
-    {
-      "name": "Dazzle Darkclaw",
-      "category": "heroes"
-    },
-    {
-      "name": "Purple Click",
-      "category": "other"
-    },
-    {
-      "name": "Darkness Weaver",
-      "category": "heroes"
-    },
-    {
-      "name": "Warcraft III",
-      "category": "fonts"
-    },
-    {
-      "name": "Broodmother Undermount Candles",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Magus Apex",
-      "category": "hero-items"
-    },
-    {
-      "name": "Huskar Flashpoint Proselyte",
-      "category": "heroes"
-    },
-    {
-      "name": "Chaos Invoker",
-      "category": "heroes"
-    },
-    {
-      "name": "Dark Ancient Slark",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend White",
-      "category": "heroes"
-    },
-    {
-      "name": "Kez Bersexer",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Knight Silverwurm Sacrifice",
-      "category": "heroes"
-    },
-    {
-      "name": "Huskar Cthugha",
-      "category": "heroes"
-    },
-    {
-      "name": "Lone Druid Cauldron of Xahryx",
-      "category": "hero-items"
-    },
-    {
-      "name": "Lone Druid Claws of Nuranu",
-      "category": "hero-items"
-    },
-    {
-      "name": "Immortal Anti-Mage",
-      "category": "heroes"
-    },
-    {
-      "name": "Black Phoenix",
-      "category": "heroes"
-    },
-    {
-      "name": "Umbrella Pack",
-      "category": "packs"
-    },
-    {
-      "name": "Old Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Pepepains Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Umbrella Mega-Kill",
-      "category": "mega-kill"
-    },
-    {
-      "name": "Orc Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Undead Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Night Elf Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Human Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Ancients Lina",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Lina",
-      "category": "heroes"
-    },
-    {
-      "name": "Timbersaw Clearcut Cavalier",
-      "category": "heroes"
-    },
-    {
-      "name": "Underlord Immortal Ravenous",
-      "category": "heroes"
-    },
-    {
-      "name": "Umbrella Medals",
-      "category": "ranks"
-    },
-    {
-      "name": "Dota2 Datawrapper",
-      "category": "sites"
-    },
-    {
-      "name": "OpenDota Guides",
-      "category": "sites"
-    },
-    {
-      "name": "Phantom Lancer Immortal Avilliva",
-      "category": "heroes"
-    },
-    {
-      "name": "Magnus Ornate Cruelty",
-      "category": "heroes"
-    },
-    {
-      "name": "Magnus Eyes of Ardenok",
-      "category": "hero-items"
-    },
-    {
-      "name": "Magnus Shock of the Anvil",
-      "category": "hero-items"
-    },
-    {
-      "name": "Ursa Swift Claw",
-      "category": "hero-items"
-    },
-    {
-      "name": "Ursa Crystal Drift",
-      "category": "heroes"
-    },
-    {
-      "name": "Meme Media Items",
-      "category": "item-icons"
-    },
-    {
-      "name": "Dazzle Gates of Nothl",
-      "category": "hero-items"
-    },
-    {
-      "name": "Dazzle Needlepoint Necromance",
-      "category": "heroes"
-    },
-    {
-      "name": "Cosmic Earthshaker",
-      "category": "heroes"
-    },
-    {
-      "name": "Storm Spirit Lightning Orchid",
-      "category": "hero-items"
-    },
-    {
-      "name": "Storm Spirit Stormborn Mandate",
-      "category": "hero-items"
-    },
-    {
-      "name": "Storm Spirit Corridan Maestro",
-      "category": "hero-items"
-    },
-    {
-      "name": "Broodmother Undermount Gloom",
-      "category": "heroes"
-    },
-    {
-      "name": "Void Spirit Keqing",
-      "category": "heroes"
-    },
-    {
-      "name": "Tower re-aggro Radius",
-      "category": "other"
-    },
-    {
-      "name": "Visage Azure Phantom",
-      "category": "heroes"
-    },
-    {
-      "name": "Dota+ Autumn",
-      "category": "terrains"
-    },
-    {
-      "name": "Dota+ Summer",
-      "category": "terrains"
-    },
-    {
-      "name": "Dota+ Spring",
-      "category": "terrains"
-    },
-    {
-      "name": "Dota+ Winter",
-      "category": "terrains"
-    },
-    {
-      "name": "Crownfall",
-      "category": "terrains"
-    },
-    {
-      "name": "The Kings New Journey",
-      "category": "terrains"
-    },
-    {
-      "name": "TI10 Sanctum of the Divine",
-      "category": "terrains"
-    },
-    {
-      "name": "TI9 Overgrown Empire",
-      "category": "terrains"
-    },
-    {
-      "name": "TI8 Emerald Abyss",
-      "category": "terrains"
-    },
-    {
-      "name": "TI7 Reefs Edge",
-      "category": "terrains"
-    },
-    {
-      "name": "TI6 Immortal Gardens",
-      "category": "terrains"
-    },
-    {
-      "name": "TI5 Desert Terrain",
-      "category": "terrains"
-    },
-    {
-      "name": "Darkness Crimson Naga Siren",
-      "category": "heroes"
-    },
-    {
-      "name": "Black Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Slark Shadow in the Deep",
-      "category": "heroes"
-    },
-    {
-      "name": "Lion Mulctant Pall",
-      "category": "hero-items"
-    },
-    {
-      "name": "Lion Fin Kings Charm",
-      "category": "hero-items"
-    },
-    {
-      "name": "Bristleback Crimson Ring",
-      "category": "heroes"
-    },
-    {
-      "name": "Cosmic Tinker",
-      "category": "heroes"
-    },
-    {
-      "name": "Tinker Cripple",
-      "category": "hero-items"
-    },
-    {
-      "name": "Spirit Breaker Crystal Colossus",
-      "category": "heroes"
-    },
-    {
-      "name": "Sniper Ardalan Interdictor",
-      "category": "heroes"
-    },
-    {
-      "name": "Lion Hell-Spar Anathema",
-      "category": "hero-items"
-    },
-    {
-      "name": "Spirit Breaker Savage Mettle",
-      "category": "hero-items"
-    },
-    {
-      "name": "Spirit Breaker Elemental Imperator",
-      "category": "heroes"
     }
   ],
   "modsData": {
@@ -7695,6 +7267,24 @@
           "date": 1780160766,
           "commit-sha": "d197e79aa8e80b4c31b984e0e322be9bd50e2c80"
         }
+      },
+      {
+        "name": "Wraith King Grim Destiny",
+        "preview": "Wraith King Grim Destiny.webp",
+        "file": "Wraith King Grim Destiny.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
+      },
+      {
+        "name": "Wraith King Veil Tyrant",
+        "preview": "Wraith King Veil Tyrant.webp",
+        "file": "Wraith King Veil Tyrant.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
       }
     ],
     "shaders": [
@@ -8236,6 +7826,11 @@
                 "date": 1756459282,
                 "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
               }
+            },
+            {
+              "name": "Serega Pirat Deny",
+              "preview": "Serega Pirat Deny.webp",
+              "file": "pak24_dir.vpk"
             }
           ]
         },
@@ -10194,7 +9789,18 @@
         {
           "id": "wraith-king",
           "name": "Wraith King",
-          "mods": []
+          "mods": [
+            {
+              "name": "Wraith King Winterblight",
+              "preview": "Wraith King Winterblight.webp",
+              "file": "Wraith King Winterblight.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "zeus",
