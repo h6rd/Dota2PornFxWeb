@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "White Sora Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Faceless Void Battlefury",
+      "category": "hero-items"
+    },
+    {
       "name": "Sand King Black Sands",
       "category": "heroes"
     },
@@ -9214,7 +9222,18 @@
         {
           "id": "faceless-void",
           "name": "Faceless Void",
-          "mods": []
+          "mods": [
+            {
+              "name": "Faceless Void Battlefury",
+              "preview": "Faceless Void Battlefury.webp",
+              "file": "Faceless Void Battlefury.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "grimstroke",
@@ -10954,6 +10973,21 @@
           "date": 1780143296,
           "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
+      },
+      {
+        "name": "White Sora Hud",
+        "preview": "White Sora Hud.webp",
+        "file": "pak05_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/White Sora Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "high-five": [
