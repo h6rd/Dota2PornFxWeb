@@ -7476,7 +7476,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780692007,
+          "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
+        }
       }
     ],
     "shaders": [
@@ -9091,6 +9095,10 @@
                 "effects": true,
                 "icons": true,
                 "arms": true
+              },
+              "meta": {
+                "date": 1780692007,
+                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             }
           ]
@@ -9610,6 +9618,10 @@
                 "effects": true,
                 "icons": true,
                 "head": true
+              },
+              "meta": {
+                "date": 1780692007,
+                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             },
             {
@@ -9632,6 +9644,10 @@
                 "effects": true,
                 "icons": true,
                 "shoulders": true
+              },
+              "meta": {
+                "date": 1780692007,
+                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             }
           ]
@@ -9755,6 +9771,10 @@
                 "effects": false,
                 "icons": false,
                 "shoulders": true
+              },
+              "meta": {
+                "date": 1780692007,
+                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             },
             {
@@ -9765,6 +9785,10 @@
                 "effects": true,
                 "icons": false,
                 "arms": true
+              },
+              "meta": {
+                "date": 1780692007,
+                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             }
           ]
