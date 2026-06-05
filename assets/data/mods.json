@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anti-Mage Designs Of The Dragon",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Storm Spirit",
+      "category": "heroes"
+    },
+    {
+      "name": "Sora",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Stairs Guy Main Menu",
+      "category": "sounds"
+    },
+    {
+      "name": "Sora Main Menu",
+      "category": "sounds"
+    },
+    {
       "name": "Pink Shadow Fiend",
       "category": "heroes"
     },
@@ -126,7 +146,7 @@
     },
     {
       "name": "USSR and Germany Horn",
-      "category": "hero-sounds"
+      "category": "sounds"
     },
     {
       "name": "Cosmic Immortal Tinker",
@@ -142,7 +162,7 @@
     },
     {
       "name": "ReZero Respawn Sound",
-      "category": "hero-sounds"
+      "category": "sounds"
     },
     {
       "name": "Sea Of Flowers",
@@ -7380,6 +7400,36 @@
           "date": 1780648482,
           "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
         }
+      },
+      {
+        "name": "Immortal Storm Spirit",
+        "preview": "Immortal Storm Spirit.webp",
+        "file": "Immortal Storm Spirit.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Anti-Mage Designs Of The Dragon",
+        "preview": "Anti-Mage Designs Of The Dragon.webp",
+        "file": "Anti-Mage Designs Of The Dragon.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Egezenn"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11849,6 +11899,21 @@
           "date": 1780247600,
           "commit-sha": "8f3bf7adeb3877b302e08a227c19dcdd57d2ee31"
         }
+      },
+      {
+        "name": "Sora",
+        "preview": "Sora.webp",
+        "file": "pak67_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "tools": [
@@ -13346,40 +13411,6 @@
         }
       },
       {
-        "name": "ReZero Respawn Sound",
-        "preview": "ReZero Respawn Sound.webp",
-        "file": "pak14_dir.vpk",
-        "links": [
-          {
-            "type": "preview",
-            "url": "assets/previews/hero-sounds/ReZero Respawn Sound.mp4"
-          },
-          {
-            "type": "author",
-            "url": "Миша Талант"
-          }
-        ],
-        "meta": {
-          "date": 1780059063,
-          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
-        }
-      },
-      {
-        "name": "USSR and Germany Horn",
-        "preview": "USSR and Germany Horn.webp",
-        "file": "pak15_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Миша Талант"
-          }
-        ],
-        "meta": {
-          "date": 1780143296,
-          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
-        }
-      },
-      {
         "name": "Lion Taunt",
         "preview": "Lion Taunt.webp",
         "file": "pak16_dir.vpk",
@@ -13437,7 +13468,64 @@
         }
       }
     ],
-    "item-sounds": [],
+    "sounds": [
+      {
+        "name": "ReZero Respawn Sound",
+        "preview": "ReZero Respawn Sound.webp",
+        "file": "ReZero Respawn Sound.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/ReZero Respawn Sound.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1780059063,
+          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+        }
+      },
+      {
+        "name": "USSR and Germany Horn",
+        "preview": "USSR and Germany Horn.webp",
+        "file": "USSR and Germany Horn.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1780143296,
+          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+        }
+      },
+      {
+        "name": "Sora Main Menu",
+        "preview": "Sora Main Menu.webp",
+        "file": "Sora Main Menu.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Stairs Guy Main Menu",
+        "preview": "Stairs Guy Main Menu.webp",
+        "file": "Stairs Guy Main Menu.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      }
+    ],
     "packs": [
       {
         "name": "Winter Pack",

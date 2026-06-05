@@ -98,7 +98,9 @@
     "item-sounds-desc": "Custom item sounds",
     "huds": "Huds",
     "huds-desc": "Custom Huds",
-    "modded": "Modded"
+    "modded": "Modded",
+    "sounds": "Sounds",
+    "sounds-desc": "Custom sounds"
   },
   "categories": [
     {
@@ -183,6 +185,13 @@
       "emoji": "🔊",
       "key": "hero-sounds",
       "preview": "hero-sounds.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "sounds",
+      "emoji": "🔊",
+      "key": "sounds",
+      "preview": "sounds.webp",
       "guideId": "install"
     },
     {
