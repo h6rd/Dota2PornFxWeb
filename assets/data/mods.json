@@ -7414,7 +7414,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
       },
       {
         "name": "Anti-Mage Designs Of The Dragon",
@@ -7429,7 +7433,11 @@
             "type": "author",
             "url": "Egezenn"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
       }
     ],
     "shaders": [
@@ -11913,7 +11921,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
       }
     ],
     "tools": [
@@ -13484,8 +13496,8 @@
           }
         ],
         "meta": {
-          "date": 1780059063,
-          "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
         }
       },
       {
@@ -13499,8 +13511,8 @@
           }
         ],
         "meta": {
-          "date": 1780143296,
-          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
         }
       },
       {
@@ -13512,7 +13524,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
       },
       {
         "name": "Stairs Guy Main Menu",
@@ -13523,7 +13539,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
       }
     ],
     "packs": [
