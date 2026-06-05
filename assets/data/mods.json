@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pink Shadow Fiend",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Beastmaster",
+      "category": "heroes"
+    },
+    {
+      "name": "The International 10",
+      "category": "music"
+    },
+    {
       "name": "Watermelons",
       "category": "backgrounds"
     },
@@ -7326,6 +7338,40 @@
           "date": 1780230946,
           "commit-sha": "e253fac49336473d16fe754118a529a5273a2464"
         }
+      },
+      {
+        "name": "Immortal Beastmaster",
+        "preview": "Immortal Beastmaster.webp",
+        "file": "Immortal Beastmaster.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Pink Shadow Fiend",
+        "preview": "Pink Shadow Fiend.webp",
+        "file": "Pink Shadow Fiend.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "SkippingHades"
+          },
+          {
+            "type": "author",
+            "url": "Darkness"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12660,6 +12706,21 @@
           "date": 1765999001,
           "commit-sha": "5e0535bcf74b7167d55a11fab7419481890604e7"
         }
+      },
+      {
+        "name": "The International 10",
+        "preview": "The International 10.webp",
+        "file": "pak22_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "https://dota2.fandom.com/wiki/The_International_10_Music_Pack"
+          },
+          {
+            "type": "author",
+            "url": "SkippingHades"
+          }
+        ]
       }
     ],
     "cursors": [
