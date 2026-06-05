@@ -7352,7 +7352,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780648482,
+          "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
+        }
       },
       {
         "name": "Pink Shadow Fiend",
@@ -7371,7 +7375,11 @@
             "type": "author",
             "url": "Darkness"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780648482,
+          "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
+        }
       }
     ],
     "shaders": [
@@ -12720,7 +12728,11 @@
             "type": "author",
             "url": "SkippingHades"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780648482,
+          "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
+        }
       }
     ],
     "cursors": [
