@@ -1,15 +1,19 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Invoker Magus Accord",
+      "category": "hero-items"
+    },
+    {
+      "name": "Homelander Invoker",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Arms of Desolation",
       "category": "hero-items"
     },
     {
       "name": "Shadow Fiend Eternal Harvest",
-      "category": "hero-items"
-    },
-    {
-      "name": "Invoker Magus Accord",
       "category": "hero-items"
     },
     {
@@ -7481,6 +7485,25 @@
           "date": 1780692007,
           "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
         }
+      },
+      {
+        "name": "Homelander Invoker",
+        "preview": "Homelander Invoker.webp",
+        "file": "Homelander Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "DARK BLADE"
+          },
+          {
+            "type": "author",
+            "url": "Darkness"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -9089,16 +9112,24 @@
             },
             {
               "name": "Invoker Magus Accord",
-              "preview": "Invoker Magus Accord.webp",
-              "file": "Invoker Magus Accord.zip",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#ffde65",
+                  "preview": "Invoker Magus Accord.webp",
+                  "file": "Invoker Magus Accord.zip"
+                },
+                {
+                  "label": "White",
+                  "color": "#ffffff",
+                  "preview": "Invoker Magus Accord White.webp",
+                  "file": "Invoker Magus Accord White.zip"
+                }
+              ],
               "tags": {
                 "effects": true,
                 "icons": true,
                 "arms": true
-              },
-              "meta": {
-                "date": 1780692007,
-                "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
               }
             }
           ]
