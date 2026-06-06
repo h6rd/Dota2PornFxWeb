@@ -12169,6 +12169,12 @@
         }
       },
       {
+        "name": "Dota2 Minify",
+        "preview": "Minify.webp",
+        "file": "https://egezenn.github.io/dota2-minify/",
+        "type": "guide"
+      },
+      {
         "name": "Source2Viewer",
         "preview": "s2v.webp",
         "file": "https://github.com/ValveResourceFormat/ValveResourceFormat",

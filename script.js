@@ -2239,7 +2239,7 @@ function createModCard(mod, categoryId, groupId = null) {
             ` : ''}
         </div>
         <div class="card-content">
-            <h3 class="card-title">${['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(categoryId) ? highlightHeroNames(activeMod.name || mod.name) : (activeMod.name || mod.name)}${mod.name.toLowerCase().includes('linux') ? " <i class='bxl bx-tux bx-sm' style='vertical-align: text-bottom;'></i>" : ''}</h3>
+            <h3 class="card-title">${['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(categoryId) ? highlightHeroNames(activeMod.name || mod.name) : (activeMod.name || mod.name)}${mod.name.toLowerCase().includes('linux') ? " <i class='bi bi-tux' style='vertical-align: text-bottom;'></i>" : ''}</h3>
             <div class="card-subtitle-wrapper">
                 <p class="card-subtitle">${subtitleText}</p>
                 <div class="card-buttons-group">
