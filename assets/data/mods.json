@@ -7530,7 +7530,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780816909,
+          "commit-sha": "537c343d41b08439f0d4bb5eb78638be72816ab5"
+        }
       }
     ],
     "shaders": [
@@ -13749,7 +13753,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1780816909,
+          "commit-sha": "537c343d41b08439f0d4bb5eb78638be72816ab5"
+        }
       }
     ],
     "packs": [
