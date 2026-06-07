@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Humble Drifter",
+      "category": "heroes"
+    },
+    {
       "name": "Tinker Fortified Fabricator",
       "category": "heroes"
     },
@@ -7535,6 +7539,21 @@
           "date": 1780816909,
           "commit-sha": "537c343d41b08439f0d4bb5eb78638be72816ab5"
         }
+      },
+      {
+        "name": "Phantom Lancer Humble Drifter",
+        "preview": "Phantom Lancer Humble Drifter.webp",
+        "file": "Phantom Lancer Humble Drifter.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
