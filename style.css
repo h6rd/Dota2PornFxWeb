@@ -545,6 +545,11 @@ body.loaded .footer {
   position: relative;
 }
 
+.header.nav-open .container {
+  max-width: 100%;
+  padding: 0 16px;
+}
+
 .mobile-menu-toggle {
   display: none;
 }
@@ -1954,8 +1959,96 @@ fcode {
 }
 
 .main {
-  padding: 32px 0;
+  padding: 0;
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 0;
+}
+
+.nav-rail-wrapper {
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  flex-shrink: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+}
+
+#categoryNavRail {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+
+  --m3e-nav-rail-top-space: 8px;
+  --m3e-nav-rail-expanded-width: 180px;
+  --m3e-nav-rail-expanded-item-height: 48px;
+  --m3e-nav-rail-inline-padding: 8px;
+}
+
+#categoryNavRail::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-rail-toggle-btn {
+  position: absolute;
+  right: -23px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 23px;
+  height: 60px;
+  border-radius: 0 12px 12px 0;
+  border: none;
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+  z-index: 11;
+}
+
+.nav-rail-toggle-btn .material-symbols-rounded {
+  font-size: 18px;
+}
+
+.nav-rail-toggle-btn:hover {
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-primary);
+}
+
+.nav-rail-wrapper:hover .nav-rail-toggle-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-rail-wrapper.collapsed .nav-rail-toggle-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-rail-wrapper.collapsed #categoryNavRail {
+  display: none;
+}
+
+m3e-nav-item .material-symbols-rounded {
+  font-size: 24px;
+}
+
+.main-content-area {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 0;
+}
+
+.nav-rail-wrapper:not(.collapsed)~.main-content-area .container {
+  padding-left: 0px;
 }
 
 .page-title {
@@ -4640,6 +4733,10 @@ m3e-loading-indicator {
 
 /* Media */
 @media (max-width: 1024px) {
+  .main-content-area {
+    padding-left: 0;
+  }
+
   .carousel-track .card {
     flex: 0 0 calc((100% - 24px) / 2);
     max-width: calc((100% - 24px) / 2);
@@ -4674,6 +4771,19 @@ m3e-loading-indicator {
 }
 
 @media (max-width: 768px) {
+  .nav-rail-wrapper {
+    display: none;
+  }
+
+  .main {
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  .main-content-area {
+    width: 100%;
+  }
+
   .header {
     position: relative;
     overflow: visible;

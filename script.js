@@ -1576,6 +1576,7 @@ function init() {
     setupThemeToggle();
     setupMobileMenu();
     setupSettingsModal();
+    setupCategoryNavRail();
     handleUrlParams();
 
     if (typeof loadCart === 'function') {
@@ -1585,6 +1586,156 @@ function init() {
         updateCartButtons();
     }
 }
+
+// navigation rail
+const NAV_RAIL_ICONS = {
+    'shaders': 'gradient',
+    'ti-bp-effects': 'auto_awesome',
+    'heroes': 'person',
+    'hero-items': 'checkroom',
+    'herofx': 'bolt',
+    'hero-sounds': 'hearing',
+    'terrains': 'landscape',
+    'trees': 'forest',
+    'creeps': 'bug_report',
+    'creep-deny': 'gps_fixed',
+    'emblems': 'award_star',
+    'backgrounds': 'wallpaper',
+    'river': 'water',
+    'item-effects': 'wand_stars',
+    'item-sounds': 'volume_up',
+    'item-icons': 'image',
+    'ranged-attack': 'swords',
+    'pings': 'location_on',
+    'huds': 'dashboard',
+    'packs': 'inventory_2',
+    'versus-screens': 'compare',
+    'mega-kill': 'trophy',
+    'announcers': 'record_voice_over',
+    'music': 'music_note',
+    'sounds': 'surround_sound',
+    'roshan': 'raven',
+    'ancient': 'account_balance',
+    'tormentor': 'sentiment_very_dissatisfied',
+    'towers': 'chess_rook',
+    'pedestal': 'gallery_thumbnail',
+    'wards': 'visibility',
+    'couriers': 'delivery_truck_speed',
+    'ranks': 'military_tech',
+    'cursors': 'arrow_selector_tool',
+    'fonts': 'font_download',
+    'weather': 'partly_cloudy_day',
+    'high-five': 'back_hand',
+    'versus-screens': 'splitscreen',
+    'optimization': 'speed',
+    'sites': 'language',
+    'tools': 'build',
+    'guides': 'menu_book',
+    'news': 'newspaper',
+    'other': 'more_horiz',
+};
+
+function setupCategoryNavRail() {
+    const rail = document.getElementById('categoryNavRail');
+    const wrapper = document.getElementById('navRailWrapper');
+    const toggleBtn = document.getElementById('navRailToggleBtn');
+    const toggleIcon = document.getElementById('navRailToggleIcon');
+    if (!rail || !categories) return;
+
+    if (localStorage.getItem('navRailCollapsed') === 'false') {
+        wrapper?.classList.remove('collapsed');
+    }
+
+    function updateToggleIcon() {
+        if (toggleIcon) {
+            toggleIcon.textContent = wrapper?.classList.contains('collapsed')
+                ? 'chevron_right'
+                : 'chevron_left';
+        }
+    }
+
+    updateToggleIcon();
+
+    const header = document.querySelector('.header');
+
+    function updateHeaderClass() {
+        const isCollapsed = wrapper?.classList.contains('collapsed');
+        header?.classList.toggle('nav-open', !isCollapsed);
+    }
+
+    toggleBtn?.addEventListener('click', () => {
+        const isNowCollapsed = wrapper?.classList.toggle('collapsed');
+        localStorage.setItem('navRailCollapsed', isNowCollapsed ? 'true' : 'false');
+        updateToggleIcon();
+        updateHeaderClass();
+    });
+
+    updateHeaderClass();
+
+    rail.querySelectorAll('m3e-nav-item:not(#navAllCategories)').forEach(el => el.remove());
+
+    const visibleCats = categories.filter(c => !c.hidden);
+    visibleCats.forEach(category => {
+        const label = translations[category.key] || category.key;
+        const iconName = NAV_RAIL_ICONS[category.id] || 'folder';
+
+        const item = document.createElement('m3e-nav-item');
+        item.dataset.categoryId = category.id;
+
+        const icon = document.createElement('span');
+        icon.setAttribute('slot', 'icon');
+        icon.className = 'material-symbols-rounded';
+        icon.setAttribute('translate', 'no');
+        icon.textContent = iconName;
+        item.appendChild(icon);
+
+        item.appendChild(document.createTextNode(label));
+        rail.appendChild(item);
+    });
+
+    setNavRailSelection(null);
+
+    rail.addEventListener('click', (e) => {
+        if (e.target.closest('#navRailToggleBtn')) return;
+
+        const item = e.target.closest('m3e-nav-item');
+        if (!item) return;
+
+        const categoryId = item.dataset.categoryId;
+        if (!categoryId) {
+            showHomePage();
+        } else {
+            showCategoryPage(categoryId);
+        }
+    });
+}
+
+function setNavRailSelection(categoryId) {
+    const rail = document.getElementById('categoryNavRail');
+    if (!rail) return;
+
+    rail.querySelectorAll('m3e-nav-item').forEach(item => {
+        const isCat = item.dataset.categoryId;
+        const shouldBeSelected = categoryId ? isCat === categoryId : !isCat;
+        if (shouldBeSelected) {
+            item.setAttribute('selected', '');
+        } else {
+            item.removeAttribute('selected');
+        }
+    });
+}
+
+const _origShowHomePage = showHomePage;
+showHomePage = function () {
+    _origShowHomePage.apply(this, arguments);
+    setNavRailSelection(null);
+};
+
+const _origShowCategoryPage = showCategoryPage;
+showCategoryPage = function (categoryId) {
+    _origShowCategoryPage.apply(this, arguments);
+    setNavRailSelection(categoryId);
+};
 
 function setupEventListeners() {
     elements.backButton.addEventListener('click', showHomePage);
@@ -2704,8 +2855,13 @@ function showHomePage() {
     const scrollTo = state.scrollPosition;
     state.scrollPosition = 0;
 
+    const rail = document.getElementById('categoryNavRail');
+    if (rail) rail.scrollTop = 0;
+
     requestAnimationFrame(() => {
         window.scrollTo(0, scrollTo);
+        document.documentElement.scrollTop = scrollTo;
+        document.body.scrollTop = scrollTo;
     });
 }
 
