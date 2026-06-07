@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Fortified Fabricator",
+      "category": "heroes"
+    },
+    {
+      "name": "ReZero Subaru Phone Horn",
+      "category": "sounds"
+    },
+    {
       "name": "Invoker Magus Accord",
       "category": "hero-items"
     },
@@ -7508,6 +7516,21 @@
           "date": 1780741566,
           "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
         }
+      },
+      {
+        "name": "Tinker Fortified Fabricator",
+        "preview": "Tinker Fortified Fabricator.webp",
+        "file": "Tinker Fortified Fabricator.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13716,6 +13739,17 @@
           "date": 1780653646,
           "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
         }
+      },
+      {
+        "name": "ReZero Subaru Phone Horn",
+        "preview": "ReZero Subaru Phone Horn.webp",
+        "file": "ReZero Subaru Phone Horn.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "packs": [
