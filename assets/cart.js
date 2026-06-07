@@ -508,11 +508,20 @@ function addToCart(mod, categoryId) {
 
         if (newModData && newModData.tags) {
             const newSlots = SLOT_TAGS.filter(tag => newModData.tags[tag]);
-            const newHero = mod.name.split(' ')[0].toLowerCase();
+
+            const foundNewHeroes = HEROES_LIST.filter(hero => mod.name.toLowerCase().includes(hero.toLowerCase()));
+            const newHero = foundNewHeroes.length > 0
+                ? foundNewHeroes.reduce((longest, current) => current.length > longest.length ? current : longest).toLowerCase()
+                : mod.name.split(' ')[0].toLowerCase();
 
             const existingHeroItem = cart.find(item => {
                 if (item.categoryId !== 'hero-items') return false;
-                const existingHero = item.name.split(' ')[0].toLowerCase();
+
+                const foundExistingHeroes = HEROES_LIST.filter(hero => item.name.toLowerCase().includes(hero.toLowerCase()));
+                const existingHero = foundExistingHeroes.length > 0
+                    ? foundExistingHeroes.reduce((longest, current) => current.length > longest.length ? current : longest).toLowerCase()
+                    : item.name.split(' ')[0].toLowerCase();
+
                 if (existingHero !== newHero) return false;
 
                 const existingModData = heroItemsData.find(m => item.name === m.name || item.name.startsWith(m.name + ' '));
