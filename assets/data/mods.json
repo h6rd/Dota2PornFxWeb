@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Green Fractal Horns",
+      "category": "heroes"
+    },
+    {
       "name": "Summer Quarteros Curios",
       "category": "ti-bp-effects"
     },
@@ -7566,7 +7570,22 @@
           "date": 1780845953,
           "commit-sha": "90382a7057f7e24a784526db6e7f73a894d45e28"
         }
-      }
+      },
+      {
+        "name": "Terrorblade Green Fractal Horns",
+        "preview": "Terrorblade Green Fractal Horns.webp",
+        "file": "Terrorblade Green Fractal Horns.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      }  
     ],
     "shaders": [
       {
