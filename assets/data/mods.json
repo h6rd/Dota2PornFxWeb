@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Summer Quarteros Curios",
+      "category": "ti-bp-effects"
+    },
+    {
+      "name": "Dark Seer Forlorn Precipice",
+      "category": "hero-items"
+    },
+    {
       "name": "Phantom Lancer Humble Drifter",
       "category": "heroes"
     },
@@ -8038,6 +8046,13 @@
           "date": 1780741566,
           "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
         }
+      },
+      {
+        "name": "Summer Quarteros Curios",
+        "preview": "Summer Quarteros Curios.webp",
+        "file": "pak24_dir.vpk",
+        "linkType": "preview",
+        "linkUrl": "assets/previews/ti-bp-effects/Summer_Quarteros_Curios.mp4"
       }
     ],
     "creep-deny": {
@@ -8953,7 +8968,30 @@
         {
           "id": "dark-seer",
           "name": "Dark Seer",
-          "mods": []
+          "mods": [
+            {
+              "name": "Dark Seer Forlorn Precipice",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#ad65ff",
+                  "preview": "Dark Seer Forlorn Precipice.webp",
+                  "file": "Dark Seer Forlorn Precipice.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffea65",
+                  "preview": "Dark Seer Forlorn Precipice Golden.webp",
+                  "file": "Dark Seer Forlorn Precipice Golden.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "arms": true
+              }
+            }
+          ]
         },
         {
           "id": "dark-willow",
