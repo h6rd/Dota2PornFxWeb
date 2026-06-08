@@ -8052,7 +8052,11 @@
         "preview": "Summer Quarteros Curios.webp",
         "file": "pak24_dir.vpk",
         "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Summer_Quarteros_Curios.mp4"
+        "linkUrl": "assets/previews/ti-bp-effects/Summer_Quarteros_Curios.mp4",
+        "meta": {
+          "date": 1780941032,
+          "commit-sha": "e8f679e3954268a435d5dd0d1a4ac9347041e1cb"
+        }
       }
     ],
     "creep-deny": {
@@ -8989,6 +8993,10 @@
                 "effects": true,
                 "icons": true,
                 "arms": true
+              },
+              "meta": {
+                "date": 1780941032,
+                "commit-sha": "e8f679e3954268a435d5dd0d1a4ac9347041e1cb"
               }
             }
           ]
