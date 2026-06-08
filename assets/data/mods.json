@@ -7584,8 +7584,12 @@
             "type": "author",
             "url": "translation"
           }
-        ]
-      }  
+        ],
+        "meta": {
+          "date": 1780942970,
+          "commit-sha": "31e8523d59800d34ef112e9d197f7f4441d41d1f"
+        }
+      }
     ],
     "shaders": [
       {
