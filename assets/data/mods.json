@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Mars Progenitors Bane",
+      "category": "hero-items"
+    },
+    {
+      "name": "Dark Willow Saccharine Saboteur",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Green Fractal Horns",
       "category": "heroes"
     },
@@ -7589,6 +7597,21 @@
           "date": 1780942970,
           "commit-sha": "31e8523d59800d34ef112e9d197f7f4441d41d1f"
         }
+      },
+      {
+        "name": "Dark Willow Saccharine Saboteur",
+        "preview": "Dark Willow Saccharine Saboteur.webp",
+        "file": "Dark Willow Saccharine Saboteur.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -9682,7 +9705,30 @@
         {
           "id": "mars",
           "name": "Mars",
-          "mods": []
+          "mods": [
+            {
+              "name": "Mars Progenitors Bane",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#fffb7a",
+                  "preview": "Mars Progenitors Bane.webp",
+                  "file": "Mars Progenitors Bane.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7a7a",
+                  "preview": "Mars Progenitors Bane Crimson.webp",
+                  "file": "Mars Progenitors Bane Crimson.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "medusa",
