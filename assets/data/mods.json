@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Undying Hallows Within",
+      "category": "hero-items"
+    },
+    {
+      "name": "Undying Grim Reformation",
+      "category": "heroes"
+    },
+    {
       "name": "Venomancer Poisonous Assassin",
       "category": "heroes"
     },
@@ -7645,6 +7653,15 @@
           "date": 1781024680,
           "commit-sha": "ab53500cb79cbbd33761b208eb68c7c20f9a8e21"
         }
+      },
+      {
+        "name": "Undying Grim Reformation",
+        "preview": "Undying Grim Reformation.webp",
+        "file": "Undying Grim Reformation.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
       }
     ],
     "shaders": [
@@ -10313,7 +10330,18 @@
         {
           "id": "undying",
           "name": "Undying",
-          "mods": []
+          "mods": [
+            {
+              "name": "Undying Hallows Within",
+              "preview": "Undying Hallows Within.webp",
+              "file": "Undying Hallows Within.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "head": true
+              }
+            }
+          ]
         },
         {
           "id": "ursa",
