@@ -7678,6 +7678,10 @@
         "tags": {
           "effects": true,
           "icons": true
+        },
+        "meta": {
+          "date": 1781030461,
+          "commit-sha": "f1e3d1a0f8ab272824b5c84e47b25487842d7f18"
         }
       }
     ],
