@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Venomancer Poisonous Assassin",
+      "category": "heroes"
+    },
+    {
       "name": "Mars Progenitors Bane",
       "category": "hero-items"
     },
@@ -7615,6 +7619,27 @@
         "meta": {
           "date": 1781012938,
           "commit-sha": "a64a9d9ec9523b9a15d1c1b6aa0816ba1510759d"
+        }
+      },
+      {
+        "name": "Venomancer Poisonous Assassin",
+        "styles": [
+          {
+            "label": "",
+            "color": "#66ff70",
+            "preview": "Venomancer Poisonous Assassin.webp",
+            "file": "Venomancer Poisonous Assassin.zip"
+          },
+          {
+            "label": "Purple",
+            "color": "#a166ff",
+            "preview": "Venomancer Poisonous Assassin Purple.webp",
+            "file": "Venomancer Poisonous Assassin Purple.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
         }
       }
     ],
