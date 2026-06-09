@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Primal Beast",
+      "category": "heroes"
+    },
+    {
       "name": "Undying Hallows Within",
       "category": "hero-items"
     },
@@ -7665,6 +7669,15 @@
         "meta": {
           "date": 1781027597,
           "commit-sha": "7158981aa1ef3349d6c1fcb3b66e119bf39f4524"
+        }
+      },
+      {
+        "name": "Immortal Primal Beast",
+        "preview": "Immortal Primal Beast.webp",
+        "file": "Immortal Primal Beast.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
