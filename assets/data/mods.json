@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Monkey King Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Venomancer Peashooter",
       "category": "heroes"
     },
@@ -7809,6 +7813,39 @@
         "meta": {
           "date": 1781266231,
           "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
+      },
+      {
+        "name": "Monkey King Arcana",
+        "styles": [
+          {
+            "label": "",
+            "color": "#ffb957",
+            "preview": "Monkey King Arcana.webp",
+            "file": "Monkey King Arcana.zip"
+          },
+          {
+            "label": "Water",
+            "color": "#5eacff",
+            "preview": "Monkey King Arcana Water.webp",
+            "file": "Monkey King Arcana Water.zip"
+          },
+          {
+            "label": "Death",
+            "color": "#57ff70",
+            "preview": "Monkey King Arcana Death.webp",
+            "file": "Monkey King Arcana Death.zip"
+          },
+          {
+            "label": "Fire",
+            "color": "#ff5e5e",
+            "preview": "Monkey King Arcana Fire.webp",
+            "file": "Monkey King Arcana Fire.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
