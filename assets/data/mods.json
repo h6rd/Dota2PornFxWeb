@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Venomancer Peashooter",
+      "category": "heroes"
+    },
+    {
+      "name": "Cardboard Shadow Fiend",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade White Fractal Horns",
+      "category": "heroes"
+    },
+    {
+      "name": "Earth Spirit Slitehering Stone",
+      "category": "heroes"
+    },
+    {
+      "name": "Goffren Broodmother",
+      "category": "heroes"
+    },
+    {
+      "name": "Northern Winds",
+      "category": "music"
+    },
+    {
+      "name": "Purple Kez",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Anti-Mage",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Primal Beast",
       "category": "heroes"
     },
@@ -7683,6 +7715,81 @@
           "date": 1781030461,
           "commit-sha": "f1e3d1a0f8ab272824b5c84e47b25487842d7f18"
         }
+      },
+      {
+        "name": "Goffren Broodmother",
+        "preview": "Goffren Broodmother.webp",
+        "file": "Goffren Broodmother.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
+      },
+      {
+        "name": "Earth Spirit Slitehering Stone",
+        "preview": "Earth Spirit Slitehering Stone.webp",
+        "file": "Earth Spirit Slitehering Stone.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade White Fractal Horns",
+        "preview": "Terrorblade White Fractal Horns.webp",
+        "file": "Terrorblade White Fractal Horns.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "translation"
+          }
+        ]
+      },
+      {
+        "name": "Cardboard Shadow Fiend",
+        "preview": "Cardboard Shadow Fiend.webp",
+        "file": "Cardboard Shadow Fiend.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "laskotdota"
+          }
+        ]
+      },
+      {
+        "name": "Venomancer Peashooter",
+        "preview": "Venomancer Peashooter.webp",
+        "file": "Venomancer Peashooter.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "laskotdota"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13237,6 +13344,17 @@
           "date": 1780648482,
           "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
         }
+      },
+      {
+        "name": "Northern Winds",
+        "preview": "Northern Winds.webp",
+        "file": "pak23_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "https://dota2.fandom.com/wiki/Northern_Winds_Music_Pack"
+          }
+        ]
       }
     ],
     "cursors": [
