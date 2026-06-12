@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Enigma Black Hole Kate",
+      "category": "sounds"
+    },
+    {
+      "name": "Staff of Gun-Yu",
+      "category": "hero-items"
+    },
+    {
       "name": "Darkness Weaver",
       "category": "heroes"
     },
@@ -9995,7 +10003,42 @@
         {
           "id": "monkey-king",
           "name": "Monkey King",
-          "mods": []
+          "mods": [
+            {
+              "name": "Staff of Gun-Yu",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#6bc4ff",
+                  "preview": "Staff of Gun-Yu.webp",
+                  "file": "Staff of Gun-Yu.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffdb6e",
+                  "preview": "Staff of Gun-Yu Golden.webp",
+                  "file": "Staff of Gun-Yu Golden.zip"
+                },
+                {
+                  "label": "Anniversary",
+                  "color": "#ff7575",
+                  "preview": "Staff of Gun-Yu Anniversary.webp",
+                  "file": "Staff of Gun-Yu Anniversary.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7dcb",
+                  "preview": "Staff of Gun-Yu Crimson.webp",
+                  "file": "Staff of Gun-Yu Crimson.zip"
+                }
+              ],
+              "tags": {
+                "weapon": true,
+                "effects": true,
+                "icons": true
+              }
+            }
+          ]
         },
         {
           "id": "morphling",
@@ -14173,6 +14216,21 @@
           "date": 1780816909,
           "commit-sha": "537c343d41b08439f0d4bb5eb78638be72816ab5"
         }
+      },
+      {
+        "name": "Enigma Black Hole Kate",
+        "preview": "Enigma Black Hole Kate.webp",
+        "file": "Enigma Black Hole Kate.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Enigma Black Hole Kate.mp4"
+          },
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ]
       }
     ],
     "packs": [
