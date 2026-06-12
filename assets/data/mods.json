@@ -6555,8 +6555,8 @@
           }
         ],
         "meta": {
-          "date": 1777733026,
-          "commit-sha": "880881b021d68e74495a3f83a49f8634ecf15466"
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
         }
       },
       {
@@ -7333,8 +7333,8 @@
           }
         ],
         "meta": {
-          "date": 1780143296,
-          "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
         }
       },
       {
@@ -7729,7 +7729,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       },
       {
         "name": "Earth Spirit Slitehering Stone",
@@ -7744,7 +7748,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       },
       {
         "name": "Terrorblade White Fractal Horns",
@@ -7759,7 +7767,11 @@
             "type": "author",
             "url": "translation"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       },
       {
         "name": "Cardboard Shadow Fiend",
@@ -7774,7 +7786,11 @@
             "type": "author",
             "url": "laskotdota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       },
       {
         "name": "Venomancer Peashooter",
@@ -7789,7 +7805,11 @@
             "type": "author",
             "url": "laskotdota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       }
     ],
     "shaders": [
@@ -13354,7 +13374,11 @@
             "type": "preview",
             "url": "https://dota2.fandom.com/wiki/Northern_Winds_Music_Pack"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781266231,
+          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
+        }
       }
     ],
     "cursors": [
