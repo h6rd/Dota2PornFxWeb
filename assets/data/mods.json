@@ -10036,6 +10036,10 @@
                 "weapon": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "date": 1781293197,
+                "commit-sha": "14f60ecffe7349a84e7d1287def9314f942b6756"
               }
             }
           ]
@@ -14230,7 +14234,11 @@
             "type": "author",
             "url": "buba43"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781293197,
+          "commit-sha": "14f60ecffe7349a84e7d1287def9314f942b6756"
+        }
       }
     ],
     "packs": [
