@@ -5,7 +5,7 @@
       "category": "sounds"
     },
     {
-      "name": "Staff of Gun-Yu",
+      "name": "Monkey King Staff of Gun-Yu",
       "category": "hero-items"
     },
     {
@@ -10005,31 +10005,31 @@
           "name": "Monkey King",
           "mods": [
             {
-              "name": "Staff of Gun-Yu",
+              "name": "Monkey King Staff of Gun-Yu",
               "styles": [
                 {
                   "label": "",
                   "color": "#6bc4ff",
-                  "preview": "Staff of Gun-Yu.webp",
-                  "file": "Staff of Gun-Yu.zip"
+                  "preview": "Monkey King Staff of Gun-Yu.webp",
+                  "file": "Monkey King Staff of Gun-Yu.zip"
                 },
                 {
                   "label": "Golden",
                   "color": "#ffdb6e",
-                  "preview": "Staff of Gun-Yu Golden.webp",
-                  "file": "Staff of Gun-Yu Golden.zip"
+                  "preview": "Monkey King Staff of Gun-Yu Golden.webp",
+                  "file": "Monkey King Staff of Gun-Yu Golden.zip"
                 },
                 {
                   "label": "Anniversary",
                   "color": "#ff7575",
-                  "preview": "Staff of Gun-Yu Anniversary.webp",
-                  "file": "Staff of Gun-Yu Anniversary.zip"
+                  "preview": "Monkey King Staff of Gun-Yu Anniversary.webp",
+                  "file": "Monkey King Staff of Gun-Yu Anniversary.zip"
                 },
                 {
                   "label": "Crimson",
                   "color": "#ff7dcb",
-                  "preview": "Staff of Gun-Yu Crimson.webp",
-                  "file": "Staff of Gun-Yu Crimson.zip"
+                  "preview": "Monkey King Staff of Gun-Yu Crimson.webp",
+                  "file": "Monkey King Staff of Gun-Yu Crimson.zip"
                 }
               ],
               "tags": {
