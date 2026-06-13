@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Centaur Infernal Chieftain",
+      "category": "hero-items"
+    },
+    {
+      "name": "Centaur Infernal Cavalcade",
+      "category": "hero-items"
+    },
+    {
+      "name": "Centaur Infernal Menace",
+      "category": "hero-items"
+    },
+    {
+      "name": "Centaur Emerald Marauder",
+      "category": "heroes"
+    },
+    {
+      "name": "Centaur Chaos Chosen",
+      "category": "heroes"
+    },
+    {
       "name": "Enigma Black Hole Kate",
       "category": "sounds"
     },
@@ -7863,6 +7883,36 @@
           "date": 1781270968,
           "commit-sha": "515398c7570e8b38a1c73e185ddfe895fb7c749d"
         }
+      },
+      {
+        "name": "Centaur Chaos Chosen",
+        "styles": [
+          {
+            "label": "",
+            "color": "#dec46f",
+            "preview": "Centaur Chaos Chosen.webp",
+            "file": "Centaur Chaos Chosen.zip"
+          },
+          {
+            "label": "Eternal",
+            "color": "#1c1c1c",
+            "preview": "Centaur Chaos Chosen Eternal.webp",
+            "file": "Centaur Chaos Chosen Eternal.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
+      },
+      {
+        "name": "Centaur Emerald Marauder",
+        "preview": "Centaur Emerald Marauder.webp",
+        "file": "Centaur Emerald Marauder.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        }
       }
     ],
     "shaders": [
@@ -9239,7 +9289,74 @@
         {
           "id": "centaur",
           "name": "Centaur",
-          "mods": []
+          "mods": [
+            {
+              "name": "Centaur Infernal Menace",
+              "preview": "Centaur Infernal Menace.webp",
+              "file": "Centaur Infernal Menace.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            },
+            {
+              "name": "Centaur Infernal Cavalcade",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#b5b5b5",
+                  "preview": "Centaur Infernal Cavalcade.webp",
+                  "file": "Centaur Infernal Cavalcade.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffdb6e",
+                  "preview": "Centaur Infernal Cavalcade Golden.webp",
+                  "file": "Centaur Infernal Cavalcade Golden.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7575",
+                  "preview": "Centaur Infernal Cavalcade Crimson.webp",
+                  "file": "Centaur Infernal Cavalcade Crimson.zip"
+                }
+              ],
+              "tags": {
+                "shoulders": true,
+                "effects": true,
+                "icons": true
+              }
+            },
+            {
+              "name": "Centaur Infernal Chieftain",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#b5b5b5",
+                  "preview": "Centaur Infernal Chieftain.webp",
+                  "file": "Centaur Infernal Chieftain.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffdb6e",
+                  "preview": "Centaur Infernal Chieftain Golden.webp",
+                  "file": "Centaur Infernal Chieftain Golden.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7575",
+                  "preview": "Centaur Infernal Chieftain Crimson.webp",
+                  "file": "Centaur Infernal Chieftain Crimson.zip"
+                }
+              ],
+              "tags": {
+                "head": true,
+                "effects": true,
+                "icons": true
+              }
+            }
+          ]
         },
         {
           "id": "chaos-knight",
