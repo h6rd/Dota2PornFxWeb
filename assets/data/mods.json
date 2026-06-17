@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pangolier Windward Rogue",
+      "category": "heroes"
+    },
+    {
       "name": "Centaur Infernal Chieftain",
       "category": "hero-items"
     },
@@ -7921,6 +7925,21 @@
           "date": 1781354613,
           "commit-sha": "f644c77d4d702e1d1831038c2d9742e0d7869406"
         }
+      },
+      {
+        "name": "Pangolier Windward Rogue",
+        "preview": "Pangolier Windward Rogue.webp",
+        "file": "Pangolier Windward Rogue.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
