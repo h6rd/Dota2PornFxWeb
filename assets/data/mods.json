@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade 666 Fractal Horns",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "White Items",
+      "category": "item-icons"
+    },
+    {
       "name": "Pangolier Windward Rogue",
       "category": "heroes"
     },
@@ -7927,23 +7939,38 @@
         }
       },
       {
-        "name": "Pangolier Windward Rogue",
-        "preview": "Pangolier Windward Rogue.webp",
-        "file": "Pangolier Windward Rogue.zip",
+        "name": "Drow Ranger Arcana",
+        "preview": "Drow Ranger Arcana.webp",
+        "file": "Drow Ranger Arcana.zip",
         "tags": {
           "effects": false,
           "icons": false
         },
         "links": [
           {
+            "type": "modded",
+            "url": "apathydxd"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade 666 Fractal Horns",
+        "preview": "Terrorblade 666 Fractal Horns.webp",
+        "file": "Terrorblade 666 Fractal Horns.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
             "type": "author",
             "url": "Dota2VPK"
           }
-        ],
-        "meta": {
-          "date": 1781714601,
-          "commit-sha": "d31a765a264fe65deae1eb3f84b60f99946f83f2"
-        }
+        ]
       }
     ],
     "shaders": [
@@ -13129,6 +13156,17 @@
           "date": 1777037538,
           "commit-sha": "a8c22e9e6df2e2db9e0497711f777b7eeca63aa2"
         }
+      },
+      {
+        "name": "White Items",
+        "preview": "White Items.webp",
+        "file": "pak84_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "wards": [
