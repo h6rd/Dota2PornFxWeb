@@ -7955,7 +7955,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781786024,
+          "commit-sha": "f20ad821683067b932b722efcd5079380a8866de"
+        }
       },
       {
         "name": "Terrorblade 666 Fractal Horns",
@@ -7970,7 +7974,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781786024,
+          "commit-sha": "f20ad821683067b932b722efcd5079380a8866de"
+        }
       }
     ],
     "shaders": [
@@ -13166,7 +13174,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1781786024,
+          "commit-sha": "f20ad821683067b932b722efcd5079380a8866de"
+        }
       }
     ],
     "wards": [
