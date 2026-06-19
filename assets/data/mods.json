@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Normis Rank Icons",
+      "category": "ranks"
+    },
+    {
       "name": "Purple Icons",
       "category": "item-icons"
     },
@@ -13106,6 +13110,17 @@
           "date": 1777387078,
           "commit-sha": "0c606040b373aa672d005e9624d03aba2d372f92"
         }
+      },
+      {
+        "name": "Normis Rank Icons",
+        "preview": "Normis Rank Icons.webp",
+        "file": "pak17_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "palekid666"
+          }
+        ]
       }
     ],
     "item-icons": [
