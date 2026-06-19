@@ -1586,13 +1586,32 @@ function diagnoseFetchError(error, filePath) {
     };
 }
 
-async function fetchWithRetry(url, retries = 3) {
+async function fetchWithRetry(url, retries = 3, onProgress = null) {
     let lastError;
     for (let i = 0; i < retries; i++) {
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return response;
+
+            if (!onProgress) return response;
+
+            const contentLength = response.headers.get('Content-Length');
+            const total = contentLength ? parseInt(contentLength, 10) : 0;
+            let loaded = 0;
+
+            const reader = response.body.getReader();
+            const chunks = [];
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                chunks.push(value);
+                loaded += value.length;
+                onProgress(loaded, total);
+            }
+
+            const blob = new Blob(chunks);
+            return { ok: true, blob: async () => blob };
         } catch (error) {
             lastError = error;
             if (i < retries - 1) {
@@ -1740,8 +1759,43 @@ async function packAndDownload() {
             try {
                 if (!liveFile) throw new Error('Mod no longer exists');
 
-                const response = await fetchWithRetry(filePath);
+                const isExternalUrl = liveFile && liveFile.startsWith('http');
+                let progressEntry = null;
+
+                function formatMB(bytes) {
+                    return (bytes / (1024 * 1024)).toFixed(0);
+                }
+
+                const MIN_SIZE_FOR_PROGRESS = 100 * 1024 * 1024;
+
+                function onProgress(loaded, total) {
+                    if (!progressEntry) return;
+                    if (total > 0 && total < MIN_SIZE_FOR_PROGRESS) return;
+                    const sizeEl = progressEntry.querySelector('.download-size');
+                    if (!sizeEl) return;
+                    if (total > 0) {
+                        sizeEl.textContent = `${formatMB(loaded)}/${formatMB(total)} MB`;
+                    } else {
+                        sizeEl.textContent = `${formatMB(loaded)} MB`;
+                    }
+                }
+
+                if (isExternalUrl) {
+                    progressEntry = document.createElement('div');
+                    progressEntry.className = 'pack-log-entry download';
+                    progressEntry.innerHTML = `
+                <span class="material-symbols-rounded">download</span>
+                <span style="word-break: break-word;">${escapeHtml(item.name)}</span>
+                <span class="download-size" style="margin-left: auto; opacity: 0.6; font-size: 0.8em; white-space: nowrap; padding-left: 8px;">connecting...</span>
+            `;
+                    logContainer.appendChild(progressEntry);
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                }
+
+                const response = await fetchWithRetry(filePath, 3, isExternalUrl ? onProgress : null);
                 const blob = await response.blob();
+
+                if (progressEntry) progressEntry.remove();
 
                 await enqueueZip(async () => {
                     try {

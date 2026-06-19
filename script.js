@@ -2951,6 +2951,140 @@ async function loadData() {
     }
 }
 
+// authors modal
+function getPlatformInfo(url) {
+    if (!url) return { icon: 'bi-question-circle', label: 'Unknown', color: 'var(--md-sys-color-outline)' };
+    if (url.includes('t.me')) return { icon: 'bi-telegram', label: 'Telegram', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('vk.com')) return { icon: null, svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="var(--md-sys-color-shit-light)"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.3h-1.6c-.6 0-.79-.48-1.87-1.57-1-.93-1.4-1.05-1.64-1.05-.33 0-.43.1-.43.57v1.44c0 .4-.13.64-1.18.64-1.74 0-3.67-1.05-5.02-3.01C4.9 9.83 4.5 8.05 4.5 7.66c0-.24.1-.46.57-.46h1.6c.43 0 .59.19.75.64.83 2.38 2.2 4.47 2.77 4.47.21 0 .31-.1.31-.64V9.3c-.07-1.14-.67-1.24-.67-1.64 0-.2.16-.4.43-.4h2.52c.36 0 .48.19.48.62v3.33c0 .36.16.48.26.48.21 0 .38-.12.76-.5 1.17-1.3 2-3.3 2-3.3.1-.24.31-.46.74-.46h1.6c.48 0 .59.24.48.57-.2.93-2.14 3.67-2.14 3.67-.17.28-.24.4 0 .71.17.24.74.74 1.12 1.19.69.79 1.22 1.45 1.36 1.9.14.46-.1.69-.57.69z"/></svg>', label: 'VK', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('youtube.com') || url.includes('youtu.be')) return { icon: 'bi-youtube', label: 'YouTube', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('github.com')) return { icon: 'bi-github', label: 'GitHub', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('steamcommunity')) return { icon: 'bi-steam', label: 'Steam', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('discord.com') || url.includes('discord.gg')) return { icon: 'bi-discord', label: 'Discord', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('twitch.tv')) return { icon: 'bi-twitch', label: 'Twitch', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('patreon.com')) return { icon: 'bi-heart-fill', label: 'Patreon', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('sites.google.com')) return { icon: 'bi-globe', label: 'Website', color: 'var(--md-sys-color-shit-light)' };
+    return { icon: 'bi-globe', label: 'Website', color: 'var(--md-sys-color-shit-light)' };
+}
+
+function openModAuthorsModal() {
+    const overlay = document.getElementById('modAuthorsOverlay');
+    const modal = document.getElementById('modAuthorsModal');
+    const list = document.getElementById('modAuthorsList');
+
+    if (!overlay || !modal || !list) return;
+
+    list.innerHTML = '';
+
+    const authors = window.MOD_AUTHOR || {};
+    Object.entries(authors).forEach(([name, url]) => {
+        const item = document.createElement('div');
+        item.className = 'author-list-item';
+
+        if (url) {
+            const platform = getPlatformInfo(url);
+            item.innerHTML = `
+                ${platform.svg
+                    ? `<span class="author-platform-icon">${platform.svg}</span>`
+                    : `<i class="bi ${platform.icon} author-platform-icon" style="color:${platform.color}"></i>`
+                }
+                <span class="author-name">${name}</span>
+                <span class="author-platform-label">${platform.label}</span>
+                <span class="material-symbols-rounded author-arrow">open_in_new</span>`;
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => window.open(url, '_blank'));
+        } else {
+            item.classList.add('author-list-item--no-link');
+            item.innerHTML = `
+                <i class="bi bi-person-fill author-platform-icon" style="color:var(--md-sys-color-outline)"></i>
+                <span class="author-name">${name}</span>`;
+        }
+
+        list.appendChild(item);
+    });
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+    openModal();
+}
+
+function closeModAuthorsModal() {
+    const overlay = document.getElementById('modAuthorsOverlay');
+    const modal = document.getElementById('modAuthorsModal');
+    overlay?.classList.remove('active');
+    modal?.classList.remove('active');
+    if (typeof closeModal === 'function') closeModal();
+    else document.body.classList.remove('modal-open');
+}
+
+document.getElementById('closeModAuthorsModal')?.addEventListener('click', closeModAuthorsModal);
+document.getElementById('modAuthorsOverlay')?.addEventListener('click', closeModAuthorsModal);
+
+// source modal
+function openSourcesModal() {
+    const overlay = document.getElementById('sourcesOverlay');
+    const modal = document.getElementById('sourcesModal');
+    const list = document.getElementById('sourcesList');
+
+    if (!overlay || !modal || !list) return;
+
+    list.innerHTML = '';
+
+    const senders = window.MOD_SOURCES || {};
+    Object.entries(senders).forEach(([name, url]) => {
+        const item = document.createElement('div');
+        item.className = 'author-list-item';
+
+        if (url) {
+            const platform = getPlatformInfo(url);
+            item.innerHTML = `
+                ${platform.svg
+                    ? `<span class="author-platform-icon">${platform.svg}</span>`
+                    : `<i class="bi ${platform.icon} author-platform-icon" style="color:${platform.color}"></i>`}
+                <span class="author-name">${name}</span>
+                <span class="author-platform-label">${platform.label}</span>
+                <span class="material-symbols-rounded author-arrow">open_in_new</span>`;
+
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => window.open(url, '_blank'));
+        } else {
+            item.classList.add('author-list-item--no-link');
+            item.innerHTML = `
+                <i class="bi bi-person-fill author-platform-icon" style="color:var(--md-sys-color-outline)"></i>
+                <span class="author-name">${name}</span>`;
+        }
+
+        list.appendChild(item);
+    });
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+
+    if (typeof openModal === 'function') {
+        openModal();
+    }
+}
+
+function closeSourcesModal() {
+    const overlay = document.getElementById('sourcesOverlay');
+    const modal = document.getElementById('sourcesModal');
+    overlay?.classList.remove('active');
+    modal?.classList.remove('active');
+    if (typeof closeModal === 'function') closeModal();
+    else document.body.classList.remove('modal-open');
+}
+
+document.getElementById('closeSourcesModal')?.addEventListener('click', closeSourcesModal);
+document.getElementById('sourcesOverlay')?.addEventListener('click', closeSourcesModal);
+
+window.openModAuthorsModal = openModAuthorsModal;
+window.openSourcesModal = openSourcesModal;
+
+document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('modAuthorsModal')?.classList.contains('active')) closeModAuthorsModal();
+    if (document.getElementById('sourcesModal')?.classList.contains('active')) closeSourcesModal();
+});
+
 loadData();
 
 // settings

@@ -43,7 +43,10 @@
           <span class="material-symbols-rounded">menu</span>
         </button>
         <h1 class="logo">
-          <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank"><span id="tg">Dota2</span>PornFx</a>
+          <a href="#"
+            onclick="event.preventDefault(); showHomePage(); setTimeout(() => window.scrollTo({top:0, behavior:'smooth'}), 50);">
+            <span id="tg">Dota2</span>PornFx
+          </a>
         </h1>
         <div class="search-container">
           <div class="search-box">
@@ -270,6 +273,32 @@
     <div class="info-modal-content">
       <h2 class="info-modal-title" id="guideModalTitle">Guide</h2>
       <div id="guideModalContent"></div>
+    </div>
+  </div>
+
+  <!-- authors modal -->
+  <div id="modAuthorsOverlay" class="info-overlay"></div>
+  <div id="modAuthorsModal" class="info-modal">
+    <button class="info-modal-close" id="closeModAuthorsModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <h2 class="info-modal-title" style="margin-bottom: 5px;">Mod Authors</h2>
+      <p class="info-modal-text" style="margin-bottom: 20px;">People who create mods</p>
+      <div class="author-list" id="modAuthorsList"></div>
+    </div>
+  </div>
+  
+  <!-- sources modal -->
+  <div id="sourcesOverlay" class="info-overlay"></div>
+  <div id="sourcesModal" class="info-modal">
+    <button class="info-modal-close" id="closeSourcesModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <h2 class="info-modal-title" style="margin-bottom: 5px;">Sources</h2>
+      <p class="info-modal-text" style="margin-bottom: 20px;">Platforms where some mods come from</p>
+      <div class="sources-list" id="sourcesList"></div>
     </div>
   </div>
 
@@ -518,10 +547,100 @@
 
   <footer class="footer">
     <div class="container">
-      <p>this shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a>
-        / <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">source code</a></p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/favicon.ico" class="footer-favicon" alt="logo">
+            <span><span id="footer-tg">Dota2</span>PornFx</span>
+          </div>
+          <p class="footer-tagline">
+            Community-driven Dota2 mod catalogue featuring VPK files, custom hero skins,
+            visual effects, HUDs, sounds, and many other
+            stuff created by community.
+          </p>
+          <p>
+            If you sell mods from this site or don't credit the authors - you're a faggot😘
+          </p>
+        </div>
+  
+        <div class="footer-col">
+          <p class="footer-col-title">
+            <span class="material-symbols-rounded">help_outline</span>
+            Help
+          </p>
+          <ul class="footer-links">
+            <li>
+              <a href="#" onclick="footerOpenGuide('install'); return false;">
+                How to install
+              </a>
+            </li>
+            <li>
+              <a href="https://dota2.fandom.com/wiki/Ban#Exceptions" target="_blank">
+                It's safe?
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.gg/PBvG8D9MxT" target="_blank">
+                Support
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer-col">
+          <p class="footer-col-title">
+            <span class="material-symbols-rounded">link</span>
+            Links
+          </p>
+          <ul class="footer-links footer-links-social">
+            <li>
+              <a href="https://github.com/h6rd/Dota2PornFxWeb" target="_blank">
+                <i class="bi bi-github"></i>
+                Source Code
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.gg/PBvG8D9MxT" target="_blank">
+                <i class="bi bi-discord"></i>
+                Discord Server
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="openModAuthorsModal(); return false;">
+                <i class="bi bi-person"></i>
+                Mod authors
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="openSourcesModal(); return false;">
+                <i class="bi bi-globe"></i>
+                Sources
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="footer-bottom">
+        <span>
+          This shit made by <a href="https://steamcommunity.com/id/hrdq" target="_blank">hrdq</a>
+        </span>
+        <span class="footer-disclaimer">
+          Not affiliated with Valve or Dota 2
+        </span>
+      </div>
     </div>
   </footer>
+  
+  <script>
+    function footerOpenGuide(guideId) {
+      if (window.guidesData && window.guidesData[guideId] && window.openGuideModal) {
+        window.openGuideModal(window.guidesData[guideId]);
+      } else {
+        console.warn('Guide not ready or not found:', guideId);
+      }
+    }
+  </script>
   
   <script>
     if ('serviceWorker' in navigator) {
