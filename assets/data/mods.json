@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Icons",
+      "category": "item-icons"
+    },
+    {
+      "name": "Warcraft III / AllStars Voices",
+      "category": "sounds"
+    },
+    {
       "name": "Terrorblade 666 Fractal Horns",
       "category": "heroes"
     },
@@ -13179,6 +13187,17 @@
           "date": 1781786024,
           "commit-sha": "f20ad821683067b932b722efcd5079380a8866de"
         }
+      },
+      {
+        "name": "Purple Icons",
+        "preview": "Purple Icons.webp",
+        "file": "pak85_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "palekid666"
+          }
+        ]
       }
     ],
     "wards": [
@@ -14449,6 +14468,21 @@
           "date": 1781293197,
           "commit-sha": "14f60ecffe7349a84e7d1287def9314f942b6756"
         }
+      },
+      {
+        "name": "Warcraft III / AllStars Voices",
+        "preview": "Warcraft III AllStars Voices.webp",
+        "file": "https://huggingface.co/datasets/hrdq/d2pfx/resolve/main/Warcraft%20III%20AllStars%20Voices.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Warcraft III AllStars Voices.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "packs": [
