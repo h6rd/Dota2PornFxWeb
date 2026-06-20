@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Eternal Harvest",
+      "category": "heroes"
+    },
+    {
       "name": "Normis Rank Icons",
       "category": "ranks"
     },
@@ -7990,6 +7994,27 @@
         "meta": {
           "date": 1781786024,
           "commit-sha": "f20ad821683067b932b722efcd5079380a8866de"
+        }
+      },
+      {
+        "name": "Shadow Fiend Eternal Harvest",
+        "styles": [
+          {
+            "label": "",
+            "color": "#ffffff",
+            "preview": "Shadow Fiend Eternal Harvest.webp",
+            "file": "Shadow Fiend Eternal Harvest.zip"
+          },
+          {
+            "label": "Spring",
+            "color": "#cd7ed9",
+            "preview": "Shadow Fiend Eternal Harvest Spring.webp",
+            "file": "Shadow Fiend Eternal Harvest Spring.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
         }
       }
     ],
