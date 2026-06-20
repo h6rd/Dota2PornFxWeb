@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lycan Blood Moon",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Eternal Harvest",
       "category": "heroes"
     },
@@ -8020,6 +8024,21 @@
           "date": 1781942779,
           "commit-sha": "f907932157a7f550c294b1b338317679cba0c89f"
         }
+      },
+      {
+        "name": "Lycan Blood Moon",
+        "preview": "Lycan Blood Moon.webp",
+        "file": "Lycan Blood Moon.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
