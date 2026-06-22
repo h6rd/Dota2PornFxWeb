@@ -1,12 +1,20 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Battle Pass 2022",
+      "category": "ti-bp-effects"
+    },
+    {
       "name": "Lycan Blood Moon",
       "category": "heroes"
     },
     {
       "name": "Shadow Fiend Eternal Harvest",
       "category": "heroes"
+    },
+    {
+      "name": "Black Shadow Fiend Part I",
+      "category": "guides"
     },
     {
       "name": "Normis Rank Icons",
@@ -8534,6 +8542,13 @@
           "date": 1780941032,
           "commit-sha": "e8f679e3954268a435d5dd0d1a4ac9347041e1cb"
         }
+      },
+      {
+        "name": "Battle Pass 2022",
+        "preview": "Battle Pass 2022.webp",
+        "file": "pak25_dir.vpk",
+        "linkType": "preview",
+        "linkUrl": "assets/previews/ti-bp-effects/Battle Pass 2022.mp4"
       }
     ],
     "creep-deny": {
@@ -13079,6 +13094,18 @@
         "preview": "Models Guide.webp",
         "file": "https://youtu.be/QJ993E-RB1s",
         "type": "guide"
+      },
+      {
+        "name": "Black Shadow Fiend Part I",
+        "preview": "Black Shadow Fiend Guide.webp",
+        "file": "https://www.youtube.com/watch?v=EB54m13Q0GU",
+        "type": "guide",
+        "links": [
+          {
+            "type": "author",
+            "url": "SkippingHades"
+          }
+        ]
       }
     ],
     "ranks": [
