@@ -8548,7 +8548,11 @@
         "preview": "Battle Pass 2022.webp",
         "file": "pak25_dir.vpk",
         "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Battle Pass 2022.mp4"
+        "linkUrl": "assets/previews/ti-bp-effects/Battle Pass 2022.mp4",
+        "meta": {
+          "date": 1782115970,
+          "commit-sha": "1102667f294e4017d5cfeed233017e6db57bb295"
+        }
       }
     ],
     "creep-deny": {
