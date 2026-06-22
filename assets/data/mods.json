@@ -15164,6 +15164,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Blink Dagger",
+              "preview": "BP 2022 Blink Dagger.webp",
+              "file": "BP 2022 Blink Dagger.zip"
             }
           ]
         },
@@ -15245,6 +15250,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Bottle",
+              "preview": "BP 2022 Bottle.webp",
+              "file": "BP 2022 Bottle.zip"
             }
           ]
         },
@@ -15320,6 +15330,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Eul",
+              "preview": "BP 2022 Eul.webp",
+              "file": "BP 2022 Eul.zip"
             }
           ]
         },
@@ -15380,6 +15395,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Force Staff",
+              "preview": "BP 2022 Force Staff.webp",
+              "file": "BP 2022 Force Staff.zip"
             }
           ]
         },
@@ -15461,6 +15481,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Lvl Up",
+              "preview": "BP 2022 Lvl Up.webp",
+              "file": "BP 2022 Lvl Up.zip"
             }
           ]
         },
@@ -15518,6 +15543,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Shiva",
+              "preview": "BP 2022 Shiva.webp",
+              "file": "BP 2022 Shiva.zip"
             }
           ]
         },
@@ -15584,6 +15614,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Mekanism",
+              "preview": "BP 2022 Mekanism.webp",
+              "file": "BP 2022 Mekanism.zip"
             }
           ]
         },
@@ -15650,6 +15685,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Mjollnir",
+              "preview": "BP 2022 Mjollnir.webp",
+              "file": "BP 2022 Mjollnir.zip"
             }
           ]
         },
@@ -15716,6 +15756,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Radiance",
+              "preview": "BP 2022 Radiance.webp",
+              "file": "BP 2022 Radiance.zip"
             }
           ]
         },
@@ -15782,6 +15827,11 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Phase Boots",
+              "preview": "BP 2022 Phase Boots.webp",
+              "file": "BP 2022 Phase Boots.zip"
             }
           ]
         },
@@ -15941,6 +15991,21 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Teleport I",
+              "preview": "BP 2022 Teleport I.webp",
+              "file": "BP 2022 Teleport I.zip"
+            },
+            {
+              "name": "BP 2022 Teleport II",
+              "preview": "BP 2022 Teleport II.webp",
+              "file": "BP 2022 Teleport II.zip"
+            },
+            {
+              "name": "BP 2022 Teleport III",
+              "preview": "BP 2022 Teleport III.webp",
+              "file": "BP 2022 Teleport III.zip"
             }
           ]
         },
@@ -16109,6 +16174,21 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Fountain Regen I",
+              "preview": "BP 2022 Fountain Regen I.webp",
+              "file": "BP 2022 Fountain Regen I.zip"
+            },
+            {
+              "name": "BP 2022 Fountain Regen II",
+              "preview": "BP 2022 Fountain Regen II.webp",
+              "file": "BP 2022 Fountain Regen II.zip"
+            },
+            {
+              "name": "BP 2022 Fountain Regen III",
+              "preview": "BP 2022 Fountain Regen III.webp",
+              "file": "BP 2022 Fountain Regen III.zip"
             }
           ]
         },
@@ -16124,6 +16204,16 @@
                 "date": 1780741566,
                 "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
               }
+            },
+            {
+              "name": "BP 2022 Aghanim Aura I",
+              "preview": "BP 2022 Aghanim Aura I.webp",
+              "file": "BP 2022 Aghanim Aura I.zip"
+            },
+            {
+              "name": "BP 2022 Aghanim Aura II",
+              "preview": "BP 2022 Aghanim Aura II.webp",
+              "file": "BP 2022 Aghanim Aura II.zip"
             }
           ]
         }
