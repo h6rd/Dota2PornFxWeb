@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Natures Prophet Allfather",
+      "category": "heroes"
+    },
+    {
       "name": "Battle Pass 2022",
       "category": "ti-bp-effects"
     },
@@ -458,8 +462,8 @@
         "preview": "Natures Prophet Allfather.webp",
         "file": "Natures Prophet Allfather.zip",
         "tags": {
-          "effects": true,
-          "icons": true
+          "effects": false,
+          "icons": false
         },
         "meta": {
           "date": 1756539017,
