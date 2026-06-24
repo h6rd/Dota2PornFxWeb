@@ -14653,6 +14653,66 @@
           "Umbrella Mega-Kill",
           "Huskar White Screen Effect"
         ]
+      },
+      {
+        "name": "Purple Pack",
+        "preview": "Purple.webp",
+        "type": "pack",
+        "mods": [
+          "Wave Lite Purple",
+          "TI 2019 Battle Pass",
+          "DarkPoly",
+          "LowPoly Barrel Trees",
+          "Nemestice Radiant Creeps",
+          "Nemestice Dire Creeps",
+          "Fuck Deny",
+          "Overgrown Emblem",
+          "Yuno Gasai",
+          "Dark Moon Baby Roshan",
+          "Purple Icons",
+          "Purple River",
+          "Purple Dagon",
+          "Purple Hex",
+          "Muerta Versus Screen",
+          "Cosmic Roshan",
+          "High Five Crownfall"
+        ]
+      },
+      {
+        "name": "Black & White Pack",
+        "preview": "Black & White.webp",
+        "type": "pack",
+        "mods": [
+          "Wave Lite White",
+          "Darkness Pack",
+          "Dark Terrain Minify",
+          "Pumpkin Trees",
+          "Crownfall Radiant Creeps",
+          "Crownfall Dire Creeps",
+          "Soul Deny",
+          "Emblem Darkness",
+          "Forgotten Sword",
+          "Aghanim Baby Roshan Dire",
+          "Black River",
+          "Black Hud",
+          "Diretide Versus Screen",
+          "Dark Items",
+          "Void Medals"
+        ]
+      },
+      {
+        "name": "Lite Optimization Pack",
+        "preview": "Lite Optimization.webp",
+        "type": "pack",
+        "mods": [
+          "Simple Minify Shader",
+          "Remove Seasonal Effects",
+          { "name": "Simple Dark Terrain Minify", "style": "" },
+          "LowPoly Shrub Trees",
+          "Stars",
+          "Default Wards",
+          "Tinker Lite Machines"
+        ]
       }
     ],
     "creeps": {

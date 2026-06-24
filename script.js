@@ -2430,7 +2430,9 @@ function loadPackToCart(pack) {
 
     cart = [];
 
-    pack.mods.forEach(modName => {
+    pack.mods.forEach(modEntry => {
+        const modName = typeof modEntry === 'string' ? modEntry : modEntry.name;
+        const forcedStyle = typeof modEntry === 'string' ? null : (modEntry.style || null);
         let found = false;
         for (const categoryId in modsData) {
             if (found) break;
@@ -2440,10 +2442,24 @@ function loadPackToCart(pack) {
                 for (const group of categoryData.groups) {
                     const mod = group.mods.find(m => m.name === modName);
                     if (mod) {
+                        const styleIndex = (() => {
+                            if (forcedStyle && mod.styles) {
+                                const idx = mod.styles.findIndex(s => s.label === forcedStyle);
+                                return idx !== -1 ? idx : getStyleIndex(mod.name);
+                            }
+                            return getStyleIndex(mod.name);
+                        })();
+                        const activeStyle = mod.styles ? mod.styles[styleIndex] : null;
+                        const activeFile = activeStyle ? activeStyle.file : mod.file;
+                        const activeName = activeStyle
+                            ? mod.name + ' ' + activeStyle.label.replace('Style ', '')
+                            : mod.name;
+                        const activePreview = activeStyle ? activeStyle.preview : (mod.preview || '');
                         cart.push({
-                            id: `${categoryId}-${group.id}-${mod.name}`,
-                            name: mod.name,
-                            file: mod.file,
+                            id: `${categoryId}-${group.id}-${activeName}`,
+                            name: activeName,
+                            file: activeFile,
+                            preview: activePreview,
                             categoryId: categoryId,
                             groupId: group.id
                         });
@@ -2455,10 +2471,24 @@ function loadPackToCart(pack) {
             else if (Array.isArray(categoryData)) {
                 const mod = categoryData.find(m => m.name === modName);
                 if (mod) {
+                    const styleIndex = (() => {
+                        if (forcedStyle && mod.styles) {
+                            const idx = mod.styles.findIndex(s => s.label === forcedStyle);
+                            return idx !== -1 ? idx : getStyleIndex(mod.name);
+                        }
+                        return getStyleIndex(mod.name);
+                    })();
+                    const activeStyle = mod.styles ? mod.styles[styleIndex] : null;
+                    const activeFile = activeStyle ? activeStyle.file : mod.file;
+                    const activeName = activeStyle
+                        ? mod.name + ' ' + activeStyle.label.replace('Style ', '')
+                        : mod.name;
+                    const activePreview = activeStyle ? activeStyle.preview : (mod.preview || '');
                     cart.push({
-                        id: `${categoryId}-${mod.name}`,
-                        name: mod.name,
-                        file: mod.file,
+                        id: `${categoryId}-${activeName}`,
+                        name: activeName,
+                        file: activeFile,
+                        preview: activePreview,
                         categoryId: categoryId,
                         groupId: null
                     });
@@ -2885,10 +2915,10 @@ async function loadData() {
             label.textContent = 'Slow connection…';
             label.classList.add('data-loading-label--slow');
         }
-    }, 6000);
+    }, 10000);
 
     const controller = new AbortController();
-    const hardTimeoutTimer = setTimeout(() => controller.abort(), 15000);
+    const hardTimeoutTimer = setTimeout(() => controller.abort(), 20000);
 
     try {
         const [modsRes, guidesRes, constantsRes] = await Promise.all([
