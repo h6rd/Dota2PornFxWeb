@@ -8873,8 +8873,8 @@
           }
         ],
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8888,8 +8888,8 @@
           }
         ],
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8897,8 +8897,8 @@
         "preview": "Mossy Cobblestone.webp",
         "file": "pak12_dir.vpk",
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8906,8 +8906,8 @@
         "preview": "Bedrock.webp",
         "file": "pak13_dir.vpk",
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8925,8 +8925,8 @@
           }
         ],
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8956,8 +8956,8 @@
           }
         ],
         "meta": {
-          "date": 1775479290,
-          "commit-sha": "ae96f10a4b495e2218f8368afd86aa0acaa0e30d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8971,8 +8971,8 @@
           }
         ],
         "meta": {
-          "date": 1772737722,
-          "commit-sha": "1641fffa9bcf88285b51cb77bf9f1229c2d1352d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -8986,8 +8986,8 @@
           }
         ],
         "meta": {
-          "date": 1772737722,
-          "commit-sha": "1641fffa9bcf88285b51cb77bf9f1229c2d1352d"
+          "date": 1782296453,
+          "commit-sha": "f278736495605af6d7df2eb8a6ac6022b2cbbd0d"
         }
       },
       {
@@ -14707,7 +14707,10 @@
         "mods": [
           "Simple Minify Shader",
           "Remove Seasonal Effects",
-          { "name": "Simple Dark Terrain Minify", "style": "" },
+          {
+            "name": "Simple Dark Terrain Minify",
+            "style": ""
+          },
           "LowPoly Shrub Trees",
           "Stars",
           "Default Wards",
