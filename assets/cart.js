@@ -2491,21 +2491,23 @@ function importModsTxt(file) {
         Object.entries(modsData).forEach(([categoryId, data]) => {
             if (Array.isArray(data)) {
                 data.forEach(mod => {
-                    allMods.push({ name: mod.name, categoryId, groupId: null, preview: mod.preview });
                     if (mod.styles) {
                         mod.styles.forEach(s => {
-                            allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: null, preview: s.preview });
+                            allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: null, preview: s.preview, file: s.file });
                         });
+                    } else {
+                        allMods.push({ name: mod.name, categoryId, groupId: null, preview: mod.preview, file: mod.file });
                     }
                 });
             } else if (data?.groups) {
                 data.groups.forEach(group => {
                     group.mods.forEach(mod => {
-                        allMods.push({ name: mod.name, categoryId, groupId: group.id, preview: mod.preview });
                         if (mod.styles) {
                             mod.styles.forEach(s => {
-                                allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: group.id, preview: s.preview });
+                                allMods.push({ name: mod.name + ' ' + s.label.replace('Style ', ''), categoryId, groupId: group.id, preview: s.preview, file: s.file });
                             });
+                        } else {
+                            allMods.push({ name: mod.name, categoryId, groupId: group.id, preview: mod.preview, file: mod.file });
                         }
                     });
                 });
@@ -2541,6 +2543,7 @@ function importModsTxt(file) {
                         cart.push({
                             id,
                             name: found.name,
+                            file: found.file || '',
                             categoryId: found.categoryId,
                             groupId: found.groupId,
                             preview: found.preview || ''
