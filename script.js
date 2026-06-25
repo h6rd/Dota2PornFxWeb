@@ -1420,6 +1420,22 @@ function setupRecentlyAdded() {
 
             newCard.querySelector('.copy-link-btn')?.remove();
 
+            // compact
+            if (loadSettings().compactCategoryView) {
+                const cardContent = newCard.querySelector('.card-content');
+                const cartBtn = newCard.querySelector('.add-to-cart-btn');
+                const styleCirclesEl = newCard.querySelector('.style-circles');
+                const linkButtons = newCard.querySelector('.link-buttons');
+                if (cardContent) {
+                    const row = document.createElement('div');
+                    row.style.cssText = 'display:flex; align-items:center; gap:6px; margin-top:auto; flex-wrap:wrap;';
+                    if (linkButtons) row.appendChild(linkButtons);
+                    if (styleCirclesEl) row.appendChild(styleCirclesEl);
+                    if (cartBtn) row.appendChild(cartBtn);
+                    cardContent.appendChild(row);
+                }
+            }
+
             const linkButtonElements = newCard.querySelectorAll('.link-button');
             linkButtonElements.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -1854,40 +1870,100 @@ function renderCategories() {
     });
 }
 
+function getFirstModPreview(categoryId) {
+    const data = modsData[categoryId];
+    if (!data) return null;
+    let mod = null;
+    if (data.groups && Array.isArray(data.groups)) {
+        for (const group of data.groups) {
+            if (group.mods && group.mods.length > 0) { mod = group.mods[0]; break; }
+        }
+    } else if (Array.isArray(data) && data.length > 0) {
+        mod = data[0];
+    }
+    if (!mod || !mod.preview) return null;
+    const p = mod.preview;
+    return {
+        src: p.startsWith('http') ? p : `assets/previews/${categoryId}/${p}`,
+        isVideo: p.endsWith('.mp4')
+    };
+}
+
 function createCategoryCard(category) {
     const card = document.createElement('div');
-    card.className = 'card fade-in';
+    const isCompact = !!loadSettings().compactCategoryView;
 
-    let mediaContent;
-    if (category.preview) {
-        const isVideo = category.preview.endsWith('.mp4');
-        const mediaElement = isVideo ? 'video' : 'img';
-        const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
-        mediaContent = `<${mediaElement} src="assets/previews/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
+    if (isCompact) {
+        card.className = 'card fade-in card--compact';
+
+        const preview = getFirstModPreview(category.id);
+        const thumb = document.createElement('div');
+        thumb.className = 'compact-thumb';
+
+        if (preview) {
+            const media = document.createElement(preview.isVideo ? 'video' : 'img');
+            media.src = preview.src;
+            media.className = 'compact-thumb-media';
+            if (preview.isVideo) { media.muted = true; media.loop = true; media.playsInline = true; }
+            media.onerror = () => { thumb.innerHTML = `<span class="compact-thumb-emoji">${category.emoji}</span>`; };
+            thumb.appendChild(media);
+            if (preview.isVideo) {
+                card.addEventListener('mouseenter', () => media.play().catch(() => { }));
+                card.addEventListener('mouseleave', () => { media.pause(); media.currentTime = 0; });
+            }
+        } else {
+            thumb.innerHTML = `<span class="compact-thumb-emoji">${category.emoji}</span>`;
+        }
+
+        const content = document.createElement('div');
+        content.className = 'compact-content';
+
+        const title = document.createElement('h3');
+        title.className = 'compact-title';
+        title.textContent = translations[category.key];
+
+        const subtitle = document.createElement('p');
+        subtitle.className = 'compact-subtitle';
+        subtitle.textContent = translations[category.key + '-desc'];
+
+        content.appendChild(title);
+        content.appendChild(subtitle);
+        card.appendChild(thumb);
+        card.appendChild(content);
+
     } else {
-        mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
-    }
+        card.className = 'card fade-in';
 
-    card.innerHTML = `
-        <div class="card-media">${mediaContent}</div>
-        <div class="card-content">
-            <h3 class="card-title">${translations[category.key]}</h3>
-            <div class="card-subtitle-wrapper">
-                <p class="card-subtitle">${translations[category.key + '-desc']}</p>
-                <button class="copy-category-link-btn" title="Copy link">
-                    <span class="material-symbols-rounded">link</span>
-                </button>
+        let mediaContent;
+        if (category.preview) {
+            const isVideo = category.preview.endsWith('.mp4');
+            const mediaElement = isVideo ? 'video' : 'img';
+            const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+            mediaContent = `<${mediaElement} src="assets/previews/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
+        } else {
+            mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
+        }
+
+        card.innerHTML = `
+            <div class="card-media">${mediaContent}</div>
+            <div class="card-content">
+                <h3 class="card-title">${translations[category.key]}</h3>
+                <div class="card-subtitle-wrapper">
+                    <p class="card-subtitle">${translations[category.key + '-desc']}</p>
+                    <button class="copy-category-link-btn" title="Copy link">
+                        <span class="material-symbols-rounded">link</span>
+                    </button>
+                </div>
             </div>
-        </div>
-    `;
+        `;
 
-    const copyBtn = card.querySelector('.copy-category-link-btn');
-    if (copyBtn) {
-        copyBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const link = generateCategoryLink(category.id);
-            copyToClipboard(link, 'Category link copied!');
-        });
+        const copyBtn = card.querySelector('.copy-category-link-btn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                copyToClipboard(generateCategoryLink(category.id), 'Category link copied!');
+            });
+        }
     }
 
     card.addEventListener('click', () => showCategoryPage(category.id));
@@ -3160,6 +3236,10 @@ function applySettings(s) {
 
     const adultToggle = document.getElementById('hideAdultMods');
     if (adultToggle) adultToggle.checked = !!s.hideAdultMods;
+
+    const compactToggle = document.getElementById('compactCategoryView');
+    document.body.classList.toggle('compact-category-view', !!s.compactCategoryView);
+    if (compactToggle) compactToggle.checked = !!s.compactCategoryView;
 }
 
 function exportSettings() {
@@ -3345,6 +3425,18 @@ function setupSettingsModal() {
     document.getElementById('hideAdultMods')?.addEventListener('change', function () {
         saveSettings({ hideAdultMods: this.checked });
         if (state.currentCategory) renderMods(state.currentCategory);
+        vibrate(10);
+    });
+
+    document.getElementById('compactCategoryView')?.addEventListener('change', function () {
+        saveSettings({ compactCategoryView: this.checked });
+        applySettings(loadSettings());
+        if (!state.currentCategory) renderCategories();
+        const track = document.getElementById('carouselTrack');
+        if (track) {
+            track.innerHTML = '';
+            setupRecentlyAdded();
+        }
         vibrate(10);
     });
 }

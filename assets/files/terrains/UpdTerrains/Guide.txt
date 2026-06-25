@@ -1,0 +1,75 @@
+-----------------------------------------ENGLISH-------------------------------------------
+
+Create a folder dota_123 in steamapps/common/dota 2 beta/game/
+Move the maps folder to dota_123 folder: steamapps/common/dota 2 beta/game/dota_123/
+In the launch options: -language 123
+
+If you are using minify, place the maps folder in the dota_minify folder
+In the launch options: -language minify
+
+
+-----------------------------------------RUSSIAN--------------------------------------------
+
+Для русского языка, поместите папку maps сюда: steamapps/common/dota 2 beta/game/dota_russian/
+В параметрах запуска: -language russian
+
+Для английского языка создайте папку dota_123 в steamapps/common/dota 2 beta/game/
+Поместите папку maps сюда: steamapps/common/dota 2 beta/game/dota_123/
+В параметрах запуска: -language 123
+
+Если вы используете minify(англ), то положите maps в папку dota_minify
+В параметрах запуска: -language minify
+
+
+-----------------------------------------UKRAINIAN--------------------------------------------
+
+Для української мови, помістіть папку maps сюди: steamapps/common/dota 2 beta/game/dota_ukrainian/
+У параметрах запуску: -language ukrainian
+
+Для російської мови, помістіть папку maps сюди: steamapps/common/dota 2 beta/game/dota_russian/
+У параметрах запуску: -language russian
+
+Для англійської мови створіть папку dota_123 в steamapps/common/dota 2 beta/game/
+Помістіть папку maps сюди: steamapps/common/dota 2 beta/game/dota_123/
+У параметрах запуску: -language 123
+
+Якщо ви використовуєте minify (англ.), то помістіть maps в папку dota_minify
+У параметрах запуску: -language minify
+
+
+--------------------------------------OTHER LANGUAGES-----------------------------------------
+
+Move the maps folder to the folder with your game language dota_[LANGUAGE] at the path: 
+steamapps/common/dota 2 beta/game/dota_[LANGUAGE]/
+In the launch options: -language [LANGUAGE]
+
+[LANGUAGE]:
+한국어 (Korean) - koreana
+简体中文 (Simplified Chinese) - schinese
+繁體中文 (Traditional Chinese) - tchinese
+Português Brasileiro (Brazilian Portuguese) - brazilian
+Español latinoamericano (Latin American Spanish) - latam
+Español (Spanish) - spanish
+Français (French) - french
+Italiano (Italian) - italian
+Deutsch (German) - german
+Ελληνικά (Greek) - greek
+ไทย (Thai) - thai
+日本語 (Japanese) - japanese
+Português (Portuguese) - portuguese
+Polski (Polish) - polish
+Dansk (Danish) - danish
+Nederlands (Dutch) - dutch
+Suomi (Finnish) - finnish
+Norsk (Norwegian) - norwegian
+Svenska (Swedish) - swedish
+Čeština (Czech)	- czech
+Magyar (Hungarian) - hungarian
+Română (Romanian) - romanian
+Български (Bulgarian) - bulgarian
+Türkçe (Turkish) - turkish
+Tiếng Việt (Vietnamese) - vietnamese
+
+e.g. for Deutsch:
+folder: dota_german
+launch options: -language german
