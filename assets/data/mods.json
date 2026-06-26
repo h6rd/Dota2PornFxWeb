@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dark Carnival Radiant Creeps",
+      "category": "creeps"
+    },
+    {
+      "name": "Dark Carnival Dire Creeps",
+      "category": "creeps"
+    },
+    {
+      "name": "Dark Carnival Radiant Siege",
+      "category": "creeps"
+    },
+    {
+      "name": "Dark Carnival Dire Siege",
+      "category": "creeps"
+    },
+    {
       "name": "Natures Prophet Allfather",
       "category": "heroes"
     },
@@ -14506,6 +14522,11 @@
                 "date": 1766624100,
                 "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
               }
+            },
+            {
+              "name": "Dark Carnival Radiant Creeps",
+              "preview": "Dark Carnival Radiant Creeps.webp",
+              "file": "pak29_dir.vpk"
             }
           ]
         },
@@ -14578,6 +14599,11 @@
                 "date": 1766624100,
                 "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
               }
+            },
+            {
+              "name": "Dark Carnival Dire Creeps",
+              "preview": "Dark Carnival Dire Creeps.webp",
+              "file": "pak30_dir.vpk"
             }
           ]
         },
@@ -14602,6 +14628,11 @@
                 "date": 1763798331,
                 "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
               }
+            },
+            {
+              "name": "Dark Carnival Radiant Siege",
+              "preview": "Dark Carnival Radiant Siege.webp",
+              "file": "pak31_dir.vpk"
             }
           ]
         },
@@ -14626,6 +14657,11 @@
                 "date": 1763798331,
                 "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
               }
+            },
+            {
+              "name": "Dark Carnival Dire Siege",
+              "preview": "Dark Carnival Dire Siege.webp",
+              "file": "pak32_dir.vpk"
             }
           ]
         }
