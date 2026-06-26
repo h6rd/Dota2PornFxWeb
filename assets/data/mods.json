@@ -14526,7 +14526,11 @@
             {
               "name": "Dark Carnival Radiant Creeps",
               "preview": "Dark Carnival Radiant Creeps.webp",
-              "file": "pak29_dir.vpk"
+              "file": "pak29_dir.vpk",
+              "meta": {
+                "date": 1782468853,
+                "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
+              }
             }
           ]
         },
@@ -14603,7 +14607,11 @@
             {
               "name": "Dark Carnival Dire Creeps",
               "preview": "Dark Carnival Dire Creeps.webp",
-              "file": "pak30_dir.vpk"
+              "file": "pak30_dir.vpk",
+              "meta": {
+                "date": 1782468853,
+                "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
+              }
             }
           ]
         },
@@ -14632,7 +14640,11 @@
             {
               "name": "Dark Carnival Radiant Siege",
               "preview": "Dark Carnival Radiant Siege.webp",
-              "file": "pak31_dir.vpk"
+              "file": "pak31_dir.vpk",
+              "meta": {
+                "date": 1782468853,
+                "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
+              }
             }
           ]
         },
@@ -14661,7 +14673,11 @@
             {
               "name": "Dark Carnival Dire Siege",
               "preview": "Dark Carnival Dire Siege.webp",
-              "file": "pak32_dir.vpk"
+              "file": "pak32_dir.vpk",
+              "meta": {
+                "date": 1782468853,
+                "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
+              }
             }
           ]
         }
