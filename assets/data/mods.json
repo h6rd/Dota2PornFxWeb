@@ -7337,25 +7337,6 @@
         }
       },
       {
-        "name": "Anti-Mage Designs Of The Dragon",
-        "preview": "Anti-Mage Designs Of The Dragon.webp",
-        "file": "Anti-Mage Designs Of The Dragon.zip",
-        "tags": {
-          "effects": false,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Egezenn"
-          }
-        ],
-        "meta": {
-          "date": 1780653646,
-          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
-        }
-      },
-      {
         "name": "Broodmother Golden Orbweaver",
         "preview": "Broodmother Golden Orbweaver.webp",
         "file": "Broodmother Golden Orbweaver.zip",
