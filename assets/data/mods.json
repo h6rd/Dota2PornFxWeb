@@ -11759,7 +11759,11 @@
       {
         "name": "Last Match",
         "preview": "Last Match.webp",
-        "file": "pak09_dir.vpk"
+        "file": "pak09_dir.vpk",
+        "meta": {
+          "date": 1782551052,
+          "commit-sha": "d049e66b6161ebd914b44cbe5d14db803e04072f"
+        }
       },
       {
         "name": "Ulquiorra Purple",
