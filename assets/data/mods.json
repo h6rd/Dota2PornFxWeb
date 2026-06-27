@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Last Match",
+      "category": "backgrounds"
+    },
+    {
       "name": "Dark Carnival Radiant Creeps",
       "category": "creeps"
     },
@@ -7642,13 +7646,13 @@
         "styles": [
           {
             "label": "",
-            "color": "#dec46f",
+            "color": "linear-gradient(135deg, #f2d163 50%, #000000 50%)",
             "preview": "Centaur Chaos Chosen.webp",
             "file": "Centaur Chaos Chosen.zip"
           },
           {
             "label": "Eternal",
-            "color": "#1c1c1c",
+            "color": "linear-gradient(135deg, #d64b4b 50%, #000000 50%)",
             "preview": "Centaur Chaos Chosen Eternal.webp",
             "file": "Centaur Chaos Chosen Eternal.zip"
           }
@@ -11752,6 +11756,11 @@
       }
     ],
     "backgrounds": [
+      {
+        "name": "Last Match",
+        "preview": "Last Match.webp",
+        "file": "pak09_dir.vpk"
+      },
       {
         "name": "Ulquiorra Purple",
         "preview": "Ulquiorra Purple.webp",
