@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Gravestones Trees",
+      "category": "trees"
+    },
+    {
+      "name": "LowPoly Stumps Trees",
+      "category": "trees"
+    },
+    {
+      "name": "Logs Trees",
+      "category": "trees"
+    },
+    {
       "name": "Profile Graffiti & Phrases",
       "category": "other"
     },
@@ -8981,6 +8993,39 @@
           "date": 1774710667,
           "commit-sha": "532a5c166e16f4b51b0f73929d303fea80552a77"
         }
+      },
+      {
+        "name": "Logs Trees",
+        "preview": "Logs Trees.webp",
+        "file": "pak23_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
+      },
+      {
+        "name": "LowPoly Stumps Trees",
+        "preview": "LowPoly Stumps Trees.webp",
+        "file": "pak24_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
+      },
+      {
+        "name": "Gravestones Trees",
+        "preview": "Gravestones Trees.webp",
+        "file": "pak25_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "hero-items": {
