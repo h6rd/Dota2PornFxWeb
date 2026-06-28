@@ -9003,7 +9003,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1782662668,
+          "commit-sha": "8cd1f95f7c696f762ddf08823412a6add5a07c8b"
+        }
       },
       {
         "name": "LowPoly Stumps Trees",
@@ -9014,7 +9018,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1782662668,
+          "commit-sha": "8cd1f95f7c696f762ddf08823412a6add5a07c8b"
+        }
       },
       {
         "name": "Gravestones Trees",
@@ -9025,7 +9033,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1782662668,
+          "commit-sha": "8cd1f95f7c696f762ddf08823412a6add5a07c8b"
+        }
       }
     ],
     "hero-items": {
