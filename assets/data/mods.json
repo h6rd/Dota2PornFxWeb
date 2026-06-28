@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Profile Graffiti & Phrases",
+      "category": "other"
+    },
+    {
       "name": "Last Match",
       "category": "backgrounds"
     },
@@ -11495,12 +11499,6 @@
         "name": "Profile Graffiti & Phrases",
         "preview": "Profile Graffiti & Phrases.webp",
         "file": "pak10_dir.vpk",
-        "links": [
-          {
-            "type": "source",
-            "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3363894631"
-          }
-        ],
         "meta": {
           "date": 1772534203,
           "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442"
