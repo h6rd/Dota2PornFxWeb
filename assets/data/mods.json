@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "LowPoly Skull Trees",
+      "category": "trees"
+    },
+    {
       "name": "Gravestones Trees",
       "category": "trees"
     },
@@ -314,6 +318,12 @@
           "effects": true,
           "icons": true
         },
+        "links": [
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ],
         "meta": {
           "date": 1766917255,
           "commit-sha": "fee5099b7b1c3c732f41d358dbfbe031af766f02"
@@ -355,8 +365,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-alien_nyx_assassin_megapack/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -397,8 +407,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-black_hole_custom_arc_warden/"
+            "type": "author",
+            "url": "Amir4an"
           }
         ],
         "meta": {
@@ -416,8 +426,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-sakura_arc_warden/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -454,8 +464,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -473,8 +483,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-bloody_enigma/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -511,8 +521,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-brew_jousting_panda_and_donkey_kong/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -530,8 +540,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-broodmother_redan_megapack/"
+            "type": "author",
+            "url": "arti4e"
           }
         ],
         "meta": {
@@ -549,8 +559,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-silver_metall_clinkz_pink_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -591,8 +601,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-stranger_in_the_wandering_isles/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -610,8 +620,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-earthshaker_red_arcana/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -629,8 +639,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ghost_fiend/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -648,8 +658,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ghosty_slark_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -724,8 +734,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-custom_ice_venomancer_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -743,8 +753,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-custom_wisp_arcana_by_defiree/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -762,8 +772,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-kai_meepo/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -781,8 +791,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-legion_commander_custom_arcana_crimson_black_defireee/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -819,8 +829,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-nightmare_chaos_knight_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -838,8 +848,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-custom_arcana_ogre_magi_by_defiree/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -855,6 +865,12 @@
           "effects": true,
           "icons": true
         },
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1756539017,
           "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
@@ -870,8 +886,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-custom_pudge_arcana_elephant/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -908,8 +924,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-pink_rose_custom_arcana_queen_of_pain/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -937,7 +953,7 @@
         }
       },
       {
-        "name": "Scarlet Keeper",
+        "name": "Scarlet Keeper of the Light",
         "preview": "Scarlet Keeper.webp",
         "file": "Scarlet Keeper.zip",
         "tags": {
@@ -946,8 +962,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-darkness_scarlet_keeper/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -988,8 +1004,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-darkness_toxin_spectre/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1007,8 +1023,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-custom_spirit_breaker_ghost_monster/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -1045,8 +1061,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ursa_sss_rank_or_white_and_red_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1064,8 +1080,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-winter_ember_spirit/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1083,8 +1099,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-night_ursa_megapack/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -1102,8 +1118,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-flameling_morphling_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1121,8 +1137,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ghost_void_spirit/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1140,8 +1156,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-shadow_slayer/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1178,8 +1194,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-death_prophet_custom_modpack/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -1197,8 +1213,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-blue_soul_huskar_megapack/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1235,8 +1251,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-void_morphling_by_darknessing/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1273,8 +1289,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-jakiro_himera/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -1292,8 +1308,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-graviton_blackguard/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -1311,8 +1327,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-medusa_gorgon/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -1330,8 +1346,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ifrit_monkey_king/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1349,8 +1365,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-blue_angel_of_sven/"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -1368,8 +1384,8 @@
         },
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-pinkie_sven/"
+            "type": "author",
+            "url": "Darkness"
           }
         ],
         "meta": {
@@ -9038,6 +9054,17 @@
           "date": 1782662668,
           "commit-sha": "8cd1f95f7c696f762ddf08823412a6add5a07c8b"
         }
+      },
+      {
+        "name": "LowPoly Skull Trees",
+        "preview": "LowPoly Skull Trees.webp",
+        "file": "pak26_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "hero-items": {
