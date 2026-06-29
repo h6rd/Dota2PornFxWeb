@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Metal Barrel Trees",
+      "category": "trees"
+    },
+    {
       "name": "LowPoly Skull Trees",
       "category": "trees"
     },
@@ -9069,6 +9073,17 @@
           "date": 1782668700,
           "commit-sha": "39078756188cd694f22e6562466a154c6d097f75"
         }
+      },
+      {
+        "name": "Metal Barrel Trees",
+        "preview": "Metal Barrel Trees.webp",
+        "file": "pak27_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "hero-items": {

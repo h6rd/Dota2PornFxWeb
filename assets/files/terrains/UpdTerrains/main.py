@@ -3,13 +3,18 @@ import gc
 import shutil
 import zipfile
 import logging
+import subprocess
+import urllib.request
 from pathlib import Path
-import vpk
 
 MAPS_DIR = Path(r"C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota\maps")
 GUIDE_FILE = Path(__file__).parent / "Guide.txt"
 OUTPUT_DIR = Path(__file__).parent / "output"
 WORK_DIR   = Path(__file__).parent / "_work"
+S2V_URL = f"https://github.com/ValveResourceFormat/ValveResourceFormat/releases/download/18.0/cli-windows-x64.zip"
+S2V_DIR = Path(__file__).parent / "s2v-cli"
+S2V = S2V_DIR / "Source2Viewer-CLI.exe"
+
 VPK_TO_ZIP: dict[str, str] = {
     "dota_autumn.vpk":    "Autumn.zip",
     "dota_cavern.vpk":    "TI8 Emerald Abyss.zip",
@@ -25,20 +30,37 @@ VPK_TO_ZIP: dict[str, str] = {
     "dota_winter.vpk":    "Winter.zip",
 }
 
-
 logging.basicConfig(
     level=logging.INFO,
     format="%(message)s",
-    handlers=[
-        logging.StreamHandler(sys.stdout),
-    ],
+    handlers=[logging.StreamHandler(sys.stdout)],
 )
 log = logging.getLogger(__name__)
 
 
+def ensure_s2v_cli() -> None:
+    if S2V.exists():
+        log.info("Source2Viewer-CLI found.")
+        return
+
+    log.info("Source2Viewer-CLI not found. Starting download...")
+    S2V_DIR.mkdir(parents=True, exist_ok=True)
+    zip_tmp = S2V_DIR / "s2v_cli.zip"
+
+    try:
+        urllib.request.urlretrieve(S2V_URL, zip_tmp)
+        log.info("Archive downloaded. Extracting...")
+        with zipfile.ZipFile(zip_tmp, "r") as zip_ref:
+            zip_ref.extractall(S2V_DIR)
+        zip_tmp.unlink()
+        log.info("Source2Viewer-CLI successfully installed.")
+    except Exception as exc:
+        log.error("Failed to download or extract Source2Viewer-CLI: %s", exc)
+        sys.exit(1)
+
+
 def check_prerequisites() -> None:
     errors: list[str] = []
-
     if not MAPS_DIR.exists():
         errors.append(f"Maps folder not found: {MAPS_DIR}")
     elif not (MAPS_DIR / "dota.vpk").exists():
@@ -51,37 +73,45 @@ def check_prerequisites() -> None:
         for msg in errors:
             log.error(msg)
         sys.exit(1)
+    ensure_s2v_cli()
 
-    log.info("All required files found.")
 
-
-def extract_vpk(vpk_path: Path, dest_dir: Path) -> int:
+def extract_vpk(vpk_path: Path, dest_dir: Path) -> None:
     dest_dir.mkdir(parents=True, exist_ok=True)
-
     dir_variant = vpk_path.parent / (vpk_path.stem + "_dir.vpk")
     target = dir_variant if dir_variant.exists() else vpk_path
 
-    log.info("  Extracting: %s", target.name)
+    log.info("   Extracting via s2v: %s", target.name)
 
-    count = 0
-    pak = vpk.open(str(target))
-    for file_path in pak:
-        try:
-            entry = pak.get_file(file_path)
-            out = dest_dir / file_path
-            out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_bytes(entry.read())
-            count += 1
-        except Exception as exc:
-            log.warning("    Skipped %s: %s", file_path, exc)
+    cmd = [
+        str(S2V),
+        "-i", str(target),
+        "-o", str(dest_dir)
+    ]
 
-    gc.collect()
-    log.info("  Extracted %d files from %s", count, target.name)
-    return count
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    if result.returncode != 0:
+        log.warning("   Error extracting %s:\n%s", target.name, result.stderr)
+    else:
+        log.info("   Extraction completed successfully.")
+
+
+def clean_vmap_files(content_dir: Path) -> None:
+    target_maps_dir = content_dir / "maps"
+    if not target_maps_dir.exists():
+        return
+    for file in target_maps_dir.glob("*.vmap_c"):
+        if file.name.lower() != "dota.vmap_c":
+            try:
+                file.unlink()
+                log.debug("   Removed file: %s", file.name)
+            except Exception as exc:
+                log.warning("   Could not remove %s: %s", file.name, exc)
 
 
 def build_vpk(source_dir: Path, output_vpk: Path) -> None:
-    log.info("  Building VPK from: %s", source_dir.name)
+    import vpk
+    log.info("   Building VPK from: %s", source_dir.name)
     output_vpk.parent.mkdir(parents=True, exist_ok=True)
 
     new_pak = vpk.new(str(output_vpk))
@@ -89,18 +119,18 @@ def build_vpk(source_dir: Path, output_vpk: Path) -> None:
     new_pak.save(str(output_vpk))
 
     size_mb = output_vpk.stat().st_size / 1_048_576
-    log.info("  VPK saved: %s (%.1f MB)", output_vpk.name, size_mb)
+    log.info("   VPK saved: %s (%.1f MB)", output_vpk.name, size_mb)
 
 
 def create_zip(zip_path: Path, dota_vpk: Path, guide_src: Path) -> None:
     zip_path.parent.mkdir(parents=True, exist_ok=True)
-    log.info("  Creating archive: %s", zip_path.name)
+    log.info("   Creating archive: %s", zip_path.name)
 
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.write(dota_vpk, arcname="maps/dota.vpk")
         zf.write(guide_src, arcname="Guide.txt")
 
-    log.info("  Archive ready: %s (%.1f MB)",
+    log.info("   Archive ready: %s (%.1f MB)",
              zip_path.name, zip_path.stat().st_size / 1_048_576)
 
 
@@ -117,10 +147,12 @@ def process_mod(custom_vpk_name: str, zip_name: str, base_dir: Path) -> None:
     log.info("")
     log.info("Processing: %s -> %s", custom_vpk_name, zip_name)
 
-    log.info("  Copying base content...")
+    log.info("   Copying base content...")
     shutil.copytree(str(base_dir), str(mod_work), dirs_exist_ok=True)
 
     extract_vpk(custom_vpk_path, mod_work)
+
+    clean_vmap_files(mod_work)
 
     maps_out.mkdir(parents=True, exist_ok=True)
     build_vpk(mod_work, maps_out / "dota.vpk")
@@ -134,11 +166,11 @@ def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     WORK_DIR.mkdir(parents=True, exist_ok=True)
 
-    log.info("\nExtracting base dota.vpk")
+    log.info("\nExtracting base dota.vpk...")
     base_dir = WORK_DIR / "_base"
     extract_vpk(MAPS_DIR / "dota.vpk", base_dir)
 
-    log.info("\nProcessing %d terrains", len(VPK_TO_ZIP))
+    log.info("\nProcessing terrains (%d total)...", len(VPK_TO_ZIP))
 
     success: list[str] = []
     failed:  list[str] = []
@@ -151,19 +183,19 @@ def main() -> None:
             log.error("Error processing %s: %s", vpk_name, exc, exc_info=True)
             failed.append(vpk_name)
 
-    log.info("\nCleaning up")
+    log.info("\nCleaning temporary files...")
     try:
         shutil.rmtree(WORK_DIR)
-        log.info("  Removed: %s", WORK_DIR)
+        log.info("   Removed folder: %s", WORK_DIR)
     except Exception as exc:
         log.warning("Could not remove work folder: %s", exc)
 
-    log.info("\nDone")
-    log.info("  Success: %d", len(success))
+    log.info("\nDone!")
+    log.info("   Success: %d", len(success))
     for name in success:
         log.info("    %s", name)
     if failed:
-        log.warning("  Failed: %d", len(failed))
+        log.warning("   Failed: %d", len(failed))
         for name in failed:
             log.warning("    %s", name)
 
