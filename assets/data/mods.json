@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Script Honor",
+      "category": "heroes"
+    },
+    {
       "name": "Metal Barrel Trees",
       "category": "trees"
     },
@@ -7800,6 +7804,21 @@
           "date": 1781974496,
           "commit-sha": "88042f5fc19dea3a1b39995040442b2c9f0379a6"
         }
+      },
+      {
+        "name": "Juggernaut Script Honor",
+        "preview": "Juggernaut Script Honor.webp",
+        "file": "Juggernaut Script Honor.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [

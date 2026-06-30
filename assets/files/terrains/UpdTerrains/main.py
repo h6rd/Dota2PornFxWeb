@@ -20,7 +20,7 @@ VPK_TO_ZIP: dict[str, str] = {
     "dota_cavern.vpk":    "TI8 Emerald Abyss.zip",
     "dota_coloseum.vpk":  "TI6 Immortal Gardens.zip",
     "dota_crownfall.vpk": "Crownfall.zip",
-    "dota_desert.vpk":    "Desert.zip",
+    "dota_desert.vpk":    "TI5 Desert Terrain.zip",
     "dota_journey.vpk":   "The Kings New Journey.zip",
     "dota_jungle.vpk":    "TI9 Overgrown Empire.zip",
     "dota_reef.vpk":      "TI7 Reefs Edge.zip",
