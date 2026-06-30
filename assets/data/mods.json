@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Purple Avilliva",
+      "category": "heroes"
+    },
+    {
       "name": "Emblem Lsq Black Star",
       "category": "emblems"
     },
@@ -7827,6 +7831,21 @@
           "date": 1782816577,
           "commit-sha": "3a23c0c996dcfc2aa878ad5fdb85dd53f0674218"
         }
+      },
+      {
+        "name": "Phantom Lancer Purple Avilliva",
+        "preview": "Phantom Lancer Purple Avilliva.webp",
+        "file": "Phantom Lancer Purple Avilliva.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
