@@ -403,10 +403,10 @@ function addToCart(mod, categoryId) {
         return;
     }
 
-    if (mod.tags?.anime) {
-        showToast('Anime mods are temporarily unavailable, install them as separate vpk files');
-        return;
-    }
+    // if (mod.tags?.anime) {
+    //     showToast('Anime mods are temporarily unavailable, install them as separate vpk files');
+    //     return;
+    // }
 
     const button = event?.target?.closest('.add-to-cart-btn');
     const card = button?.closest('.card');

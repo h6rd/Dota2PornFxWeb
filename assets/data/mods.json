@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Assassin Yor Forger",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker Alexander Prime",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Purple Avilliva",
       "category": "heroes"
     },
@@ -7850,6 +7858,38 @@
           "date": 1782847214,
           "commit-sha": "02c7e4a8055d5205115026bd3faaacfa495ddfeb"
         }
+      },
+      {
+        "name": "Tinker Alexander Prime",
+        "preview": "Tinker Alexander Prime.webp",
+        "file": "https://huggingface.co/datasets/hrdq/d2pfx/resolve/main/Tinker%20Alexander%20Prime.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "anime": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Pinkpapa"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Assassin Yor Forger",
+        "preview": "Phantom Assassin Yor Forger.webp",
+        "file": "https://huggingface.co/datasets/hrdq/d2pfx/resolve/main/Phantom%20Assassin%20Yor%20Forger.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "anime": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Pinkpapa"
+          }
+        ]
       }
     ],
     "shaders": [
