@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Emblem Lsq Black Star",
+      "category": "emblems"
+    },
+    {
       "name": "Juggernaut Script Honor",
       "category": "heroes"
     },
@@ -8562,6 +8566,17 @@
           "date": 1775819130,
           "commit-sha": "71befb4266ee0c5aa9161b8f63235cd04111079b"
         }
+      },
+      {
+        "name": "Emblem Lsq Black Star",
+        "preview": "Emblem Black Star.webp",
+        "file": "pak19_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "Darkness"
+          }
+        ]
       }
     ],
     "versus-screens": [
