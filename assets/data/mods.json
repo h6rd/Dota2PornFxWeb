@@ -7916,7 +7916,11 @@
             "type": "author",
             "url": "NahuiToSay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1782925485,
+          "commit-sha": "456f1e237d975d324943dc8b32db439955f96ddc"
+        }
       }
     ],
     "shaders": [
@@ -11719,8 +11723,8 @@
         "preview": "High Five Aghanim Puppet.webp",
         "file": "pak10_dir.vpk",
         "meta": {
-          "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
+          "date": 1782925485,
+          "commit-sha": "456f1e237d975d324943dc8b32db439955f96ddc"
         }
       },
       {
@@ -11728,8 +11732,8 @@
         "preview": "High Five Crownfall.webp",
         "file": "pak11_dir.vpk",
         "meta": {
-          "date": 1762697877,
-          "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
+          "date": 1782925485,
+          "commit-sha": "456f1e237d975d324943dc8b32db439955f96ddc"
         }
       }
     ],
