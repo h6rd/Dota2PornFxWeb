@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Aquamarine Naga Siren",
+      "category": "heroes"
+    },
+    {
+      "name": "High Five Crownfall",
+      "category": "high-five"
+    },
+    {
+      "name": "High Five Aghanim Puppet",
+      "category": "high-five"
+    },
+    {
       "name": "Phantom Assassin Yor Forger",
       "category": "heroes"
     },
@@ -7890,6 +7902,21 @@
             "url": "Pinkpapa"
           }
         ]
+      },
+      {
+        "name": "Aquamarine Naga Siren",
+        "preview": "Aquamarine Naga Siren.webp",
+        "file": "Aquamarine Naga Siren.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11690,7 +11717,7 @@
       {
         "name": "High Five Aghanim Puppet",
         "preview": "High Five Aghanim Puppet.webp",
-        "file": "pak76_dir.vpk",
+        "file": "pak10_dir.vpk",
         "meta": {
           "date": 1762697877,
           "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
@@ -11699,7 +11726,7 @@
       {
         "name": "High Five Crownfall",
         "preview": "High Five Crownfall.webp",
-        "file": "pak77_dir.vpk",
+        "file": "pak11_dir.vpk",
         "meta": {
           "date": 1762697877,
           "commit-sha": "8f1de4e025ea19db59320e31e01fb8a69c5576ad"
