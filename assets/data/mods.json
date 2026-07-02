@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Beneath the Seventh",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Malenia",
+      "category": "backgrounds"
+    },
+    {
       "name": "Aquamarine Naga Siren",
       "category": "heroes"
     },
@@ -8239,6 +8247,15 @@
     ],
     "ti-bp-effects": [
       {
+        "name": "Remove Seasonal Effects",
+        "preview": "Remove Seasonal Effects.webp",
+        "file": "pak22_dir.vpk",
+        "meta": {
+          "date": 1780741566,
+          "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
+        }
+      },
+      {
         "name": "TI 2019 Battle Pass",
         "preview": "bp_ti9.webp",
         "file": "pak10_dir.vpk",
@@ -8377,15 +8394,6 @@
             "url": "assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4"
           }
         ],
-        "meta": {
-          "date": 1780741566,
-          "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
-        }
-      },
-      {
-        "name": "Remove Seasonal Effects",
-        "preview": "Remove Seasonal Effects.webp",
-        "file": "pak22_dir.vpk",
         "meta": {
           "date": 1780741566,
           "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
@@ -12807,6 +12815,24 @@
           "date": 1780653646,
           "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
         }
+      },
+      {
+        "name": "Malenia",
+        "preview": "Malenia.webp",
+        "file": "pak68_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
+      },
+      {
+        "name": "Beneath the Seventh",
+        "preview": "Beneath the Seventh.webp",
+        "file": "pak69_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
+        }
       }
     ],
     "tools": [
@@ -12866,8 +12892,10 @@
       {
         "name": "Compiler",
         "preview": "Image Compiler.webp",
-        "file": "Compiler.zip",
+        "file": "https://github.com/h6rd/Compiler/releases/latest/download/Compiler-Win.zip",
         "guideId": "compiler",
+        "linkType": "source-code",
+        "linkUrl": "https://github.com/h6rd/Compiler",
         "meta": {
           "date": 1768838028,
           "commit-sha": "511b0b7c964e15af8b7683895a3018d188ef9bc0"
@@ -14437,6 +14465,25 @@
           "date": 1780143296,
           "commit-sha": "b53567c025b34f1faed824779ffbd6e3e641be65"
         }
+      },
+      {
+        "name": "Enigma Black Hole Kate",
+        "preview": "Enigma Black Hole Kate.webp",
+        "file": "Enigma Black Hole Kate.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Enigma Black Hole Kate.mp4"
+          },
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ],
+        "meta": {
+          "date": 1781293197,
+          "commit-sha": "14f60ecffe7349a84e7d1287def9314f942b6756"
+        }
       }
     ],
     "sounds": [
@@ -14517,25 +14564,6 @@
         "meta": {
           "date": 1780816909,
           "commit-sha": "537c343d41b08439f0d4bb5eb78638be72816ab5"
-        }
-      },
-      {
-        "name": "Enigma Black Hole Kate",
-        "preview": "Enigma Black Hole Kate.webp",
-        "file": "Enigma Black Hole Kate.zip",
-        "links": [
-          {
-            "type": "preview",
-            "url": "assets/previews/sounds/Enigma Black Hole Kate.mp4"
-          },
-          {
-            "type": "author",
-            "url": "buba43"
-          }
-        ],
-        "meta": {
-          "date": 1781293197,
-          "commit-sha": "14f60ecffe7349a84e7d1287def9314f942b6756"
         }
       },
       {
