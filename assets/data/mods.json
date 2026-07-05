@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Morphling Darktrench Tears",
+      "category": "heroes"
+    },
+     {
+      "name": "Illidan Stormrage",
+      "category": "backgrounds"
+    },
+    {
       "name": "Beneath the Seventh",
       "category": "backgrounds"
     },
@@ -7929,6 +7937,21 @@
           "date": 1782925485,
           "commit-sha": "456f1e237d975d324943dc8b32db439955f96ddc"
         }
+      },
+      {
+        "name": "Morphling Darktrench Tears",
+        "preview": "Morphling Darktrench Tears.webp",
+        "file": "Morphling Darktrench Tears.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12840,6 +12863,15 @@
         "meta": {
           "date": 1782990543,
           "commit-sha": "5dc40a9b78ec7735f9f604998ed6ef96212c5c86"
+        }
+      },
+      {
+        "name": "Illidan Stormrage",
+        "preview": "Illidan Stormrage.webp",
+        "file": "pak70_dir.vpk",
+        "tags": {
+          "image": false,
+          "video": true
         }
       }
     ],
