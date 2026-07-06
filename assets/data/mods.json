@@ -7963,7 +7963,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783266827,
+          "commit-sha": "139eda78a8219c731d927b83a90bfb7d33f98b9e"
+        }
       }
     ],
     "shaders": [
@@ -12927,6 +12931,10 @@
         "tags": {
           "image": false,
           "video": true
+        },
+        "meta": {
+          "date": 1783266827,
+          "commit-sha": "139eda78a8219c731d927b83a90bfb7d33f98b9e"
         }
       }
     ],
