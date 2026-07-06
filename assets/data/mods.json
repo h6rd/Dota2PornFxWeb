@@ -9558,6 +9558,10 @@
                 "effects": true,
                 "icons": true,
                 "shoulders": true
+              },
+              "meta": {
+                "date": 1783354875,
+                "commit-sha": "d9797a070e17498c4601d0714f9c76d1a7cd32f9"
               }
             },
             {
@@ -9568,6 +9572,10 @@
                 "effects": true,
                 "icons": true,
                 "head": true
+              },
+              "meta": {
+                "date": 1783354875,
+                "commit-sha": "d9797a070e17498c4601d0714f9c76d1a7cd32f9"
               }
             },
             {
@@ -9590,6 +9598,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1783354875,
+                "commit-sha": "d9797a070e17498c4601d0714f9c76d1a7cd32f9"
               }
             }
           ]
