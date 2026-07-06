@@ -1,10 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crystal Maiden Ice Blossom",
+      "category": "hero-items"
+    },
+    {
+      "name": "Crystal Maiden Yulsarias Glacier",
+      "category": "hero-items"
+    },
+    {
+      "name": "Crystal Maiden Yulsarias Mantle",
+      "category": "hero-items"
+    },
+    {
       "name": "Morphling Darktrench Tears",
       "category": "heroes"
     },
-     {
+    {
       "name": "Illidan Stormrage",
       "category": "backgrounds"
     },
@@ -9533,7 +9545,50 @@
         {
           "id": "crystal-maiden",
           "name": "Crystal Maiden",
-          "mods": []
+          "mods": [
+            {
+              "name": "Crystal Maiden Yulsarias Mantle",
+              "preview": "Crystal Maiden Yulsarias Mantle.webp",
+              "file": "Crystal Maiden Yulsarias Mantle.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "shoulders": true
+              }
+            },
+            {
+              "name": "Crystal Maiden Yulsarias Glacier",
+              "preview": "Crystal Maiden Yulsarias Glacier.webp",
+              "file": "Crystal Maiden Yulsarias Glacier.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "head": true
+              }
+            },
+            {
+              "name": "Crystal Maiden Ice Blossom",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#65afff",
+                  "preview": "Crystal Maiden Ice Blossom.webp",
+                  "file": "Crystal Maiden Ice Blossom.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffea65",
+                  "preview": "Crystal Maiden Ice Blossom Golden.webp",
+                  "file": "Crystal Maiden Ice Blossom Golden.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "dark-seer",
