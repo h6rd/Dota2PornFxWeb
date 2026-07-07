@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kez Tensura",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Dark Divine",
+      "category": "heroes"
+    },
+    {
       "name": "Crystal Maiden Ice Blossom",
       "category": "hero-items"
     },
@@ -7968,6 +7976,36 @@
           "date": 1783266827,
           "commit-sha": "139eda78a8219c731d927b83a90bfb7d33f98b9e"
         }
+      },
+      {
+        "name": "Invoker Dark Divine",
+        "preview": "Invoker Dark Divine.webp",
+        "file": "Invoker Dark Divine.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
+      },
+      {
+        "name": "Kez Tensura",
+        "preview": "Kez Tensura.webp",
+        "file": "Kez Tensura.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [

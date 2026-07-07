@@ -32,8 +32,6 @@ models/props_tree/dire_tree_stump001_tintable
 models/props_tree/dire_tree_stump002_tintable
 models/props_tree/dire_tree_stump003_tintable
 models/props_tree/dire_tree_stump004_tintable
-models/props_tree/frostivus_ground
-models/props_tree/frostivus_tree
 models/props_tree/journey_armandpine_01
 models/props_tree/journey_armandpine_01_inspector
 models/props_tree/journey_armandpine_02
@@ -187,7 +185,6 @@ models/props_tree/tree_pine_snow_03b_destruction
 models/props_tree/tree_split001
 models/props_tree/tree_stump001
 models/props_tree/tree_stump001_ivy
-maps/ti10_assets/trees/ti10_goldenbirch001
 models/props_nature/desert/desert_baobab
 models/props_nature/desert/desert_baobab02
 models/props_nature/desert/desert_baobab03
@@ -210,19 +207,6 @@ models/props_tree/olive/tree_oldolive2
 models/props_tree/olive/tree_oldolive_stump
 models/props_tree/topiary/topiary001
 models/props_tree/topiary/topiary002
-maps/cavern_assets/models/crystals/crystal01
-maps/cavern_assets/models/crystals/crystal02
-maps/cavern_assets/models/crystals/crystal03
-maps/cavern_assets/models/crystals/crystal04
-maps/cavern_assets/models/crystals/crystal05
-maps/cavern_assets/models/crystals/crystal_base_01
-maps/cavern_assets/models/crystals/crystal_cavern_01
-maps/cavern_assets/models/crystals/crystal_cavern_02
-maps/cavern_assets/models/crystals/crystal_cavern_03
-maps/cavern_assets/models/crystals/crystal_chunk001
-maps/cavern_assets/models/crystals/crystal_chunk002
-maps/cavern_assets/models/crystals/crystal_chunk003
-maps/cavern_assets/models/crystals/crystal_chunk004
 maps/cavern_assets/models/mushrooms/mushroom_cavern_01
 maps/cavern_assets/models/mushrooms/mushroom_cavern_02
 maps/cavern_assets/models/mushrooms/mushroom_cavern_03
