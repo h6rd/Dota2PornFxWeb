@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "IO Madame Scrio",
+      "category": "heroes"
+    },
+    {
       "name": "Kez Tensura",
       "category": "heroes"
     },
@@ -8013,6 +8017,15 @@
         "meta": {
           "date": 1783400379,
           "commit-sha": "1d232004f81df44fc3642001c6dbff5714146071"
+        }
+      },
+      {
+        "name": "IO Madame Scrio",
+        "preview": "IO Madame Scrio.webp",
+        "file": "IO Madame Scrio.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
         }
       }
     ],
