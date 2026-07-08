@@ -15459,7 +15459,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783547273,
+                "commit-sha": "b78fb3461a79b63598bd0bf201787f57e0007129"
+              }
             },
             {
               "name": "Earthshaker Gold Blink Dagger",
@@ -15470,7 +15474,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783547273,
+                "commit-sha": "b78fb3461a79b63598bd0bf201787f57e0007129"
+              }
             }
           ]
         },
