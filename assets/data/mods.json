@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Profile Graffiti & Phrases",
+      "category": "other"
+    },
+    {
       "name": "Spectre Deny",
       "category": "creep-deny"
     },
@@ -131,10 +135,6 @@
     {
       "name": "Logs Trees",
       "category": "trees"
-    },
-    {
-      "name": "Profile Graffiti & Phrases",
-      "category": "other"
     },
     {
       "name": "Last Match",

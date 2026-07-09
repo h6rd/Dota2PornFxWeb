@@ -417,8 +417,15 @@
     "allowedMods": {
       "optimization": [
         "Default Wards",
-        "Default Couriers",
         "Tinker Lite Machines"
+      ],
+      "other": [
+        "Showcase Rotation",
+        "Rage Voice Icon",
+        "Gabe Shopkeeper",
+        "Techies Mine Radius",
+        "Tower re-aggro Radius",
+        "Purple Click"
       ]
     }
   },
