@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crimson Anti-Mage",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Slardar",
       "category": "heroes"
     },
@@ -8092,6 +8096,21 @@
           "date": 1783633485,
           "commit-sha": "6b7bcfa2e5d27d1f902cec574d0004eb73f5aa94"
         }
+      },
+      {
+        "name": "Crimson Anti-Mage",
+        "preview": "Crimson Anti-Mage.webp",
+        "file": "Crimson Anti-Mage.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
