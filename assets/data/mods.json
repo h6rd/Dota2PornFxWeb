@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Devotions of Dragonus Atos",
+      "category": "item-effects"
+    },
+    {
       "name": "Profile Graffiti & Phrases",
       "category": "other"
     },
@@ -15514,6 +15518,23 @@
                 "date": 1783594076,
                 "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
               }
+            }
+          ]
+        },
+        {
+          "id": "atos",
+          "name": "Rod of Atos / Gleipnir",
+          "mods": [
+            {
+              "name": "Devotions of Dragonus Atos",
+              "preview": "Devotions of Dragonus Atos.webp",
+              "file": "Devotions of Dragonus Atos.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
             }
           ]
         },
