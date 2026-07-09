@@ -8665,7 +8665,11 @@
                   "preview": "Razor Deny II.webp",
                   "file": "Razor Deny II.zip"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             },
             {
               "name": "Queen of Pain Deny",
@@ -8682,7 +8686,11 @@
                   "preview": "Queen of Pain Deny II.webp",
                   "file": "Queen of Pain Deny II.zip"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             },
             {
               "name": "Drow Ranger Deny",
@@ -8699,7 +8707,11 @@
                   "preview": "Drow Ranger Deny II.webp",
                   "file": "Drow Ranger Deny II.zip"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             },
             {
               "name": "Spectre Deny",
@@ -8716,7 +8728,11 @@
                   "preview": "Spectre Deny II.webp",
                   "file": "Spectre Deny II.zip"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             }
           ]
         },
@@ -15442,7 +15458,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             },
             {
               "name": "Phantom Adven Blademail Red",
@@ -15453,7 +15473,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             }
           ]
         },
@@ -15470,7 +15494,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             },
             {
               "name": "Devotions of Dragonus Phylactery II",
@@ -15481,7 +15509,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783594076,
+                "commit-sha": "5b062b0efbaa8b236dd852930184ab2ae49fafac"
+              }
             }
           ]
         },
