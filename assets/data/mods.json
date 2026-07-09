@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spectre Deny",
+      "category": "creep-deny"
+    },
+    {
+      "name": "Drow Ranger Deny",
+      "category": "creep-deny"
+    },
+    {
+      "name": "Queen of Pain Deny",
+      "category": "creep-deny"
+    },
+    {
+      "name": "Razor Deny",
+      "category": "creep-deny"
+    },
+    {
+      "name": "Phantom Adven Blademail White",
+      "category": "item-effects"
+    },
+    {
+      "name": "Phantom Adven Blademail Red",
+      "category": "item-effects"
+    },
+    {
+      "name": "Devotions of Dragonus Phylactery",
+      "category": "item-effects"
+    },
+    {
+      "name": "Devotions of Dragonus Phylactery II",
+      "category": "item-effects"
+    },
+    {
       "name": "Earthshaker Gold Blink Dagger",
       "category": "item-effects"
     },
@@ -8607,10 +8639,84 @@
               "name": "Serega Pirat Deny",
               "preview": "Serega Pirat Deny.webp",
               "file": "pak24_dir.vpk",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Миша Талант"
+                }
+              ],
               "meta": {
                 "date": 1780226470,
                 "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
               }
+            },
+            {
+              "name": "Razor Deny",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#9966ff",
+                  "preview": "Razor Deny I.webp",
+                  "file": "Razor Deny I.zip"
+                },
+                {
+                  "label": "II",
+                  "color": "#66ffe3",
+                  "preview": "Razor Deny II.webp",
+                  "file": "Razor Deny II.zip"
+                }
+              ]
+            },
+            {
+              "name": "Queen of Pain Deny",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#fc4e4e",
+                  "preview": "Queen of Pain Deny I.webp",
+                  "file": "Queen of Pain Deny I.zip"
+                },
+                {
+                  "label": "II",
+                  "color": "#4858e8",
+                  "preview": "Queen of Pain Deny II.webp",
+                  "file": "Queen of Pain Deny II.zip"
+                }
+              ]
+            },
+            {
+              "name": "Drow Ranger Deny",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#7a86d6",
+                  "preview": "Drow Ranger Deny I.webp",
+                  "file": "Drow Ranger Deny I.zip"
+                },
+                {
+                  "label": "II",
+                  "color": "#a56fd6",
+                  "preview": "Drow Ranger Deny II.webp",
+                  "file": "Drow Ranger Deny II.zip"
+                }
+              ]
+            },
+            {
+              "name": "Spectre Deny",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#5da2f0",
+                  "preview": "Spectre Deny I.webp",
+                  "file": "Spectre Deny I.zip"
+                },
+                {
+                  "label": "II",
+                  "color": "#f05d5d",
+                  "preview": "Spectre Deny II.webp",
+                  "file": "Spectre Deny II.zip"
+                }
+              ]
             }
           ]
         },
@@ -15320,6 +15426,62 @@
                 "date": 1767204615,
                 "commit-sha": "57430ca8394631e09c8cfc57c72922843f8ce897"
               }
+            }
+          ]
+        },
+        {
+          "id": "blademail",
+          "name": "Blade Mail",
+          "mods": [
+            {
+              "name": "Phantom Adven Blademail White",
+              "preview": "Phantom Adven Blademail White.webp",
+              "file": "Phantom Adven Blademail White.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
+            },
+            {
+              "name": "Phantom Adven Blademail Red",
+              "preview": "Phantom Adven Blademail Red.webp",
+              "file": "Phantom Adven Blademail Red.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "phylactery",
+          "name": "Phylactery / Khanda",
+          "mods": [
+            {
+              "name": "Devotions of Dragonus Phylactery",
+              "preview": "Devotions of Dragonus Phylactery.webp",
+              "file": "Devotions of Dragonus Phylactery.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
+            },
+            {
+              "name": "Devotions of Dragonus Phylactery II",
+              "preview": "Devotions of Dragonus Phylactery II.webp",
+              "file": "Devotions of Dragonus Phylactery II.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
             }
           ]
         },
