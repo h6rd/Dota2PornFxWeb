@@ -38,7 +38,7 @@ jobs:
               },
               {
                 "title": "Website Mirrors",
-                "description": "If the main site is unavailable, you can use one of the mirrors below\n\n[**Codeberg**](https://hrdq.codeberg.page/Dota2PornFxWeb/) ✦ [**Netlify**](https://d2pfx.netlify.app/) ✦ [**Onrender**](https://d2pfx.onrender.com/) ✦ [**Vercel**](https://d2pfx.vercel.app/)",
+                "description": "If the main site is unavailable, you can use one of the mirrors below\n\n[**Netlify**](https://d2pfx.netlify.app/) ✦ [**Vercel**](https://d2pfx.vercel.app/) ✦ [**Onrender**](https://d2pfx.onrender.com/)",
                 "color": 10054655,
                 "footer": {
                   "text": "⚠️ Due to high load, some mirrors may be unavailable"

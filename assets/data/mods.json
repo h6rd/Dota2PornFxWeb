@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Slardar",
+      "category": "heroes"
+    },
+    {
       "name": "Devotions of Dragonus Atos",
       "category": "item-effects"
     },
@@ -8074,6 +8078,15 @@
         "meta": {
           "date": 1783522642,
           "commit-sha": "90e6f9087dc37d03124c9191af33d18452a74deb"
+        }
+      },
+      {
+        "name": "Immortal Slardar",
+        "preview": "Immortal Slardar.webp",
+        "file": "Immortal Slardar.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
