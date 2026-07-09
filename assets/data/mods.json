@@ -8110,7 +8110,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783634434,
+          "commit-sha": "3e450f2a883307495b49e9b0ff6531d920adb8c2"
+        }
       }
     ],
     "shaders": [
