@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-gif-theme="ursa">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 — Page Not Found</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="assets/theme.js"></script>
+    
+    <script>
+        if (window.document && document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function () {
+                document.documentElement.classList.add('fonts-loaded');
+            });
+        } else {
+            document.documentElement.classList.add('fonts-loaded');
+        }
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body.error-page {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 24px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .error-card {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: var(--md-sys-color-surface-container);
+            border-radius: 28px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+            animation: error-card-in 0.45s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .error-sticker {
+            position: absolute;
+            left: -50px;
+            bottom: -55px;
+            width: 160px;
+            height: auto;
+            pointer-events: none;
+            user-select: none;
+            transform: rotate(-10deg);
+        }
+
+        .error-sticker-right {
+            left: auto;
+            right: -45px;
+            bottom: auto;
+            width: 140px;
+            top: -55px;
+            transform: rotate(15deg);
+        }
+
+        @keyframes error-card-in {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .error-icon-wrap {
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-icon-wrap .material-symbols-rounded {
+            font-size: 58px;
+        }
+
+        .error-code {
+            font-size: 56px;
+            font-weight: bolder;
+            line-height: 1.1;
+            margin: 0 0 8px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-shit));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .error-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 12px;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .error-desc {
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0 0 32px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .error-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .error-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: auto;
+            min-width: 160px;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: background 0.2s ease, transform 0.15s ease;
+            font-family: inherit;
+        }
+
+        .error-btn:active {
+            transform: scale(0.97);
+        }
+
+        .error-btn--filled {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .error-btn--filled:hover {
+            filter: brightness(1.05);
+        }
+
+        .error-btn--outlined {
+            background: transparent;
+            color: var(--md-sys-color-primary);
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .error-btn--outlined:hover {
+            background: var(--md-card-hover, rgba(255, 255, 255, 0.06));
+        }
+
+        .error-btn .material-symbols-rounded {
+            font-size: 20px;
+        }
+
+        .error-url {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--md-sys-color-on-surface-variant);
+            word-break: break-all;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            .error-card {
+                padding: 32px 24px;
+                border-radius: 24px;
+            }
+
+            .error-code {
+                font-size: 48px;
+            }
+
+            .error-sticker {
+                opacity: 0;
+            }
+
+            .error-sticker-right {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="error-page">
+    <div class="error-card">
+        <img class="error-sticker" src="assets/previews/hueta/brew-sticker-2.png">
+        <img class="error-sticker error-sticker-right" src="assets/previews/hueta/brew-sticker.png">
+        <div class="error-icon-wrap">
+            <span class="material-symbols-rounded">sentiment_dissatisfied</span>
+        </div>
+        <p class="error-code">404</p>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-desc">
+            Looks like the <span id="tg">Brewmaster</span> drank this page <br>Time to head back before he empties the
+            whole website
+        </p>
+        <div class="error-actions">
+            <button class="error-btn error-btn--filled" onclick="history.back()">
+                <span class="material-symbols-rounded">arrow_back</span>
+                Go Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        try {
+            var p = document.getElementById('errorPath');
+            if (p && window.location.pathname && window.location.pathname !== '/') {
+                p.textContent = window.location.pathname;
+            }
+        } catch (e) { }
+    </script>
+</body>
+
+</html>

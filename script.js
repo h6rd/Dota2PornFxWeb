@@ -139,8 +139,12 @@ const formatTime = (seconds) => {
 };
 
 function resolveNickname(value, map) {
-    if (map[value]) return map[value];
+    if (Object.prototype.hasOwnProperty.call(map, value)) return map[value];
     return value;
+}
+
+function goTo404() {
+    window.location.href = '404.html';
 }
 
 // Highlight Hero Names
@@ -1446,8 +1450,11 @@ function setupRecentlyAdded() {
                         openGuideForMod({ guideId });
                         return;
                     }
-
                     const url = button.getAttribute('data-url');
+                    if (!url) {
+                        goTo404();
+                        return;
+                    }
                     const isVideo = button.getAttribute('data-video') === 'true';
                     if (isVideo) {
                         window.openVideoModal(url);
@@ -2810,8 +2817,11 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
                 openGuideForMod({ guideId });
                 return;
             }
-
             const url = button.getAttribute('data-url');
+            if (!url) {
+                goTo404();
+                return;
+            }
             const isVideo = button.getAttribute('data-video') === 'true';
             if (isVideo) {
                 window.openVideoModal(url);
@@ -3103,6 +3113,8 @@ function openModAuthorsModal() {
             item.innerHTML = `
                 <i class="bi bi-person-fill author-platform-icon" style="color:var(--md-sys-color-outline)"></i>
                 <span class="author-name">${name}</span>`;
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => goTo404());
         }
 
         list.appendChild(item);
@@ -3157,6 +3169,8 @@ function openSourcesModal() {
             item.innerHTML = `
                 <i class="bi bi-person-fill author-platform-icon" style="color:var(--md-sys-color-outline)"></i>
                 <span class="author-name">${name}</span>`;
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => goTo404());
         }
 
         list.appendChild(item);
