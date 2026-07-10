@@ -2034,7 +2034,10 @@ fcode {
 }
 
 .nav-rail-wrapper.collapsed #categoryNavRail {
-  display: none;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 m3e-nav-item .material-symbols-rounded {
@@ -5145,6 +5148,57 @@ m3e-loading-indicator {
 .settings-toggle-input:checked + .settings-toggle-track::after {
   transform: translateX(18px);
   background: var(--md-sys-color-on-primary);
+}
+
+#welcomePathInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+  outline: none;
+}
+
+.welcome-overlay {
+    z-index: 10002;
+}
+
+.welcome-modal {
+    z-index: 10003;
+    max-width: 520px;
+}
+
+.welcome-title {
+    margin-bottom: 12px;
+}
+
+.welcome-text {
+    margin-bottom: 24px;
+}
+
+.welcome-section {
+    margin-bottom: 20px;
+}
+
+.welcome-optional {
+    font-size: 12px;
+    opacity: 0.6;
+    font-weight: normal;
+}
+
+.welcome-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.welcome-save-btn {
+    padding: 10px 24px;
 }
 
 /* Media */

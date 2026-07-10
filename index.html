@@ -379,6 +379,83 @@
     </div>
   </div>
 
+  <!-- Welcome Setup Modal -->
+  <div id="welcomeOverlay" class="info-overlay welcome-overlay"></div>
+  <div id="welcomeModal" class="info-modal welcome-modal">
+    <div class="info-modal-content">
+      
+      <h2 class="info-modal-title welcome-title">Welcome!</h2>
+      <p class="info-modal-text welcome-text">
+        Choose your OS, game language, and specify the game folder so we can configure everything for you.
+      </p>
+
+      <div class="settings-section welcome-section">
+        <h3 class="settings-section-title">System</h3>
+        <div class="settings-option-row" id="welcomeOsPicker">
+          <button class="settings-os-btn active" data-os="windows">
+            <i class="bi bi-windows"></i> Windows
+          </button>
+          <button class="settings-os-btn" data-os="linux">
+            <i class="bi bi-tux"></i> Linux
+          </button>
+          <button class="settings-os-btn" data-os="macos">
+            <i class="bi bi-apple"></i> macOS
+          </button>
+        </div>
+      </div>
+  
+      <div class="settings-section welcome-section">
+        <h3 class="settings-section-title">Game Language</h3>
+        <select class="settings-select" id="welcomeLangSelect">
+          <option value="russian">Russian [dota_russian]</option>
+          <option value="english" selected>English [dota_123]</option>
+          <option value="minify">Minify [dota_minify]</option>
+          <option value="ukrainian">Ukrainian [dota_ukrainian]</option>
+          <option value="koreana">한국어 [dota_koreana]</option>
+          <option value="schinese">简体中文 [dota_schinese]</option>
+          <option value="tchinese">繁體中文 [dota_tchinese]</option>
+          <option value="brazilian">Português [dota_brazilian]</option>
+          <option value="latam">Español latinoamericano [dota_latam]</option>
+          <option value="spanish">Español [dota_spanish]</option>
+          <option value="french">Français [dota_french]</option>
+          <option value="italian">Italiano [dota_italian]</option>
+          <option value="german">Deutsch [dota_german]</option>
+          <option value="greek">Ελληνικά [dota_greek]</option>
+          <option value="thai">ไทย [dota_thai]</option>
+          <option value="japanese">日本語 [dota_japanese]</option>
+          <option value="portuguese">Português [dota_portuguese]</option>
+          <option value="polish">Polski [dota_polish]</option>
+          <option value="danish">Dansk [dota_danish]</option>
+          <option value="dutch">Nederlands [dota_dutch]</option>
+          <option value="finnish">Suomi [dota_finnish]</option>
+          <option value="norwegian">Norsk [dota_norwegian]</option>
+          <option value="swedish">Svenska [dota_swedish]</option>
+          <option value="czech">Čeština [dota_czech]</option>
+          <option value="hungarian">Magyar [dota_hungarian]</option>
+          <option value="romanian">Română [dota_romanian]</option>
+          <option value="bulgarian">Български [dota_bulgarian]</option>
+          <option value="turkish">Türkçe [dota_turkish]</option>
+          <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
+        </select>
+      </div>
+  
+      <div class="settings-section">
+        <h3 class="settings-section-title">
+          Dota 2 Path
+          <span class="welcome-optional">(Optional)</span>
+        </h3>
+        <input type="text" id="welcomePathInput" class="settings-input" placeholder="Auto detect" spellcheck="false" />
+      </div>
+
+      <div class="welcome-actions">
+        <button class="cart-pack-btn welcome-save-btn" id="welcomeSaveBtn">
+          <span class="material-symbols-rounded">check</span>
+          Let's go
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Settings modal -->
   <div id="settingsOverlay" class="info-overlay"></div>
   <div id="settingsModal" class="info-modal settings-modal">
@@ -448,6 +525,9 @@
             </button>
             <button class="settings-os-btn" data-os="linux">
               <i class="bi bi-tux"></i> Linux
+            </button>
+            <button class="settings-os-btn" data-os="macos">
+              <i class="bi bi-apple"></i> macOS
             </button>
           </div>
         </div>

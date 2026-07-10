@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Devotions of Dragonus Atos II",
+      "category": "item-effects"
+    },
+    {
       "name": "Crimson Anti-Mage",
       "category": "heroes"
     },
@@ -15579,6 +15583,17 @@
                 "date": 1783628721,
                 "commit-sha": "9362053c538ca378e76bf9212e1a708d0ae8415b"
               }
+            },
+            {
+              "name": "Devotions of Dragonus Atos II",
+              "preview": "Devotions of Dragonus Atos II.webp",
+              "file": "Devotions of Dragonus Atos II.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
             }
           ]
         },

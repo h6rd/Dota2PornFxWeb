@@ -1601,6 +1601,7 @@ function init() {
     setupSettingsModal();
     setupCategoryNavRail();
     handleUrlParams();
+    setupWelcomeModal();
 
     if (typeof loadCart === 'function') {
         loadCart();
@@ -3050,16 +3051,16 @@ async function loadData() {
                 : 'GitHub is unavailable<br>Try a VPN or one of the mirrors:'}
                 </div>
                 <div class="mirror-error-links">
-                    <a href="https://hrdq.codeberg.page/Dota2PornFxWeb/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
-                        hrdq.codeberg.page
+                    <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">
+                        d2pfx.netlify.app
+                        <span class="material-symbols-rounded">open_in_new</span>
+                    </a>
+                    <a href="https://d2pfx.vercel.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
+                        d2pfx.vercel.app
                         <span class="material-symbols-rounded">open_in_new</span>
                     </a>
                    <a href="https://d2pfx.onrender.com/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
                         d2pfx.onrender.com
-                        <span class="material-symbols-rounded">open_in_new</span>
-                    </a>
-                    <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--secondary">
-                        d2pfx.netlify.app
                         <span class="material-symbols-rounded">open_in_new</span>
                     </a>
                 </div>
@@ -3244,7 +3245,12 @@ function applySettings(s) {
     const pathInput = document.getElementById('dotaPathInput');
     if (pathInput) {
         pathInput.value = s.dotaPath || '';
+                const pathSection = pathInput.closest('.settings-section');
+        if (pathSection) {
+            pathSection.style.display = (s.os === 'macos') ? 'none' : '';
+        }
     }
+
     const animeToggle = document.getElementById('hideAnimeMods');
     if (animeToggle) animeToggle.checked = !!s.hideAnimeMods;
 
@@ -3336,6 +3342,67 @@ function importSettings(file) {
         }
     };
     reader.readAsText(file);
+}
+
+function setupWelcomeModal() {
+    const settings = loadSettings();
+    const os = settings.os || 'default';
+
+    if (os === 'default') {
+        const overlay = document.getElementById('welcomeOverlay');
+        const modal = document.getElementById('welcomeModal');
+        const osBtns = document.querySelectorAll('#welcomeOsPicker .settings-os-btn');
+        const langSelect = document.getElementById('welcomeLangSelect');
+        const pathInput = document.getElementById('welcomePathInput');
+        const pathExample = document.getElementById('welcomePathExample');
+        const saveBtn = document.getElementById('welcomeSaveBtn');
+
+        let selectedOs = 'windows';
+
+        const pathExamples = {
+            windows: "C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta",
+            linux: "~/.steam/steam/steamapps/common/dota 2 beta",
+            macos: "~/Library/Application Support/Steam/steamapps/common/dota 2 beta"
+        };
+
+        osBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                osBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedOs = btn.dataset.os;
+
+                if (pathExamples[selectedOs]) {
+                    pathInput.placeholder = pathExamples[selectedOs];
+                    pathExample.textContent = pathExamples[selectedOs];
+                }
+
+                vibrate(10);
+            });
+        });
+
+        saveBtn.addEventListener('click', () => {
+            const selectedLang = langSelect.value;
+            const dotaPath = pathInput.value.trim();
+            saveSettings({
+                os: selectedOs,
+                gameLang: selectedLang,
+                dotaPath: dotaPath
+            });
+
+            applySettings(loadSettings());
+
+            overlay.classList.remove('active');
+            modal.classList.remove('active');
+            closeModal();
+            vibrate(10);
+        });
+
+        setTimeout(() => {
+            overlay.classList.add('active');
+            modal.classList.add('active');
+            openModal();
+        }, 300);
+    }
 }
 
 function setupSettingsModal() {

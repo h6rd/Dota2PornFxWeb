@@ -1,6 +1,23 @@
 let cart = [];
 const MAX_CART_ITEMS = 150;
 
+function getCartLimitInfo() {
+    const settings = (() => {
+        try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
+    })();
+    
+    if ((settings.os || 'default') !== 'macos') {
+        return { limit: MAX_CART_ITEMS, countable: () => true };
+    }
+    
+    const lang = (settings.gameLang === 'default' || !settings.gameLang) ? 'english' : settings.gameLang;
+    
+    return {
+        limit: lang === 'english' ? 96 : 95,
+        countable: item => item.categoryId !== 'fonts' && item.categoryId !== 'cursors'
+    };
+}
+
 let savedAssemblies = [];
 const MAX_ASSEMBLIES = 10;
 
@@ -537,8 +554,9 @@ function addToCart(mod, categoryId) {
         }
     }
 
-    if (cart.length >= MAX_CART_ITEMS) {
-        showToast('Cart is full (max 150 items)');
+    const { limit, countable } = getCartLimitInfo();
+    if (countable(cartItem) && cart.filter(countable).length >= limit) {
+        showToast(`Cart is full (max ${limit} mods)`);
         return;
     }
 
@@ -999,13 +1017,14 @@ function getUniqueFileName(fileName, existingNames) {
 }
 
 // vpk renaming
-function createPakNameAllocator(existingFileNames) {
+function createPakNameAllocator(existingFileNames, isMacos = false) {
     let priorityCounter = 2;
     let normalCounter = 10;
 
     function allocatePriority(originalName) {
         if (priorityCounter <= 9) {
-            const candidate = `!pak${String(priorityCounter).padStart(2, '0')}_dir.vpk`;
+            const prefix = isMacos ? 'pak' : '!pak';
+            const candidate = `${prefix}${String(priorityCounter).padStart(2, '0')}_dir.vpk`;
             priorityCounter++;
             existingFileNames.add(candidate.toLowerCase());
             return candidate;
@@ -1741,7 +1760,14 @@ async function packAndDownload() {
         const modFileNames = {};
         const fileErrors = [];
         let processedCount = 0;
-        const pakAllocator = createPakNameAllocator(existingFileNames);
+
+        const settings = (() => {
+            try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
+        })();
+        const selectedOS = settings.os || 'default';
+        const isMacos = selectedOS === 'macos';
+
+        const pakAllocator = createPakNameAllocator(existingFileNames, isMacos);
 
         const addToRoot = async (path, blob) => {
             await zipWriter.add(path, new zip.BlobReader(blob));
@@ -1827,12 +1853,16 @@ async function packAndDownload() {
                                         let uniqueName;
                                         if (fileName.toLowerCase().endsWith('_dir.vpk')) {
                                             if (isPriority) {
-                                                uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                                                const prefix = isMacos ? '' : '!';
+                                                uniqueName = pakAllocator.allocatePriority(prefix + fileName);
                                             } else {
                                                 uniqueName = pakAllocator.allocateNormal();
                                             }
                                         } else {
-                                            if (isPriority) fileName = '!' + fileName;
+                                            if (isPriority) {
+                                                const prefix = isMacos ? '' : '!';
+                                                fileName = prefix + fileName;
+                                            }
                                             uniqueName = getUniqueFileName(fileName, existingFileNames);
                                         }
                                         await addToRoot(`${archiveName}/mods/${uniqueName}`, entryBlob);
@@ -1848,12 +1878,16 @@ async function packAndDownload() {
                             let uniqueName;
                             if (fileName.toLowerCase().endsWith('_dir.vpk')) {
                                 if (isPriority) {
-                                    uniqueName = pakAllocator.allocatePriority('!' + fileName);
+                                    const prefix = isMacos ? '' : '!';
+                                    uniqueName = pakAllocator.allocatePriority(prefix + fileName);
                                 } else {
                                     uniqueName = pakAllocator.allocateNormal();
                                 }
                             } else {
-                                if (isPriority) fileName = '!' + fileName;
+                                if (isPriority) {
+                                    const prefix = isMacos ? '' : '!';
+                                    fileName = prefix + fileName;
+                                }
                                 uniqueName = getUniqueFileName(fileName, existingFileNames);
                             }
                             await addToRoot(`${archiveName}/mods/${uniqueName}`, blob);
@@ -1929,7 +1963,7 @@ async function packAndDownload() {
         addLog('Mods list created', 'success');
 
         const guideText = `╔══════════════════════════════════════════╗
-       Dota2PornFX Installation Guide      
+       Dota2PornFX Installation Guide
 ╚══════════════════════════════════════════╝
 
 RU WINDOWS
@@ -1973,7 +2007,7 @@ RU WINDOWS
    • Скачайте стандартный курсор с сайта и установите его, или вручную удалите папку Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor и проверьте целостность файлов игры
 
 
-EN WINDOWS 
+EN WINDOWS
 ═══════════
 Run Auto-Install.bat. If you encounter any issues while using it or if it doesn't work, use the manual method below.
 
@@ -2014,7 +2048,7 @@ RU LINUX
 
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
-3. Запустите VPKMerge: ./VPKMerge 
+3. Запустите VPKMerge: ./VPKMerge
 4. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
    • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
@@ -2083,15 +2117,62 @@ Uninstall (Uninstall.sh automates the first step)
 2. Removing the font
    • Run Uninstall.sh from the font folder, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts and verify the integrity of game files
 3. Removing the cursor
-   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of game files`;
+   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of game files
+
+
+RU MACOS
+═════════
+1. Переместите все файлы из папки mods в папку с языком игры:
+   • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
+   • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
+   • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
+- Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с другими vpk файлами
+- Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
+- Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
+
+4. Добавьте в параметры запуска игры:
+   • Для русского: -language russian
+   • Для английского: -language 123
+   • Для англ Minify: -language minify
+
+Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
+Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
+
+Удаление
+1. Удаление модов
+   • Удалите все файлы vpk из папки языка, которую вы использовали (в папке dota_russian не удаляйте файлы, названия которых начинаются на pak01)
+   • Если использовали ландшафт, удалите папку maps из папки языка игры, которую вы использовали
+2. Удаление шрифта
+   • Удалите папку Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts и проверьте целостность файлов игры
+3. Удаление курсора
+   • Скачайте стандартный курсор с сайта и установите его, или вручную удалите папку Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor и проверьте целостность файлов игры
+
+
+EN MACOS
+═════════
+1. Create folder dota_123 in Steam/steamapps/common/dota 2 beta/game/
+2. Move all files from the mods folder to dota_123 folder
+- If you selected a terrain, you will have a maps folder; move it to the same game language folder along with the other vpk files.
+- If you added a cursor, you will have a folder named "Cursor Name"; move the contents of the cursor folder to: Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor
+- If you added a font, you will have a folder named "Font Name"; please read the guide.txt file inside that folder.
+
+3. Add to your game launch options: -language 123
+
+If you encounter any issues, please message us on Discord: https://discord.gg/PBvG8D9MxT
+Please specify which mods are displaying incorrectly and attach Mods.txt file.
+
+Uninstallation
+1. Uninstalling mods:
+   • Delete all vpk files from the dota_123 folder.
+   • If you used a terrain, delete the maps folder.
+2. Uninstalling fonts:
+   • Delete the folder Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts and verify the integrity of the game files in Steam.
+3. Uninstalling cursors:
+   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of the game files in Steam.`;
 
         await addToRoot(`${archiveName}/Guide.txt`, new Blob([guideText], { type: 'text/plain' }));
         addLog('Guide added', 'success');
 
-        const settings = (() => {
-            try { return JSON.parse(localStorage.getItem('d2pfx_settings') || '{}'); } catch { return {}; }
-        })();
-        const selectedOS = settings.os || 'default';
         const selectedLang = (settings.gameLang === 'default' || !settings.gameLang) ? 'english' : settings.gameLang;
         const customDotaPath = (settings.dotaPath || '').trim();
         const langFolderMap = {
@@ -2108,6 +2189,7 @@ Uninstall (Uninstall.sh automates the first step)
         };
         const langFolder = langFolderMap[selectedLang] || 'dota_123';
 
+    if (selectedOS !== 'macos') {    
         addLog('Adding VPKMerge...', 'info');
         if (selectedOS === 'default') {
             try {
@@ -2145,6 +2227,7 @@ Uninstall (Uninstall.sh automates the first step)
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         }
+    }    
 
         if (selectedOS === 'windows') {
             addLog('Generating install script...', 'info');
