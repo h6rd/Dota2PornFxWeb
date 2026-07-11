@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crimson Phantom Lancer",
+      "category": "heroes"
+    },
+    {
       "name": "Devotions of Dragonus Atos II",
       "category": "item-effects"
     },
@@ -8119,6 +8123,21 @@
           "date": 1783634434,
           "commit-sha": "3e450f2a883307495b49e9b0ff6531d920adb8c2"
         }
+      },
+      {
+        "name": "Crimson Phantom Lancer",
+        "preview": "Crimson Phantom Lancer.webp",
+        "file": "Crimson Phantom Lancer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
