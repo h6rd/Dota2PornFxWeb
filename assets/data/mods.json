@@ -8164,7 +8164,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783819065,
+          "commit-sha": "bcdcd231a49207961e4c77a40036a0ac01f89262"
+        }
       },
       {
         "name": "Immortal Jakiro",
@@ -8179,7 +8183,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783819065,
+          "commit-sha": "bcdcd231a49207961e4c77a40036a0ac01f89262"
+        }
       }
     ],
     "shaders": [
