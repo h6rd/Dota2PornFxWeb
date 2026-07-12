@@ -8296,7 +8296,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783879866,
+          "commit-sha": "9d6a65d80ff7c1ba5392b1dbc74f524f0cffeca1"
+        }
       }
     ],
     "shaders": [
@@ -17067,7 +17071,10 @@
         "name": "Dota2PornFxWiki",
         "url": "https://d2pfxwiki.pages.dev/",
         "description": "Wiki & Guides",
-        "preview": "assets/previews/news/Dota2PornFxWiki.webp"
+        "preview": "assets/previews/news/Dota2PornFxWiki.webp",
+        "meta": {
+          "imageMissing": true
+        }
       }
     ]
   }
