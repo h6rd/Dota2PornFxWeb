@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Dark Carnival",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker MaryDay",
+      "category": "heroes"
+    },
+    {
+      "name": "Templar Assassin Royal Squire",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Immortal Felidae",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Jakiro",
       "category": "heroes"
     },
@@ -8187,6 +8203,60 @@
         "meta": {
           "date": 1783819065,
           "commit-sha": "bcdcd231a49207961e4c77a40036a0ac01f89262"
+        }
+      },
+      {
+        "name": "Phantom Lancer Immortal Felidae",
+        "preview": "Phantom Lancer Immortal Felidae.webp",
+        "file": "Phantom Lancer Immortal Felidae.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Templar Assassin Royal Squire",
+        "preview": "Templar Assassin Royal Squire.webp",
+        "file": "Templar Assassin Royal Squire.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Invoker MaryDay",
+        "preview": "Invoker MaryDay.webp",
+        "file": "Invoker MaryDay.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Lancer Dark Carnival",
+        "preview": "Phantom Lancer Dark Carnival.webp",
+        "file": "Phantom Lancer Dark Carnival.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
         }
       }
     ],
