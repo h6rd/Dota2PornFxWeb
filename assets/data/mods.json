@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Jakiro",
+      "category": "heroes"
+    },
+    {
+      "name": "Disruptor Tandem Storm",
+      "category": "heroes"
+    },
+    {
       "name": "Crimson Phantom Lancer",
       "category": "heroes"
     },
@@ -8142,6 +8150,36 @@
           "date": 1783783068,
           "commit-sha": "522ac8254ec6e096446445ba4aa0f858ecb2753c"
         }
+      },
+      {
+        "name": "Disruptor Tandem Storm",
+        "preview": "Disruptor Tandem Storm.webp",
+        "file": "Disruptor Tandem Storm.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Jakiro",
+        "preview": "Immortal Jakiro.webp",
+        "file": "Immortal Jakiro.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
