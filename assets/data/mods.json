@@ -8218,7 +8218,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783870835,
+          "commit-sha": "1bb1e8d9ec9fa29654b7e69df610250a52896fbb"
+        }
       },
       {
         "name": "Templar Assassin Royal Squire",
@@ -8233,7 +8237,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783870835,
+          "commit-sha": "1bb1e8d9ec9fa29654b7e69df610250a52896fbb"
+        }
       },
       {
         "name": "Invoker MaryDay",
@@ -8248,7 +8256,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783870835,
+          "commit-sha": "1bb1e8d9ec9fa29654b7e69df610250a52896fbb"
+        }
       },
       {
         "name": "Phantom Lancer Dark Carnival",
@@ -8257,6 +8269,10 @@
         "tags": {
           "effects": false,
           "icons": false
+        },
+        "meta": {
+          "date": 1783870835,
+          "commit-sha": "1bb1e8d9ec9fa29654b7e69df610250a52896fbb"
         }
       }
     ],
