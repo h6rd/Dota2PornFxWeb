@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota2PornFxWiki",
+      "category": "news"
+    },
+    {
+      "name": "Axe Immortal Bootblack Brawler",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Dark Carnival",
       "category": "heroes"
     },
@@ -8274,6 +8282,21 @@
           "date": 1783870835,
           "commit-sha": "1bb1e8d9ec9fa29654b7e69df610250a52896fbb"
         }
+      },
+      {
+        "name": "Axe Immortal Bootblack Brawler",
+        "preview": "Axe Immortal Bootblack Brawler.webp",
+        "file": "Axe Immortal Bootblack Brawler.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -17039,6 +17062,12 @@
         "meta": {
           "imageMissing": true
         }
+      },
+      {
+        "name": "Dota2PornFxWiki",
+        "url": "https://d2pfxwiki.pages.dev/",
+        "description": "Wiki & Guides",
+        "preview": "assets/previews/news/Dota2PornFxWiki.webp"
       }
     ]
   }
