@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Morphling Automaton",
+      "category": "heroes"
+    },
+    {
       "name": "Dota2PornFxWiki",
       "category": "news"
     },
@@ -6128,7 +6132,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6166,7 +6170,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6185,7 +6189,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6202,6 +6206,10 @@
           "icons": true
         },
         "links": [
+          {
+            "type": "sender",
+            "url": "年青| 卄卂尺ㄩ爪卂"
+          },
           {
             "type": "source",
             "url": "https://ru.dota2changer.com/skins_dota_2_mods-old_model_shadow_fiend/"
@@ -6246,7 +6254,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6487,7 +6495,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6506,7 +6514,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6525,7 +6533,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6563,7 +6571,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6695,7 +6703,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6714,7 +6722,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6733,7 +6741,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6853,6 +6861,10 @@
         },
         "links": [
           {
+            "type": "sender",
+            "url": "年青| 卄卂尺ㄩ爪卂"
+          },
+          {
             "type": "source",
             "url": "https://ru.dota2changer.com/skins_dota_2_mods-skeleton_king_return_final_v_3_0/"
           }
@@ -6892,7 +6904,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6911,7 +6923,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6930,7 +6942,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -6949,7 +6961,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -7532,7 +7544,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -7631,7 +7643,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -7739,7 +7751,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -7758,7 +7770,7 @@
         "links": [
           {
             "type": "author",
-            "url": "translation"
+            "url": "DOTA2MODS"
           }
         ],
         "meta": {
@@ -8301,6 +8313,21 @@
           "date": 1783879866,
           "commit-sha": "9d6a65d80ff7c1ba5392b1dbc74f524f0cffeca1"
         }
+      },
+      {
+        "name": "Morphling Automaton",
+        "preview": "Morphling Automaton.webp",
+        "file": "Morphling Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
       }
     ],
     "shaders": [
