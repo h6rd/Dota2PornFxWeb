@@ -8354,7 +8354,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1783977013,
+          "commit-sha": "265db2bd9db34524d9bec141882989214c03898a"
+        }
       }
     ],
     "shaders": [
@@ -9775,7 +9779,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1783977013,
+                "commit-sha": "265db2bd9db34524d9bec141882989214c03898a"
+              }
             }
           ]
         },
