@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Night Stalker Dark Oath",
+      "category": "heroes"
+    },
+    {
+      "name": "Alchemist Radiance Blades",
+      "category": "hero-items"
+    },
+    {
       "name": "Morphling Automaton",
       "category": "heroes"
     },
@@ -8332,6 +8340,21 @@
           "date": 1783897963,
           "commit-sha": "4f2fe29d1ab30bac28e214fb5cebf92f690f0d35"
         }
+      },
+      {
+        "name": "Night Stalker Dark Oath",
+        "preview": "Night Stalker Dark Oath.webp",
+        "file": "Night Stalker Dark Oath.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -9737,7 +9760,24 @@
         {
           "id": "alchemist",
           "name": "Alchemist",
-          "mods": []
+          "mods": [
+            {
+              "name": "Alchemist Radiance Blades",
+              "preview": "Alchemist Radiance Blades.webp",
+              "file": "Alchemist Radiance Blades.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "ancient-apparition",
