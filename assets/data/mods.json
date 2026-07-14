@@ -15751,8 +15751,8 @@
               "file": "pak33_dir.vpk",
               "links": [
                 {
-                  "type": "source",
-                  "url": "https://dota2changer.com/skins_dota_2_mods-custom_runes/"
+                  "type": "author",
+                  "url": "Darkness"
                 }
               ],
               "meta": {
@@ -16093,8 +16093,8 @@
               "file": "pak50_dir.vpk",
               "links": [
                 {
-                  "type": "source",
-                  "url": "https://dota2changer.com/skins_dota_2_mods-red_bottle_effect/"
+                  "type": "author",
+                  "url": "Darkness"
                 }
               ],
               "meta": {

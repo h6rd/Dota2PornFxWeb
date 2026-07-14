@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-gif-theme="ursa">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mod catalog statistics for Dota2PornFx">
+  <meta name="robots" content="noindex, follow">
+  <title>Dota2PornFx Stats</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="/assets/theme.js" defer></script>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/assets/stats/stats.css">
+  <script src="/assets/m3e/shape.bundle.js" type="module"></script>
+  <script src="/assets/m3e/loading-indicator.bundle.js" type="module"></script>
+  <script src="/assets/stats/stats.js" defer></script>
+</head>
+
+<body class="stats-page">
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-button" id="backButton" style="display: inline-flex;"
+            onclick="window.location.href='/index.html'">
+            <span class="material-symbols-rounded">arrow_back</span>
+            <span>Back</span>
+          </button>
+          <h1 class="logo">
+            <a href="/index.html"><span id="tg">Dota2</span>PornFx</a>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main stats-main">
+    <div class="container">
+
+      <div class="stats-page-head">
+        <h2 class="stats-page-title">Site Stats</h2>
+        <p class="stats-page-desc">Summary of all mods, authors, and submitters</p>
+      </div>
+
+      <div id="statsLoading" class="data-loading-state" style="margin-top: 60px;">
+        <m3e-loading-indicator variant="contained" aria-label="Loading statistics"></m3e-loading-indicator>
+        <div class="data-loading-label">Counting mods…</div>
+      </div>
+
+      <div id="statsContent" class="stats-hidden">
+        <section class="stats-hero">
+          <m3e-shape id="heroBgShape" name="very-sunny"></m3e-shape>
+
+          <div class="stats-hero-text">
+            <div class="stats-hero-kicker">
+              <span class="material-symbols-rounded">folder_open</span>
+              <span id="heroTotalLabel">Total mods</span>
+            </div>
+            <div class="stats-hero-number" id="heroTotalNumber">0</div>
+          </div>
+          <div class="stats-hero-chips">
+            <div class="stats-hero-chip" id="heroCategoriesChip"></div>
+            <div class="stats-hero-chip" id="heroAuthorsChip"></div>
+            <div class="stats-hero-chip" id="heroSendersChip"></div>
+          </div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">donut_large</span>
+              Attribution Overview
+            </h3>
+          </div>
+          <div class="stats-overview-grid" id="overviewGrid"></div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">category</span>
+              Mods by Category
+            </h3>
+          </div>
+          <div class="category-bars" id="categoryBars"></div>
+          <div id="categoryBarsToggleWrap"></div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">leaderboard</span>
+              Authors & Senders
+            </h3>
+          </div>
+          <div class="leaderboard-grid">
+            <div class="leaderboard-card">
+              <div class="leaderboard-card-head">
+                <div class="leaderboard-card-title">
+                  <span class="material-symbols-rounded">person</span>
+                  Authors
+                </div>
+                <span class="leaderboard-card-count" id="authorsCount">0</span>
+              </div>
+              <div id="authorsLeaderboard"></div>
+              <div id="authorsToggleWrap"></div>
+            </div>
+            <div class="leaderboard-card">
+              <div class="leaderboard-card-head">
+                <div class="leaderboard-card-title">
+                  <span class="material-symbols-rounded">send</span>
+                  Senders
+                </div>
+                <span class="leaderboard-card-count" id="sendersCount">0</span>
+              </div>
+              <div id="sendersLeaderboard"></div>
+              <div id="sendersToggleWrap"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">download</span>
+              Tool Downloads
+            </h3>
+          </div>
+          <div class="tools-grid" id="toolsGrid"></div>
+          <div class="tools-combined">
+            <div class="tools-combined-label">
+              <span class="material-symbols-rounded">download</span>
+              Total Tool Downloads
+            </div>
+            <div class="tools-combined-value" id="toolsCombinedValue">0</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
