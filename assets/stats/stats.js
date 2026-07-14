@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', initHeroShapeMorph);
 
 /* tools data */
 async function loadStatsData() {
-  const dataBase = FILES_BASE_URL ? `${FILES_BASE_URL}/assets/data` : '/assets/data';
+  const dataBase = FILES_BASE_URL ? `${FILES_BASE_URL}/assets/data` : 'assets/data';
   const controller = new AbortController();
   const timeoutTimer = setTimeout(() => controller.abort(), 20000);
 
