@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dazzle Lifeless Devotion",
+      "category": "heroes"
+    },
+    {
       "name": "Night Stalker Dark Oath",
       "category": "heroes"
     },
@@ -8358,6 +8362,15 @@
         "meta": {
           "date": 1783977013,
           "commit-sha": "265db2bd9db34524d9bec141882989214c03898a"
+        }
+      },
+      {
+        "name": "Dazzle Lifeless Devotion",
+        "preview": "Dazzle Lifeless Devotion.webp",
+        "file": "Dazzle Lifeless Devotion.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
