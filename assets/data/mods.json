@@ -8394,7 +8394,11 @@
             "type": "preview",
             "url": "assets/previews/heroes/Luna Moon Stalker.mp4"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784146575,
+          "commit-sha": "d5c4601a8f0906d911ee7e269e92c304b4af5ec0"
+        }
       }
     ],
     "shaders": [
