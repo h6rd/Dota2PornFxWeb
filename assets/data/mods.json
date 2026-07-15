@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Luna Moon Stalker",
+      "category": "heroes"
+    },
+    {
       "name": "Dazzle Lifeless Devotion",
       "category": "heroes"
     },
@@ -8372,6 +8376,25 @@
           "date": 1783992034,
           "commit-sha": "181b287a77416c81216ebbc5694097e349d9b642"
         }
+      },
+      {
+        "name": "Luna Moon Stalker",
+        "preview": "Luna Moon Stalker.webp",
+        "file": "Luna Moon Stalker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          },
+          {
+            "type": "preview",
+            "url": "assets/previews/heroes/Luna Moon Stalker.mp4"
+          }
+        ]
       }
     ],
     "shaders": [
