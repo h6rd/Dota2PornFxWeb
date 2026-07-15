@@ -19,6 +19,18 @@
   </p>
 </div>
 
+
+<details>
+<summary><b>🌐 Mirror Status</b></summary>
+  
+| Mirror | Status | Response time |
+| :--- | :---: | :---: |
+| **[Vercel](https://d2pfx.vercel.app/)** | [![Vercel Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Fvercel%2Fuptime.json)](https://h6rd.github.io/Dota2PornFxStatus/) | [![Vercel Response Time](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Fvercel%2Fresponse-time.json)](https://h6rd.github.io/Dota2PornFxStatus/) |
+| **[Netlify](https://d2pfx.netlify.app/)** | [![Netlify Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Fnetlify%2Fuptime.json)](https://h6rd.github.io/Dota2PornFxStatus/) | [![Netlify Response Time](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Fnetlify%2Fresponse-time.json)](https://h6rd.github.io/Dota2PornFxStatus/) |
+| **[Render](https://d2pfx.onrender.com/)** | [![Render Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Frender%2Fuptime.json)](https://h6rd.github.io/Dota2PornFxStatus/) | [![Render Response Time](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fh6rd%2FDota2PornFxStatus%2Fmaster%2Fapi%2Frender%2Fresponse-time.json)](https://h6rd.github.io/Dota2PornFxStatus/) |
+
+</details>
+
 ---
 
 ## What is Dota2PornFx?
