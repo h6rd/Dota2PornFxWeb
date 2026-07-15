@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lion Immortal Chimera",
+      "category": "heroes"
+    },
+    {
       "name": "Luna Moon Stalker",
       "category": "heroes"
     },
@@ -8399,6 +8403,21 @@
           "date": 1784146575,
           "commit-sha": "d5c4601a8f0906d911ee7e269e92c304b4af5ec0"
         }
+      },
+      {
+        "name": "Lion Immortal Chimera",
+        "preview": "Lion Immortal Chimera.webp",
+        "file": "Lion Immortal Chimera.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
