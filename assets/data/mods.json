@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Monkey King Water Demon",
+      "category": "heroes"
+    },
+    {
       "name": "Lion Immortal Chimera",
       "category": "heroes"
     },
@@ -8421,6 +8425,15 @@
         "meta": {
           "date": 1784149189,
           "commit-sha": "cb4ce3c6e0132a9c2c3e63e17d7969dc3ef9769a"
+        }
+      },
+      {
+        "name": "Monkey King Water Demon",
+        "preview": "Monkey King Water Demon.webp",
+        "file": "Monkey King Water Demon.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
         }
       }
     ],
