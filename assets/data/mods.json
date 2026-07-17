@@ -8501,7 +8501,11 @@
             "type": "author",
             "url": "Mopsyara"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Invoker Depths Covenant",
@@ -8516,7 +8520,11 @@
             "type": "author",
             "url": "Mopsyara"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Luna Winged Sentinel",
@@ -8531,7 +8539,11 @@
             "type": "author",
             "url": "Mopsyara"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Bare Hoodwink",
@@ -8546,7 +8558,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Lina Crystal Empress",
@@ -8561,7 +8577,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       }
     ],
     "shaders": [
@@ -14956,7 +14976,11 @@
             "type": "author",
             "url": "VPKDota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Purple TI8 Cursor",
@@ -14967,7 +14991,11 @@
             "type": "author",
             "url": "VPKDota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Purple Demon Cursor",
@@ -14978,7 +15006,11 @@
             "type": "author",
             "url": "VPKDota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       }
     ],
     "fonts": [
@@ -15339,7 +15371,11 @@
             "type": "author",
             "url": "buba43"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Nature Prophet Taunt",
@@ -15354,7 +15390,11 @@
             "type": "author",
             "url": "buba43"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       },
       {
         "name": "Witch Doctor Death Ward",
@@ -15369,7 +15409,11 @@
             "type": "author",
             "url": "buba43"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784328560,
+          "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
+        }
       }
     ],
     "sounds": [
