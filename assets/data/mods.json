@@ -1,6 +1,50 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Demon Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Purple TI8 Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Purple Bts3 Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Witch Doctor Death Ward",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Nature Prophet Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Kunkka Sailor Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Lina Crystal Empress",
+      "category": "heroes"
+    },
+    {
+      "name": "Bare Hoodwink",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Winged Sentinel",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Depths Covenant",
+      "category": "heroes"
+    },
+    {
+      "name": "Dragon Knight Burning Scale",
+      "category": "heroes"
+    },
+    {
       "name": "Winter Quarteros Curios",
       "category": "ti-bp-effects"
     },
@@ -8443,6 +8487,81 @@
           "date": 1784176630,
           "commit-sha": "6b51d749210a153518f39363b48c327e597a2f73"
         }
+      },
+      {
+        "name": "Dragon Knight Burning Scale",
+        "preview": "Dragon Knight Burning Scale.webp",
+        "file": "Dragon Knight Burning Scale.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ]
+      },
+      {
+        "name": "Invoker Depths Covenant",
+        "preview": "Invoker Depths Covenant.webp",
+        "file": "Invoker Depths Covenant.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ]
+      },
+      {
+        "name": "Luna Winged Sentinel",
+        "preview": "Luna Winged Sentinel.webp",
+        "file": "Luna Winged Sentinel.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ]
+      },
+      {
+        "name": "Bare Hoodwink",
+        "preview": "Bare Hoodwink.webp",
+        "file": "Bare Hoodwink.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Lina Crystal Empress",
+        "preview": "Lina Crystal Empress.webp",
+        "file": "Lina Crystal Empress.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14827,6 +14946,39 @@
           "date": 1778939730,
           "commit-sha": "47feb0cdd277504435de19eee93062de9c9d3b99"
         }
+      },
+      {
+        "name": "Purple Bts3 Cursor",
+        "preview": "Purple Bts3 Cursor.webp",
+        "file": "Purple Bts3 Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
+      },
+      {
+        "name": "Purple TI8 Cursor",
+        "preview": "Purple TI8 Cursor.webp",
+        "file": "Purple TI8 Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
+      },
+      {
+        "name": "Purple Demon Cursor",
+        "preview": "Purple Demon Cursor.webp",
+        "file": "Purple Demon Cursor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
       }
     ],
     "fonts": [
@@ -15173,6 +15325,51 @@
           "date": 1782990543,
           "commit-sha": "5dc40a9b78ec7735f9f604998ed6ef96212c5c86"
         }
+      },
+      {
+        "name": "Kunkka Sailor Taunt",
+        "preview": "Kunkka Sailor Taunt.webp",
+        "file": "Kunkka Sailor Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Kunkka Sailor Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ]
+      },
+      {
+        "name": "Nature Prophet Taunt",
+        "preview": "Nature Prophet Taunt.webp",
+        "file": "Nature Prophet Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Nature Prophet Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ]
+      },
+      {
+        "name": "Witch Doctor Death Ward",
+        "preview": "Witch Doctor Death Ward.webp",
+        "file": "Witch Doctor Death Ward.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Witch Doctor Death Ward.mp4"
+          },
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ]
       }
     ],
     "sounds": [
