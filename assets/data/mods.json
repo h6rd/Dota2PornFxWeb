@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ru GLaDOS",
+      "category": "mega-kill"
+    },
+    {
       "name": "Purple Demon Cursor",
       "category": "cursors"
     },
@@ -12355,6 +12359,17 @@
           "date": 1777663732,
           "commit-sha": "49fc042d614f0ad1abc5df3f0a0146c1543a81e3"
         }
+      },
+      {
+        "name": "Ru GLaDOS",
+        "preview": "portal.webp",
+        "file": "pak26_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "Vpotokwe"
+          }
+        ]
       }
     ],
     "announcers": [
