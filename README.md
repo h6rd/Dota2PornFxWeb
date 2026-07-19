@@ -18,7 +18,6 @@
     </a>
   </p>
 </div>
----
 
 ## What is Dota2PornFx?
 
