@@ -13766,7 +13766,10 @@
         "linkType": "source-code",
         "linkUrl": "https://github.com/h6rd/Patcher",
         "guideId": "warning",
-        "guideType": "not-safe"
+        "guideType": "not-safe",
+        "meta": {
+          "imageMissing": true
+        }
       },
       {
         "name": "Compiler",
@@ -15563,7 +15566,11 @@
             "type": "author",
             "url": "Senop"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784454434,
+          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
+        }
       },
       {
         "name": "Dark Carnival Serega Pirat",
@@ -15578,7 +15585,11 @@
             "type": "author",
             "url": "Senop"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784454434,
+          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
+        }
       },
       {
         "name": "Dark Carnival Team Spirit",
@@ -15593,7 +15604,11 @@
             "type": "author",
             "url": "Senop"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784454434,
+          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
+        }
       },
       {
         "name": "Dark Carnival Dora",
@@ -15608,7 +15623,11 @@
             "type": "author",
             "url": "Senop"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784454434,
+          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
+        }
       }
     ],
     "packs": [
