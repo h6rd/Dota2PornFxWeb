@@ -13759,7 +13759,7 @@
       },
       {
         "name": "Patcher - Weather & More",
-        "preview": "Patcher.webp",
+        "preview": "patcher.webp",
         "multiPlatform": true,
         "fileWin": "https://github.com/h6rd/Patcher/releases/latest/download/Patcher-Win.zip",
         "fileLinux": "https://github.com/h6rd/Patcher/releases/latest/download/Patcher-Linux.zip",
