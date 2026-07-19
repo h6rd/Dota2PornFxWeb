@@ -23,6 +23,7 @@ const GITHUB_TOOLS = [
   { repo: 'h6rd/VPKTool', name: 'VPKTool', icon: 'bi-tools', hasLinux: true },
   { repo: 'h6rd/VPKMerge', name: 'VPKMerge', icon: 'bi-union', hasLinux: true },
   { repo: 'h6rd/Compiler', name: 'Compiler', icon: 'bi-cpu', hasLinux: false },
+  { repo: 'h6rd/Patcher', name: 'Patcher', icon: 'bi-bandaid', hasLinux: true },
 ];
 
 const numberFormat = (n) => new Intl.NumberFormat('en-US').format(n);

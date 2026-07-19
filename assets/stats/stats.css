@@ -624,7 +624,7 @@
 /* tools */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 16px;
 }
@@ -632,13 +632,14 @@
 .tool-card {
   background: var(--md-sys-color-surface-container);
   border-radius: var(--stat-radius-lg);
-  padding: 22px;
+  padding: 16px;
   box-shadow: var(--stat-shadow);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   text-decoration: none;
   transition: transform 0.35s var(--stat-ease), box-shadow 0.35s var(--stat-ease);
+  aspect-ratio: 1 / 1;
 }
 
 .tool-card:hover {
@@ -676,7 +677,7 @@
 }
 
 .tool-card-number {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--md-sys-color-primary);
   font-variant-numeric: tabular-nums;
@@ -835,6 +836,10 @@
 
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    aspect-ratio: auto;
   }
 
   .stats-hero {
