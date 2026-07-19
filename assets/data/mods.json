@@ -13767,9 +13767,7 @@
         "linkUrl": "https://github.com/h6rd/Patcher",
         "guideId": "warning",
         "guideType": "not-safe",
-        "meta": {
-          "imageMissing": true
-        }
+        "meta": {}
       },
       {
         "name": "Compiler",
