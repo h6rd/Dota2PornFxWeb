@@ -5060,6 +5060,155 @@ m3e-loading-indicator {
   color: var(--md-sys-color-on-surface);
 }
 
+/* md3 select */
+.md3-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.md3-select-native {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.md3-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  outline: none;
+  text-align: left;
+}
+
+.md3-select-trigger:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.md3-select-trigger:focus-visible {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.md3-select.open .md3-select-trigger {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.md3-select-trigger-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.md3-select-chevron {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-select.open .md3-select-chevron {
+  transform: rotate(180deg);
+}
+
+.md3-select-menu {
+  position: fixed;
+  z-index: 10050;
+  min-width: 160px;
+  background: var(--md-sys-color-surface-container-highest);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  opacity: 0;
+  transform: scaleY(0.85) translateY(-6px);
+  transform-origin: top center;
+  pointer-events: none;
+  transition: opacity 0.16s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.16s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.md3-select-menu.above {
+  transform-origin: bottom center;
+  transform: scaleY(0.85) translateY(6px);
+}
+
+.md3-select-menu.open {
+  opacity: 1;
+  transform: scaleY(1) translateY(0);
+  pointer-events: all;
+}
+
+.md3-select-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  max-height: inherit;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.md3-select-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.md3-select-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease;
+}
+
+.md3-select-menu-item:hover,
+.md3-select-menu-item.focused {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.md3-select-menu-item.selected {
+  color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-secondary-container);
+}
+
+.md3-select-menu-item.selected:hover,
+.md3-select-menu-item.selected.focused {
+  background: color-mix(in srgb, var(--md-sys-color-secondary-container) 80%, var(--md-sys-color-on-surface) 10%);
+}
+
+.md3-select-menu-item .md3-select-menu-check {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  opacity: 0;
+}
+
+.md3-select-menu-item.selected .md3-select-menu-check {
+  opacity: 1;
+}
+
 .settings-path-input {
   width: 100%;
   box-sizing: border-box;
