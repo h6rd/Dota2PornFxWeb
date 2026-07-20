@@ -29,6 +29,10 @@ jobs:
             --bundle --format=esm --minify \
             --outfile=assets/m3e/loading-indicator.bundle.js
 
+          npx esbuild node_modules/@m3e/web/dist/shape.js \
+            --bundle --format=esm --minify \
+            --outfile=assets/m3e/shape.bundle.js  
+
       - name: Get m3e version
         id: version
         run: |
