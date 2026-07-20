@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Unlock Hidden Profile Animations",
+      "category": "other"
+    },
+    {
       "name": "Immortal Queen of Pain",
       "category": "heroes"
     },
@@ -12732,6 +12740,17 @@
           "date": 1778331617,
           "commit-sha": "1376e60b6c8f0be59a5cda9e245994b88afd1a52"
         }
+      },
+      {
+        "name": "Unlock Hidden Profile Animations",
+        "preview": "Unlock Hidden Animations.webp",
+        "file": "pak17_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "DotaMiniProfile"
+          }
+        ]
       }
     ],
     "river": [
@@ -13862,6 +13881,21 @@
         "preview": "VPKEdit.webp",
         "file": "https://github.com/craftablescience/VPKEdit",
         "type": "guide"
+      },
+      {
+        "name": "Dota 2 Mod Manager",
+        "preview": "Dota 2 Mod Manager.webp",
+        "file": "https://github.com/TheFleece/dota2-mod-manager/releases/download/v1.0.1/Dota-2-Mod-Manager-Setup-1.0.1.exe",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/TheFleece/dota2-mod-manager"
+          },
+          {
+            "type": "author",
+            "url": "Fleece"
+          }
+        ]
       }
     ],
     "optimization": [

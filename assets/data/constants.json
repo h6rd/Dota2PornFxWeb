@@ -425,7 +425,8 @@
         "Gabe Shopkeeper",
         "Techies Mine Radius",
         "Tower re-aggro Radius",
-        "Purple Click"
+        "Purple Click",
+        "Unlock Hidden Profile Animations"
       ]
     }
   },
@@ -716,7 +717,9 @@
     "Mopsyara": "https://t.me/+AM_aLD0x2TcwY2My",
     "Vpotokwe": "https://steamcommunity.com/sharedfiles/filedetails/?id=3766199700",
     "Senop": "https://t.me/senopD2",
-    "Arthas": "https://t.me/+as5Zl_HLsIgyMjk6"
+    "Arthas": "https://t.me/+as5Zl_HLsIgyMjk6",
+    "DotaMiniProfile": "https://t.me/DotaMiniProfile",
+    "Fleece": "https://github.com/TheFleece"
   },
   "MOD_SENDER": {
     "dabaqz": "",
