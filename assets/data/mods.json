@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Queen of Pain",
+      "category": "heroes"
+    },
+    {
+      "name": "Vengful Spirit Seraph Scion",
+      "category": "heroes"
+    },
+    {
       "name": "Pusia",
       "category": "fonts"
     },
@@ -8614,6 +8622,36 @@
           "date": 1784328560,
           "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
         }
+      },
+      {
+        "name": "Vengful Spirit Seraph Scion",
+        "preview": "Vengful Spirit Seraph Scion.webp",
+        "file": "Vengful Spirit Seraph Scion.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Queen of Pain",
+        "preview": "Immortal Queen of Pain.webp",
+        "file": "Immortal Queen of Pain.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
