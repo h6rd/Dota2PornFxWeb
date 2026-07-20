@@ -8636,7 +8636,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784517259,
+          "commit-sha": "fa511ede28dd26d2691c9d790145d91550b29e16"
+        }
       },
       {
         "name": "Immortal Queen of Pain",
@@ -8651,7 +8655,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784517108,
+          "commit-sha": "eb550af87cd9007fdf414f5b6cad961624019393"
+        }
       }
     ],
     "shaders": [
