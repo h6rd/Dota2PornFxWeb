@@ -1,15 +1,20 @@
 const FILES_BASE_URL = (() => {
     const host = window.location.hostname;
+    if (host === 'hrdq.codeberg.page' || host.endsWith('.hrdq.codeberg.page')) {
+        return 'https://codeberg.org/hrdq/Dota2PornFxWeb/raw/branch/main';
+    }
+
     const localHosts = [
         'd2pfx.onrender.com',
         'd2pfx.netlify.app',
-        'hrdq.codeberg.page',
         'd2pfx.vercel.app',
         '127.0.0.1',
     ];
+
     if (localHosts.some(h => host === h || host.endsWith('.' + h))) {
-        return '';
+        return ''; 
     }
+
     return 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
 })();
 
