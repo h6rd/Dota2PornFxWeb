@@ -76,6 +76,23 @@ jobs:
             --exclude='compressed' \
             . dist/
 
+      - name: Minify HTML, CSS, and JS
+        run: |
+          npm install -g esbuild html-minifier-terser
+          find dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" \) | while read -r file; do
+            if [[ "$file" == *"assets/m3e"* ]] || [[ "$file" == *"assets/lz-string.min.js" ]] || [[ "$file" == *"assets/zip.min.js" ]]; then
+              echo "skip: $file"
+              continue
+            fi
+            
+            echo "Minification: $file"
+            if [[ "$file" == *.html ]]; then
+              html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true "$file" -o "$file"
+            else
+              esbuild "$file" --minify --allow-overwrite --outfile="$file"
+            fi
+          done
+
       - name: Show build summary
         run: |
           echo "===== BUILD SUMMARY ====="
@@ -114,4 +131,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git commit -m "deploy: update codeberg pages [skip ci]"
-          git push --force https://hrdq:${CODEBERG_TOKEN}@codeberg.org/hrdq/Dota2PornFxWeb.git pages    
+          git push --force https://hrdq:${CODEBERG_TOKEN}@codeberg.org/hrdq/Dota2PornFxWeb.git pages

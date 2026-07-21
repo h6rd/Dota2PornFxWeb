@@ -141,6 +141,7 @@ Also make sure you are not using the **Misc Optimization** mod from Minify, as i
 | Contributor | Contribution |
 |-------------|--------------|
 | [Egezenn](https://github.com/Egezenn) | Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) |
+| [Fleece](https://github.com/TheFleece) | Creation of the [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) |
 
 ---
 
