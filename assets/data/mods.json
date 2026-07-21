@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Deep Hornet",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Abyss Revenge",
+      "category": "heroes"
+    },
+    {
+      "name": "Rubick Ancient Magus",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -127,342 +139,6 @@
     {
       "name": "Dota2PornFxWiki",
       "category": "news"
-    },
-    {
-      "name": "Axe Immortal Bootblack Brawler",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Dark Carnival",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker MaryDay",
-      "category": "heroes"
-    },
-    {
-      "name": "Templar Assassin Royal Squire",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Immortal Felidae",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Jakiro",
-      "category": "heroes"
-    },
-    {
-      "name": "Disruptor Tandem Storm",
-      "category": "heroes"
-    },
-    {
-      "name": "Crimson Phantom Lancer",
-      "category": "heroes"
-    },
-    {
-      "name": "Devotions of Dragonus Atos II",
-      "category": "item-effects"
-    },
-    {
-      "name": "Crimson Anti-Mage",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Slardar",
-      "category": "heroes"
-    },
-    {
-      "name": "Devotions of Dragonus Atos",
-      "category": "item-effects"
-    },
-    {
-      "name": "Profile Graffiti & Phrases",
-      "category": "other"
-    },
-    {
-      "name": "Spectre Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Drow Ranger Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Queen of Pain Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Razor Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Phantom Adven Blademail White",
-      "category": "item-effects"
-    },
-    {
-      "name": "Phantom Adven Blademail Red",
-      "category": "item-effects"
-    },
-    {
-      "name": "Devotions of Dragonus Phylactery",
-      "category": "item-effects"
-    },
-    {
-      "name": "Devotions of Dragonus Phylactery II",
-      "category": "item-effects"
-    },
-    {
-      "name": "Earthshaker Gold Blink Dagger",
-      "category": "item-effects"
-    },
-    {
-      "name": "Earthshaker Blink Dagger",
-      "category": "item-effects"
-    },
-    {
-      "name": "IO Madame Scrio",
-      "category": "heroes"
-    },
-    {
-      "name": "Kez Tensura",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Dark Divine",
-      "category": "heroes"
-    },
-    {
-      "name": "Crystal Maiden Ice Blossom",
-      "category": "hero-items"
-    },
-    {
-      "name": "Crystal Maiden Yulsarias Glacier",
-      "category": "hero-items"
-    },
-    {
-      "name": "Crystal Maiden Yulsarias Mantle",
-      "category": "hero-items"
-    },
-    {
-      "name": "Morphling Darktrench Tears",
-      "category": "heroes"
-    },
-    {
-      "name": "Illidan Stormrage",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Beneath the Seventh",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Malenia",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Aquamarine Naga Siren",
-      "category": "heroes"
-    },
-    {
-      "name": "High Five Crownfall",
-      "category": "high-five"
-    },
-    {
-      "name": "High Five Aghanim Puppet",
-      "category": "high-five"
-    },
-    {
-      "name": "Phantom Assassin Yor Forger",
-      "category": "heroes"
-    },
-    {
-      "name": "Tinker Alexander Prime",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Purple Avilliva",
-      "category": "heroes"
-    },
-    {
-      "name": "Emblem Lsq Black Star",
-      "category": "emblems"
-    },
-    {
-      "name": "Juggernaut Script Honor",
-      "category": "heroes"
-    },
-    {
-      "name": "Metal Barrel Trees",
-      "category": "trees"
-    },
-    {
-      "name": "LowPoly Skull Trees",
-      "category": "trees"
-    },
-    {
-      "name": "Gravestones Trees",
-      "category": "trees"
-    },
-    {
-      "name": "LowPoly Stumps Trees",
-      "category": "trees"
-    },
-    {
-      "name": "Logs Trees",
-      "category": "trees"
-    },
-    {
-      "name": "Last Match",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Dark Carnival Radiant Creeps",
-      "category": "creeps"
-    },
-    {
-      "name": "Dark Carnival Dire Creeps",
-      "category": "creeps"
-    },
-    {
-      "name": "Dark Carnival Radiant Siege",
-      "category": "creeps"
-    },
-    {
-      "name": "Dark Carnival Dire Siege",
-      "category": "creeps"
-    },
-    {
-      "name": "Natures Prophet Allfather",
-      "category": "heroes"
-    },
-    {
-      "name": "Battle Pass 2022",
-      "category": "ti-bp-effects"
-    },
-    {
-      "name": "Lycan Blood Moon",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Eternal Harvest",
-      "category": "heroes"
-    },
-    {
-      "name": "Normis Rank Icons",
-      "category": "ranks"
-    },
-    {
-      "name": "Purple Icons",
-      "category": "item-icons"
-    },
-    {
-      "name": "Warcraft III / AllStars Voices",
-      "category": "sounds"
-    },
-    {
-      "name": "Terrorblade 666 Fractal Horns",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "White Items",
-      "category": "item-icons"
-    },
-    {
-      "name": "Pangolier Windward Rogue",
-      "category": "heroes"
-    },
-    {
-      "name": "Centaur Infernal Chieftain",
-      "category": "hero-items"
-    },
-    {
-      "name": "Centaur Infernal Cavalcade",
-      "category": "hero-items"
-    },
-    {
-      "name": "Centaur Infernal Menace",
-      "category": "hero-items"
-    },
-    {
-      "name": "Centaur Emerald Marauder",
-      "category": "heroes"
-    },
-    {
-      "name": "Centaur Chaos Chosen",
-      "category": "heroes"
-    },
-    {
-      "name": "Enigma Black Hole Kate",
-      "category": "sounds"
-    },
-    {
-      "name": "Monkey King Staff of Gun-Yu",
-      "category": "hero-items"
-    },
-    {
-      "name": "Darkness Weaver",
-      "category": "heroes"
-    },
-    {
-      "name": "Monkey King Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Venomancer Peashooter",
-      "category": "heroes"
-    },
-    {
-      "name": "Cardboard Shadow Fiend",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade White Fractal Horns",
-      "category": "heroes"
-    },
-    {
-      "name": "Earth Spirit Slitehering Stone",
-      "category": "heroes"
-    },
-    {
-      "name": "Goffren Broodmother",
-      "category": "heroes"
-    },
-    {
-      "name": "Northern Winds",
-      "category": "music"
-    },
-    {
-      "name": "Purple Kez",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Anti-Mage",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Primal Beast",
-      "category": "heroes"
-    },
-    {
-      "name": "Undying Hallows Within",
-      "category": "hero-items"
-    },
-    {
-      "name": "Undying Grim Reformation",
-      "category": "heroes"
-    },
-    {
-      "name": "Venomancer Poisonous Assassin",
-      "category": "heroes"
-    },
-    {
-      "name": "Mars Progenitors Bane",
-      "category": "hero-items"
     }
   ],
   "modsData": {
@@ -8668,6 +8344,51 @@
           "date": 1784517108,
           "commit-sha": "eb550af87cd9007fdf414f5b6cad961624019393"
         }
+      },
+      {
+        "name": "Rubick Ancient Magus",
+        "preview": "Rubick Ancient Magus.webp",
+        "file": "Rubick Ancient Magus.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Morphling Abyss Revenge",
+        "preview": "Morphling Abyss Revenge.webp",
+        "file": "Morphling Abyss Revenge.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
+      },
+      {
+        "name": "Tinker Deep Hornet",
+        "preview": "Tinker Deep Hornet.webp",
+        "file": "Tinker Deep Hornet.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13889,7 +13610,7 @@
       {
         "name": "Dota 2 Mod Manager",
         "preview": "Dota 2 Mod Manager.webp",
-        "file": "https://github.com/TheFleece/dota2-mod-manager/releases/download/v1.0.1/Dota-2-Mod-Manager-Setup-1.0.1.exe",
+        "file": "https://github.com/TheFleece/dota2-mod-manager/releases/latest/download/Dota-2-Mod-Manager-Setup.exe",
         "links": [
           {
             "type": "source-code",
