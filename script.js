@@ -1655,7 +1655,6 @@ const NAV_RAIL_ICONS = {
     'fonts': 'font_download',
     'weather': 'partly_cloudy_day',
     'high-five': 'back_hand',
-    'versus-screens': 'splitscreen',
     'optimization': 'speed',
     'sites': 'language',
     'tools': 'build',
