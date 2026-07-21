@@ -8358,7 +8358,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784606581,
+          "commit-sha": "6410ee32539e571e5d7d3ab61933991cbf80a149"
+        }
       },
       {
         "name": "Morphling Abyss Revenge",
@@ -8373,7 +8377,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784606581,
+          "commit-sha": "6410ee32539e571e5d7d3ab61933991cbf80a149"
+        }
       },
       {
         "name": "Tinker Deep Hornet",
@@ -8388,7 +8396,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784606581,
+          "commit-sha": "6410ee32539e571e5d7d3ab61933991cbf80a149"
+        }
       }
     ],
     "shaders": [
