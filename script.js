@@ -1,15 +1,6 @@
 const FILES_BASE_URL = (() => {
     const host = window.location.hostname;
-
-    const codebergRawHosts = [
-        'hrdq.codeberg.page',
-    ];
-    const codebergRawSuffix = '.pages.dev';
-
-    if (
-        codebergRawHosts.some(h => host === h || host.endsWith('.' + h)) ||
-        host.endsWith(codebergRawSuffix)
-    ) {
+    if (host === 'hrdq.codeberg.page' || host.endsWith('.hrdq.codeberg.page')) {
         return 'https://codeberg.org/hrdq/Dota2PornFxWeb/raw/branch/main';
     }
 
@@ -21,7 +12,7 @@ const FILES_BASE_URL = (() => {
     ];
 
     if (localHosts.some(h => host === h || host.endsWith('.' + h))) {
-        return '';
+        return ''; 
     }
 
     return 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
