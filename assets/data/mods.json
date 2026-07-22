@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spirit Breaker Beer",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Phantom Lancer Sun Warrior",
       "category": "heroes"
     },
@@ -59,10 +63,6 @@
     {
       "name": "Patcher - Weather & More",
       "category": "tools"
-    },
-    {
-      "name": "Spirit Breaker Beer",
-      "category": "sounds"
     },
     {
       "name": "Dark Carnival Serega Pirat",
@@ -15407,6 +15407,25 @@
           "date": 1784328560,
           "commit-sha": "2764773ca09e7722e0398a595c4166b601d331e6"
         }
+      },
+      {
+        "name": "Spirit Breaker Beer",
+        "preview": "Spirit Breaker Beer.webp",
+        "file": "Spirit Breaker Beer.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Spirit Breaker Beer.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Senop"
+          }
+        ],
+        "meta": {
+          "date": 1784454434,
+          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
+        }
       }
     ],
     "sounds": [
@@ -15503,25 +15522,6 @@
             "url": "Fr0dech"
           }
         ]
-      },
-      {
-        "name": "Spirit Breaker Beer",
-        "preview": "Spirit Breaker Beer.webp",
-        "file": "Spirit Breaker Beer.zip",
-        "links": [
-          {
-            "type": "preview",
-            "url": "assets/previews/sounds/Spirit Breaker Beer.mp4"
-          },
-          {
-            "type": "author",
-            "url": "Senop"
-          }
-        ],
-        "meta": {
-          "date": 1784454434,
-          "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
-        }
       },
       {
         "name": "Dark Carnival Serega Pirat",
