@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Crimson v2",
+      "category": "heroes"
+    },
+    {
+      "name": "Ursa Already Red",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Sven Already Red",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Axe Rip Your Head",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Spirit Breaker Beer",
       "category": "hero-sounds"
     },
@@ -8478,6 +8494,25 @@
           "date": 1784702480,
           "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
         }
+      },
+      {
+        "name": "Phantom Lancer Crimson v2",
+        "preview": "Phantom Lancer Crimson v2.webp",
+        "file": "Phantom Lancer Crimson v2.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "qizlik"
+          },
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15426,6 +15461,51 @@
           "date": 1784703279,
           "commit-sha": "f308366c18a7a79db2692d2f4af2b058f306db0b"
         }
+      },
+      {
+        "name": "Axe Rip Your Head",
+        "preview": "Axe Rip Your Head.webp",
+        "file": "Axe Rip Your Head.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Axe Rip Your Head.mp4"
+          },
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ]
+      },
+      {
+        "name": "Sven Already Red",
+        "preview": "Sven Already Red.webp",
+        "file": "Sven Already Red.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Sven Already Red.mp4"
+          },
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ]
+      },
+      {
+        "name": "Ursa Already Red",
+        "preview": "Ursa Already Red.webp",
+        "file": "Ursa Already Red.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Ursa Already Red.mp4"
+          },
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ]
       }
     ],
     "sounds": [
