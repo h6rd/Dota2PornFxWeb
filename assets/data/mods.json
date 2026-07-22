@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Sun Warrior",
+      "category": "heroes"
+    },
+    {
+      "name": "Doom Fallen Khorne",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Shaman Immortal Crimson",
+      "category": "heroes"
+    },
+    {
+      "name": "Lifestealer Golden Effects",
+      "category": "herofx"
+    },
+    {
+      "name": "Dummy In Profile",
+      "category": "other"
+    },
+    {
       "name": "Tinker Deep Hornet",
       "category": "heroes"
     },
@@ -8401,6 +8421,51 @@
           "date": 1784606581,
           "commit-sha": "6410ee32539e571e5d7d3ab61933991cbf80a149"
         }
+      },
+      {
+        "name": "Shadow Shaman Immortal Crimson",
+        "preview": "Shadow Shaman Immortal Crimson.webp",
+        "file": "Shadow Shaman Immortal Crimson.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Doom Fallen Khorne",
+        "preview": "Doom Fallen Khorne.webp",
+        "file": "Doom Fallen Khorne.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Lancer Sun Warrior",
+        "preview": "Phantom Lancer Sun Warrior.webp",
+        "file": "Phantom Lancer Sun Warrior.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12488,6 +12553,19 @@
           "date": 1784562310,
           "commit-sha": "9fa863f3bfa2753f2679ca9702e0921fc91c3922"
         }
+      },
+      {
+        "name": "Dummy In Profile",
+        "preview": "Dummy In Profile.webp",
+        "file": "pak18_dir.vpk",
+        "guideId": "dummy-info",
+        "guideType": "info",
+        "links": [
+          {
+            "type": "author",
+            "url": "DotaMiniProfile"
+          }
+        ]
       }
     ],
     "river": [
@@ -15095,6 +15173,21 @@
           "date": 1779386733,
           "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
         }
+      },
+      {
+        "name": "Lifestealer Golden Effects",
+        "preview": "Lifestealer Golden Effects.webp",
+        "file": "Lifestealer Golden Effects.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "hero-sounds": [

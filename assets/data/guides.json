@@ -865,6 +865,35 @@
       ]
     }
   },
+  "dummy-info": {
+    "title": "Dummy Info",
+    "content": {
+      "en": [
+        {
+          "title": "Display",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "To display this in your profile, select <fcode>Card</fcode>"
+            }
+          ]
+        }
+      ],
+      "ru": [
+        {
+          "title": "Отображение",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "Для отображения в профиле выберите вариант <fcode>карточка</fcode>"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "compiler": {
     "title": "Compiler Guide",
     "content": {
