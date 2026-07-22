@@ -8435,7 +8435,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784702480,
+          "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
+        }
       },
       {
         "name": "Doom Fallen Khorne",
@@ -8450,7 +8454,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784702480,
+          "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
+        }
       },
       {
         "name": "Phantom Lancer Sun Warrior",
@@ -8465,7 +8473,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784702480,
+          "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
+        }
       }
     ],
     "shaders": [
@@ -12565,7 +12577,11 @@
             "type": "author",
             "url": "DotaMiniProfile"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784702480,
+          "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
+        }
       }
     ],
     "river": [
@@ -15187,7 +15203,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784702480,
+          "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
+        }
       }
     ],
     "hero-sounds": [
