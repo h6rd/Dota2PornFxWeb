@@ -8512,7 +8512,11 @@
             "type": "author",
             "url": "dikiychyvak"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784711927,
+          "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
+        }
       }
     ],
     "shaders": [
@@ -15475,7 +15479,11 @@
             "type": "author",
             "url": "qizlik"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784711927,
+          "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
+        }
       },
       {
         "name": "Sven Already Red",
@@ -15490,7 +15498,11 @@
             "type": "author",
             "url": "qizlik"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784711927,
+          "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
+        }
       },
       {
         "name": "Ursa Already Red",
@@ -15505,7 +15517,11 @@
             "type": "author",
             "url": "qizlik"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1784711927,
+          "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
+        }
       }
     ],
     "sounds": [
