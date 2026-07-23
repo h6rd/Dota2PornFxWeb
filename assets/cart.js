@@ -1966,21 +1966,23 @@ async function packAndDownload() {
        Dota2PornFX Installation Guide
 ╚══════════════════════════════════════════╝
 
+RU - https://d2pfxwiki.pages.dev/ru/install.html
+EN - https://d2pfxwiki.pages.dev/en/install.html
+
 RU WINDOWS
 ═══════════
-Запустите Auto-Install.bat. Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
-
 1. Откройте папку mods
 2. Запустите VPKMerge.exe и дождитесь окончания
-3. Переместите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
-   • Для русского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian
-   • Для английского: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_123
-   • Для англ Minify: C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota_minify
-- Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
+3. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
+4. Переместите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
+   • Для русского: dota 2 beta\\game\\dota_russian
+   • Для английского: dota 2 beta\\game\\dota_123
+   • Для англ Minify: dota 2 beta\\game\\dota_minify
+- Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с файлами pak10.
 - Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - Если вы добавили шрифт, у вас будет папка "Название Font" в ней вы должны запустить Install.bat (если bat не работает, прочитайте guide.txt внутри папки)
 
-4. Добавьте в параметры запуска игры:
+5. Добавьте в параметры запуска игры:
    • Для русского: -language russian
    • Для английского: -language 123
    • Для англ Minify: -language minify
@@ -1990,14 +1992,14 @@ RU WINDOWS
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
 Если у вас происходит краш игры с ошибкой: Failed to read 16 bytes или pak10.vpk corrupt
-Не используйте Auto-Install и VPKMerge, выполните ручную установку:
+Не используйте VPKMerge, выполните ручную установку:
 1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
 2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
 3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
-Удаление (скрипт Uninstall.bat автоматизирует первый пункт)
+Удаление
 1. Удаление модов
    • Удалите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) из папки языка игры, которую вы использовали
    • Если использовали ландшафт, удалите папку maps из папки языка игры, которую вы использовали
@@ -2009,30 +2011,29 @@ RU WINDOWS
 
 EN WINDOWS
 ═══════════
-Run Auto-Install.bat. If you encounter any issues while using it or if it doesn't work, use the manual method below.
-
 1. Open the mods folder
 2. Run VPKMerge.exe and wait until it finishes
-3. Create folder dota_123 in C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\
-4. Put all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
+3. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
+4. Create folder dota_123 in game folder
+5. Put all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - If you added a font, you will have the folder "Name Font" in it, you must run Install.bat (if bat does not work, read guide.txt inside the folder)
-5. Add to launch options: -language 123 (or "-language minify" if you're using it)
+6. Add to launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
 
 If your game crashes with the error: Failed to read 16 bytes or pak10.vpk corrupt
-Do not use Auto-Install or VPKMerge, use manual installation:
+Do not use VPKMerge, use manual installation:
 1. Rename each duplicate .vpk file to the format pakXX_dir.vpk (use numbers from 02 to 99: pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk, etc.)
 2. Files that contain "!" in their name must have higher priority (assign them a lower number, e.g. pak02_dir.vpk)
 3. Move all .vpk files to the game language folder (dota_123 or another)
 Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
 If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file
 
-Uninstall (Uninstall.bat automates the first step)
+Uninstall
 1. Removing mods
    • Delete all pak10_ files (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) from the game language folder you used
    • If you used a terrain, delete the maps folder from the game language folder you used
@@ -2044,20 +2045,19 @@ Uninstall (Uninstall.bat automates the first step)
 
 RU LINUX
 ═════════
-Запустите Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh) Если при использовании возникают проблемы или он не работает, используйте ручной способ ниже.
-
 1. Откройте папку mods в терминале
 2. Сделайте VPKMerge исполняемым: chmod +x VPKMerge
 3. Запустите VPKMerge: ./VPKMerge
-4. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
-   • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
-   • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
-   • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
+4. Откройте Steam, пкм по Dota2, посмотреть локальные файлы, перейдите в папку game
+5. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
+   • Для русского: game/dota_russian
+   • Для английского: game/dota_123
+   • Для англ Minify: game/dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
 
-4. Добавьте в параметры запуска игры:
+6. Добавьте в параметры запуска игры:
    • Для русского: -language russian
    • Для английского: -language 123
    • Для англ Minify: -language minify
@@ -2067,14 +2067,14 @@ RU LINUX
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
 
 Если у вас происходит краш игры с ошибкой: Failed to read 16 bytes или pak10.vpk corrupt
-Не используйте Auto-Install и VPKMerge, выполните ручную установку:
+Не используйте VPKMerge, выполните ручную установку:
 1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
 2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
 3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
-Удаление (скрипт Uninstall.sh автоматизирует первый пункт)
+Удаление
 1. Удаление модов
    • Удалите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) из папки языка игры, которую вы использовали
    • Если использовали ландшафт, удалите папку maps из папки языка игры, которую вы использовали
@@ -2086,31 +2086,30 @@ RU LINUX
 
 EN LINUX
 ═════════
-Run Auto-Install.sh (chmod +x Auto-Install.sh ➜ ./Auto-Install.sh). If you encounter any issues or it doesn't work, use the manual method below.
-
 1. Open the mods folder in terminal
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
-4. Create folder dota_123 in Steam/steamapps/common/dota 2 beta/game/
-5. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
+4. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
+5. Create folder dota_123 in game folder
+6. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - If you added a font, you will have a folder "Name Font", read the guide.txt file inside the folder
-6. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
+7. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
 Specify which mods are displaying incorrectly and attach the full list of installed mods from the Mods.txt file
 
 If your game crashes with the error: Failed to read 16 bytes or pak10.vpk corrupt
-Do not use Auto-Install or VPKMerge, use manual installation:
+Do not use VPKMerge, use manual installation:
 1. Rename each duplicate .vpk file to the format pakXX_dir.vpk (use numbers from 02 to 99: pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk, etc.)
 2. Files that contain "!" in their name must have higher priority (assign them a lower number, e.g. pak02_dir.vpk)
 3. Move all .vpk files to the game language folder (dota_123 or another)
 Keep in mind the limit: maximum number in name is 99, files exceeding this limit will not work and may cause to crash
 If you have more mods than the limit: remove the extra ones or merge them separately using VPKMerge and add them as a single file
 
-Uninstall (Uninstall.sh automates the first step)
+Uninstall
 1. Removing mods
    • Delete all pak10_ files (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) from the game language folder you used
    • If you used a terrain, delete the maps folder from the game language folder you used
@@ -2122,15 +2121,16 @@ Uninstall (Uninstall.sh automates the first step)
 
 RU MACOS
 ═════════
-1. Переместите все файлы из папки mods в папку с языком игры:
-   • Для русского: Steam/steamapps/common/dota 2 beta/game/dota_russian
-   • Для английского: Steam/steamapps/common/dota 2 beta/game/dota_123
-   • Для англ Minify: Steam/steamapps/common/dota 2 beta/game/dota_minify
+1. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
+2. Переместите все файлы из папки mods в папку с языком игры:
+   • Для русского: dota_russian
+   • Для английского: dota_123
+   • Для англ Minify: dota_minify
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с другими vpk файлами
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
 
-4. Добавьте в параметры запуска игры:
+3. Добавьте в параметры запуска игры:
    • Для русского: -language russian
    • Для английского: -language 123
    • Для англ Minify: -language minify
@@ -2150,13 +2150,14 @@ RU MACOS
 
 EN MACOS
 ═════════
-1. Create folder dota_123 in Steam/steamapps/common/dota 2 beta/game/
-2. Move all files from the mods folder to dota_123 folder
+1. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
+2. Create folder dota_123 in game folder
+3. Move all files from the mods folder to dota_123 folder
 - If you selected a terrain, you will have a maps folder; move it to the same game language folder along with the other vpk files.
 - If you added a cursor, you will have a folder named "Cursor Name"; move the contents of the cursor folder to: Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor
 - If you added a font, you will have a folder named "Font Name"; please read the guide.txt file inside that folder.
 
-3. Add to your game launch options: -language 123
+4. Add to your game launch options: -language 123
 
 If you encounter any issues, please message us on Discord: https://discord.gg/PBvG8D9MxT
 Please specify which mods are displaying incorrectly and attach Mods.txt file.
@@ -2168,7 +2169,8 @@ Uninstallation
 2. Uninstalling fonts:
    • Delete the folder Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts and verify the integrity of the game files in Steam.
 3. Uninstalling cursors:
-   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of the game files in Steam.`;
+   • Download the default cursor from the website and install it, or manually delete the folder Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor and verify the integrity of the game files in Steam.
+`;
 
         await addToRoot(`${archiveName}/Guide.txt`, new Blob([guideText], { type: 'text/plain' }));
         addLog('Guide added', 'success');
@@ -2229,18 +2231,22 @@ Uninstallation
         }
     }    
 
-        if (selectedOS === 'windows') {
-            addLog('Generating install script...', 'info');
-            await addToRoot(`${archiveName}/Auto-Install.bat`, new Blob([generateWindowsBat(langFolder, customDotaPath)], { type: 'text/plain' }));
-            addLog('Auto-Install.bat added', 'success');
-            await addToRoot(`${archiveName}/Uninstall.bat`, new Blob([generateWindowsUninstallBat(langFolder, customDotaPath)], { type: 'text/plain' }));
-            addLog('Uninstall.bat added', 'success');
-        } else if (selectedOS === 'linux') {
-            addLog('Generating install script...', 'info');
-            await addToRoot(`${archiveName}/Auto-Install.sh`, new Blob([generateLinuxSh(langFolder, customDotaPath)], { type: 'text/plain' }));
-            addLog('Auto-Install.sh added', 'success');
-            await addToRoot(`${archiveName}/Uninstall.sh`, new Blob([generateLinuxUninstallSh(langFolder, customDotaPath)], { type: 'text/plain' }));
-            addLog('Uninstall.sh added', 'success');
+        const GENERATE_INSTALL_UNINSTALL_SCRIPTS = false;
+
+        if (GENERATE_INSTALL_UNINSTALL_SCRIPTS) {
+            if (selectedOS === 'windows') {
+                addLog('Generating install script...', 'info');
+                await addToRoot(`${archiveName}/Auto-Install.bat`, new Blob([generateWindowsBat(langFolder, customDotaPath)], { type: 'text/plain' }));
+                addLog('Auto-Install.bat added', 'success');
+                await addToRoot(`${archiveName}/Uninstall.bat`, new Blob([generateWindowsUninstallBat(langFolder, customDotaPath)], { type: 'text/plain' }));
+                addLog('Uninstall.bat added', 'success');
+            } else if (selectedOS === 'linux') {
+                addLog('Generating install script...', 'info');
+                await addToRoot(`${archiveName}/Auto-Install.sh`, new Blob([generateLinuxSh(langFolder, customDotaPath)], { type: 'text/plain' }));
+                addLog('Auto-Install.sh added', 'success');
+                await addToRoot(`${archiveName}/Uninstall.sh`, new Blob([generateLinuxUninstallSh(langFolder, customDotaPath)], { type: 'text/plain' }));
+                addLog('Uninstall.sh added', 'success');
+            }
         }
 
         addLog('Finalizing archive...', 'archive');
