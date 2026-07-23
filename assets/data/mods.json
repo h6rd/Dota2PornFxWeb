@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Arcana Purple",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Crimson v2",
       "category": "heroes"
     },
@@ -7806,25 +7810,6 @@
         }
       },
       {
-        "name": "Juggernaut Script Honor",
-        "preview": "Juggernaut Script Honor.webp",
-        "file": "Juggernaut Script Honor.zip",
-        "tags": {
-          "effects": false,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "dikiychyvak"
-          }
-        ],
-        "meta": {
-          "date": 1782816577,
-          "commit-sha": "3a23c0c996dcfc2aa878ad5fdb85dd53f0674218"
-        }
-      },
-      {
         "name": "Phantom Lancer Purple Avilliva",
         "preview": "Phantom Lancer Purple Avilliva.webp",
         "file": "Phantom Lancer Purple Avilliva.zip",
@@ -8517,6 +8502,21 @@
           "date": 1784711927,
           "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
         }
+      },
+      {
+        "name": "Juggernaut Arcana Purple",
+        "preview": "Juggernaut Arcana Purple.webp",
+        "file": "Juggernaut Arcana Purple.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11780,7 +11780,7 @@
       {
         "name": "Ancient Dragon King",
         "preview": "Ancient Dragon King.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Ancient Dragon King.zip",
         "links": [
           {
             "type": "source",
@@ -11795,7 +11795,7 @@
       {
         "name": "Frostivus Ancient",
         "preview": "Frostivus Ancient.webp",
-        "file": "pak74_dir.vpk",
+        "file": "Frostivus Ancient.zip",
         "meta": {
           "date": 1756467101,
           "commit-sha": "133325a5bc702a6fc29c3ef856619af8612e7d65"
@@ -15253,7 +15253,7 @@
       {
         "name": "Largo Serega Pirat",
         "preview": "Largo Serega Pirat.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Largo Serega Pirat.zip",
         "links": [
           {
             "type": "preview",
@@ -15268,7 +15268,7 @@
       {
         "name": "Largo Serega Pirat v2",
         "preview": "Largo Serega Pirat v2.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Largo Serega Pirat v2.zip",
         "links": [
           {
             "type": "preview",
@@ -15283,7 +15283,7 @@
       {
         "name": "Witch Doctor True Maledict",
         "preview": "Witch Doctor True Maledict.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Witch Doctor True Maledict.zip",
         "links": [
           {
             "type": "preview",
@@ -15298,7 +15298,7 @@
       {
         "name": "Naga Siren Serega Pirat",
         "preview": "Naga Siren Serega Pirat.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Naga Siren Serega Pirat.zip",
         "links": [
           {
             "type": "preview",
@@ -15317,7 +15317,7 @@
       {
         "name": "Lion Taunt",
         "preview": "Lion Taunt.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Lion Taunt.zip",
         "links": [
           {
             "type": "preview",
@@ -15336,7 +15336,7 @@
       {
         "name": "Shadow Shaman Taunt",
         "preview": "Shadow Shaman Taunt.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Shadow Shaman Taunt.zip",
         "links": [
           {
             "type": "preview",
@@ -15355,7 +15355,7 @@
       {
         "name": "Undying Taunt",
         "preview": "Undying Taunt.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Undying Taunt.zip",
         "links": [
           {
             "type": "preview",
