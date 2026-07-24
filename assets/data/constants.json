@@ -386,17 +386,11 @@
   ],
   "NOTES_DATA": [
     {
-      "type": "update",
-      "icon": "new_releases",
-      "title": "Update",
-      "text": "The new VPKMerge is being used, it creates several files - all of them need to be moved to the language folder / Используется новый VPKMerge, он создает несколько файлов - все их надо перенести в папку с языком"
-    },
-    {
-      "type": "warning",
-      "icon": "error",
-      "title": "Known Issue",
-      "text": "When combining certain anime mods in the cart, you may encounter issue \"FATAL ERROR: Failed to read 16 bytes\", please use the anime mods separately from the cart"
-    }    
+      "type": "info",
+      "icon": "info",
+      "title": "Custom Languages Blocked",
+      "text": "Valve has blocked the use of custom languages (such as 123 or minify). Only official languages, such as russian, are now fully supported. If you want to use mods while playing with English dota, please use the fix created by <a href=\"https://github.com/Egezenn\"><span id=\"tg\">Egezenn</span></a>. You can download it <a href=\"https://discord.com/channels/984169062735151174/1017117542029996032/1530182978460979262\"><span id=\"tg\">here</span></a> - link to <a href=\"https://discord.com/invite/9867CPv7cy\"><span id=\"tg\">Minify Server</span></a>. Note: This fix requires <a href=\"https://github.com/Egezenn/dota2-minify/releases/Minify-v1.14rc5\"><span id=\"tg\">minify v1.14rc5</span></a> to function properly. All mods must be placed in the `dota_russian` folder, even if you want the English version of Dota."
+    }
   ],
   "categoryNotes": {
     "item-effects": {
