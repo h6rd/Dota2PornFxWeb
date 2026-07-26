@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Blue Click",
+      "category": "other"
+    },
+    {
+      "name": "CS 1.6 Mega-Kill",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Ember Spirit Vanishing Flame",
+      "category": "heroes"
+    },
+    {
+      "name": "Bloody Spectre",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Arcana Purple",
       "category": "heroes"
     },
@@ -55,10 +75,6 @@
     {
       "name": "Rubick Ancient Magus",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Unlock Hidden Profile Animations",
@@ -8521,6 +8537,36 @@
           "date": 1784792710,
           "commit-sha": "f1947a618d214ee857fa6529214507b29d41becb"
         }
+      },
+      {
+        "name": "Bloody Spectre",
+        "preview": "Bloody Spectre.webp",
+        "file": "Bloody Spectre.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ]
+      },
+      {
+        "name": "Ember Spirit Vanishing Flame",
+        "preview": "Ember Spirit Vanishing Flame.webp",
+        "file": "Ember Spirit Vanishing Flame.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Dota2VPK"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12309,6 +12355,17 @@
           "date": 1763202238,
           "commit-sha": "0289c15ec67bf03cddceb6871d8cae0f50ba523d"
         }
+      },
+      {
+        "name": "CS 1.6 Mega-Kill",
+        "preview": "CS 1.6 Mega-Kill.webp",
+        "file": "CS 1.6 Mega-Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
       }
     ],
     "announcers": [
@@ -12625,6 +12682,17 @@
           "date": 1784702480,
           "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
         }
+      },
+      {
+        "name": "Blue Click",
+        "preview": "Blue Click.webp",
+        "file": "pak19_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "river": [
