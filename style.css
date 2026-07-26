@@ -2663,7 +2663,7 @@ body.compact-category-view .carousel-track .card .add-to-cart-btn span:not(.mate
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 5fr 0.8fr 0.8fr;
+  grid-template-columns: 4fr 0.8fr 0.8fr 0.8fr;
   gap: 40px 48px;
   padding: 48px 0 36px;
 }
@@ -2756,6 +2756,14 @@ body.compact-category-view .carousel-track .card .add-to-cart-btn span:not(.mate
 .footer-links-social li a i {
   font-size: 14px;
   flex-shrink: 0;
+}
+
+.footer-link-icon {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 @keyframes footer-ping {
@@ -5871,7 +5879,7 @@ m3e-loading-indicator {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 32px 36px;
   }
 
