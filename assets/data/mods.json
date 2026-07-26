@@ -8534,8 +8534,8 @@
           }
         ],
         "meta": {
-          "date": 1784792710,
-          "commit-sha": "f1947a618d214ee857fa6529214507b29d41becb"
+          "date": 1785081533,
+          "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
         }
       },
       {
@@ -8551,7 +8551,11 @@
             "type": "author",
             "url": "qizlik"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785081533,
+          "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
+        }
       },
       {
         "name": "Ember Spirit Vanishing Flame",
@@ -8566,7 +8570,11 @@
             "type": "author",
             "url": "Dota2VPK"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785081533,
+          "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
+        }
       }
     ],
     "shaders": [
@@ -12365,7 +12373,11 @@
             "type": "author",
             "url": "VPKDota"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785081533,
+          "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
+        }
       }
     ],
     "announcers": [
@@ -12692,7 +12704,11 @@
             "type": "author",
             "url": "NahuiToSay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785081533,
+          "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
+        }
       }
     ],
     "river": [
