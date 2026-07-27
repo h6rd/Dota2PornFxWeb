@@ -1966,9 +1966,6 @@ async function packAndDownload() {
        Dota2PornFX Installation Guide
 ╚══════════════════════════════════════════╝
 
-RU - https://d2pfxwiki.pages.dev/ru/install.html
-EN - https://d2pfxwiki.pages.dev/en/install.html
-
 RU WINDOWS
 ═══════════
 1. Откройте папку mods
@@ -1976,16 +1973,13 @@ RU WINDOWS
 3. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
 4. Переместите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: dota 2 beta\\game\\dota_russian
-   • Для английского: dota 2 beta\\game\\dota_123
-   • Для англ Minify: dota 2 beta\\game\\dota_minify
+   • Для английского: используйте фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с файлами pak10.
 - Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - Если вы добавили шрифт, у вас будет папка "Название Font" в ней вы должны запустить Install.bat (если bat не работает, прочитайте guide.txt внутри папки)
 
 5. Добавьте в параметры запуска игры:
    • Для русского: -language russian
-   • Для английского: -language 123
-   • Для англ Minify: -language minify
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
 Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
@@ -1995,7 +1989,7 @@ RU WINDOWS
 Не используйте VPKMerge, выполните ручную установку:
 1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
 2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
-3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
+3. Переместите все .vpk файлы в папку языка игры (dota_russia)
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
@@ -2014,12 +2008,13 @@ EN WINDOWS
 1. Open the mods folder
 2. Run VPKMerge.exe and wait until it finishes
 3. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
-4. Create folder dota_123 in game folder
-5. Put all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files in the folder dota_123 (If you are using Minify, put vpk in dota_minify folder)
+4. Create folder dota_russian in game folder
+5. Put all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files in the folder dota_russian
+6. Use fix by Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have the folder "Name Cursor" in it, you must run Install.bat (if bat does not work, move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - If you added a font, you will have the folder "Name Font" in it, you must run Install.bat (if bat does not work, read guide.txt inside the folder)
-6. Add to launch options: -language 123 (or "-language minify" if you're using it)
+6. Add to launch options: -language russian
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
@@ -2051,16 +2046,13 @@ RU LINUX
 4. Откройте Steam, пкм по Dota2, посмотреть локальные файлы, перейдите в папку game
 5. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: game/dota_russian
-   • Для английского: game/dota_123
-   • Для англ Minify: game/dota_minify
+   • Для английского: фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
 
 6. Добавьте в параметры запуска игры:
    • Для русского: -language russian
-   • Для английского: -language 123
-   • Для англ Minify: -language minify
 
 При использовании VPKMerge могут возникнуть проблемы с отображением некоторых модов или героев
 Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
@@ -2070,7 +2062,7 @@ RU LINUX
 Не используйте VPKMerge, выполните ручную установку:
 1. Переименуйте каждый повторяющийся .vpk файл в формат pakXX_dir.vpk (Используйте номера от 02 до 99 (pak02_dir.vpk, pak03_dir.vpk, pak10_dir.vpk и т.д.))
 2. Файлы, в названии которых есть "!", должны иметь более высокий приоритет (Дайте им меньший номер (например pak02_dir.vpk))
-3. Переместите все .vpk файлы в папку языка игры (dota_russian или другую)
+3. Переместите все .vpk файлы в папку языка игры (dota_russian)
 Учитывайте лимит: Максимальное число в названии 99, файлы после этого лимита не работают и могут вызывать краш
 Если модов больше лимита: Удалите лишние или объедините их отдельно через VPKMerge и добавьте как один файл
 
@@ -2090,12 +2082,13 @@ EN LINUX
 2. Make VPKMerge executable: chmod +x VPKMerge
 3. Run VPKMerge: ./VPKMerge
 4. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
-5. Create folder dota_123 in game folder
-6. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_123 folder (If you are using Minify, put vpk in dota_minify folder)
+5. Create folder dota_russian in game folder
+6. Move all pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk etc) files to dota_russian folder
+7. Use fix by Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - If you chosen terrain, you will have a folder "maps" it should also be moved to the language folder together with pak10_dir.vpk
 - If you added a cursor, you will have a folder "Name Cursor", move the contents of the cursor folder to Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - If you added a font, you will have a folder "Name Font", read the guide.txt file inside the folder
-7. Add to Dota 2 launch options: -language 123 (or "-language minify" if you're using it)
+7. Add to Dota 2 launch options: -language russian
 
 When using VPKMerge, some mods or heroes may not display correctly
 If you encounter this issue, please contact me on Discord: https://discord.gg/PBvG8D9MxT
@@ -2124,16 +2117,13 @@ RU MACOS
 1. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
 2. Переместите все файлы из папки mods в папку с языком игры:
    • Для русского: dota_russian
-   • Для английского: dota_123
-   • Для англ Minify: dota_minify
+   • Для английского: используйте фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с другими vpk файлами
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
 
 3. Добавьте в параметры запуска игры:
    • Для русского: -language russian
-   • Для английского: -language 123
-   • Для англ Minify: -language minify
 
 Если вы столкнулись с такой проблемой, пожалуйста, напишите в Discord: https://discord.gg/PBvG8D9MxT
 Укажите, какие моды отображаются некорректно, и прикрепите полный список установленных модов из файла Mods.txt
@@ -2151,20 +2141,21 @@ RU MACOS
 EN MACOS
 ═════════
 1. Open Steam, right-click on Dota 2, select “Browse Local Files,” and navigate to the “game” folder
-2. Create folder dota_123 in game folder
-3. Move all files from the mods folder to dota_123 folder
+2. Create folder dota_russian in game folder
+3. Move all files from the mods folder to dota_russian folder
+4. Use fix by Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
 - If you selected a terrain, you will have a maps folder; move it to the same game language folder along with the other vpk files.
 - If you added a cursor, you will have a folder named "Cursor Name"; move the contents of the cursor folder to: Steam/steamapps/common/dota 2 beta/game/dota/resource/cursor
 - If you added a font, you will have a folder named "Font Name"; please read the guide.txt file inside that folder.
 
-4. Add to your game launch options: -language 123
+5. Add to your game launch options: -language russian
 
 If you encounter any issues, please message us on Discord: https://discord.gg/PBvG8D9MxT
 Please specify which mods are displaying incorrectly and attach Mods.txt file.
 
 Uninstallation
 1. Uninstalling mods:
-   • Delete all vpk files from the dota_123 folder.
+   • Delete all vpk files from the dota_russian folder.
    • If you used a terrain, delete the maps folder.
 2. Uninstalling fonts:
    • Delete the folder Steam/steamapps/common/dota 2 beta/game/dota/panorama/fonts and verify the integrity of the game files in Steam.

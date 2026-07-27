@@ -5,6 +5,30 @@
       "category": "tools"
     },
     {
+      "name": "Hoodwink Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "IO Relocate Rocket",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Bounty Hunter Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Bane Sleep Mimimi",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Terrorblade Cursed Metamorphosis",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Invoker Andrey Sun Strike",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Juggernaut Arcana Purple",
       "category": "heroes"
     },
@@ -15610,6 +15634,96 @@
           "date": 1784711927,
           "commit-sha": "b9f903f60039e4160db2ebc5b89b7fb0afcc38f4"
         }
+      },
+      {
+        "name": "Invoker Andrey Sun Strike",
+        "preview": "nothing.webp",
+        "file": "Invoker Andrey Sun Strike.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Invoker Andrey Sun Strike.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Senop"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade Cursed Metamorphosis",
+        "preview": "nothing.webp",
+        "file": "Terrorblade Cursed Metamorphosis.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Terrorblade Cursed Metamorphosis.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Senop"
+          }
+        ]
+      },
+      {
+        "name": "Bane Sleep Mimimi",
+        "preview": "nothing.webp",
+        "file": "Bane Sleep Mimimi.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Bane Sleep Mimimi.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
+      },
+      {
+        "name": "Bounty Hunter Taunt",
+        "preview": "Bounty Hunter Taunt.webp",
+        "file": "Bounty Hunter Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Bounty Hunter Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
+      },
+      {
+        "name": "IO Relocate Rocket",
+        "preview": "IO Relocate Rocket.webp",
+        "file": "IO Relocate Rocket.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/IO Relocate Rocket.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
+      },
+      {
+        "name": "Hoodwink Taunt",
+        "preview": "Hoodwink Taunt.webp",
+        "file": "Hoodwink Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Hoodwink Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
       }
     ],
     "sounds": [
