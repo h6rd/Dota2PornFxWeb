@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "Magic Sticks of Dynamite",
+      "category": "music"
+    },
+    {
       "name": "Immortal Kunkka",
       "category": "heroes"
     },
@@ -14768,6 +14772,13 @@
           "date": 1781266231,
           "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
         }
+      },
+      {
+        "name": "Magic Sticks of Dynamite",
+        "preview": "Magic Sticks of Dynamite.webp",
+        "file": "pak24_dir.vpk",
+        "linkType": "preview",
+        "linkUrl": "https://dota2.fandom.com/wiki/AWOLNATION_-_Magic_Sticks_of_Dynamite_Music_Pack"
       }
     ],
     "cursors": [
