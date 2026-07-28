@@ -5,6 +5,18 @@
       "category": "tools"
     },
     {
+      "name": "Immortal Kunkka",
+      "category": "heroes"
+    },
+    {
+      "name": "Anti-Mage Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Shadow Fiend Taunt",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Hoodwink Taunt",
       "category": "hero-sounds"
     },
@@ -8599,6 +8611,23 @@
           "date": 1785081533,
           "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
         }
+      },
+      {
+        "name": "Immortal Kunkka",
+        "preview": "Immortal Kunkka.webp",
+        "file": "Immortal Kunkka.zip",
+        "guideId": "set-info",
+        "guideType": "info",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15748,6 +15777,36 @@
           "date": 1785157081,
           "commit-sha": "3a0c22cab3530e2ee686726a4bb7088f531416b4"
         }
+      },
+      {
+        "name": "Shadow Fiend Taunt",
+        "preview": "Shadow Fiend Taunt.webp",
+        "file": "Shadow Fiend Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Shadow Fiend Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
+      },
+      {
+        "name": "Anti-Mage Taunt",
+        "preview": "Anti-Mage Taunt.webp",
+        "file": "Anti-Mage Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Anti-Mage Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
       }
     ],
     "sounds": [

@@ -894,6 +894,35 @@
       ]
     }
   },
+  "set-info": {
+    "title": "Set Info",
+    "content": {
+      "en": [
+        {
+          "title": "Display",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "There is a bug in this set, it cannot be fixed at the moment"
+            }
+          ]
+        }
+      ],
+      "ru": [
+        {
+          "title": "Отображение",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "В этом сете есть баг, на данный момент его нельзя пофиксить"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "compiler": {
     "title": "Compiler Guide",
     "content": {
