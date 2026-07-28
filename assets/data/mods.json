@@ -8627,7 +8627,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785232049,
+          "commit-sha": "6d946475ea0bceac112205cabb3563d4ea4ec962"
+        }
       }
     ],
     "shaders": [
@@ -15791,7 +15795,11 @@
             "type": "author",
             "url": "ПАПАНЯ НА ШАМАНЕ"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785232049,
+          "commit-sha": "6d946475ea0bceac112205cabb3563d4ea4ec962"
+        }
       },
       {
         "name": "Anti-Mage Taunt",
@@ -15806,7 +15814,11 @@
             "type": "author",
             "url": "ПАПАНЯ НА ШАМАНЕ"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1785232049,
+          "commit-sha": "6d946475ea0bceac112205cabb3563d4ea4ec962"
+        }
       }
     ],
     "sounds": [
