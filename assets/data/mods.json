@@ -14778,7 +14778,11 @@
         "preview": "Magic Sticks of Dynamite.webp",
         "file": "pak24_dir.vpk",
         "linkType": "preview",
-        "linkUrl": "https://dota2.fandom.com/wiki/AWOLNATION_-_Magic_Sticks_of_Dynamite_Music_Pack"
+        "linkUrl": "https://dota2.fandom.com/wiki/AWOLNATION_-_Magic_Sticks_of_Dynamite_Music_Pack",
+        "meta": {
+          "date": 1785236208,
+          "commit-sha": "083047a3d4753e721f54a2eaf91ca9d7bad543f3"
+        }
       }
     ],
     "cursors": [
