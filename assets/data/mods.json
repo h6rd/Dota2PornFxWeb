@@ -5,6 +5,14 @@
       "category": "tools"
     },
     {
+      "name": "Simple Dark Terrain Minify",
+      "category": "terrains"
+    },
+    {
+      "name": "Ogre Magi Taunt",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Magic Sticks of Dynamite",
       "category": "music"
     },
@@ -15834,6 +15842,21 @@
           "date": 1785232049,
           "commit-sha": "6d946475ea0bceac112205cabb3563d4ea4ec962"
         }
+      },
+      {
+        "name": "Ogre Magi Taunt",
+        "preview": "Ogre Magi Taunt.webp",
+        "file": "Ogre Magi Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Ogre Magi Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "ПАПАНЯ НА ШАМАНЕ"
+          }
+        ]
       }
     ],
     "sounds": [
