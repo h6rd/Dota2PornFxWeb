@@ -11207,7 +11207,11 @@
                   "type": "author",
                   "url": "Arthas"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1785412684,
+                "commit-sha": "b7950dbaa95dcf7221947e7528fc41475fe11ffc"
+              }
             }
           ]
         },
