@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Profile Graffiti & Phrases",
+      "category": "other"
+    },
+    {
       "name": "Naga Siren Snickers",
       "category": "hero-items"
     },
@@ -12690,6 +12694,12 @@
         "name": "Profile Graffiti & Phrases",
         "preview": "Profile Graffiti & Phrases.webp",
         "file": "pak10_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "DotaMiniProfile"
+          }
+        ],
         "meta": {
           "date": 1783625113,
           "commit-sha": "c5a42f6d699dbd64dc0757a9550864c3fa4da396"
