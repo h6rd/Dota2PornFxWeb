@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Compiler",
+      "category": "tools"
+    },
+    {
       "name": "Profile Graffiti & Phrases",
       "category": "other"
     },
@@ -6162,7 +6170,7 @@
         "links": [
           {
             "type": "author",
-            "url": "Haruma"
+            "url": "Arthas"
           }
         ],
         "meta": {
