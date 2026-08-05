@@ -1,12 +1,12 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "VPCF Editor",
-      "category": "tools"
-    },
-    {
       "name": "Shadow Fiend Arcana",
       "category": "heroes"
+    },
+    {
+      "name": "VPCF Editor",
+      "category": "tools"
     },
     {
       "name": "Compiler",
