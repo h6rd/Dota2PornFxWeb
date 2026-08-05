@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "VPCF Editor",
+      "category": "tools"
+    },
+    {
       "name": "Shadow Fiend Arcana",
       "category": "heroes"
     },
@@ -13968,6 +13972,21 @@
           {
             "type": "author",
             "url": "Fleece"
+          }
+        ]
+      },
+      {
+        "name": "VPCF Editor",
+        "preview": "VPCF Editor.webp",
+        "file": "https://github.com/h6rd/VPCF-Editor/releases/latest/download/VPCF-Editor-Win.zip",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/h6rd/VPCF-Editor"
+          },
+          {
+            "type": "preview",
+            "url": "assets/previews/tools/VPCF Editor.mp4"
           }
         ]
       }
