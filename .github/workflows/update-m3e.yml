@@ -31,7 +31,11 @@ jobs:
 
           npx esbuild node_modules/@m3e/web/dist/shape.js \
             --bundle --format=esm --minify \
-            --outfile=assets/m3e/shape.bundle.js  
+            --outfile=assets/m3e/shape.bundle.js
+
+          npx esbuild node_modules/@m3e/web/dist/nav-rail.js \
+            --bundle --format=esm --minify \
+            --outfile=assets/m3e/nav-rail.bundle.js
 
       - name: Get m3e version
         id: version
