@@ -3,20 +3,16 @@
   
   <h1>The largest free collection of Dota 2 customization mods</h1>
 
-  <p>
-    <a href="https://h6rd.github.io/Dota2PornFxWeb">
-      <img src="https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white" alt="Website">
-    </a>
-    <a href="https://d2pfxwiki.pages.dev/">
-      <img src="https://custom-icon-badges.demolab.com/badge/Wiki-404040?style=for-the-badge&logo=globe&logoColor=white" alt="Wiki">
-    </a>
-    <a href="https://t.me/dota2pornfx">
-      <img src="https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-    </a>
-    <a href="https://discord.com/invite/PBvG8D9MxT">
-      <img src="https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
-    </a>
-  </p>
+[![Website](https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white)](https://h6rd.github.io/Dota2PornFxWeb)
+&nbsp;
+[![Wiki](https://img.shields.io/badge/Wiki-404040?style=for-the-badge&logo=bookstack&logoColor=white)](https://d2pfxwiki.pages.dev/)
+&nbsp;
+[![Mirrors](https://img.shields.io/badge/Mirrors_Status-404040?style=for-the-badge&logo=github&logoColor=white)](https://github.com/h6rd/Dota2PornFxStatus#live-status)
+&nbsp;
+[![Telegram](https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dota2pornfx)
+&nbsp;
+[![Discord](https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/PBvG8D9MxT)
+
 </div>
 
 ## What is Dota2PornFx?
