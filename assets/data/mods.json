@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kez Zangetsu",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Arcana",
       "category": "heroes"
     },
@@ -8668,6 +8672,21 @@
           "date": 1785232049,
           "commit-sha": "6d946475ea0bceac112205cabb3563d4ea4ec962"
         }
+      },
+      {
+        "name": "Kez Zangetsu",
+        "preview": "Kez Zangetsu.webp",
+        "file": "Kez Zangetsu.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [
