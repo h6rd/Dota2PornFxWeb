@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tusk Shards Got Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Sniper Ultimate Headshot",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Mars Spear I Forgive You",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Axe Ultimate Clap Clap",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tormentor Amor",
+      "category": "sounds"
+    },
+    {
+      "name": "Dagon AWP",
+      "category": "sounds"
+    },
+    {
+      "name": "Amor Endscreen",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Anti-Mage Bloody Reaper",
+      "category": "heroes"
+    },
+    {
+      "name": "Flash Step Blink",
+      "category": "sounds"
+    },
+    {
+      "name": "Hirako Shinji Mars Arena",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Kez Zangetsu",
       "category": "heroes"
     },
@@ -8055,25 +8095,6 @@
         }
       },
       {
-        "name": "Crimson Anti-Mage",
-        "preview": "Crimson Anti-Mage.webp",
-        "file": "Crimson Anti-Mage.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "dikiychyvak"
-          }
-        ],
-        "meta": {
-          "date": 1783634434,
-          "commit-sha": "3e450f2a883307495b49e9b0ff6531d920adb8c2"
-        }
-      },
-      {
         "name": "Crimson Phantom Lancer",
         "preview": "Crimson Phantom Lancer.webp",
         "file": "Crimson Phantom Lancer.zip",
@@ -8691,6 +8712,25 @@
           "date": 1786154739,
           "commit-sha": "889aa40e9694dff46d8b7910577b569cafb48fb0"
         }
+      },
+      {
+        "name": "Anti-Mage Bloody Reaper",
+        "preview": "Anti-Mage Bloody Reaper.webp",
+        "file": "Anti-Mage Bloody Reaper.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=6qQrj8xcTVU"
+          },
+          {
+            "type": "author",
+            "url": "dikiychyvak"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13886,6 +13926,21 @@
           "date": 1783266827,
           "commit-sha": "139eda78a8219c731d927b83a90bfb7d33f98b9e"
         }
+      },
+      {
+        "name": "Amor Endscreen",
+        "preview": "Amor Endscreen.webp",
+        "file": "Amor Endscreen.zip",
+        "tags": {
+          "image": false,
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
       }
     ],
     "tools": [
@@ -15950,6 +16005,81 @@
           "date": 1785323948,
           "commit-sha": "6f4ce985d8db8b887c72b6ee9a7035339d496c95"
         }
+      },
+      {
+        "name": "Hirako Shinji Mars Arena",
+        "preview": "Hirako Shinji Mars Arena.webp",
+        "file": "Hirako Shinji Mars Arena.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Hirako Shinji Mars Arena.mp4"
+          },
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
+      },
+      {
+        "name": "Axe Ultimate Clap Clap",
+        "preview": "Axe Ultimate Clap Clap.webp",
+        "file": "Axe Ultimate Clap Clap.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Axe Ultimate Clap Clap.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
+      },
+      {
+        "name": "Mars Spear I Forgive You",
+        "preview": "Mars Spear I Forgive You.webp",
+        "file": "Mars Spear I Forgive You.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Mars Spear I Forgive You.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
+      },
+      {
+        "name": "Sniper Ultimate Headshot",
+        "preview": "Sniper Ultimate Headshot.webp",
+        "file": "Sniper Ultimate Headshot.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Sniper Ultimate Headshot.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
+      },
+      {
+        "name": "Tusk Shards Got Taunt",
+        "preview": "Tusk Shards Got Taunt.webp",
+        "file": "Tusk Shards Got Taunt.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Tusk Shards Got Taunt.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
       }
     ],
     "sounds": [
@@ -16103,6 +16233,51 @@
           "date": 1784454434,
           "commit-sha": "17f13d88a0a691fcbe73073c651aee6f15d87bb9"
         }
+      },
+      {
+        "name": "Flash Step Blink",
+        "preview": "Flash Step Blink.webp",
+        "file": "Flash Step Blink.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Flash Step Blink.mp4"
+          },
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
+      },
+      {
+        "name": "Dagon AWP",
+        "preview": "Dagon AWP.webp",
+        "file": "Dagon AWP.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Dagon AWP.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
+      },
+      {
+        "name": "Tormentor Amor",
+        "preview": "Tormentor Amor.webp",
+        "file": "Tormentor Amor.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Tormentor Amor.mp4"
+          },
+          {
+            "type": "author",
+            "url": "SuperStas0"
+          }
+        ]
       }
     ],
     "packs": [
