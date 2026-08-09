@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Immortal Fire",
+      "category": "heroes"
+    },
+    {
       "name": "Tusk Shards Got Taunt",
       "category": "hero-sounds"
     },
@@ -8735,6 +8739,21 @@
           "date": 1786250017,
           "commit-sha": "bf9422862ac0cc9ad90d28fed176155600881835"
         }
+      },
+      {
+        "name": "Phantom Lancer Immortal Fire",
+        "preview": "Phantom Lancer Immortal Fire.webp",
+        "file": "Phantom Lancer Immortal Fire.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
       }
     ],
     "shaders": [
