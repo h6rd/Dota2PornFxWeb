@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Vengeful Spirit Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Slark",
+      "category": "heroes"
+    },
+    {
+      "name": "Brewmaster Kishmesh Amor",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Naga Siren 42 Bratuha",
       "category": "heroes"
     },
@@ -8781,6 +8793,40 @@
           "date": 1786323752,
           "commit-sha": "221962ff4e045eddec605aea0acb2283fc846b75"
         }
+      },
+      {
+        "name": "Immortal Slark",
+        "preview": "Immortal Slark.webp",
+        "file": "Immortal Slark.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Vengeful Spirit Arcana",
+        "preview": "Vengeful Spirit Arcana.webp",
+        "file": "Vengeful Spirit Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          },
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -16154,6 +16200,21 @@
           "date": 1786250017,
           "commit-sha": "bf9422862ac0cc9ad90d28fed176155600881835"
         }
+      },
+      {
+        "name": "Brewmaster Kishmesh Amor",
+        "preview": "Brewmaster Kishmesh Amor.webp",
+        "file": "Brewmaster Kishmesh Amor.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Brewmaster Kishmesh Amor.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Aven"
+          }
+        ]
       }
     ],
     "sounds": [
