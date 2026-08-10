@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Naga Siren 42 Bratuha",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Immortal Fire",
       "category": "heroes"
     },
@@ -8758,6 +8762,21 @@
           "date": 1786302632,
           "commit-sha": "d1733916c3864f49f3d456fb010b4a85e1153d1e"
         }
+      },
+      {
+        "name": "Naga Siren 42 Bratuha",
+        "preview": "Naga Siren 42 Bratuha.webp",
+        "file": "Naga Siren 42 Bratuha.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [
