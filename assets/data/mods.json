@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kez 200",
+      "category": "hero-items"
+    },
+    {
       "name": "Vengeful Spirit Arcana",
       "category": "heroes"
     },
@@ -10913,6 +10917,21 @@
                 "date": 1770564664,
                 "commit-sha": "f43d796aa1bd00b9cc8746c62efbf1d2ab382da1"
               }
+            },
+            {
+              "name": "Kez 200",
+              "preview": "Kez 200.webp",
+              "file": "Kez 200.zip",
+              "tags": {
+                "effects": false,
+                "head": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "CeoMods"
+                }
+              ]
             }
           ]
         },
