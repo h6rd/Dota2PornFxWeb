@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Outworld Destroyer Ulqiorra",
+      "category": "heroes"
+    },
+    {
       "name": "Kez 200",
       "category": "hero-items"
     },
@@ -8839,6 +8843,21 @@
           "date": 1786405804,
           "commit-sha": "90e01ac80375811e697298d19966fb28a60db5d5"
         }
+      },
+      {
+        "name": "Outworld Destroyer Ulqiorra",
+        "preview": "Outworld Destroyer Ulqiorra.webp",
+        "file": "Outworld Destroyer Ulqiorra.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [
