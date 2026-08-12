@@ -8892,7 +8892,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786494204,
+          "commit-sha": "73a0b7f4afff7d419ea9e20dce80e69e6b727db8"
+        }
       },
       {
         "name": "Shadow Fiend Avice Mod",
@@ -8907,7 +8911,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786494204,
+          "commit-sha": "73a0b7f4afff7d419ea9e20dce80e69e6b727db8"
+        }
       },
       {
         "name": "Rubick Arcana",
@@ -8922,7 +8930,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786494204,
+          "commit-sha": "73a0b7f4afff7d419ea9e20dce80e69e6b727db8"
+        }
       },
       {
         "name": "Lina Fire Flame of Origin",
@@ -8937,7 +8949,11 @@
             "type": "author",
             "url": "CeoMods"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786494204,
+          "commit-sha": "73a0b7f4afff7d419ea9e20dce80e69e6b727db8"
+        }
       }
     ],
     "shaders": [
