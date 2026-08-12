@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Invoker Dark Artistry v3",
+      "category": "heroes"
+    },
+    {
       "name": "Lina Fire Flame of Origin",
       "category": "heroes"
     },
@@ -6169,7 +6173,7 @@
       },
       {
         "name": "Invoker Dark Artistry v3",
-        "preview": "Invoker Dark Artistry_V3.webp",
+        "preview": "Invoker Dark Artistry v3.webp",
         "file": "Invoker Dark Artistry v3.zip",
         "tags": {
           "effects": false,
@@ -6178,7 +6182,7 @@
         "links": [
           {
             "type": "author",
-            "url": "Haruma"
+            "url": "Arthas"
           }
         ],
         "meta": {
