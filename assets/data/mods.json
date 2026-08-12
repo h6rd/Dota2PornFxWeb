@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lina Fire Flame of Origin",
+      "category": "heroes"
+    },
+    {
+      "name": "Rubick Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Avice Mod",
+      "category": "heroes"
+    },
+    {
+      "name": "Ember Spirit Immortal Fire",
+      "category": "heroes"
+    },
+    {
       "name": "Outworld Destroyer Ulqiorra",
       "category": "heroes"
     },
@@ -8862,6 +8878,66 @@
           "date": 1786411790,
           "commit-sha": "011ff6d72df3715eced09a9d0e9c12b0f1b4d6f3"
         }
+      },
+      {
+        "name": "Ember Spirit Immortal Fire",
+        "preview": "Ember Spirit Immortal Fire.webp",
+        "file": "Ember Spirit Immortal Fire.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Shadow Fiend Avice Mod",
+        "preview": "Shadow Fiend Avice Mod.webp",
+        "file": "Shadow Fiend Avice Mod.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Rubick Arcana",
+        "preview": "Rubick Arcana.webp",
+        "file": "Rubick Arcana.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
+      },
+      {
+        "name": "Lina Fire Flame of Origin",
+        "preview": "Lina Fire Flame of Origin.webp",
+        "file": "Lina Fire Flame of Origin.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ]
       }
     ],
     "shaders": [
