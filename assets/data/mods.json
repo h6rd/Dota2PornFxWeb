@@ -8980,7 +8980,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786605629,
+          "commit-sha": "9fd653ff35827f7736e393520e6dcf030275647b"
+        }
       },
       {
         "name": "Sven Immortal Indomitable Legacy",
@@ -8995,7 +8999,11 @@
             "type": "author",
             "url": "CeoMods"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786605629,
+          "commit-sha": "9fd653ff35827f7736e393520e6dcf030275647b"
+        }
       }
     ],
     "shaders": [
