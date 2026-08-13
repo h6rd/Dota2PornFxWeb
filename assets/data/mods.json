@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sven Immortal Indomitable Legacy",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Dark Moonfall",
+      "category": "heroes"
+    },
+    {
       "name": "Invoker Dark Artistry v3",
       "category": "heroes"
     },
@@ -8958,6 +8966,36 @@
           "date": 1786494204,
           "commit-sha": "73a0b7f4afff7d419ea9e20dce80e69e6b727db8"
         }
+      },
+      {
+        "name": "Luna Dark Moonfall",
+        "preview": "Luna Dark Moonfall.webp",
+        "file": "Luna Dark Moonfall.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Sven Immortal Indomitable Legacy",
+        "preview": "Sven Immortal Indomitable Legacy.webp",
+        "file": "Sven Immortal Indomitable Legacy.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ]
       }
     ],
     "shaders": [
