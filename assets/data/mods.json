@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Attach Particles",
+      "category": "guides"
+    },
+    {
       "name": "Sven Immortal Indomitable Legacy",
       "category": "heroes"
     },
@@ -119,10 +127,6 @@
     {
       "name": "Naga Siren Snickers",
       "category": "hero-items"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Visage Azure Phantom",
@@ -14523,6 +14527,12 @@
         "name": "Models Guide",
         "preview": "Models Guide.webp",
         "file": "https://youtu.be/QJ993E-RB1s",
+        "type": "guide"
+      },
+      {
+        "name": "Attach Particles",
+        "preview": "Attach Particles.webp",
+        "file": "https://youtu.be/2T66IYouIpQ",
         "type": "guide"
       }
     ],
