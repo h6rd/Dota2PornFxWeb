@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "Ice Invoker",
+      "category": "heroes"
+    },
+    {
       "name": "Attach Particles",
       "category": "guides"
     },
@@ -9008,6 +9012,21 @@
           "date": 1786605629,
           "commit-sha": "9fd653ff35827f7736e393520e6dcf030275647b"
         }
+      },
+      {
+        "name": "Ice Invoker",
+        "preview": "Ice Invoker.webp",
+        "file": "Ice Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ]
       }
     ],
     "shaders": [
