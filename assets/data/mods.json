@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "Vengeful Spirit Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Avice Aura Invoker",
       "category": "heroes"
     },
@@ -63,10 +67,6 @@
     {
       "name": "Kez 200",
       "category": "hero-items"
-    },
-    {
-      "name": "Vengeful Spirit Arcana",
-      "category": "heroes"
     },
     {
       "name": "Immortal Slark",
