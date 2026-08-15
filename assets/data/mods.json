@@ -9099,7 +9099,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786768913,
+          "commit-sha": "3ffbc11283e504cf82a9087edeb2864960376cdd"
+        }
       }
     ],
     "shaders": [
