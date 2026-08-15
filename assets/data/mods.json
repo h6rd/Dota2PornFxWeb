@@ -9057,7 +9057,11 @@
             "type": "author",
             "url": "333"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786760922,
+          "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
+        }
       },
       {
         "name": "Morphling Immortal Electro Gem",
@@ -9072,7 +9076,11 @@
             "type": "author",
             "url": "CeoMods"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786760922,
+          "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
+        }
       }
     ],
     "shaders": [
@@ -12285,7 +12293,11 @@
                   "type": "author",
                   "url": "Ромчик"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1786760922,
+                "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
+              }
             }
           ]
         },
