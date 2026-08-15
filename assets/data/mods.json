@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "Avice Aura Invoker",
+      "category": "heroes"
+    },
+    {
       "name": "Morphling Immortal Electro Gem",
       "category": "heroes"
     },
@@ -9081,6 +9085,21 @@
           "date": 1786760922,
           "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
         }
+      },
+      {
+        "name": "Avice Aura Invoker",
+        "preview": "Avice Aura Invoker.webp",
+        "file": "Avice Aura Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
