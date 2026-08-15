@@ -122,7 +122,7 @@
       "emoji": "👤",
       "key": "heroes",
       "preview": "heroes.webp",
-      "guideId": "install-heroes"
+      "guideId": "install"
     },
     {
       "id": "terrains",
@@ -171,7 +171,7 @@
       "emoji": "👤",
       "key": "hero-items",
       "preview": "hero-items.webp",
-      "guideId": "install-heroes"
+      "guideId": "install"
     },
     {
       "id": "herofx",

@@ -186,42 +186,15 @@
       "en": [
         {
           "steps": [
-            "Download the required .vpk files",
-            "Create folder <code>dota_123</code> in <code>Steam\\steamapps\\common\\dota 2 beta\\game</code>",
-            "Put the downloaded mods in the folder <code>dota_123</code>",
-            "Add to the launch options: <code>-language 123</code>",
-            {
-              "icon": "info",
-              "text": "For other languages, use the relevant folders and launch options"
-            },
-            {
-              "icon": "info",
-              "text": "If you are using Minify, place the mods in the language folder selected in the Minify settings"
-            }
-          ],
-          "info": "You can also use <a href=\"https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs\" target=\"_blank\"><span id=\"tg\"><span id=\"tg\">VPKMerge</span></a> to combine the mods",
-          "infoPosition": "bottom",
-          "warning": "If files are duplicated, rename the repeated file to pak<span id=\"tg\">XX</span>_dir.vpk, where <span id=\"tg\">XX</span> is 10, 11, 12, 13...99."
+            "<a href=\"https://d2pfxwiki.pages.dev/en/install.html\" target=\"_blank\"><span id=\"tg\"><span id=\"tg\">CLICK ON ME</span></a>"
+          ]
         }
       ],
       "ru": [
         {
           "steps": [
-            "Скачайте нужные .vpk файлы или воспользуйтесь корзиной",
-            "Переместите их в папку <code>dota_russian</code> по пути <code>Steam\\steamapps\\common\\dota 2 beta\\game\\dota_russian\\</code>",
-            "В параметрах запуска добавьте: <code>-language russian</code>",
-            {
-              "icon": "info",
-              "text": "Для других языков используйте соответствующие папки и параметры запуска"
-            },
-            {
-              "icon": "info",
-              "text": "Если вы используете Minify, поместите моды в папку языка, выбранного в настройках Minify"
-            }
-          ],
-          "info": "Вы можете использовать <a href=\"https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs\" target=\"_blank\"><span id=\"tg\"><span id=\"tg\">VPKMerge</span></a> для объединения модов",
-          "infoPosition": "bottom",
-          "warning": "Если файлы дублируются, переименуйте повторяющийся файл в pak<span id=\"tg\">XX</span>_dir.vpk, где <span id=\"tg\">XX</span> = 10, 11, 12, 13...99"
+            "<a href=\"https://d2pfxwiki.pages.dev/ru/install.html\" target=\"_blank\"><span id=\"tg\"><span id=\"tg\">НАЖМИ НА МЕНЯ</span></a>"
+          ]
         }
       ]
     }
