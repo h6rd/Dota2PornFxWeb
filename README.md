@@ -32,19 +32,7 @@
 ---
 
 ## Installation Guide
-
-### Quick Start
-
-1. Download the `.vpk` file(s) you want
-2. Open **Steam**, **right-click on Dota 2** → **Manage** → **Browse local files**
-3. Navigate to the `game` folder
-4. Create the folder `dota_123` (or use)
-5. Place your downloaded mods into that folder
-6. Add `-language 123` to Dota 2 launch options in Steam
-
-> **Using multiple mods?** If file names conflict, rename duplicates to `pakXX_dir.vpk` (e.g. `pak10_dir.vpk`, `pak11_dir.vpk`, etc.). Alternatively, use **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)** to combine them into a single file.
-> 
-> **Using Minify?** Place mods in the `dota_minify` folder and add `-language minify` to launch options instead.
+https://d2pfxwiki.pages.dev/en/install.html
 
 ---
 
@@ -53,17 +41,7 @@
 
 <br>
 
-1. Скачайте нужный файл `.vpk`
-2. Откройте Steam, нажмите правой кнопкой мыши (ПКМ) по Dota 2 → Управление → Просмотреть локальные файлы.
-3. Перейдите в папку game
-4. Переместите vpk файлы в папку `dota_russian`
-5. Добавьте в параметры запуска: `-language russian`
-
-> **Если используете Minify** — положите моды в папку языка которая указана в Minify
-
-> **Важно:** Если имена файлов совпадают, переименуйте повторяющийся в `pakXX_dir.vpk`, где XX — 10, 11, 12... 99.
-> Для объединения нескольких модов в один файл используйте **[VPKMerge](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs)**.
-
+https://d2pfxwiki.pages.dev/ru/install.html
 </details>
 
 ---
