@@ -5,6 +5,18 @@
       "category": "tools"
     },
     {
+      "name": "Morphling Immortal Electro Gem",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Radiance",
+      "category": "hero-items"
+    },
+    {
+      "name": "Crimson Beastmaster",
+      "category": "heroes"
+    },
+    {
       "name": "Ice Invoker",
       "category": "heroes"
     },
@@ -9031,6 +9043,36 @@
           "date": 1786679674,
           "commit-sha": "58b050797d510e3ea4a7bdd37db710f76d0202d0"
         }
+      },
+      {
+        "name": "Crimson Beastmaster",
+        "preview": "Crimson Beastmaster.webp",
+        "file": "Crimson Beastmaster.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "333"
+          }
+        ]
+      },
+      {
+        "name": "Morphling Immortal Electro Gem",
+        "preview": "Morphling Immortal Electro Gem.webp",
+        "file": "Morphling Immortal Electro Gem.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12228,6 +12270,22 @@
                 "date": 1780226470,
                 "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
               }
+            },
+            {
+              "name": "Wraith King Radiance",
+              "preview": "Wraith King Radiance.webp",
+              "file": "Wraith King Radiance.zip",
+              "tags": {
+                "weapon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ]
             }
           ]
         },
