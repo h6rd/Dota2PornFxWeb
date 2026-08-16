@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "LenS Tinker",
+      "category": "heroes"
+    },
+    {
       "name": "Rubick Immortal Arcana",
       "category": "heroes"
     },
@@ -9122,6 +9126,10 @@
           {
             "type": "author",
             "url": "depex"
+          },
+          {
+            "type": "modded",
+            "url": "Arthas"
           }
         ],
         "meta": {
@@ -9250,6 +9258,21 @@
           "date": 1786875073,
           "commit-sha": "5417323f3ad6338634f8f44835726da6f38e086c"
         }
+      },
+      {
+        "name": "LenS Tinker",
+        "preview": "LenS Tinker.webp",
+        "file": "LenS Tinker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
