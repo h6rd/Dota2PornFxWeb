@@ -9126,10 +9126,6 @@
           {
             "type": "author",
             "url": "depex"
-          },
-          {
-            "type": "modded",
-            "url": "Arthas"
           }
         ],
         "meta": {
@@ -9228,7 +9224,7 @@
         "links": [
           {
             "type": "author",
-            "url": "cutyourhand"
+            "url": "frayserclick"
           }
         ],
         "meta": {
