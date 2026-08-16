@@ -9222,7 +9222,11 @@
             "type": "author",
             "url": "cutyourhand"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786875073,
+          "commit-sha": "5417323f3ad6338634f8f44835726da6f38e086c"
+        }
       },
       {
         "name": "Rubick Immortal Arcana",
@@ -9241,7 +9245,11 @@
             "type": "author",
             "url": "lansory"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786875073,
+          "commit-sha": "5417323f3ad6338634f8f44835726da6f38e086c"
+        }
       }
     ],
     "shaders": [
