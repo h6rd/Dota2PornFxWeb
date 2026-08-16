@@ -8866,8 +8866,8 @@
           }
         ],
         "meta": {
-          "date": 1786405804,
-          "commit-sha": "90e01ac80375811e697298d19966fb28a60db5d5"
+          "date": 1786848392,
+          "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
         }
       },
       {
@@ -9134,7 +9134,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786848392,
+          "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
+        }
       },
       {
         "name": "Juggernaut Bladeform Aesthete",
@@ -9149,7 +9153,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786848392,
+          "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
+        }
       },
       {
         "name": "Phantom Lancer Epileptick1d Mod",
@@ -9164,7 +9172,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786848392,
+          "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
+        }
       },
       {
         "name": "IO Benevolent Companion",
@@ -9183,7 +9195,11 @@
             "type": "modded",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786848392,
+          "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
+        }
       }
     ],
     "shaders": [
