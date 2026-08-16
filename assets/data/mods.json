@@ -9133,8 +9133,8 @@
           }
         ],
         "meta": {
-          "date": 1786768913,
-          "commit-sha": "3ffbc11283e504cf82a9087edeb2864960376cdd"
+          "date": 1786875994,
+          "commit-sha": "86b6013b7929d817e36e3a1487e521baadcf2d5f"
         }
       },
       {
@@ -9272,7 +9272,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786875994,
+          "commit-sha": "86b6013b7929d817e36e3a1487e521baadcf2d5f"
+        }
       }
     ],
     "shaders": [
