@@ -5,6 +5,26 @@
       "category": "tools"
     },
     {
+      "name": "IO Benevolent Companion",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Epileptick1d Mod",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Bladeform Aesthete",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Immortal Gold",
+      "category": "heroes"
+    },
+    {
+      "name": "Naga Siren 42 Bratuha",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Avice Mod",
       "category": "heroes"
     },
@@ -75,10 +95,6 @@
     {
       "name": "Brewmaster Kishmesh Amor",
       "category": "hero-sounds"
-    },
-    {
-      "name": "Naga Siren 42 Bratuha",
-      "category": "heroes"
     },
     {
       "name": "Phantom Lancer Immortal Fire",
@@ -9104,6 +9120,70 @@
           "date": 1786768913,
           "commit-sha": "3ffbc11283e504cf82a9087edeb2864960376cdd"
         }
+      },
+      {
+        "name": "Pudge Immortal Gold",
+        "preview": "Pudge Immortal Gold.webp",
+        "file": "Pudge Immortal Gold.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Juggernaut Bladeform Aesthete",
+        "preview": "Juggernaut Bladeform Aesthete.webp",
+        "file": "Juggernaut Bladeform Aesthete.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Lancer Epileptick1d Mod",
+        "preview": "Phantom Lancer Epileptick1d Mod.webp",
+        "file": "Phantom Lancer Epileptick1d Mod.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "IO Benevolent Companion",
+        "preview": "IO Benevolent Companion.webp",
+        "file": "IO Benevolent Companion.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "buba43"
+          },
+          {
+            "type": "modded",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
