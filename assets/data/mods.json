@@ -5,6 +5,14 @@
       "category": "tools"
     },
     {
+      "name": "Rubick Immortal Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Fire Puck",
+      "category": "heroes"
+    },
+    {
       "name": "IO Benevolent Companion",
       "category": "heroes"
     },
@@ -9200,6 +9208,40 @@
           "date": 1786848392,
           "commit-sha": "3354a1ded6a725fa28bdc1583018bf05abc82864"
         }
+      },
+      {
+        "name": "Fire Puck",
+        "preview": "Fire Puck.webp",
+        "file": "Fire Puck.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cutyourhand"
+          }
+        ]
+      },
+      {
+        "name": "Rubick Immortal Arcana",
+        "preview": "Rubick Immortal Arcana.webp",
+        "file": "Rubick Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          },
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
       }
     ],
     "shaders": [
