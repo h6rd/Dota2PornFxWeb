@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sven Holy Paladin",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -175,250 +179,6 @@
     {
       "name": "Naga Siren Snickers",
       "category": "hero-items"
-    },
-    {
-      "name": "Visage Azure Phantom",
-      "category": "heroes"
-    },
-    {
-      "name": "Simple Dark Terrain Minify",
-      "category": "terrains"
-    },
-    {
-      "name": "Ogre Magi Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Magic Sticks of Dynamite",
-      "category": "music"
-    },
-    {
-      "name": "Immortal Kunkka",
-      "category": "heroes"
-    },
-    {
-      "name": "Anti-Mage Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Shadow Fiend Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Hoodwink Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "IO Relocate Rocket",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Bounty Hunter Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Bane Sleep Mimimi",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Terrorblade Cursed Metamorphosis",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Invoker Andrey Sun Strike",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Juggernaut Arcana Purple",
-      "category": "heroes"
-    },
-    {
-      "name": "Blue Click",
-      "category": "other"
-    },
-    {
-      "name": "CS 1.6 Mega-Kill",
-      "category": "mega-kill"
-    },
-    {
-      "name": "Ember Spirit Vanishing Flame",
-      "category": "heroes"
-    },
-    {
-      "name": "Bloody Spectre",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Crimson v2",
-      "category": "heroes"
-    },
-    {
-      "name": "Ursa Already Red",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Sven Already Red",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Axe Rip Your Head",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Spirit Breaker Beer",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Phantom Lancer Sun Warrior",
-      "category": "heroes"
-    },
-    {
-      "name": "Doom Fallen Khorne",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Shaman Immortal Crimson",
-      "category": "heroes"
-    },
-    {
-      "name": "Lifestealer Golden Effects",
-      "category": "herofx"
-    },
-    {
-      "name": "Dummy In Profile",
-      "category": "other"
-    },
-    {
-      "name": "Tinker Deep Hornet",
-      "category": "heroes"
-    },
-    {
-      "name": "Morphling Abyss Revenge",
-      "category": "heroes"
-    },
-    {
-      "name": "Rubick Ancient Magus",
-      "category": "heroes"
-    },
-    {
-      "name": "Unlock Hidden Profile Animations",
-      "category": "other"
-    },
-    {
-      "name": "Immortal Queen of Pain",
-      "category": "heroes"
-    },
-    {
-      "name": "Vengeful Spirit Seraph Scion",
-      "category": "heroes"
-    },
-    {
-      "name": "Pusia",
-      "category": "fonts"
-    },
-    {
-      "name": "Old Storm Spirit",
-      "category": "heroes"
-    },
-    {
-      "name": "Patcher - Weather & More",
-      "category": "tools"
-    },
-    {
-      "name": "Dark Carnival Serega Pirat",
-      "category": "sounds"
-    },
-    {
-      "name": "Dark Carnival Team Spirit",
-      "category": "sounds"
-    },
-    {
-      "name": "Dark Carnival Dora",
-      "category": "sounds"
-    },
-    {
-      "name": "Ru GLaDOS",
-      "category": "mega-kill"
-    },
-    {
-      "name": "Purple Demon Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Purple TI8 Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Purple Bts3 Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Witch Doctor Death Ward",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Nature Prophet Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Kunkka Sailor Taunt",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Lina Crystal Empress",
-      "category": "heroes"
-    },
-    {
-      "name": "Bare Hoodwink",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Winged Sentinel",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Depths Covenant",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Knight Burning Scale",
-      "category": "heroes"
-    },
-    {
-      "name": "Winter Quarteros Curios",
-      "category": "ti-bp-effects"
-    },
-    {
-      "name": "Dazzle Lifeless Devotion",
-      "category": "heroes"
-    },
-    {
-      "name": "Monkey King Water Demon",
-      "category": "heroes"
-    },
-    {
-      "name": "Lion Immortal Chimera",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Moon Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Night Stalker Dark Oath",
-      "category": "heroes"
-    },
-    {
-      "name": "Alchemist Radiance Blades",
-      "category": "hero-items"
-    },
-    {
-      "name": "Morphling Automaton",
-      "category": "heroes"
-    },
-    {
-      "name": "Dota2PornFxWiki",
-      "category": "news"
     }
   ],
   "modsData": {
@@ -9273,6 +9033,21 @@
           "date": 1786875994,
           "commit-sha": "86b6013b7929d817e36e3a1487e521baadcf2d5f"
         }
+      },
+      {
+        "name": "Sven Holy Paladin",
+        "preview": "Sven Holy Paladin.webp",
+        "file": "Sven Holy Paladin.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
