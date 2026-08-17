@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Download mods for Dota2">
+  <meta name="description" content="Download free mods for Dota 2">
   <meta name="keywords" content="Dota 2, mods, vpk, customization">
   <meta name="author" content="hrdq">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://h6rd.github.io/Dota2PornFxWeb/">
   <meta property="og:title" content="Dota2 Mods">
-  <meta property="og:description" content="Download mods for Dota2">
+  <meta property="og:description" content="Download mods for Dota 2">
   <meta property="og:image" content="https://h6rd.github.io/Dota2PornFxWeb/assets/banner.png">
   <meta property="og:image:alt" content="Dota2 Mods Collection">
   <meta property="og:image:width" content="1200">
@@ -624,13 +624,67 @@
         <m3e-loading-indicator variant="contained" aria-label="Packing progress"></m3e-loading-indicator>
         <h3>Packing Progress</h3>
       </div>
-      <div class="pack-log-container" id="packLog"></div>
-      <div class="pack-log-footer">
-        <span id="packStatus">Ready</span>
-        <m3e-linear-progress-indicator id="packProgressBar" variant="wavy" value="0" max="100"></m3e-linear-progress-indicator>
+    
+      <div class="pack-log-tabs" id="packLogTabs">
+        <button class="pack-log-tab active" id="tabLogs" data-view="logs" type="button">
+          <span class="material-symbols-rounded">terminal</span>
+          Logs
+        </button>
+        <button class="pack-log-tab" id="tabGame" data-view="game" type="button">
+          <span class="material-symbols-rounded">videogame_asset</span>
+          Snake
+        </button>
+      </div>
+    
+      <div class="pack-log-view active" id="packLogView">
+        <div class="pack-log-container" id="packLog"></div>
+        <div class="pack-log-footer">
+          <span id="packStatus">Ready</span>
+          <m3e-linear-progress-indicator id="packProgressBar" variant="wavy" value="0"
+            max="100"></m3e-linear-progress-indicator>
+        </div>
+      </div>
+    
+      <div class="pack-game-view" id="packGameView">
+        <div class="snake-board-wrapper">
+          <div class="snake-hud">
+            <div class="snake-score-chip">
+              <span class="material-symbols-rounded">emoji_events</span>
+              <span id="snakeScore">0</span>
+            </div>
+            <div class="snake-best-chip">
+              Best: <span id="snakeBest">0</span>
+            </div>
+            <button class="snake-restart-btn" id="snakeRestartBtn" aria-label="Restart" type="button">
+              <span class="material-symbols-rounded">replay</span>
+            </button>
+          </div>
+    
+          <div class="snake-board" id="snakeBoard"></div>
+    
+          <div class="snake-overlay" id="snakeOverlay">
+            <span class="material-symbols-rounded snake-overlay-icon">videogame_asset</span>
+            <p class="snake-overlay-title" id="snakeOverlayTitle">Waiting for the pack? Play a round.</p>
+            <button class="snake-play-btn" id="snakePlayBtn" type="button">
+              <span class="material-symbols-rounded">play_arrow</span>
+              Play
+            </button>
+          </div>
+        </div>
+    
+        <div class="snake-controls" id="snakeControls">
+          <button class="snake-dpad-btn" data-dir="up" aria-label="Up" type="button"><span
+              class="material-symbols-rounded">keyboard_arrow_up</span></button>
+          <button class="snake-dpad-btn" data-dir="left" aria-label="Left" type="button"><span
+              class="material-symbols-rounded">keyboard_arrow_left</span></button>
+          <button class="snake-dpad-btn" data-dir="down" aria-label="Down" type="button"><span
+              class="material-symbols-rounded">keyboard_arrow_down</span></button>
+          <button class="snake-dpad-btn" data-dir="right" aria-label="Right" type="button"><span
+              class="material-symbols-rounded">keyboard_arrow_right</span></button>
+        </div>
       </div>
     </div>
-  </div>
+    </div>
 
   <footer class="footer">
     <div class="container">

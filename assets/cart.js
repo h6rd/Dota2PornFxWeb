@@ -781,6 +781,8 @@ function setupCartModal() {
         cartOverlay.classList.remove('active');
         closeModal();
 
+        if (window._snakeGamePause) window._snakeGamePause();
+
         const logPanel = document.getElementById('packLogPanel');
         if (logPanel && !window._packingInProgress) {
             logPanel.classList.remove('active');
@@ -1683,6 +1685,8 @@ async function packAndDownload() {
         <h3>Packing Progress</h3>
     `;
 
+    if (window._snakeGameReset) window._snakeGameReset();
+
     function addLog(message, type = 'info') {
         const entry = document.createElement('div');
         entry.className = `pack-log-entry ${type}`;
@@ -2382,6 +2386,7 @@ if (document.readyState === 'loading') {
         loadCart();
         loadAssemblies();
         setupCartModal();
+        initSnakeGame();
         updateCartButtons();
         renderAssembliesList();
         loadSharedAssembly();
@@ -2390,9 +2395,288 @@ if (document.readyState === 'loading') {
     loadCart();
     loadAssemblies();
     setupCartModal();
+    initSnakeGame();
     updateCartButtons();
     renderAssembliesList();
     loadSharedAssembly();
+}
+
+/* snake */
+function initSnakeGame() {
+    const GRID = 13;
+
+    const USE_CUSTOM_ASSETS = true;
+    const HEAD_ICON_SRC = 'assets/previews/hueta/am.png';
+    const FOOD_ICON_SRC = 'assets/previews/hueta/radiance.gif';
+
+    const boardEl = document.getElementById('snakeBoard');
+    const overlayEl = document.getElementById('snakeOverlay');
+    const overlayTitle = document.getElementById('snakeOverlayTitle');
+    const playBtn = document.getElementById('snakePlayBtn');
+    const restartBtn = document.getElementById('snakeRestartBtn');
+    const scoreEl = document.getElementById('snakeScore');
+    const bestEl = document.getElementById('snakeBest');
+    const tabLogs = document.getElementById('tabLogs');
+    const tabGame = document.getElementById('tabGame');
+    const logView = document.getElementById('packLogView');
+    const gameView = document.getElementById('packGameView');
+    const dpadBtns = document.querySelectorAll('.snake-dpad-btn');
+    const cartModal = document.getElementById('cartModal');
+
+    if (!boardEl || !tabLogs || !tabGame || !gameView || !logView) return;
+
+    boardEl.style.gridTemplateColumns = `repeat(${GRID}, 1fr)`;
+    boardEl.style.gridTemplateRows = `repeat(${GRID}, 1fr)`;
+
+    const bgFragment = document.createDocumentFragment();
+    for (let i = 0; i < GRID * GRID; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'snake-cell';
+        bgFragment.appendChild(cell);
+    }
+    boardEl.appendChild(bgFragment);
+
+    const HEAD_SVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle class="snake-eye" cx="8" cy="9" r="1.7"></circle>
+        <circle class="snake-eye" cx="16" cy="9" r="1.7"></circle>
+        <path class="snake-tongue" d="M12 15 L9.5 19.5 M12 15 L14.5 19.5" stroke-width="1.6" stroke-linecap="round" fill="none"></path>
+    </svg>`;
+
+    const FOOD_SVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path class="snake-food-body" d="M12 8.6c-2.9-2.7-7.2-1-7.2 3.3C4.8 16.4 8.2 20.3 12 20.3s7.2-3.9 7.2-8.4c0-4.3-4.3-6-7.2-3.3z"></path>
+        <path class="snake-food-stem" d="M11.5 8.3c-.3-1.6.4-3.3 1.9-4.2.2 1.8-.6 3.4-1.9 4.2z"></path>
+        <path class="snake-food-leaf" d="M13.3 4.5c1.1-.7 2.5-.5 3.3.4-.9.8-2.3 1-3.3-.4z"></path>
+    </svg>`;
+
+    const HEAD_CONTENT = USE_CUSTOM_ASSETS
+        ? `<img src="${HEAD_ICON_SRC}" alt="" draggable="false">`
+        : HEAD_SVG;
+
+    const FOOD_CONTENT = USE_CUSTOM_ASSETS
+        ? `<img src="${FOOD_ICON_SRC}" alt="" draggable="false">`
+        : FOOD_SVG;
+
+    let snake, direction, nextDirection, food, score, best, running, gameOver, loopTimeout, speed;
+
+    best = parseInt(localStorage.getItem('d2pfx_snake_best') || '0', 10) || 0;
+    bestEl.textContent = best;
+
+    function randCell() {
+        return {
+            x: Math.floor(Math.random() * GRID),
+            y: Math.floor(Math.random() * GRID)
+        };
+    }
+
+    function placeFood() {
+        let cell;
+        do {
+            cell = randCell();
+        } while (snake.some(s => s.x === cell.x && s.y === cell.y));
+        food = cell;
+    }
+
+    function resetState() {
+        const mid = Math.floor(GRID / 2);
+        snake = [{ x: mid, y: mid }, { x: mid - 1, y: mid }, { x: mid - 2, y: mid }];
+        direction = { x: 1, y: 0 };
+        nextDirection = { x: 1, y: 0 };
+        score = 0;
+        speed = 150;
+        running = false;
+        gameOver = false;
+        scoreEl.textContent = '0';
+        playBtn.innerHTML = `<span class="material-symbols-rounded">play_arrow</span> Play`;
+        overlayTitle.innerHTML = 'Waiting for the pack? Play a round.';
+        placeFood();
+        render();
+    }
+
+    function headRotation() {
+        if (direction.x === 1) return 90;
+        if (direction.x === -1) return -90;
+        if (direction.y === 1) return 180;
+        return 0;
+    }
+
+    function render() {
+        boardEl.querySelectorAll('.snake-piece').forEach(el => el.remove());
+
+        snake.forEach((seg, i) => {
+            const el = document.createElement('div');
+            el.style.gridColumn = seg.x + 1;
+            el.style.gridRow = seg.y + 1;
+            if (i === 0) {
+                el.className = 'snake-piece snake-head';
+                // el.style.transform = `rotate(${headRotation()}deg)`; 
+                el.innerHTML = HEAD_CONTENT;
+            } else {
+                el.className = 'snake-piece snake-segment';
+            }
+            boardEl.appendChild(el);
+        });
+
+        const foodEl = document.createElement('div');
+        foodEl.className = 'snake-piece snake-food';
+        foodEl.style.gridColumn = food.x + 1;
+        foodEl.style.gridRow = food.y + 1;
+        foodEl.innerHTML = FOOD_CONTENT;
+        boardEl.appendChild(foodEl);
+    }
+
+    function tick() {
+        if (!running) return;
+        direction = nextDirection;
+        const head = snake[0];
+        const newHead = { x: head.x + direction.x, y: head.y + direction.y };
+
+        const hitsWall = newHead.x < 0 || newHead.x >= GRID || newHead.y < 0 || newHead.y >= GRID;
+        const hitsSelf = snake.some(s => s.x === newHead.x && s.y === newHead.y);
+
+        if (hitsWall || hitsSelf) {
+            endGame();
+            return;
+        }
+
+        snake.unshift(newHead);
+
+        if (newHead.x === food.x && newHead.y === food.y) {
+            score += 10;
+            scoreEl.textContent = score;
+            if (score > best) {
+                best = score;
+                bestEl.textContent = best;
+                localStorage.setItem('d2pfx_snake_best', String(best));
+            }
+            speed = Math.max(75, speed - 2);
+            placeFood();
+        } else {
+            snake.pop();
+        }
+
+        render();
+        loopTimeout = setTimeout(tick, speed);
+    }
+
+    function startGame() {
+        resetState();
+        running = true;
+        overlayEl.classList.add('hidden');
+        clearTimeout(loopTimeout);
+        loopTimeout = setTimeout(tick, speed);
+    }
+
+    function endGame() {
+        running = false;
+        gameOver = true;
+        clearTimeout(loopTimeout);
+        overlayTitle.innerHTML = `Game over<span class="snake-overlay-score">${score}</span>`;
+        playBtn.innerHTML = `<span class="material-symbols-rounded">replay</span> Play again`;
+        overlayEl.classList.remove('hidden');
+    }
+
+    function pauseGame() {
+        running = false;
+        clearTimeout(loopTimeout);
+    }
+
+    function resumeGame() {
+        if (gameOver || !snake || !gameView.classList.contains('active')) return;
+        if (overlayEl.classList.contains('hidden') === false) return;
+        running = true;
+        loopTimeout = setTimeout(tick, speed);
+    }
+
+    function setDirection(dx, dy) {
+        if (!running) return;
+        if (direction.x === -dx && direction.y === -dy) return;
+        nextDirection = { x: dx, y: dy };
+    }
+
+    playBtn.addEventListener('click', startGame);
+    restartBtn.addEventListener('click', startGame);
+
+    dpadBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const dir = btn.dataset.dir;
+            if (dir === 'up') setDirection(0, -1);
+            if (dir === 'down') setDirection(0, 1);
+            if (dir === 'left') setDirection(-1, 0);
+            if (dir === 'right') setDirection(1, 0);
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!gameView.classList.contains('active')) return;
+        if (!cartModal || !cartModal.classList.contains('active')) return;
+
+        if (e.key === ' ' || e.key === 'Spacebar' || e.key === 'Enter') {
+            if (!overlayEl.classList.contains('hidden')) {
+                startGame();
+                e.preventDefault();
+            }
+            return;
+        }
+
+        switch (e.key) {
+            case 'ArrowUp': setDirection(0, -1); e.preventDefault(); break;
+            case 'ArrowDown': setDirection(0, 1); e.preventDefault(); break;
+            case 'ArrowLeft': setDirection(-1, 0); e.preventDefault(); break;
+            case 'ArrowRight': setDirection(1, 0); e.preventDefault(); break;
+        }
+
+        switch (e.code) {
+            case 'KeyW': setDirection(0, -1); e.preventDefault(); break;
+            case 'KeyS': setDirection(0, 1); e.preventDefault(); break;
+            case 'KeyA': setDirection(-1, 0); e.preventDefault(); break;
+            case 'KeyD': setDirection(1, 0); e.preventDefault(); break;
+        }
+    });
+
+    let touchStartX = 0, touchStartY = 0;
+    boardEl.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+    }, { passive: true });
+
+    boardEl.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+        if (Math.abs(dx) < 20 && Math.abs(dy) < 20) return;
+        if (Math.abs(dx) > Math.abs(dy)) {
+            setDirection(dx > 0 ? 1 : -1, 0);
+        } else {
+            setDirection(0, dy > 0 ? 1 : -1);
+        }
+    }, { passive: true });
+
+    function switchTab(view) {
+        const isGame = view === 'game';
+        tabGame.classList.toggle('active', isGame);
+        tabLogs.classList.toggle('active', !isGame);
+        gameView.classList.toggle('active', isGame);
+        logView.classList.toggle('active', !isGame);
+
+        if (isGame) {
+            resumeGame();
+        } else {
+            pauseGame();
+        }
+    }
+
+    tabLogs.addEventListener('click', () => switchTab('logs'));
+    tabGame.addEventListener('click', () => switchTab('game'));
+
+    window._snakeGamePause = pauseGame;
+    window._snakeGameReset = () => {
+        pauseGame();
+        overlayEl.classList.remove('hidden');
+        resetState();
+    };
+
+    resetState();
 }
 
 async function compressAssembly(assembly) {

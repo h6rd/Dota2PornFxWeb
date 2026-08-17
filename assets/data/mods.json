@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Clinkz Maraxiforms Ire",
+      "category": "hero-items"
+    },
+    {
+      "name": "Clinkz Maraxiforms Fate",
+      "category": "hero-items"
+    },
+    {
+      "name": "Clinkz Leader of the Molten Army",
+      "category": "heroes"
+    },
+    {
+      "name": "Natures Prophet Immortal Allfather",
+      "category": "heroes"
+    },
+    {
       "name": "Sven Holy Paladin",
       "category": "heroes"
     },
@@ -9052,6 +9068,40 @@
           "date": 1786944209,
           "commit-sha": "e87a010afd12fd09d2fc7be3c7f23e20df64b8b1"
         }
+      },
+      {
+        "name": "Natures Prophet Immortal Allfather",
+        "preview": "Natures Prophet Immortal Allfather.webp",
+        "file": "Natures Prophet Immortal Allfather.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "frayserclick"
+          }
+        ]
+      },
+      {
+        "name": "Clinkz Leader of the Molten Army",
+        "preview": "Clinkz Leader of the Molten Army.webp",
+        "file": "Clinkz Leader of the Molten Army.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "3atvorn1k"
+          },
+          {
+            "type": "author",
+            "url": "CiDDi"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -10734,7 +10784,40 @@
         {
           "id": "clinkz",
           "name": "Clinkz",
-          "mods": []
+          "mods": [
+            {
+              "name": "Clinkz Maraxiforms Fate",
+              "preview": "Clinkz Maraxiforms Fate.webp",
+              "file": "Clinkz Maraxiforms Fate.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "3atvorn1k"
+                }
+              ]
+            },
+            {
+              "name": "Clinkz Maraxiforms Ire",
+              "preview": "Clinkz Maraxiforms Ire.webp",
+              "file": "Clinkz Maraxiforms Ire.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "3atvorn1k"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "clockwerk",
