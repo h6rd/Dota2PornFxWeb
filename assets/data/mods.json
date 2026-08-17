@@ -9082,7 +9082,11 @@
             "type": "author",
             "url": "frayserclick"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786953206,
+          "commit-sha": "23c9e566319ccbc7e2478dba8025f17825450a8a"
+        }
       },
       {
         "name": "Clinkz Leader of the Molten Army",
@@ -9101,7 +9105,11 @@
             "type": "author",
             "url": "CiDDi"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1786953206,
+          "commit-sha": "23c9e566319ccbc7e2478dba8025f17825450a8a"
+        }
       }
     ],
     "shaders": [
@@ -10799,7 +10807,11 @@
                   "type": "author",
                   "url": "3atvorn1k"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1786953206,
+                "commit-sha": "23c9e566319ccbc7e2478dba8025f17825450a8a"
+              }
             },
             {
               "name": "Clinkz Maraxiforms Ire",
@@ -10815,7 +10827,11 @@
                   "type": "author",
                   "url": "3atvorn1k"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1786953206,
+                "commit-sha": "23c9e566319ccbc7e2478dba8025f17825450a8a"
+              }
             }
           ]
         },
