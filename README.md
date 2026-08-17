@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/banner-git.png" alt="Dota2PornFx Banner" width="100%">
   
-  <h1>The largest free collection of Dota 2 customization mods</h1>
+  <h1>The largest FREE collection of Dota 2 customization mods</h1>
 
 [![Website](https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white)](https://h6rd.github.io/Dota2PornFxWeb)
 &nbsp;
@@ -31,82 +31,7 @@
 
 ---
 
-## Installation Guide
-https://d2pfxwiki.pages.dev/en/install.html
-
----
-
-<details>
-<summary><b>Инструкция по установке</b></summary>
-
-<br>
-
-https://d2pfxwiki.pages.dev/ru/install.html
-</details>
-
----
-
-## Tools & Utilities
-
-| Tool | Description |
-|------|-------------|
-| [**VPKTool**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKTool+-+Extract+%26+Pack+VPKs) | Extract and repack VPK archives |
-| [**VPKMerge**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=VPKMerge+-+Combine+VPKs) | Merge multiple VPK files into one |
-| [**Compiler**](https://h6rd.github.io/Dota2PornFxWeb/?category=tools&mod=Compiler) | Compile `.vtex_c`, `.vpcf_c`, `.vsnd_c`, `.vxml_c`, `.vcss_c` assets |
-
----
-
-## Troubleshooting
-
-<details>
-<summary><b>Mod doesn't work after installation</b></summary>
-
-<br>
-
-To check whether the issue is with the mod itself or your installation:
-
-1. Create a folder named `dota_test` inside `steamapps\common\dota 2 beta\game\`
-2. Place the mod there and set launch options to `-language test`
-3. Launch the game and check:
-   - ✅ Works? → The original installation had an issue. Re-check your language folder and reinstall.
-   - ❌ Still broken? → The mod itself is the problem.
-
-</details>
-
-<details>
-<summary><b>Merged mods cause issues</b></summary>
-
-<br>
-
-Try installing the problematic mod separately, outside of the merged pack. Some mods conflict at the file level when combined.
-
-</details>
-
-<details>
-<summary><b>Background replacement issues</b></summary>
-
-<br>
-
-- The video must be **30 seconds or shorter**
-- File format must be **`.webm`**
-- **"An error occurred during playback"** → Try a different source video
-- **"Background doesn't change"** → Follow the general troubleshooting steps above
-
-</details>
-
-<details>
-<summary><b>Emblems not visible</b></summary>
-
-<br>
-
-Open the in-game console and run:
-```
-r_draw_selected_ring 1
-```
-
-Also make sure you are not using the **Misc Optimization** mod from Minify, as it disables standard emblem rendering.
-
-</details>
+## [**Installation Guide**](https://d2pfxwiki.pages.dev/en/install.html) / [**Troubleshooting**](https://d2pfxwiki.pages.dev/en/troubleshoot.html)
 
 ---
 
