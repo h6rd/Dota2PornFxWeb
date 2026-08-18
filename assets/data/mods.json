@@ -9132,7 +9132,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787030118,
+          "commit-sha": "427060c480062e8e65729798bf2a9bbb78cd9819"
+        }
       },
       {
         "name": "Luna Crescent Wheel",
@@ -9147,7 +9151,11 @@
             "type": "author",
             "url": "Tenkay"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787030118,
+          "commit-sha": "427060c480062e8e65729798bf2a9bbb78cd9819"
+        }
       }
     ],
     "shaders": [
