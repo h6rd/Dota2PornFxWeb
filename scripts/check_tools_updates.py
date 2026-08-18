@@ -20,6 +20,41 @@ TOOLS = [
         "category": "tools",
         "exclude_pattern": None,
     },
+    {
+        "owner": "h6rd",
+        "repo": "VPKTool",
+        "name": "VPKTool - Extract & Pack VPKs",
+        "category": "tools",
+        "exclude_pattern": None,
+    },
+    {
+        "owner": "h6rd",
+        "repo": "VPKMerge",
+        "name": "VPKMerge - Combine VPKs",
+        "category": "tools",
+        "exclude_pattern": None,
+    },
+    {
+        "owner": "h6rd",
+        "repo": "Compiler",
+        "name": "Compiler",
+        "category": "tools",
+        "exclude_pattern": None,
+    },
+    {
+        "owner": "h6rd",
+        "repo": "VPCF-Editor",
+        "name": "VPCF Editor",
+        "category": "tools",
+        "exclude_pattern": None,
+    },
+    {
+        "owner": "h6rd",
+        "repo": "Patcher",
+        "name": "Patcher - Weather & More",
+        "category": "tools",
+        "exclude_pattern": None,
+    }
 ]
 
 REPO_ROOT = os.environ.get("GITHUB_WORKSPACE", os.getcwd())
