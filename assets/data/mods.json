@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Wraith King Blistering Crimson",
+      "category": "hero-items"
+    },
+    {
       "name": "Lina Wyrmwrought Flame",
       "category": "hero-items"
     },
@@ -12438,6 +12442,16 @@
               "meta": {
                 "date": 1786760922,
                 "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
+              }
+            },
+            {
+              "name": "Wraith King Blistering Crimson",
+              "preview": "Wraith King Blistering Crimson.webp",
+              "file": "Wraith King Blistering Crimson.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "arms": true
               }
             }
           ]
