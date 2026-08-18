@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lina Wyrmwrought Flame",
+      "category": "hero-items"
+    },
+    {
       "name": "Luna Crescent Wheel",
       "category": "heroes"
     },
@@ -11376,7 +11380,24 @@
         {
           "id": "lina",
           "name": "Lina",
-          "mods": []
+          "mods": [
+            {
+              "name": "Lina Wyrmwrought Flame",
+              "preview": "Lina Wyrmwrought Flame.webp",
+              "file": "Lina Wyrmwrought Flame.zip",
+              "tags": {
+                "neck": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Mopsyara"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "lion",

@@ -2616,7 +2616,7 @@ function generateTagsHtml(mod, categoryId) {
     const activeTags = [];
     const tagMap = cfg.map || {};
 
-    const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair'];
+    const SLOT_TAGS = ['totem', 'weapon', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck'];
 
     for (const key in tagMap) {
         if (Object.prototype.hasOwnProperty.call(mod.tags, key) && mod.tags[key]) {
