@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Luna Crescent Wheel",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Clinkz Maraxiforms Ire",
       "category": "hero-items"
     },
@@ -9110,6 +9118,36 @@
           "date": 1786953206,
           "commit-sha": "23c9e566319ccbc7e2478dba8025f17825450a8a"
         }
+      },
+      {
+        "name": "Drow Ranger Immortal",
+        "preview": "Drow Ranger Immortal.webp",
+        "file": "Drow Ranger Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
+      },
+      {
+        "name": "Luna Crescent Wheel",
+        "preview": "Luna Crescent Wheel.webp",
+        "file": "Luna Crescent Wheel.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tenkay"
+          }
+        ]
       }
     ],
     "shaders": [
