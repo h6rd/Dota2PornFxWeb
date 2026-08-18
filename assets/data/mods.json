@@ -12452,6 +12452,10 @@
                 "effects": true,
                 "icons": true,
                 "arms": true
+              },
+              "meta": {
+                "date": 1787040057,
+                "commit-sha": "14988af7a6431d72b6994ce7e9f3057f4a04b47b"
               }
             }
           ]
