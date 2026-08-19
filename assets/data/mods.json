@@ -10944,6 +10944,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1787135218,
+                "commit-sha": "a2139cb2d866d03f81ac35a8c734895187f28213"
               }
             },
             {
@@ -10954,6 +10958,10 @@
                 "effects": true,
                 "icons": true,
                 "rocket": true
+              },
+              "meta": {
+                "date": 1787135218,
+                "commit-sha": "a2139cb2d866d03f81ac35a8c734895187f28213"
               }
             }
           ]
@@ -11799,6 +11807,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1787135218,
+                "commit-sha": "a2139cb2d866d03f81ac35a8c734895187f28213"
               }
             }
           ]
@@ -12214,6 +12226,10 @@
                 "head": true,
                 "effects": true,
                 "icons": true
+              },
+              "meta": {
+                "date": 1787135218,
+                "commit-sha": "a2139cb2d866d03f81ac35a8c734895187f28213"
               }
             }
           ]
@@ -12500,6 +12516,10 @@
                 "effects": true,
                 "icons": true,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1787135218,
+                "commit-sha": "a2139cb2d866d03f81ac35a8c734895187f28213"
               }
             }
           ]
