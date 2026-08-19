@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Techies Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Winter Wyvern",
       "category": "heroes"
     },
@@ -9230,6 +9234,21 @@
           "date": 1787153550,
           "commit-sha": "c40d4bb3f71487a644f7c3291051249307d573a1"
         }
+      },
+      {
+        "name": "Techies Arcana",
+        "preview": "Techies Arcana.webp",
+        "file": "Techies Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
