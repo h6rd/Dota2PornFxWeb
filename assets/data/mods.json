@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Meepo Blueness",
+      "category": "heroes"
+    },
+    {
       "name": "Wraith King Blistering Crimson",
       "category": "hero-items"
     },
@@ -9164,6 +9172,36 @@
           "date": 1787030118,
           "commit-sha": "427060c480062e8e65729798bf2a9bbb78cd9819"
         }
+      },
+      {
+        "name": "Meepo Blueness",
+        "preview": "Meepo Blueness.webp",
+        "file": "Meepo Blueness.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
+      },
+      {
+        "name": "Juggernaut Arcana",
+        "preview": "Juggernaut Arcana.webp",
+        "file": "Juggernaut Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
