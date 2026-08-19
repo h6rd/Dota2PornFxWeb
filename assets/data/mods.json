@@ -9248,7 +9248,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787157530,
+          "commit-sha": "8d1759a0dd934adc49e515aa3736442d6cf6a5da"
+        }
       }
     ],
     "shaders": [
