@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Fire Puck",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Arcana",
       "category": "heroes"
     },
@@ -54,10 +58,6 @@
     },
     {
       "name": "Rubick Immortal Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Fire Puck",
       "category": "heroes"
     },
     {
