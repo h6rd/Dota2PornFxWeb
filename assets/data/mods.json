@@ -9186,7 +9186,11 @@
             "type": "author",
             "url": "lansory"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787119140,
+          "commit-sha": "1c179b7e4da88178a5367734889782ada49684e3"
+        }
       },
       {
         "name": "Juggernaut Arcana",
@@ -9201,7 +9205,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787119140,
+          "commit-sha": "1c179b7e4da88178a5367734889782ada49684e3"
+        }
       }
     ],
     "shaders": [
