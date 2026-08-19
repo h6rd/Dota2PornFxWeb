@@ -1,11 +1,27 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "Fire Puck",
-      "category": "heroes"
+      "name": "Spirit Breaker Iron Surge",
+      "category": "hero-items"
     },
     {
-      "name": "Juggernaut Arcana",
+      "name": "Windranger Peregrine Flight",
+      "category": "hero-items"
+    },
+    {
+      "name": "Mirana Pulsar Remnant",
+      "category": "hero-items"
+    },
+    {
+      "name": "Clockwerk Rabid Watchcog",
+      "category": "hero-items"
+    },
+    {
+      "name": "Clockwerk Paraflare Cannon",
+      "category": "hero-items"
+    },
+    {
+      "name": "Fire Puck",
       "category": "heroes"
     },
     {
@@ -9191,25 +9207,6 @@
           "date": 1787119140,
           "commit-sha": "1c179b7e4da88178a5367734889782ada49684e3"
         }
-      },
-      {
-        "name": "Juggernaut Arcana",
-        "preview": "Juggernaut Arcana.webp",
-        "file": "Juggernaut Arcana.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "depex"
-          }
-        ],
-        "meta": {
-          "date": 1787119140,
-          "commit-sha": "1c179b7e4da88178a5367734889782ada49684e3"
-        }
       }
     ],
     "shaders": [
@@ -10938,7 +10935,28 @@
         {
           "id": "clockwerk",
           "name": "Clockwerk",
-          "mods": []
+          "mods": [
+            {
+              "name": "Clockwerk Rabid Watchcog",
+              "preview": "Clockwerk Rabid Watchcog.webp",
+              "file": "Clockwerk Rabid Watchcog.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            },
+            {
+              "name": "Clockwerk Paraflare Cannon",
+              "preview": "Clockwerk Paraflare Cannon.webp",
+              "file": "Clockwerk Paraflare Cannon.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "rocket": true
+              }
+            }
+          ]
         },
         {
           "id": "crystal-maiden",
@@ -11772,7 +11790,18 @@
         {
           "id": "mirana",
           "name": "Mirana",
-          "mods": []
+          "mods": [
+            {
+              "name": "Mirana Pulsar Remnant",
+              "preview": "Mirana Pulsar Remnant.webp",
+              "file": "Mirana Pulsar Remnant.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "monkey-king",
@@ -12164,6 +12193,28 @@
                 "date": 1776169497,
                 "commit-sha": "13669d1f7190ca1ac7760fa31542c8358da97766"
               }
+            },
+            {
+              "name": "Spirit Breaker Iron Surge",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#74b3ff",
+                  "preview": "Spirit Breaker Iron Surge.webp",
+                  "file": "Spirit Breaker Iron Surge.zip"
+                },
+                {
+                  "label": "Tyrian",
+                  "color": "#8f4af7",
+                  "preview": "Spirit Breaker Iron Surge Tyrian.webp",
+                  "file": "Spirit Breaker Iron Surge Tyrian.zip"
+                }
+              ],
+              "tags": {
+                "head": true,
+                "effects": true,
+                "icons": true
+              }
             }
           ]
         },
@@ -12440,7 +12491,18 @@
         {
           "id": "windranger",
           "name": "Windranger",
-          "mods": []
+          "mods": [
+            {
+              "name": "Windranger Peregrine Flight",
+              "preview": "Windranger Peregrine Flight.webp",
+              "file": "Windranger Peregrine Flight.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "winter-wyvern",
