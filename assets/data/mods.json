@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Winter Wyvern",
+      "category": "heroes"
+    },
+    {
       "name": "Spirit Breaker Iron Surge",
       "category": "hero-items"
     },
@@ -9207,6 +9211,21 @@
           "date": 1787119140,
           "commit-sha": "1c179b7e4da88178a5367734889782ada49684e3"
         }
+      },
+      {
+        "name": "Immortal Winter Wyvern",
+        "preview": "Immortal Winter Wyvern.webp",
+        "file": "Immortal Winter Wyvern.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ]
       }
     ],
     "shaders": [
