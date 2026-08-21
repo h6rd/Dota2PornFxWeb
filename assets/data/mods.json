@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Techies Arcana",
       "category": "heroes"
     },
@@ -71,10 +75,6 @@
     {
       "name": "Sven Holy Paladin",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "LenS Tinker",
