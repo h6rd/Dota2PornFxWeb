@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Mod Manager Guide",
+      "category": "guides"
+    },
+    {
+      "name": "Natures Prophet Farm Champion",
+      "category": "heroes"
+    },
+    {
+      "name": "Magnus Vortexbull",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Arcana",
       "category": "heroes"
     },
@@ -3768,6 +3784,10 @@
           "icons": true
         },
         "links": [
+          {
+            "type": "author",
+            "url": "Fleece"
+          },
           {
             "type": "author",
             "url": "Defiree"
@@ -9276,6 +9296,21 @@
           "date": 1787381478,
           "commit-sha": "7c0cdc807e6527cdc4901b3d5d12ac74b29adaad"
         }
+      },
+      {
+        "name": "Natures Prophet Farm Champion",
+        "preview": "Natures Prophet Farm Champion.webp",
+        "file": "Natures Prophet Farm Champion.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13487,6 +13522,21 @@
           "date": 1780226470,
           "commit-sha": "ba2771c6c83ced8b37806a93b862ca3518c8bafc"
         }
+      },
+      {
+        "name": "Purple Hud",
+        "preview": "Purple Hud.webp",
+        "file": "pak06_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Purple Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -14982,6 +15032,12 @@
         "name": "Attach Particles",
         "preview": "Attach Particles.webp",
         "file": "https://youtu.be/2T66IYouIpQ",
+        "type": "guide"
+      },
+      {
+        "name": "Mod Manager Guide",
+        "preview": "Mod Manager Guide.webp",
+        "file": "https://www.youtube.com/watch?v=Z_yalpuP6pA",
         "type": "guide"
       }
     ],

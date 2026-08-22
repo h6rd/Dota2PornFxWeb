@@ -1763,6 +1763,7 @@ async function packAndDownload() {
     `;
 
         logContainer.appendChild(entry);
+        logContainer.scrollTop = logContainer.scrollHeight;
         return entry;
     }
 
@@ -2760,6 +2761,10 @@ function initSnakeGame() {
             resumeGame();
         } else {
             pauseGame();
+            const logContainer = document.getElementById('packLog');
+            if (logContainer) {
+                logContainer.scrollTop = logContainer.scrollHeight;
+            }
         }
     }
 
