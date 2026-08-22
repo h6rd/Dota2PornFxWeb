@@ -9271,7 +9271,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787381478,
+          "commit-sha": "7c0cdc807e6527cdc4901b3d5d12ac74b29adaad"
+        }
       }
     ],
     "shaders": [
