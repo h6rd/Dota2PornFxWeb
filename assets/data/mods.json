@@ -3794,8 +3794,8 @@
           }
         ],
         "meta": {
-          "date": 1768458923,
-          "commit-sha": "6094368c9f1dc00cb2b3787c373b7318610d3e2d"
+          "date": 1787413498,
+          "commit-sha": "59951c22bbcf895d1bc4968a57c0db0606cb1cc8"
         }
       },
       {
@@ -9310,7 +9310,11 @@
             "type": "author",
             "url": "Mopsyara"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787413498,
+          "commit-sha": "59951c22bbcf895d1bc4968a57c0db0606cb1cc8"
+        }
       }
     ],
     "shaders": [
@@ -13536,7 +13540,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787413498,
+          "commit-sha": "59951c22bbcf895d1bc4968a57c0db0606cb1cc8"
+        }
       }
     ],
     "high-five": [
