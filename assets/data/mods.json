@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -9253,6 +9257,21 @@
           "date": 1787157530,
           "commit-sha": "8d1759a0dd934adc49e515aa3736442d6cf6a5da"
         }
+      },
+      {
+        "name": "Juggernaut Arcana",
+        "preview": "Juggernaut Arcana.webp",
+        "file": "Juggernaut Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [

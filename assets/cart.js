@@ -1643,6 +1643,58 @@ async function fetchWithRetry(url, retries = 3, onProgress = null) {
     throw lastError;
 }
 
+const VPKMERGE_GITHUB_URLS = {
+    win: 'https://raw.githubusercontent.com/h6rd/VPKMerge/main/binaries/VPKMerge.exe',
+    linux: 'https://raw.githubusercontent.com/h6rd/VPKMerge/main/binaries/VPKMerge'
+};
+
+const VPKMERGE_GITHUB_TIMEOUT = 15000;
+
+async function fetchBinaryWithProgress(url, { timeoutMs = VPKMERGE_GITHUB_TIMEOUT, onProgress = null } = {}) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        if (!onProgress || !response.body) {
+            return await response.blob();
+        }
+
+        const contentLength = response.headers.get('Content-Length');
+        const total = contentLength ? parseInt(contentLength, 10) : 0;
+        let loaded = 0;
+
+        const reader = response.body.getReader();
+        const chunks = [];
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            loaded += value.length;
+            onProgress(loaded, total);
+        }
+        return new Blob(chunks);
+    } catch (err) {
+        if (err.name === 'AbortError') throw new Error('Timeout');
+        throw err;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function getVPKMergeBlob(platform, addLog, onProgress = null) {
+    const targetFileName = platform === 'win' ? 'VPKMerge.exe' : 'VPKMerge';
+    try {
+        addLog('Downloading VPKMerge from GitHub...', 'download');
+        return await fetchBinaryWithProgress(VPKMERGE_GITHUB_URLS[platform], { onProgress });
+    } catch (err) {
+        addLog(`GitHub download failed (${err.message}), using local file...`, 'warning');
+        const localResponse = await fetchWithRetry(getFileUrl('VPKMerge', targetFileName), 3, onProgress);
+        return await localResponse.blob();
+    }
+}
+
 async function asyncPool(concurrency, iterable, iteratorFn) {
     const ret = [];
     const executing = new Set();
@@ -1711,7 +1763,35 @@ async function packAndDownload() {
     `;
 
         logContainer.appendChild(entry);
+        return entry;
+    }
+
+    function createDownloadProgressEntry(label) {
+        const entry = document.createElement('div');
+        entry.className = 'pack-log-entry download';
+        entry.innerHTML = `
+            <span class="material-symbols-rounded">download</span>
+            <span style="word-break: break-word;">${escapeHtml(label)}</span>
+            <span class="download-size" style="margin-left: auto; opacity: 0.6; font-size: 0.8em; white-space: nowrap; padding-left: 8px;">connecting...</span>
+        `;
+        logContainer.appendChild(entry);
         logContainer.scrollTop = logContainer.scrollHeight;
+
+        function formatMB(bytes) {
+            return (bytes / (1024 * 1024)).toFixed(1);
+        }
+
+        function onProgress(loaded, total) {
+            const sizeEl = entry.querySelector('.download-size');
+            if (!sizeEl) return;
+            if (total > 0) {
+                sizeEl.textContent = `${formatMB(loaded)}/${formatMB(total)} MB`;
+            } else {
+                sizeEl.textContent = `${formatMB(loaded)} MB`;
+            }
+        }
+
+        return { entry, onProgress };
     }
 
     let packSuccess = false;
@@ -2187,39 +2267,56 @@ Uninstallation
         const langFolder = langFolderMap[selectedLang] || 'dota_123';
 
     if (selectedOS !== 'macos') {    
-        addLog('Adding VPKMerge...', 'info');
         if (selectedOS === 'default') {
-            try {
-                const [exeResponse, linuxResponse] = await Promise.all([
-                    fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge.exe')),
-                    fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge'))
-                ]);
-                if (exeResponse.ok) {
-                    await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
-                }
-                if (linuxResponse.ok) {
-                    await addToRoot(`${archiveName}/mods/VPKMerge`, await linuxResponse.blob());
-                }
-                addLog('VPKMerge added', 'success');
-            } catch (err) {
-                addLog(`VPKMerge not loaded: ${err.message}`, 'warning');
+            const winProgress = createDownloadProgressEntry('VPKMerge');
+            const linuxProgress = createDownloadProgressEntry('VPKMerge');
+
+            const [exeResult, linuxResult] = await Promise.allSettled([
+                getVPKMergeBlob('win', addLog, winProgress.onProgress),
+                getVPKMergeBlob('linux', addLog, linuxProgress.onProgress)
+            ]);
+
+            winProgress.entry.remove();
+            linuxProgress.entry.remove();
+
+            if (exeResult.status === 'fulfilled') {
+                await addToRoot(`${archiveName}/mods/VPKMerge.exe`, exeResult.value);
+            } else {
+                addLog(`VPKMerge.exe not loaded: ${exeResult.reason.message}`, 'warning');
+            }
+
+            if (linuxResult.status === 'fulfilled') {
+                await addToRoot(`${archiveName}/mods/VPKMerge`, linuxResult.value);
+            } else {
+                addLog(`VPKMerge (Linux) not loaded: ${linuxResult.reason.message}`, 'warning');
+            }
+
+            if (exeResult.status === 'fulfilled' || linuxResult.status === 'fulfilled') {
+                addLog('Added VPKMerge', 'success');
+            } else {
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else if (selectedOS === 'windows') {
+            const progress = createDownloadProgressEntry('VPKMerge');
             try {
-                const exeResponse = await fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge.exe'));
-                await addToRoot(`${archiveName}/mods/VPKMerge.exe`, await exeResponse.blob());
-                addLog('VPKMerge.exe added', 'success');
+                const exeBlob = await getVPKMergeBlob('win', addLog, progress.onProgress);
+                progress.entry.remove();
+                await addToRoot(`${archiveName}/mods/VPKMerge.exe`, exeBlob);
+                addLog('Added VPKMerge', 'success');
             } catch (err) {
-                addLog(`VPKMerge.exe is not loaded: ${err.message}`, 'warning');
+                progress.entry.remove();
+                addLog(`VPKMerge is not loaded: ${err.message}`, 'warning');
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
         } else {
+            const progress = createDownloadProgressEntry('VPKMerge');
             try {
-                const linuxResponse = await fetchWithRetry(getFileUrl('VPKMerge', 'VPKMerge'));
-                await addToRoot(`${archiveName}/mods/VPKMerge`, await linuxResponse.blob());
-                addLog('VPKMerge (Linux) added', 'success');
+                const linuxBlob = await getVPKMergeBlob('linux', addLog, progress.onProgress);
+                progress.entry.remove();
+                await addToRoot(`${archiveName}/mods/VPKMerge`, linuxBlob);
+                addLog('Added VPKMerge', 'success');
             } catch (err) {
+                progress.entry.remove();
                 addLog(`VPKMerge not loaded: ${err.message}`, 'warning');
                 addLog('⚠️ Installation will continue without VPKMerge - download it separately', 'warning');
             }
