@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Compiler",
+      "category": "tools"
+    },
+    {
       "name": "Lycan Blood Beast",
       "category": "heroes"
     },
@@ -254,10 +258,6 @@
     },
     {
       "name": "VPCF Editor",
-      "category": "tools"
-    },
-    {
-      "name": "Compiler",
       "category": "tools"
     },
     {
