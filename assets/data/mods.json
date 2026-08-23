@@ -14837,7 +14837,9 @@
       {
         "name": "Compiler",
         "preview": "Image Compiler.webp",
-        "file": "https://github.com/h6rd/Compiler/releases/latest/download/Compiler-Win.zip",
+        "multiPlatform": true,
+        "fileWin": "https://github.com/h6rd/Compiler/releases/latest/download/Compiler-Win.zip",
+        "fileLinux": "https://github.com/h6rd/Compiler/releases/latest/download/Compiler-Linux.zip",
         "guideId": "compiler",
         "linkType": "source-code",
         "linkUrl": "https://github.com/h6rd/Compiler",
