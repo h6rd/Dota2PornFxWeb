@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lycan Blood Beast",
+      "category": "heroes"
+    },
+    {
       "name": "Purple Hud",
       "category": "huds"
     },
@@ -9315,6 +9319,21 @@
           "date": 1787413498,
           "commit-sha": "59951c22bbcf895d1bc4968a57c0db0606cb1cc8"
         }
+      },
+      {
+        "name": "Lycan Blood Beast",
+        "preview": "Lycan Blood Beast.webp",
+        "file": "Lycan Blood Beast.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "frayserclick"
+          }
+        ]
       }
     ],
     "shaders": [
