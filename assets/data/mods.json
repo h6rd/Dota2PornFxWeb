@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper of the Light Frostbloom",
+      "category": "hero-items"
+    },
+    {
       "name": "Axe Automaton",
       "category": "heroes"
     },
@@ -11609,7 +11613,24 @@
         {
           "id": "keeper-of-the-light",
           "name": "Keeper of the Light",
-          "mods": []
+          "mods": [
+            {
+              "name": "Keeper of the Light Frostbloom",
+              "preview": "Keeper of the Light Frostbloom.webp",
+              "file": "Keeper of the Light Frostbloom.zip",
+              "tags": {
+                "weapon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "kunkka",
