@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Axe Automaton",
+      "category": "heroes"
+    },
+    {
+      "name": "Oracle Automaton",
+      "category": "heroes"
+    },
+    {
+      "name": "Legion Commander Automaton",
+      "category": "heroes"
+    },
+    {
+      "name": "Bristleback Automaton",
+      "category": "heroes"
+    },
+    {
       "name": "Compiler",
       "category": "tools"
     },
@@ -9344,6 +9360,66 @@
           "date": 1787470721,
           "commit-sha": "4935453e9abfdf18f5ae09bc0263f44e01f73081"
         }
+      },
+      {
+        "name": "Bristleback Automaton",
+        "preview": "Bristleback Automaton.webp",
+        "file": "Bristleback Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
+      },
+      {
+        "name": "Legion Commander Automaton",
+        "preview": "Legion Commander Automaton.webp",
+        "file": "Legion Commander Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
+      },
+      {
+        "name": "Oracle Automaton",
+        "preview": "Oracle Automaton.webp",
+        "file": "Oracle Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
+      },
+      {
+        "name": "Axe Automaton",
+        "preview": "Axe Automaton.webp",
+        "file": "Axe Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
