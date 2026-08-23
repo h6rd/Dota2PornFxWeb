@@ -9374,7 +9374,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787499382,
+          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
+        }
       },
       {
         "name": "Legion Commander Automaton",
@@ -9389,7 +9393,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787499382,
+          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
+        }
       },
       {
         "name": "Oracle Automaton",
@@ -9404,7 +9412,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787499382,
+          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
+        }
       },
       {
         "name": "Axe Automaton",
@@ -9419,7 +9431,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787499382,
+          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
+        }
       }
     ],
     "shaders": [
