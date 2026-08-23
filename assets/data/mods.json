@@ -8660,7 +8660,8 @@
         "file": "Kez Zangetsu.zip",
         "tags": {
           "effects": true,
-          "icons": true
+          "icons": true,
+          "anime": true
         },
         "links": [
           {
@@ -8782,7 +8783,8 @@
         "file": "Outworld Destroyer Ulqiorra.zip",
         "tags": {
           "effects": true,
-          "icons": true
+          "icons": true,
+          "anime": true
         },
         "links": [
           {
@@ -8975,6 +8977,10 @@
           "icons": true
         },
         "links": [
+          {
+            "type": "modded",
+            "url": "Arthas"
+          },
           {
             "type": "author",
             "url": "depex"
