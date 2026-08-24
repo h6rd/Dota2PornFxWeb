@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lion Hell-Spar Anathema",
+      "category": "hero-items"
+    },
+    {
       "name": "Lion Fin Kings Charm",
       "category": "hero-items"
     },
@@ -11830,6 +11834,12 @@
                   "color": "#ff7a7a",
                   "preview": "Lion Hell-Spar Anathema Crimson.webp",
                   "file": "Lion Hell-Spar Anathema Crimson.zip"
+                },
+                {
+                  "label": "Purple",
+                  "color": "#8f40ff",
+                  "preview": "Lion Hell-Spar Anathema Purple.webp",
+                  "file": "Lion Hell-Spar Anathema Purple.zip"
                 }
               ],
               "tags": {
