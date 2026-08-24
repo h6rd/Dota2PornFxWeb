@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lion Fin Kings Charm",
+      "category": "hero-items"
+    },
+    {
       "name": "Compiler",
       "category": "tools"
     },
@@ -11858,6 +11862,12 @@
                   "color": "#d8ff63",
                   "preview": "Lion Fin Kings Charm Exceptional.webp",
                   "file": "Lion Fin Kings Charm Exceptional.zip"
+                },
+                {
+                  "label": "Purple",
+                  "color": "#8f40ff",
+                  "preview": "Lion Fin Kings Charm Purple.webp",
+                  "file": "Lion Fin Kings Charm Purple.zip"
                 }
               ],
               "tags": {
