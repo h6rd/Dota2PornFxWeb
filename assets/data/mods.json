@@ -9481,7 +9481,11 @@
             "type": "author",
             "url": "Mopsyara"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787564102,
+          "commit-sha": "f668db9d68a47f63e7b8fdd8d51ecb4d12aa6bc1"
+        }
       },
       {
         "name": "Tinker Immortal",
@@ -9500,7 +9504,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787564102,
+          "commit-sha": "f668db9d68a47f63e7b8fdd8d51ecb4d12aa6bc1"
+        }
       }
     ],
     "shaders": [
