@@ -15080,7 +15080,7 @@
       {
         "name": "VPCF Editor",
         "preview": "VPCF Editor.webp",
-        "multiPlatform":true,
+        "multiPlatform": true,
         "fileWin": "https://github.com/h6rd/VPCF-Editor/releases/latest/download/VPCF-Editor-Win.zip",
         "fileLinux": "https://github.com/h6rd/VPCF-Editor/releases/latest/download/VPCF-Editor-Linux.zip",
         "links": [
