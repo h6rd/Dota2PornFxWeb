@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Lycan Furrytrop",
+      "category": "heroes"
+    },
+    {
       "name": "Keeper of the Light Frostbloom",
       "category": "hero-items"
     },
@@ -9440,6 +9448,59 @@
           "date": 1787499382,
           "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
         }
+      },
+      {
+        "name": "Axe Automaton",
+        "preview": "Axe Automaton.webp",
+        "file": "Axe Automaton.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1787499382,
+          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
+        }
+      },
+      {
+        "name": "Lycan Furrytrop",
+        "preview": "Lycan Furrytrop.webp",
+        "file": "Lycan Furrytrop.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ]
+      },
+      {
+        "name": "Tinker Immortal",
+        "preview": "Tinker Immortal.webp",
+        "file": "Tinker Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "spectr"
+          },
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
