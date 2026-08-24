@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Compiler",
+      "category": "tools"
+    },
+    {
+      "name": "VPCF Editor",
+      "category": "tools"
+    },
+    {
       "name": "Tinker Immortal",
       "category": "heroes"
     },
@@ -27,10 +35,6 @@
     {
       "name": "Bristleback Automaton",
       "category": "heroes"
-    },
-    {
-      "name": "Compiler",
-      "category": "tools"
     },
     {
       "name": "Lycan Blood Beast",
@@ -283,10 +287,6 @@
     {
       "name": "Shadow Fiend Arcana",
       "category": "heroes"
-    },
-    {
-      "name": "VPCF Editor",
-      "category": "tools"
     },
     {
       "name": "Profile Graffiti & Phrases",
