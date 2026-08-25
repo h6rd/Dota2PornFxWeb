@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Queen of Pain Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Lion Hell-Spar Anathema",
       "category": "hero-items"
     },
@@ -9517,6 +9521,21 @@
           "date": 1787564102,
           "commit-sha": "f668db9d68a47f63e7b8fdd8d51ecb4d12aa6bc1"
         }
+      },
+      {
+        "name": "Queen of Pain Arcana",
+        "preview": "Queen of Pain Arcana.webp",
+        "file": "Queen of Pain Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "hatsu"
+          }
+        ]
       }
     ],
     "shaders": [
