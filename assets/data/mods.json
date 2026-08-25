@@ -9535,7 +9535,11 @@
             "type": "author",
             "url": "hatsu"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787673448,
+          "commit-sha": "f84f427452472be54646d0f695bd043e7e58f971"
+        }
       }
     ],
     "shaders": [
