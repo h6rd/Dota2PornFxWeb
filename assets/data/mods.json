@@ -9462,25 +9462,6 @@
         }
       },
       {
-        "name": "Axe Automaton",
-        "preview": "Axe Automaton.webp",
-        "file": "Axe Automaton.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "depex"
-          }
-        ],
-        "meta": {
-          "date": 1787499382,
-          "commit-sha": "6adba851c76fab4b3d098532df2a63f9ade807d4"
-        }
-      },
-      {
         "name": "Lycan Furrytrop",
         "preview": "Lycan Furrytrop.webp",
         "file": "Lycan Furrytrop.zip",
