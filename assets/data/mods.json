@@ -9527,8 +9527,8 @@
           }
         ],
         "meta": {
-          "date": 1787564102,
-          "commit-sha": "f668db9d68a47f63e7b8fdd8d51ecb4d12aa6bc1"
+          "date": 1787730188,
+          "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
         }
       },
       {
@@ -9563,7 +9563,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787730188,
+          "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+        }
       },
       {
         "name": "Wraith King Papizi",
@@ -9593,7 +9597,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787730188,
+          "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+        }
       },
       {
         "name": "Mirana Purple",
@@ -9608,7 +9616,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787730188,
+          "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+        }
       },
       {
         "name": "Immortal Leshrac",
@@ -9623,7 +9635,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787730188,
+          "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+        }
       }
     ],
     "shaders": [
@@ -12474,7 +12490,11 @@
                   "type": "author",
                   "url": "Dota2VPK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1787730188,
+                "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+              }
             }
           ]
         },
