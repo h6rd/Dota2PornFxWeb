@@ -490,6 +490,7 @@
     "hero-items": {
       "allowForGuides": false,
       "map": {
+        "base": "Base",
         "totem": "Totem",
         "weapon": "Weapon",
         "mount": "Mount",

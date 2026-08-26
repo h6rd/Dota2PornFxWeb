@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Pose",
+      "category": "hero-items"
+    },
+    {
+      "name": "Immortal Leshrac",
+      "category": "heroes"
+    },
+    {
+      "name": "Mirana Purple",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Dark Seer",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker Frusy",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Papizi",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Queen of Pain Arcana",
       "category": "heroes"
     },
@@ -9521,6 +9549,81 @@
           "date": 1787673448,
           "commit-sha": "f84f427452472be54646d0f695bd043e7e58f971"
         }
+      },
+      {
+        "name": "Tinker Frusy",
+        "preview": "Tinker Frusy.webp",
+        "file": "Tinker Frusy.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
+      },
+      {
+        "name": "Wraith King Papizi",
+        "preview": "Wraith King Papizi.webp",
+        "file": "Wraith King Papizi.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Dark Seer",
+        "preview": "Immortal Dark Seer.webp",
+        "file": "Immortal Dark Seer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
+      },
+      {
+        "name": "Mirana Purple",
+        "preview": "Mirana Purple.webp",
+        "file": "Mirana Purple.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
+      },
+      {
+        "name": "Immortal Leshrac",
+        "preview": "Immortal Leshrac.webp",
+        "file": "Immortal Leshrac.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12356,6 +12459,22 @@
                 "date": 1780059063,
                 "commit-sha": "5d127a19bb1efb006afc067c6b8b684686b9ed22"
               }
+            },
+            {
+              "name": "Phantom Lancer Pose",
+              "preview": "Phantom Lancer Pose.webp",
+              "file": "Phantom Lancer Pose.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "base": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Dota2VPK"
+                }
+              ]
             }
           ]
         },
