@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crystal Maiden Immortal Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Pose",
       "category": "hero-items"
     },
@@ -9640,6 +9644,21 @@
           "date": 1787730188,
           "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
         }
+      },
+      {
+        "name": "Crystal Maiden Immortal Arcana",
+        "preview": "Crystal Maiden Immortal Arcana.webp",
+        "file": "Crystal Maiden Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
       }
     ],
     "shaders": [
