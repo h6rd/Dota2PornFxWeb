@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Compiler",
+      "category": "tools"
+    },
+    {
       "name": "Crystal Maiden Immortal Arcana",
       "category": "heroes"
     },
@@ -43,10 +47,6 @@
     {
       "name": "Lion Fin Kings Charm",
       "category": "hero-items"
-    },
-    {
-      "name": "Compiler",
-      "category": "tools"
     },
     {
       "name": "VPCF Editor",
