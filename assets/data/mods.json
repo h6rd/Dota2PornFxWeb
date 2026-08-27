@@ -9695,7 +9695,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787826635,
+          "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
+        }
       }
     ],
     "shaders": [
@@ -12908,7 +12912,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1787826635,
+                "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
+              }
             },
             {
               "name": "Terrorblade Foulfell Corruptor",
@@ -12924,7 +12932,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1787826635,
+                "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
+              }
             }
           ]
         },
@@ -17423,7 +17435,11 @@
             "type": "author",
             "url": "hanfukj"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787826635,
+          "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
+        }
       }
     ],
     "sounds": [
