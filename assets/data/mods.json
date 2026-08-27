@@ -9753,7 +9753,11 @@
             "type": "author",
             "url": "Ромчик"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787851451,
+          "commit-sha": "cff4fe736d8be3cd64c33b16f76ca0cd2c0cd55a"
+        }
       }
     ],
     "shaders": [
