@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Foulfell Corruptor",
+      "category": "hero-items"
+    },
+    {
+      "name": "Terrorblade Scythes of Sorrow",
+      "category": "hero-items"
+    },
+    {
+      "name": "Terrorblade Yatoro Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Techies Bismillah Blast Off!",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Compiler",
       "category": "tools"
     },
@@ -9663,6 +9679,23 @@
           "date": 1787732850,
           "commit-sha": "a23810bb4e3f05591538fdee536cd7ec879b578f"
         }
+      },
+      {
+        "name": "Terrorblade Yatoro Arcana",
+        "preview": "Terrorblade Yatoro Arcana.webp",
+        "file": "Terrorblade Yatoro Arcana.zip",
+        "guideId": "tb-info",
+        "guideType": "info",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12860,7 +12893,40 @@
         {
           "id": "terrorblade",
           "name": "Terrorblade",
-          "mods": []
+          "mods": [
+            {
+              "name": "Terrorblade Scythes of Sorrow",
+              "preview": "Terrorblade Scythes of Sorrow.webp",
+              "file": "Terrorblade Scythes of Sorrow.zip",
+              "tags": {
+                "weapon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            },
+            {
+              "name": "Terrorblade Foulfell Corruptor",
+              "preview": "Terrorblade Foulfell Corruptor.webp",
+              "file": "Terrorblade Foulfell Corruptor.zip",
+              "tags": {
+                "weapon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "tidehunter",
@@ -17343,6 +17409,21 @@
           "date": 1786405804,
           "commit-sha": "90e01ac80375811e697298d19966fb28a60db5d5"
         }
+      },
+      {
+        "name": "Techies Bismillah Blast Off!",
+        "preview": "Techies Bismillah Blast Off!.webp",
+        "file": "Techies Bismillah Blast Off!.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Techies Bismillah Blast Off!.mp4"
+          },
+          {
+            "type": "author",
+            "url": "hanfukj"
+          }
+        ]
       }
     ],
     "sounds": [

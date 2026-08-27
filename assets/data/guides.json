@@ -896,6 +896,35 @@
       ]
     }
   },
+  "tb-info": {
+    "title": "Set Info",
+    "content": {
+      "en": [
+        {
+          "title": "Compatibility",
+          "icon": "extension",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "Compatible with the Foulfell Corruptor and the Scythes of Sorrow"
+            }
+          ]
+        }
+      ],
+      "ru": [
+        {
+          "title": "Совместимость",
+          "icon": "extension",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "Совместим с Foulfell Corruptor и Scythes of Sorrow"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "compiler": {
     "title": "Compiler Guide",
     "content": {
