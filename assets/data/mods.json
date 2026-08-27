@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anti-Mage Prime",
+      "category": "heroes"
+    },
+    {
       "name": "Meepo Fractured Haul",
       "category": "heroes"
     },
@@ -9735,6 +9739,21 @@
           "date": 1787848064,
           "commit-sha": "5a7422d9c2499c4babfe5ac2ffd500c550e558cb"
         }
+      },
+      {
+        "name": "Anti-Mage Prime",
+        "preview": "Anti-Mage Prime.webp",
+        "file": "Anti-Mage Prime.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ]
       }
     ],
     "shaders": [
