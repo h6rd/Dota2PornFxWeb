@@ -492,6 +492,7 @@
       "map": {
         "base": "Base",
         "totem": "Totem",
+        "cart": "Cart",
         "weapon": "Weapon",
         "mount": "Mount",
         "head": "Head",
@@ -733,7 +734,8 @@
     "keeper": "https://t.me/eternalsadism",
     "spectr": "https://discord.com/users/1531254146559250438",
     "hatsu": "",
-    "hanfukj": "https://t.me/hanfukj"
+    "hanfukj": "https://t.me/hanfukj",
+    "Niski25": "https://github.com/cus-nyam"
   },
   "MOD_SENDER": {
     "dabaqz": "",

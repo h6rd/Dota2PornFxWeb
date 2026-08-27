@@ -1,16 +1,32 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Meepo Fractured Haul",
+      "category": "heroes"
+    },
+    {
+      "name": "Techies Frostbloom Weapon",
+      "category": "hero-items"
+    },
+    {
+      "name": "Camel Keeper of the Light",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Yatoro Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Techies Arcana",
+      "category": "hero-items"
+    },
+    {
       "name": "Terrorblade Foulfell Corruptor",
       "category": "hero-items"
     },
     {
       "name": "Terrorblade Scythes of Sorrow",
       "category": "hero-items"
-    },
-    {
-      "name": "Terrorblade Yatoro Arcana",
-      "category": "heroes"
     },
     {
       "name": "Techies Bismillah Blast Off!",
@@ -123,10 +139,6 @@
     {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
-    },
-    {
-      "name": "Techies Arcana",
-      "category": "heroes"
     },
     {
       "name": "Immortal Winter Wyvern",
@@ -9358,25 +9370,6 @@
         }
       },
       {
-        "name": "Techies Arcana",
-        "preview": "Techies Arcana.webp",
-        "file": "Techies Arcana.zip",
-        "tags": {
-          "effects": true,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Ромчик"
-          }
-        ],
-        "meta": {
-          "date": 1787157530,
-          "commit-sha": "8d1759a0dd934adc49e515aa3736442d6cf6a5da"
-        }
-      },
-      {
         "name": "Juggernaut Arcana",
         "preview": "Juggernaut Arcana.webp",
         "file": "Juggernaut Arcana.zip",
@@ -9700,6 +9693,36 @@
           "date": 1787826635,
           "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
         }
+      },
+      {
+        "name": "Camel Keeper of the Light",
+        "preview": "Camel Keeper of the Light.webp",
+        "file": "Camel Keeper of the Light.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
+      },
+      {
+        "name": "Meepo Fractured Haul",
+        "preview": "Meepo Fractured Haul.webp",
+        "file": "Meepo Fractured Haul.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Niski25"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12887,7 +12910,44 @@
         {
           "id": "techies",
           "name": "Techies",
-          "mods": []
+          "mods": [
+            {
+              "name": "Techies Arcana",
+              "preview": "Techies Arcana.webp",
+              "file": "Techies Arcana.zip",
+              "tags": {
+                "cart": true,
+                "effects": true,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Ромчик"
+                }
+              ],
+              "meta": {
+                "date": 1787157530,
+                "commit-sha": "8d1759a0dd934adc49e515aa3736442d6cf6a5da"
+              }
+            },
+            {
+              "name": "Techies Frostbloom Weapon",
+              "preview": "Techies Frostbloom Weapon.webp",
+              "file": "Techies Frostbloom Weapon.zip",
+              "tags": {
+                "weapon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "templar-assassin",
