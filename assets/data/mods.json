@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Twilight Hud",
+      "category": "huds"
+    },
+    {
       "name": "Anti-Mage Prime",
       "category": "heroes"
     },
@@ -14123,6 +14127,21 @@
           "date": 1787413498,
           "commit-sha": "59951c22bbcf895d1bc4968a57c0db0606cb1cc8"
         }
+      },
+      {
+        "name": "Twilight Hud",
+        "preview": "Twilight Hud.webp",
+        "file": "pak07_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Twilight Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "lssqqqq"
+          }
+        ]
       }
     ],
     "high-five": [
