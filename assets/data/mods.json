@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Queen of Pain LenS Aura",
+      "category": "heroes"
+    },
+    {
       "name": "Earthshaker Arcana",
       "category": "heroes"
     },
@@ -9793,6 +9797,25 @@
           "date": 1787912370,
           "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
         }
+      },
+      {
+        "name": "Queen of Pain LenS Aura",
+        "preview": "Queen of Pain LenS Aura.webp",
+        "file": "Queen of Pain LenS Aura.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "hltw"
+          },
+          {
+            "type": "author",
+            "url": "hatsu"
+          }
+        ]
       }
     ],
     "shaders": [
