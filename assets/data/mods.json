@@ -11185,7 +11185,11 @@
       {
         "name": "Deathrun Eggs",
         "preview": "Deathrun Eggs.webp",
-        "file": "pak28_dir.vpk"
+        "file": "pak28_dir.vpk",
+        "meta": {
+          "date": 1787931189,
+          "commit-sha": "3042914bcd801764766f64611aca40b03c38bb24"
+        }
       }
     ],
     "hero-items": {
