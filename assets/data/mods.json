@@ -9710,8 +9710,8 @@
           }
         ],
         "meta": {
-          "date": 1787848064,
-          "commit-sha": "5a7422d9c2499c4babfe5ac2ffd500c550e558cb"
+          "date": 1787912370,
+          "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
         }
       },
       {
@@ -9788,7 +9788,11 @@
             "type": "author",
             "url": "lansory"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1787912370,
+          "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
+        }
       }
     ],
     "shaders": [
@@ -13082,7 +13086,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1787912370,
+                "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
+              }
             }
           ]
         },
