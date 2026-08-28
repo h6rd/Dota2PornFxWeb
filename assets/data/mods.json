@@ -5,10 +5,6 @@
       "category": "heroes"
     },
     {
-      "name": "Queen of Pain LenS Aura",
-      "category": "heroes"
-    },
-    {
       "name": "Earthshaker Arcana",
       "category": "heroes"
     },
@@ -9800,29 +9796,6 @@
         "meta": {
           "date": 1787912370,
           "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
-        }
-      },
-      {
-        "name": "Queen of Pain LenS Aura",
-        "preview": "Queen of Pain LenS Aura.webp",
-        "file": "Queen of Pain LenS Aura.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "hltw"
-          },
-          {
-            "type": "author",
-            "url": "hatsu"
-          }
-        ],
-        "meta": {
-          "date": 1787913719,
-          "commit-sha": "ed04f5b4f4cdabc49473684d2b53bc21fad1ddad"
         }
       },
       {
