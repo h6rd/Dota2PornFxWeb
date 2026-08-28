@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Faceless Void Immortal Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Queen of Pain LenS Aura",
       "category": "heroes"
     },
@@ -9820,6 +9824,21 @@
           "date": 1787913719,
           "commit-sha": "ed04f5b4f4cdabc49473684d2b53bc21fad1ddad"
         }
+      },
+      {
+        "name": "Faceless Void Immortal Arcana",
+        "preview": "Faceless Void Immortal Arcana.webp",
+        "file": "Faceless Void Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
