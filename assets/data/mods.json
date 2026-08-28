@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Queen of Pain Blue Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Deathrun Eggs",
       "category": "trees"
     },
@@ -9788,6 +9792,25 @@
           "date": 1787925089,
           "commit-sha": "71fcef025496a2f16e2ea855e92c0b48d9ab7cc4"
         }
+      },
+      {
+        "name": "Queen of Pain Blue Arcana",
+        "preview": "Queen of Pain Blue Arcana.webp",
+        "file": "Queen of Pain Blue Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "lansory"
+          },
+          {
+            "type": "author",
+            "url": "hatsu"
+          }
+        ]
       }
     ],
     "shaders": [
