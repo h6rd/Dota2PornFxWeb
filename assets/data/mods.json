@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Twilight Hud",
       "category": "huds"
     },
@@ -143,10 +147,6 @@
     {
       "name": "Juggernaut Arcana",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Immortal Winter Wyvern",
