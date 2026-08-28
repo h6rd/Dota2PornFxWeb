@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Arcana",
+      "category": "hero-items"
+    },
+    {
+      "name": "Terrorblade Span Of Sorrow",
+      "category": "hero-items"
+    },
+    {
+      "name": "Terrorblade Yatoro Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -22,10 +38,6 @@
     },
     {
       "name": "Camel Keeper of the Light",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Yatoro Arcana",
       "category": "heroes"
     },
     {
@@ -9749,8 +9761,8 @@
         "preview": "Anti-Mage Prime.webp",
         "file": "Anti-Mage Prime.zip",
         "tags": {
-          "effects": false,
-          "icons": false
+          "effects": true,
+          "icons": true
         },
         "links": [
           {
@@ -9762,6 +9774,21 @@
           "date": 1787851451,
           "commit-sha": "cff4fe736d8be3cd64c33b16f76ca0cd2c0cd55a"
         }
+      },
+      {
+        "name": "Earthshaker Arcana",
+        "preview": "Earthshaker Arcana.webp",
+        "file": "Earthshaker Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13040,6 +13067,22 @@
                 "date": 1787826635,
                 "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
               }
+            },
+            {
+              "name": "Terrorblade Span Of Sorrow",
+              "preview": "Terrorblade Span Of Sorrow.webp",
+              "file": "Terrorblade Span Of Sorrow.zip",
+              "tags": {
+                "back": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },

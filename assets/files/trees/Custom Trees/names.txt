@@ -185,6 +185,7 @@ models/props_tree/tree_pine_snow_03b_destruction
 models/props_tree/tree_split001
 models/props_tree/tree_stump001
 models/props_tree/tree_stump001_ivy
+maps/ti10_assets/trees/ti10_goldenbirch001
 models/props_nature/desert/desert_baobab
 models/props_nature/desert/desert_baobab02
 models/props_nature/desert/desert_baobab03
