@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Deathrun Eggs",
+      "category": "trees"
+    },
+    {
       "name": "Sniper Full-Bore Bonanza",
       "category": "hero-items"
     },
@@ -11177,6 +11181,11 @@
           "date": 1783400379,
           "commit-sha": "1d232004f81df44fc3642001c6dbff5714146071"
         }
+      },
+      {
+        "name": "Deathrun Eggs",
+        "preview": "Deathrun Eggs.webp",
+        "file": "pak28_dir.vpk"
       }
     ],
     "hero-items": {
