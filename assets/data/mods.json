@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Naga Siren",
+      "category": "heroes"
+    },
+    {
       "name": "Earthshaker Arcana",
       "category": "heroes"
     },
@@ -9815,6 +9819,21 @@
           "date": 1787935239,
           "commit-sha": "05f51292d715ddfe2b30e94438642bb9012e468e"
         }
+      },
+      {
+        "name": "Purple Naga Siren",
+        "preview": "Purple Naga Siren.webp",
+        "file": "Purple Naga Siren.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "zitock"
+          }
+        ]
       }
     ],
     "shaders": [
