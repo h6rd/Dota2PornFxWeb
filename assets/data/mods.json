@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sniper Full-Bore Bonanza",
+      "category": "hero-items"
+    },
+    {
+      "name": "Sniper Occultists Pursuit",
+      "category": "hero-items"
+    },
+    {
+      "name": "Sniper Blacksail Cannoneer",
+      "category": "heroes"
+    },
+    {
       "name": "Faceless Void Immortal Arcana",
       "category": "heroes"
     },
@@ -6980,25 +6992,6 @@
         }
       },
       {
-        "name": "Terrorblade Crimson Fractal Horns",
-        "preview": "Terrorblade Crimson Fractal Horns.webp",
-        "file": "Terrorblade Crimson Fractal Horns.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Haruma"
-          }
-        ],
-        "meta": {
-          "date": 1783089708,
-          "commit-sha": "f24a522e72f3c7575c4731931f09348e9eee0140"
-        }
-      },
-      {
         "name": "Void Spirit Hidden Vector",
         "preview": "Void Spirit Hidden Vector.webp",
         "file": "Void Spirit Hidden Vector.zip",
@@ -7681,25 +7674,6 @@
         }
       },
       {
-        "name": "Terrorblade Green Fractal Horns",
-        "preview": "Terrorblade Green Fractal Horns.webp",
-        "file": "Terrorblade Green Fractal Horns.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Haruma"
-          }
-        ],
-        "meta": {
-          "date": 1780942970,
-          "commit-sha": "31e8523d59800d34ef112e9d197f7f4441d41d1f"
-        }
-      },
-      {
         "name": "Dark Willow Saccharine Saboteur",
         "preview": "Dark Willow Saccharine Saboteur.webp",
         "file": "Dark Willow Saccharine Saboteur.zip",
@@ -7795,25 +7769,6 @@
         "tags": {
           "effects": false,
           "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Haruma"
-          }
-        ],
-        "meta": {
-          "date": 1781266231,
-          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
-        }
-      },
-      {
-        "name": "Terrorblade White Fractal Horns",
-        "preview": "Terrorblade White Fractal Horns.webp",
-        "file": "Terrorblade White Fractal Horns.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
         },
         "links": [
           {
@@ -9815,6 +9770,15 @@
         "meta": {
           "date": 1787915916,
           "commit-sha": "2e59fb08d0321074e95b36eb87231b504ae7f6af"
+        }
+      },
+      {
+        "name": "Sniper Blacksail Cannoneer",
+        "preview": "Sniper Blacksail Cannoneer.webp",
+        "file": "Sniper Blacksail Cannoneer.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
         }
       }
     ],
@@ -12841,6 +12805,44 @@
               "meta": {
                 "date": 1768637892,
                 "commit-sha": "76970f6977b7dc0c7343defd791b444d8f3f5845"
+              }
+            },
+            {
+              "name": "Sniper Occultists Pursuit",
+              "preview": "Sniper Occultists Pursuit.webp",
+              "file": "Sniper Occultists Pursuit.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              }
+            },
+            {
+              "name": "Sniper Full-Bore Bonanza",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#76b9f5",
+                  "preview": "Sniper Full-Bore Bonanza.webp",
+                  "file": "Sniper Full-Bore Bonanza.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#fffb7a",
+                  "preview": "Sniper Full-Bore Bonanza Golden.webp",
+                  "file": "Sniper Full-Bore Bonanza Golden.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff7a7a",
+                  "preview": "Sniper Full-Bore Bonanza Crimson.webp",
+                  "file": "Sniper Full-Bore Bonanza Crimson.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
               }
             }
           ]
