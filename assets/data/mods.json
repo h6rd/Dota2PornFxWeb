@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "",
+      "category": "hero-items"
+    },
+    {
+      "name": "",
+      "category": "hero-items"
+    },
+    {
+      "name": "",
+      "category": "hero-items"
+    },
+    {
+      "name": "Drow Ranger Silent Wake",
+      "category": "hero-items"
+    },
+    {
+      "name": "Disruptor Resistive Pinfold",
+      "category": "hero-items"
+    },
+    {
+      "name": "White Keeper of the Light",
+      "category": "heroes"
+    },
+    {
       "name": "Purple Naga Siren",
       "category": "heroes"
     },
@@ -9838,6 +9862,25 @@
           "date": 1787950241,
           "commit-sha": "1df3edcf5db04abd496cb50bb0420826c563bc1c"
         }
+      },
+      {
+        "name": "White Keeper of the Light",
+        "preview": "White Keeper of the Light.webp",
+        "file": "White Keeper of the Light.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "keeper"
+          },
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -11786,6 +11829,34 @@
                 "date": 1773556978,
                 "commit-sha": "7bc1b4f5c27676246ae05e9e40969f40d48dccc2"
               }
+            },
+            {
+              "name": "Disruptor Resistive Pinfold",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#6596ff",
+                  "preview": "Disruptor Resistive Pinfold.webp",
+                  "file": "Disruptor Resistive Pinfold.zip"
+                },
+                {
+                  "label": "Tyrian",
+                  "color": "#a065ff",
+                  "preview": "Disruptor Resistive Pinfold Tyrian.webp",
+                  "file": "Disruptor Resistive Pinfold Tyrian.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
@@ -11802,7 +11873,48 @@
         {
           "id": "drow-ranger",
           "name": "Drow Ranger",
-          "mods": []
+          "mods": [
+            {
+              "name": "Drow Ranger Silent Wake",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#4d0000",
+                  "preview": "Drow Ranger Silent Wake.webp",
+                  "file": "Drow Ranger Silent Wake.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffb452",
+                  "preview": "Drow Ranger Silent Wake Golden.webp",
+                  "file": "Drow Ranger Silent Wake Golden.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ff5252",
+                  "preview": "Drow Ranger Silent Wake Crimson.webp",
+                  "file": "Drow Ranger Silent Wake Crimson.zip"
+                },
+                {
+                  "label": "Tyrian",
+                  "color": "#ab52ff",
+                  "preview": "Drow Ranger Silent Wake Tyrian.webp",
+                  "file": "Drow Ranger Silent Wake Tyrian.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "earth-spirit",
@@ -12586,7 +12698,42 @@
         {
           "id": "nyx-assassin",
           "name": "Nyx Assassin",
-          "mods": []
+          "mods": [
+            {
+              "name": "Nyx Assassin Latticean Hierarchy",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#ffde65",
+                  "preview": "Nyx Assassin Latticean Hierarchy.webp",
+                  "file": "Nyx Assassin Latticean Hierarchy.zip"
+                },
+                {
+                  "label": "Crimson",
+                  "color": "#ffffff",
+                  "preview": "Nyx Assassin Latticean Hierarchy Crimson.webp",
+                  "file": "Nyx Assassin Latticean Hierarchy Crimson.zip"
+                },
+                {
+                  "label": "Tyrian",
+                  "color": "#ffffff",
+                  "preview": "Nyx Assassin Latticean Hierarchy Tyrian.webp",
+                  "file": "Nyx Assassin Latticean Hierarchy Tyrian.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "ogre-magi",
