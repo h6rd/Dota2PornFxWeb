@@ -9880,7 +9880,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788042221,
+          "commit-sha": "00b338867222b7ce236bcb7004f6724c05586411"
+        }
       }
     ],
     "shaders": [
@@ -11856,7 +11860,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788042221,
+                "commit-sha": "00b338867222b7ce236bcb7004f6724c05586411"
+              }
             }
           ]
         },
@@ -11912,7 +11920,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788042221,
+                "commit-sha": "00b338867222b7ce236bcb7004f6724c05586411"
+              }
             }
           ]
         },
@@ -12731,7 +12743,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788042221,
+                "commit-sha": "00b338867222b7ce236bcb7004f6724c05586411"
+              }
             }
           ]
         },
