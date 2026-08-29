@@ -1,15 +1,7 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "",
-      "category": "hero-items"
-    },
-    {
-      "name": "",
-      "category": "hero-items"
-    },
-    {
-      "name": "",
+      "name": "Nyx Assassin Latticean Hierarchy",
       "category": "hero-items"
     },
     {
@@ -12722,13 +12714,13 @@
                 },
                 {
                   "label": "Crimson",
-                  "color": "#ffffff",
+                  "color": "#ff7dcb",
                   "preview": "Nyx Assassin Latticean Hierarchy Crimson.webp",
                   "file": "Nyx Assassin Latticean Hierarchy Crimson.zip"
                 },
                 {
                   "label": "Tyrian",
-                  "color": "#ffffff",
+                  "color": "#a166ff",
                   "preview": "Nyx Assassin Latticean Hierarchy Tyrian.webp",
                   "file": "Nyx Assassin Latticean Hierarchy Tyrian.zip"
                 }
