@@ -46,7 +46,7 @@ TOOLS = [
         "repo": "VPCF-Editor",
         "name": "VPCF Editor",
         "category": "tools",
-        "exclude_pattern": None,
+        "exclude_pattern": r"rc\d*|beta|alpha",
     },
     {
         "owner": "h6rd",
