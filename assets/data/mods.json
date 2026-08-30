@@ -9888,7 +9888,11 @@
             "type": "author",
             "url": "zitock"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788095311,
+          "commit-sha": "2be7e6fbb7af4c32edd06d9bc3b8e51cfde901c7"
+        }
       }
     ],
     "shaders": [
@@ -14683,7 +14687,11 @@
             "type": "author",
             "url": "3atvorn1k"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788095311,
+          "commit-sha": "2be7e6fbb7af4c32edd06d9bc3b8e51cfde901c7"
+        }
       }
     ],
     "river": [
