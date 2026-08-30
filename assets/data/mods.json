@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Team Spirit Visage",
       "category": "heroes"
     },
@@ -75,10 +79,6 @@
     {
       "name": "Terrorblade Yatoro Arcana",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Twilight Hud",
