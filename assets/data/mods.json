@@ -13226,7 +13226,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788091261,
+                "commit-sha": "0ee14dac020f0c53a88d7a100db45081ab6f747c"
+              }
             }
           ]
         },
@@ -13414,7 +13418,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788091261,
+                "commit-sha": "0ee14dac020f0c53a88d7a100db45081ab6f747c"
+              }
             }
           ]
         },
