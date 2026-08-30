@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Team Spirit Visage",
+      "category": "heroes"
+    },
+    {
+      "name": "White Click",
+      "category": "other"
+    },
+    {
       "name": "Storm Spirit Lightning Orchid Tyrian",
       "category": "hero-items"
     },
@@ -9046,25 +9054,6 @@
         }
       },
       {
-        "name": "Crimson Beastmaster",
-        "preview": "Crimson Beastmaster.webp",
-        "file": "Crimson Beastmaster.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "333"
-          }
-        ],
-        "meta": {
-          "date": 1786760922,
-          "commit-sha": "81bb2189f8c26049b0b2922cd5cb4794ebf4730a"
-        }
-      },
-      {
         "name": "Morphling Immortal Electro Gem",
         "preview": "Morphling Immortal Electro Gem.webp",
         "file": "Morphling Immortal Electro Gem.zip",
@@ -9885,6 +9874,21 @@
           "date": 1788042221,
           "commit-sha": "00b338867222b7ce236bcb7004f6724c05586411"
         }
+      },
+      {
+        "name": "Team Spirit Visage",
+        "preview": "Team Spirit Visage.webp",
+        "file": "Team Spirit Visage.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "zitock"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14669,6 +14673,17 @@
           "date": 1785081533,
           "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
         }
+      },
+      {
+        "name": "White Click",
+        "preview": "White Click.webp",
+        "file": "pak20_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ]
       }
     ],
     "river": [
