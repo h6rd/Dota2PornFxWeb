@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Storm Spirit Lightning Orchid Tyrian",
+      "category": "hero-items"
+    },
+    {
+      "name": "Timbersaw Rectifier",
+      "category": "hero-items"
+    },
+    {
       "name": "Nyx Assassin Latticean Hierarchy",
       "category": "hero-items"
     },
@@ -13203,6 +13211,22 @@
                 "date": 1776836491,
                 "commit-sha": "4a5b7be977619e73d8cd18c04a6299949a9eaebb"
               }
+            },
+            {
+              "name": "Storm Spirit Lightning Orchid Tyrian",
+              "preview": "Storm Spirit Lightning Orchid Tyrian.webp",
+              "file": "Storm Spirit Lightning Orchid Tyrian.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "head": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
@@ -13357,7 +13381,42 @@
         {
           "id": "timbersaw",
           "name": "Timbersaw",
-          "mods": []
+          "mods": [
+            {
+              "name": "Timbersaw Rectifier",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#65deff",
+                  "preview": "Timbersaw Rectifier.webp",
+                  "file": "Timbersaw Rectifier.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#ffdb6e",
+                  "preview": "Timbersaw Rectifier Golden.webp",
+                  "file": "Timbersaw Rectifier Golden.zip"
+                },
+                {
+                  "label": "Tyrian",
+                  "color": "#a166ff",
+                  "preview": "Timbersaw Rectifier Tyrian.webp",
+                  "file": "Timbersaw Rectifier Tyrian.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "off-hand": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "tinker",
