@@ -14549,7 +14549,11 @@
             "type": "author",
             "url": "lssqqqq"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788180009,
+          "commit-sha": "211c0fd5da68d42af5ffbfcf3cbb31d7c4af850b"
+        }
       }
     ],
     "high-five": [
@@ -17416,7 +17420,11 @@
             "type": "author",
             "url": "3atvorn1k"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788180009,
+          "commit-sha": "211c0fd5da68d42af5ffbfcf3cbb31d7c4af850b"
+        }
       }
     ],
     "hero-sounds": [
