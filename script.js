@@ -152,11 +152,74 @@ function goTo404() {
     window.location.href = '404.html';
 }
 
-// Highlight Hero Names
 const HERO_NAME_EXCEPTIONS = ['Kez'];
 
-const highlightHeroNames = (text) => {
-    if (!text) return text;
+const HERO_DISPLAY_NAMES = {
+    'Keeper of the Light': 'Kotl'
+};
+
+const getHeroDisplayName = (hero) => HERO_DISPLAY_NAMES[hero] || hero;
+
+const HERO_SEARCH_ALIASES = {
+    'kotl': 'Keeper of the Light',
+    'sf': 'Shadow Fiend',
+    'bh': 'Bounty Hunter',
+    'am': 'Anti-Mage',
+    'bs': 'Bloodseeker',
+    'cm': 'Crystal Maiden',
+    'pl': 'Phantom Lancer',
+    'sk': 'Sand King',
+    'wr': 'Windranger',
+    'lc': 'Legion Commander',
+    'tb': 'Terrorblade',
+    'wk': 'Wraith King',
+    'pa': 'Phantom Assassin',
+    'ta': 'Templar Assassin',
+    'dk': 'Dragon Knight',
+    'ds': 'Dark Seer',
+    'od': 'Outworld Destroyer',
+    'ck': 'Chaos Knight',
+    'mk': 'Monkey King',
+    'db': 'Dawnbreaker',
+    'qop': 'Queen of Pain'
+};
+
+const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const SEARCH_RANK_WORD = 0;
+const SEARCH_RANK_ALIAS = 1;
+const SEARCH_RANK_SUBSTRING = 2;
+const SEARCH_RANK_NONE = -1;
+
+const getSearchMatchRank = (text, query) => {
+    if (!text || !query) return SEARCH_RANK_NONE;
+    const lower = text.toLowerCase();
+    const q = query.toLowerCase();
+
+    const wordRegex = new RegExp(`\\b${escapeRegExp(q)}\\b`, 'i');
+    if (wordRegex.test(lower)) return SEARCH_RANK_WORD;
+
+    const alias = HERO_SEARCH_ALIASES[q];
+    if (alias && lower.includes(alias.toLowerCase())) return SEARCH_RANK_ALIAS;
+
+    if (lower.includes(q)) return SEARCH_RANK_SUBSTRING;
+
+    return SEARCH_RANK_NONE;
+};
+
+const bestSearchRank = (...ranks) => {
+    const valid = ranks.filter(r => r !== SEARCH_RANK_NONE);
+    return valid.length ? Math.min(...valid) : SEARCH_RANK_NONE;
+};
+
+const matchesSearchQuery = (text, query) => {
+    if (!text) return false;
+    if (!query) return true;
+    return getSearchMatchRank(text, query) !== SEARCH_RANK_NONE;
+};
+
+const findHeroMatch = (text) => {
+    if (!text) return null;
 
     let firstMatch = null;
     let firstMatchIndex = text.length;
@@ -174,16 +237,39 @@ const highlightHeroNames = (text) => {
         }
     });
 
-    if (firstMatch) {
-        const regex = HERO_NAME_EXCEPTIONS.includes(firstMatchHero)
-            ? new RegExp(firstMatchHero, 'i')
-            : new RegExp(`\\b${firstMatchHero}\\b`, 'i');
-        return text.replace(regex, (match) => {
-            return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${match}</span>`;
-        });
-    }
+    if (!firstMatch) return null;
+    return { match: firstMatch, hero: firstMatchHero };
+};
 
-    return text;
+const applyHeroDisplayName = (text) => {
+    if (!text) return text;
+
+    const found = findHeroMatch(text);
+    if (!found) return text;
+
+    const displayName = getHeroDisplayName(found.hero);
+    if (displayName === found.match) return text;
+
+    const regex = HERO_NAME_EXCEPTIONS.includes(found.hero)
+        ? new RegExp(found.hero, 'i')
+        : new RegExp(`\\b${found.hero}\\b`, 'i');
+    return text.replace(regex, displayName);
+};
+
+const highlightHeroNames = (text) => {
+    if (!text) return text;
+
+    const found = findHeroMatch(text);
+    if (!found) return text;
+
+    const displayName = getHeroDisplayName(found.hero);
+    const regex = HERO_NAME_EXCEPTIONS.includes(found.hero)
+        ? new RegExp(found.hero, 'i')
+        : new RegExp(`\\b${found.hero}\\b`, 'i');
+
+    return text.replace(regex, () => {
+        return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${displayName}</span>`;
+    });
 };
 
 // FAB Menu
@@ -2049,13 +2135,20 @@ function renderMods(categoryId) {
         renderGroupedMods(categoryId, mods.groups);
     } else {
         if (state.searchQuery) {
-            mods = mods.filter(mod => mod.name.toLowerCase().includes(state.searchQuery));
+            mods = mods.filter(mod => matchesSearchQuery(mod.name, state.searchQuery));
         }
 
         if (hideAnimeMods) mods = mods.filter(mod => !mod.tags?.anime);
         if (hideAdultMods) mods = mods.filter(mod => !mod.tags?.adult);
 
         mods = sortMods(mods, state.sortMode);
+
+        if (state.searchQuery) {
+            mods = mods
+                .map((mod, index) => ({ mod, index, rank: getSearchMatchRank(mod.name, state.searchQuery) }))
+                .sort((a, b) => a.rank - b.rank || a.index - b.index)
+                .map(entry => entry.mod);
+        }
 
         if (mods.length === 0) {
             const message = state.searchQuery
@@ -2089,8 +2182,8 @@ function renderGroupedMods(categoryId, groups) {
 
         if (state.searchQuery) {
             filteredMods = filteredMods.filter(mod =>
-                mod.name.toLowerCase().includes(state.searchQuery) ||
-                group.name.toLowerCase().includes(state.searchQuery)
+                matchesSearchQuery(mod.name, state.searchQuery) ||
+                matchesSearchQuery(group.name, state.searchQuery)
             );
         }
 
@@ -2102,7 +2195,7 @@ function renderGroupedMods(categoryId, groups) {
         const groupHeader = document.createElement('div');
         groupHeader.className = 'mod-group-header';
         groupHeader.innerHTML = `
-            <h3 class="mod-group-title">${group.name}</h3>
+            <h3 class="mod-group-title">${categoryId === 'hero-items' ? highlightHeroNames(group.name) : group.name}</h3>
             <div class="mod-group-divider"></div>
         `;
         elements.modsGrid.appendChild(groupHeader);
@@ -2111,7 +2204,22 @@ function renderGroupedMods(categoryId, groups) {
         groupContainer.className = 'mod-group-container';
         groupContainer.setAttribute('data-group-id', group.id);
 
-        const sortedMods = sortMods(filteredMods, state.sortMode);
+        let sortedMods = sortMods(filteredMods, state.sortMode);
+
+        if (state.searchQuery) {
+            sortedMods = sortedMods
+                .map((mod, index) => ({
+                    mod,
+                    index,
+                    rank: bestSearchRank(
+                        getSearchMatchRank(mod.name, state.searchQuery),
+                        getSearchMatchRank(group.name, state.searchQuery)
+                    )
+                }))
+                .sort((a, b) => a.rank - b.rank || a.index - b.index)
+                .map(entry => entry.mod);
+        }
+
         sortedMods.forEach(mod => {
             const card = createModCard(mod, categoryId, group.id);
             groupContainer.appendChild(card);
@@ -2148,15 +2256,19 @@ function renderAllModsSearch() {
                 const filtered = group.mods.filter(mod => {
                     if (hideAnimeMods && mod.tags?.anime) return false;
                     if (hideAdultMods && mod.tags?.adult) return false;
-                    return mod.name.toLowerCase().includes(state.searchQuery) ||
-                        group.name.toLowerCase().includes(state.searchQuery);
+                    return matchesSearchQuery(mod.name, state.searchQuery) ||
+                        matchesSearchQuery(group.name, state.searchQuery);
                 });
                 filtered.forEach(mod => {
                     allResults.push({
                         mod,
                         category,
                         groupId: group.id,
-                        groupName: group.name
+                        groupName: group.name,
+                        rank: bestSearchRank(
+                            getSearchMatchRank(mod.name, state.searchQuery),
+                            getSearchMatchRank(group.name, state.searchQuery)
+                        )
                     });
                 });
             });
@@ -2166,9 +2278,13 @@ function renderAllModsSearch() {
             const filtered = mods.filter(mod => {
                 if (hideAnimeMods && mod.tags?.anime) return false;
                 if (hideAdultMods && mod.tags?.adult) return false;
-                return mod.name.toLowerCase().includes(state.searchQuery);
+                return matchesSearchQuery(mod.name, state.searchQuery);
             });
-            filtered.forEach(mod => allResults.push({ mod, category }));
+            filtered.forEach(mod => allResults.push({
+                mod,
+                category,
+                rank: getSearchMatchRank(mod.name, state.searchQuery)
+            }));
         }
     }
 
@@ -2187,6 +2303,13 @@ function renderAllModsSearch() {
         allResults.sort((a, b) => a.mod.name.localeCompare(b.mod.name));
     } else if (state.sortMode === 'date') {
         allResults.reverse();
+    }
+
+    if (state.searchQuery) {
+        allResults = allResults
+            .map((entry, index) => ({ entry, index }))
+            .sort((a, b) => a.entry.rank - b.entry.rank || a.index - b.index)
+            .map(({ entry }) => entry);
     }
 
     elements.categoryTitle.textContent = 'Search results';
@@ -2911,7 +3034,7 @@ function downloadMod(mod, categoryId) {
 }
 
 function openOsPickerModal(mod) {
-    document.getElementById('osPickerTitle').textContent = mod.name;
+    document.getElementById('osPickerTitle').textContent = applyHeroDisplayName(mod.name);
     document.getElementById('osPickerOverlay').classList.add('active');
     document.getElementById('osPickerModal').classList.add('active');
     openModal();

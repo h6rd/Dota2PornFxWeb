@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper of the Light Northlight Illuminance",
+      "category": "herofx"
+    },
+    {
+      "name": "Crimson Hud",
+      "category": "huds"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14527,6 +14535,21 @@
           "date": 1787864667,
           "commit-sha": "a80836d24a3eabf6a86a98cf96336afef8028863"
         }
+      },
+      {
+        "name": "Crimson Hud",
+        "preview": "Crimson Hud.webp",
+        "file": "pak08_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Crimson Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "lssqqqq"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -17379,6 +17402,21 @@
           "date": 1784702480,
           "commit-sha": "9fdc03a5f783e40da6440949f1ccc686445ef865"
         }
+      },
+      {
+        "name": "Keeper of the Light Northlight Illuminance",
+        "preview": "Keeper of the Light Northlight Illuminance.webp",
+        "file": "Keeper of the Light Northlight Illuminance.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ]
       }
     ],
     "hero-sounds": [

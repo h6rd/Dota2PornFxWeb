@@ -563,7 +563,7 @@ function addToCart(mod, categoryId) {
     cart.push(cartItem);
     saveCart();
     updateCartBadge();
-    showToast(`Added <span style="color: var(--md-sys-color-shit)">${escapeHtml(mod.name)}</span>`);
+    showToast(`Added <span style="color: var(--md-sys-color-shit)">${escapeHtml(typeof applyHeroDisplayName === 'function' ? applyHeroDisplayName(mod.name) : mod.name)}</span>`);
 
     const allButtons = document.querySelectorAll('.add-to-cart-btn');
     allButtons.forEach(btn => {
@@ -909,7 +909,7 @@ function renderCartItems() {
         cartItem.innerHTML = `
                 ${previewHtml}
                 <div class="cart-item-info">
-                    <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
+                    <h3 class="cart-item-name">${['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(item.categoryId) && typeof highlightHeroNames === 'function' ? highlightHeroNames(escapeHtml(item.name)) : escapeHtml(item.name)}</h3>
                     <div class="cart-item-meta">
                         <p class="cart-item-category">${escapeHtml(categoryName)}</p>
                         ${styleSwitcherHtml}
