@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Puck Wanderers Brush Crimson",
+      "category": "hero-items"
+    },
+    {
+      "name": "Beastmaster Primal Paean Crimson",
+      "category": "hero-items"
+    },
+    {
       "name": "Storm Spirit Gay",
       "category": "heroes"
     },
@@ -11434,6 +11442,22 @@
                 "date": 1778407359,
                 "commit-sha": "fbbb659a35679cb2da419cc0e337e202f8dc6715"
               }
+            },
+            {
+              "name": "Beastmaster Primal Paean Crimson",
+              "preview": "Beastmaster Primal Paean Crimson.webp",
+              "file": "Beastmaster Primal Paean Crimson.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "shoulders": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
@@ -12920,7 +12944,24 @@
         {
           "id": "puck",
           "name": "Puck",
-          "mods": []
+          "mods": [
+            {
+              "name": "Puck Wanderers Brush Crimson",
+              "preview": "Puck Wanderers Brush Crimson.webp",
+              "file": "Puck Wanderers Brush Crimson.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "tail": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pudge",
