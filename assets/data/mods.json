@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Storm Spirit Gay",
+      "category": "heroes"
+    },
+    {
       "name": "Keeper of the Light Northlight Illuminance",
       "category": "herofx"
     },
@@ -9901,6 +9905,21 @@
           "date": 1788095311,
           "commit-sha": "2be7e6fbb7af4c32edd06d9bc3b8e51cfde901c7"
         }
+      },
+      {
+        "name": "Storm Spirit Gay",
+        "preview": "Storm Spirit Gay.webp",
+        "file": "Storm Spirit Gay.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ]
       }
     ],
     "shaders": [
