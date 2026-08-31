@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Old Items",
+      "category": "item-icons"
+    },
+    {
+      "name": "Lone Druid Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Puck Wanderers Brush Crimson",
       "category": "hero-items"
     },
@@ -9932,6 +9940,21 @@
           "date": 1788197261,
           "commit-sha": "27afc4b89eb569e6e1d5a6b9a564017d720a3d2d"
         }
+      },
+      {
+        "name": "Lone Druid Immortal",
+        "preview": "Lone Druid Immortal.webp",
+        "file": "Lone Druid Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -16341,6 +16364,17 @@
           "date": 1781856687,
           "commit-sha": "b350d4b7c48c737f79615c7335d0b367a2eeed43"
         }
+      },
+      {
+        "name": "Old Items",
+        "preview": "Old Items.webp",
+        "file": "Old Items.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "lebensinhalt"
+          }
+        ]
       }
     ],
     "wards": [
