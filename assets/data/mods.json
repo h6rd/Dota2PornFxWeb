@@ -9919,7 +9919,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788197261,
+          "commit-sha": "27afc4b89eb569e6e1d5a6b9a564017d720a3d2d"
+        }
       }
     ],
     "shaders": [
