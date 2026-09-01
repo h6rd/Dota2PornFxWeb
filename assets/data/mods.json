@@ -9981,7 +9981,11 @@
             "type": "author",
             "url": "wannakissyou"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788293360,
+          "commit-sha": "7af5e5f319dbc456d1d53620e4019c47e3aa28d5"
+        }
       },
       {
         "name": "Hoodwink Immortal Fire",
@@ -9996,7 +10000,11 @@
             "type": "author",
             "url": "wannakissyou"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788293360,
+          "commit-sha": "7af5e5f319dbc456d1d53620e4019c47e3aa28d5"
+        }
       }
     ],
     "shaders": [
