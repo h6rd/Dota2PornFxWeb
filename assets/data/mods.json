@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Yatoro Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Old Items",
       "category": "item-icons"
     },
@@ -103,10 +107,6 @@
     {
       "name": "Terrorblade Span Of Sorrow",
       "category": "hero-items"
-    },
-    {
-      "name": "Terrorblade Yatoro Arcana",
-      "category": "heroes"
     },
     {
       "name": "Twilight Hud",
