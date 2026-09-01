@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Hoodwink Immortal Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Fire Natures Prophet",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Yatoro Arcana",
       "category": "heroes"
     },
@@ -9959,6 +9967,36 @@
           "date": 1788207347,
           "commit-sha": "1073025d26e87f36b632b8dd09763330ead6d310"
         }
+      },
+      {
+        "name": "Fire Natures Prophet",
+        "preview": "Fire Natures Prophet.webp",
+        "file": "Fire Natures Prophet.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "wannakissyou"
+          }
+        ]
+      },
+      {
+        "name": "Hoodwink Immortal Fire",
+        "preview": "Hoodwink Immortal Fire.webp",
+        "file": "Hoodwink Immortal Fire.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "wannakissyou"
+          }
+        ]
       }
     ],
     "shaders": [
