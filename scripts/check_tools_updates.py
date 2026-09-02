@@ -12,6 +12,7 @@ TOOLS = [
         "name": "Minify",
         "category": "tools",
         "exclude_pattern": None,
+        "include_prerelease": True,
     },
     {
         "owner": "TheFleece",
@@ -77,7 +78,7 @@ def api_get(url):
         raise
 
 
-def get_latest_stable_release(owner, repo, exclude_pattern):
+def get_latest_stable_release(owner, repo, exclude_pattern, include_prerelease=False):
     url = f"https://api.github.com/repos/{owner}/{repo}/releases?per_page=30"
     releases = api_get(url)
 
@@ -86,7 +87,7 @@ def get_latest_stable_release(owner, repo, exclude_pattern):
     for rel in releases:
         if rel.get("draft"):
             continue
-        if rel.get("prerelease"):
+        if rel.get("prerelease") and not include_prerelease:
             continue
         tag = rel.get("tag_name", "")
         if compiled and compiled.search(tag):
@@ -123,7 +124,10 @@ def main():
         key = f"{tool['owner']}/{tool['repo']}"
         try:
             latest_tag = get_latest_stable_release(
-                tool["owner"], tool["repo"], tool["exclude_pattern"]
+                tool["owner"],
+                tool["repo"],
+                tool["exclude_pattern"],
+                tool.get("include_prerelease", False),
             )
         except Exception as exc:
             print(f"[WARN] Failed to fetch releases for {key}: {exc}", file=sys.stderr)
