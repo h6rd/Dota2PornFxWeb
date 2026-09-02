@@ -12331,7 +12331,11 @@
                   "type": "author",
                   "url": "keeper"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788365172,
+                "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
+              }
             }
           ]
         },
@@ -14741,7 +14745,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788365172,
+          "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
+        }
       }
     ],
     "high-five": [
@@ -18446,7 +18454,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788365172,
+          "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
+        }
       }
     ],
     "packs": [
