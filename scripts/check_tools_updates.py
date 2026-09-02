@@ -9,9 +9,9 @@ TOOLS = [
     {
         "owner": "Egezenn",
         "repo": "dota2-minify",
-        "name": "Dota2 Minify",
+        "name": "Minify",
         "category": "tools",
-        "exclude_pattern": r"rc\d*|beta|alpha",
+        "exclude_pattern": None,
     },
     {
         "owner": "TheFleece",

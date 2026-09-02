@@ -16050,7 +16050,7 @@
         }
       },
       {
-        "name": "Dota2 Minify",
+        "name": "Minify",
         "preview": "Minify.webp",
         "file": "https://egezenn.github.io/dota2-minify/",
         "type": "guide"
@@ -16101,12 +16101,6 @@
       }
     ],
     "optimization": [
-      {
-        "name": "Dota2 Minify",
-        "preview": "Minify.webp",
-        "file": "https://egezenn.github.io/dota2-minify/",
-        "type": "guide"
-      },
       {
         "name": "Commands",
         "preview": "Commands.mp4",
