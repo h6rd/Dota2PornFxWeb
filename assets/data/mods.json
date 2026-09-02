@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper of the Light Prominence",
+      "category": "hero-items"
+    },
+    {
+      "name": "Kawaii Hud",
+      "category": "huds"
+    },
+    {
+      "name": "1st September Horn",
+      "category": "sounds"
+    },
+    {
       "name": "Hoodwink Immortal Fire",
       "category": "heroes"
     },
@@ -12304,6 +12316,22 @@
                 "date": 1787500706,
                 "commit-sha": "be92b2c3f564c173495bcf31f7f71682fdc661f1"
               }
+            },
+            {
+              "name": "Keeper of the Light Prominence",
+              "preview": "Keeper of the Light Prominence.webp",
+              "file": "Keeper of the Light Prominence.zip",
+              "tags": {
+                "weapon": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ]
             }
           ]
         },
@@ -14699,6 +14727,21 @@
           "date": 1788180009,
           "commit-sha": "211c0fd5da68d42af5ffbfcf3cbb31d7c4af850b"
         }
+      },
+      {
+        "name": "Kawaii Hud",
+        "preview": "Kawaii Hud.webp",
+        "file": "pak09_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Kawaii Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -18374,6 +18417,36 @@
           "date": 1786250017,
           "commit-sha": "bf9422862ac0cc9ad90d28fed176155600881835"
         }
+      },
+      {
+        "name": "ReZero Respawn Sound",
+        "preview": "ReZero Respawn Sound.webp",
+        "file": "ReZero Respawn Sound.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/ReZero Respawn Sound.mp4"
+          },
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1780653646,
+          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
+        }
+      },
+      {
+        "name": "1st September Horn",
+        "preview": "1st September Horn.webp",
+        "file": "1st September Horn.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "packs": [
