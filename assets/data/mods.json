@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Grimstroke Purple",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -10021,6 +10025,21 @@
           "date": 1788293360,
           "commit-sha": "7af5e5f319dbc456d1d53620e4019c47e3aa28d5"
         }
+      },
+      {
+        "name": "Grimstroke Purple",
+        "preview": "Grimstroke Purple.webp",
+        "file": "Grimstroke Purple.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
       }
     ],
     "shaders": [
