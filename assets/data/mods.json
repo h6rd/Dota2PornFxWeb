@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "VPCF Editor",
+      "category": "tools"
+    },
+    {
       "name": "Grimstroke Purple",
       "category": "heroes"
     },
@@ -219,10 +223,6 @@
     {
       "name": "Lion Fin Kings Charm",
       "category": "hero-items"
-    },
-    {
-      "name": "VPCF Editor",
-      "category": "tools"
     },
     {
       "name": "Tinker Immortal",
