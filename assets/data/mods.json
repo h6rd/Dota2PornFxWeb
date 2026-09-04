@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "VPCF Editor",
       "category": "tools"
     },
@@ -63,10 +67,6 @@
     {
       "name": "Crimson Hud",
       "category": "huds"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Team Spirit Visage",
