@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dark Willow Fairy Godmummer",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Demon Grim Facade",
       "category": "hero-items"
     },
@@ -10094,6 +10098,33 @@
           "date": 1788583664,
           "commit-sha": "22b05e58f0d9b4a3743f8b6943c63666fae4b76c"
         }
+      },
+      {
+        "name": "Dark Willow Fairy Godmummer",
+        "styles": [
+          {
+            "label": "",
+            "color": "#9966ff",
+            "preview": "Dark Willow Fairy Godmummer.webp",
+            "file": "Dark Willow Fairy Godmummer.zip"
+          },
+          {
+            "label": "Bare",
+            "color": "#66ffe3",
+            "preview": "Dark Willow Fairy Godmummer Bare.webp",
+            "file": "Dark Willow Fairy Godmummer Bare.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "shaders": [
