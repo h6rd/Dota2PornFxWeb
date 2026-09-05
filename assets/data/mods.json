@@ -10066,7 +10066,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788583664,
+          "commit-sha": "22b05e58f0d9b4a3743f8b6943c63666fae4b76c"
+        }
       },
       {
         "name": "Mirana of Nightsilver",
@@ -10081,7 +10085,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788583664,
+          "commit-sha": "22b05e58f0d9b4a3743f8b6943c63666fae4b76c"
+        }
       }
     ],
     "shaders": [
