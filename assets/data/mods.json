@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Mirana of Nightsilver",
+      "category": "heroes"
+    },
+    {
+      "name": "Dragon Knight Dragon Hold",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -10044,6 +10052,36 @@
           "date": 1788457324,
           "commit-sha": "f257bd2e33398dae00f8c1517379cc07c28b7366"
         }
+      },
+      {
+        "name": "Dragon Knight Dragon Hold",
+        "preview": "Dragon Knight Dragon Hold.webp",
+        "file": "Dragon Knight Dragon Hold.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
+      },
+      {
+        "name": "Mirana of Nightsilver",
+        "preview": "Mirana of Nightsilver.webp",
+        "file": "Mirana of Nightsilver.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "shaders": [
