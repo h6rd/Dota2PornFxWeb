@@ -4808,8 +4808,7 @@ m3e-loading-indicator {
 .notes-modal {
   max-width: 800px;
   width: 50%;
-  aspect-ratio: 16 / 9;
-  max-height: none;
+  max-height: 85vh;
 }
 
 .notes-content {
@@ -5288,6 +5287,7 @@ m3e-loading-indicator {
 
 .settings-modal .info-modal-content {
   overflow: hidden;
+  min-height: 0;
   padding: 0;
 }
 

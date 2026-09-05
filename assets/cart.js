@@ -1644,8 +1644,8 @@ async function fetchWithRetry(url, retries = 3, onProgress = null) {
 }
 
 const VPKMERGE_GITHUB_URLS = {
-    win: 'https://raw.githubusercontent.com/h6rd/VPKMerge/main/binaries/VPKMerge.exe',
-    linux: 'https://raw.githubusercontent.com/h6rd/VPKMerge/main/binaries/VPKMerge'
+    win: 'https://raw.githubusercontent.com/h6rd/VPKMerge2/main/binaries/VPKMerge.exe',
+    linux: 'https://raw.githubusercontent.com/h6rd/VPKMerge2/main/binaries/VPKMerge'
 };
 
 const VPKMERGE_GITHUB_TIMEOUT = 15000;

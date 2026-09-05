@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anime Hud",
+      "category": "huds"
+    },
+    {
       "name": "Dark Willow Fairy Godmummer",
       "category": "heroes"
     },
@@ -14889,6 +14893,21 @@
           "date": 1788365172,
           "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
         }
+      },
+      {
+        "name": "Anime Hud",
+        "preview": "Anime Hud.webp",
+        "file": "pak10_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Anime Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "lssqqqq"
+          }
+        ]
       }
     ],
     "high-five": [
