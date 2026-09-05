@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Demon Grim Facade",
+      "category": "hero-items"
+    },
+    {
       "name": "Mirana of Nightsilver",
       "category": "heroes"
     },
@@ -13213,7 +13217,30 @@
         {
           "id": "shadow-demon",
           "name": "Shadow Demon",
-          "mods": []
+          "mods": [
+            {
+              "name": "Shadow Demon Grim Facade",
+              "styles": [
+                {
+                  "label": "",
+                  "color": "#ff7a7a",
+                  "preview": "Shadow Demon Grim Facade.webp",
+                  "file": "Shadow Demon Grim Facade.zip"
+                },
+                {
+                  "label": "Golden",
+                  "color": "#fffb7a",
+                  "preview": "Shadow Demon Grim Facade Golden.webp",
+                  "file": "Shadow Demon Grim Facade Golden.zip"
+                }
+              ],
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "back": true
+              }
+            }
+          ]
         },
         {
           "id": "shadow-fiend",
