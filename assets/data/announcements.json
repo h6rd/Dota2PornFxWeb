@@ -1,0 +1,13 @@
+[
+  {
+    "time": 1784829397,
+    "type": "info",
+    "text": "Dota will not use custom languages such as dota_123, dota_minify, and others. For English, use Minify from the latest RC version.",
+    "urls": ["https://github.com/Egezenn/dota2-minify/releases/tag/Minify-v1.14rc7"]
+  },
+  {
+    "time": "",
+    "type": "update",
+    "text": "A new version of VPKMerge is being used. It creates only one file; if the game crashes or something doesn't work, please report it on Discord."
+  }
+]

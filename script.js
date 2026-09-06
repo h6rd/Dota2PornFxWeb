@@ -60,7 +60,7 @@ function openModal() {
 
 document.addEventListener('wheel', (e) => {
     if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list');
     if (!scrollable) {
         e.preventDefault();
         return;
@@ -75,7 +75,7 @@ document.addEventListener('wheel', (e) => {
 
 document.addEventListener('touchmove', (e) => {
     if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list');
     if (!scrollable) e.preventDefault();
 }, { passive: false });
 
@@ -982,6 +982,122 @@ function setupVideoModal() {
     };
 }
 
+const ANNOUNCEMENT_TYPE_ICONS = {
+    update: 'release_alert',
+    warning: 'warning',
+    info: 'campaign'
+};
+
+const ANNOUNCEMENT_SEEN_KEY = 'lastSeenAnnouncementTime';
+const ANNOUNCEMENT_VIEWED_KEY = 'lastViewedAnnouncementTime';
+
+function isEmptyAnnouncementTime(value) {
+    return value === undefined || value === null || value === '';
+}
+
+function resolveAnnouncementTimes(announcements) {
+    if (!Array.isArray(announcements)) return announcements;
+    const now = Math.floor(Date.now() / 1000);
+    return announcements.map(note =>
+        isEmptyAnnouncementTime(note.time) ? { ...note, time: now } : note
+    );
+}
+
+function parseAnnouncementTime(value) {
+    const n = parseInt(value, 10);
+    return Number.isFinite(n) ? n : 0;
+}
+
+function getSortedAnnouncements() {
+    const data = Array.isArray(window.ANNOUNCEMENTS_DATA) ? window.ANNOUNCEMENTS_DATA : [];
+    return data.slice().sort((a, b) => parseAnnouncementTime(b.time) - parseAnnouncementTime(a.time));
+}
+
+function getAnnouncementIcon(type) {
+    return ANNOUNCEMENT_TYPE_ICONS[type] || ANNOUNCEMENT_TYPE_ICONS.info;
+}
+
+function formatAnnouncementDate(value) {
+    const ts = parseAnnouncementTime(value);
+    if (!ts) return '';
+    try {
+        return new Date(ts * 1000).toLocaleDateString(undefined, {
+            year: 'numeric', month: 'short', day: 'numeric'
+        });
+    } catch (e) {
+        return '';
+    }
+}
+
+function renderAnnouncementLinks(urls) {
+    if (!Array.isArray(urls) || urls.length === 0) return '';
+    const chips = urls.map(url => {
+        const platform = typeof getPlatformInfo === 'function' ? getPlatformInfo(url) : null;
+        const iconHtml = platform
+            ? (platform.svg ? platform.svg : `<i class="bi ${platform.icon}"></i>`)
+            : `<span class="material-symbols-rounded">open_in_new</span>`;
+        const label = platform ? platform.label : 'Open link';
+        return `<a href="${url}" target="_blank" rel="noopener" class="note-link-chip">${iconHtml}<span>${label}</span></a>`;
+    }).join('');
+    return `<div class="note-links">${chips}</div>`;
+}
+
+function renderAnnouncementVersions(versions) {
+    if (!Array.isArray(versions) || versions.length === 0) return '';
+    const chips = versions.map(v => `<span class="note-version-chip">v${v}</span>`).join('');
+    return `<div class="note-versions">${chips}</div>`;
+}
+
+function showAnnouncementToast(onViewAll) {
+    const announcements = getSortedAnnouncements();
+    if (announcements.length === 0) return;
+
+    const latest = announcements[0];
+    const latestTime = parseAnnouncementTime(latest.time);
+    const lastSeen = parseInt(localStorage.getItem(ANNOUNCEMENT_SEEN_KEY) || '0', 10);
+
+    if (latestTime <= lastSeen) return;
+
+    localStorage.setItem(ANNOUNCEMENT_SEEN_KEY, String(latestTime));
+
+    document.querySelectorAll('.announcement-toast').forEach(el => el.remove());
+
+    const type = latest.type || 'info';
+    const toast = document.createElement('div');
+    toast.className = `announcement-toast ${type}`;
+    toast.innerHTML = `
+        <div class="announcement-toast-icon">
+            <span class="material-symbols-rounded">${getAnnouncementIcon(type)}</span>
+        </div>
+        <div class="announcement-toast-body">
+            <p class="announcement-toast-text">${latest.text || ''}</p>
+            ${renderAnnouncementLinks(latest.urls)}
+            <button class="announcement-toast-viewall" type="button">See all updates</button>
+        </div>
+        <button class="announcement-toast-close" type="button" aria-label="Dismiss">
+            <span class="material-symbols-rounded">close</span>
+        </button>
+    `;
+
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('show'));
+
+    let dismissTimer = setTimeout(dismiss, 9000);
+
+    function dismiss() {
+        clearTimeout(dismissTimer);
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 300);
+    }
+
+    toast.querySelector('.announcement-toast-close').addEventListener('click', dismiss);
+    toast.querySelector('.announcement-toast-viewall').addEventListener('click', () => {
+        dismiss();
+        if (typeof onViewAll === 'function') onViewAll();
+    });
+}
+
 // Notes Modal
 function setupNotesModal() {
     const notesButton = document.getElementById('notesButton');
@@ -990,69 +1106,67 @@ function setupNotesModal() {
     const closeNotesModal = document.getElementById('closeNotesModal');
     const notesContent = document.getElementById('notesContent');
     const notesBadge = document.getElementById('notesBadge');
+    const mobileNotesBadge = document.getElementById('mobileNotesBadge');
 
     if (!notesModal || !notesButton) return;
 
-    const generateNotesHash = () => {
-        if (NOTES_DATA.length === 0) return 'empty';
-        return JSON.stringify(NOTES_DATA.map(note => ({
-            type: note.type,
-            title: note.title,
-            text: note.text
-        })));
+    const updateBadge = () => {
+        const announcements = getSortedAnnouncements();
+        const latestTime = announcements.length ? parseAnnouncementTime(announcements[0].time) : 0;
+        const lastViewed = parseInt(localStorage.getItem(ANNOUNCEMENT_VIEWED_KEY) || '0', 10);
+        const hasUnread = announcements.length > 0 && latestTime > lastViewed;
+
+        notesBadge?.classList.toggle('show', hasUnread);
+        mobileNotesBadge?.classList.toggle('show', hasUnread);
     };
 
-    const lastSeenNotesHash = localStorage.getItem('lastSeenNotesHash') || '';
-    const currentNotesHash = generateNotesHash();
-
-    if (currentNotesHash !== lastSeenNotesHash && NOTES_DATA.length > 0) {
-        notesBadge.classList.add('show');
-        const mobileNotesBadge = document.getElementById('mobileNotesBadge');
-        if (mobileNotesBadge) {
-            mobileNotesBadge.classList.add('show');
-        }
-    }
-
-    const openNotesModal = () => {
+    const renderNotesList = () => {
+        const announcements = getSortedAnnouncements();
         notesContent.innerHTML = '';
 
-        if (NOTES_DATA.length === 0) {
+        if (announcements.length === 0) {
             notesContent.innerHTML = `
                 <div class="notes-empty">
                     <span class="material-symbols-rounded">description</span>
                     <p>Nothing new at the moment.<br>Check back later for updates!</p>
                 </div>
             `;
-        } else {
-            NOTES_DATA.forEach(note => {
-                const noteItem = document.createElement('div');
-                noteItem.className = `note-item ${note.type}`;
-                noteItem.innerHTML = `
-                    <div class="note-header">
-                        <div class="note-icon">
-                            <span class="material-symbols-rounded">${note.icon}</span>
-                        </div>
-                        <div class="note-meta">
-                            <h3 class="note-title">${note.title}</h3>
-                        </div>
-                    </div>
-                    <p class="note-text">${note.text}</p>
-                `;
-                notesContent.appendChild(noteItem);
-            });
+            return;
         }
+
+        announcements.forEach(note => {
+            const type = note.type || 'info';
+            const noteItem = document.createElement('div');
+            noteItem.className = `note-item ${type}`;
+            noteItem.innerHTML = `
+                <div class="note-header">
+                    <div class="note-icon">
+                        <span class="material-symbols-rounded">${getAnnouncementIcon(type)}</span>
+                    </div>
+                    <div class="note-meta">
+                        <span class="note-date">${formatAnnouncementDate(note.time)}</span>
+                    </div>
+                </div>
+                <p class="note-text">${note.text || ''}</p>
+                ${renderAnnouncementVersions(note.versions)}
+                ${renderAnnouncementLinks(note.urls)}
+            `;
+            notesContent.appendChild(noteItem);
+        });
+    };
+
+    const openNotesModal = () => {
+        renderNotesList();
 
         notesModal.classList.add('active');
         notesOverlay.classList.add('active');
         openModal();
 
-        const currentHash = generateNotesHash();
-        localStorage.setItem('lastSeenNotesHash', currentHash);
-        notesBadge.classList.remove('show');
-        const mobileNotesBadge = document.getElementById('mobileNotesBadge');
-        if (mobileNotesBadge) {
-            mobileNotesBadge.classList.remove('show');
+        const announcements = getSortedAnnouncements();
+        if (announcements.length) {
+            localStorage.setItem(ANNOUNCEMENT_VIEWED_KEY, String(parseAnnouncementTime(announcements[0].time)));
         }
+        updateBadge();
 
         setTimeout(() => {
             const modalContent = notesModal.querySelector('.info-modal-content');
@@ -1080,6 +1194,9 @@ function setupNotesModal() {
             closeNotesWindow();
         }
     });
+
+    updateBadge();
+    showAnnouncementToast(openNotesModal);
 }
 
 // Hueta
@@ -3135,10 +3252,11 @@ async function loadData() {
     const hardTimeoutTimer = setTimeout(() => controller.abort(), 20000);
 
     try {
-        const [modsRes, guidesRes, constantsRes] = await Promise.all([
+        const [modsRes, guidesRes, constantsRes, announcementsRes] = await Promise.all([
             fetch(`${dataBase}/mods.json`, { signal: controller.signal }),
             fetch(`${dataBase}/guides.json`, { signal: controller.signal }),
-            fetch(`${dataBase}/constants.json`, { signal: controller.signal })
+            fetch(`${dataBase}/constants.json`, { signal: controller.signal }),
+            fetch(`${dataBase}/announcements.json`, { signal: controller.signal }).catch(() => null)
         ]);
 
         clearTimeout(slowWarningTimer);
@@ -3157,6 +3275,17 @@ async function loadData() {
         window.guidesData = guidesDataFile;
 
         Object.assign(window, constantsDataFile);
+
+        window.ANNOUNCEMENTS_DATA = [];
+        if (announcementsRes && announcementsRes.ok) {
+            try {
+                const announcementsDataFile = await announcementsRes.json();
+                const rawAnnouncements = Array.isArray(announcementsDataFile) ? announcementsDataFile : [];
+                window.ANNOUNCEMENTS_DATA = await resolveAnnouncementTimes(rawAnnouncements);
+            } catch (e) {
+                console.error('Failed to parse announcements.json:', e);
+            }
+        }
 
         init();
     } catch (e) {

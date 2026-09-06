@@ -44,15 +44,18 @@ jobs:
       - name: Generate Metadata
         run: python scripts/add_meta.py
 
+      - name: Stamp announcement times
+        run: python scripts/set_announcement_times.py
+
       - name: Commit and Push changes
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/data/mods.json
+          git add assets/data/mods.json assets/data/announcements.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update mods metadata [skip ci]"
+            git commit -m "chore: update mods metadata and announcement timestamps [skip ci]"
             git push
           fi
 
