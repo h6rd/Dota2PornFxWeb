@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pudge Toy Woodcutter",
+      "category": "heroes"
+    },
+    {
+      "name": "Zeus Thundervolt",
+      "category": "heroes"
+    },
+    {
+      "name": "Ken Kaneki Hud",
+      "category": "huds"
+    },
+    {
       "name": "Anime Hud",
       "category": "huds"
     },
@@ -10133,6 +10145,40 @@
           "date": 1788633926,
           "commit-sha": "adc5f61e37084e9997ff2fc622e5eeacc14e3c4f"
         }
+      },
+      {
+        "name": "Zeus Thundervolt",
+        "preview": "Zeus Thundervolt.webp",
+        "file": "Zeus Thundervolt.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Pudge Toy Woodcutter",
+        "preview": "Pudge Toy Woodcutter.webp",
+        "file": "Pudge Toy Woodcutter.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "Миша Талант"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14912,6 +14958,21 @@
           "date": 1788640214,
           "commit-sha": "ff137810c3892ed3c9ac379150a1630216a87328"
         }
+      },
+      {
+        "name": "Ken Kaneki Hud",
+        "preview": "Ken Kaneki Hud.webp",
+        "file": "pak11_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Ken Kaneki Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "YuyaKizami"
+          }
+        ]
       }
     ],
     "high-five": [
