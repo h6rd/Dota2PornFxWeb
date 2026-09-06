@@ -10159,7 +10159,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788726574,
+          "commit-sha": "2cc6126c164ccb7a069566f372a9ce4ac2cdd7ad"
+        }
       },
       {
         "name": "Pudge Toy Woodcutter",
@@ -10178,7 +10182,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788726574,
+          "commit-sha": "2cc6126c164ccb7a069566f372a9ce4ac2cdd7ad"
+        }
       }
     ],
     "shaders": [
@@ -14972,7 +14980,11 @@
             "type": "author",
             "url": "YuyaKizami"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788726574,
+          "commit-sha": "2cc6126c164ccb7a069566f372a9ce4ac2cdd7ad"
+        }
       }
     ],
     "high-five": [
