@@ -16305,7 +16305,9 @@
       {
         "name": "Dota 2 Mod Manager",
         "preview": "Dota 2 Mod Manager.webp",
-        "file": "https://github.com/TheFleece/dota2-mod-manager/releases/latest/download/Dota-2-Mod-Manager-Setup.exe",
+        "multiPlatform": true,
+        "fileWin": "https://github.com/TheFleece/dota2-mod-manager/releases/latest/download/Dota-2-Mod-Manager-Setup.exe",
+        "fileLinux": "https://github.com/TheFleece/dota2-mod-manager/releases/latest/download/Dota-2-Mod-Manager.AppImage",
         "links": [
           {
             "type": "source-code",

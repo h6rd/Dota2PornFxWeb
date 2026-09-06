@@ -4702,6 +4702,77 @@ m3e-loading-indicator {
   transform: scale(0.97);
 }
 
+.os-picker-hashes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.os-picker-hash-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.os-picker-hash-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
+}
+
+.os-picker-hash-version {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.os-picker-hash-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: background-color 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.os-picker-hash-value:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.os-picker-hash-value[data-status="loading"] {
+  cursor: default;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: inherit;
+}
+
+.os-picker-hash-value[data-status="error"] {
+  cursor: default;
+  color: var(--md-sys-color-error);
+  font-family: inherit;
+}
+
+.os-picker-hash-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--md-sys-color-surface-container-high);
+  border-top: 2px solid var(--md-sys-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
 /* Grouped Mods */
 .mod-group-header {
   grid-column: 1 / -1;

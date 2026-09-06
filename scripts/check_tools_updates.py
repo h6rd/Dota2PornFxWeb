@@ -92,9 +92,18 @@ def get_latest_stable_release(owner, repo, exclude_pattern, include_prerelease=F
         tag = rel.get("tag_name", "")
         if compiled and compiled.search(tag):
             continue
-        return tag
+        return rel
 
     return None
+
+
+def extract_asset_hashes(release):
+    hashes = {}
+    for asset in release.get("assets", []):
+        digest = asset.get("digest") or ""
+        if digest.lower().startswith("sha256:"):
+            hashes[asset["name"]] = digest.split(":", 1)[1].lower()
+    return hashes
 
 
 def load_json(path, default):
@@ -123,7 +132,7 @@ def main():
     for tool in TOOLS:
         key = f"{tool['owner']}/{tool['repo']}"
         try:
-            latest_tag = get_latest_stable_release(
+            release = get_latest_stable_release(
                 tool["owner"],
                 tool["repo"],
                 tool["exclude_pattern"],
@@ -133,20 +142,24 @@ def main():
             print(f"[WARN] Failed to fetch releases for {key}: {exc}", file=sys.stderr)
             continue
 
-        if latest_tag is None:
+        if release is None:
             print(f"[WARN] No stable release found for {key}")
             continue
 
-        previous_tag = state.get(key)
+        latest_tag = release.get("tag_name")
+        hashes = extract_asset_hashes(release)
+
+        prev_entry = state.get(key)
+        previous_tag = prev_entry.get("version") if isinstance(prev_entry, dict) else prev_entry
+
+        state[key] = {"version": latest_tag, "hashes": hashes}
 
         if previous_tag is None:
             print(f"[INIT] {key}: storing initial version {latest_tag}")
-            state[key] = latest_tag
             continue
 
         if previous_tag != latest_tag:
             print(f"[UPDATE] {key}: {previous_tag} -> {latest_tag}")
-            state[key] = latest_tag
             updates_found.append(tool)
         else:
             print(f"[OK] {key}: no change ({latest_tag})")

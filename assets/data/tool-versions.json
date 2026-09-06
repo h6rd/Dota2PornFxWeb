@@ -1,9 +1,30 @@
 {
-  "Egezenn/dota2-minify": "Minify-v1.14rc7",
-  "TheFleece/dota2-mod-manager": "v2.6.4",
-  "h6rd/VPKTool": "v3.5",
-  "h6rd/VPKMerge": "v2.3",
-  "h6rd/Compiler": "v1.5",
-  "h6rd/VPCF-Editor": "v2.0",
-  "h6rd/Patcher": "v1.3"
+  "Egezenn/dota2-minify": {
+    "version": "Minify-v1.14rc7",
+    "hashes": {}
+  },
+  "TheFleece/dota2-mod-manager": {
+    "version": "v2.6.4",
+    "hashes": {}
+  },
+  "h6rd/VPKTool": {
+    "version": "v3.5",
+    "hashes": {}
+  },
+  "h6rd/VPKMerge": {
+    "version": "v2.3",
+    "hashes": {}
+  },
+  "h6rd/Compiler": {
+    "version": "v1.5",
+    "hashes": {}
+  },
+  "h6rd/VPCF-Editor": {
+    "version": "v2.0",
+    "hashes": {}
+  },
+  "h6rd/Patcher": {
+    "version": "v1.3",
+    "hashes": {}
+  }
 }

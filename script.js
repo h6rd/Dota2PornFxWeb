@@ -3036,6 +3036,10 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             openOsPickerModal(mod);
             return;
         }
+        if (isHashModalMod(mod)) {
+            openOsPickerModal(mod);
+            return;
+        }
         if (mod.type === 'guide') {
             if (mod.guideId) {
                 if (!mod.file || !mod.file.startsWith('http')) {
@@ -3139,6 +3143,52 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
     });
 }
 
+const HASH_MODAL_WHITELIST = [
+    'h6rd/VPKTool',
+    'h6rd/VPKMerge',
+    'h6rd/Patcher',
+    'h6rd/Compiler',
+    'h6rd/VPCF-Editor',
+    'TheFleece/dota2-mod-manager'
+];
+
+function extractGithubRepo(url) {
+    if (!url || typeof url !== 'string') return null;
+    const match = url.match(/github\.com\/([^\/]+\/[^\/]+?)(?:\/|$)/i);
+    return match ? match[1] : null;
+}
+
+function getModRepoKey(mod) {
+    return extractGithubRepo(mod.fileWin)
+        || extractGithubRepo(mod.fileLinux)
+        || extractGithubRepo(mod.file)
+        || extractGithubRepo(mod.linkUrl);
+}
+
+function isHashModalMod(mod) {
+    const repo = getModRepoKey(mod);
+    if (!repo) return false;
+    return HASH_MODAL_WHITELIST.some(entry => entry.toLowerCase() === repo.toLowerCase());
+}
+
+function getToolVersionEntry(repoKey) {
+    if (!repoKey || !window.toolVersions) return null;
+    const entry = window.toolVersions[repoKey];
+    if (!entry) return null;
+    if (typeof entry === 'string') return { version: entry, hashes: {} };
+    return entry;
+}
+
+function getAssetHash(entry, fileUrl) {
+    if (!entry || !entry.hashes || !fileUrl) return null;
+    const filename = decodeURIComponent(fileUrl.split('/').pop());
+    return entry.hashes[filename] || null;
+}
+
+function shortenHash(hash) {
+    return hash.length > 20 ? `${hash.slice(0, 10)}…${hash.slice(-8)}` : hash;
+}
+
 function downloadMod(mod, categoryId) {
     const link = document.createElement('a');
     link.href = getFileUrl(categoryId, mod.file);
@@ -3156,20 +3206,62 @@ function openOsPickerModal(mod) {
     document.getElementById('osPickerModal').classList.add('active');
     openModal();
 
-    const btnWin = document.getElementById('osBtnWindows');
-    const btnLinux = document.getElementById('osBtnLinux');
-    const newBtnWin = btnWin.cloneNode(true);
-    const newBtnLinux = btnLinux.cloneNode(true);
-    btnWin.parentNode.replaceChild(newBtnWin, btnWin);
-    btnLinux.parentNode.replaceChild(newBtnLinux, btnLinux);
+    const buttonsContainer = document.getElementById('osPickerButtons');
+    const hashesContainer = document.getElementById('osPickerHashes');
 
-    newBtnWin.addEventListener('click', () => {
-        window.open(mod.fileWin, '_blank');
-        closeOsPickerModal();
+    const options = mod.multiPlatform
+        ? [
+            { label: 'Windows', icon: 'bi-windows', url: mod.fileWin },
+            { label: 'Linux', icon: 'bi-tux', url: mod.fileLinux }
+        ]
+        : [
+            { label: (window.translations && window.translations['download']) || 'Download', icon: 'bi-download', url: mod.file }
+        ];
+
+    buttonsContainer.innerHTML = '';
+    options.forEach(opt => {
+        if (!opt.url) return;
+        const btn = document.createElement('button');
+        btn.className = 'os-picker-btn';
+        btn.innerHTML = `<i class="bi ${opt.icon}"></i>${opt.label}`;
+        btn.addEventListener('click', () => {
+            window.open(opt.url, '_blank');
+            closeOsPickerModal();
+        });
+        buttonsContainer.appendChild(btn);
     });
-    newBtnLinux.addEventListener('click', () => {
-        window.open(mod.fileLinux, '_blank');
-        closeOsPickerModal();
+
+    hashesContainer.innerHTML = '';
+
+    const showHashes = isHashModalMod(mod);
+    hashesContainer.style.display = showHashes ? 'flex' : 'none';
+    if (!showHashes) return;
+
+    const repoKey = getModRepoKey(mod);
+    const versionEntry = getToolVersionEntry(repoKey);
+
+    options.forEach(opt => {
+        if (!opt.url) return;
+
+        const hash = getAssetHash(versionEntry, opt.url);
+
+        const row = document.createElement('div');
+        row.className = 'os-picker-hash-row';
+        row.innerHTML = `
+            <span class="os-picker-hash-label">${opt.label}${versionEntry?.version ? ` <span class="os-picker-hash-version">${versionEntry.version}</span>` : ''}</span>
+            <span class="os-picker-hash-value" data-status="${hash ? 'ready' : 'error'}">${hash ? shortenHash(hash) : 'Hash unavailable'}</span>
+        `;
+        hashesContainer.appendChild(row);
+
+        const valueEl = row.querySelector('.os-picker-hash-value');
+        if (hash) {
+            valueEl.title = 'SHA-256 — click to copy';
+            valueEl.addEventListener('click', () => {
+                copyToClipboard(hash, 'Hash copied!');
+            });
+        } else {
+            valueEl.title = 'No checksum recorded yet for this file — it will appear after the next scheduled update check';
+        }
     });
 }
 
@@ -3252,11 +3344,12 @@ async function loadData() {
     const hardTimeoutTimer = setTimeout(() => controller.abort(), 20000);
 
     try {
-        const [modsRes, guidesRes, constantsRes, announcementsRes] = await Promise.all([
+        const [modsRes, guidesRes, constantsRes, announcementsRes, toolVersionsRes] = await Promise.all([
             fetch(`${dataBase}/mods.json`, { signal: controller.signal }),
             fetch(`${dataBase}/guides.json`, { signal: controller.signal }),
             fetch(`${dataBase}/constants.json`, { signal: controller.signal }),
-            fetch(`${dataBase}/announcements.json`, { signal: controller.signal }).catch(() => null)
+            fetch(`${dataBase}/announcements.json`, { signal: controller.signal }).catch(() => null),
+            fetch(`${dataBase}/tool-versions.json`, { signal: controller.signal }).catch(() => null)
         ]);
 
         clearTimeout(slowWarningTimer);
@@ -3284,6 +3377,15 @@ async function loadData() {
                 window.ANNOUNCEMENTS_DATA = await resolveAnnouncementTimes(rawAnnouncements);
             } catch (e) {
                 console.error('Failed to parse announcements.json:', e);
+            }
+        }
+
+        window.toolVersions = {};
+        if (toolVersionsRes && toolVersionsRes.ok) {
+            try {
+                window.toolVersions = await toolVersionsRes.json();
+            } catch (e) {
+                console.error('Failed to parse tool-versions.json:', e);
             }
         }
 
