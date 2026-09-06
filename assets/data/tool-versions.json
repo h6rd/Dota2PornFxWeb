@@ -1,30 +1,57 @@
 {
   "Egezenn/dota2-minify": {
     "version": "Minify-v1.14rc7",
-    "hashes": {}
+    "hashes": {
+      "Minify-Setup-1.14rc7.exe": "76c94715b0cbbd3fadea88d2741b1cc979147eeb1c27398ee0eb408bc03374bd",
+      "Minify-v1.14rc7-linux.zip": "3f285df9ff2fcf2f0e868e0283213192954f1d3aacac17e7fc88c7c8ed8d1b38",
+      "Minify-v1.14rc7-windows.zip": "b3ed8770d93eac50701b220f773da4c87bbc1e5ab441029f2b8a593bdaee3709"
+    }
   },
   "TheFleece/dota2-mod-manager": {
     "version": "v2.6.4",
-    "hashes": {}
+    "hashes": {
+      "Dota-2-Mod-Manager-Portable.exe": "b51bbf59c462027320e6bd7be3272185611af4289bbbf485ba12c726ee943ceb",
+      "Dota-2-Mod-Manager-Setup.exe": "ad5f266791ab716637e3df0d3a790469b22f1bfe7c72ff0548541ae24c8cd73c",
+      "Dota-2-Mod-Manager-Setup.exe.blockmap": "cda0b51a4d1c30e22b5ab0b38f596533d89b9198c12a19a1e702fcb1b416bcb8",
+      "Dota-2-Mod-Manager.AppImage": "4d9c6f6bd3a69e4bd60a1482c9d686075ea25c9c0fa9df9e4ba4b3f1300f9075",
+      "latest-linux.yml": "d344aac136410d9d60795844f02fab0f9320a1338b4be88c355461c8e58c93fd",
+      "latest.yml": "66a0d59624118c649989b1ef4e05716a212fb4f43c10277974fe45b68df03ef5",
+      "portable.yml": "ddd0f86c095d4278e812ea06c65e169ad2d9c5110ab44b05f7d3a2aec621fb2e"
+    }
   },
   "h6rd/VPKTool": {
     "version": "v3.5",
-    "hashes": {}
+    "hashes": {
+      "VPKTool-Linux.zip": "eecfb56276293149294eeb169a6776390f9fa861f89a5676de70d930c6ba878c",
+      "VPKTool-Win.zip": "5ab50fdf0ded9e1e93263f9813704f2e48392f885caffa0d0bfd2e962353ddd2"
+    }
   },
   "h6rd/VPKMerge": {
     "version": "v2.3",
-    "hashes": {}
+    "hashes": {
+      "VPKMerge-Linux.zip": "cdc0cc8ee65716e28b4a8617045ae10327a710f609e5152ca9b5cb854d268cf2",
+      "VPKMerge-Win.zip": "fefe641543fbe5f4cb0cc2aa8234350ee01d6796c86183f08ef6e11086146066"
+    }
   },
   "h6rd/Compiler": {
     "version": "v1.5",
-    "hashes": {}
+    "hashes": {
+      "Compiler-Linux.zip": "b3e5feeca02a4a28dcbc42de678a1d0a952bf94d7ac6b2e3dff1edcf9b4a2489",
+      "Compiler-Win.zip": "f445aa3f635bf2a8d560f586511eb3ee99915245fe6a8b76752ac7a88179d0bb"
+    }
   },
   "h6rd/VPCF-Editor": {
     "version": "v2.0",
-    "hashes": {}
+    "hashes": {
+      "VPCF-Editor-Linux.zip": "3ec0f2684e075ef7d647c38cace2d741bb3fae3538592a2b3d852751eee9b12c",
+      "VPCF-Editor-Win.zip": "79ed35cd6a40e9b880377075a283132710c8694b2449c674c30e4d52d996f405"
+    }
   },
   "h6rd/Patcher": {
     "version": "v1.3",
-    "hashes": {}
+    "hashes": {
+      "Patcher-Linux.zip": "8c177fb54743a03923dcc25109da7a7c1bda816f200715c7505edbddb2213ad5",
+      "Patcher-Win.zip": "b6db5ca213ca8aec7ac40bccb66326cf8f8e44652e2efb6688eddaca9573f9ef"
+    }
   }
 }
