@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Batrider Chubzarik Prime",
+      "category": "heroes"
+    },
+    {
+      "name": "Techies Sunken Galley",
+      "category": "heroes"
+    },
+    {
+      "name": "Keeper of the Light Wings of Daybreak",
+      "category": "hero-items"
+    },
+    {
+      "name": "Black Click",
+      "category": "other"
+    },
+    {
+      "name": "Dark Willow Fairy Godmummer",
+      "category": "heroes"
+    },
+    {
+      "name": "Sasuke Invoker",
+      "category": "heroes"
+    },
+    {
       "name": "Virus Trees",
       "category": "trees"
     },
@@ -31,10 +55,6 @@
     {
       "name": "Anime Hud",
       "category": "huds"
-    },
-    {
-      "name": "Dark Willow Fairy Godmummer",
-      "category": "heroes"
     },
     {
       "name": "Shadow Demon Grim Facade",
@@ -10203,6 +10223,59 @@
           "date": 1788726574,
           "commit-sha": "2cc6126c164ccb7a069566f372a9ce4ac2cdd7ad"
         }
+      },
+      {
+        "name": "Sasuke Invoker",
+        "preview": "Sasuke Invoker.webp",
+        "file": "Sasuke Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "Fr0dech"
+          },
+          {
+            "type": "source",
+            "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3766978260"
+          }
+        ]
+      },
+      {
+        "name": "Techies Sunken Galley",
+        "preview": "Techies Sunken Galley.webp",
+        "file": "Techies Sunken Galley.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "Ромчик"
+          },
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ]
+      },
+      {
+        "name": "Batrider Chubzarik Prime",
+        "preview": "Batrider Chubzarik Prime.webp",
+        "file": "Batrider Chubzarik Prime.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -12558,6 +12631,22 @@
                 "date": 1788365172,
                 "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
               }
+            },
+            {
+              "name": "Keeper of the Light Wings of Daybreak",
+              "preview": "Keeper of the Light Wings of Daybreak.webp",
+              "file": "Keeper of the Light Wings of Daybreak.zip",
+              "tags": {
+                "mount": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ]
             }
           ]
         },
@@ -15232,6 +15321,17 @@
           "date": 1788762686,
           "commit-sha": "6be88723191ff1370246dbc20a939a1e97985aa4"
         }
+      },
+      {
+        "name": "Black Click",
+        "preview": "Black Click.webp",
+        "file": "pak23_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "Morecursed"
+          }
+        ]
       }
     ],
     "river": [
