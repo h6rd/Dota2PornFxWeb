@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Virus Trees",
+      "category": "trees"
+    },
+    {
+      "name": "Bane Origin of the Unmaking",
+      "category": "hero-items"
+    },
+    {
+      "name": "Sapphire Click",
+      "category": "other"
+    },
+    {
+      "name": "Light Brown Click",
+      "category": "other"
+    },
+    {
       "name": "Pudge Toy Woodcutter",
       "category": "heroes"
     },
@@ -11589,6 +11605,17 @@
           "date": 1787931189,
           "commit-sha": "3042914bcd801764766f64611aca40b03c38bb24"
         }
+      },
+      {
+        "name": "Virus Trees",
+        "preview": "Virus Trees.webp",
+        "file": "pak29_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "YuyaKizami"
+          }
+        ]
       }
     ],
     "hero-items": {
@@ -11647,7 +11674,24 @@
         {
           "id": "bane",
           "name": "Bane",
-          "mods": []
+          "mods": [
+            {
+              "name": "Bane Origin of the Unmaking",
+              "preview": "Bane Origin of the Unmaking.webp",
+              "file": "Bane Origin of the Unmaking.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "head": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "batrider",
@@ -15150,6 +15194,28 @@
           "date": 1788095311,
           "commit-sha": "2be7e6fbb7af4c32edd06d9bc3b8e51cfde901c7"
         }
+      },
+      {
+        "name": "Light Brown Click",
+        "preview": "Light Brown Click.webp",
+        "file": "pak21_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "YuyaKizami"
+          }
+        ]
+      },
+      {
+        "name": "Sapphire Click",
+        "preview": "Sapphire Click.webp",
+        "file": "pak22_dir.vpk",
+        "links": [
+          {
+            "type": "author",
+            "url": "YuyaKizami"
+          }
+        ]
       }
     ],
     "river": [
