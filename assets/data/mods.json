@@ -11615,7 +11615,11 @@
             "type": "author",
             "url": "YuyaKizami"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788762686,
+          "commit-sha": "6be88723191ff1370246dbc20a939a1e97985aa4"
+        }
       }
     ],
     "hero-items": {
@@ -11689,7 +11693,11 @@
                   "type": "author",
                   "url": "keeper"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788762686,
+                "commit-sha": "6be88723191ff1370246dbc20a939a1e97985aa4"
+              }
             }
           ]
         },
@@ -15204,7 +15212,11 @@
             "type": "author",
             "url": "YuyaKizami"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788762686,
+          "commit-sha": "6be88723191ff1370246dbc20a939a1e97985aa4"
+        }
       },
       {
         "name": "Sapphire Click",
@@ -15215,7 +15227,11 @@
             "type": "author",
             "url": "YuyaKizami"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788762686,
+          "commit-sha": "6be88723191ff1370246dbc20a939a1e97985aa4"
+        }
       }
     ],
     "river": [
