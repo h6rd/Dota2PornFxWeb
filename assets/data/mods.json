@@ -10178,8 +10178,8 @@
           }
         ],
         "meta": {
-          "date": 1788633926,
-          "commit-sha": "adc5f61e37084e9997ff2fc622e5eeacc14e3c4f"
+          "date": 1788815201,
+          "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
         }
       },
       {
@@ -10241,7 +10241,11 @@
             "type": "source",
             "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3766978260"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788815201,
+          "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+        }
       },
       {
         "name": "Techies Sunken Galley",
@@ -10260,7 +10264,11 @@
             "type": "author",
             "url": "keeper"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788815201,
+          "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+        }
       },
       {
         "name": "Batrider Chubzarik Prime",
@@ -10275,7 +10283,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788815201,
+          "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+        }
       }
     ],
     "shaders": [
@@ -12646,7 +12658,11 @@
                   "type": "author",
                   "url": "keeper"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1788815201,
+                "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+              }
             }
           ]
         },
@@ -15331,7 +15347,11 @@
             "type": "author",
             "url": "Morecursed"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788815201,
+          "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+        }
       }
     ],
     "river": [
