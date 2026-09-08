@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper of the Light Darklord",
+      "category": "heroes"
+    },
+    {
+      "name": "Brewmaster Aghanim",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Magus Mimicry",
+      "category": "heroes"
+    },
+    {
+      "name": "Nyx Assassin Dalbaeb",
+      "category": "heroes"
+    },
+    {
       "name": "Batrider Chubzarik Prime",
       "category": "heroes"
     },
@@ -10288,6 +10304,70 @@
           "date": 1788815201,
           "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
         }
+      },
+      {
+        "name": "Nyx Assassin Dalbaeb",
+        "preview": "Nyx Assassin Dalbaeb.webp",
+        "file": "Nyx Assassin Dalbaeb.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Invoker Magus Mimicry",
+        "preview": "Invoker Magus Mimicry.webp",
+        "file": "Invoker Magus Mimicry.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "Миша Талант"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ]
+      },
+      {
+        "name": "Brewmaster Aghanim",
+        "preview": "Brewmaster Aghanim.webp",
+        "file": "Brewmaster Aghanim.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Keeper of the Light Darklord",
+        "preview": "Keeper of the Light Darklord.webp",
+        "file": "Keeper of the Light Darklord.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
       }
     ],
     "shaders": [
