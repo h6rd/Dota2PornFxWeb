@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Enigma Black Hole Kate Scream",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Keeper of the Light Darklord",
       "category": "heroes"
     },
@@ -18744,6 +18748,17 @@
           "date": 1787826635,
           "commit-sha": "035706add40e3c1ab3def890cf81eef4ab3682db"
         }
+      },
+      {
+        "name": "Enigma Black Hole Kate Scream",
+        "preview": "Enigma Black Hole Kate Scream.webp",
+        "file": "Enigma Black Hole Kate Scream.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Enigma Black Hole Kate Scream.mp4"
+          }
+        ]
       }
     ],
     "sounds": [
