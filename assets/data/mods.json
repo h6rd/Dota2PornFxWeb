@@ -10318,7 +10318,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788902445,
+          "commit-sha": "e7ec7f44560249a2f5c5820e4bcda5c39a33e63e"
+        }
       },
       {
         "name": "Invoker Magus Mimicry",
@@ -10337,7 +10341,11 @@
             "type": "author",
             "url": "Kisilev"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788902445,
+          "commit-sha": "e7ec7f44560249a2f5c5820e4bcda5c39a33e63e"
+        }
       },
       {
         "name": "Brewmaster Aghanim",
@@ -10352,7 +10360,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788902445,
+          "commit-sha": "e7ec7f44560249a2f5c5820e4bcda5c39a33e63e"
+        }
       },
       {
         "name": "Keeper of the Light Darklord",
@@ -10367,7 +10379,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1788902445,
+          "commit-sha": "e7ec7f44560249a2f5c5820e4bcda5c39a33e63e"
+        }
       }
     ],
     "shaders": [
