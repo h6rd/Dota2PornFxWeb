@@ -1,0 +1,132 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: main-pipeline
+  cancel-in-progress: false
+
+jobs:
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+
+    outputs:
+      files: ${{ steps.changes.outputs.files }}
+      data: ${{ steps.changes.outputs.data }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed files
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "files=true" >> "$GITHUB_OUTPUT"
+            echo "data=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if git diff --name-only HEAD^ HEAD | grep -q -E '^assets/files/|^assets/previews/|^assets/data/mods\.json$|^assets/data/announcements\.json$'; then
+            echo "files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if git diff --name-only HEAD^ HEAD | grep -q '^assets/data/.*\.json$'; then
+            echo "data=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "data=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  metadata:
+    name: Update metadata
+    needs: changes
+    if: needs.changes.outputs.files == 'true'
+
+    uses: ./.github/workflows/update-metadata.yml
+
+    secrets: inherit
+
+  hashes:
+    name: Update hashes
+    needs:
+      - changes
+      - metadata
+
+    if: |
+      needs.changes.outputs.files == 'true' &&
+      needs.metadata.result == 'success'
+
+    uses: ./.github/workflows/update-hashes.yml
+
+    secrets: inherit
+
+  signatures:
+    name: Sign catalog
+    needs:
+      - changes
+      - metadata
+      - hashes
+
+    if: |
+      (
+        needs.changes.outputs.files == 'true' &&
+        needs.hashes.result == 'success'
+      ) ||
+      (
+        needs.changes.outputs.files != 'true' &&
+        needs.changes.outputs.data == 'true'
+      )
+
+    uses: ./.github/workflows/sign-catalog.yml
+
+    secrets: inherit
+
+  deploy:
+    name: Deploy
+    needs:
+      - changes
+      - metadata
+      - hashes
+      - signatures
+
+    if: |
+      always() &&
+      needs.changes.result == 'success' &&
+      (
+        (
+          needs.changes.outputs.files == 'true' &&
+          needs.metadata.result == 'success' &&
+          needs.hashes.result == 'success' &&
+          needs.signatures.result == 'success'
+        )
+        ||
+        (
+          needs.changes.outputs.files != 'true' &&
+          needs.changes.outputs.data == 'true' &&
+          needs.signatures.result == 'success'
+        )
+        ||
+        (
+          needs.changes.outputs.files != 'true' &&
+          needs.changes.outputs.data != 'true'
+        )
+      )
+
+    uses: ./.github/workflows/deploy.yml
+
+    secrets: inherit

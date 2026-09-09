@@ -1,26 +1,20 @@
-name: Sign the catalog
+name: Sign catalog
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'assets/data/*.json'
-  workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: write
 
-concurrency:
-  group: sign-catalog
-  cancel-in-progress: false
-
 jobs:
   sign:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           filter: blob:none
           sparse-checkout: |
@@ -28,7 +22,8 @@ jobs:
             !assets/files
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -37,15 +32,18 @@ jobs:
           CATALOG_PRIVATE_KEY: ${{ secrets.CATALOG_PRIVATE_KEY }}
         run: |
           if [ -z "$CATALOG_PRIVATE_KEY" ]; then
-            echo "::error::CATALOG_PRIVATE_KEY is not set, so nothing can be signed"
+            echo "::error::CATALOG_PRIVATE_KEY is not set"
             exit 1
           fi
+
           node -e '
             const crypto = require("crypto");
             const fs = require("fs");
             const path = require("path");
 
-            const key = crypto.createPrivateKey(process.env.CATALOG_PRIVATE_KEY);
+            const key = crypto.createPrivateKey(
+              process.env.CATALOG_PRIVATE_KEY
+            );
 
             const dataDir = "assets/data";
             const sigDir = "assets/signatures";
@@ -58,8 +56,11 @@ jobs:
               const file = path.join(dataDir, name);
               const sigFile = path.join(sigDir, name + ".sig");
 
-              // Sign the raw bytes of the JSON file.
-              const sig = crypto.sign(null, fs.readFileSync(file), key);
+              const sig = crypto.sign(
+                null,
+                fs.readFileSync(file),
+                key
+              );
 
               fs.writeFileSync(
                 sigFile,
@@ -70,16 +71,29 @@ jobs:
             }
           '
 
-      - name: Commit the signatures
+      - name: Remove signatures for deleted JSON files
+        run: |
+          shopt -s nullglob
+
+          for sig in assets/signatures/*.json.sig; do
+            name=$(basename "$sig" .sig)
+
+            if [ ! -f "assets/data/$name" ]; then
+              echo "Removing obsolete signature: $sig"
+              rm "$sig"
+            fi
+          done
+
+      - name: Commit and Push signatures
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add assets/signatures/*.json.sig
+          git add assets/signatures/
 
           if git diff --cached --quiet; then
-            echo "signatures unchanged"
+            echo "Signatures unchanged"
           else
-            git commit -m "sign the catalog [skip ci]"
+            git commit -m "chore: update catalog signatures [skip ci]"
             git push
           fi

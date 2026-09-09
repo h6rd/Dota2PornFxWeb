@@ -1,20 +1,21 @@
 name: Update mod hashes
 
 on:
-  push:
-    paths:
-      - "assets/files/**"
+  workflow_call:
 
 permissions:
   contents: write
 
 jobs:
-  update-hashes:
+  hashes:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Generate hashes
         run: |
@@ -54,17 +55,16 @@ jobs:
               f.write("\n")
           PY
 
-      - name: Commit updated hashes
+      - name: Commit and Push hashes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add assets/data/mod-hashes.json
 
-          if git diff --cached --quiet; then
-            echo "No changes in mod-hashes.json"
-            exit 0
+          if git diff --staged --quiet; then
+            echo "Hashes unchanged"
+          else
+            git commit -m "chore: update mod hashes [skip ci]"
+            git push
           fi
-
-          git commit -m "Update file hashes"
-          git push

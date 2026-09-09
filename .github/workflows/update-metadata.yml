@@ -1,0 +1,48 @@
+name: Update metadata
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate Metadata
+        run: python scripts/add_meta.py
+
+      - name: Stamp announcement times
+        run: python scripts/set_announcement_times.py
+
+      - name: Commit and Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/data/mods.json assets/data/announcements.json
+
+          if git diff --staged --quiet; then
+            echo "No metadata changes"
+          else
+            git commit -m "chore: update metadata [skip ci]"
+            git push
+          fi

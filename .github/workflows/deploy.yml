@@ -1,31 +1,26 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           filter: blob:none
           sparse-checkout: |
@@ -41,29 +36,11 @@ jobs:
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
 
-      - name: Generate Metadata
-        run: python scripts/add_meta.py
-
-      - name: Stamp announcement times
-        run: python scripts/set_announcement_times.py
-
-      - name: Commit and Push changes
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/data/mods.json assets/data/announcements.json
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: update mods metadata [skip ci]"
-            git push
-          fi
-
       - name: Generate Compressed Data
         run: python scripts/generate_data.py
 
       - name: Deploy Data to data branch
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./compressed
@@ -82,17 +59,30 @@ jobs:
       - name: Minify HTML, CSS, and JS
         run: |
           npm install -g esbuild html-minifier-terser
+
           find dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" \) | while read -r file; do
-            if [[ "$file" == *"assets/m3e"* ]] || [[ "$file" == *"assets/lz-string.min.js" ]] || [[ "$file" == *"assets/zip.min.js" ]]; then
+            if [[ "$file" == *"assets/m3e"* ]] || \
+               [[ "$file" == *"assets/lz-string.min.js" ]] || \
+               [[ "$file" == *"assets/zip.min.js" ]]; then
               echo "skip: $file"
               continue
             fi
-            
+
             echo "Minification: $file"
+
             if [[ "$file" == *.html ]]; then
-              html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true "$file" -o "$file"
+              html-minifier-terser \
+                --collapse-whitespace \
+                --remove-comments \
+                --minify-css true \
+                --minify-js true \
+                "$file" \
+                -o "$file"
             else
-              esbuild "$file" --minify --allow-overwrite --outfile="$file"
+              esbuild "$file" \
+                --minify \
+                --allow-overwrite \
+                --outfile="$file"
             fi
           done
 

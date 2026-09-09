@@ -43,6 +43,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "Nothing to commit"
           else
-            git commit -m "chore: update tool versions [skip ci]"
+            git commit -m "chore: update tool versions"
             git push
           fi
