@@ -1,0 +1,70 @@
+name: Update mod hashes
+
+on:
+  push:
+    paths:
+      - "assets/files/**"
+
+permissions:
+  contents: write
+
+jobs:
+  update-hashes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate hashes
+        run: |
+          python3 <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          files_dir = Path("assets/files")
+          output_file = Path("assets/data/mod-hashes.json")
+
+          hashes = {}
+
+          for file in sorted(files_dir.rglob("*")):
+              if not file.is_file():
+                  continue
+
+              sha256 = hashlib.sha256()
+
+              with file.open("rb") as f:
+                  for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                      sha256.update(chunk)
+
+              relative_path = file.relative_to(files_dir).as_posix()
+              hashes[relative_path] = sha256.hexdigest()
+
+          output_file.parent.mkdir(parents=True, exist_ok=True)
+
+          with output_file.open("w", encoding="utf-8") as f:
+              json.dump(
+                  hashes,
+                  f,
+                  ensure_ascii=False,
+                  indent=2,
+                  sort_keys=True
+              )
+              f.write("\n")
+          PY
+
+      - name: Commit updated hashes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/data/mod-hashes.json
+
+          if git diff --cached --quiet; then
+            echo "No changes in mod-hashes.json"
+            exit 0
+          fi
+
+          git commit -m "Update file hashes"
+          git push

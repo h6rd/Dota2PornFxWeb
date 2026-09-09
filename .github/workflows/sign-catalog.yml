@@ -46,15 +46,26 @@ jobs:
             const path = require("path");
 
             const key = crypto.createPrivateKey(process.env.CATALOG_PRIVATE_KEY);
-            const dir = "assets/data";
 
-            for (const name of fs.readdirSync(dir)) {
+            const dataDir = "assets/data";
+            const sigDir = "assets/signatures";
+
+            fs.mkdirSync(sigDir, { recursive: true });
+
+            for (const name of fs.readdirSync(dataDir)) {
               if (!name.endsWith(".json")) continue;
-              const file = path.join(dir, name);
-              // the raw bytes, not a decoded string: the client verifies the file exactly as
-              // it was published, and a re-encode would change what is being signed
+
+              const file = path.join(dataDir, name);
+              const sigFile = path.join(sigDir, name + ".sig");
+
+              // Sign the raw bytes of the JSON file.
               const sig = crypto.sign(null, fs.readFileSync(file), key);
-              fs.writeFileSync(file + ".sig", sig.toString("base64") + "\n");
+
+              fs.writeFileSync(
+                sigFile,
+                sig.toString("base64") + "\n"
+              );
+
               console.log("signed " + name);
             }
           '
@@ -63,7 +74,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/*.json.sig
+
+          git add assets/signatures/*.json.sig
+
           if git diff --cached --quiet; then
             echo "signatures unchanged"
           else
