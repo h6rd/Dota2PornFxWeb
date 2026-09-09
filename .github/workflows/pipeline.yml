@@ -30,6 +30,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
 
       - name: Detect changed files
         id: changes
