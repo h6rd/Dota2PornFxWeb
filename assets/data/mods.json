@@ -15012,7 +15012,7 @@
       {
         "name": "Drow Ranger Pedestal",
         "preview": "Drow Ranger Pedestal.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Drow Ranger Pedestal.zip",
         "meta": {
           "date": 1772758430,
           "commit-sha": "f2859008780519216815ee1c9bd82f9cbbb5f2af"
@@ -15021,7 +15021,7 @@
       {
         "name": "Earthshaker Pedestal",
         "preview": "Earthshaker Pedestal.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Earthshaker Pedestal.zip",
         "meta": {
           "date": 1772758430,
           "commit-sha": "f2859008780519216815ee1c9bd82f9cbbb5f2af"
@@ -15030,7 +15030,7 @@
       {
         "name": "Windranger Pedestal",
         "preview": "Windranger Pedestal.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Windranger Pedestal.zip",
         "meta": {
           "date": 1772758430,
           "commit-sha": "f2859008780519216815ee1c9bd82f9cbbb5f2af"
@@ -15039,7 +15039,7 @@
       {
         "name": "Snow Pedestal",
         "preview": "Snow Pedestal.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Snow Pedestal.zip",
         "links": [
           {
             "type": "source",
