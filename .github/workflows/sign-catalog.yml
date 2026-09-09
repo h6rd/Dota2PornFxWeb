@@ -1,0 +1,64 @@
+name: Sign the catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/data/*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sign-catalog
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sign every data file
+        env:
+          CATALOG_PRIVATE_KEY: ${{ secrets.CATALOG_PRIVATE_KEY }}
+        run: |
+          if [ -z "$CATALOG_PRIVATE_KEY" ]; then
+            echo "::error::CATALOG_PRIVATE_KEY is not set, so nothing can be signed"
+            exit 1
+          fi
+          node -e '
+            const crypto = require("crypto");
+            const fs = require("fs");
+            const path = require("path");
+
+            const key = crypto.createPrivateKey(process.env.CATALOG_PRIVATE_KEY);
+            const dir = "assets/data";
+
+            for (const name of fs.readdirSync(dir)) {
+              if (!name.endsWith(".json")) continue;
+              const file = path.join(dir, name);
+              // the raw bytes, not a decoded string: the client verifies the file exactly as
+              // it was published, and a re-encode would change what is being signed
+              const sig = crypto.sign(null, fs.readFileSync(file), key);
+              fs.writeFileSync(file + ".sig", sig.toString("base64") + "\n");
+              console.log("signed " + name);
+            }
+          '
+
+      - name: Commit the signatures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/*.json.sig
+          if git diff --cached --quiet; then
+            echo "signatures unchanged"
+          else
+            git commit -m "sign the catalog [skip ci]"
+            git push
+          fi
