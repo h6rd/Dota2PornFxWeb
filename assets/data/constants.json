@@ -459,8 +459,7 @@
       "allowForGuides": false,
       "map": {
         "image": "Image",
-        "video": "Video",
-        "lowres": "Shit Quality"
+        "video": "Video"
       }
     },
     "sites": {

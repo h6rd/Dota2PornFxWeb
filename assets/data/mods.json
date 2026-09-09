@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Old Items",
+      "category": "item-icons"
+    },
+    {
       "name": "Enigma Black Hole Kate Scream",
       "category": "hero-sounds"
     },
@@ -127,10 +131,6 @@
     {
       "name": "Terrorblade Yatoro Arcana",
       "category": "heroes"
-    },
-    {
-      "name": "Old Items",
-      "category": "item-icons"
     },
     {
       "name": "Lone Druid Immortal",
