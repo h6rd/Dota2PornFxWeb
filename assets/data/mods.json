@@ -14427,7 +14427,7 @@
       {
         "name": "Frostivus Tormentor",
         "preview": "Frostivus Tormentor.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Frostivus Tormentor.zip",
         "meta": {
           "date": 1770460734,
           "commit-sha": "2b847b1f0a06c4f4bbc0565daf479e003c21eefb"
@@ -14436,7 +14436,7 @@
       {
         "name": "10th Anniversary Tormentor",
         "preview": "Anniversary Tormentor.webp",
-        "file": "pak11_dir.vpk",
+        "file": "10th Anniversary Tormentor.zip",
         "meta": {
           "date": 1770460734,
           "commit-sha": "2b847b1f0a06c4f4bbc0565daf479e003c21eefb"
