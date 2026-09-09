@@ -203,14 +203,14 @@
     },
     {
       "id": "couriers",
-      "emoji": "📖",
+      "emoji": "🦛",
       "key": "couriers",
       "preview": "couriers.webp",
       "guideId": "install"
     },
     {
       "id": "river",
-      "emoji": "📖",
+      "emoji": "🏞️",
       "key": "river",
       "preview": "river.webp",
       "guideId": "install"
@@ -231,7 +231,7 @@
     },
     {
       "id": "pings",
-      "emoji": "🏹",
+      "emoji": "📌",
       "key": "pings",
       "preview": "pings.webp",
       "guideId": "install"

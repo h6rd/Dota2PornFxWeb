@@ -57,26 +57,12 @@ jobs:
             echo "data=false" >> "$GITHUB_OUTPUT"
           fi
 
-  metadata:
-    name: Update metadata
+  catalog:
+    name: Update catalog
     needs: changes
     if: needs.changes.outputs.files == 'true'
 
-    uses: ./.github/workflows/update-metadata.yml
-
-    secrets: inherit
-
-  hashes:
-    name: Update hashes
-    needs:
-      - changes
-      - metadata
-
-    if: |
-      needs.changes.outputs.files == 'true' &&
-      needs.metadata.result == 'success'
-
-    uses: ./.github/workflows/update-hashes.yml
+    uses: ./.github/workflows/update-catalog.yml
 
     secrets: inherit
 
@@ -84,18 +70,11 @@ jobs:
     name: Sign catalog
     needs:
       - changes
-      - metadata
-      - hashes
+      - catalog
 
     if: |
-      (
-        needs.changes.outputs.files == 'true' &&
-        needs.hashes.result == 'success'
-      ) ||
-      (
-        needs.changes.outputs.files != 'true' &&
-        needs.changes.outputs.data == 'true'
-      )
+      needs.changes.outputs.files != 'true' &&
+      needs.changes.outputs.data == 'true'
 
     uses: ./.github/workflows/sign-catalog.yml
 
@@ -105,8 +84,7 @@ jobs:
     name: Deploy
     needs:
       - changes
-      - metadata
-      - hashes
+      - catalog
       - signatures
 
     if: |
@@ -115,9 +93,7 @@ jobs:
       (
         (
           needs.changes.outputs.files == 'true' &&
-          needs.metadata.result == 'success' &&
-          needs.hashes.result == 'success' &&
-          needs.signatures.result == 'success'
+          needs.catalog.result == 'success'
         )
         ||
         (

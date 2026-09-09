@@ -30,19 +30,81 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Check for version updates
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/check_tools_updates.py
 
+      - name: Sign every data file
+        env:
+          CATALOG_PRIVATE_KEY: ${{ secrets.CATALOG_PRIVATE_KEY }}
+        run: |
+          if [ -z "$CATALOG_PRIVATE_KEY" ]; then
+            echo "::error::CATALOG_PRIVATE_KEY is not set"
+            exit 1
+          fi
+
+          node -e '
+            const crypto = require("crypto");
+            const fs = require("fs");
+            const path = require("path");
+
+            const key = crypto.createPrivateKey(
+              process.env.CATALOG_PRIVATE_KEY
+            );
+
+            const dataDir = "assets/data";
+            const sigDir = "assets/signatures";
+
+            fs.mkdirSync(sigDir, { recursive: true });
+
+            for (const name of fs.readdirSync(dataDir)) {
+              if (!name.endsWith(".json")) continue;
+
+              const file = path.join(dataDir, name);
+              const sigFile = path.join(sigDir, name + ".sig");
+
+              const sig = crypto.sign(
+                null,
+                fs.readFileSync(file),
+                key
+              );
+
+              fs.writeFileSync(
+                sigFile,
+                sig.toString("base64") + "\n"
+              );
+
+              console.log("signed " + name);
+            }
+          '
+
+      - name: Remove signatures for deleted JSON files
+        run: |
+          shopt -s nullglob
+
+          for sig in assets/signatures/*.json.sig; do
+            name=$(basename "$sig" .sig)
+
+            if [ ! -f "assets/data/$name" ]; then
+              echo "Removing obsolete signature: $sig"
+              rm "$sig"
+            fi
+          done
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/data/mods.json assets/data/tool-versions.json
+          git add assets/data/mods.json assets/data/tool-versions.json assets/signatures/
           if git diff --staged --quiet; then
             echo "Nothing to commit"
           else
-            git commit -m "chore: update tool versions"
+            git commit -m "chore: update tool versions [skip ci]"
             git push
           fi

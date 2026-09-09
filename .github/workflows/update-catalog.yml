@@ -1,0 +1,169 @@
+name: Update catalog
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate Metadata
+        run: python scripts/add_meta.py
+
+      - name: Stamp announcements
+        run: python scripts/set_announcement_times.py
+
+      - name: Generate hashes
+        run: |
+          python3 <<'PY'
+          import hashlib
+          import json
+          import subprocess
+          from pathlib import Path
+
+          files_dir = Path("assets/files")
+          output_file = Path("assets/data/mod-hashes.json")
+
+          hashes = {}
+          if output_file.exists():
+              try:
+                  with output_file.open("r", encoding="utf-8") as f:
+                      hashes = json.load(f)
+              except Exception:
+                  hashes = {}
+
+          cmd = ["git", "diff", "--name-status", "HEAD^", "HEAD", "--", "assets/files/"]
+          res = subprocess.run(cmd, capture_output=True, text=True)
+
+          changed_files = set()
+          deleted_files = set()
+
+          for line in res.stdout.strip().splitlines():
+              if not line:
+                  continue
+              parts = line.split(maxsplit=1)
+              status, path_str = parts[0], parts[1]
+              rel_path = Path(path_str).relative_to(files_dir).as_posix()
+
+              if status.startswith("D"):
+                  deleted_files.add(rel_path)
+              else:
+                  changed_files.add(rel_path)
+
+          for rel_path in deleted_files:
+              hashes.pop(rel_path, None)
+
+          for rel_path in changed_files:
+              file = files_dir / rel_path
+              if not file.is_file():
+                  continue
+
+              sha256 = hashlib.sha256()
+              with file.open("rb") as f:
+                  for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                      sha256.update(chunk)
+
+              hashes[rel_path] = sha256.hexdigest()
+
+          output_file.parent.mkdir(parents=True, exist_ok=True)
+
+          with output_file.open("w", encoding="utf-8") as f:
+              json.dump(hashes, f, ensure_ascii=False, indent=2, sort_keys=True)
+              f.write("\n")
+          PY
+
+      - name: Sign every data file
+        env:
+          CATALOG_PRIVATE_KEY: ${{ secrets.CATALOG_PRIVATE_KEY }}
+        run: |
+          if [ -z "$CATALOG_PRIVATE_KEY" ]; then
+            echo "::error::CATALOG_PRIVATE_KEY is not set"
+            exit 1
+          fi
+
+          node -e '
+            const crypto = require("crypto");
+            const fs = require("fs");
+            const path = require("path");
+
+            const key = crypto.createPrivateKey(
+              process.env.CATALOG_PRIVATE_KEY
+            );
+
+            const dataDir = "assets/data";
+            const sigDir = "assets/signatures";
+
+            fs.mkdirSync(sigDir, { recursive: true });
+
+            for (const name of fs.readdirSync(dataDir)) {
+              if (!name.endsWith(".json")) continue;
+
+              const file = path.join(dataDir, name);
+              const sigFile = path.join(sigDir, name + ".sig");
+
+              const sig = crypto.sign(
+                null,
+                fs.readFileSync(file),
+                key
+              );
+
+              fs.writeFileSync(
+                sigFile,
+                sig.toString("base64") + "\n"
+              );
+
+              console.log("signed " + name);
+            }
+          '
+
+      - name: Remove signatures for deleted JSON files
+        run: |
+          shopt -s nullglob
+
+          for sig in assets/signatures/*.json.sig; do
+            name=$(basename "$sig" .sig)
+
+            if [ ! -f "assets/data/$name" ]; then
+              echo "Removing obsolete signature: $sig"
+              rm "$sig"
+            fi
+          done
+
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/data/mods.json assets/data/announcements.json assets/data/mod-hashes.json assets/signatures/
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update catalog data and signatures [skip ci]"
+            git push
+          fi

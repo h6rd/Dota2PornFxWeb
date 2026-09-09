@@ -1648,7 +1648,7 @@ const VPKMERGE_GITHUB_URLS = {
     linux: 'https://raw.githubusercontent.com/h6rd/VPKMerge2/main/binaries/VPKMerge'
 };
 
-const VPKMERGE_GITHUB_TIMEOUT = 15000;
+const VPKMERGE_GITHUB_TIMEOUT = 10000;
 
 async function fetchBinaryWithProgress(url, { timeoutMs = VPKMERGE_GITHUB_TIMEOUT, onProgress = null } = {}) {
     const controller = new AbortController();
