@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Abaddon Endless Night",
+      "category": "heroes"
+    },
+    {
       "name": "Old Items",
       "category": "item-icons"
     },
@@ -10387,6 +10391,15 @@
         "meta": {
           "date": 1788902445,
           "commit-sha": "e7ec7f44560249a2f5c5820e4bcda5c39a33e63e"
+        }
+      },
+      {
+        "name": "Abaddon Endless Night",
+        "preview": "Abaddon Endless Night.webp",
+        "file": "Abaddon Endless Night.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
         }
       }
     ],
