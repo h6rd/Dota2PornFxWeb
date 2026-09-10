@@ -68,11 +68,11 @@ Special thanks to those who share these mods with their audience through streams
 
 | Creator | Platform |
 |---------|----------|
-| [romantic](https://www.twitch.tv/romantic991) | Twitch / TikTok |
-| [hanta](https://www.youtube.com/@hqnta) | YouTube |
-| [dricsy66](https://www.youtube.com/@dricsy66) | YouTube |
-| [Jez4](https://www.youtube.com/@Jez4444) | YouTube |
-| [SNOW SUCKER](https://www.youtube.com/@AYE22814) | YouTube |
+| romantic | [Twitch](https://www.twitch.tv/romantic991) / [TikTok](https://www.tiktok.com/@romantic_9991) |
+| hanta | [YouTube](https://www.youtube.com/@hqnta) |
+| dricsy66 | [YouTube](https://www.youtube.com/@dricsy66) |
+| Jez4 | [YouTube](https://www.youtube.com/@Jez4444) |
+| SNOW SUCKER | [YouTube](https://www.youtube.com/@AYE22814) |
 
 ---
 
