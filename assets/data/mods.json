@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Monkey King Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Abaddon Endless Night",
       "category": "heroes"
     },
@@ -10029,6 +10033,21 @@
           "date": 1788942404,
           "commit-sha": "06be5c66eaa93fb8251dcd6b8d5e44cb7f82ea2d"
         }
+      },
+      {
+        "name": "Monkey King Immortal",
+        "preview": "Monkey King Immortal.webp",
+        "file": "Monkey King Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "ibcsz"
+          }
+        ]
       }
     ],
     "shaders": [
