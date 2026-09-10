@@ -73,6 +73,9 @@ Special thanks to those who share these mods with their audience through streams
 | dricsy66 | [YouTube](https://www.youtube.com/@dricsy66) |
 | Jez4 | [YouTube](https://www.youtube.com/@Jez4444) |
 | SNOW SUCKER | [YouTube](https://www.youtube.com/@AYE22814) |
+| hypothermia | [TikTok](https://www.tiktok.com/@methedonetherapy) |
+| 0cyzdau | [TikTok](https://www.tiktok.com/@0cyzdau) |
+| nedavovchik | [TikTok](https://www.tiktok.com/@nedavovchik) |
 
 ---
 

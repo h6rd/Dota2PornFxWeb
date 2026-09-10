@@ -752,5 +752,87 @@
     "Dota 2 Skin Changer": "https://dota2changer.com/",
     "MOR": "https://vk.com/amir4anmods",
     "Arkadium Mods": "https://www.youtube.com/@arkadiumdota2mods"
-  }
+  },
+  "CONTENT_CREATORS": [
+    {
+      "name": "romantic",
+      "avatar": "assets/previews/hueta/creators/romantic.webp",
+      "shape": "9-sided-cookie",
+      "links": {
+        "youtube": "",
+        "twitch": "https://www.twitch.tv/romantic991",
+        "tiktok": "https://www.tiktok.com/@romantic_9991"
+      }
+    },
+    {
+      "name": "hanta",
+      "avatar": "assets/previews/hueta/creators/hanta.webp",
+      "shape": "sunny",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@hqnta",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "dricsy66",
+      "avatar": "assets/previews/hueta/creators/dricsy66.webp",
+      "shape": "pentagon",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@dricsy66",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "Jez4",
+      "avatar": "assets/previews/hueta/creators/Jez4.webp",
+      "shape": "arch",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@Jez4444",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "SNOW SUCKER",
+      "avatar": "assets/previews/hueta/creators/SNOW SUCKER.webp",
+      "shape": "7-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@AYE22814",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "hypothermia",
+      "avatar": "assets/previews/hueta/creators/hypothermia.webp",
+      "shape": "4-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@methedonetherapy"
+      }
+    },
+    {
+      "name": "0cyzdau",
+      "avatar": "assets/previews/hueta/creators/0cyzdau.webp",
+      "shape": "12-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@0cyzdau"
+      }
+    },
+    {
+      "name": "nedavovchik",
+      "avatar": "assets/previews/hueta/creators/nedavovchik.webp",
+      "shape": "6-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@nedavovchik"
+      }
+    }
+  ]
 }

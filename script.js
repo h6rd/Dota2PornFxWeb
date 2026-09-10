@@ -1810,6 +1810,7 @@ function init() {
     setupCategoryNavRail();
     handleUrlParams();
     setupWelcomeModal();
+    setupCreatorsTicker();
 
     if (typeof loadCart === 'function') {
         loadCart();
@@ -3436,6 +3437,7 @@ function getPlatformInfo(url) {
     if (url.includes('steamcommunity')) return { icon: 'bi-steam', label: 'Steam', color: 'var(--md-sys-color-shit-light)' };
     if (url.includes('discord.com') || url.includes('discord.gg')) return { icon: 'bi-discord', label: 'Discord', color: 'var(--md-sys-color-shit-light)' };
     if (url.includes('twitch.tv')) return { icon: 'bi-twitch', label: 'Twitch', color: 'var(--md-sys-color-shit-light)' };
+    if (url.includes('tiktok.com')) return { icon: 'bi-tiktok', label: 'TikTok', color: 'var(--md-sys-color-shit-light)' };
     if (url.includes('patreon.com')) return { icon: 'bi-heart-fill', label: 'Patreon', color: 'var(--md-sys-color-shit-light)' };
     if (url.includes('sites.google.com')) return { icon: 'bi-globe', label: 'Website', color: 'var(--md-sys-color-shit-light)' };
     return { icon: 'bi-globe', label: 'Website', color: 'var(--md-sys-color-shit-light)' };
@@ -3562,7 +3564,121 @@ document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (document.getElementById('modAuthorsModal')?.classList.contains('active')) closeModAuthorsModal();
     if (document.getElementById('sourcesModal')?.classList.contains('active')) closeSourcesModal();
+    if (document.getElementById('creatorModal')?.classList.contains('active')) closeCreatorModal();
 });
+
+// Content creators ticker
+function openCreatorModal(creator) {
+    const overlay = document.getElementById('creatorOverlay');
+    const modal = document.getElementById('creatorModal');
+    const avatar = document.getElementById('creatorModalAvatar');
+    const shapeEl = document.getElementById('creatorModalAvatarShape');
+    const name = document.getElementById('creatorModalName');
+    const linksList = document.getElementById('creatorModalLinks');
+
+    if (!overlay || !modal || !avatar || !name || !linksList) return;
+
+    avatar.src = creator.avatar || '';
+    avatar.alt = creator.name || '';
+    if (shapeEl) shapeEl.setAttribute('name', creator.shape || 'circle');
+    name.textContent = creator.name || '';
+
+    linksList.innerHTML = '';
+
+    Object.values(creator.links || {}).forEach((url) => {
+        if (!url) return;
+        const platform = getPlatformInfo(url);
+        const item = document.createElement('a');
+        item.className = 'author-list-item';
+        item.href = url;
+        item.target = '_blank';
+        item.rel = 'noopener';
+        item.innerHTML = `
+            ${platform.svg
+                ? `<span class="author-platform-icon">${platform.svg}</span>`
+                : `<i class="bi ${platform.icon} author-platform-icon" style="color:${platform.color}"></i>`}
+            <span class="author-name">${platform.label}</span>
+            <span class="material-symbols-rounded author-arrow">open_in_new</span>`;
+        linksList.appendChild(item);
+    });
+
+    if (!linksList.children.length) {
+        const empty = document.createElement('p');
+        empty.className = 'info-modal-text';
+        empty.textContent = 'No links yet';
+        linksList.appendChild(empty);
+    }
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+    if (typeof openModal === 'function') openModal();
+}
+
+function closeCreatorModal() {
+    document.getElementById('creatorOverlay')?.classList.remove('active');
+    document.getElementById('creatorModal')?.classList.remove('active');
+    if (typeof closeModal === 'function') closeModal();
+    else document.body.classList.remove('modal-open');
+}
+
+document.getElementById('closeCreatorModal')?.addEventListener('click', closeCreatorModal);
+document.getElementById('creatorOverlay')?.addEventListener('click', closeCreatorModal);
+
+function setupCreatorsTicker() {
+    const ticker = document.getElementById('creatorsTicker');
+    const track = document.getElementById('creatorsTickerTrack');
+
+    if (!ticker || !track) return;
+
+    const creators = (window.CONTENT_CREATORS || []).filter(c => c && c.name);
+
+    if (!creators.length) {
+        ticker.style.display = 'none';
+        return;
+    }
+
+    const buildChip = (creator) => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'creator-chip';
+        chip.innerHTML = `
+            <img class="creator-chip-avatar" src="${creator.avatar || ''}" alt="" loading="lazy">
+            <span class="creator-chip-name">${creator.name}</span>`;
+        chip.addEventListener('click', () => openCreatorModal(creator));
+        return chip;
+    };
+
+    const renderTrack = () => {
+        track.innerHTML = '';
+        creators.forEach(c => track.appendChild(buildChip(c)));
+
+        const containerWidth = ticker.clientWidth || window.innerWidth;
+        const oneSetWidth = track.scrollWidth || 1;
+        const targetHalfWidth = containerWidth * 1.25;
+        const repeats = Math.max(1, Math.ceil(targetHalfWidth / oneSetWidth));
+
+        track.innerHTML = '';
+        for (let i = 0; i < repeats * 2; i++) {
+            creators.forEach(c => track.appendChild(buildChip(c)));
+        }
+
+        requestAnimationFrame(() => {
+            const halfWidth = track.scrollWidth / 2;
+            const pxPerSecond = 30;
+            const duration = Math.max(halfWidth / pxPerSecond, 15);
+            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            track.style.removeProperty('animation');
+            track.style.setProperty('--ticker-duration', `${duration}s`);
+            track.style.animationPlayState = reduceMotion ? 'paused' : '';
+        });
+    };
+
+    renderTrack();
+    window.addEventListener('resize', debounce(renderTrack, 250));
+}
+
+window.openCreatorModal = openCreatorModal;
+window.closeCreatorModal = closeCreatorModal;
 
 loadData();
 

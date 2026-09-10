@@ -28,13 +28,14 @@
   <script type="module" src="assets/m3e/loading-indicator.bundle.js"></script>
   <script type="module" src="assets/m3e/progress-indicator.bundle.js"></script>
   <script type="module" src="assets/m3e/nav-rail.bundle.js"></script>
+  <script type="module" src="assets/m3e/shape.bundle.js"></script>
   <script src="assets/m3e/select.js"></script>
   <script src="assets/theme.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
-  <header class="header">
+  <header class="header" id="siteHeader">
     <div class="container">
       <div class="header-content">
         <button class="back-button" id="backButton">
@@ -301,6 +302,23 @@
       <h2 class="info-modal-title" style="margin-bottom: 5px;">Sources</h2>
       <p class="info-modal-text" style="margin-bottom: 20px;">Platforms where some mods come from</p>
       <div class="sources-list" id="sourcesList"></div>
+    </div>
+  </div>
+
+  <!-- Content Creator Modal -->
+  <div id="creatorOverlay" class="info-overlay"></div>
+  <div id="creatorModal" class="info-modal creator-modal">
+    <button class="info-modal-close" id="closeCreatorModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <div class="creator-modal-header">
+        <m3e-shape id="creatorModalAvatarShape" name="circle" class="creator-modal-avatar-shape">
+          <img id="creatorModalAvatar" width="96" height="96" src="" alt="">
+        </m3e-shape>
+        <h2 class="info-modal-title creator-modal-name" id="creatorModalName"></h2>
+      </div>
+      <div class="author-list creator-modal-links" id="creatorModalLinks"></div>
     </div>
   </div>
 
@@ -683,6 +701,12 @@
     </div>
 
   <footer class="footer">
+    <div class="creators-ticker" id="creatorsTicker">
+      <h3 class="creators-ticker-title">Special Thanks to Content Creators</h3>
+      <div class="creators-ticker-mask">
+        <div class="creators-ticker-track" id="creatorsTickerTrack"></div>
+      </div>
+    </div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
