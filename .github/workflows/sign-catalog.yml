@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout latest main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
@@ -23,66 +23,14 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: ${{ vars.NODE_VERSION || '24' }}
 
-      - name: Sign every data file
+      - name: Sign catalog data
         env:
           CATALOG_PRIVATE_KEY: ${{ secrets.CATALOG_PRIVATE_KEY }}
-        run: |
-          if [ -z "$CATALOG_PRIVATE_KEY" ]; then
-            echo "::error::CATALOG_PRIVATE_KEY is not set"
-            exit 1
-          fi
-
-          node -e '
-            const crypto = require("crypto");
-            const fs = require("fs");
-            const path = require("path");
-
-            const key = crypto.createPrivateKey(
-              process.env.CATALOG_PRIVATE_KEY
-            );
-
-            const dataDir = "assets/data";
-            const sigDir = "assets/signatures";
-
-            fs.mkdirSync(sigDir, { recursive: true });
-
-            for (const name of fs.readdirSync(dataDir)) {
-              if (!name.endsWith(".json")) continue;
-
-              const file = path.join(dataDir, name);
-              const sigFile = path.join(sigDir, name + ".sig");
-
-              const sig = crypto.sign(
-                null,
-                fs.readFileSync(file),
-                key
-              );
-
-              fs.writeFileSync(
-                sigFile,
-                sig.toString("base64") + "\n"
-              );
-
-              console.log("signed " + name);
-            }
-          '
-
-      - name: Remove signatures for deleted JSON files
-        run: |
-          shopt -s nullglob
-
-          for sig in assets/signatures/*.json.sig; do
-            name=$(basename "$sig" .sig)
-
-            if [ ! -f "assets/data/$name" ]; then
-              echo "Removing obsolete signature: $sig"
-              rm "$sig"
-            fi
-          done
+        run: node scripts/sign-catalog.mjs
 
       - name: Commit and Push signatures
         run: |
