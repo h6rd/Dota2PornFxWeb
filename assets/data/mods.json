@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Monkey King Immortal",
       "category": "heroes"
     },
@@ -99,10 +103,6 @@
     {
       "name": "Dragon Knight Dragon Hold",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "VPCF Editor",
