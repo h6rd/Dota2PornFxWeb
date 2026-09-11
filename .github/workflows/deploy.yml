@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout latest main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
@@ -29,9 +29,9 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.10'
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
 
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
@@ -56,35 +56,15 @@ jobs:
             --exclude='compressed' \
             . dist/
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ vars.NODE_VERSION || '24' }}
+
       - name: Minify HTML, CSS, and JS
         run: |
-          npm install -g esbuild html-minifier-terser
-
-          find dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" \) | while read -r file; do
-            if [[ "$file" == *"assets/m3e"* ]] || \
-               [[ "$file" == *"assets/lz-string.min.js" ]] || \
-               [[ "$file" == *"assets/zip.min.js" ]]; then
-              echo "skip: $file"
-              continue
-            fi
-
-            echo "Minification: $file"
-
-            if [[ "$file" == *.html ]]; then
-              html-minifier-terser \
-                --collapse-whitespace \
-                --remove-comments \
-                --minify-css true \
-                --minify-js true \
-                "$file" \
-                -o "$file"
-            else
-              esbuild "$file" \
-                --minify \
-                --allow-overwrite \
-                --outfile="$file"
-            fi
-          done
+          npm install --no-audit --no-fund esbuild html-minifier-terser
+          node scripts/minify-dist.mjs dist
 
       - name: Show build summary
         run: |
@@ -96,7 +76,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist/
 
