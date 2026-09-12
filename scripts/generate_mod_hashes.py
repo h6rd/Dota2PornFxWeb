@@ -26,15 +26,63 @@ def save_hashes(hashes):
         f.write("\n")
 
 
-def full_rehash():
+def full_rehash(head_sha):
     hashes = {}
-    if not FILES_DIR.exists():
+
+    res = subprocess.run(
+        ["git", "ls-tree", "-r", "-z", "--name-only", head_sha, "--", FILES_DIR.as_posix()],
+        capture_output=True,
+        check=True,
+    )
+    rel_paths = sorted(
+        Path(p).relative_to(FILES_DIR).as_posix()
+        for p in res.stdout.decode().split("\0")
+        if p
+    )
+
+    if not rel_paths:
         return hashes
 
-    for path in sorted(FILES_DIR.rglob("*")):
-        if path.is_file():
-            rel_path = path.relative_to(FILES_DIR).as_posix()
-            hashes[rel_path] = hashlib.sha256(path.read_bytes()).hexdigest()
+    requests = [f"{head_sha}:{FILES_DIR.as_posix()}/{rel_path}\n" for rel_path in rel_paths]
+
+    proc = subprocess.run(
+        ["git", "cat-file", "--batch"],
+        input="".join(requests).encode(),
+        capture_output=True,
+        check=False,
+    )
+
+    data = proc.stdout
+    pos = 0
+    failed = []
+
+    for idx, rel_path in enumerate(rel_paths):
+        try:
+            nl = data.index(b"\n", pos)
+            header = data[pos:nl].decode("utf-8", errors="replace")
+            pos = nl + 1
+
+            if header.endswith(" missing"):
+                raise ValueError(f"blob missing ({header!r})")
+
+            oid, obj_type, size_str = header.split()
+            size = int(size_str)
+            content = data[pos:pos + size]
+            pos += size + 1
+        except (ValueError, IndexError) as exc:
+            failed.extend(rel_paths[idx:])
+            print(
+                f"::error::git cat-file --batch parsing failed at "
+                f"{rel_path!r}: {exc}",
+                file=sys.stderr,
+            )
+            break
+
+        hashes[rel_path] = hashlib.sha256(content).hexdigest()
+
+    if failed:
+        print(f"::error::Failed to hash {len(failed)} file(s): {failed}")
+        sys.exit(1)
 
     return hashes
 
@@ -128,13 +176,22 @@ def diff_rehash(base_sha, head_sha):
 
 def main():
     is_full_rehash = os.environ.get("FULL_REHASH", "false").lower() == "true"
+    head_sha = os.environ.get("HEAD_SHA") or "HEAD"
 
     if is_full_rehash:
-        print("FULL_REHASH=true: recomputing hashes for every file in assets/files/")
-        hashes = full_rehash()
+        print(f"FULL_REHASH=true: recomputing hashes for every file in assets/files/ at {head_sha}")
+        hashes = full_rehash(head_sha)
+
+        existing = load_existing_hashes()
+        if not hashes and existing:
+            print(
+                f"::error::full_rehash produced 0 entries but {OUTPUT_FILE} currently has "
+                f"{len(existing)}. Refusing to overwrite - checkout/ref is probably wrong.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
     else:
         base_sha = os.environ.get("BASE_SHA") or "HEAD^"
-        head_sha = os.environ.get("HEAD_SHA") or "HEAD"
         print(f"Diffing {base_sha}..{head_sha} for changed files in assets/files/")
         hashes = diff_rehash(base_sha, head_sha)
 

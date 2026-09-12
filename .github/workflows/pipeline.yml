@@ -7,6 +7,9 @@ on:
 
   workflow_dispatch:
 
+  schedule:
+    - cron: '0 4 * * 0'
+
 permissions:
   contents: write
   pages: write
@@ -45,7 +48,7 @@ jobs:
           BASE_SHA: ${{ github.event.before }}
           HEAD_SHA: ${{ github.sha }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "schedule" ]; then
             echo "files=true" >> "$GITHUB_OUTPUT"
             echo "data=true" >> "$GITHUB_OUTPUT"
             echo "full_rehash=true" >> "$GITHUB_OUTPUT"
