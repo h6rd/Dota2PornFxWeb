@@ -10105,7 +10105,11 @@
             "type": "author",
             "url": "keeper"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789234312,
+          "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
+        }
       }
     ],
     "shaders": [
@@ -14978,7 +14982,11 @@
             "type": "author",
             "url": "Morecursed"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789234312,
+          "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
+        }
       }
     ],
     "high-five": [
@@ -18510,7 +18518,11 @@
             "type": "preview",
             "url": "assets/previews/hero-sounds/Centaur Otday.mp4"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789234312,
+          "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
+        }
       }
     ],
     "sounds": [
