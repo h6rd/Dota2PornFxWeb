@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Centaur Otday",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Total Black Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Keeper of the Light Waitureally",
+      "category": "heroes"
+    },
+    {
       "name": "Dagon Revolver",
       "category": "sounds"
     },
@@ -10079,6 +10091,21 @@
           "date": 1789184752,
           "commit-sha": "1f212e451ac4007a561496dc36c9183ea656deeb"
         }
+      },
+      {
+        "name": "Keeper of the Light Waitureally",
+        "preview": "Keeper of the Light Waitureally.webp",
+        "file": "Keeper of the Light Waitureally.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14933,6 +14960,25 @@
           "date": 1788726574,
           "commit-sha": "2cc6126c164ccb7a069566f372a9ce4ac2cdd7ad"
         }
+      },
+      {
+        "name": "Total Black Hud",
+        "preview": "Total Black Hud.webp",
+        "file": "pak12_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Total Black Hud Preview.mp4"
+          },
+          {
+            "type": "modded",
+            "url": "Миша Талант"
+          },
+          {
+            "type": "author",
+            "url": "Morecursed"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -18454,6 +18500,17 @@
           "date": 1788904050,
           "commit-sha": "02974240e34aea6ecdc31c510d9c24abd092561b"
         }
+      },
+      {
+        "name": "Centaur Otday",
+        "preview": "Centaur Otday.webp",
+        "file": "Centaur Otday.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/hero-sounds/Centaur Otday.mp4"
+          }
+        ]
       }
     ],
     "sounds": [
