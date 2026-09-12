@@ -5,6 +5,10 @@
       "category": "hero-sounds"
     },
     {
+      "name": "Keeper of the Light Waitureally",
+      "category": "heroes"
+    },
+    {
       "name": "Total Black Hud",
       "category": "huds"
     },
@@ -10087,6 +10091,21 @@
           "date": 1789184752,
           "commit-sha": "1f212e451ac4007a561496dc36c9183ea656deeb"
         }
+      },
+      {
+        "name": "Keeper of the Light Waitureally",
+        "preview": "Keeper of the Light Waitureally.webp",
+        "file": "Keeper of the Light Waitureally.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ]
       }
     ],
     "shaders": [
