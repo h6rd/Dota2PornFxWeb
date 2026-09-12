@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dagon Revolver",
+      "category": "sounds"
+    },
+    {
       "name": "Black Huskar",
       "category": "heroes"
     },
@@ -18694,6 +18698,21 @@
           "date": 1788365172,
           "commit-sha": "0b9081e9ea55121ecb83819abea415016b4430a3"
         }
+      },
+      {
+        "name": "Dagon Revolver",
+        "preview": "Dagon Revolver.webp",
+        "file": "Dagon Revolver.zip",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/sounds/Dagon Revolver.mp4"
+          },
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ]
       }
     ],
     "packs": [
