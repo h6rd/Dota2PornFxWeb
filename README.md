@@ -66,8 +66,14 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 
 Special thanks to those who share these mods with their audience through streams, videos, and installation guides:
 
+<details>
+<summary><b>Content Creators</b></summary>
+
+<br>
+
 | Creator | Platform |
 |---------|----------|
+| Lenz | [YouTube](https://www.youtube.com/@Lenz13377) |
 | romantic | [Twitch](https://www.twitch.tv/romantic991) / [TikTok](https://www.tiktok.com/@romantic_9991) |
 | hanta | [YouTube](https://www.youtube.com/@hqnta) |
 | dricsy66 | [YouTube](https://www.youtube.com/@dricsy66) |
@@ -76,6 +82,8 @@ Special thanks to those who share these mods with their audience through streams
 | hypothermia | [TikTok](https://www.tiktok.com/@methedonetherapy) |
 | 0cyzdau | [TikTok](https://www.tiktok.com/@0cyzdau) |
 | nedavovchik | [TikTok](https://www.tiktok.com/@nedavovchik) |
+
+</details>
 
 ---
 

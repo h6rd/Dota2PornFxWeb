@@ -755,6 +755,16 @@
   },
   "CONTENT_CREATORS": [
     {
+      "name": "Lenz",
+      "avatar": "assets/previews/hueta/creators/Lenz.webp",
+      "shape": "slanted",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@Lenz13377",
+        "tiktok": ""
+      }
+    },
+    {
       "name": "romantic",
       "avatar": "assets/previews/hueta/creators/romantic.webp",
       "shape": "9-sided-cookie",
