@@ -1,10 +1,10 @@
 {
   "Egezenn/dota2-minify": {
-    "version": "Minify-v1.14rc7",
+    "version": "Minify-v2rc1",
     "hashes": {
-      "Minify-Setup-1.14rc7.exe": "76c94715b0cbbd3fadea88d2741b1cc979147eeb1c27398ee0eb408bc03374bd",
-      "Minify-v1.14rc7-linux.zip": "3f285df9ff2fcf2f0e868e0283213192954f1d3aacac17e7fc88c7c8ed8d1b38",
-      "Minify-v1.14rc7-windows.zip": "b3ed8770d93eac50701b220f773da4c87bbc1e5ab441029f2b8a593bdaee3709"
+      "Minify-Setup-2rc1.exe": "c1b53a5225d94bc928f4537c69a6573f9a78c3be8e34a45cbf0b98de27e5af21",
+      "Minify-v2rc1-linux.zip": "f7f5f115f85e534c833e1a737f219d4dc227263fc6f436a1debbe04c5ce14ed3",
+      "Minify-v2rc1-windows.zip": "8fcb76d0b5b45f661e0d2790aa97551a32e97b763e1fe34a109da8100d2b726f"
     }
   },
   "TheFleece/dota2-mod-manager": {

@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Brewmaster Wilding Tiger",
       "category": "heroes"
     },
@@ -143,10 +147,6 @@
     {
       "name": "Grimstroke Purple",
       "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Keeper of the Light Prominence",
