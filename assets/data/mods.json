@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Brewmaster Wilding Tiger",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Fireborn Assault",
       "category": "heroes"
     },
@@ -10137,6 +10141,21 @@
           "date": 1789278465,
           "commit-sha": "23c7853a215dead7a89ffa3d8908df6f176b33e9"
         }
+      },
+      {
+        "name": "Brewmaster Wilding Tiger",
+        "preview": "Brewmaster Wilding Tiger.webp",
+        "file": "Brewmaster Wilding Tiger.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "ibcsz"
+          }
+        ]
       }
     ],
     "shaders": [
