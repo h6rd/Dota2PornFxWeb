@@ -37,6 +37,10 @@ jobs:
             --bundle --format=esm --minify \
             --outfile=assets/m3e/nav-rail.bundle.js
 
+          npx esbuild node_modules/@m3e/web/dist/button-group.js \
+            --bundle --format=esm --minify \
+            --outfile=assets/m3e/button-group.bundle.js  
+
       - name: Get m3e version
         id: version
         run: |
