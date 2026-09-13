@@ -437,6 +437,11 @@
   --md-card-hover: rgba(186, 26, 26, 0.08);
 }
 
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
 * {
   margin: 0;
   padding: 0;

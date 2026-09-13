@@ -1240,11 +1240,15 @@ function setupGifSwitcher() {
             gifElement.classList.remove('clicked');
             currentIndex = (currentIndex + 1) % GIF_CONFIG.gifs.length;
             const newTheme = GIF_CONFIG.themes[currentIndex];
-
+            html.classList.add('no-transition');
             gifElement.src = GIF_CONFIG.gifs[currentIndex];
             html.setAttribute('data-gif-theme', newTheme);
             localStorage.setItem('gifIndex', currentIndex.toString());
-
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    html.classList.remove('no-transition');
+                });
+            });
             gifElement.classList.add('appear');
             setTimeout(() => {
                 gifElement.classList.remove('appear');
@@ -3786,9 +3790,15 @@ function importSettings(file) {
             if (obj.gifIndex !== undefined) {
                 localStorage.setItem('gifIndex', String(obj.gifIndex));
                 const idx = parseInt(obj.gifIndex);
+                document.documentElement.classList.add('no-transition');
                 document.documentElement.setAttribute('data-gif-theme', GIF_CONFIG.themes[idx] || 'ursa');
                 const gifEl = document.getElementById('clickable-gif');
                 if (gifEl) gifEl.src = GIF_CONFIG.gifs[idx] || GIF_CONFIG.gifs[0];
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        document.documentElement.classList.remove('no-transition');
+                    });
+                });
             }
             if (obj.gameLang) patch.gameLang = obj.gameLang;
             if (obj.os) patch.os = obj.os;
