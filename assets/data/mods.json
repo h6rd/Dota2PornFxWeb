@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Fireborn Assault",
+      "category": "heroes"
+    },
+    {
+      "name": "Void Hud",
+      "category": "huds"
+    },
+    {
       "name": "Centaur Otday",
       "category": "hero-sounds"
     },
@@ -10110,6 +10118,21 @@
           "date": 1789234312,
           "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
         }
+      },
+      {
+        "name": "Juggernaut Fireborn Assault",
+        "preview": "Juggernaut Fireborn Assault.webp",
+        "file": "Juggernaut Fireborn Assault.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "ibcsz"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14987,6 +15010,21 @@
           "date": 1789234312,
           "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
         }
+      },
+      {
+        "name": "Void Hud",
+        "preview": "Void Hud.webp",
+        "file": "pak13_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Void Hud Preview.mp4"
+          },
+          {
+            "type": "author",
+            "url": "lssqqqq"
+          }
+        ]
       }
     ],
     "high-five": [
