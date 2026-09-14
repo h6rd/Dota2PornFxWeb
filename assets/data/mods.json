@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Gotohouse Hud",
+      "category": "huds"
+    },
+    {
       "name": "Shadow Fiend Lightning Soul",
       "category": "heroes"
     },
@@ -15073,6 +15077,25 @@
           "date": 1789278465,
           "commit-sha": "23c7853a215dead7a89ffa3d8908df6f176b33e9"
         }
+      },
+      {
+        "name": "Gotohouse Hud",
+        "preview": "Gotohouse Hud.webp",
+        "file": "pak14_dir.vpk",
+        "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/huds/Gotohouse Hud Preview.mp4"
+          },
+          {
+            "type": "modded",
+            "url": "Миша Талант"
+          },
+          {
+            "type": "author",
+            "url": "Morecursed"
+          }
+        ]
       }
     ],
     "high-five": [
