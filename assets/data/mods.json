@@ -11936,6 +11936,10 @@
                 "effects": true,
                 "icons": false,
                 "weapon": true
+              },
+              "meta": {
+                "date": 1789398422,
+                "commit-sha": "a765efde82bb93765d6529cc61df24e59b53b8c5"
               }
             }
           ]
