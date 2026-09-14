@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Chen Green Infernal",
+      "category": "hero-items"
+    },
+    {
       "name": "Gotohouse Hud",
       "category": "huds"
     },
@@ -11923,7 +11927,18 @@
         {
           "id": "chen",
           "name": "Chen",
-          "mods": []
+          "mods": [
+            {
+              "name": "Chen Green Infernal",
+              "preview": "Chen Green Infernal.webp",
+              "file": "Chen Green Infernal.zip",
+              "tags": {
+                "effects": true,
+                "icons": false,
+                "weapon": true
+              }
+            }
+          ]
         },
         {
           "id": "clinkz",
