@@ -26,9 +26,116 @@ def save_hashes(hashes):
         f.write("\n")
 
 
-def full_rehash(head_sha):
+def hash_batch(head_sha, rel_paths, chunk_size=1024 * 1024):
+    """Hash a list of paths at head_sha via a single `git cat-file --batch`
+    process, streaming one object at a time instead of buffering the whole
+    batch (which can be several GB once assets/files grows large enough).
+    """
     hashes = {}
+    failed = []
 
+    if not rel_paths:
+        return hashes
+
+    proc = subprocess.Popen(
+        ["git", "cat-file", "--batch"],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    try:
+        for idx, rel_path in enumerate(rel_paths):
+            request = f"{head_sha}:{FILES_DIR.as_posix()}/{rel_path}\n"
+            proc.stdin.write(request.encode())
+            proc.stdin.flush()
+
+            header_line = proc.stdout.readline()
+            if not header_line:
+                failed = rel_paths[idx:]
+                print(
+                    f"::error::git cat-file --batch produced no output for "
+                    f"{rel_path!r} (process exited early)",
+                    file=sys.stderr,
+                )
+                break
+
+            header = header_line.decode("utf-8", errors="replace").rstrip("\n")
+
+            if header.endswith(" missing"):
+                failed = rel_paths[idx:]
+                print(
+                    f"::error::git cat-file --batch parsing failed at "
+                    f"{rel_path!r}: blob missing ({header!r})",
+                    file=sys.stderr,
+                )
+                break
+
+            try:
+                oid, obj_type, size_str = header.split()
+                size = int(size_str)
+            except ValueError as exc:
+                failed = rel_paths[idx:]
+                print(
+                    f"::error::git cat-file --batch parsing failed at "
+                    f"{rel_path!r}: bad header {header!r}: {exc}",
+                    file=sys.stderr,
+                )
+                break
+
+            hasher = hashlib.sha256()
+            remaining = size
+            read_ok = True
+            while remaining > 0:
+                chunk = proc.stdout.read(min(chunk_size, remaining))
+                if not chunk:
+                    read_ok = False
+                    break
+                hasher.update(chunk)
+                remaining -= len(chunk)
+
+            # consume the single trailing newline after the object content
+            proc.stdout.read(1)
+
+            if not read_ok:
+                failed = rel_paths[idx:]
+                print(
+                    f"::error::git cat-file --batch: unexpected EOF while "
+                    f"reading {rel_path!r} ({remaining} bytes short)",
+                    file=sys.stderr,
+                )
+                break
+
+            hashes[rel_path] = hasher.hexdigest()
+    finally:
+        try:
+            proc.stdin.close()
+        except Exception:
+            pass
+        stderr_output = b""
+        try:
+            stderr_output = proc.stderr.read()
+        except Exception:
+            pass
+        proc.stdout.close()
+        proc.stderr.close()
+        proc.wait()
+
+    if failed:
+        print(f"::error::Failed to hash {len(failed)} file(s): {failed}")
+        sys.exit(1)
+
+    if proc.returncode != 0:
+        print(
+            f"::warning::git cat-file --batch exited {proc.returncode}: "
+            f"{stderr_output.decode(errors='replace').strip()}",
+            file=sys.stderr,
+        )
+
+    return hashes
+
+
+def full_rehash(head_sha):
     res = subprocess.run(
         ["git", "ls-tree", "-r", "-z", "--name-only", head_sha, "--", FILES_DIR.as_posix()],
         capture_output=True,
@@ -40,51 +147,7 @@ def full_rehash(head_sha):
         if p
     )
 
-    if not rel_paths:
-        return hashes
-
-    requests = [f"{head_sha}:{FILES_DIR.as_posix()}/{rel_path}\n" for rel_path in rel_paths]
-
-    proc = subprocess.run(
-        ["git", "cat-file", "--batch"],
-        input="".join(requests).encode(),
-        capture_output=True,
-        check=False,
-    )
-
-    data = proc.stdout
-    pos = 0
-    failed = []
-
-    for idx, rel_path in enumerate(rel_paths):
-        try:
-            nl = data.index(b"\n", pos)
-            header = data[pos:nl].decode("utf-8", errors="replace")
-            pos = nl + 1
-
-            if header.endswith(" missing"):
-                raise ValueError(f"blob missing ({header!r})")
-
-            oid, obj_type, size_str = header.split()
-            size = int(size_str)
-            content = data[pos:pos + size]
-            pos += size + 1
-        except (ValueError, IndexError) as exc:
-            failed.extend(rel_paths[idx:])
-            print(
-                f"::error::git cat-file --batch parsing failed at "
-                f"{rel_path!r}: {exc}",
-                file=sys.stderr,
-            )
-            break
-
-        hashes[rel_path] = hashlib.sha256(content).hexdigest()
-
-    if failed:
-        print(f"::error::Failed to hash {len(failed)} file(s): {failed}")
-        sys.exit(1)
-
-    return hashes
+    return hash_batch(head_sha, rel_paths)
 
 
 def diff_rehash(base_sha, head_sha):
@@ -121,55 +184,7 @@ def diff_rehash(base_sha, head_sha):
         hashes.pop(rel_path, None)
 
     changed_list = sorted(changed_files)
-    failed = []
-
-    if changed_list:
-        requests = [f"{head_sha}:{FILES_DIR.as_posix()}/{rel_path}\n" for rel_path in changed_list]
-
-        proc = subprocess.run(
-            ["git", "cat-file", "--batch"],
-            input="".join(requests).encode(),
-            capture_output=True,
-            check=False,
-        )
-
-        data = proc.stdout
-        pos = 0
-
-        for idx, rel_path in enumerate(changed_list):
-            try:
-                nl = data.index(b"\n", pos)
-                header = data[pos:nl].decode("utf-8", errors="replace")
-                pos = nl + 1
-
-                if header.endswith(" missing"):
-                    raise ValueError(f"blob missing ({header!r})")
-
-                oid, obj_type, size_str = header.split()
-                size = int(size_str)
-                content = data[pos:pos + size]
-                pos += size + 1
-            except (ValueError, IndexError) as exc:
-                failed.extend(changed_list[idx:])
-                print(
-                    f"::error::git cat-file --batch parsing failed at "
-                    f"{rel_path!r}: {exc}",
-                    file=sys.stderr,
-                )
-                break
-
-            hashes[rel_path] = hashlib.sha256(content).hexdigest()
-
-        if proc.returncode != 0 and not failed:
-            stderr_text = proc.stderr.decode(errors="replace").strip()
-            print(
-                f"::warning::git cat-file --batch exited {proc.returncode}: {stderr_text}",
-                file=sys.stderr,
-            )
-
-    if failed:
-        print(f"::error::Failed to hash {len(failed)} file(s): {failed}")
-        sys.exit(1)
+    hashes.update(hash_batch(head_sha, changed_list))
 
     return hashes
 
