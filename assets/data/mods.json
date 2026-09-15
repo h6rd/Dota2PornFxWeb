@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Chen Green Infernal",
       "category": "hero-items"
     },
@@ -47,10 +51,6 @@
     {
       "name": "Black Huskar",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Monkey King Immortal",
