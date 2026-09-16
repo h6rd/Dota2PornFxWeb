@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terraria Music",
+      "category": "music"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17407,6 +17411,17 @@
           "date": 1785236208,
           "commit-sha": "083047a3d4753e721f54a2eaf91ca9d7bad543f3"
         }
+      },
+      {
+        "name": "Terraria Music",
+        "preview": "Terraria Music.webp",
+        "file": "Terraria Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "buba43"
+          }
+        ]
       }
     ],
     "cursors": [
