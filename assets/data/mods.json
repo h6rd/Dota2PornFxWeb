@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Terraria Music",
       "category": "music"
     },
@@ -23,10 +27,6 @@
     {
       "name": "Shadow Fiend Lightning Soul",
       "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Brewmaster Wilding Tiger",
