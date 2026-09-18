@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Clinkz Black & White",
+      "category": "heroes"
+    },
+    {
+      "name": "Slark Tellurian Trespass",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -10193,6 +10201,54 @@
           "date": 1789395409,
           "commit-sha": "8059c409dc3ac05863358c0aa6b723e142971ad5"
         }
+      },
+      {
+        "name": "Slark Tellurian Trespass",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#a6a6a6",
+            "preview": "Slark Tellurian Trespass.webp",
+            "file": "Slark Tellurian Trespass.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#d48181",
+            "preview": "Slark Tellurian Trespass II.webp",
+            "file": "Slark Tellurian Trespass II.zip"
+          },
+          {
+            "label": "Style III",
+            "color": "#ffdd99",
+            "preview": "Slark Tellurian Trespass III.webp",
+            "file": "Slark Tellurian Trespass III.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ]
+      },
+      {
+        "name": "Clinkz Black & White",
+        "preview": "Clinkz Black & White.webp",
+        "file": "Clinkz Black & White.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ]
       }
     ],
     "shaders": [
