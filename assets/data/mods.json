@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Japan Invoker",
+      "category": "heroes"
+    },
+    {
+      "name": "Dazzle Graveman",
+      "category": "heroes"
+    },
+    {
       "name": "Batrider Night Marauder",
       "category": "heroes"
     },
@@ -10330,6 +10338,36 @@
           "date": 1789739955,
           "commit-sha": "6457ebcd03571b31b4245bab9f424a7c700eaa4d"
         }
+      },
+      {
+        "name": "Dazzle Graveman",
+        "preview": "Dazzle Graveman.webp",
+        "file": "Dazzle Graveman.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
+      },
+      {
+        "name": "Japan Invoker",
+        "preview": "Japan Invoker.webp",
+        "file": "Japan Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
       }
     ],
     "shaders": [
