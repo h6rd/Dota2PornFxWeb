@@ -741,7 +741,8 @@
     "александр": "https://t.me/+VY-_XaaDg00wYmI6",
     "YuyaKizami": "https://t.me/YuyaKizami",
     "Morecursed": "",
-    "ibcsz": "http://t.me/nixwaretop"
+    "ibcsz": "http://t.me/nixwaretop",
+    "Новомодный": ""
   },
   "MOD_SENDER": {
     "dabaqz": "",
@@ -847,6 +848,16 @@
         "twitch": "",
         "youtube": "",
         "tiktok": "https://www.tiktok.com/@nedavovchik"
+      }
+    },
+    {
+      "name": "pr1me",
+      "avatar": "assets/previews/hueta/creators/pr1me.webp",
+      "shape": "4-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@pr1meee_999"
       }
     }
   ]

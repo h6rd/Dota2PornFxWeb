@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Reverse Lone Druid",
+      "category": "heroes"
+    },
+    {
+      "name": "Dagon Cobra Kick",
+      "category": "sounds"
+    },
+    {
       "name": "Clinkz Black & White",
       "category": "heroes"
     },
@@ -10226,7 +10234,7 @@
         ],
         "tags": {
           "effects": true,
-          "icons": true
+          "icons": false
         },
         "links": [
           {
@@ -10257,6 +10265,21 @@
           "date": 1789724393,
           "commit-sha": "07a3bdabd8006308ee3cbbf99ac50e8fa51caf21"
         }
+      },
+      {
+        "name": "Reverse Lone Druid",
+        "preview": "Reverse Lone Druid.webp",
+        "file": "Reverse Lone Druid.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -19005,6 +19028,17 @@
           "date": 1789192305,
           "commit-sha": "4fa2b0582af1000dec04a2d103f6f25999f5c4c4"
         }
+      },
+      {
+        "name": "Dagon Cobra Kick",
+        "preview": "Dagon Cobra Kick.webp",
+        "file": "Dagon Cobra Kick.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Новомодный"
+          }
+        ]
       }
     ],
     "packs": [
