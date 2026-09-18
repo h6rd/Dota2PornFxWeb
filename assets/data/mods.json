@@ -17663,7 +17663,11 @@
             "type": "author",
             "url": "мс яйцо"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789754338,
+          "commit-sha": "46063ad2903404c7cd331b78ddddd41d5d168f28"
+        }
       }
     ],
     "cursors": [
