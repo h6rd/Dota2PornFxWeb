@@ -10279,7 +10279,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789727816,
+          "commit-sha": "3bc787e597e6aa2bf13d7c515065d00e925fc661"
+        }
       }
     ],
     "shaders": [
@@ -19038,7 +19042,11 @@
             "type": "author",
             "url": "Новомодный"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789727816,
+          "commit-sha": "3bc787e597e6aa2bf13d7c515065d00e925fc661"
+        }
       }
     ],
     "packs": [
