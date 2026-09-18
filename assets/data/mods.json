@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sewerslvt Music",
+      "category": "music"
+    },
+    {
+      "name": "Mops Lone Druid Bear",
+      "category": "hero-items"
+    },
+    {
       "name": "Japan Invoker",
       "category": "heroes"
     },
@@ -13029,6 +13037,23 @@
                 "date": 1777750466,
                 "commit-sha": "f6b7bac8a38bdca8729822ce294f82082062ce10"
               }
+            },
+            {
+              "name": "Mops Lone Druid Bear",
+              "preview": "Mops Lone Druid Bear.webp",
+              "file": "Mops Lone Druid Bear.zip",
+              "tags": {
+                "bear": true,
+                "effects": false,
+                "icons": false,
+                "sounds": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
@@ -17609,6 +17634,17 @@
           "date": 1789547063,
           "commit-sha": "d716fc4aebb4ffaa48b59f8e7ba35a70043be45a"
         }
+      },
+      {
+        "name": "Sewerslvt Music",
+        "preview": "Sewerslvt Music.webp",
+        "file": "https://huggingface.co/datasets/hrdq/d2pfx/resolve/main/Sewerslvt%20Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "мс яйцо"
+          }
+        ]
       }
     ],
     "cursors": [

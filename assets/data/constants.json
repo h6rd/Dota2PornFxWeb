@@ -491,6 +491,7 @@
         "cart": "Cart",
         "weapon": "Weapon",
         "tail": "Tail",
+        "bear": "Bear",
         "off-hand": "Off-Hand",
         "mount": "Mount",
         "head": "Head",
@@ -743,7 +744,8 @@
     "Morecursed": "",
     "ibcsz": "http://t.me/nixwaretop",
     "Новомодный": "",
-    "J0nathan550": "https://github.com/J0nathan550"
+    "J0nathan550": "https://github.com/J0nathan550",
+    "мс яйцо": "https://steamcommunity.com/id/mcegg/"
   },
   "MOD_SENDER": {
     "dabaqz": "",
