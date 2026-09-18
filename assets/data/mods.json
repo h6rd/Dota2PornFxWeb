@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Batrider Night Marauder",
+      "category": "heroes"
+    },
+    {
+      "name": "Star Sage Phoenix",
+      "category": "heroes"
+    },
+    {
       "name": "Reverse Lone Druid",
       "category": "heroes"
     },
@@ -10284,6 +10292,36 @@
           "date": 1789727816,
           "commit-sha": "3bc787e597e6aa2bf13d7c515065d00e925fc661"
         }
+      },
+      {
+        "name": "Star Sage Phoenix",
+        "preview": "Star Sage Phoenix.webp",
+        "file": "Star Sage Phoenix.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
+      },
+      {
+        "name": "Batrider Night Marauder",
+        "preview": "Batrider Night Marauder.webp",
+        "file": "Batrider Night Marauder.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
       }
     ],
     "shaders": [
