@@ -13053,7 +13053,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1789745325,
+                "commit-sha": "084de5413f93d328bf7973308853e83a4a1c440a"
+              }
             }
           ]
         },
