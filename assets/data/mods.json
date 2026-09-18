@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Sewerslvt Music",
       "category": "music"
     },
@@ -39,10 +43,6 @@
     {
       "name": "Slark Tellurian Trespass",
       "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Terraria Music",
