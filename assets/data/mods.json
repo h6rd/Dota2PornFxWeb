@@ -10352,7 +10352,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789742735,
+          "commit-sha": "d6a4a6f2c837a3c49016285b7e0cf1ba4d0ad4d9"
+        }
       },
       {
         "name": "Japan Invoker",
@@ -10367,7 +10371,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789742735,
+          "commit-sha": "d6a4a6f2c837a3c49016285b7e0cf1ba4d0ad4d9"
+        }
       }
     ],
     "shaders": [
