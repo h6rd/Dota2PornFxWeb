@@ -5,6 +5,10 @@
       "category": "music"
     },
     {
+      "name": "Rory in early 20s Music",
+      "category": "music"
+    },
+    {
       "name": "Mops Lone Druid Bear",
       "category": "hero-items"
     },
@@ -17643,6 +17647,17 @@
         "name": "Sewerslvt Music",
         "preview": "Sewerslvt Music.webp",
         "file": "https://huggingface.co/datasets/hrdq/d2pfx/resolve/main/Sewerslvt%20Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "мс яйцо"
+          }
+        ]
+      },
+      {
+        "name": "Rory in early 20s Music",
+        "preview": "Rory in early 20s Music.webp",
+        "file": "Rory in early 20s Music.zip",
         "links": [
           {
             "type": "author",
