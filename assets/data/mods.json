@@ -9483,7 +9483,11 @@
             "type": "author",
             "url": "Arthas"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789805764,
+          "commit-sha": "cf155d372ca4da44ae8db2f1f21952e17bc10679"
+        }
       },
       {
         "name": "Immortal Dark Seer",
@@ -10418,7 +10422,11 @@
             "type": "author",
             "url": "lansory"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789805764,
+          "commit-sha": "cf155d372ca4da44ae8db2f1f21952e17bc10679"
+        }
       }
     ],
     "shaders": [
@@ -15127,7 +15135,11 @@
             "type": "author",
             "url": "J0nathan550"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789805764,
+          "commit-sha": "cf155d372ca4da44ae8db2f1f21952e17bc10679"
+        }
       }
     ],
     "huds": [
