@@ -203,6 +203,9 @@
     <a href="#" class="fab-menu-item" data-label="About" id="infoButton">
       <i class="bi bi-patch-question"></i>
     </a>
+    <a href="#" class="fab-menu-item fab-menu-item-donate" data-label="Donate" id="donateFabButton">
+      <i class="bi bi-heart-fill"></i>
+    </a>
   </div>
 
   <!-- Info -->
@@ -248,7 +251,7 @@
             <span class="material-symbols-rounded">forum</span>
             <span>Join Our Community</span>
           </a>
-          <a href="https://pay.cloudtips.ru/p/fd4488c7" target="_blank" class="info-modal-link">
+          <a href="#" class="info-modal-link" onclick="openDonateModal(); return false;">
             <span class="material-symbols-rounded">volunteer_activism</span>
             <span>Donation</span>
           </a>
@@ -302,6 +305,149 @@
       <h2 class="info-modal-title" style="margin-bottom: 5px;">Sources</h2>
       <p class="info-modal-text" style="margin-bottom: 20px;">Platforms where some mods come from</p>
       <div class="sources-list" id="sourcesList"></div>
+    </div>
+  </div>
+
+  <!-- Donate Modal -->
+  <div id="donateOverlay" class="info-overlay"></div>
+  <div id="donateModal" class="info-modal donate-modal">
+    <button class="info-modal-close" id="closeDonateModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+
+    <div class="info-modal-content donate-modal-content">
+
+      <div class="donate-hero">
+        <div class="donate-hero-icon">
+          <span class="material-symbols-rounded">pets</span>
+        </div>
+        <h2 class="donate-hero-title">Help Them First</h2>
+        <p class="donate-hero-subtitle">
+          They can't ask for help themselves, so we're asking for them. Any donation, big or
+          small, buys food, medicine, or a warm place to sleep for a cat or dog who needs it.
+        </p>
+      </div>
+
+      <div class="donate-columns">
+        <div class="donate-column">
+          <div class="donate-column-header">
+            <span class="material-symbols-rounded">pets</span>
+            <span>Russia <span class="donate-column-badge">RUB</span></span>
+          </div>
+
+          <a href="https://ghope.ru/%D0%BF%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F/"
+            target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐶</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">Giving Hope Fund</span>
+              <span class="donate-org-desc">Sterilizes, treats and rehomes stray cats &amp; dogs across
+                Russia.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+
+          <a href="https://rayfund.ru/" target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐱</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">RAY Foundation</span>
+              <span class="donate-org-desc">Supports 30+ shelters caring for over 15,000 homeless
+                dogs and cats.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+        </div>
+
+        <div class="donate-column">
+          <div class="donate-column-header">
+            <span class="material-symbols-rounded">pets</span>
+            <span>Germany <span class="donate-column-badge">EUR</span></span>
+          </div>
+
+          <a href="https://www.tierschutzbund.de/" target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐕</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">Deutscher Tierschutzbund</span>
+              <span class="donate-org-desc">Europe's largest animal welfare 
+                umbrella organization, active since 1881.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+
+          <a href="https://spenden.vier-pfoten.de/vpde/spende/" target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐻</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">VIER PFOTEN</span>
+              <span class="donate-org-desc">Global animal welfare organization, founded in 1988 and active worldwide.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+        </div>
+
+        <div class="donate-column">
+          <div class="donate-column-header">
+            <span class="material-symbols-rounded">pets</span>
+            <span>USA <span class="donate-column-badge">USD</span></span>
+          </div>
+
+          <a href="https://www.aspca.org/donate" target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐈</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">ASPCA</span>
+              <span class="donate-org-desc">150+ years fighting animal cruelty and neglect across the United States.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+
+          <a href="https://bestfriends.org/" target="_blank" rel="noopener" class="donate-org-card">
+            <span class="donate-org-icon">🐕</span>
+            <span class="donate-org-info">
+              <span class="donate-org-name">Best Friends</span>
+              <span class="donate-org-desc">Leading animal welfare organization, working to save homeless pets across America.</span>
+            </span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="donate-divider"><span>Want to support the site?</span></div>
+
+      <div class="donate-personal">
+        <p class="donate-personal-text">Free for everyone. If it's been useful to you, a small tip for a RedBull means a lot.</p>
+
+        <div class="donate-personal-actions">
+          <a href="https://pay.cloudtips.ru/p/fd4488c7" target="_blank" rel="noopener"
+            class="donate-rub-link">
+            <span class="material-symbols-rounded">payments</span>
+            <span>CloudTips <span class="donate-column-badge">RUB</span></span>
+            <span class="material-symbols-rounded donate-org-arrow">open_in_new</span>
+          </a>
+          <div class="donate-crypto-list" id="donateCryptoList">
+            <div class="donate-crypto-item">
+              <span class="donate-crypto-label"><i class="bi bi-currency-bitcoin"></i> BTC</span>
+              <span class="donate-crypto-address">bc1qe28fprks6flw7kyp37m8hlqflfe33kjhk5sxa0</span>
+              <button type="button" class="donate-copy-btn" aria-label="Copy BTC address">
+                <span class="material-symbols-rounded">content_copy</span>
+              </button>
+            </div>
+            <div class="donate-crypto-item">
+              <span class="donate-crypto-label"><i class="bi bi-diamond-half"></i> ETH
+                (Ethereum)</span>
+              <span class="donate-crypto-address">0xB751B88c01e21edd29f599EC2658423d5e05d246</span>
+              <button type="button" class="donate-copy-btn" aria-label="Copy ETH address">
+                <span class="material-symbols-rounded">content_copy</span>
+              </button>
+            </div>
+            <div class="donate-crypto-item">
+              <span class="donate-crypto-label"><i class="bi bi-currency-exchange"></i> USDT
+                (Solana)</span>
+              <span class="donate-crypto-address">GNPpibxDaCVNgZEmCtBCJTovYv6vc5QFA2Cb3rrYgH5h</span>
+              <button type="button" class="donate-copy-btn" aria-label="Copy USDT Solana address">
+                <span class="material-symbols-rounded">content_copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -719,9 +865,6 @@
             visual effects, HUDs, sounds, and many other
             stuff created by community.
           </p>
-          <p>
-            If you sell mods from this site or don't credit the authors - you're a faggot😘
-          </p>
         </div>
   
         <div class="footer-col">
@@ -807,6 +950,16 @@
             </li>
           </ul>
         </div>
+      </div>
+
+      <div class="footer-note">
+        <p class="footer-fact">
+          If you sell mods from this site or don't credit the authors - you're a faggot😘
+        </p>
+        <button type="button" class="footer-donate-btn" id="footerDonateButton">
+          <span class="material-symbols-rounded">volunteer_activism</span>
+          <span>Support &amp; Donate</span>
+        </button>
       </div>
   
       <div class="footer-bottom">

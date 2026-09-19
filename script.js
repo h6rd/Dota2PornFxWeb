@@ -3569,7 +3569,92 @@ document.addEventListener('keydown', (e) => {
     if (document.getElementById('modAuthorsModal')?.classList.contains('active')) closeModAuthorsModal();
     if (document.getElementById('sourcesModal')?.classList.contains('active')) closeSourcesModal();
     if (document.getElementById('creatorModal')?.classList.contains('active')) closeCreatorModal();
+    if (document.getElementById('donateModal')?.classList.contains('active')) closeDonateModal();
 });
+
+// donate modal
+function openDonateModal() {
+    const overlay = document.getElementById('donateOverlay');
+    const modal = document.getElementById('donateModal');
+    if (!overlay || !modal) return;
+
+    closeFABMenu();
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+
+    if (typeof openModal === 'function') openModal();
+}
+
+function closeDonateModal() {
+    const overlay = document.getElementById('donateOverlay');
+    const modal = document.getElementById('donateModal');
+    overlay?.classList.remove('active');
+    modal?.classList.remove('active');
+    if (typeof closeModal === 'function') closeModal();
+    else document.body.classList.remove('modal-open');
+}
+
+function setupDonateModal() {
+    const overlay = document.getElementById('donateOverlay');
+    const closeBtn = document.getElementById('closeDonateModal');
+    const footerBtn = document.getElementById('footerDonateButton');
+    const fabBtn = document.getElementById('donateFabButton');
+
+    overlay?.addEventListener('click', closeDonateModal);
+    closeBtn?.addEventListener('click', closeDonateModal);
+    footerBtn?.addEventListener('click', openDonateModal);
+    fabBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDonateModal();
+    });
+
+    const DONATE_UTM_SOURCE = 'h6rd.github.io';
+    document.querySelectorAll('.donate-org-card').forEach((link) => {
+        try {
+            const url = new URL(link.href);
+            if (!url.searchParams.has('utm_source')) {
+                url.searchParams.set('utm_source', DONATE_UTM_SOURCE);
+                link.href = url.toString();
+            }
+        } catch (err) { }
+    });
+
+    document.querySelectorAll('#donateCryptoList .donate-copy-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+            const item = btn.closest('.donate-crypto-item');
+            const address = item?.querySelector('.donate-crypto-address')?.textContent.trim()
+                || item?.dataset.address;
+            if (!address) return;
+
+            const icon = btn.querySelector('.material-symbols-rounded');
+            const restoreIcon = () => {
+                if (icon) icon.textContent = 'content_copy';
+                btn.classList.remove('copied');
+            };
+
+            try {
+                await navigator.clipboard.writeText(address);
+            } catch (err) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = address;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+            btn.classList.add('copied');
+            if (icon) icon.textContent = 'check';
+            setTimeout(restoreIcon, 1500);
+        });
+    });
+}
+
+window.openDonateModal = openDonateModal;
+window.closeDonateModal = closeDonateModal;
+
+setupDonateModal();
 
 // Content creators ticker
 function openCreatorModal(creator) {
