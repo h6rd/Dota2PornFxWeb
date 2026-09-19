@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Burning Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Papizi",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Burning Pedestal",
+      "category": "pedestal"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -10388,6 +10400,25 @@
           "date": 1789742735,
           "commit-sha": "d6a4a6f2c837a3c49016285b7e0cf1ba4d0ad4d9"
         }
+      },
+      {
+        "name": "Earthshaker Burning Arcana",
+        "preview": "Earthshaker Burning Arcana.webp",
+        "file": "Earthshaker Burning Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "J0nathan550"
+          },
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15086,6 +15117,17 @@
           "date": 1788940775,
           "commit-sha": "4ed72b3af107757cc414a0a333e048c51a354576"
         }
+      },
+      {
+        "name": "Earthshaker Burning Pedestal",
+        "preview": "Earthshaker Burning Pedestal.webp",
+        "file": "Earthshaker Burning Pedestal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
       }
     ],
     "huds": [
