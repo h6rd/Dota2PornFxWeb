@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Arcana Golden Edge",
+      "category": "heroes"
+    },
+    {
       "name": "Reverse Broodmother",
       "category": "heroes"
     },
@@ -10527,6 +10531,21 @@
           "date": 1789907693,
           "commit-sha": "f23fad1f1da613909462574980ce20b668f85eca"
         }
+      },
+      {
+        "name": "Juggernaut Arcana Golden Edge",
+        "preview": "Juggernaut Arcana Golden Edge.webp",
+        "file": "Juggernaut Arcana Golden Edge.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
       }
     ],
     "shaders": [
