@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Broodmother Immortal Antiquity",
+      "category": "heroes"
+    },
+    {
       "name": "Tinker Flame",
       "category": "heroes"
     },
@@ -10572,6 +10576,25 @@
         "meta": {
           "date": 1789925238,
           "commit-sha": "db32ccf04a7db76ba2deb5c4b2058816cb2514af"
+        }
+      },
+      {
+        "name": "Broodmother Immortal Antiquity",
+        "preview": "Broodmother Immortal Antiquity.webp",
+        "file": "Broodmother Immortal Antiquity.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1789927392,
+          "commit-sha": ""
         }
       }
     ],
