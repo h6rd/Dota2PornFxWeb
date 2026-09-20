@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Mirana Sacred Grove",
+      "category": "heroes"
+    },
+    {
+      "name": "Broodskoe",
+      "category": "music"
+    },
+    {
       "name": "Earthshaker Burning Arcana",
       "category": "heroes"
     },
@@ -10454,6 +10462,21 @@
           "date": 1789836072,
           "commit-sha": "c91293dd8de8d919468c2c3c9e613f7d9c428645"
         }
+      },
+      {
+        "name": "Mirana Sacred Grove",
+        "preview": "Mirana Sacred Grove.webp",
+        "file": "Mirana Sacred Grove.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -17749,6 +17772,17 @@
           "date": 1789754338,
           "commit-sha": "46063ad2903404c7cd331b78ddddd41d5d168f28"
         }
+      },
+      {
+        "name": "Broodskoe",
+        "preview": "Broodskoe.webp",
+        "file": "Broodskoe.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ]
       }
     ],
     "cursors": [
