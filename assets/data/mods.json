@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Pudge Gol0vach",
       "category": "heroes"
     },
@@ -103,10 +107,6 @@
     {
       "name": "Terraria Music",
       "category": "music"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "LenS Tinker",

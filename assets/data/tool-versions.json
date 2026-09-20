@@ -8,18 +8,20 @@
     }
   },
   "TheFleece/dota2-mod-manager": {
-    "version": "v2.6.12",
+    "version": "v2.7.0",
     "hashes": {
-      "Dota-2-Mod-Manager-Portable.exe": "3148c6b5515fe1d2d8f99f3c216f99d5e69af5b304a385111caafe774ec2f408",
-      "Dota-2-Mod-Manager-Setup.exe": "6f6fe56033f5ba7b5e5737e3b68ff309491156155f0c3b87d34ef37be2652f74",
-      "Dota-2-Mod-Manager-Setup.exe.blockmap": "9be1db70add99d35b382846cbd0f139f9c12480845f5faea080c58c4f1c85ad3",
-      "Dota-2-Mod-Manager.AppImage": "6b4615914d3cf651ba13adc34d6089cd409e8405f693d47768746db1e61d9bfb",
-      "dota2-mod-manager.cdx.json": "7aa38c4c14c6b58dda99d96bd2a353af9816cfc4a1a39742f85301c656cf728f",
-      "latest-linux.yml": "3a1790303db58ae0a4fe448265ada34ad34a656f3344b20aab028d610b1bd2e5",
-      "latest.yml": "a0174d62d31ecdf6a4725e4c4acf798e0a5c1568887f5ded49c89d1c4b8a36ef",
-      "portable.yml": "08f123149d1e3693a7b52c938b2416fa000c8b053f43c10a1965ac65d7f160b6",
-      "SHA256SUMS": "45017ef5d36a4cc1f88694308982079680d03c02f54276a83337716e2e1bc3cb",
-      "SHA256SUMS.intoto.jsonl": "6ed92df82fa19a299ebfaad7682f0fd6218e1729fc2cf17e180e585ffba6f1b9"
+      "beta-linux.yml": "19e0b2cd30926e2516e4849ea58e26bea12367f938edf1e7b47bae71d29e4556",
+      "beta.yml": "4a232424c3e410a27e4608fc3446f71450d13f5a2ea1ab69d72967c5fb6ecf3d",
+      "Dota-2-Mod-Manager-Portable.exe": "5537bfcd8641c8468583af5a19d6530ae0a5b947789c63c563bb72c3538d0f97",
+      "Dota-2-Mod-Manager-Setup.exe": "6cba0a2b6402eea78245bc11805a4398f1059a34cd919544f6d99797422476db",
+      "Dota-2-Mod-Manager-Setup.exe.blockmap": "a5af78900a93526b2493bc825841c6d0c7e6d18d6b184508eea1e51f7191ff22",
+      "Dota-2-Mod-Manager.AppImage": "6a076fe88c490178b7bee78525e25303e4662ca71da92515ab9348d9db9ca15b",
+      "dota2-mod-manager.cdx.json": "34b2fddeb60a1be2f95123cf8d77dd2f296afb0c82e9d236b1462b0251a2b93b",
+      "latest-linux.yml": "19e0b2cd30926e2516e4849ea58e26bea12367f938edf1e7b47bae71d29e4556",
+      "latest.yml": "4a232424c3e410a27e4608fc3446f71450d13f5a2ea1ab69d72967c5fb6ecf3d",
+      "portable.yml": "661a200caeb4e16f0fd8af221a0e9d4230d61c72c723b0d920e226ac6874be0e",
+      "SHA256SUMS": "0c10d11be1de0a1d34010a62bcd60362cfed440387fb720718bfae7ea9d40c85",
+      "SHA256SUMS.intoto.jsonl": "e671ded1ef97784d360c43f81136e17108ce37161ffeb95651bc4dcf3c40b001"
     }
   },
   "h6rd/VPKTool": {
