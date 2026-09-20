@@ -31,10 +31,36 @@
   <script type="module" src="assets/m3e/shape.bundle.js"></script>
   <script src="assets/m3e/select.js"></script>
   <script src="assets/theme.js"></script>
+  <script>
+    (function () {
+      try {
+        var d = new Date();
+        var m = d.getMonth();
+        var y = d.getFullYear();
+        var seasonId = m === 11 ? (y + '-' + (y + 1))
+          : (m === 0 || m === 1) ? ((y - 1) + '-' + y)
+            : null;
+
+        if (seasonId) {
+          document.documentElement.classList.add('winter-active');
+          if (localStorage.getItem('winterAvalancheSeason') === seasonId) {
+            document.documentElement.classList.add('winter-revealed');
+          }
+        } else if (localStorage.getItem('winterWasActive') === '1') {
+          document.documentElement.classList.add('winter-outro');
+        }
+      } catch (e) { }
+    })();
+  </script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
+  <ul class="lightrope" id="winterGarland" aria-hidden="true"></ul>
+  <canvas id="winterSnowCanvas" class="winter-snow-canvas" aria-hidden="true"></canvas>
+  <div id="winterIntroOverlay" class="winter-intro-overlay" aria-hidden="true">
+    <canvas id="winterIntroCanvas"></canvas>
+  </div>
   <header class="header">
     <div class="container">
       <div class="header-content">

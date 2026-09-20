@@ -1813,8 +1813,9 @@ function init() {
     setupSettingsModal();
     setupCategoryNavRail();
     handleUrlParams();
-    setupWelcomeModal();
+    //setupWelcomeModal();
     setupCreatorsTicker();
+    setupWinterEvent();
 
     if (typeof loadCart === 'function') {
         loadCart();
@@ -4088,5 +4089,304 @@ function setupSettingsModal() {
             setupRecentlyAdded();
         }
         vibrate(10);
+    });
+}
+
+// winter
+function getWinterSeasonId(date) {
+    date = date || new Date();
+    const m = date.getMonth();
+    const y = date.getFullYear();
+    if (m === 11) return `${y}-${y + 1}`;
+    if (m === 0 || m === 1) return `${y - 1}-${y}`;
+    return null;
+}
+
+function isWinterActive(date) {
+    return getWinterSeasonId(date) !== null;
+}
+
+function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function computeGarlandLightCount() {
+    const pitch = 36;
+    return Math.max(20, Math.ceil(window.innerWidth / pitch) + 4);
+}
+
+function buildWinterGarland() {
+    const garland = document.getElementById('winterGarland');
+    if (!garland) return;
+    const needed = computeGarlandLightCount();
+    if (garland.childElementCount === needed) return;
+    garland.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < needed; i++) {
+        frag.appendChild(document.createElement('li'));
+    }
+    garland.appendChild(frag);
+}
+
+let winterGarlandResizeTimer = null;
+function handleWinterGarlandResize() {
+    clearTimeout(winterGarlandResizeTimer);
+    winterGarlandResizeTimer = setTimeout(buildWinterGarland, 150);
+}
+
+const WINTER_SNOW_CONFIG = {
+    count: 70,
+    minRadius: 1.8,
+    maxRadius: 3.8,
+    minSpeedY: 0.5,
+    maxSpeedY: 1.5,
+    minOpacity: 0.4,
+    maxOpacity: 0.8,
+    reducedMotionCount: 15,
+};
+
+const winterSnow = (() => {
+    let canvas = null;
+    let ctx = null;
+    let flakes = [];
+    let rafId = null;
+    let running = false;
+    let color = '255,255,255';
+
+    function currentColor() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        return theme === 'light' ? '0,0,0' : '255,255,255';
+    }
+
+    function resize() {
+        if (!canvas) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function makeFlake() {
+        const c = WINTER_SNOW_CONFIG;
+        return {
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: c.minRadius + Math.random() * (c.maxRadius - c.minRadius),
+            speedY: c.minSpeedY + Math.random() * (c.maxSpeedY - c.minSpeedY),
+            drift: Math.random() * Math.PI * 2,
+            opacity: c.minOpacity + Math.random() * (c.maxOpacity - c.minOpacity),
+        };
+    }
+
+    function tick() {
+        if (!running || !ctx) return;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        ctx.clearRect(0, 0, w, h);
+        flakes.forEach((f) => {
+            f.drift += 0.01;
+            f.y += f.speedY;
+            f.x += Math.sin(f.drift) * 0.3;
+            if (f.y > h + 10) {
+                f.y = -10;
+                f.x = Math.random() * w;
+            }
+            if (f.x > w + 10) f.x = -10;
+            if (f.x < -10) f.x = w + 10;
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${color}, ${f.opacity})`;
+            ctx.fill();
+        });
+        rafId = requestAnimationFrame(tick);
+    }
+
+    function handleVisibility() {
+        if (document.hidden) {
+            running = false;
+            if (rafId) cancelAnimationFrame(rafId);
+        } else if (canvas && !running) {
+            running = true;
+            tick();
+        }
+    }
+
+    function start(count) {
+        canvas = document.getElementById('winterSnowCanvas');
+        if (!canvas) return;
+        ctx = canvas.getContext('2d');
+        color = currentColor();
+        resize();
+        const requested = count || WINTER_SNOW_CONFIG.count;
+        const flakeCount = prefersReducedMotion()
+            ? Math.min(WINTER_SNOW_CONFIG.reducedMotionCount, requested)
+            : requested;
+        flakes = Array.from({ length: flakeCount }, makeFlake);
+        running = true;
+        if (rafId) cancelAnimationFrame(rafId);
+        tick();
+        window.addEventListener('resize', resize);
+        document.addEventListener('visibilitychange', handleVisibility);
+    }
+
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
+        window.removeEventListener('resize', resize);
+        document.removeEventListener('visibilitychange', handleVisibility);
+    }
+
+    function refreshColor() {
+        color = currentColor();
+    }
+
+    return { start, stop, refreshColor };
+})();
+
+function playWinterAvalanche(durationMs, onDone) {
+    const overlay = document.getElementById('winterIntroOverlay');
+    const canvas = document.getElementById('winterIntroCanvas');
+    if (!overlay || !canvas) { onDone(); return; }
+
+    overlay.classList.add('winter-intro-active');
+    const simple = prefersReducedMotion();
+    if (simple) overlay.classList.add('winter-intro-simple');
+
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let rafId = null;
+    let running = true;
+
+    function resize() {
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const flakeColor = isLight ? '0,0,0' : '255,255,255';
+
+    const flakeCount = simple ? 70 : 260;
+    const speedBase = simple ? 1.5 : 4;
+    const speedRange = simple ? 1.5 : 6;
+    const washAmplitude = simple ? 0.12 : 0.62;
+
+    const flakes = Array.from({ length: flakeCount }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: -Math.random() * window.innerHeight,
+        r: 2 + Math.random() * 4,
+        speedY: speedBase + Math.random() * speedRange,
+        speedX: simple ? 0 : (Math.random() - 0.5) * 2,
+        opacity: 0.5 + Math.random() * 0.5,
+    }));
+
+    const start = performance.now();
+
+    function tick(now) {
+        if (!running) return;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const elapsed = now - start;
+
+        ctx.clearRect(0, 0, w, h);
+
+        if (washAmplitude > 0) {
+            const progress = Math.min(elapsed / durationMs, 1);
+            const wash = Math.sin(progress * Math.PI) * washAmplitude;
+            ctx.fillStyle = `rgba(255,255,255,${wash})`;
+            ctx.fillRect(0, 0, w, h);
+        }
+
+        flakes.forEach((f) => {
+            f.y += f.speedY;
+            f.x += f.speedX;
+            if (f.y > h + 10) {
+                f.y = -10;
+                f.x = Math.random() * w;
+            }
+            if (f.x > w + 10) f.x = -10;
+            if (f.x < -10) f.x = w + 10;
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${flakeColor}, ${f.opacity})`;
+            ctx.fill();
+        });
+
+        if (elapsed < durationMs) {
+            rafId = requestAnimationFrame(tick);
+        } else {
+            running = false;
+            window.removeEventListener('resize', resize);
+            overlay.classList.add('winter-intro-fade');
+            overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+            setTimeout(() => overlay.remove(), 1200);
+            onDone();
+        }
+    }
+
+    rafId = requestAnimationFrame(tick);
+}
+
+function playWinterOutro() {
+    const html = document.documentElement;
+    buildWinterGarland();
+    winterSnow.start();
+    window.addEventListener('resize', handleWinterGarlandResize);
+
+    const cleanup = () => {
+        html.classList.remove('winter-outro');
+        try { localStorage.removeItem('winterWasActive'); } catch (e) {}
+        winterSnow.stop();
+        window.removeEventListener('resize', handleWinterGarlandResize);
+        clearTimeout(winterGarlandResizeTimer);
+        const garland = document.getElementById('winterGarland');
+        if (garland) garland.innerHTML = '';
+    };
+
+    const delay = prefersReducedMotion() ? 2000 : 3500;
+    setTimeout(cleanup, delay);
+}
+
+function setupWinterEvent() {
+    const html = document.documentElement;
+
+    new MutationObserver(() => winterSnow.refreshColor())
+        .observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+
+    if (html.classList.contains('winter-outro')) {
+        const overlay = document.getElementById('winterIntroOverlay');
+        if (overlay) overlay.remove();
+        playWinterOutro();
+        return;
+    }
+
+    if (!isWinterActive()) {
+        const overlay = document.getElementById('winterIntroOverlay');
+        if (overlay) overlay.remove();
+        return;
+    }
+
+    const seasonId = getWinterSeasonId();
+    try { localStorage.setItem('winterWasActive', '1'); } catch (e) {}
+
+    if (html.classList.contains('winter-revealed')) {
+        buildWinterGarland();
+        winterSnow.start();
+        window.addEventListener('resize', handleWinterGarlandResize);
+        const overlay = document.getElementById('winterIntroOverlay');
+        if (overlay) overlay.remove();
+        return;
+    }
+
+    playWinterAvalanche(2500, () => {
+        html.classList.add('winter-revealed', 'winter-revealing');
+        buildWinterGarland();
+        winterSnow.start();
+        window.addEventListener('resize', handleWinterGarlandResize);
+        try { localStorage.setItem('winterAvalancheSeason', seasonId); } catch (e) {}
+        setTimeout(() => html.classList.remove('winter-revealing'), 2800);
     });
 }

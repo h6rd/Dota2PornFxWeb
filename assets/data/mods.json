@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Reverse Broodmother",
+      "category": "heroes"
+    },
+    {
+      "name": "Reverse Tinker",
+      "category": "heroes"
+    },
+    {
       "name": "Mirana Sacred Grove",
       "category": "heroes"
     },
@@ -10481,6 +10489,36 @@
           "date": 1789902229,
           "commit-sha": "a676823247e7e96e3009b749ec2ffaba24f7efcc"
         }
+      },
+      {
+        "name": "Reverse Tinker",
+        "preview": "Reverse Tinker.webp",
+        "file": "Reverse Tinker.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Reverse Broodmother",
+        "preview": "Reverse Broodmother.webp",
+        "file": "Reverse Broodmother.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
       }
     ],
     "shaders": [
