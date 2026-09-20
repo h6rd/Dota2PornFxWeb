@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pudge Gol0vach",
+      "category": "heroes"
+    },
+    {
       "name": "Broodmother Immortal Antiquity",
       "category": "heroes"
     },
@@ -10595,6 +10599,25 @@
         "meta": {
           "date": 1789927392,
           "commit-sha": "00c8918b1973bfea2b63fc30ee7279562f22328c"
+        }
+      },
+      {
+        "name": "Pudge Gol0vach",
+        "preview": "Pudge Gol0vach.webp",
+        "file": "Pudge Gol0vach.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1789931584,
+          "commit-sha": ""
         }
       }
     ],
