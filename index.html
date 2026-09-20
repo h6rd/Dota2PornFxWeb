@@ -25,6 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script type="module" src="assets/m3e/loading-indicator.bundle.js"></script>
   <script type="module" src="assets/m3e/progress-indicator.bundle.js"></script>
   <script type="module" src="assets/m3e/nav-rail.bundle.js"></script>
@@ -101,6 +103,9 @@
             <span class="material-symbols-rounded">newspaper</span>
             <span class="notes-badge" id="notesBadge"></span>
           </button>
+          <!-- <button class="notes-button" id="uploadModButton" aria-label="Upload mod">
+            <span class="material-symbols-rounded">upload</span>
+          </button> -->
           <button class="settings-button" id="settingsButton" aria-label="Settings">
             <span class="material-symbols-rounded">settings</span>
           </button>
@@ -277,6 +282,10 @@
             <span class="material-symbols-rounded">forum</span>
             <span>Join Our Community</span>
           </a>
+          <span class="info-modal-link" id="uploadModAboutLink">
+            <span class="material-symbols-rounded">upload</span>
+            <span>Upload mod</span>
+          </span>
           <a href="#" class="info-modal-link" onclick="openDonateModal(); return false;">
             <span class="material-symbols-rounded">volunteer_activism</span>
             <span>Donation</span>
@@ -331,6 +340,168 @@
       <h2 class="info-modal-title" style="margin-bottom: 5px;">Sources</h2>
       <p class="info-modal-text" style="margin-bottom: 20px;">Platforms where some mods come from</p>
       <div class="sources-list" id="sourcesList"></div>
+    </div>
+  </div>
+
+  <!-- upload mod modal -->
+  <div id="uploadModOverlay" class="info-overlay"></div>
+  <div id="uploadModModal" class="info-modal upload-mod-modal">
+    <button class="info-modal-close" id="closeUploadModModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="upload-modal-body">
+      <div class="upload-form-panel">
+        <div class="upload-form-panel-inner">
+          <h2 class="info-modal-title upload-form-title">Upload mod</h2>
+          <form id="uploadModForm" class="upload-form" novalidate>
+  
+            <div class="upload-form-group">
+              <label for="umArchive">Archive (.zip)</label>
+              <div class="md3-file-field">
+                <input type="file" id="umArchive" name="archive" accept=".zip" required>
+                <label for="umArchive" class="md3-file-field-btn">
+                  <span class="material-symbols-rounded">upload_file</span>
+                  <span id="umArchiveLabel">Choose archive…</span>
+                </label>
+              </div>
+              <p class="upload-form-hint">
+                Please use <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" id="tg">PreMod</a>.
+                The archive must contain a folder structured like <code>Mod Name/Mod Name.zip + Mod Name.webp</code>
+              </p>
+            </div>
+  
+            <div class="upload-form-group">
+              <label for="umCategory">Category</label>
+              <select id="umCategory" name="category" class="md3-field" required></select>
+            </div>
+  
+            <div class="upload-form-group">
+              <label for="umName">Mod name</label>
+              <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin of the Unmaking"
+                pattern="[a-zA-Z0-9 \-_'.,!]+" required>
+              <p class="upload-form-hint upload-duplicate-hint" id="umDuplicateHint" style="display:none;">
+                <span class="material-symbols-rounded">warning</span>
+                <span id="umDuplicateHintText"></span>
+              </p>
+            </div>
+  
+            <div class="upload-form-group" id="umHeroGroup" style="display:none;">
+              <label for="umHeroSearch">Hero</label>
+              <div class="um-hero-combo">
+                <input type="text" id="umHeroSearch" class="md3-field" placeholder="Type to search hero…"
+                  autocomplete="off">
+                <input type="hidden" id="umHero" name="hero">
+                <div class="um-hero-dropdown" id="umHeroDropdown" role="listbox" aria-label="Hero options"></div>
+              </div>
+            </div>
+  
+            <div class="upload-form-group" id="umTagsGroup" style="display:none;">
+              <label>Tags</label>
+              <div id="umTags">
+                <div id="umSlotGroup" style="display:none;">
+                  <p class="upload-tag-section-label">Slot <span class="upload-tag-section-hint">(choose one)</span></p>
+                  <div class="upload-tags md3-checkbox-group" id="umSlotTags"></div>
+                </div>
+                <div id="umEffectsGroup" style="display:none;">
+                  <p class="upload-tag-section-label" style="margin-top:10px;">Effects &amp; Icons</p>
+                  <div class="upload-tags md3-checkbox-group" id="umEffectsTags"></div>
+                </div>
+                <div id="umGenericTagsGroup">
+                  <div class="upload-tags md3-checkbox-group" id="umGenericTags"></div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="upload-form-group">
+              <label>Author</label>
+              <div class="upload-segmented" id="umAuthorSegmented">
+                <label><input type="radio" name="authorMode" value="existing" checked><span>Existing</span></label>
+                <label><input type="radio" name="authorMode" value="new"><span>New</span></label>
+                <label><input type="radio" name="authorMode" value="skip"><span>None</span></label>
+              </div>
+              <select id="umAuthorExisting" name="authorExisting" class="md3-field"></select>
+              <div id="umAuthorNewFields" class="upload-subfields" style="display:none;">
+                <input type="text" id="umAuthorName" class="md3-field" placeholder="Nickname" name="authorNewName">
+                <input type="url" id="umAuthorUrl" class="md3-field" placeholder="Profile link (optional)"
+                  name="authorNewUrl">
+              </div>
+            </div>
+  
+            <div class="upload-form-group">
+              <label>Additional link (optional)</label>
+              <div class="upload-segmented" id="umExtraSegmented">
+                <label><input type="radio" name="extraMode" value="none" checked><span>None</span></label>
+                <label><input type="radio" name="extraMode" value="source"><span>Source</span></label>
+                <label><input type="radio" name="extraMode" value="modded"><span>Modded by</span></label>
+              </div>
+              <div id="umExtraFields" style="display:none;">
+                <div class="upload-segmented upload-segmented-sm" id="umExtraOriginSegmented">
+                  <label><input type="radio" name="extraOriginMode" value="existing" checked><span>Existing</span></label>
+                  <label><input type="radio" name="extraOriginMode" value="new"><span>New</span></label>
+                </div>
+                <select id="umExtraExisting" name="extraExisting" class="md3-field"></select>
+                <div id="umExtraNewFields" class="upload-subfields" style="display:none;">
+                  <input type="text" id="umExtraName" class="md3-field" placeholder="Name" name="extraNewName">
+                  <input type="url" id="umExtraUrl" class="md3-field" placeholder="Link (optional)" name="extraNewUrl">
+                </div>
+              </div>
+            </div>
+  
+            <div id="umCooldownHint" class="upload-form-hint upload-cooldown-hint" style="display:none;">
+              <span class="material-symbols-rounded">schedule</span>
+              <span id="umCooldownHintText"></span>
+            </div>
+  
+            <div class="upload-submit-row">
+              <button type="submit" class="upload-submit-btn" id="umSubmitBtn">
+                <span class="upload-submit-icon material-symbols-rounded">send</span>
+                <span class="upload-submit-text">Submit</span>
+              </button>
+              <div class="upload-progress-wrap" id="umProgressWrap" style="display:none;">
+                <m3e-linear-progress-indicator id="umProgressBar" variant="wavy" value="0"
+                  max="100"></m3e-linear-progress-indicator>
+                <span class="upload-progress-pct" id="umProgressPct">0%</span>
+              </div>
+            </div>
+  
+            <div id="umStatus" class="upload-status"></div>
+  
+            <div class="cf-turnstile" id="uploadTurnstile" data-sitekey="0x4AAAAAAE98FxEQ8HQ40ZH2" data-theme="auto">
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="upload-preview-panel">
+        <div class="upload-preview-inner">
+          <h2 class="info-modal-title upload-preview-title">Live preview</h2>
+          <div class="card upload-preview-card" id="umPreviewCard">
+            <div class="card-media" id="umPreviewMedia">
+              <span style="font-size: 40px; opacity: 0.5;">🧩</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title" id="umPreviewTitle">Mod name</h3>
+              <div class="card-subtitle-wrapper">
+                <p class="card-subtitle" id="umPreviewSubtitle">Category</p>
+                <div class="card-buttons-group" id="umPreviewButtonsGroup"></div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="upload-preview-log" id="umPreviewLog" aria-live="polite" aria-relevant="additions">
+            <div class="upload-preview-log-header">
+              <span class="material-symbols-rounded upload-preview-log-icon" id="umPreviewLogIcon">terminal</span>
+              <span class="upload-preview-log-title">Activity</span>
+            </div>
+            <div class="upload-preview-log-body" id="umPreviewLogBody">
+              <div class="upload-preview-log-entry muted">
+                <span class="material-symbols-rounded">info</span>
+                <span>Waiting for submit…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1024,6 +1195,7 @@
   <script src="assets/zip.min.js"></script>
   <script src="assets/lz-string.min.js"></script>
   <script src="script.js"></script>
+  <script src="upload.js"></script>
   </body>
   
 </html>
