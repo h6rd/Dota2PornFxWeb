@@ -10503,7 +10503,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789907693,
+          "commit-sha": "f23fad1f1da613909462574980ce20b668f85eca"
+        }
       },
       {
         "name": "Reverse Broodmother",
@@ -10518,7 +10522,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1789907693,
+          "commit-sha": "f23fad1f1da613909462574980ce20b668f85eca"
+        }
       }
     ],
     "shaders": [
