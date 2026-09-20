@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Flame",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Arcana Golden Edge",
       "category": "heroes"
     },
@@ -10549,6 +10553,25 @@
         "meta": {
           "date": 1789915216,
           "commit-sha": "991b3bdcedea665bc4247d9de90820f49b5f5590"
+        }
+      },
+      {
+        "name": "Tinker Flame",
+        "preview": "Tinker Flame.webp",
+        "file": "Tinker Flame.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "lansory"
+          }
+        ],
+        "meta": {
+          "date": 1789925238,
+          "commit-sha": ""
         }
       }
     ],
