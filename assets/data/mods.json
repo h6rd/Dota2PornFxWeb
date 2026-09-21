@@ -1,7 +1,11 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "Beastmaster Egxrdxmxn",
+      "name": "All Grandmasters",
+      "category": "other"
+    },
+    {
+      "name": "Beastmaster Egxrdemxn",
       "category": "heroes"
     },
     {
@@ -15,10 +19,6 @@
     {
       "name": "Bloodseeker Immortal",
       "category": "heroes"
-    },
-    {
-      "name": "All Grandmasters",
-      "category": "other"
     },
     {
       "name": "Immortal Ranks",
@@ -10785,9 +10785,9 @@
         }
       },
       {
-        "name": "Beastmaster Egxrdxmxn",
-        "preview": "Beastmaster Egxrdxmxn.webp",
-        "file": "Beastmaster Egxrdxmxn.zip",
+        "name": "Beastmaster Egxrdemxn",
+        "preview": "Beastmaster Egxrdemxn.webp",
+        "file": "Beastmaster Egxrdemxn.zip",
         "tags": {
           "effects": true,
           "icons": true
