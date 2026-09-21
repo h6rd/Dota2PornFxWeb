@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Bloodseeker Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "",
       "category": ""
     },
@@ -10752,6 +10756,25 @@
         "meta": {
           "date": 1789988579,
           "commit-sha": "36a36d12dfca93ba12e06974613afb324c76b4be"
+        }
+      },
+      {
+        "name": "Bloodseeker Immortal",
+        "preview": "Bloodseeker Immortal.webp",
+        "file": "Bloodseeker Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1790000676,
+          "commit-sha": ""
         }
       }
     ],
