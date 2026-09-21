@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Windranger Papizi",
+      "category": "heroes"
+    },
+    {
       "name": "Pangolier Windward Rogue",
       "category": "heroes"
     },
@@ -10759,6 +10763,21 @@
         "meta": {
           "date": 1790000676,
           "commit-sha": "ae7f00a4c0bab42300c24ed5f375eafa58a53332"
+        }
+      },
+      {
+        "name": "Windranger Papizi",
+        "preview": "Windranger Papizi.webp",
+        "file": "Windranger Papizi.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790005464,
+          "commit-sha": ""
         }
       }
     ],
