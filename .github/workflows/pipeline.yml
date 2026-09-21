@@ -98,10 +98,38 @@ jobs:
       - catalog
 
     if: |
+      always() &&
+      needs.changes.result == 'success' &&
       needs.changes.outputs.files != 'true' &&
       needs.changes.outputs.data == 'true'
 
     uses: ./.github/workflows/sign-catalog.yml
+
+    secrets: inherit
+
+  huggingface:
+    name: Sync to Hugging Face
+    needs:
+      - changes
+      - catalog
+      - signatures
+
+    if: |
+      always() &&
+      needs.changes.result == 'success' &&
+      (
+        needs.changes.outputs.files == 'true' ||
+        needs.changes.outputs.data == 'true'
+      ) &&
+      needs.catalog.result != 'failure' &&
+      needs.catalog.result != 'cancelled' &&
+      needs.signatures.result != 'failure' &&
+      needs.signatures.result != 'cancelled'
+
+    uses: ./.github/workflows/sync-huggingface.yml
+    with:
+      full_sync: ${{ needs.changes.outputs.full_rehash == 'true' }}
+      base_sha: ${{ needs.changes.outputs.base_sha }}
 
     secrets: inherit
 

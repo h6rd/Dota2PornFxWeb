@@ -15,6 +15,11 @@ concurrency:
 jobs:
   check-updates:
     runs-on: ubuntu-latest
+
+    outputs:
+      base_sha: ${{ steps.base.outputs.sha }}
+      changed: ${{ steps.push.outputs.changed }}
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v6
@@ -24,6 +29,10 @@ jobs:
             /*
             !assets/files
           sparse-checkout-cone-mode: false
+
+      - name: Remember base commit
+        id: base
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -46,13 +55,27 @@ jobs:
         run: node scripts/sign-catalog.mjs
 
       - name: Commit and push changes
+        id: push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/data/mods.json assets/data/tool-versions.json assets/signatures/
           if git diff --staged --quiet; then
             echo "Nothing to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: update tool versions [skip ci]"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+  sync-hf:
+    name: Sync to Hugging Face
+    needs: check-updates
+    if: needs.check-updates.outputs.changed == 'true'
+
+    uses: ./.github/workflows/sync-huggingface.yml
+    with:
+      base_sha: ${{ needs.check-updates.outputs.base_sha }}
+
+    secrets: inherit

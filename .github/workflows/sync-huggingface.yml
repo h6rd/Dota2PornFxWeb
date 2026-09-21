@@ -1,0 +1,60 @@
+name: Sync to Hugging Face
+
+on:
+  workflow_call:
+    inputs:
+      full_sync:
+        description: "Upload every file and prune extras on HF instead of diffing a commit range"
+        type: boolean
+        default: false
+      base_sha:
+        description: "Commit to diff from (ignored when full_sync is true)"
+        type: string
+        default: ""
+
+  workflow_dispatch:
+    inputs:
+      full_sync:
+        description: "Full sync (upload everything, delete extras on HF)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Install huggingface_hub
+        run: pip install -U huggingface_hub
+
+      - name: Sync to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ vars.HF_REPO_ID }}
+          HF_REPO_TYPE: ${{ vars.HF_REPO_TYPE || 'dataset' }}
+          HF_SYNC_DIRS: ${{ vars.HF_SYNC_DIRS }}
+          HF_KEEP: ${{ vars.HF_KEEP }}
+          HF_PRUNE: ${{ vars.HF_PRUNE }}
+          HF_HUB_DISABLE_PROGRESS_BARS: "1"
+          FULL_SYNC: ${{ inputs.full_sync }}
+          BASE_SHA: ${{ inputs.base_sha }}
+        run: python scripts/sync_huggingface.py

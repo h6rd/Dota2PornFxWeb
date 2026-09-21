@@ -46,6 +46,20 @@ jobs:
           publish_dir: ./compressed
           publish_branch: data
 
+      - name: Sync compressed data to Hugging Face
+        continue-on-error: true
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ vars.HF_REPO_ID }}
+          HF_REPO_TYPE: ${{ vars.HF_REPO_TYPE || 'dataset' }}
+          HF_HUB_DISABLE_PROGRESS_BARS: "1"
+        run: |
+          pip install -U huggingface_hub
+          hf upload "$HF_REPO_ID" ./compressed compressed \
+            --repo-type "$HF_REPO_TYPE" \
+            --delete "*" \
+            --commit-message "Sync compressed data from GitHub ${GITHUB_SHA::7}"
+
       - name: Prepare dist folder
         run: |
           rsync -a \
