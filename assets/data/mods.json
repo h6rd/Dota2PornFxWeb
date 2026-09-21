@@ -1,28 +1,12 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "Bloodseeker Immortal",
+      "name": "Pangolier Windward Rogue",
       "category": "heroes"
     },
     {
-      "name": "",
-      "category": ""
-    },
-    {
-      "name": "",
-      "category": ""
-    },
-    {
-      "name": "",
-      "category": ""
-    },
-    {
-      "name": "",
-      "category": ""
-    },
-    {
-      "name": "",
-      "category": ""
+      "name": "Bloodseeker Immortal",
+      "category": "heroes"
     },
     {
       "name": "All Grandmasters",
@@ -42,10 +26,6 @@
     },
     {
       "name": "Marci Bloomjewel Unusual",
-      "category": "heroes"
-    },
-    {
-      "name": "Pangolier Windward Rogue",
       "category": "heroes"
     },
     {
@@ -10711,8 +10691,12 @@
       },
       {
         "name": "Pangolier Windward Rogue",
-        "preview": "Pangolier Windward Rogue-42edc3.webp",
-        "file": "Pangolier Windward Rogue-42edc3.zip",
+        "preview": "Pangolier Windward Rogue.webp",
+        "file": "Pangolier Windward Rogue.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
         "links": [
           {
             "type": "author",
