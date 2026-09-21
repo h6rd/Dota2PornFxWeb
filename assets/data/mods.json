@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Marci Bloomjewel Unusual",
+      "category": "heroes"
+    },
+    {
       "name": "Pangolier Windward Rogue",
       "category": "heroes"
     },
@@ -10678,6 +10682,21 @@
         "meta": {
           "date": 1789950439,
           "commit-sha": "a00d85b84d347a8b0e5d749b7d9d29294cdbabea"
+        }
+      },
+      {
+        "name": "Marci Bloomjewel Unusual",
+        "preview": "Marci Bloomjewel Unusual.webp",
+        "file": "Marci Bloomjewel Unusual.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1789985397,
+          "commit-sha": ""
         }
       }
     ],
