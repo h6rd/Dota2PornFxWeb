@@ -1,6 +1,42 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "",
+      "category": ""
+    },
+    {
+      "name": "",
+      "category": ""
+    },
+    {
+      "name": "",
+      "category": ""
+    },
+    {
+      "name": "",
+      "category": ""
+    },
+    {
+      "name": "",
+      "category": ""
+    },
+    {
+      "name": "All Grandmasters",
+      "category": "other"
+    },
+    {
+      "name": "Immortal Ranks",
+      "category": "ranks"
+    },
+    {
+      "name": "Doom Sematary",
+      "category": "heroes"
+    },
+    {
+      "name": "Horror Black Hud",
+      "category": "huds"
+    },
+    {
       "name": "Marci Bloomjewel Unusual",
       "category": "heroes"
     },
@@ -10698,6 +10734,21 @@
           "date": 1789985397,
           "commit-sha": "ba183672d1d87d4a71cdc40c7347a687c8176d48"
         }
+      },
+      {
+        "name": "Doom Sematary",
+        "preview": "Doom Sematary.webp",
+        "file": "Doom Sematary.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15668,6 +15719,17 @@
           "date": 1789396660,
           "commit-sha": "6cf506238f6db1d4028c6684709f9d3b2e693a27"
         }
+      },
+      {
+        "name": "Horror Black Hud",
+        "preview": "Horror Black Hud.webp",
+        "file": "Horror Black Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "high-five": [
@@ -15878,6 +15940,17 @@
           "date": 1788815201,
           "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
         }
+      },
+      {
+        "name": "All Grandmasters",
+        "preview": "All Grandmasters.webp",
+        "file": "All Grandmasters.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "river": [
@@ -17328,6 +17401,17 @@
           "date": 1781873451,
           "commit-sha": "4174b1b09f27a956dd2826488818bd31ffc6ca77"
         }
+      },
+      {
+        "name": "Immortal Ranks",
+        "preview": "Immortal Ranks.webp",
+        "file": "Immortal Ranks.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "item-icons": [
