@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Beastmaster Egxrdxmxn",
+      "category": "heroes"
+    },
+    {
       "name": "Windranger Papizi",
       "category": "heroes"
     },
@@ -10778,6 +10782,25 @@
         "meta": {
           "date": 1790005464,
           "commit-sha": "a600bda47090f8b4e59ccc949db09bcf8ec754c8"
+        }
+      },
+      {
+        "name": "Beastmaster Egxrdxmxn",
+        "preview": "Beastmaster Egxrdxmxn.webp",
+        "file": "Beastmaster Egxrdxmxn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "illidan"
+          }
+        ],
+        "meta": {
+          "date": 1790006064,
+          "commit-sha": ""
         }
       }
     ],
