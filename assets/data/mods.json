@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pangolier Windward Rogue",
+      "category": "heroes"
+    },
+    {
       "name": "Chaos Knight Unities Of Discord",
       "category": "heroes"
     },
@@ -10659,6 +10663,21 @@
         "meta": {
           "date": 1789948980,
           "commit-sha": "26f02e75bd83cc39a2c73c892ca89399415b1063"
+        }
+      },
+      {
+        "name": "Pangolier Windward Rogue",
+        "preview": "Pangolier Windward Rogue-42edc3.webp",
+        "file": "Pangolier Windward Rogue-42edc3.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1789950439,
+          "commit-sha": ""
         }
       }
     ],
