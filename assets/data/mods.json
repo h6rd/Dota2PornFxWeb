@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Chaos Knight Unities Of Discord",
+      "category": "heroes"
+    },
+    {
       "name": "Anti-Mage Manta",
       "category": "heroes"
     },
@@ -10637,6 +10641,24 @@
         "meta": {
           "date": 1789935592,
           "commit-sha": "aa4553f088c888d8ea2d49e19e7824b6dac97fd7"
+        }
+      },
+      {
+        "name": "Chaos Knight Unities Of Discord",
+        "preview": "Chaos Knight Unities Of Discord.webp",
+        "file": "Chaos Knight Unities Of Discord.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1789948980,
+          "commit-sha": ""
         }
       }
     ],
