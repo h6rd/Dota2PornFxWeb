@@ -5,6 +5,10 @@
       "category": "other"
     },
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Beastmaster Egxrdemxn",
       "category": "heroes"
     },
@@ -17195,6 +17199,18 @@
           {
             "type": "preview",
             "url": "assets/previews/tools/VPCF Editor.mp4"
+          }
+        ]
+      },
+      {
+        "name": "Better Source2Viewer",
+        "preview": "better-s2v.webp",
+        "file": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/tag/build-4",
+        "type": "guide",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
           }
         ]
       }
