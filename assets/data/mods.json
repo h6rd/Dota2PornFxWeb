@@ -1,10 +1,6 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "Pudge Abberant Observer",
-      "category": "heroes"
-    },
-    {
       "name": "Mega Greevil Courier",
       "category": "couriers"
     },
@@ -10910,21 +10906,6 @@
         "meta": {
           "date": 1790084006,
           "commit-sha": "ac99a2f7be780bcde534314aa8a17e3bdb0c6cc4"
-        }
-      },
-      {
-        "name": "Pudge Abberant Observer",
-        "preview": "Pudge Abberant Observer.webp",
-        "file": "Pudge Abberant Observer.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "rasstegai"
-          }
-        ],
-        "meta": {
-          "date": 1790089462,
-          "commit-sha": "15291d9a23c027d4e02e043a4bc263da2c020ce6"
         }
       }
     ],
