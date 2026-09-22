@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Golden Natures Prophet",
+      "category": "heroes"
+    },
+    {
+      "name": "Spectre Arcana Pedestal",
+      "category": "pedestal"
+    },
+    {
+      "name": "Venomancer Zuzik",
+      "category": "heroes"
+    },
+    {
+      "name": "Ringmaster Ibalai",
+      "category": "heroes"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Ancient Apparition Shatterblast",
       "category": "herofx"
     },
@@ -35,10 +55,6 @@
     {
       "name": "All Grandmasters",
       "category": "other"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Beastmaster Egxrdemxn",
@@ -10911,6 +10927,51 @@
           "date": 1790084006,
           "commit-sha": "ac99a2f7be780bcde534314aa8a17e3bdb0c6cc4"
         }
+      },
+      {
+        "name": "Ringmaster Ibalai",
+        "preview": "Ringmaster Ibalai.webp",
+        "file": "Ringmaster Ibalai.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Venomancer Zuzik",
+        "preview": "Venomancer Zuzik.webp",
+        "file": "Venomancer Zuzik.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ]
+      },
+      {
+        "name": "Golden Natures Prophet",
+        "preview": "Golden Natures Prophet.webp",
+        "file": "Golden Natures Prophet.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "shears001"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15624,6 +15685,29 @@
           "date": 1789805764,
           "commit-sha": "cf155d372ca4da44ae8db2f1f21952e17bc10679"
         }
+      },
+      {
+        "name": "Spectre Arcana Pedestal",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#5da2f0",
+            "preview": "Spectre Arcana Pedestal.webp",
+            "file": "Spectre Arcana Pedestal.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#f05d5d",
+            "preview": "Spectre Arcana Pedestal II.webp",
+            "file": "Spectre Arcana Pedestal II.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ]
       }
     ],
     "parts": [
@@ -17357,13 +17441,9 @@
       {
         "name": "Better Source2Viewer",
         "preview": "better-s2v.webp",
-        "file": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/tag/build-4",
+        "file": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/",
         "type": "guide",
         "links": [
-          {
-            "type": "author",
-            "url": "ibcsz"
-          },
           {
             "type": "author",
             "url": "J0nathan550"
