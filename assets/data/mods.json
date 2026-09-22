@@ -10941,7 +10941,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790118406,
+          "commit-sha": "6f5004fa45898547d9f2eb6edfc77a6a08741abf"
+        }
       },
       {
         "name": "Venomancer Zuzik",
@@ -10956,7 +10960,11 @@
             "type": "author",
             "url": "Миша Талант"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790118406,
+          "commit-sha": "6f5004fa45898547d9f2eb6edfc77a6a08741abf"
+        }
       },
       {
         "name": "Golden Natures Prophet",
@@ -10971,7 +10979,11 @@
             "type": "author",
             "url": "shears001"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790118406,
+          "commit-sha": "6f5004fa45898547d9f2eb6edfc77a6a08741abf"
+        }
       }
     ],
     "shaders": [
@@ -15707,7 +15719,11 @@
             "type": "author",
             "url": "depex"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790118406,
+          "commit-sha": "6f5004fa45898547d9f2eb6edfc77a6a08741abf"
+        }
       }
     ],
     "parts": [
