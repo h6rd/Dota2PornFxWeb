@@ -96,6 +96,8 @@
     "news-desc": "News and announcements",
     "item-sounds": "Item Sounds",
     "item-sounds-desc": "Custom item sounds",
+    "parts": "Parts",
+    "parts-desc": "Different individual parts, like for the HUDs",
     "huds": "Huds",
     "huds-desc": "Custom Huds",
     "modded": "Modded",
@@ -234,6 +236,13 @@
       "emoji": "📌",
       "key": "pings",
       "preview": "pings.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "parts",
+      "emoji": "🎴",
+      "key": "parts",
+      "preview": "parts.webp",
       "guideId": "install"
     },
     {
@@ -392,6 +401,10 @@
     "emblems": {
       "enabled": true,
       "text": "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
+    },
+    "tools": {
+      "enabled": true,
+      "text": "This category includes both my own tools and ones made by third-party developers. I'm only responsible for the tools I've created myself. Third-party programs are reviewed before being listed, but I can't continuously monitor them, so use them at your own risk"
     }
   },
   "addToCartRules": {

@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Diabolical Shadow Fiend",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Blackguard Magus",
+      "category": "heroes"
+    },
+    {
+      "name": "Black Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Kaneki Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Scolopendra Search Bar",
+      "category": "parts"
+    },
+    {
       "name": "Razor Voidstorm Asylum",
       "category": "heroes"
     },
@@ -10833,6 +10853,48 @@
           "date": 1790044852,
           "commit-sha": "6ac85302a5d7d92c55d3364224ab4202fbe0bdbd"
         }
+      },
+      {
+        "name": "Invoker Blackguard Magus",
+        "preview": "Invoker Blackguard Magus.webp",
+        "file": "Invoker Blackguard Magus.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Diabolical Shadow Fiend",
+        "styles": [
+          {
+            "label": "",
+            "color": "#d4d4d4",
+            "preview": "Diabolical Shadow Fiend.webp",
+            "file": "Diabolical Shadow Fiend.zip"
+          },
+          {
+            "label": "Desolation",
+            "color": "#f74848",
+            "preview": "Diabolical Shadow Fiend Desolation.webp",
+            "file": "Diabolical Shadow Fiend Desolation.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15546,6 +15608,41 @@
           "date": 1789805764,
           "commit-sha": "cf155d372ca4da44ae8db2f1f21952e17bc10679"
         }
+      }
+    ],
+    "parts": [
+      {
+        "name": "Black Top Bar",
+        "preview": "Black Top Bar.webp",
+        "file": "Black Top Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Kaneki Search Bar",
+        "preview": "Kaneki Search Bar.webp",
+        "file": "Kaneki Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Scolopendra Search Bar",
+        "preview": "Scolopendra Search Bar.webp",
+        "file": "Scolopendra Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "huds": [
