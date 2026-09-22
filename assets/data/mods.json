@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Mega Greevil Courier",
+      "category": "couriers"
+    },
+    {
       "name": "Diabolical Shadow Fiend",
       "category": "heroes"
     },
@@ -18085,6 +18089,21 @@
         "meta": {
           "date": 1779436367,
           "commit-sha": "c1176360888b454d3ca50c3ec96a59caa9668f97"
+        }
+      },
+      {
+        "name": "Mega Greevil Courier",
+        "preview": "Mega Greevil Courier.webp",
+        "file": "Mega Greevil Courier.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790086853,
+          "commit-sha": ""
         }
       }
     ],
