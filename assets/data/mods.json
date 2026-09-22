@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ancient Apparition Shatterblast",
+      "category": "herofx"
+    },
+    {
       "name": "Mega Greevil Courier",
       "category": "couriers"
     },
@@ -18982,6 +18986,25 @@
         "meta": {
           "date": 1788180009,
           "commit-sha": "211c0fd5da68d42af5ffbfcf3cbb31d7c4af850b"
+        }
+      },
+      {
+        "name": "Ancient Apparition Shatterblast",
+        "preview": "Ancient Apparition Shatterblast.webp",
+        "file": "Ancient Apparition Shatterblast.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Ромчик"
+          }
+        ],
+        "meta": {
+          "date": 1790113207,
+          "commit-sha": ""
         }
       }
     ],
