@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Razor Voidstorm Asylum",
+      "category": "heroes"
+    },
+    {
       "name": "All Grandmasters",
       "category": "other"
     },
@@ -10805,6 +10809,29 @@
         "meta": {
           "date": 1790017303,
           "commit-sha": "c4fcbf34d577fa3d2c62754d7038dfb286b365d9"
+        }
+      },
+      {
+        "name": "Razor Voidstorm Asylum",
+        "preview": "Razor Voidstorm Asylum.webp",
+        "file": "Razor Voidstorm Asylum.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          },
+          {
+            "type": "modded",
+            "url": "ibcsz"
+          }
+        ],
+        "meta": {
+          "date": 1790044851,
+          "commit-sha": ""
         }
       }
     ],
