@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Clockwerk Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Drow Ranger Master Of Madness",
       "category": "heroes"
     },
@@ -11099,6 +11103,25 @@
         "meta": {
           "date": 1790192632,
           "commit-sha": "c1afd89ba32d27da7dbb4a5ca44d0964735d7973"
+        }
+      },
+      {
+        "name": "Clockwerk Immortal",
+        "preview": "Clockwerk Immortal.webp",
+        "file": "Clockwerk Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1790193060,
+          "commit-sha": ""
         }
       }
     ],
