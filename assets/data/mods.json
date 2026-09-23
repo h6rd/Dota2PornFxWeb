@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Reflow Radiance",
+      "category": "item-icons"
+    },
+    {
       "name": "Primal Beast Temple Guardian",
       "category": "hero-items"
     },
@@ -17976,6 +17980,21 @@
         "meta": {
           "date": 1788922344,
           "commit-sha": "c4cd95886eb0937ec11bd9a5acc32445a8967863"
+        }
+      },
+      {
+        "name": "Reflow Radiance",
+        "preview": "Reflow Radiance.webp",
+        "file": "Reflow Radiance.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790171120,
+          "commit-sha": ""
         }
       }
     ],
