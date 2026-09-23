@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dili Tili Bom Pudge",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Princess Naga Siren",
       "category": "heroes"
     },
@@ -20055,6 +20059,25 @@
         "meta": {
           "date": 1789234312,
           "commit-sha": "982a66ab46151a58a46fc7f58e10736e0c3431aa"
+        }
+      },
+      {
+        "name": "Dili Tili Bom Pudge",
+        "preview": "Dili Tili Bom Pudge.webp",
+        "file": "Dili Tili Bom Pudge.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Gibus"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/mTgrdehuCHo"
+          }
+        ],
+        "meta": {
+          "date": 1790207087,
+          "commit-sha": ""
         }
       }
     ],
