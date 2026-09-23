@@ -60,7 +60,7 @@ function openModal() {
 
 document.addEventListener('wheel', (e) => {
     if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list');
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .upload-form-panel, .upload-preview-panel');
     if (!scrollable) {
         e.preventDefault();
         return;
@@ -75,7 +75,7 @@ document.addEventListener('wheel', (e) => {
 
 document.addEventListener('touchmove', (e) => {
     if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list');
+    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .upload-form-panel, .upload-preview-panel');
     if (!scrollable) e.preventDefault();
 }, { passive: false });
 

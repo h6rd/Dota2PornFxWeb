@@ -377,11 +377,19 @@
   
             <div class="upload-form-group">
               <label for="umName">Mod name</label>
-              <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin of the Unmaking"
-                pattern="[a-zA-Z0-9 \-_'.,!]+" required>
+              <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin"
+                pattern="[a-zA-Z0-9 \-_'.,!]+" maxlength="30" required>
+              <p class="upload-form-hint">
+                English & numbers only. Max <span id="umNameMaxLen">30</span> characters
+                (<span id="umNameCount">0</span>/<span id="umNameMaxLen2">30</span>) so the mod card doesn't break.
+              </p>
               <p class="upload-form-hint upload-duplicate-hint" id="umDuplicateHint" style="display:none;">
                 <span class="material-symbols-rounded">warning</span>
                 <span id="umDuplicateHintText"></span>
+              </p>
+              <p class="upload-form-hint upload-duplicate-hint" id="umHeroNameHint" style="display:none;">
+                <span class="material-symbols-rounded">warning</span>
+                <span id="umHeroNameHintText"></span>
               </p>
             </div>
   
@@ -395,6 +403,16 @@
               </div>
             </div>
   
+            <div class="upload-form-group" id="umPreviewVideoGroup" style="display:none;">
+              <label for="umPreviewVideo">Preview video (YouTube link, optional)</label>
+              <input type="url" id="umPreviewVideo" name="previewVideo" class="md3-field"
+                placeholder="https://www.youtube.com/watch?v=…">
+              <p class="upload-form-hint upload-duplicate-hint" id="umPreviewVideoHint" style="display:none;">
+                <span class="material-symbols-rounded">warning</span>
+                <span id="umPreviewVideoHintText">Only youtube.com / youtu.be links are accepted.</span>
+              </p>
+            </div>
+
             <div class="upload-form-group" id="umTagsGroup" style="display:none;">
               <label>Tags</label>
               <div id="umTags">
@@ -431,6 +449,7 @@
               <label>Additional link (optional)</label>
               <div class="upload-segmented" id="umExtraSegmented">
                 <label><input type="radio" name="extraMode" value="none" checked><span>None</span></label>
+                <label><input type="radio" name="extraMode" value="author"><span>Co-author</span></label>
                 <label><input type="radio" name="extraMode" value="source"><span>Source</span></label>
                 <label><input type="radio" name="extraMode" value="modded"><span>Modded by</span></label>
               </div>

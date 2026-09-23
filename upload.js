@@ -4,13 +4,36 @@ const MAX_OUTER_ARCHIVE_BYTES = 100 * 1024 * 1024;
 const MAX_ARCHIVE_ENTRIES = 1000;
 const MAX_EXTRACTED_BYTES = 250 * 1024 * 1024;
 const MAX_ENTRY_BYTES = 100 * 1024 * 1024;
-const MAX_NAME_LENGTH = 100;
+const MAX_NAME_LENGTH = 30;
+const NAME_LENGTH_EXCEPTIONS = {
+  'keeper of the light': 40,
+  'natures prophet': 40
+};
+function getMaxNameLength(hero) {
+  const override = NAME_LENGTH_EXCEPTIONS[String(hero || '').trim().toLowerCase()];
+  return override || MAX_NAME_LENGTH;
+}
 const MAX_URL_LENGTH = 2048;
 const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
 
-const BLACKLISTED_CATEGORIES = ['packs', 'hero-items', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps', 'backgrounds', 'sounds', 'hero-sounds', 'huds'];
+const TAG_DESCRIPTIONS = {
+  effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS',
+  icons: 'ONLY ABILITY ICONS'
+};
 
-const SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
+const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
+function getPreviewVideoCategories() {
+  return Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
+}
+
+const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps', 'backgrounds'];
+
+const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
+
+function getSlotTags(categoryId) {
+  const cfg = (window.TAG_CONFIGS || {})[categoryId];
+  return (cfg && Array.isArray(cfg.slotTags)) ? cfg.slotTags : FALLBACK_SLOT_TAGS;
+}
 
 function waitForAppData() {
   return new Promise(resolve => {
@@ -75,6 +98,30 @@ function stripArchiveExtension(fileName) {
   return String(fileName || '').replace(/\.[^./\\]+$/, '');
 }
 
+function titleCaseWords(str) {
+  return String(str || '').replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, (word) => {
+    if (!word) return word;
+    if (word.includes("'")) {
+      return word.split("'").map(p => p ? p[0].toUpperCase() + p.slice(1).toLowerCase() : p).join("'");
+    }
+    return word[0].toUpperCase() + word.slice(1).toLowerCase();
+  });
+}
+
+const YOUTUBE_HOST_RE = /^(m\.|www\.|music\.)?youtube\.com$|^youtu\.be$/i;
+
+function isYouTubeUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:') return false;
+    if (!YOUTUBE_HOST_RE.test(url.hostname)) return false;
+    if (url.href.length > MAX_URL_LENGTH) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function normalizeModName(name) {
   return String(name || '').trim().toLowerCase().replace(/\s+/g, ' ');
 }
@@ -95,8 +142,17 @@ function getModsForCategory(category) {
 }
 
 function setupUploadModal() {
+  function selectVisualEl(select) {
+    return (select && select.closest('.md3-select')) || select;
+  }
+
   const overlay = document.getElementById('uploadModOverlay');
   const modal = document.getElementById('uploadModModal');
+  modal?.querySelectorAll('.upload-form-panel, .upload-preview-panel').forEach((panel) => {
+    panel.addEventListener('wheel', (e) => {
+      panel.scrollTop += e.deltaY;
+    }, { passive: true });
+  });
   const openBtns = [
     document.getElementById('uploadModButton'),
     document.getElementById('mobileUploadModButton'),
@@ -116,7 +172,24 @@ function setupUploadModal() {
   const heroDropdown = document.getElementById('umHeroDropdown');
   const tagsGroup = document.getElementById('umTagsGroup');
   const nameInput = document.getElementById('umName');
+  const nameCountEl = document.getElementById('umNameCount');
+  const nameMaxLenEls = document.querySelectorAll('#umNameMaxLen, #umNameMaxLen2');
+  function updateNameMaxLength() {
+    const max = getMaxNameLength(heroHidden.value);
+    nameInput.maxLength = max;
+    nameMaxLenEls.forEach(el => { el.textContent = String(max); });
+  }
+  updateNameMaxLength();
+  const heroNameHint = document.getElementById('umHeroNameHint');
+  const heroNameHintText = document.getElementById('umHeroNameHintText');
+  let isHeroNameInvalid = false;
   const archiveInput = document.getElementById('umArchive');
+
+  const previewVideoGroup = document.getElementById('umPreviewVideoGroup');
+  const previewVideoInput = document.getElementById('umPreviewVideo');
+  const previewVideoHint = document.getElementById('umPreviewVideoHint');
+  const previewVideoHintText = document.getElementById('umPreviewVideoHintText');
+  let isPreviewVideoInvalid = false;
 
   const slotGroup = document.getElementById('umSlotGroup');
   const slotTagsWrap = document.getElementById('umSlotTags');
@@ -366,6 +439,46 @@ function setupUploadModal() {
     }
   }
 
+  function checkHeroInName() {
+    const category = categorySelect.value;
+    const hero = heroHidden.value.trim();
+    if (!HERO_AWARE_CATEGORIES.includes(category) || !hero) {
+      isHeroNameInvalid = false;
+      heroNameHint.style.display = 'none';
+      return;
+    }
+    const current = nameInput.value.trim();
+    if (current.toLowerCase().includes(hero.toLowerCase())) {
+      isHeroNameInvalid = false;
+      heroNameHint.style.display = 'none';
+      return;
+    }
+    isHeroNameInvalid = true;
+    const wouldFit = !current || `${hero} ${current}`.length <= getMaxNameLength(hero);
+    heroNameHintText.textContent = wouldFit
+      ? `The mod name must include the hero name "${hero}".`
+      : `Name is too long to fit the hero name "${hero}" — shorten it.`;
+    heroNameHint.style.display = '';
+  }
+
+  function checkPreviewVideo() {
+    const value = previewVideoInput.value.trim();
+    if (!value) {
+      isPreviewVideoInvalid = false;
+      previewVideoHint.style.display = 'none';
+      return;
+    }
+    const ok = isYouTubeUrl(value);
+    isPreviewVideoInvalid = !ok;
+    if (!ok) {
+      previewVideoHintText.textContent = 'Only youtube.com / youtu.be links are accepted.';
+      previewVideoHint.style.display = '';
+    } else {
+      previewVideoHint.style.display = 'none';
+    }
+  }
+
+
   function checkExtraDuplicate() {
     const extraMode = form.querySelector('input[name="extraMode"]:checked')?.value;
     const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
@@ -421,6 +534,8 @@ function setupUploadModal() {
     const catId = categorySelect.value;
     const cfg = (window.TAG_CONFIGS || {})[catId];
     const tagMap = cfg?.map || {};
+    const slotTags = getSlotTags(catId);
+    const tagDescriptions = TAG_DESCRIPTIONS;
 
     const slotRadio = slotTagsWrap.querySelector('input[type="radio"]:checked');
     const checkedEffects = Array.from(effectsTagsWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
@@ -434,12 +549,13 @@ function setupUploadModal() {
       const span = document.createElement('span');
       span.className = 'mod-tag' + (isSlot ? ' mod-tag--slot' : '');
       span.textContent = label;
+      if (tagDescriptions[key]) span.title = tagDescriptions[key];
       tagsEl.appendChild(span);
     }
 
     if (slotRadio) addTag(slotRadio.value, true);
     for (const k of checkedEffects) addTag(k, false);
-    for (const k of checkedGeneric) addTag(k, SLOT_TAGS.includes(k));
+    for (const k of checkedGeneric) addTag(k, slotTags.includes(k));
 
     if (tagsEl.children.length) previewMedia.appendChild(tagsEl);
   }
@@ -458,12 +574,17 @@ function setupUploadModal() {
     }
 
     const extraMode = form.querySelector('input[name="extraMode"]:checked')?.value;
-    if (extraMode === 'source' || extraMode === 'modded') {
+    if (extraMode === 'source' || extraMode === 'modded' || extraMode === 'author') {
       const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
       const value = originMode === 'existing'
         ? extraExistingSelect.value
         : document.getElementById('umExtraName')?.value.trim();
       if (value) links.push({ type: extraMode, url: value });
+    }
+
+    const previewVideo = previewVideoInput.value.trim();
+    if (previewVideo && !isPreviewVideoInvalid && isYouTubeUrl(previewVideo)) {
+      links.push({ type: 'preview', url: previewVideo });
     }
 
     if (!links.length) return '';
@@ -508,10 +629,12 @@ function setupUploadModal() {
     .filter(c => !BLACKLISTED_CATEGORIES.includes(c.id))
     .map(c => ({ value: c.id, label: tr(c.key, c.id) }));
   populateSelect(categorySelect, categoryItems, { placeholder: 'Select category\u2026' });
+  window.MD3Select?.enhance(categorySelect);
 
   function refreshAuthorSelect() {
     const authors = Object.keys(window.MOD_AUTHOR || {}).sort();
     populateSelect(authorExistingSelect, authors.map(a => ({ value: a, label: a })), { placeholder: 'Select author\u2026' });
+    window.MD3Select?.enhance(authorExistingSelect);
   }
   refreshAuthorSelect();
 
@@ -519,10 +642,11 @@ function setupUploadModal() {
     if (mode === 'source') {
       const items = Object.keys(window.MOD_SOURCES || {}).sort();
       populateSelect(extraExistingSelect, items.map(a => ({ value: a, label: a })), { placeholder: 'Select source\u2026' });
-    } else if (mode === 'modded') {
+    } else if (mode === 'modded' || mode === 'author') {
       const items = Object.keys(window.MOD_AUTHOR || {}).sort();
-      populateSelect(extraExistingSelect, items.map(a => ({ value: a, label: a })), { placeholder: 'Select original author\u2026' });
+      populateSelect(extraExistingSelect, items.map(a => ({ value: a, label: a })), { placeholder: 'Select author\u2026' });
     }
+    window.MD3Select?.enhance(extraExistingSelect);
   }
 
   let allHeroes = [];
@@ -551,11 +675,29 @@ function setupUploadModal() {
     }
   }
 
+  function ensureHeroInName(hero) {
+    if (!hero) return;
+    const current = nameInput.value.trim();
+    if (!current) {
+      nameInput.value = hero;
+      autoFilledName = hero;
+      return;
+    }
+    if (current.toLowerCase().includes(hero.toLowerCase())) return;
+    const combined = `${hero} ${current}`;
+    if (combined.length <= getMaxNameLength(hero)) {
+      nameInput.value = combined;
+    }
+  }
+
   function selectHero(hero) {
     heroHidden.value = hero;
     heroSearch.value = hero;
     heroDropdown.classList.remove('open');
-    if (hero && !nameInput.value.trim()) nameInput.value = hero;
+    updateNameMaxLength();
+    ensureHeroInName(hero);
+    checkDuplicate();
+    checkHeroInName();
     updatePreview();
   }
 
@@ -597,6 +739,8 @@ function setupUploadModal() {
     heroHidden.value = '';
     buildHeroDropdown(heroSearch.value);
     heroDropdown.classList.add('open');
+    updateNameMaxLength();
+    checkHeroInName();
     updatePreview();
   });
   heroSearch.addEventListener('blur', () => {
@@ -630,46 +774,43 @@ function setupUploadModal() {
     }
     tagsGroup.style.display = '';
 
-    if (categoryId === 'hero-items') {
-      let hasSlot = false, hasEffects = false;
-      for (const [key, label] of Object.entries(cfg.map)) {
-        if (SLOT_TAGS.includes(key)) {
-          const id = `umSlot_${key}`;
-          const wrap = document.createElement('label');
-          wrap.className = 'upload-tag-chip upload-slot-chip';
-          const radio = document.createElement('input');
-          radio.type = 'radio';
-          radio.name = 'slotTag';
-          radio.id = id;
-          radio.value = key;
-          wrap.appendChild(radio);
-          wrap.append(' ' + label);
-          radio.addEventListener('change', () => {
-            slotTagsWrap.querySelectorAll('label.upload-slot-chip').forEach(l =>
-              l.classList.toggle('selected', l.querySelector('input')?.checked));
-            updatePreview();
-          });
-          slotTagsWrap.appendChild(wrap);
-          hasSlot = true;
-        } else {
-          const id = `umEffect_${key}`;
-          const wrap = document.createElement('label');
-          wrap.className = 'upload-tag-chip';
-          const cb = document.createElement('input');
-          cb.type = 'checkbox';
-          cb.id = id;
-          cb.value = key;
-          wrap.appendChild(cb);
-          wrap.append(' ' + label);
-          cb.addEventListener('change', updatePreview);
-          effectsTagsWrap.appendChild(wrap);
-          hasEffects = true;
-        }
-      }
-      if (hasSlot) slotGroup.style.display = '';
-      if (hasEffects) effectsGroup.style.display = '';
-    } else {
-      for (const [key, label] of Object.entries(cfg.map)) {
+    const slotTags = categoryId === 'hero-items' ? getSlotTags(categoryId) : [];
+    let hasSlot = false, hasEffects = false, hasGeneric = false;
+
+    for (const [key, label] of Object.entries(cfg.map)) {
+      if (slotTags.includes(key)) {
+        const id = `umSlot_${key}`;
+        const wrap = document.createElement('label');
+        wrap.className = 'upload-tag-chip upload-slot-chip';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'slotTag';
+        radio.id = id;
+        radio.value = key;
+        wrap.appendChild(radio);
+        wrap.append(' ' + label);
+        radio.addEventListener('change', () => {
+          slotTagsWrap.querySelectorAll('label.upload-slot-chip').forEach(l =>
+            l.classList.toggle('selected', l.querySelector('input')?.checked));
+          updatePreview();
+        });
+        slotTagsWrap.appendChild(wrap);
+        hasSlot = true;
+      } else if (key === 'effects' || key === 'icons') {
+        const id = `umEffect_${key}`;
+        const wrap = document.createElement('label');
+        wrap.className = 'upload-tag-chip';
+        if (TAG_DESCRIPTIONS[key]) wrap.title = TAG_DESCRIPTIONS[key];
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.id = id;
+        cb.value = key;
+        wrap.appendChild(cb);
+        wrap.append(' ' + label);
+        cb.addEventListener('change', updatePreview);
+        effectsTagsWrap.appendChild(wrap);
+        hasEffects = true;
+      } else {
         const id = `umTag_${key}`;
         const wrap = document.createElement('label');
         wrap.className = 'upload-tag-chip';
@@ -681,9 +822,13 @@ function setupUploadModal() {
         wrap.append(' ' + label);
         cb.addEventListener('change', updatePreview);
         genericTagsWrap.appendChild(wrap);
+        hasGeneric = true;
       }
-      genericGroup.style.display = '';
     }
+
+    if (hasSlot) slotGroup.style.display = '';
+    if (hasEffects) effectsGroup.style.display = '';
+    if (hasGeneric) genericGroup.style.display = '';
   }
 
   categorySelect.addEventListener('change', () => {
@@ -694,6 +839,7 @@ function setupUploadModal() {
       statusEl.textContent = 'This category is temporarily unavailable for new submissions.';
       statusEl.className = 'upload-status upload-status-error';
       heroGroup.style.display = 'none';
+      previewVideoGroup.style.display = 'none';
       renderTags('');
       checkDuplicate();
       updatePreview();
@@ -701,20 +847,78 @@ function setupUploadModal() {
     }
 
     heroGroup.style.display = HERO_AWARE_CATEGORIES.includes(cat) ? '' : 'none';
+    if (HERO_AWARE_CATEGORIES.includes(cat)) {
+      if (heroHidden.value) ensureHeroInName(heroHidden.value);
+    } else {
+      heroHidden.value = '';
+      heroSearch.value = '';
+    }
+    updateNameMaxLength();
+    checkHeroInName();
+
+    const showsPreviewVideo = getPreviewVideoCategories().includes(cat);
+    previewVideoGroup.style.display = showsPreviewVideo ? '' : 'none';
+    if (!showsPreviewVideo) {
+      previewVideoInput.value = '';
+      checkPreviewVideo();
+    }
+
     renderTags(cat);
     checkDuplicate();
     updatePreview();
   });
 
-  nameInput.addEventListener('input', () => {
-    checkDuplicate();
+  previewVideoInput.addEventListener('input', () => {
+    checkPreviewVideo();
     updatePreview();
   });
+
+  nameInput.addEventListener('input', () => {
+    if (nameCountEl) nameCountEl.textContent = String(nameInput.value.length);
+    checkDuplicate();
+    checkHeroInName();
+    updatePreview();
+  });
+
+  nameInput.addEventListener('blur', () => {
+    const titled = titleCaseWords(nameInput.value);
+    if (titled !== nameInput.value) {
+      nameInput.value = titled;
+      checkDuplicate();
+      checkHeroInName();
+      updatePreview();
+    }
+  });
+
+
+  function setAuthorExistingVisible(visible) {
+    if (window.MD3Select?.setVisible) {
+      window.MD3Select.setVisible(authorExistingSelect, visible);
+    } else {
+      selectVisualEl(authorExistingSelect).style.display = visible ? '' : 'none';
+    }
+    if (!visible && authorExistingSelect.value) {
+      authorExistingSelect.value = '';
+      authorExistingSelect.dispatchEvent(new Event('change'));
+    }
+  }
+
+  function setExtraExistingVisible(visible) {
+    if (window.MD3Select?.setVisible) {
+      window.MD3Select.setVisible(extraExistingSelect, visible);
+    } else {
+      selectVisualEl(extraExistingSelect).style.display = visible ? '' : 'none';
+    }
+    if (!visible && extraExistingSelect.value) {
+      extraExistingSelect.value = '';
+      extraExistingSelect.dispatchEvent(new Event('change'));
+    }
+  }
 
   form.querySelectorAll('input[name="authorMode"]').forEach(radio => {
     radio.addEventListener('change', () => {
       const mode = form.querySelector('input[name="authorMode"]:checked').value;
-      authorExistingSelect.style.display = mode === 'existing' ? '' : 'none';
+      setAuthorExistingVisible(mode === 'existing');
       authorNewFields.style.display = mode === 'new' ? '' : 'none';
       checkAuthorDuplicate();
       updatePreview();
@@ -730,7 +934,20 @@ function setupUploadModal() {
     radio.addEventListener('change', () => {
       const mode = form.querySelector('input[name="extraMode"]:checked').value;
       extraFields.style.display = mode === 'none' ? 'none' : '';
-      if (mode !== 'none') refreshExtraExistingSelect(mode);
+      if (mode === 'none') {
+        setExtraExistingVisible(false);
+        extraNewFields.style.display = 'none';
+        const extraName = document.getElementById('umExtraName');
+        const extraUrl = document.getElementById('umExtraUrl');
+        if (extraName) extraName.value = '';
+        if (extraUrl) extraUrl.value = '';
+      } else {
+        const originExisting = form.querySelector('input[name="extraOriginMode"][value="existing"]');
+        if (originExisting) originExisting.checked = true;
+        setExtraExistingVisible(true);
+        extraNewFields.style.display = 'none';
+        refreshExtraExistingSelect(mode);
+      }
       checkExtraDuplicate();
       updatePreview();
     });
@@ -739,7 +956,7 @@ function setupUploadModal() {
   form.querySelectorAll('input[name="extraOriginMode"]').forEach(radio => {
     radio.addEventListener('change', () => {
       const isNew = form.querySelector('input[name="extraOriginMode"]:checked').value === 'new';
-      extraExistingSelect.style.display = isNew ? 'none' : '';
+      setExtraExistingVisible(!isNew);
       extraNewFields.style.display = isNew ? '' : 'none';
       checkExtraDuplicate();
       updatePreview();
@@ -1092,6 +1309,10 @@ function setupUploadModal() {
         fd.set('extraUrl', document.getElementById('umExtraUrl').value.trim());
       }
     }
+    if (getPreviewVideoCategories().includes(category)) {
+      const previewVideo = previewVideoInput.value.trim();
+      if (previewVideo) fd.set('previewVideo', previewVideo);
+    }
     fd.set('modZip', new Blob([extractedArchive.modZip]), `${name}.zip`);
     if (extractedArchive.preview) {
       fd.set('preview', new Blob([extractedArchive.preview]), `${name}.${extractedArchive.previewExt}`);
@@ -1113,6 +1334,13 @@ function setupUploadModal() {
     authorDuplicateHint.style.display = 'none';
     isDuplicateExtra = false;
     extraDuplicateHint.style.display = 'none';
+    isHeroNameInvalid = false;
+    heroNameHint.style.display = 'none';
+    isPreviewVideoInvalid = false;
+    previewVideoHint.style.display = 'none';
+    previewVideoGroup.style.display = 'none';
+    previewVideoInput.value = '';
+    if (nameCountEl) nameCountEl.textContent = '0';
     tagsGroup.style.display = 'none';
     heroGroup.style.display = 'none';
     slotGroup.style.display = 'none';
@@ -1120,6 +1348,12 @@ function setupUploadModal() {
     genericGroup.style.display = 'none';
     heroSearch.value = '';
     heroHidden.value = '';
+    updateNameMaxLength();
+    setAuthorExistingVisible(true);
+    authorNewFields.style.display = 'none';
+    extraFields.style.display = 'none';
+    setExtraExistingVisible(true);
+    extraNewFields.style.display = 'none';
     archiveField?.classList.remove('has-file');
     if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
     wireSegmented(document.getElementById('umAuthorSegmented'));
@@ -1133,8 +1367,15 @@ function setupUploadModal() {
     statusEl.textContent = '';
     statusEl.className = 'upload-status';
 
-    const name = nameInput.value.trim();
+    const titled = titleCaseWords(nameInput.value);
+    if (titled !== nameInput.value) nameInput.value = titled;
+
     const category = categorySelect.value;
+    if (HERO_AWARE_CATEGORIES.includes(category) && heroHidden.value) {
+      ensureHeroInName(heroHidden.value);
+    }
+
+    const name = nameInput.value.trim();
 
     if (!name || !category || !archiveInput.files[0]) {
       appendActivityLog('Fill in name, category and archive first.', 'error');
@@ -1158,8 +1399,9 @@ function setupUploadModal() {
         return;
       }
     }
-    if (name.length > MAX_NAME_LENGTH || !/^[a-zA-Z0-9 \-_'.,!]+$/.test(name)) {
-      appendActivityLog('Invalid mod name.', 'error');
+    const effectiveMaxNameLength = getMaxNameLength(heroHidden.value);
+    if (name.length > effectiveMaxNameLength || !/^[a-zA-Z0-9 \-_'.,!]+$/.test(name)) {
+      appendActivityLog(`Invalid mod name (max ${effectiveMaxNameLength} characters, English letters/numbers only).`, 'error');
       setLogIconState('error');
       return;
     }
@@ -1176,6 +1418,22 @@ function setupUploadModal() {
       appendActivityLog('Invalid hero.', 'error');
       setLogIconState('error');
       return;
+    }
+
+    checkHeroInName();
+    if (isHeroNameInvalid) {
+      appendActivityLog(heroNameHintText.textContent || 'Mod name must include the hero name.', 'error');
+      setLogIconState('error');
+      return;
+    }
+
+    if (getPreviewVideoCategories().includes(category)) {
+      checkPreviewVideo();
+      if (isPreviewVideoInvalid) {
+        appendActivityLog('Preview video must be a youtube.com / youtu.be link.', 'error');
+        setLogIconState('error');
+        return;
+      }
     }
 
     const authorMode = form.querySelector('input[name="authorMode"]:checked')?.value;
@@ -1220,6 +1478,7 @@ function setupUploadModal() {
       setLogIconState('error');
       return;
     }
+
 
     const fd = buildFormData(name, category);
     setSubmitBusy(true);

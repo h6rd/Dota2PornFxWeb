@@ -1,8 +1,13 @@
 const MARGIN = 8;
 const MIN_MENU_HEIGHT = 180;
+const enhancedRegistry = new WeakMap();
 
 function enhanceSelect(select) {
-  if (select.dataset.md3Enhanced) return;
+  if (select.dataset.md3Enhanced) {
+    const existing = enhancedRegistry.get(select);
+    if (existing) existing.refresh();
+    return;
+  }
   select.dataset.md3Enhanced = 'true';
 
   const wrapper = document.createElement('div');
@@ -41,33 +46,40 @@ function enhanceSelect(select) {
   list.className = 'md3-select-menu-list';
   menu.appendChild(list);
 
-  const items = [];
-  Array.from(select.options).forEach((option) => {
-    const li = document.createElement('li');
-    li.className = 'md3-select-menu-item';
-    li.setAttribute('role', 'option');
-    li.dataset.value = option.value;
+  let items = [];
 
-    const label = document.createElement('span');
-    label.className = 'md3-select-menu-label';
-    label.textContent = option.textContent;
+  function rebuildItems() {
+    list.innerHTML = '';
+    items = [];
+    Array.from(select.options).forEach((option) => {
+      const li = document.createElement('li');
+      li.className = 'md3-select-menu-item';
+      li.setAttribute('role', 'option');
+      li.dataset.value = option.value;
 
-    const check = document.createElement('span');
-    check.className = 'md3-select-menu-check material-symbols-rounded';
-    check.textContent = 'check';
-    check.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span');
+      label.className = 'md3-select-menu-label';
+      label.textContent = option.textContent;
 
-    li.appendChild(label);
-    li.appendChild(check);
-    list.appendChild(li);
-    items.push({ el: li, option });
+      const check = document.createElement('span');
+      check.className = 'md3-select-menu-check material-symbols-rounded';
+      check.textContent = 'check';
+      check.setAttribute('aria-hidden', 'true');
 
-    li.addEventListener('click', () => {
-      selectValue(option.value);
-      close();
-      trigger.focus();
+      li.appendChild(label);
+      li.appendChild(check);
+      list.appendChild(li);
+      items.push({ el: li, option });
+
+      li.addEventListener('click', () => {
+        selectValue(option.value);
+        close();
+        trigger.focus();
+      });
     });
-  });
+  }
+
+  rebuildItems();
 
   list.addEventListener('wheel', (e) => {
     e.preventDefault();
@@ -121,12 +133,13 @@ function enhanceSelect(select) {
 
     const openAbove = spaceBelow < MIN_MENU_HEIGHT && spaceAbove > spaceBelow;
 
-    const availableSpace = Math.max(openAbove ? spaceAbove : spaceBelow, 100);
+    const availableSpace = Math.max(openAbove ? spaceAbove : spaceBelow, 0);
     const maxHeight = Math.min(availableSpace, 360);
 
     menu.style.width = rect.width + 'px';
     menu.style.maxHeight = maxHeight + 'px';
-    menu.style.left = rect.left + 'px';
+    const maxLeft = Math.max(MARGIN, window.innerWidth - rect.width - MARGIN);
+    menu.style.left = Math.min(Math.max(rect.left, MARGIN), maxLeft) + 'px';
 
     menu.classList.toggle('above', openAbove);
 
@@ -246,6 +259,19 @@ function enhanceSelect(select) {
 
   syncTriggerText();
   syncSelectedItem();
+
+  enhancedRegistry.set(select, {
+    refresh() {
+      rebuildItems();
+      syncTriggerText();
+      syncSelectedItem();
+      if (isOpen) position();
+    },
+    setVisible(visible) {
+      wrapper.style.display = visible ? '' : 'none';
+      if (!visible) close();
+    }
+  });
 }
 
 function init() {
@@ -258,4 +284,16 @@ if (document.readyState === 'loading') {
   init();
 }
 
-window.MD3Select = { enhance: enhanceSelect, enhanceAll: init };
+window.MD3Select = {
+  enhance: enhanceSelect,
+  enhanceAll: init,
+  setVisible(select, visible) {
+    const entry = select && enhancedRegistry.get(select);
+    if (entry) {
+      entry.setVisible(visible);
+    } else if (select) {
+      select.style.display = visible ? '' : 'none';
+    }
+  },
+  refresh: enhanceSelect
+};
