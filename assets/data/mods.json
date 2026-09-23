@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Razor Stormlord Reborn",
+      "category": "heroes"
+    },
+    {
       "name": "Reflow Radiance",
       "category": "item-icons"
     },
@@ -11026,6 +11030,25 @@
         "meta": {
           "date": 1790170612,
           "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+        }
+      },
+      {
+        "name": "Razor Stormlord Reborn",
+        "preview": "Razor Stormlord Reborn.webp",
+        "file": "Razor Stormlord Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790171337,
+          "commit-sha": ""
         }
       }
     ],
