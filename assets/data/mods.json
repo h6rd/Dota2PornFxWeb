@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Stariy Bog Mega Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Spectre Immortal Arcana",
       "category": "heroes"
     },
@@ -15743,6 +15747,21 @@
         "meta": {
           "date": 1785081533,
           "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
+        }
+      },
+      {
+        "name": "Stariy Bog Mega Kill",
+        "preview": "Stariy Bog Mega Kill.webp",
+        "file": "Stariy Bog Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790180966,
+          "commit-sha": ""
         }
       }
     ],
