@@ -505,6 +505,7 @@
         "cart": "Cart",
         "weapon": "Weapon",
         "tail": "Tail",
+        "legs": "Legs",
         "bear": "Bear",
         "off-hand": "Off-Hand",
         "mount": "Mount",
@@ -764,7 +765,8 @@
     "твавт": "https://steamcommunity.com/id/myasu0/",
     "XIIIpsiblade": "https://t.me/XIIIpsiblade",
     "illidan": "https://t.me/illidan888",
-    "shears001": "https://discord.com/users/1204344805748903948"
+    "shears001": "https://discord.com/users/1204344805748903948",
+    "Harlord": "https://discord.com/users/436420477511139329"
   },
   "MOD_SENDER": {
     "dabaqz": "",
