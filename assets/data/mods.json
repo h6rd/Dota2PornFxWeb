@@ -10894,8 +10894,8 @@
           }
         ],
         "meta": {
-          "date": 1790044852,
-          "commit-sha": "6ac85302a5d7d92c55d3364224ab4202fbe0bdbd"
+          "date": 1790170612,
+          "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
         }
       },
       {
@@ -11018,7 +11018,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790170612,
+          "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+        }
       }
     ],
     "shaders": [
@@ -13276,7 +13280,11 @@
                   "type": "author",
                   "url": "Harlord"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1790170612,
+                "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+              }
             }
           ]
         },
@@ -13794,7 +13802,11 @@
                   "type": "author",
                   "url": "Harlord"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1790170612,
+                "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+              }
             }
           ]
         },
@@ -14190,7 +14202,11 @@
                   "type": "author",
                   "url": "Harlord"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1790170612,
+                "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+              }
             },
             {
               "name": "Primal Beast Temple Guardian",
@@ -14206,7 +14222,11 @@
                   "type": "author",
                   "url": "Harlord"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1790170612,
+                "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
+              }
             }
           ]
         },
