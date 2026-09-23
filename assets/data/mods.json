@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Princess Naga Siren",
+      "category": "heroes"
+    },
+    {
       "name": "Spectre Immortal Arcana",
       "category": "heroes"
     },
@@ -11153,6 +11157,21 @@
         "meta": {
           "date": 1790202267,
           "commit-sha": "7dc77901fe3d4b518918f1ef0a21653535fe2090"
+        }
+      },
+      {
+        "name": "Princess Naga Siren",
+        "preview": "Princess Naga Siren.webp",
+        "file": "Princess Naga Siren.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790202695,
+          "commit-sha": ""
         }
       }
     ],
