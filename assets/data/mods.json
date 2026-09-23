@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spectre Immortal Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Enchantress Sematary",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Kid Forge",
+      "category": "hero-items"
+    },
+    {
+      "name": "Invoker Esl Relics Forge",
+      "category": "hero-items"
+    },
+    {
       "name": "Clockwerk Immortal",
       "category": "heroes"
     },
@@ -11,10 +27,6 @@
     {
       "name": "Stariy Bog Mega Kill",
       "category": "mega-kill"
-    },
-    {
-      "name": "Spectre Immortal Arcana",
-      "category": "heroes"
     },
     {
       "name": "Razor Stormlord Reborn",
@@ -11123,6 +11135,21 @@
           "date": 1790193060,
           "commit-sha": "1d4e9bcdf0224150768d214bc97f059810c90781"
         }
+      },
+      {
+        "name": "Enchantress Sematary",
+        "preview": "Enchantress Sematary.webp",
+        "file": "Enchantress Sematary.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -13385,6 +13412,38 @@
                 "date": 1790170612,
                 "commit-sha": "cd3a08556674f1f4d2e47c28f8bfa024db0a382f"
               }
+            },
+            {
+              "name": "Invoker Kid Forge",
+              "preview": "Invoker Kid Forge.webp",
+              "file": "Invoker Kid Forge.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "forge": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ]
+            },
+            {
+              "name": "Invoker Esl Relics Forge",
+              "preview": "Invoker Esl Relics Forge.webp",
+              "file": "Invoker Esl Relics Forge.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "forge": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ]
             }
           ]
         },
