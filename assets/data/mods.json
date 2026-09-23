@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Drow Ranger Master Of Madness",
+      "category": "heroes"
+    },
+    {
       "name": "Stariy Bog Mega Kill",
       "category": "mega-kill"
     },
@@ -11076,6 +11080,25 @@
         "meta": {
           "date": 1790171805,
           "commit-sha": "1b8679e0b90454ac901b9604dbcb332ee7d9bfc5"
+        }
+      },
+      {
+        "name": "Drow Ranger Master Of Madness",
+        "preview": "Drow Ranger Master Of Madness.webp",
+        "file": "Drow Ranger Master Of Madness.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790192631,
+          "commit-sha": ""
         }
       }
     ],
