@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spectre Immortal Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Razor Stormlord Reborn",
       "category": "heroes"
     },
@@ -11049,6 +11053,25 @@
         "meta": {
           "date": 1790171337,
           "commit-sha": "c106077f6993ef97804f07edf36bd73cb1104f24"
+        }
+      },
+      {
+        "name": "Spectre Immortal Arcana",
+        "preview": "Spectre Immortal Arcana.webp",
+        "file": "Spectre Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790171805,
+          "commit-sha": ""
         }
       }
     ],
