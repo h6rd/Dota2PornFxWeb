@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Windranger Reflections Of Gale",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Wings Foulfell",
+      "category": "hero-items"
+    },
+    {
+      "name": "Windranger Compass Rising Gale",
+      "category": "heroes"
+    },
+    {
       "name": "Vengeful Spirit Queen Imperia",
       "category": "heroes"
     },
@@ -11615,6 +11627,38 @@
           "date": 1790280709,
           "commit-sha": "acc79570629b4bbf41657a700b72402191300406"
         }
+      },
+      {
+        "name": "Windranger Compass Rising Gale",
+        "preview": "Windranger Compass Rising Gale.webp",
+        "file": "Windranger Compass Rising Gale.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790281615,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Windranger Reflections Of Gale",
+        "preview": "Windranger Reflections Of Gale.webp",
+        "file": "Windranger Reflections Of Gale.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790281615,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -15444,6 +15488,24 @@
               "meta": {
                 "date": 1787912370,
                 "commit-sha": "d5738d421c0686cf711d3220e21aaedcb45f521d"
+              }
+            },
+            {
+              "name": "Terrorblade Wings Foulfell",
+              "preview": "Terrorblade Wings Foulfell.webp",
+              "file": "Terrorblade Wings Foulfell.zip",
+              "tags": {
+                "back": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790281615,
+                "commit-sha": ""
               }
             }
           ]
