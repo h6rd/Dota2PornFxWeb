@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Beastmaster Prismatic Bone",
+      "category": "heroes"
+    },
+    {
       "name": "Dili Tili Bom Pudge",
       "category": "hero-sounds"
     },
@@ -11180,6 +11184,24 @@
         "meta": {
           "date": 1790202695,
           "commit-sha": "6ba258a51b3280314ff955f53b9363e6de9c9e61"
+        }
+      },
+      {
+        "name": "Beastmaster Prismatic Bone",
+        "preview": "Beastmaster Prismatic Bone.webp",
+        "file": "Beastmaster Prismatic Bone.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790208203,
+          "commit-sha": ""
         }
       }
     ],
