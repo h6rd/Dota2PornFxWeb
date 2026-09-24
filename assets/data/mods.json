@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Planetfall Burning",
+      "category": "heroes"
+    },
+    {
       "name": "Lina Soul Slayer Immortal",
       "category": "heroes"
     },
@@ -11350,6 +11354,25 @@
         "meta": {
           "date": 1790219451,
           "commit-sha": "69b6aeb96acbeda7fdbc1c1be94160e5ffcec8d9"
+        }
+      },
+      {
+        "name": "Earthshaker Planetfall Burning",
+        "preview": "Earthshaker Planetfall Burning.webp",
+        "file": "Earthshaker Planetfall Burning.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790224749,
+          "commit-sha": ""
         }
       }
     ],
