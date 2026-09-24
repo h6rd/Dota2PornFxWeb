@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pudge Dendi Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Battle Icons",
+      "category": "ranks"
+    },
+    {
+      "name": "Silencer Oscilla Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Immortal Crimson Dark Willow",
       "category": "heroes"
     },
@@ -11424,6 +11436,38 @@
           "date": 1790261721,
           "commit-sha": "f0573e2b59b9399ff438cd382782e69d0daed6be"
         }
+      },
+      {
+        "name": "Silencer Oscilla Immortal",
+        "preview": "Silencer Oscilla Immortal.webp",
+        "file": "Silencer Oscilla Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790263249,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Dendi Arcana",
+        "preview": "Pudge Dendi Arcana.webp",
+        "file": "Pudge Dendi Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1790263249,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -18375,6 +18419,21 @@
         "meta": {
           "date": 1789988579,
           "commit-sha": "36a36d12dfca93ba12e06974613afb324c76b4be"
+        }
+      },
+      {
+        "name": "Battle Icons",
+        "preview": "Battle Icons.webp",
+        "file": "Battle Icons.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790263249,
+          "commit-sha": ""
         }
       }
     ],
