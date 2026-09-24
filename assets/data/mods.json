@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Mars Crimson Set",
+      "category": "heroes"
+    },
+    {
       "name": "Lifestealer Red Immortal",
       "category": "heroes"
     },
@@ -11277,6 +11281,25 @@
         "meta": {
           "date": 1790213637,
           "commit-sha": "a823a632adbcf08d99ec948fc272df13d65c8175"
+        }
+      },
+      {
+        "name": "Mars Crimson Set",
+        "preview": "Mars Crimson Set.webp",
+        "file": "Mars Crimson Set.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790214209,
+          "commit-sha": ""
         }
       }
     ],
