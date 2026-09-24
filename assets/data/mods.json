@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Immortal Crimson Dark Willow",
+      "category": "heroes"
+    },
+    {
       "name": "Juggernaut Jagged Honor",
       "category": "heroes"
     },
@@ -11400,6 +11404,25 @@
         "meta": {
           "date": 1790260681,
           "commit-sha": "dab593ce21864e12ea9c95848981faa23a5450d9"
+        }
+      },
+      {
+        "name": "Immortal Crimson Dark Willow",
+        "preview": "Immortal Crimson Dark Willow.webp",
+        "file": "Immortal Crimson Dark Willow.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790261721,
+          "commit-sha": ""
         }
       }
     ],
