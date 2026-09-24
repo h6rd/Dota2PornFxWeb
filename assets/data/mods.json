@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer Concord Revers",
+      "category": "hero-items"
+    },
+    {
       "name": "Earthshaker Planetfall Reborn",
       "category": "heroes"
     },
@@ -14516,6 +14520,26 @@
               "meta": {
                 "date": 1787730188,
                 "commit-sha": "569521a9ee04b15e18977d74a7b8049818da76be"
+              }
+            },
+            {
+              "name": "Phantom Lancer Concord Revers",
+              "preview": "Phantom Lancer Concord Revers.webp",
+              "file": "Phantom Lancer Concord Revers.zip",
+              "tags": {
+                "head": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790216964,
+                "commit-sha": ""
               }
             }
           ]
