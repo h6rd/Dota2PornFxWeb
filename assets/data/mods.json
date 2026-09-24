@@ -11655,6 +11655,12 @@
           "effects": true,
           "icons": true
         },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
         "meta": {
           "date": 1790281615,
           "commit-sha": "b2d6862fedc9fc98448a16f637e6a015598ec192"
