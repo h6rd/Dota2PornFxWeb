@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lifestealer Red Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Arcana Midnight Blue",
       "category": "heroes"
     },
@@ -11260,6 +11264,19 @@
         "meta": {
           "date": 1790213331,
           "commit-sha": "c60dfd8f91adaab02a27cdb0d880609bdf4a72b0"
+        }
+      },
+      {
+        "name": "Lifestealer Red Immortal",
+        "preview": "Lifestealer Red Immortal.webp",
+        "file": "Lifestealer Red Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790213637,
+          "commit-sha": ""
         }
       }
     ],
