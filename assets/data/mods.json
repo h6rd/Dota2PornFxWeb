@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Batrider Verna Frostbloom",
+      "category": "hero-items"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -12875,7 +12879,26 @@
         {
           "id": "batrider",
           "name": "Batrider",
-          "mods": []
+          "mods": [
+            {
+              "name": "Batrider Verna Frostbloom",
+              "preview": "Batrider Verna Frostbloom.webp",
+              "file": "Batrider Verna Frostbloom.zip",
+              "tags": {
+                "mount": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790259721,
+                "commit-sha": ""
+              }
+            }
+          ]
         },
         {
           "id": "beastmaster",
