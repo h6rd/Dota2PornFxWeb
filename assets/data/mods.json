@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Arcana Midnight Blue",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Plushy Shag",
+      "category": "heroes"
+    },
+    {
+      "name": "Sematary Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Love Ping II",
+      "category": "pings"
+    },
+    {
+      "name": "Love Ping",
+      "category": "pings"
+    },
+    {
       "name": "Beastmaster Prismatic Bone",
       "category": "heroes"
     },
@@ -11203,6 +11223,36 @@
           "date": 1790208203,
           "commit-sha": "e74b7f8ecd14a4cd5ad4d4d33d9d8815c6a25da8"
         }
+      },
+      {
+        "name": "Terrorblade Arcana Midnight Blue",
+        "preview": "Terrorblade Arcana Midnight Blue.webp",
+        "file": "Terrorblade Arcana Midnight Blue.zip",
+        "tags": {
+          "icons": true,
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade Arcana Plushy Shag",
+        "preview": "Terrorblade Arcana Plushy Shag.webp",
+        "file": "Terrorblade Arcana Plushy Shag.zip",
+        "tags": {
+          "icons": true,
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -16127,6 +16177,17 @@
           "date": 1790084006,
           "commit-sha": "ac99a2f7be780bcde534314aa8a17e3bdb0c6cc4"
         }
+      },
+      {
+        "name": "Sematary Search Bar",
+        "preview": "Sematary Search Bar.webp",
+        "file": "Sematary Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "huds": [
@@ -19348,6 +19409,28 @@
           "date": 1765193630,
           "commit-sha": "6fabfc6e17847202c27c0e7294d529b5b7c31889"
         }
+      },
+      {
+        "name": "Love Ping",
+        "preview": "Love Ping.webp",
+        "file": "Love Ping.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Love Ping II",
+        "preview": "Love Ping II.webp",
+        "file": "Love Ping II.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "herofx": [
