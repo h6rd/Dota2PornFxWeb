@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Earthshaker Planetfall Burning",
       "category": "heroes"
     },
@@ -207,10 +211,6 @@
     {
       "name": "Anti-Mage Manta",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Pudge Gol0vach",
