@@ -7520,6 +7520,72 @@ html.winter-outro .winter-snow-canvas {
   }
 }
 
+/* santa hat by ibcsz */
+.santa-container {
+  position: relative;
+  display: inline-block;
+}
+
+.santa-hat-svg {
+  display: none;
+  position: absolute;
+  top: -17px;
+  left: -13px;
+  width: 35px;
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+  transform: rotate(-40deg);
+  transform-origin: bottom right;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  opacity: 0;
+}
+
+html.winter-revealed .santa-hat-svg {
+  display: block;
+  opacity: 1;
+}
+
+html.winter-outro .santa-hat-svg {
+  display: block;
+  animation: santa-hat-fade-out 3s ease-in forwards;
+}
+
+html.winter-revealing .santa-hat-svg {
+  display: block;
+  animation: santa-hat-fade-in 1.8s ease-out both;
+}
+
+@keyframes santa-hat-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes santa-hat-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.winter-revealing .santa-hat-svg {
+    animation-duration: 0.8s;
+  }
+
+  html.winter-outro .santa-hat-svg {
+    animation-duration: 1.5s;
+  }
+}
+
 /* Upload mod modal*/
 .upload-mod-modal {
   max-width: 1060px;

@@ -41,6 +41,7 @@
 |-------------|--------------|
 | [Egezenn](https://github.com/Egezenn) | Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) |
 | [Fleece](https://github.com/TheFleece) | Creation of the [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) |
+| [ibcsz](https://github.com/ibcsz12) | Added Santa hat to the logo for winter theme |
 
 ---
 

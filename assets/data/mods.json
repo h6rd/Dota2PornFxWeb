@@ -5,6 +5,10 @@
       "category": "heroes"
     },
     {
+      "name": "Stariy Bog Mega Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Battle Icons",
       "category": "ranks"
     },
@@ -107,10 +111,6 @@
     {
       "name": "Drow Ranger Master Of Madness",
       "category": "heroes"
-    },
-    {
-      "name": "Stariy Bog Mega Kill",
-      "category": "mega-kill"
     },
     {
       "name": "Razor Stormlord Reborn",
