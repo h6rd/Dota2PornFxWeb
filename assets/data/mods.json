@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Juggernaut Jagged Honor",
+      "category": "heroes"
+    },
+    {
       "name": "Batrider Verna Frostbloom",
       "category": "hero-items"
     },
@@ -11377,6 +11381,25 @@
         "meta": {
           "date": 1790224749,
           "commit-sha": "b233d4f0ddf1a21d12897af028e92c10336b49f2"
+        }
+      },
+      {
+        "name": "Juggernaut Jagged Honor",
+        "preview": "Juggernaut Jagged Honor.webp",
+        "file": "Juggernaut Jagged Honor.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790260680,
+          "commit-sha": ""
         }
       }
     ],
