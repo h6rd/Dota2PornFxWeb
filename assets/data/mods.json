@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Vengeful Spirit Queen Imperia",
+      "category": "heroes"
+    },
+    {
       "name": "Clockwerk Cogwerk",
       "category": "heroes"
     },
@@ -11591,6 +11595,25 @@
         "meta": {
           "date": 1790267695,
           "commit-sha": "8ac7531f50b06228dca2da0e296490404e3c8828"
+        }
+      },
+      {
+        "name": "Vengeful Spirit Queen Imperia",
+        "preview": "Vengeful Spirit Queen Imperia.webp",
+        "file": "Vengeful Spirit Queen Imperia.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1790280709,
+          "commit-sha": ""
         }
       }
     ],
