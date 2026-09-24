@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lina Soul Slayer Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Lancer Concord Revers",
       "category": "hero-items"
     },
@@ -11327,6 +11331,25 @@
         "meta": {
           "date": 1790216247,
           "commit-sha": "60ff309a403b69adc6d0035a2db73623a03fe080"
+        }
+      },
+      {
+        "name": "Lina Soul Slayer Immortal",
+        "preview": "Lina Soul Slayer Immortal.webp",
+        "file": "Lina Soul Slayer Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790219451,
+          "commit-sha": ""
         }
       }
     ],
