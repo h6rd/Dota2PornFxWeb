@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Clockwerk Cogwerk",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana White",
+      "category": "heroes"
+    },
+    {
+      "name": "Better Lycan",
+      "category": "heroes"
+    },
+    {
+      "name": "Rubick Caloedick Mage",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Sunrise",
+      "category": "heroes"
+    },
+    {
       "name": "Pudge Dendi Arcana",
       "category": "heroes"
     },
@@ -11467,6 +11487,110 @@
         "meta": {
           "date": 1790267079,
           "commit-sha": "df0d5e0e9924aa5aebe0f1387c35ba60377a1dce"
+        }
+      },
+      {
+        "name": "Terrorblade Arcana Sunrise",
+        "preview": "Terrorblade Arcana Sunrise.webp",
+        "file": "Terrorblade Arcana Sunrise.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          },
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790267694,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Rubick Caloedick Mage",
+        "preview": "Rubick Caloedick Mage.webp",
+        "file": "Rubick Caloedick Mage.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790267694,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Better Lycan",
+        "preview": "Better Lycan.webp",
+        "file": "Better Lycan.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          },
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790267694,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Arcana White",
+        "preview": "Terrorblade Arcana White.webp",
+        "file": "Terrorblade Arcana White.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          },
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790267694,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Clockwerk Cogwerk",
+        "preview": "Clockwerk Cogwerk.webp",
+        "file": "Clockwerk Cogwerk.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790267694,
+          "commit-sha": ""
         }
       }
     ],
