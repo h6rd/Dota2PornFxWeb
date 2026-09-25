@@ -29,7 +29,7 @@
       "category": "heroes"
     },
     {
-      "name": "Pudge Grand Abscession",
+      "name": "Pudge Abscession Immortal",
       "category": "heroes"
     },
     {
@@ -11561,6 +11561,12 @@
           "effects": true,
           "icons": true
         },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
         "meta": {
           "date": 1790263250,
           "commit-sha": "0b245237cf441eb51a1c322ed36e02b33a4aabd1"
@@ -11857,9 +11863,9 @@
         }
       },
       {
-        "name": "Pudge Grand Abscession",
-        "preview": "Pudge Grand Abscession.webp",
-        "file": "Pudge Grand Abscession.zip",
+        "name": "Pudge Abscession Immortal",
+        "preview": "Pudge Abscession Immortal.webp",
+        "file": "Pudge Abscession Immortal.zip",
         "tags": {
           "effects": true,
           "icons": true
