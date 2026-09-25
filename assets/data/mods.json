@@ -11787,7 +11787,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790299521,
+          "commit-sha": "10b556de2e16e2e33c07368341a1066fd6386533"
+        }
       }
     ],
     "shaders": [
@@ -18398,7 +18402,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790299521,
+          "commit-sha": "10b556de2e16e2e33c07368341a1066fd6386533"
+        }
       },
       {
         "name": "Dark Tree",
@@ -18413,7 +18421,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790299521,
+          "commit-sha": "10b556de2e16e2e33c07368341a1066fd6386533"
+        }
       }
     ],
     "tools": [
