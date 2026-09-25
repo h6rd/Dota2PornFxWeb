@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper of the Light Sematary",
+      "category": "heroes"
+    },
+    {
+      "name": "Dark Tree",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Sematary",
+      "category": "backgrounds"
+    },
+    {
       "name": "Invoker Dark Artistry V4",
       "category": "heroes"
     },
@@ -11761,6 +11773,21 @@
           "date": 1790294865,
           "commit-sha": "a93fbcf7110b95870f947df7c7584a5486af7bf1"
         }
+      },
+      {
+        "name": "Keeper of the Light Sematary",
+        "preview": "Keeper of the Light Sematary.webp",
+        "file": "Keeper of the Light Sematary.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -18357,6 +18384,36 @@
           "date": 1786250017,
           "commit-sha": "bf9422862ac0cc9ad90d28fed176155600881835"
         }
+      },
+      {
+        "name": "Sematary",
+        "preview": "Sematary.webp",
+        "file": "Sematary.zip",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Dark Tree",
+        "preview": "Dark Tree.webp",
+        "file": "Dark Tree.zip",
+        "tags": {
+          "image": true,
+          "video": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "tools": [
