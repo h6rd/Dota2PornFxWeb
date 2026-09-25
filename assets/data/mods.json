@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Omniknight Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Keeper of the Light Sematary",
       "category": "heroes"
     },
@@ -11791,6 +11795,25 @@
         "meta": {
           "date": 1790299521,
           "commit-sha": "10b556de2e16e2e33c07368341a1066fd6386533"
+        }
+      },
+      {
+        "name": "Omniknight Immortal",
+        "preview": "Omniknight Immortal.webp",
+        "file": "Omniknight Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790299896,
+          "commit-sha": ""
         }
       }
     ],
