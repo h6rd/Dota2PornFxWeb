@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Invoker Dark Artistry V4",
+      "category": "heroes"
+    },
+    {
+      "name": "Anti-Mage Forgotten Planes",
+      "category": "heroes"
+    },
+    {
+      "name": "Windranger Arcana Prismatic",
+      "category": "heroes"
+    },
+    {
+      "name": "Keeper Of The Light - Snowdrift",
+      "category": "hero-items"
+    },
+    {
+      "name": "Nyx Assassin - Mecha Nyx",
+      "category": "heroes"
+    },
+    {
       "name": "Kunkka Saltworn Mariner",
       "category": "hero-items"
     },
@@ -11669,6 +11689,72 @@
           "date": 1790281615,
           "commit-sha": "b2d6862fedc9fc98448a16f637e6a015598ec192"
         }
+      },
+      {
+        "name": "Nyx Assassin - Mecha Nyx",
+        "preview": "Nyx Assassin - Mecha Nyx.webp",
+        "file": "Nyx Assassin - Mecha Nyx.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790294864,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Windranger Arcana Prismatic",
+        "preview": "Windranger Arcana Prismatic.webp",
+        "file": "Windranger Arcana Prismatic.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790294864,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Forgotten Planes",
+        "preview": "Anti-Mage Forgotten Planes.webp",
+        "file": "Anti-Mage Forgotten Planes.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790294864,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Dark Artistry V4",
+        "preview": "Invoker Dark Artistry V4.webp",
+        "file": "Invoker Dark Artistry V4.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          },
+          {
+            "type": "author",
+            "url": "Arthas"
+          }
+        ],
+        "meta": {
+          "date": 1790294864,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -14137,6 +14223,24 @@
               "meta": {
                 "date": 1788815201,
                 "commit-sha": "21bf33ac49c2fcd46e82971d35e808edbb8eb51a"
+              }
+            },
+            {
+              "name": "Keeper Of The Light - Snowdrift",
+              "preview": "Keeper Of The Light - Snowdrift.webp",
+              "file": "Keeper Of The Light - Snowdrift.zip",
+              "tags": {
+                "weapon": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790294864,
+                "commit-sha": ""
               }
             }
           ]
