@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pedestal Grand Abscession",
+      "category": "pedestal"
+    },
+    {
+      "name": "Ogre Magi Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Blade Of Tears",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Provocation Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Hypergamy Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Immortal Troll Warlord",
+      "category": "heroes"
+    },
+    {
+      "name": "Dragon Knight Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Grand Abscession",
+      "category": "heroes"
+    },
+    {
+      "name": "Taghmel Ix-Xita",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Courier Gonjubasik",
+      "category": "couriers"
+    },
+    {
       "name": "Omniknight Immortal",
       "category": "heroes"
     },
@@ -11815,6 +11855,116 @@
           "date": 1790299896,
           "commit-sha": "a88292156be594b2cca1c849907832d665fb470d"
         }
+      },
+      {
+        "name": "Pudge Grand Abscession",
+        "preview": "Pudge Grand Abscession.webp",
+        "file": "Pudge Grand Abscession.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790375735,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Dragon Knight Fire",
+        "preview": "Dragon Knight Fire.webp",
+        "file": "Dragon Knight Fire.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Immortal Troll Warlord",
+        "preview": "Immortal Troll Warlord.webp",
+        "file": "Immortal Troll Warlord.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Juggernaut Provocation Arcana",
+        "preview": "Juggernaut Provocation Arcana.webp",
+        "file": "Juggernaut Provocation Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Blade Of Tears",
+        "preview": "Morphling Blade Of Tears.webp",
+        "file": "Morphling Blade Of Tears.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ogre Magi Arcana",
+        "preview": "Ogre Magi Arcana.webp",
+        "file": "Ogre Magi Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -16799,6 +16949,21 @@
           "date": 1790118406,
           "commit-sha": "6f5004fa45898547d9f2eb6edfc77a6a08741abf"
         }
+      },
+      {
+        "name": "Pedestal Grand Abscession",
+        "preview": "Pedestal Grand Abscession.webp",
+        "file": "Pedestal Grand Abscession.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
+        }
       }
     ],
     "parts": [
@@ -16860,6 +17025,21 @@
         "meta": {
           "date": 1790213331,
           "commit-sha": "c60dfd8f91adaab02a27cdb0d880609bdf4a72b0"
+        }
+      },
+      {
+        "name": "Hypergamy Search Bar",
+        "preview": "Hypergamy Search Bar.webp",
+        "file": "Hypergamy Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790375736,
+          "commit-sha": ""
         }
       }
     ],
@@ -18449,6 +18629,24 @@
           "date": 1790299521,
           "commit-sha": "10b556de2e16e2e33c07368341a1066fd6386533"
         }
+      },
+      {
+        "name": "Taghmel Ix-Xita",
+        "preview": "Taghmel Ix-Xita.webp",
+        "file": "Taghmel Ix-Xita.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790375735,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -19362,6 +19560,25 @@
         "meta": {
           "date": 1790086853,
           "commit-sha": "bf83479b59f6c2b3102f025b0e58fdf7679ee290"
+        }
+      },
+      {
+        "name": "Courier Gonjubasik",
+        "preview": "Courier Gonjubasik.webp",
+        "file": "Courier Gonjubasik.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          },
+          {
+            "type": "modded",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1790375735,
+          "commit-sha": ""
         }
       }
     ],
