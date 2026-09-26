@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pedestal Feast Abscession",
+      "category": "pedestal"
+    },
+    {
+      "name": "Techies Arcana Shanachnetsya",
+      "category": "hero-items"
+    },
+    {
+      "name": "Pudge Feast Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Axe Automaton Reborn",
+      "category": "heroes"
+    },
+    {
       "name": "Pedestal Grand Abscession",
       "category": "pedestal"
     },
@@ -11971,6 +11987,44 @@
           "date": 1790375737,
           "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
         }
+      },
+      {
+        "name": "Axe Automaton Reborn",
+        "preview": "Axe Automaton Reborn.webp",
+        "file": "Axe Automaton Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790392857,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Feast Immortal",
+        "preview": "Pudge Feast Immortal.webp",
+        "file": "Pudge Feast Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790392857,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -15780,6 +15834,26 @@
                 "date": 1787848064,
                 "commit-sha": "5a7422d9c2499c4babfe5ac2ffd500c550e558cb"
               }
+            },
+            {
+              "name": "Techies Arcana Shanachnetsya",
+              "preview": "Techies Arcana Shanachnetsya.webp",
+              "file": "Techies Arcana Shanachnetsya.zip",
+              "tags": {
+                "cart": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790392857,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -16969,6 +17043,21 @@
         "meta": {
           "date": 1790375737,
           "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
+        }
+      },
+      {
+        "name": "Pedestal Feast Abscession",
+        "preview": "Pedestal Feast Abscession.webp",
+        "file": "Pedestal Feast Abscession.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790392857,
+          "commit-sha": ""
         }
       }
     ],
