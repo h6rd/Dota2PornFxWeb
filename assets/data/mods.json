@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Desire Requiem",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Kunkka Sea Spirit",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Ame",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Assassin Athena",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Immortal Frost",
+      "category": "hero-items"
+    },
+    {
       "name": "Pedestal Feast Abscession",
       "category": "pedestal"
     },
@@ -12025,6 +12045,62 @@
           "date": 1790392857,
           "commit-sha": "178bff403a3ee7a92144a7f049f64257670086b5"
         }
+      },
+      {
+        "name": "Phantom Assassin Athena",
+        "preview": "Phantom Assassin Athena.webp",
+        "file": "Phantom Assassin Athena.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790424886,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Phantom Lancer Ame",
+        "preview": "Phantom Lancer Ame.webp",
+        "file": "Phantom Lancer Ame.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790424886,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Kunkka Sea Spirit",
+        "preview": "Kunkka Sea Spirit.webp",
+        "file": "Kunkka Sea Spirit.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790424886,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -15306,6 +15382,26 @@
               "meta": {
                 "date": 1790216964,
                 "commit-sha": "4a67b246d55cd424f95a094e2261c7ee778d45d6"
+              }
+            },
+            {
+              "name": "Phantom Lancer Immortal Frost",
+              "preview": "Phantom Lancer Immortal Frost.webp",
+              "file": "Phantom Lancer Immortal Frost.zip",
+              "tags": {
+                "weapon": true,
+                "effects": true,
+                "icons": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790424886,
+                "commit-sha": ""
               }
             }
           ]
@@ -21229,6 +21325,25 @@
         "meta": {
           "date": 1790207087,
           "commit-sha": "b50899bd1a1fa7e769bfccf160835009edf0ff25"
+        }
+      },
+      {
+        "name": "Shadow Fiend Desire Requiem",
+        "preview": "Shadow Fiend Desire Requiem.webp",
+        "file": "Shadow Fiend Desire Requiem.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/1bRzeu657Fw?si=MLpFl1arRdG31ZtL"
+          }
+        ],
+        "meta": {
+          "date": 1790424886,
+          "commit-sha": ""
         }
       }
     ],
