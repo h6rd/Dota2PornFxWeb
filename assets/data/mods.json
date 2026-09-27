@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phoenix Vermillion Crucible",
+      "category": "heroes"
+    },
+    {
+      "name": "Bliss",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Windows Xp Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Whatsapp Tranquill",
+      "category": "item-icons"
+    },
+    {
+      "name": "Stariy Bog Mega-Kill",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Juggernaut Ancient Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Keeper Of The Light BMW",
       "category": "hero-items"
     },
@@ -12194,6 +12218,28 @@
           "date": 1790528261,
           "commit-sha": "243ceefd7834ff795683f742f10796ed5115717f"
         }
+      },
+      {
+        "name": "Juggernaut Ancient Arcana",
+        "preview": "Juggernaut Ancient Arcana.webp",
+        "file": "Juggernaut Ancient Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Phoenix Vermillion Crucible",
+        "preview": "Phoenix Vermillion Crucible.webp",
+        "file": "Phoenix Vermillion Crucible.zip",
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -17072,6 +17118,21 @@
           "date": 1785081533,
           "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
         }
+      },
+      {
+        "name": "Stariy Bog Mega-Kill",
+        "preview": "Stariy Bog Mega-Kill.webp",
+        "file": "Stariy Bog Mega-Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
+        }
       }
     ],
     "announcers": [
@@ -17344,6 +17405,21 @@
         "meta": {
           "date": 1790375737,
           "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
+        }
+      },
+      {
+        "name": "Windows Xp Top Bar",
+        "preview": "Windows Xp Top Bar.webp",
+        "file": "Windows Xp Top Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
         }
       }
     ],
@@ -18951,6 +19027,24 @@
           "date": 1790375737,
           "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
         }
+      },
+      {
+        "name": "Bliss",
+        "preview": "Bliss.webp",
+        "file": "Bliss.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -19515,6 +19609,21 @@
         "meta": {
           "date": 1790171120,
           "commit-sha": "29f0bf520aa8967f69934567e1b616be10e87f63"
+        }
+      },
+      {
+        "name": "Whatsapp Tranquill",
+        "preview": "Whatsapp Tranquill.webp",
+        "file": "Whatsapp Tranquill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790528663,
+          "commit-sha": ""
         }
       }
     ],
