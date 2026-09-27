@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Abaddon Endless Night Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Dark Carnaval Pedestal",
+      "category": "pedestal"
+    },
+    {
+      "name": "Bane Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Desire Requiem",
       "category": "hero-sounds"
     },
@@ -12101,6 +12113,44 @@
           "date": 1790424886,
           "commit-sha": "36df0a932f296ad9b9f6bc253534aef620ea85ed"
         }
+      },
+      {
+        "name": "Bane Immortal",
+        "preview": "Bane Immortal.webp",
+        "file": "Bane Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790475709,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Abaddon Endless Night Reborn",
+        "preview": "Abaddon Endless Night Reborn.webp",
+        "file": "Abaddon Endless Night Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790475709,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -17154,6 +17204,21 @@
         "meta": {
           "date": 1790392857,
           "commit-sha": "178bff403a3ee7a92144a7f049f64257670086b5"
+        }
+      },
+      {
+        "name": "Dark Carnaval Pedestal",
+        "preview": "Dark Carnaval Pedestal.webp",
+        "file": "Dark Carnaval Pedestal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790475709,
+          "commit-sha": ""
         }
       }
     ],
