@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Abaddon Endless Night Reborn",
       "category": "heroes"
     },
@@ -451,10 +455,6 @@
     {
       "name": "Earthshaker Burning Pedestal",
       "category": "pedestal"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Sewerslvt Music",
