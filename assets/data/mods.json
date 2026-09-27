@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper Of The Light BMW",
+      "category": "hero-items"
+    },
+    {
+      "name": "Luna Sematary Rainbow Bridge III",
+      "category": "heroes"
+    },
+    {
+      "name": "Axe Automaton Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Lina Soul Slayer Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Master Of Madness",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -171,10 +191,6 @@
     {
       "name": "Pudge Dendi Arcana",
       "category": "heroes"
-    },
-    {
-      "name": "Stariy Bog Mega Kill",
-      "category": "mega-kill"
     },
     {
       "name": "Battle Icons",
@@ -11882,6 +11898,10 @@
         },
         "links": [
           {
+            "type": "preview",
+            "url": "https://youtu.be/X9F-7iIwzWg"
+          },
+          {
             "type": "author",
             "url": "XIIIpsiblade"
           }
@@ -12151,6 +12171,25 @@
           "date": 1790475709,
           "commit-sha": "15fa22a9cf227d570d6c2a03a3f9eb0beb65b532"
         }
+      },
+      {
+        "name": "Luna Sematary Rainbow Bridge III",
+        "preview": "Luna Sematary Rainbow Bridge III.webp",
+        "file": "Luna Sematary Rainbow Bridge III.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "preview",
+            "url": "https://youtu.be/22fhjCaN-XA"
+          },
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -14638,6 +14677,22 @@
                 "date": 1790294865,
                 "commit-sha": "a93fbcf7110b95870f947df7c7584a5486af7bf1"
               }
+            },
+            {
+              "name": "Keeper Of The Light BMW",
+              "preview": "Keeper Of The Light BMW.webp",
+              "file": "Keeper Of The Light BMW.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "mount": true
+              },
+              "links": [
+                {
+                  "type": "source",
+                  "url": "https://t.me/waitureally"
+                }
+              ]
             }
           ]
         },
@@ -17008,21 +17063,6 @@
         "meta": {
           "date": 1785081533,
           "commit-sha": "42f2155e42f9ced29c4cece50c1ea3857e332663"
-        }
-      },
-      {
-        "name": "Stariy Bog Mega Kill",
-        "preview": "Stariy Bog Mega Kill.webp",
-        "file": "Stariy Bog Mega Kill.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "rasstegai"
-          }
-        ],
-        "meta": {
-          "date": 1790267079,
-          "commit-sha": "df0d5e0e9924aa5aebe0f1387c35ba60377a1dce"
         }
       }
     ],
