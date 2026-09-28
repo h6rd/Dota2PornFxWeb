@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Arc Warden Frosty Toy",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Lineage Kantusa",
+      "category": "heroes"
+    },
+    {
       "name": "Phoenix Vermillion Crucible",
       "category": "heroes"
     },
@@ -12251,6 +12259,44 @@
         "meta": {
           "date": 1790528664,
           "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
+        }
+      },
+      {
+        "name": "Juggernaut Lineage Kantusa",
+        "preview": "Juggernaut Lineage Kantusa.webp",
+        "file": "Juggernaut Lineage Kantusa.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790558986,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arc Warden Frosty Toy",
+        "preview": "Arc Warden Frosty Toy.webp",
+        "file": "Arc Warden Frosty Toy.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790558986,
+          "commit-sha": ""
         }
       }
     ],
