@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Morphling Green Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Anti-Mage Fervent Conscript",
+      "category": "heroes"
+    },
+    {
       "name": "Largo Largling",
       "category": "heroes"
     },
@@ -12401,6 +12409,38 @@
         "meta": {
           "date": 1790623547,
           "commit-sha": "b32e1834c7134051c3b73a73e0c3420c82fd5ec6"
+        }
+      },
+      {
+        "name": "Anti-Mage Fervent Conscript",
+        "preview": "Anti-Mage Fervent Conscript.webp",
+        "file": "Anti-Mage Fervent Conscript.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1790630988,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Green Immortal",
+        "preview": "Morphling Green Immortal.webp",
+        "file": "Morphling Green Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790630988,
+          "commit-sha": ""
         }
       }
     ],
