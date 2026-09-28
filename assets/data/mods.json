@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Largo Largling",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Akulenok",
+      "category": "heroes"
+    },
+    {
+      "name": "Enchantress Golubika",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Aura",
+      "category": "heroes"
+    },
+    {
+      "name": "Dragon Knight Persona Reborn",
+      "category": "heroes"
+    },
+    {
       "name": "Axe Automaton Reborn",
       "category": "heroes"
     },
@@ -12297,6 +12317,90 @@
         "meta": {
           "date": 1790558987,
           "commit-sha": "dcd66b7f4db4a9203d2eda258c0286c60428be80"
+        }
+      },
+      {
+        "name": "Dragon Knight Persona Reborn",
+        "preview": "Dragon Knight Persona Reborn.webp",
+        "file": "Dragon Knight Persona Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790623546,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Juggernaut Aura",
+        "preview": "Juggernaut Aura.webp",
+        "file": "Juggernaut Aura.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790623546,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Enchantress Golubika",
+        "preview": "Enchantress Golubika.webp",
+        "file": "Enchantress Golubika.zip",
+        "meta": {
+          "date": 1790623546,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Akulenok",
+        "preview": "Morphling Akulenok.webp",
+        "file": "Morphling Akulenok.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790623546,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Largo Largling",
+        "preview": "Largo Largling.webp",
+        "file": "Largo Largling.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790623546,
+          "commit-sha": ""
         }
       }
     ],
