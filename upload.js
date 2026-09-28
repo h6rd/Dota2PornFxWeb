@@ -16,12 +16,18 @@ function getMaxNameLength(hero) {
 const MAX_URL_LENGTH = 2048;
 const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
 
+const MOD_NAME_RE = /^[a-zA-Z0-9 \-_'.,!]+$/;
+const MISPLACED_HYPHEN_RE = /(^|[^a-zA-Z0-9])-|-([^a-zA-Z0-9]|$)/;
+const NICK_RE = /^[\p{L}\p{N} _.\-!,()\[\]#@+]+$/u;
+const SAFE_TEXT_RE = /^[^<>"`\\\u0000-\u001f\u007f]+$/;
+const NICK_HINT = 'letters, digits, spaces and . _ - ! , ( ) [ ] # @ + only';
+
 const TAG_DESCRIPTIONS = {
   effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS',
   icons: 'ONLY ABILITY ICONS'
 };
 
-const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
+const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects', 'heroes'];
 function getPreviewVideoCategories() {
   return Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
 }
@@ -1400,8 +1406,13 @@ function setupUploadModal() {
       }
     }
     const effectiveMaxNameLength = getMaxNameLength(heroHidden.value);
-    if (name.length > effectiveMaxNameLength || !/^[a-zA-Z0-9 \-_'.,!]+$/.test(name)) {
+    if (name.length > effectiveMaxNameLength || !MOD_NAME_RE.test(name)) {
       appendActivityLog(`Invalid mod name (max ${effectiveMaxNameLength} characters, English letters/numbers only).`, 'error');
+      setLogIconState('error');
+      return;
+    }
+    if (MISPLACED_HYPHEN_RE.test(name)) {
+      appendActivityLog('A hyphen is allowed only inside a word (e.g. "big-cat"), not with spaces around it ("big - cat").', 'error');
       setLogIconState('error');
       return;
     }
@@ -1475,6 +1486,35 @@ function setupUploadModal() {
     checkDuplicate();
     if (isDuplicateName) {
       appendActivityLog(`Duplicate name: "${name}"`, 'error');
+      setLogIconState('error');
+      return;
+    }
+
+    {
+      const authorNick = authorMode === 'existing'
+        ? authorExistingSelect.value
+        : authorMode === 'new' ? (document.getElementById('umAuthorName')?.value.trim() || '') : '';
+      if (authorNick && !(authorMode === 'existing' ? SAFE_TEXT_RE : NICK_RE).test(authorNick)) {
+        appendActivityLog(`Author name: ${NICK_HINT}.`, 'error');
+        setLogIconState('error');
+        return;
+      }
+      if (extraMode !== 'none') {
+        const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
+        const extraValue = originMode === 'existing'
+          ? extraExistingSelect.value
+          : (document.getElementById('umExtraName')?.value.trim() || '');
+        if (extraValue && !(originMode === 'existing' ? SAFE_TEXT_RE : NICK_RE).test(extraValue)) {
+          appendActivityLog(`Additional link name: ${NICK_HINT}.`, 'error');
+          setLogIconState('error');
+          return;
+        }
+      }
+    }
+
+    if (category === 'hero-items' && slotTagsWrap.querySelector('input[type="radio"]') &&
+      !slotTagsWrap.querySelector('input[type="radio"]:checked')) {
+      appendActivityLog('Select a slot for the hero item.', 'error');
       setLogIconState('error');
       return;
     }

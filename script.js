@@ -143,6 +143,12 @@ const formatTime = (seconds) => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"'`]/g, (ch) => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '`': '&#96;' }[ch]
+    ));
+}
+
 function resolveNickname(value, map) {
     if (Object.prototype.hasOwnProperty.call(map, value)) return map[value];
     return value;
@@ -2912,11 +2918,11 @@ function generateLinkButtonsHtml(mod, categoryId) {
 
       linkButtons.push(`
                 <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
-                      data-url="${resolvedUrl}" 
+                      data-url="${escapeHtml(resolvedUrl)}" 
                       data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
                       ${hasCustomName ? 'data-custom-name="true"' : ""}>
                     <span class="material-symbols-rounded">${icon}</span>
-                    ${displayText}
+                    ${hasCustomName ? escapeHtml(displayText) : displayText}
                 </span>
             `);
     });
@@ -2951,11 +2957,11 @@ function generateLinkButtonsHtml(mod, categoryId) {
 
     linkButtons.push(`
             <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
-                  data-url="${resolvedUrl}" 
+                  data-url="${escapeHtml(resolvedUrl)}" 
                   data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
                   ${hasCustomName ? 'data-custom-name="true"' : ""}>
                 <span class="material-symbols-rounded">${icon}</span>
-                ${displayText}
+                ${hasCustomName ? escapeHtml(displayText) : displayText}
             </span>
         `);
   }

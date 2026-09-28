@@ -389,7 +389,7 @@
               <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin"
                 pattern="[a-zA-Z0-9 \-_'.,!]+" maxlength="30" required>
               <p class="upload-form-hint">
-                English & numbers only. Max <span id="umNameMaxLen">30</span> characters
+                English &amp; numbers only. A hyphen is allowed only inside a word ("big-cat", not "big - cat"). Max <span id="umNameMaxLen">30</span> characters
                 (<span id="umNameCount">0</span>/<span id="umNameMaxLen2">30</span>) so the mod card doesn't break.
               </p>
               <p class="upload-form-hint upload-duplicate-hint" id="umDuplicateHint" style="display:none;">
@@ -426,7 +426,7 @@
               <label>Tags</label>
               <div id="umTags">
                 <div id="umSlotGroup" style="display:none;">
-                  <p class="upload-tag-section-label">Slot <span class="upload-tag-section-hint">(choose one)</span></p>
+                  <p class="upload-tag-section-label">Slot <span class="upload-tag-section-hint">(required, choose one)</span></p>
                   <div class="upload-tags md3-checkbox-group" id="umSlotTags"></div>
                 </div>
                 <div id="umEffectsGroup" style="display:none;">
