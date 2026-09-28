@@ -1,0 +1,940 @@
+/* winter*/
+.lightrope,
+.winter-snow-canvas {
+    display: none;
+}
+
+html.winter-revealed .lightrope,
+html.winter-revealed .winter-snow-canvas,
+html.winter-outro .lightrope,
+html.winter-outro .winter-snow-canvas {
+    display: block;
+}
+
+html.winter-revealing .lightrope {
+    animation: winter-reveal-garland 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html.winter-revealing .winter-snow-canvas {
+    animation: winter-reveal-snow 2.2s ease-out both;
+}
+
+@keyframes winter-reveal-garland {
+    0% {
+        opacity: 0;
+        transform: translateY(-48px) scale(0.92);
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes winter-reveal-snow {
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html.winter-revealing .lightrope,
+    html.winter-revealing .winter-snow-canvas {
+        animation-duration: 1.2s;
+    }
+
+    html.winter-revealing .lightrope {
+        animation-name: winter-reveal-garland-soft;
+    }
+}
+
+@keyframes winter-reveal-garland-soft {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* garland */
+.lightrope {
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    position: fixed;
+    z-index: 900;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.lightrope li {
+    position: relative;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    list-style: none;
+    margin: 0 12px;
+    padding: 0;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation-name: winter-light-glow;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+.lightrope li:nth-child(4n) {
+    background: rgb(127, 255, 146);
+    box-shadow: 0px 2px 24px 3px rgba(87, 244, 134, 0.7);
+}
+
+.lightrope li:nth-child(4n + 1) {
+    background: rgb(136, 255, 255);
+    box-shadow: 0px 2px 24px 3px rgba(110, 255, 255, 0.7);
+    animation-delay: 0.5s;
+}
+
+.lightrope li:nth-child(4n + 2) {
+    background: rgb(255, 133, 133);
+    box-shadow: 0px 2px 24px 3px rgba(255, 129, 115, 0.8);
+    animation-delay: 1s;
+}
+
+.lightrope li:nth-child(4n + 3) {
+    background: rgb(255, 239, 145);
+    box-shadow: 0px 2px 24px 3px rgba(255, 236, 131, 0.75);
+    animation-delay: 1.5s;
+}
+
+.lightrope li::before {
+    content: "";
+    position: absolute;
+    background: #000000;
+    width: 6px;
+    height: 3px;
+    border-radius: 2px;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lightrope li::after {
+    content: "";
+    top: -2px;
+    left: 9px;
+    position: absolute;
+    width: 52px;
+    height: 1px;
+    border-bottom: solid #000000 1px;
+}
+
+.lightrope li:last-child::after {
+    content: none;
+}
+
+.lightrope li:first-child {
+    margin-left: -40px;
+}
+
+@keyframes winter-light-glow {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        filter: brightness(0.6);
+    }
+}
+
+html.winter-outro .lightrope li {
+    animation-name: winter-light-glow, winter-light-unplug;
+    animation-duration: 2s, 1.6s;
+    animation-iteration-count: infinite, 1;
+    animation-fill-mode: both, forwards;
+}
+
+@keyframes winter-light-unplug {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(6px) scale(0.4);
+    }
+}
+
+.winter-snow-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+html.winter-outro .winter-snow-canvas {
+    animation: winter-snow-fade-out 3s ease-in forwards;
+}
+
+@keyframes winter-snow-fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.winter-intro-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10600;
+    pointer-events: none;
+    opacity: 1;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    transition: opacity 1s ease, backdrop-filter 1s ease, -webkit-backdrop-filter 1s ease;
+}
+
+.winter-intro-overlay.winter-intro-active {
+    display: block;
+}
+
+.winter-intro-overlay.winter-intro-simple {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.winter-intro-overlay.winter-intro-fade {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.winter-intro-overlay canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes winter-light-glow-soft {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: brightness(0.9);
+    }
+}
+
+@keyframes winter-light-fade-soft {
+    to {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightrope li {
+        animation-name: winter-light-glow-soft;
+        animation-duration: 3.5s;
+    }
+
+    html.winter-outro .lightrope li {
+        animation-name: winter-light-glow-soft, winter-light-fade-soft;
+        animation-duration: 3.5s, 1.5s;
+    }
+
+    html.winter-outro .winter-snow-canvas {
+        animation-duration: 1.5s;
+    }
+}
+
+/* santa hat by ibcsz */
+.santa-container {
+    position: relative;
+    display: inline-block;
+}
+
+.santa-hat-svg {
+    display: none;
+    position: absolute;
+    top: -17px;
+    left: -13px;
+    width: 35px;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+    transform: rotate(-40deg);
+    transform-origin: bottom right;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    opacity: 0;
+}
+
+html.winter-revealed .santa-hat-svg {
+    display: block;
+    opacity: 1;
+}
+
+html.winter-outro .santa-hat-svg {
+    display: block;
+    animation: santa-hat-fade-out 3s ease-in forwards;
+}
+
+html.winter-revealing .santa-hat-svg {
+    display: block;
+    animation: santa-hat-fade-in 1.8s ease-out both;
+}
+
+@keyframes santa-hat-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes santa-hat-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.winter-revealing .santa-hat-svg {
+        animation-duration: 0.8s;
+    }
+
+    html.winter-outro .santa-hat-svg {
+        animation-duration: 1.5s;
+    }
+}
+
+/* halloween */
+.hw-layer {
+    display: contents;
+}
+
+.hw-layer * {
+    pointer-events: none;
+}
+
+.hw-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse 70% 45% at 50% 108%, rgba(255, 110, 10, .16), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 50% -12%, rgba(130, 70, 230, .20), transparent 70%);
+}
+
+.hw-moon {
+    position: fixed;
+    top: -60px;
+    right: 8%;
+    z-index: -1;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    opacity: .2;
+    background:
+        radial-gradient(circle at 30% 34%, rgba(0, 0, 0, .10) 0 9%, transparent 10%),
+        radial-gradient(circle at 62% 58%, rgba(0, 0, 0, .09) 0 12%, transparent 13%),
+        radial-gradient(circle at 44% 76%, rgba(0, 0, 0, .08) 0 7%, transparent 8%),
+        radial-gradient(circle at 36% 32%, #fff4cf, #ffd48a 55%, #ff9a3a);
+    box-shadow: 0 0 90px 36px rgba(255, 221, 134, 0.707);
+    animation: hw-moon 9s ease-in-out infinite;
+}
+
+html[data-theme="light"] .hw-moon {
+    opacity: .32;
+}
+
+@keyframes hw-moon {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hw-embers {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hw-fog {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 26vh;
+    z-index: 50;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to top, #000 15%, transparent);
+    mask-image: linear-gradient(to top, #000 15%, transparent);
+}
+
+.hw-fog i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: 50% 100%;
+    background-image:
+        radial-gradient(ellipse 260px 90px at 20% 80%, rgba(170, 120, 255, .22), transparent 70%),
+        radial-gradient(ellipse 340px 110px at 55% 92%, rgba(255, 140, 60, .16), transparent 70%),
+        radial-gradient(ellipse 300px 100px at 85% 76%, rgba(170, 120, 255, .18), transparent 70%);
+    animation: hw-drift 80s linear infinite;
+}
+
+.hw-fog i+i {
+    opacity: .7;
+    background-position: 40% 0;
+    animation-duration: 120s;
+    animation-direction: reverse;
+}
+
+html[data-theme="light"] .hw-fog {
+    opacity: .7;
+}
+
+@keyframes hw-drift {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.hw-web {
+    position: fixed;
+    top: 0;
+    z-index: 850;
+    width: 170px;
+    height: 170px;
+    color: rgba(255, 255, 255, .5);
+    opacity: .75;
+}
+
+.hw-web--l {
+    left: 0;
+}
+
+.hw-web--r {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.hw-web svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+html[data-theme="light"] .hw-web {
+    color: rgba(50, 25, 80, .55);
+}
+
+.hw-spider {
+    position: fixed;
+    top: 0;
+    z-index: 850;
+    width: 30px;
+    color: #cbb6ff;
+    animation: hw-drop var(--d, 10s) ease-in-out infinite;
+}
+
+.hw-spider::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% - 8px);
+    width: 1px;
+    height: 100vh;
+    background: currentColor;
+    opacity: .45;
+}
+
+.hw-spider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: 50% 0;
+    animation: hw-sway 3.6s ease-in-out infinite;
+}
+
+.hw-spider--a {
+    left: 16%;
+}
+
+.hw-spider--b {
+    left: 77%;
+    width: 24px;
+    --d: 13s;
+    animation-delay: -4s;
+}
+
+html[data-theme="light"] .hw-spider {
+    color: #2a1740;
+}
+
+@keyframes hw-drop {
+
+    0%,
+    100% {
+        transform: translateY(-6px);
+    }
+
+    50% {
+        transform: translateY(clamp(70px, 14vh, 130px));
+    }
+}
+
+@keyframes hw-sway {
+
+    0%,
+    100% {
+        transform: rotate(-7deg);
+    }
+
+    50% {
+        transform: rotate(7deg);
+    }
+}
+
+.hw-garland {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 900;
+    list-style: none;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hw-garland::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(150, 105, 60, .75) 8%, rgba(150, 105, 60, .75) 92%, transparent);
+}
+
+.hw-garland li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 18px;
+    margin: 4px 17px 0;
+    border-radius: 50% 50% 46% 46% / 58% 58% 42% 42%;
+    background: radial-gradient(circle at 50% 62%, #ff9a2b, #c94a00);
+    box-shadow: 0 2px 16px 3px rgba(255, 130, 20, .5);
+    animation: hw-flicker 2.6s ease-in-out infinite;
+}
+
+.hw-garland li:first-child {
+    margin-left: -24px;
+}
+
+.hw-garland li::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 5px;
+    height: 6px;
+    background: #3f7d2c;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%) rotate(8deg);
+}
+
+.hw-garland li::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center / 100% 100% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%23ffe58a' d='M4 6.5h4L6 10zM12 6.5h4l-2 3.5zM5 12.5l2 2 1.8-1.7 1.2 1.8 1.2-1.8 1.8 1.7 2-2Q10 16.5 5 12.5z'/%3E%3C/svg%3E");
+}
+
+.hw-garland li:nth-child(4n + 3) {
+    filter: hue-rotate(242deg);
+    animation-delay: -.9s;
+}
+
+.hw-garland li:nth-child(7n + 2) {
+    filter: hue-rotate(82deg);
+    animation-delay: -1.7s;
+}
+
+.hw-garland li:nth-child(3n + 1) {
+    animation-duration: 3.1s;
+}
+
+html[data-theme="light"] .hw-garland li {
+    box-shadow: 0 2px 10px 1px rgba(255, 120, 20, .4);
+}
+
+@keyframes hw-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: .72;
+    }
+
+    60% {
+        opacity: .95;
+    }
+
+    78% {
+        opacity: .8;
+    }
+}
+
+.hw-bat {
+    position: fixed;
+    z-index: 850;
+    width: var(--s, 32px);
+    color: #0e0817;
+    filter: drop-shadow(0 0 5px rgba(196, 130, 255, .75));
+}
+
+.hw-bat svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: 50% 40%;
+    animation: hw-flap var(--f, .32s) ease-in-out infinite alternate;
+}
+
+html[data-theme="light"] .hw-bat {
+    color: #1b0f2c;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35));
+}
+
+@keyframes hw-flap {
+    from {
+        transform: translateY(0) scaleY(1);
+    }
+
+    to {
+        transform: translateY(-3px) scaleY(.5);
+    }
+}
+
+.hw-bat--fly {
+    left: 0;
+    top: var(--y, 20vh);
+}
+
+.hw-bat--r {
+    animation: hw-fly-r var(--dur, 12s) linear forwards;
+}
+
+.hw-bat--l {
+    animation: hw-fly-l var(--dur, 12s) linear forwards;
+}
+
+@keyframes hw-fly-r {
+    0% {
+        transform: translate(-12vw, 0);
+    }
+
+    33% {
+        transform: translate(28vw, calc(var(--dy, 8vh) * -1));
+    }
+
+    66% {
+        transform: translate(68vw, var(--dy, 8vh));
+    }
+
+    100% {
+        transform: translate(112vw, 0);
+    }
+}
+
+@keyframes hw-fly-l {
+    0% {
+        transform: translate(112vw, 0);
+    }
+
+    33% {
+        transform: translate(72vw, calc(var(--dy, 8vh) * -1));
+    }
+
+    66% {
+        transform: translate(32vw, var(--dy, 8vh));
+    }
+
+    100% {
+        transform: translate(-12vw, 0);
+    }
+}
+
+.hw-bat--burst {
+    animation: hw-burst var(--dur, 2s) cubic-bezier(.2, .7, .3, 1) var(--delay, 0s) both;
+}
+
+@keyframes hw-burst {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.3);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(var(--k, 1));
+    }
+}
+
+.hw-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 10600;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    animation: hw-intro-life 3.3s ease both;
+}
+
+.hw-intro--simple {
+    animation-duration: 2.2s;
+}
+
+.hw-intro--simple .hw-flash {
+    display: none;
+}
+
+@keyframes hw-intro-life {
+    0% {
+        opacity: 0;
+    }
+
+    9% {
+        opacity: 1;
+    }
+
+    76% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.hw-flash {
+    position: absolute;
+    inset: 0;
+    background: rgba(226, 208, 255, .9);
+    opacity: 0;
+    animation: hw-flash 1s .2s both;
+}
+
+@keyframes hw-flash {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    6% {
+        opacity: .85;
+    }
+
+    12% {
+        opacity: 0;
+    }
+
+    22% {
+        opacity: .55;
+    }
+
+    30% {
+        opacity: 0;
+    }
+}
+
+@keyframes hw-title {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.8);
+        filter: blur(10px);
+    }
+
+    22% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
+
+html .hw-intro .hw-bat {
+    color: #0b0612;
+    filter: drop-shadow(0 0 7px rgba(255, 150, 60, .9));
+}
+
+@keyframes hw-glow-text {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .82;
+    }
+
+    54% {
+        opacity: 1;
+    }
+
+    58% {
+        opacity: .88;
+    }
+}
+
+.hw-hat-svg {
+    position: absolute;
+    top: -19px;
+    left: -19px;
+    z-index: 999;
+    width: 38px;
+    height: auto;
+    transform: rotate(-18deg);
+    pointer-events: none;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .45));
+}
+
+html.hw-fading .hw-layer> :not(.hw-bat) {
+    opacity: 0 !important;
+    transition: opacity 2.6s ease-in !important;
+}
+
+html.hw-fading .hw-hat-svg {
+    opacity: 0;
+    transition: opacity 2.6s ease-in;
+}
+
+@media (max-width: 768px) {
+    .hw-web {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hw-spider--b {
+        display: none;
+    }
+
+    .hw-moon {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hw-garland li {
+        width: 15px;
+        height: 14px;
+        margin: 4px 12px 0;
+    }
+
+    .hw-garland li:first-child {
+        margin-left: -18px;
+    }
+
+    .hw-hat-svg {
+        width: 32px;
+        top: -20px;
+        left: -12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hw-spider,
+    .hw-spider svg,
+    .hw-fog i,
+    .hw-moon {
+        animation: none;
+    }
+
+    .hw-garland li,
+    html.hw-on .logo #tg {
+        animation-duration: 6s;
+    }
+}
+
+@media (max-width: 768px) {
+    .lightrope li {
+        width: 10px;
+        height: 10px;
+        margin: 0px 12px;
+    }
+
+    .lightrope li:after {
+        width: 42px;
+    }
+}
