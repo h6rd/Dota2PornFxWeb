@@ -1,3 +1,41 @@
+const SEASONAL_SETTINGS_KEY = 'd2pfx_settings';
+const seasonalHooks = [];
+
+function eventThemesEnabled() {
+    try {
+        return JSON.parse(localStorage.getItem(SEASONAL_SETTINGS_KEY) || '{}').seasonalThemes !== false;
+    } catch (e) { return true; }
+}
+
+window.setSeasonalThemes = function (on) {
+    seasonalHooks.forEach(fn => fn(!!on));
+};
+
+(function () {
+    try {
+        const d = new Date();
+        const m = d.getMonth();
+        const y = d.getFullYear();
+        const seasonId = m === 11 ? (y + '-' + (y + 1))
+            : (m === 0 || m === 1) ? ((y - 1) + '-' + y)
+                : null;
+
+        if (!eventThemesEnabled()) {
+            if (!seasonId) localStorage.removeItem('winterWasActive');
+            return;
+        }
+        const root = document.documentElement;
+        if (seasonId) {
+            root.classList.add('winter-active');
+            if (localStorage.getItem('winterAvalancheSeason') === seasonId) {
+                root.classList.add('winter-revealed');
+            }
+        } else if (localStorage.getItem('winterWasActive') === '1') {
+            root.classList.add('winter-outro');
+        }
+    } catch (e) { }
+})();
+
 // winter
 function getWinterSeasonId(date) {
     date = date || new Date();
@@ -236,66 +274,94 @@ function playWinterAvalanche(durationMs, onDone) {
     rafId = requestAnimationFrame(tick);
 }
 
-function playWinterOutro() {
-    const html = document.documentElement;
+let winterDecorOn = false;
+
+function startWinterDecor() {
+    if (winterDecorOn) return;
+    winterDecorOn = true;
     buildWinterGarland();
     winterSnow.start();
     window.addEventListener('resize', handleWinterGarlandResize);
+}
 
-    const cleanup = () => {
+function stopWinterDecor() {
+    if (!winterDecorOn) return;
+    winterDecorOn = false;
+    winterSnow.stop();
+    window.removeEventListener('resize', handleWinterGarlandResize);
+    clearTimeout(winterGarlandResizeTimer);
+    const garland = document.getElementById('winterGarland');
+    if (garland) garland.innerHTML = '';
+}
+
+function playWinterOutro() {
+    const html = document.documentElement;
+    startWinterDecor();
+    const delay = prefersReducedMotion() ? 2000 : 3500;
+    setTimeout(() => {
         html.classList.remove('winter-outro');
         try { localStorage.removeItem('winterWasActive'); } catch (e) { }
-        winterSnow.stop();
-        window.removeEventListener('resize', handleWinterGarlandResize);
-        clearTimeout(winterGarlandResizeTimer);
-        const garland = document.getElementById('winterGarland');
-        if (garland) garland.innerHTML = '';
-    };
-
-    const delay = prefersReducedMotion() ? 2000 : 3500;
-    setTimeout(cleanup, delay);
+        stopWinterDecor();
+    }, delay);
 }
 
 function setupWinterEvent() {
     const html = document.documentElement;
+    const removeOverlay = () => {
+        const overlay = document.getElementById('winterIntroOverlay');
+        if (overlay) overlay.remove();
+    };
 
     new MutationObserver(() => winterSnow.refreshColor())
         .observe(html, { attributes: true, attributeFilter: ['data-theme'] });
 
+    if (!eventThemesEnabled()) { removeOverlay(); return; }
+
     if (html.classList.contains('winter-outro')) {
-        const overlay = document.getElementById('winterIntroOverlay');
-        if (overlay) overlay.remove();
+        removeOverlay();
         playWinterOutro();
         return;
     }
 
-    if (!isWinterActive()) {
-        const overlay = document.getElementById('winterIntroOverlay');
-        if (overlay) overlay.remove();
-        return;
-    }
+    if (!isWinterActive()) { removeOverlay(); return; }
 
     const seasonId = getWinterSeasonId();
     try { localStorage.setItem('winterWasActive', '1'); } catch (e) { }
 
     if (html.classList.contains('winter-revealed')) {
-        buildWinterGarland();
-        winterSnow.start();
-        window.addEventListener('resize', handleWinterGarlandResize);
-        const overlay = document.getElementById('winterIntroOverlay');
-        if (overlay) overlay.remove();
+        startWinterDecor();
+        removeOverlay();
         return;
     }
 
     playWinterAvalanche(2500, () => {
+        if (!eventThemesEnabled()) return;
         html.classList.add('winter-revealed', 'winter-revealing');
-        buildWinterGarland();
-        winterSnow.start();
-        window.addEventListener('resize', handleWinterGarlandResize);
+        startWinterDecor();
         try { localStorage.setItem('winterAvalancheSeason', seasonId); } catch (e) { }
         setTimeout(() => html.classList.remove('winter-revealing'), 2800);
     });
 }
+
+function setWinterEnabled(on) {
+    const html = document.documentElement;
+    if (!on) {
+        html.classList.remove('winter-active', 'winter-revealed', 'winter-revealing', 'winter-outro');
+        stopWinterDecor();
+        const overlay = document.getElementById('winterIntroOverlay');
+        if (overlay) overlay.remove();
+        return;
+    }
+    const seasonId = getWinterSeasonId();
+    if (!seasonId) return;
+    html.classList.add('winter-active', 'winter-revealed');
+    try {
+        localStorage.setItem('winterAvalancheSeason', seasonId);
+        localStorage.setItem('winterWasActive', '1');
+    } catch (e) { }
+    startWinterDecor();
+}
+seasonalHooks.push(setWinterEnabled);
 
 /* halloween */
 (function () {
@@ -323,8 +389,11 @@ function setupWinterEvent() {
     }
 
     const season = seasonId(new Date());
+    const enabled = () => forced || eventThemesEnabled();
     let mode = 'off';
-    if (forced) {
+    if (!enabled()) {
+        if (!season) ls.del('hwWasActive');
+    } else if (forced) {
         mode = { '0': 'off', '1': 'intro', intro: 'intro', on: 'on', outro: 'outro' }[qs] || 'off';
     } else if (season) {
         mode = ls.get('hwIntroSeason') === season ? 'on' : 'intro';
@@ -405,6 +474,7 @@ function setupWinterEvent() {
 
     //bats
     let layer = null, batTimer = 0, resizeTimer = 0, logoEl = null;
+    let hatEl = null, santaEl = null, hatRO = null, hatRaf = 0;
 
     function makeBat(cls, style) {
         const b = document.createElement('div');
@@ -462,6 +532,16 @@ function setupWinterEvent() {
         burst(layer, 12, r.left + r.width / 2, r.top + r.height / 2, false);
     };
 
+    function placeHat() {
+        hatRaf = 0;
+        if (!hatEl || !santaEl) return;
+        const r = santaEl.getBoundingClientRect();
+        hatEl.style.visibility = r.width ? 'visible' : 'hidden';
+        hatEl.style.left = r.left + 'px';
+        hatEl.style.top = r.top + 'px';
+    }
+    const schedulePlaceHat = () => { if (!hatRaf) hatRaf = requestAnimationFrame(placeHat); };
+
     function start() {
         if (layer) return;
         layer = document.createElement('div');
@@ -473,12 +553,17 @@ function setupWinterEvent() {
             '<div class="hw-fog"><i></i><i></i></div>' +
             `<div class="hw-web hw-web--l">${webSvg()}</div><div class="hw-web hw-web--r">${webSvg()}</div>` +
             `<div class="hw-spider hw-spider--a">${SPIDER}</div><div class="hw-spider hw-spider--b">${SPIDER}</div>` +
-            '<ul class="hw-garland"></ul>';
+            '<ul class="hw-garland"></ul>' + HAT;
         document.body.prepend(layer);
         html.classList.add('hw-on');
 
-        const santa = document.querySelector('.santa-container');
-        if (santa && !santa.querySelector('.hw-hat-svg')) santa.insertAdjacentHTML('afterbegin', HAT);
+        hatEl = layer.querySelector('.hw-hat-svg');
+        santaEl = document.querySelector('.santa-container');
+        placeHat();
+        addEventListener('resize', schedulePlaceHat);
+        addEventListener('scroll', schedulePlaceHat, { passive: true });
+        if (window.ResizeObserver && santaEl) { hatRO = new ResizeObserver(schedulePlaceHat); hatRO.observe(santaEl); }
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedulePlaceHat);
 
         buildGarland();
         embers.start(layer.querySelector('.hw-embers'));
@@ -495,7 +580,10 @@ function setupWinterEvent() {
         removeEventListener('resize', onResize);
         themeObs.disconnect();
         if (logoEl) logoEl.removeEventListener('click', onLogoClick);
-        document.querySelectorAll('.hw-hat-svg').forEach(e => e.remove());
+        removeEventListener('resize', schedulePlaceHat);
+        removeEventListener('scroll', schedulePlaceHat);
+        if (hatRO) { hatRO.disconnect(); hatRO = null; }
+        cancelAnimationFrame(hatRaf); hatRaf = 0; hatEl = null; santaEl = null;
         if (layer) layer.remove();
         layer = null;
         html.classList.remove('hw-on', 'hw-fading');
@@ -526,6 +614,7 @@ function setupWinterEvent() {
             if (!forced) ls.set('hwWasActive', '1');
         } else if (mode === 'intro') {
             playIntro(() => {
+                if (!enabled()) return;
                 start();
                 if (!forced) { ls.set('hwIntroSeason', season); ls.set('hwWasActive', '1'); }
             });
@@ -533,6 +622,18 @@ function setupWinterEvent() {
             playOutro();
         }
     }
+
+    function setEnabled(on) {
+        if (!on) {
+            document.querySelectorAll('.hw-intro').forEach(e => e.remove());
+            stop();
+            return;
+        }
+        if (layer || (!season && !forced)) return;
+        start();
+        if (!forced) { ls.set('hwIntroSeason', season); ls.set('hwWasActive', '1'); }
+    }
+    seasonalHooks.push(setEnabled);
 
     if (mode !== 'off') {
         if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

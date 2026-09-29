@@ -859,10 +859,11 @@ html .hw-intro .hw-bat {
 }
 
 .hw-hat-svg {
-    position: absolute;
-    top: -19px;
-    left: -19px;
-    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: -19px 0 0 -19px;
+    z-index: 901;
     width: 38px;
     height: auto;
     transform: rotate(-18deg);
@@ -907,8 +908,7 @@ html.hw-fading .hw-hat-svg {
 
     .hw-hat-svg {
         width: 32px;
-        top: -20px;
-        left: -12px;
+        margin: -20px 0 0 -12px;
     }
 }
 

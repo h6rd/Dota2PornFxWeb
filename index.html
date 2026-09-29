@@ -33,27 +33,6 @@
   <script type="module" src="assets/m3e/shape.bundle.js"></script>
   <script src="assets/m3e/select.js"></script>
   <script src="assets/theme.js"></script>
-  <script>
-    (function () {
-      try {
-        var d = new Date();
-        var m = d.getMonth();
-        var y = d.getFullYear();
-        var seasonId = m === 11 ? (y + '-' + (y + 1))
-          : (m === 0 || m === 1) ? ((y - 1) + '-' + y)
-            : null;
-
-        if (seasonId) {
-          document.documentElement.classList.add('winter-active');
-          if (localStorage.getItem('winterAvalancheSeason') === seasonId) {
-            document.documentElement.classList.add('winter-revealed');
-          }
-        } else if (localStorage.getItem('winterWasActive') === '1') {
-          document.documentElement.classList.add('winter-outro');
-        }
-      } catch (e) { }
-    })();
-  </script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/events.css" />
   <script src="assets/events.js"></script>
@@ -865,6 +844,13 @@
             <button class="settings-theme-btn" data-theme="light">
               <span class="material-symbols-rounded">light_mode</span> Light
             </button>
+          </div>
+          <div class="settings-toggle-row" style="margin-top: 14px;">
+            <label class="settings-toggle-label">
+              <span>Seasonal Themes</span>
+              <input type="checkbox" id="seasonalThemes" class="settings-toggle-input" checked>
+              <span class="settings-toggle-track"></span>
+            </label>
           </div>
         </div>
   

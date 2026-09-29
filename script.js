@@ -3829,6 +3829,9 @@ function applySettings(s) {
     const compactToggle = document.getElementById('compactCategoryView');
     document.body.classList.toggle('compact-category-view', !!s.compactCategoryView);
     if (compactToggle) compactToggle.checked = !!s.compactCategoryView;
+
+    const seasonalToggle = document.getElementById('seasonalThemes');
+    if (seasonalToggle) seasonalToggle.checked = s.seasonalThemes !== false;
 }
 
 function exportSettings() {
@@ -3849,6 +3852,7 @@ function exportSettings() {
         dotaPath: s.dotaPath || '',
         hideAnimeMods: !!s.hideAnimeMods,
         hideAdultMods: !!s.hideAdultMods,
+        seasonalThemes: s.seasonalThemes !== false,
         exported: new Date().toISOString(),
         styles: styleIndices,
         assemblies: assemblies,
@@ -3896,8 +3900,10 @@ function importSettings(file) {
             if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
             patch.hideAnimeMods = !!obj.hideAnimeMods;
             patch.hideAdultMods = !!obj.hideAdultMods;
+            patch.seasonalThemes = obj.seasonalThemes !== false;
             saveSettings(patch);
             applySettings(patch);
+            if (window.setSeasonalThemes) window.setSeasonalThemes(patch.seasonalThemes);
 
             if (typeof loadCart === 'function') {
                 loadCart();
@@ -4081,6 +4087,12 @@ function setupSettingsModal() {
     document.getElementById('hideAdultMods')?.addEventListener('change', function () {
         saveSettings({ hideAdultMods: this.checked });
         if (state.currentCategory) renderMods(state.currentCategory);
+        vibrate(10);
+    });
+
+    document.getElementById('seasonalThemes')?.addEventListener('change', function () {
+        saveSettings({ seasonalThemes: this.checked });
+        if (window.setSeasonalThemes) window.setSeasonalThemes(this.checked);
         vibrate(10);
     });
 
