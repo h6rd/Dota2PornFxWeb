@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anti-Mage Persona Sakura",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Assassin Gothic",
+      "category": "heroes"
+    },
+    {
+      "name": "The Great Awakening",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Xvii",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Kez Chickez",
+      "category": "heroes"
+    },
+    {
+      "name": "Gwardjan Tad Dawl Perfezzjoni",
+      "category": "backgrounds"
+    },
+    {
       "name": "Morphling Green Immortal",
       "category": "heroes"
     },
@@ -12448,6 +12472,58 @@
           "date": 1790630988,
           "commit-sha": "6a920a8addbebbdcce1f62076247f714d7362c44"
         }
+      },
+      {
+        "name": "Kez Chickez",
+        "preview": "Kez Chickez.webp",
+        "file": "Kez Chickez.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Phantom Assassin Gothic",
+        "preview": "Phantom Assassin Gothic.webp",
+        "file": "Phantom Assassin Gothic.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Persona Sakura",
+        "preview": "Anti-Mage Persona Sakura.webp",
+        "file": "Anti-Mage Persona Sakura.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19252,6 +19328,60 @@
         "meta": {
           "date": 1790528664,
           "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
+        }
+      },
+      {
+        "name": "Gwardjan Tad Dawl Perfezzjoni",
+        "preview": "Gwardjan Tad Dawl Perfezzjoni.webp",
+        "file": "Gwardjan Tad Dawl Perfezzjoni.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Xvii",
+        "preview": "Xvii.webp",
+        "file": "Xvii.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "The Great Awakening",
+        "preview": "The Great Awakening.webp",
+        "file": "The Great Awakening.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790709327,
+          "commit-sha": ""
         }
       }
     ],
