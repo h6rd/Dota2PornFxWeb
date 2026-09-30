@@ -99,10 +99,43 @@ Special thanks to those who share these mods with their audience through streams
 
 ---
 
+## Attribution & Reuse
+
+This repository is distributed under [GPL-3.0](LICENSE). If you reuse, mirror, or redistribute mods or any other part of it, the following attribution terms apply (additional terms under GPLv3 §7(b)):
+
+1. **Credit Dota2PornFx.** Link to the website (https://h6rd.github.io/Dota2PornFxWeb) and to this repository (https://github.com/h6rd/Dota2PornFxWeb) in a visible place (description, README or UI).
+2. **Keep the authors.** Credit the original mod authors listed in [Credits](#credits) for the mods you use, and do not remove existing author tags or watermarks.
+3. **Don't present it as your own.** Don't claim the collection or its mods as your work or as an official source, and don't use the name "Dota2PornFx" to suggest endorsement of your project.
+
+**Mods without a listed author or source** are credited to **h6rd / Dota2PornFx**. If you publish such a mod, you must always credit **h6rd** with a link to the website and this repository, and please ask me first via Discord: `.hrdq`.
+
+Ready-to-copy text:
+
+```
+Mods from Dota2PornFx (https://h6rd.github.io/Dota2PornFxWeb), repository: https://github.com/h6rd/Dota2PornFxWeb.
+Original mod authors: https://github.com/h6rd/Dota2PornFxWeb#credits
+```
+
+> **Let me know.** For any other mods, this is not required, but if you republish, mirror, or bundle this collection, please drop me a message on Discord: `.hrdq` with a link, so I can check that the credits are correct.
+
+
+### Approved projects
+ 
+[Dota2 Minify](https://github.com/Egezenn/dota2-minify) and [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) use this catalog with my permission.
+
+
+### Third-party and Valve content
+
+This collection contains mods made by other community authors (credited above) and files that belong to **Valve Corporation**. Rights to those works remain with their respective owners. This repository's license applies only to what the maintainer has the right to license and does not grant rights to third-party or Valve material.
+
+If you are an author or rights holder and want your work credited differently or removed, please contact me via Telegram or Discord and I will handle it promptly.
+
+---
+
 ## ⚠️ Disclaimer
 
 Modifying game files is done **entirely at your own risk**. In the event of a ban or other consequences, responsibility lies solely with the user. This project is not affiliated with Valve Corporation or Dota 2.
 
 ## License
 
-Contents of this repository are licensed under [GPL-3.0](LICENSE).
+Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#-attribution--reuse) above and the rights of third parties and Valve.

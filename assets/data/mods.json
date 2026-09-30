@@ -17057,8 +17057,8 @@
         "file": "Ancient Dragon King.zip",
         "links": [
           {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/"
+            "type": "author",
+            "url": "Kisilev"
           }
         ],
         "meta": {
@@ -17101,6 +17101,12 @@
         "name": "Nemestice Ranged Attack",
         "preview": "Nemestice Ranged Attack.webp",
         "file": "pak13_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com/"
+          }
+        ],
         "meta": {
           "date": 1764003644,
           "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
@@ -17523,6 +17529,12 @@
         "name": "Chitoge Kirisaki",
         "preview": "Chitoge Kirisaki.webp",
         "file": "pak38_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1764657298,
           "commit-sha": "60d0e6032500e20804faed64ba9f05308bf1b7f4"
@@ -17532,6 +17544,12 @@
         "name": "Iroha Isshiki",
         "preview": "Iroha Isshiki.webp",
         "file": "pak39_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1764657298,
           "commit-sha": "60d0e6032500e20804faed64ba9f05308bf1b7f4"
@@ -17541,6 +17559,12 @@
         "name": "Hestia",
         "preview": "Hestia.webp",
         "file": "pak40_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1764898483,
           "commit-sha": "42b4c9bacd761da1f11e4453bee5ef53983a7877"
@@ -18244,6 +18268,12 @@
         "name": "Gabe Shopkeeper",
         "preview": "Gabe Shopkeeper.webp",
         "file": "pak13_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1772534203,
           "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442"
@@ -18253,6 +18283,12 @@
         "name": "Techies Mine Radius",
         "preview": "Techies Mine Radius.webp",
         "file": "pak14_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com"
+          }
+        ],
         "meta": {
           "date": 1772534203,
           "commit-sha": "07375db76d595194c3633ab6302c93879ba9c442"
@@ -22866,6 +22902,12 @@
               "name": "GG Iron Branch",
               "preview": "gg_branch.webp",
               "file": "pak20_dir.vpk",
+              "links": [
+                {
+                  "type": "source",
+                  "url": "https://dota2changer.com"
+                }
+              ],
               "meta": {
                 "date": 1756459282,
                 "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
@@ -22875,6 +22917,12 @@
               "name": "Christmas Iron Branch",
               "preview": "Christmas Branch.webp",
               "file": "pak68_dir.vpk",
+              "links": [
+                {
+                  "type": "source",
+                  "url": "https://dota2changer.com"
+                }
+              ],
               "meta": {
                 "date": 1788999662,
                 "commit-sha": "6b9948829e2092cbda45779f39c6e9124f536f19"
@@ -22929,6 +22977,12 @@
               "name": "Aegis Hearts",
               "preview": "Aegis Hearts.webp",
               "file": "pak34_dir.vpk",
+              "links": [
+                {
+                  "type": "source",
+                  "url": "https://dota2changer.com"
+                }
+              ],
               "meta": {
                 "date": 1756459282,
                 "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
