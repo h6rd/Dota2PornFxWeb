@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lina Sharm Lady",
+      "category": "heroes"
+    },
+    {
+      "name": "Huskar Bleeding Edge",
+      "category": "heroes"
+    },
+    {
+      "name": "Brewmaster Snowdrift Pirat",
+      "category": "heroes"
+    },
+    {
+      "name": "Chen Perils Of The Red Banks",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Ravenblight",
+      "category": "hero-items"
+    },
+    {
+      "name": "Anti-Mage Guilt Survivor",
+      "category": "heroes"
+    },
+    {
+      "name": "Naga Siren Growth Correction",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Terrorblade Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Storm Spirit Avice",
+      "category": "heroes"
+    },
+    {
+      "name": "Pedestal Shadow Fiend",
+      "category": "pedestal"
+    },
+    {
       "name": "Anti-Mage Persona Sakura",
       "category": "heroes"
     },
@@ -12524,6 +12564,139 @@
           "date": 1790709328,
           "commit-sha": "c4b50f745f2301852d6a8e4f17467298167a5a95"
         }
+      },
+      {
+        "name": "Storm Spirit Avice",
+        "preview": "Storm Spirit Avice.webp",
+        "file": "Storm Spirit Avice.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Fire",
+        "preview": "Terrorblade Fire.webp",
+        "file": "Terrorblade Fire.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Guilt Survivor",
+        "preview": "Anti-Mage Guilt Survivor.webp",
+        "file": "Anti-Mage Guilt Survivor.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Chen Perils Of The Red Banks",
+        "preview": "Chen Perils Of The Red Banks.webp",
+        "file": "Chen Perils Of The Red Banks.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Brewmaster Snowdrift Pirat",
+        "preview": "Brewmaster Snowdrift Pirat.webp",
+        "file": "Brewmaster Snowdrift Pirat.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Huskar Bleeding Edge",
+        "preview": "Huskar Bleeding Edge.webp",
+        "file": "Huskar Bleeding Edge.zip",
+        "tags": {
+          "effects": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Lina Sharm Lady",
+        "preview": "Lina Sharm Lady.webp",
+        "file": "Lina Sharm Lady.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "1995rnx"
+          },
+          {
+            "type": "source",
+            "url": "Dota 2 Skin Changer"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -15846,6 +16019,19 @@
                 "date": 1790424886,
                 "commit-sha": "36df0a932f296ad9b9f6bc253534aef620ea85ed"
               }
+            },
+            {
+              "name": "Phantom Lancer Ravenblight",
+              "preview": "Phantom Lancer Ravenblight.webp",
+              "file": "Phantom Lancer Ravenblight.zip",
+              "tags": {
+                "weapon": true,
+                "effects": true
+              },
+              "meta": {
+                "date": 1790809353,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -17612,6 +17798,21 @@
         "meta": {
           "date": 1790475709,
           "commit-sha": "15fa22a9cf227d570d6c2a03a3f9eb0beb65b532"
+        }
+      },
+      {
+        "name": "Pedestal Shadow Fiend",
+        "preview": "Pedestal Shadow Fiend.webp",
+        "file": "Pedestal Shadow Fiend.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
         }
       }
     ],
@@ -21904,6 +22105,25 @@
         "meta": {
           "date": 1790424886,
           "commit-sha": "36df0a932f296ad9b9f6bc253534aef620ea85ed"
+        }
+      },
+      {
+        "name": "Naga Siren Growth Correction",
+        "preview": "Naga Siren Growth Correction.webp",
+        "file": "Naga Siren Growth Correction.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/oNn2btt7GHw?si=QnPV5ZjfOfxSe4Q9"
+          }
+        ],
+        "meta": {
+          "date": 1790809353,
+          "commit-sha": ""
         }
       }
     ],
