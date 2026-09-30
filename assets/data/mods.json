@@ -12685,12 +12685,12 @@
         },
         "links": [
           {
-            "type": "author",
+            "type": "modded",
             "url": "1995rnx"
           },
           {
-            "type": "source",
-            "url": "Dota 2 Skin Changer"
+            "type": "author",
+            "url": "Defiree"
           }
         ],
         "meta": {
@@ -16028,6 +16028,12 @@
                 "weapon": true,
                 "effects": true
               },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
               "meta": {
                 "date": 1790809354,
                 "commit-sha": "f05eee91685f88f36f57e612f6e0b0ea86bc0d45"
