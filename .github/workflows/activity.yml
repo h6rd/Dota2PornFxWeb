@@ -1,0 +1,43 @@
+name: Update project activity
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: project-activity
+  cancel-in-progress: false
+
+jobs:
+  activity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main (history only)
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Generate activity.svg
+        run: python3 scripts/make_activity.py --out out/activity.svg
+
+      - name: Publish to activity branch
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: activity
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "chore: update project activity"

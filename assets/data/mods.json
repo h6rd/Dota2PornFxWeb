@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Techies Minimap-Hero Mine Icon",
+      "category": "other"
+    },
+    {
+      "name": "Grey Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Larger Timer",
+      "category": "parts"
+    },
+    {
+      "name": "Larger Minimap",
+      "category": "parts"
+    },
+    {
       "name": "Lina Sharm Lady",
       "category": "heroes"
     },
@@ -17936,6 +17952,43 @@
           "date": 1790528664,
           "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
         }
+      },
+      {
+        "name": "Larger Minimap",
+        "preview": "Larger Minimap.webp",
+        "file": "Larger Minimap.zip",
+        "guideId": "parts-info",
+        "guideType": "info",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ]
+      },
+      {
+        "name": "Larger Timer",
+        "preview": "Larger Timer.webp",
+        "file": "Larger Timer.zip",
+        "guideId": "parts-info",
+        "guideType": "info",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ]
+      },
+      {
+        "name": "Grey Search Bar",
+        "preview": "Grey Search Bar.webp",
+        "file": "Grey Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ]
       }
     ],
     "huds": [
@@ -18445,6 +18498,17 @@
           "date": 1790030268,
           "commit-sha": "c538a720e91c5b0ce1e3047761f36210fae25ed4"
         }
+      },
+      {
+        "name": "Techies Minimap-Hero Mine Icon",
+        "preview": "Techies Minimap-Hero Mine Icon.webp",
+        "file": "Techies Minimap-Hero Mine Icon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hanfukj"
+          }
+        ]
       }
     ],
     "river": [
@@ -22376,25 +22440,6 @@
         "meta": {
           "date": 1786250017,
           "commit-sha": "bf9422862ac0cc9ad90d28fed176155600881835"
-        }
-      },
-      {
-        "name": "ReZero Respawn Sound",
-        "preview": "ReZero Respawn Sound.webp",
-        "file": "ReZero Respawn Sound.zip",
-        "links": [
-          {
-            "type": "preview",
-            "url": "assets/previews/sounds/ReZero Respawn Sound.mp4"
-          },
-          {
-            "type": "author",
-            "url": "Миша Талант"
-          }
-        ],
-        "meta": {
-          "date": 1780653646,
-          "commit-sha": "5a62b35e27897660a515543f354dc5667e62ae5c"
         }
       },
       {

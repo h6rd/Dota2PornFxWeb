@@ -1,51 +1,63 @@
 name: Discord Webhook
 
 on:
-  workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
-    types:
-      - completed
+  workflow_call:
+    inputs:
+      base_sha:
+        description: "Commit to diff from (state before the push)"
+        type: string
+        required: true
+      head_sha:
+        description: "Commit that was pushed"
+        type: string
+        required: true
+
+permissions:
+  contents: read
 
 jobs:
   notify:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_commit.message, 'mods:')
+
     steps:
+      - name: Checkout pushed commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.head_sha }}
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
       - name: Pick GIF
         id: gif
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
         run: |
           GIFS=(
             "https://i.postimg.cc/B6vK2TkK/d2pfx-1.gif"
             "https://i.postimg.cc/cH58hKGt/d2pfx-2.gif"
             "https://i.postimg.cc/1tYNBg1n/d2pfx-3.gif"
           )
-          INDEX=$(( ${{ github.run_number }} % ${#GIFS[@]} ))
-          echo "url=${GIFS[$INDEX]}" >> $GITHUB_OUTPUT
+          INDEX=$(( RUN_NUMBER % ${#GIFS[@]} ))
+          echo "url=${GIFS[$INDEX]}" >> "$GITHUB_OUTPUT"
+
+      - name: Build message from changes
+        id: build
+        env:
+          BASE_SHA: ${{ inputs.base_sha }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          GIF_URL: ${{ steps.gif.outputs.url }}
+        run: python3 scripts/discord_changes.py --out discord_payload.json
 
       - name: Send discord notification
+        if: steps.build.outputs.has_changes == 'true'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          curl -H "Content-Type: application/json" \
-          -d '{
-            "content": null,
-            "embeds": [
-              {
-                "title": "Changes",
-                "description": "${{ github.event.workflow_run.head_commit.message }}\n\n[🌐 **Open Site**](https://h6rd.github.io/Dota2PornFxWeb/)",
-                "color": 8585067,
-                "image": {
-                  "url": "${{ steps.gif.outputs.url }}"
-                }
-              },
-              {
-                "title": "Website Mirrors",
-                "description": "If the main site is unavailable, you can use one of the mirrors below\n\n[**Netlify**](https://d2pfx.netlify.app/) ✦ [**Vercel**](https://d2pfx.vercel.app/) ✦ [**Onrender**](https://d2pfx.onrender.com/)",
-                "color": 10054655,
-                "footer": {
-                  "text": "⚠️ Due to high load, some mirrors may be unavailable"
-                }
-              }
-            ],
-            "username": "Github",
-            "avatar_url": "https://i.postimg.cc/zGJTFHyj/github.webp"
-          }' \
-          ${{ secrets.DISCORD_WEBHOOK_URL }}
+          curl -sS --fail \
+            -H "Content-Type: application/json" \
+            -d @discord_payload.json \
+            "$DISCORD_WEBHOOK_URL"

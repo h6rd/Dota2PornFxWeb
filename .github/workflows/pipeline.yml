@@ -164,3 +164,22 @@ jobs:
     uses: ./.github/workflows/deploy.yml
 
     secrets: inherit
+
+  notify:
+    name: Discord notification
+    needs:
+      - changes
+      - deploy
+
+    if: |
+      always() &&
+      github.event_name == 'push' &&
+      needs.changes.result == 'success' &&
+      needs.deploy.result == 'success'
+
+    uses: ./.github/workflows/discord.yml
+    with:
+      base_sha: ${{ needs.changes.outputs.base_sha }}
+      head_sha: ${{ needs.changes.outputs.head_sha }}
+
+    secrets: inherit

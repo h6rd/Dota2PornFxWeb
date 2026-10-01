@@ -867,6 +867,35 @@
       ]
     }
   },
+  "parts-info": {
+    "title": "Parts Info",
+    "content": {
+      "en": [
+        {
+          "title": "Display",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "This mod will not work with Huds"
+            }
+          ]
+        }
+      ],
+      "ru": [
+        {
+          "title": "Отображение",
+          "icon": "fullscreen_portrait",
+          "steps": [
+            {
+              "icon": "priority_high",
+              "text": "Этот мод не будет работать с Huds"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "set-info": {
     "title": "Set Info",
     "content": {

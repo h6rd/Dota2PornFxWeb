@@ -1,18 +1,45 @@
 <div align="center">
   <img src="assets/banner-git.png" alt="Dota2PornFx Banner" width="100%">
-  
+
   <h1>The largest FREE collection of Dota 2 customization mods</h1>
 
-[![Website](https://custom-icon-badges.demolab.com/badge/Website-404040?style=for-the-badge&logo=globe&logoColor=white)](https://h6rd.github.io/Dota2PornFxWeb)
-&nbsp;
-[![Wiki](https://img.shields.io/badge/Wiki-404040?style=for-the-badge&logo=bookstack&logoColor=white)](https://d2pfxwiki.pages.dev/)
-&nbsp;
-[![Mirrors](https://img.shields.io/badge/Mirrors_Status-404040?style=for-the-badge&logo=github&logoColor=white)](https://github.com/h6rd/Dota2PornFxStatus#live-status)
-&nbsp;
-[![Telegram](https://img.shields.io/badge/Telegram-2d87ad?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dota2pornfx)
-&nbsp;
-[![Discord](https://img.shields.io/badge/Discord-5e78d5?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/PBvG8D9MxT)
+  <p>
+    <a href="https://h6rd.github.io/Dota2PornFxWeb">
+      <img height="28" alt="Website" src="https://img.shields.io/badge/Website-Open-9d4edd?style=flat&logo=googlechrome&logoColor=white">
+    </a>
+    <a href="https://d2pfxwiki.pages.dev/">
+      <img height="28" alt="Wiki" src="https://img.shields.io/badge/Wiki-Open-9d4edd?style=flat&logo=bookstack&logoColor=white">
+    </a>
+    <a href="https://github.com/h6rd/Dota2PornFxStatus#live-status">
+      <img height="28" alt="Mirrors status" src="https://img.shields.io/badge/Mirrors-Status-4edd53?style=flat&logo=github&logoColor=white">
+    </a>
+    <a href="https://t.me/dota2pornfx">
+      <img height="28" alt="Telegram" src="https://img.shields.io/badge/Telegram-Join-26A5E4?style=flat&logo=telegram&logoColor=white">
+    </a>
+    <a href="https://discord.com/invite/PBvG8D9MxT">
+      <img height="28" alt="Join the Dota2PornFx Discord server" src="https://img.shields.io/badge/Discord-Join-5865f2?style=flat&logo=discord&logoColor=white">
+    </a>
+  </p>
 
+  <p>
+    <a href="https://discord.com/invite/PBvG8D9MxT">
+      <img alt="Dota2PornFx Discord server: total community size" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Fv10%2Finvites%2FPBvG8D9MxT%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&label=Community&suffix=%20members&style=flat&labelColor=211f26&color=5865f2&logo=discord&logoColor=white">
+    </a>
+    <a href="https://github.com/h6rd/Dota2PornFxWeb/commits">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/h6rd/Dota2PornFxWeb?style=flat&labelColor=211f26&color=6d369a">
+    </a>
+    <a href="LICENSE">
+      <img alt="License: GPL-3.0" src="https://img.shields.io/github/license/h6rd/Dota2PornFxWeb?style=flat&labelColor=211f26&color=ffab91">
+    </a>
+  </p>
+  <p>
+    <a href="#features">Features</a> &nbsp;·&nbsp;
+    <a href="#screenshots">Screenshots</a> &nbsp;·&nbsp;
+    <a href="#project-activity">Activity</a> &nbsp;·&nbsp;
+    <a href="https://d2pfxwiki.pages.dev/en/install.html">Installation</a> &nbsp;·&nbsp;
+    <a href="#credits">Credits</a> &nbsp;·&nbsp;
+    <a href="#attribution--reuse">Attribution</a>
+  </p>
 </div>
 
 ## What is Dota2PornFx?
@@ -29,6 +56,30 @@
 | 🔄 **Regular updates** | New content and community contributions added frequently |
 | 🛠️ **Tools** | VPK extraction, merging, and compilation utilities |
 
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="33%"><img src=".github/screenshots/home.png" alt="Dota2PornFx website: main page"></td>
+    <td width="33%"><img src=".github/screenshots/heroes.png" alt="Dota2PornFx website: heroes category"></td>
+    <td width="33%"><img src=".github/screenshots/cart.png" alt="Dota2PornFx website: cart"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Main page</b></td>
+    <td align="center"><b>Heroes</b></td>
+    <td align="center"><b>Cart</b></td>
+  </tr>
+</table>
+
+---
+
+## Project activity
+ 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/activity/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
+</p>
 ---
 
 ## [**Installation Guide**](https://d2pfxwiki.pages.dev/en/install.html) / [**Troubleshooting**](https://d2pfxwiki.pages.dev/en/troubleshoot.html)
@@ -57,7 +108,7 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 
 <br>
 
-[Egezenn](https://github.com/Egezenn) · [Robbyz](https://github.com/robbyz512) · [Darkness](https://t.me/Darkness_Logovo) · [Defiree](https://vk.com/defiree2mods) · [Kisilev](https://vk.com/id363951132) · [Amir4an](https://vk.com/amir4an) · [Skratch](https://www.youtube.com/@skratch) · [Lenz](https://www.youtube.com/@Lenz13377) · [Kliromin](https://www.youtube.com/@mrkliromin7723) · [Pinkpapa](https://www.patreon.com/Pinkpapa) · [laskotdota](https://t.me/laskotdota) · [NahuiToSay](https://t.me/NahuiToSay) · [lebensinhalt](https://t.me/turnoffyourlebensinhalt) · [Kynomi](https://vk.com/kynomi) · [Pinkie](https://steamcommunity.com/profiles/76561198142595363) · [VPKDota](https://t.me/vpkdota) · [ya_lyosha](https://www.twitch.tv/ya_lyosha) · [SanyaBane](https://steamcommunity.com/profiles/76561198072955043) · [Haruma](https://t.me/DotA_2_Mods) · kebabmaker · [YMOM77](https://t.me/mod_dota) · [Slipersone](https://t.me/slipersone) · [Timmyone](https://t.me/timmyone) · [HiddenPool](https://t.me/hiddenpoolcm) · [BackSpace](https://t.me/BackSpaceHub) · [zzzebra](https://vk.com/zzzfans) · [arti4e](https://t.me/d2modsreborn) · [Hooorde](https://steamcommunity.com/profiles/76561199405322406) · [HyrX](https://steamcommunity.com/profiles/76561198016243370) · [Sarath](https://steamcommunity.com/profiles/76561198127797541) · [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw) · [Shiro_R](https://t.me/shiro_rez) · [apathydxd](https://discord.com/users/538760177470668810) · [Dota2VPK](https://t.me/dota2freevpk) · [yoshimura](https://sites.google.com/view/yosh1mur2) · dabaqz · [Миша Талант](https://t.me/madberserker) · [Fr0dech](https://t.me/fr0dech_vpk) · DARK BLADE · [SkippingHades](https://www.youtube.com/@skippinghadesofficialmc) · [buba43](https://steamcommunity.com/profiles/76561199220865017) · [CeoMods](https://t.me/modsceo) · [Ромчик](https://watchmy.bio/shidehara) · [Mopsyara](https://t.me/+AM_aLD0x2TcwY2My) · [Vpotokwe](https://steamcommunity.com/sharedfiles/filedetails/?id=3766199700) · [Senop](https://t.me/senopD2) · [Arthas](https://t.me/ArthasModMaker) · [DotaMiniProfile](https://t.me/DotaMiniProfile) · [Fleece](https://github.com/TheFleece) · [qizlik](https://t.me/qizlikmod) · [ПАПАНЯ НА ШАМАНЕ](https://steamcommunity.com/profiles/76561199483735695/) · [SuperStas0](https://t.me/SuperStas0) · [Tenkay](https://t.me/dota2Tenkay) · [Aven](https://t.me/Aven1337) · [lansory](https://discord.com/users/1108248721768071210) · [333](https://t.me/cousf) · [depex](https://t.me/depexfx) · [cutyourhand](https://discord.com/users/835877516303925298) · [CiDDi](https://steamcommunity.com/profiles/76561198087399221) · [3atvorn1k](https://discord.com/users/642254136053596200) · [keeper](https://t.me/eternalsadism) · [spectr](https://discord.com/users/1531254146559250438) · hatsu · [hanfukj](https://t.me/hanfukj) · [Niski25](https://github.com/cus-nyam) · [lssqqqq](https://t.me/lssqqqq) · [hltw](https://discord.com/users/1012077862355996722) · [zitock](https://steamcommunity.com/profiles/76561198790474721/) · [wannakissyou](https://t.me/Ilya0sipov) · [александр](https://t.me/+VY-_XaaDg00wYmI6) · [YuyaKizami](https://t.me/YuyaKizami) · Morecursed · [ibcsz](http://t.me/nixwaretop) · Новомодный  · [J0nathan550](https://github.com/J0nathan550) · [мс яйцо](https://steamcommunity.com/id/mcegg/) · [rasstegai](https://steamcommunity.com/id/rasstegai/) · [твавт](https://steamcommunity.com/id/myasu0/) · [XIIIpsiblade](https://t.me/XIIIpsiblade) · [illidan](https://t.me/illidan888) · [shears001](https://discord.com/users/1204344805748903948) · [Harlord](https://t.me/harlord_mods) · [драг](https://t.me/dragvpk) · [Gibus](https://steamcommunity.com/id/nqkln/)
+[Egezenn](https://github.com/Egezenn) · [Robbyz](https://github.com/robbyz512) · [Darkness](https://t.me/Darkness_Logovo) · [Defiree](https://vk.com/defiree2mods) · [Kisilev](https://vk.com/id363951132) · [Amir4an](https://vk.com/amir4an) · [Skratch](https://www.youtube.com/@skratch) · [Lenz](https://www.youtube.com/@Lenz13377) · [Kliromin](https://www.youtube.com/@mrkliromin7723) · [Pinkpapa](https://www.patreon.com/Pinkpapa) · [laskotdota](https://t.me/laskotdota) · [NahuiToSay](https://t.me/NahuiToSay) · [lebensinhalt](https://t.me/turnoffyourlebensinhalt) · [Kynomi](https://vk.com/kynomi) · [Pinkie](https://steamcommunity.com/profiles/76561198142595363) · [VPKDota](https://t.me/vpkdota) · [ya_lyosha](https://www.twitch.tv/ya_lyosha) · [SanyaBane](https://steamcommunity.com/profiles/76561198072955043) · [Haruma](https://t.me/DotA_2_Mods) · kebabmaker · [YMOM77](https://t.me/mod_dota) · [Slipersone](https://t.me/slipersone) · [Timmyone](https://t.me/timmyone) · [HiddenPool](https://t.me/hiddenpoolcm) · [BackSpace](https://t.me/BackSpaceHub) · [zzzebra](https://vk.com/zzzfans) · [arti4e](https://t.me/d2modsreborn) · [Hooorde](https://steamcommunity.com/profiles/76561199405322406) · [HyrX](https://steamcommunity.com/profiles/76561198016243370) · [Sarath](https://steamcommunity.com/profiles/76561198127797541) · [Naix](https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw) · [Shiro_R](https://t.me/shiro_rez) · [apathydxd](https://discord.com/users/538760177470668810) · [Dota2VPK](https://t.me/dota2freevpk) · [yoshimura](https://sites.google.com/view/yosh1mur2) · dabaqz · [Миша Талант](https://t.me/madberserker) · [Fr0dech](https://t.me/fr0dech_vpk) · DARK BLADE · [SkippingHades](https://www.youtube.com/@skippinghadesofficialmc) · [buba43](https://steamcommunity.com/profiles/76561199220865017) · [CeoMods](https://t.me/modsceo) · [Ромчик](https://watchmy.bio/shidehara) · [Mopsyara](https://t.me/+AM_aLD0x2TcwY2My) · [Vpotokwe](https://steamcommunity.com/sharedfiles/filedetails/?id=3766199700) · [Senop](https://t.me/senopD2) · [Arthas](https://t.me/ArthasModMaker) · [DotaMiniProfile](https://t.me/DotaMiniProfile) · [Fleece](https://github.com/TheFleece) · [qizlik](https://t.me/qizlikmod) · [ПАПАНЯ НА ШАМАНЕ](https://steamcommunity.com/profiles/76561199483735695/) · [SuperStas0](https://t.me/SuperStas0) · [Tenkay](https://t.me/dota2Tenkay) · [Aven](https://t.me/Aven1337) · [lansory](https://discord.com/users/1108248721768071210) · [333](https://t.me/cousf) · [depex](https://t.me/depexfx) · [cutyourhand](https://discord.com/users/835877516303925298) · [CiDDi](https://steamcommunity.com/profiles/76561198087399221) · [3atvorn1k](https://discord.com/users/642254136053596200) · [keeper](https://t.me/eternalsadism) · [spectr](https://discord.com/users/1531254146559250438) · hatsu · [hanfukj](https://t.me/hanfukj) · [Niski25](https://github.com/cus-nyam) · [lssqqqq](https://t.me/lssqqqq) · [hltw](https://discord.com/users/1012077862355996722) · [zitock](https://steamcommunity.com/profiles/76561198790474721/) · [wannakissyou](https://t.me/Ilya0sipov) · [александр](https://t.me/+VY-_XaaDg00wYmI6) · [YuyaKizami](https://t.me/YuyaKizami) · Morecursed · [ibcsz](http://t.me/nixwaretop) · Новомодный  · [J0nathan550](https://github.com/J0nathan550) · [мс яйцо](https://steamcommunity.com/id/mcegg/) · [rasstegai](https://steamcommunity.com/id/rasstegai/) · [твавт](https://steamcommunity.com/id/myasu0/) · [XIIIpsiblade](https://t.me/XIIIpsiblade) · [illidan](https://t.me/illidan888) · [shears001](https://discord.com/users/1204344805748903948) · [Harlord](https://t.me/harlord_mods) · [драг](https://t.me/dragvpk) · [Gibus](https://steamcommunity.com/id/nqkln/) · [cursedseizures](https://t.me/drainAngel) · [1995rnx](https://t.me/rnx1995rnx) · [YZT](https://t.me/YZTdota)
 
 </details>
 
@@ -112,7 +163,7 @@ This repository is distributed under [GPL-3.0](LICENSE). If you reuse, mirror, o
 Ready-to-copy text:
 
 ```
-Mods from Dota2PornFx (https://h6rd.github.io/Dota2PornFxWeb), repository: https://github.com/h6rd/Dota2PornFxWeb.
+Mods from [Dota2PornFx](https://h6rd.github.io/Dota2PornFxWeb), repository: https://github.com/h6rd/Dota2PornFxWeb.
 Original mod authors: https://github.com/h6rd/Dota2PornFxWeb#credits
 ```
 
@@ -126,9 +177,7 @@ Original mod authors: https://github.com/h6rd/Dota2PornFxWeb#credits
 
 ### Third-party and Valve content
 
-This collection contains mods made by other community authors (credited above) and files that belong to **Valve Corporation**. Rights to those works remain with their respective owners. This repository's license applies only to what the maintainer has the right to license and does not grant rights to third-party or Valve material.
-
-If you are an author or rights holder and want your work credited differently or removed, please contact me via Telegram or Discord and I will handle it promptly.
+This collection contains mods made by other community authors (credited above) and files that belong to **Valve**. Rights to those works remain with their respective owners. This repository's license applies only to what the maintainer has the right to license and does not grant rights to third-party or Valve material.
 
 ---
 
@@ -138,4 +187,4 @@ Modifying game files is done **entirely at your own risk**. In the event of a ba
 
 ## License
 
-Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#-attribution--reuse) above and the rights of third parties and Valve.
+Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#attribution--reuse) above and the rights of third parties and Valve.
