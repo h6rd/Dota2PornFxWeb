@@ -105,8 +105,12 @@ const winterSnow = (() => {
     function resize() {
         if (!canvas) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
+        const w = Math.floor(window.innerWidth * dpr);
+        const h = Math.floor(window.innerHeight * dpr);
+        if (canvas.width !== w || canvas.height !== h) {
+            canvas.width = w;
+            canvas.height = h;
+        }
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
@@ -155,6 +159,13 @@ const winterSnow = (() => {
         }
     }
 
+    function prepare() {
+        canvas = document.getElementById('winterSnowCanvas');
+        if (!canvas) return;
+        ctx = canvas.getContext('2d');
+        resize();
+    }
+
     function start(count) {
         canvas = document.getElementById('winterSnowCanvas');
         if (!canvas) return;
@@ -185,93 +196,64 @@ const winterSnow = (() => {
         color = currentColor();
     }
 
-    return { start, stop, refreshColor };
+    return { start, stop, refreshColor, prepare };
 })();
 
-function playWinterAvalanche(durationMs, onDone) {
+function playWinterAvalanche(durationMs, onDone, onPrewarm) {
     const overlay = document.getElementById('winterIntroOverlay');
-    const canvas = document.getElementById('winterIntroCanvas');
-    if (!overlay || !canvas) { onDone(); return; }
+    if (!overlay) { onDone(); return; }
 
-    overlay.classList.add('winter-intro-active');
     const simple = prefersReducedMotion();
-    if (simple) overlay.classList.add('winter-intro-simple');
-
-    const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let rafId = null;
-    let running = true;
-
-    function resize() {
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const flakeColor = isLight ? '0,0,0' : '255,255,255';
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-    const flakeCount = simple ? 70 : 260;
+    const count = simple ? 70 : 260;
     const speedBase = simple ? 1.5 : 4;
     const speedRange = simple ? 1.5 : 6;
-    const washAmplitude = simple ? 0.12 : 0.62;
 
-    const flakes = Array.from({ length: flakeCount }, () => ({
-        x: Math.random() * window.innerWidth,
-        y: -Math.random() * window.innerHeight,
-        r: 2 + Math.random() * 4,
-        speedY: speedBase + Math.random() * speedRange,
-        speedX: simple ? 0 : (Math.random() - 0.5) * 2,
-        opacity: 0.5 + Math.random() * 0.5,
-    }));
-
-    const start = performance.now();
-
-    function tick(now) {
-        if (!running) return;
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        const elapsed = now - start;
-
-        ctx.clearRect(0, 0, w, h);
-
-        if (washAmplitude > 0) {
-            const progress = Math.min(elapsed / durationMs, 1);
-            const wash = Math.sin(progress * Math.PI) * washAmplitude;
-            ctx.fillStyle = `rgba(255,255,255,${wash})`;
-            ctx.fillRect(0, 0, w, h);
-        }
-
-        flakes.forEach((f) => {
-            f.y += f.speedY;
-            f.x += f.speedX;
-            if (f.y > h + 10) {
-                f.y = -10;
-                f.x = Math.random() * w;
-            }
-            if (f.x > w + 10) f.x = -10;
-            if (f.x < -10) f.x = w + 10;
-            ctx.beginPath();
-            ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${flakeColor}, ${f.opacity})`;
-            ctx.fill();
-        });
-
-        if (elapsed < durationMs) {
-            rafId = requestAnimationFrame(tick);
-        } else {
-            running = false;
-            window.removeEventListener('resize', resize);
-            overlay.classList.add('winter-intro-fade');
-            overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
-            setTimeout(() => overlay.remove(), 1200);
-            onDone();
-        }
+    let flakes = '';
+    for (let i = 0; i < count; i++) {
+        const r = 2 + Math.random() * 4;
+        const speed = (speedBase + Math.random() * speedRange) * 60;
+        const dur = (h + 40) / speed;
+        const del = Math.random() * h / speed;
+        const dx = simple ? 0 : (Math.random() - 0.5) * 2 * 60 * dur;
+        flakes += `<i class="winter-flake" style="--s:${(r * 2).toFixed(1)}px;--o:${(0.5 + Math.random() * 0.5).toFixed(2)};` +
+            `--x:${(Math.random() * w - r).toFixed(0)}px;--dx:${dx.toFixed(0)}px;--dur:${dur.toFixed(2)}s;--del:${del.toFixed(2)}s"></i>`;
     }
 
-    rafId = requestAnimationFrame(tick);
+    const old = overlay.querySelector('.winter-snowfall');
+    if (old) old.remove();
+    overlay.insertAdjacentHTML('afterbegin',
+        `<div class="winter-wash"></div><div class="winter-snowfall" style="--h:${h}px">${flakes}</div>`);
+    const snowfall = overlay.querySelector('.winter-snowfall');
+    snowfall.addEventListener('animationstart', (e) => e.stopPropagation());
+
+    overlay.style.setProperty('--intro-dur', durationMs + 'ms');
+    overlay.style.setProperty('--flake', isLight ? '0,0,0' : '255,255,255');
+    if (simple) overlay.classList.add('winter-intro-simple');
+    overlay.classList.add('winter-intro-active');
+
+    let revealed = false;
+    let removed = false;
+    const reveal = () => {
+        if (revealed) return;
+        revealed = true;
+        if (overlay.isConnected) onDone();
+    };
+    const cleanup = () => {
+        if (removed) return;
+        removed = true;
+        overlay.remove();
+    };
+
+    overlay.addEventListener('animationstart', (e) => { if (e.animationName === 'winter-intro-out') reveal(); });
+    overlay.addEventListener('animationend', (e) => { if (e.animationName === 'winter-intro-out') cleanup(); });
+    setTimeout(reveal, durationMs + 400);       // fallbacks in case animation events never arrive
+    setTimeout(cleanup, durationMs + 1600);
+
+    if (onPrewarm) setTimeout(() => { if (overlay.isConnected) onPrewarm(); }, durationMs * 0.6);
 }
 
 let winterDecorOn = false;
@@ -335,18 +317,24 @@ function setupWinterEvent() {
     }
 
     playWinterAvalanche(2500, () => {
+        html.classList.remove('winter-prewarm');
         if (!eventThemesEnabled()) return;
         html.classList.add('winter-revealed', 'winter-revealing');
         startWinterDecor();
         try { localStorage.setItem('winterAvalancheSeason', seasonId); } catch (e) { }
         setTimeout(() => html.classList.remove('winter-revealing'), 2800);
+    }, () => {
+        if (!eventThemesEnabled()) return;
+        html.classList.add('winter-prewarm');
+        buildWinterGarland();
+        winterSnow.prepare();
     });
 }
 
 function setWinterEnabled(on) {
     const html = document.documentElement;
     if (!on) {
-        html.classList.remove('winter-active', 'winter-revealed', 'winter-revealing', 'winter-outro');
+        html.classList.remove('winter-active', 'winter-revealed', 'winter-revealing', 'winter-outro', 'winter-prewarm');
         stopWinterDecor();
         const overlay = document.getElementById('winterIntroOverlay');
         if (overlay) overlay.remove();
@@ -422,32 +410,53 @@ seasonalHooks.push(setWinterEnabled);
 
     //embers
     const embers = (() => {
-        let cv, ctx, ps = [], raf = 0, on = false, W = 0, H = 0, pal = [];
+        let cv, ctx, ps = [], raf = 0, on = false, W = 0, H = 0, sprites = [], resizeT = 0;
         const colors = () => isLight()
             ? ['214,92,0', '176,50,20', '120,56,190']
             : ['255,146,48', '255,200,110', '186,128,255'];
-        const mk = init => ({
-            x: Math.random() * W, y: init ? Math.random() * H : H + 12,
-            r: rand(.9, 3), vy: rand(.25, 1), ph: Math.random() * 6.28,
-            sw: rand(.25, .8), a: rand(.4, .9), c: (Math.random() * 3) | 0,
-        });
+        const BUCKETS = [6, 10, 14, 19];
+        let sprDpr = 1;
+        function makeSprites() {
+            sprites = colors().map(c => BUCKETS.map(diam => {
+                const px = Math.ceil(diam * sprDpr), m = px / 2;
+                const s = document.createElement('canvas');
+                s.width = s.height = px;
+                const g = s.getContext('2d');
+                g.fillStyle = `rgba(${c},.16)`; g.beginPath(); g.arc(m, m, m, 0, 6.283); g.fill();
+                g.fillStyle = `rgba(${c},1)`; g.beginPath(); g.arc(m, m, m / 3.2, 0, 6.283); g.fill();
+                return s;
+            }));
+        }
+        const mk = init => {
+            const r = rand(.9, 3), sz = r * 6.4;
+            let b = 0;
+            BUCKETS.forEach((d, i) => { if (Math.abs(d - sz) < Math.abs(BUCKETS[b] - sz)) b = i; });
+            return {
+                x: Math.random() * W, y: init ? Math.random() * H : H + 12,
+                r, sz, b, vy: rand(.25, 1), ph: Math.random() * 6.28,
+                sw: rand(.25, .8), a: rand(.4, .9), c: (Math.random() * 3) | 0,
+            };
+        };
         function size() {
             const d = Math.min(window.devicePixelRatio || 1, 2);
             W = innerWidth; H = innerHeight;
             cv.width = W * d; cv.height = H * d;
             ctx.setTransform(d, 0, 0, d, 0, 0);
+            if (d !== sprDpr) { sprDpr = d; if (sprites.length) makeSprites(); }
         }
+        const onResize = () => { clearTimeout(resizeT); resizeT = setTimeout(() => { if (cv) size(); }, 120); };
         function tick() {
             if (!on) return;
             ctx.clearRect(0, 0, W, H);
             for (const p of ps) {
                 p.ph += .03; p.y -= p.vy; p.x += Math.sin(p.ph) * p.sw;
                 if (p.y < -12) Object.assign(p, mk(false));
-                const a = Math.max(0, p.a * (.65 + .35 * Math.sin(p.ph * 2.6)) * Math.min(1, p.y / (H * .2)));
-                const c = pal[p.c];
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.2, 0, 6.283); ctx.fillStyle = `rgba(${c},${a * .16})`; ctx.fill();
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fillStyle = `rgba(${c},${a})`; ctx.fill();
+                const a = p.a * (.65 + .35 * Math.sin(p.ph * 2.6)) * Math.min(1, p.y / (H * .2));
+                if (a < .004) continue;
+                ctx.globalAlpha = a;
+                ctx.drawImage(sprites[p.c][p.b], p.x - p.sz / 2, p.y - p.sz / 2, p.sz, p.sz);
             }
+            ctx.globalAlpha = 1;
             raf = requestAnimationFrame(tick);
         }
         function vis() {
@@ -456,19 +465,19 @@ seasonalHooks.push(setWinterEnabled);
         }
         return {
             start(canvas) {
-                cv = canvas; ctx = cv.getContext('2d'); pal = colors(); size();
+                cv = canvas; ctx = cv.getContext('2d'); size(); makeSprites();
                 ps = Array.from({ length: reduced() ? 14 : 55 }, () => mk(true));
                 on = true; tick();
-                addEventListener('resize', size);
+                addEventListener('resize', onResize);
                 document.addEventListener('visibilitychange', vis);
             },
             stop() {
-                on = false; cancelAnimationFrame(raf);
-                removeEventListener('resize', size);
+                on = false; cancelAnimationFrame(raf); clearTimeout(resizeT);
+                removeEventListener('resize', onResize);
                 document.removeEventListener('visibilitychange', vis);
                 cv = null;
             },
-            refresh() { pal = colors(); },
+            refresh() { if (cv) makeSprites(); },
         };
     })();
 
@@ -532,18 +541,24 @@ seasonalHooks.push(setWinterEnabled);
         burst(layer, 12, r.left + r.width / 2, r.top + r.height / 2, false);
     };
 
+    let hatX = NaN, hatY = NaN;
     function placeHat() {
         hatRaf = 0;
         if (!hatEl || !santaEl) return;
         const r = santaEl.getBoundingClientRect();
         hatEl.style.visibility = r.width ? 'visible' : 'hidden';
-        hatEl.style.left = r.left + 'px';
-        hatEl.style.top = r.top + 'px';
+        if (r.left !== hatX || r.top !== hatY) {
+            hatX = r.left; hatY = r.top;
+            hatEl.style.left = r.left + 'px';
+            hatEl.style.top = r.top + 'px';
+        }
     }
     const schedulePlaceHat = () => { if (!hatRaf) hatRaf = requestAnimationFrame(placeHat); };
 
     function start() {
         if (layer) return;
+        hatX = hatY = NaN;
+        const web = webSvg();
         layer = document.createElement('div');
         layer.className = 'hw-layer';
         layer.id = 'hwLayer';
@@ -551,7 +566,7 @@ seasonalHooks.push(setWinterEnabled);
         layer.innerHTML =
             '<div class="hw-glow"></div><div class="hw-moon"></div><canvas class="hw-embers"></canvas>' +
             '<div class="hw-fog"><i></i><i></i></div>' +
-            `<div class="hw-web hw-web--l">${webSvg()}</div><div class="hw-web hw-web--r">${webSvg()}</div>` +
+            `<div class="hw-web hw-web--l">${web}</div><div class="hw-web hw-web--r">${web}</div>` +
             `<div class="hw-spider hw-spider--a">${SPIDER}</div><div class="hw-spider hw-spider--b">${SPIDER}</div>` +
             '<ul class="hw-garland"></ul>' + HAT;
         document.body.prepend(layer);
@@ -561,8 +576,7 @@ seasonalHooks.push(setWinterEnabled);
         santaEl = document.querySelector('.santa-container');
         placeHat();
         addEventListener('resize', schedulePlaceHat);
-        addEventListener('scroll', schedulePlaceHat, { passive: true });
-        if (window.ResizeObserver && santaEl) { hatRO = new ResizeObserver(schedulePlaceHat); hatRO.observe(santaEl); }
+        if (window.ResizeObserver && santaEl) { hatRO = new ResizeObserver(schedulePlaceHat); hatRO.observe(santaEl); const hdr = santaEl.closest('.header'); if (hdr) hatRO.observe(hdr); }
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedulePlaceHat);
 
         buildGarland();
@@ -581,7 +595,6 @@ seasonalHooks.push(setWinterEnabled);
         themeObs.disconnect();
         if (logoEl) logoEl.removeEventListener('click', onLogoClick);
         removeEventListener('resize', schedulePlaceHat);
-        removeEventListener('scroll', schedulePlaceHat);
         if (hatRO) { hatRO.disconnect(); hatRO = null; }
         cancelAnimationFrame(hatRaf); hatRaf = 0; hatEl = null; santaEl = null;
         if (layer) layer.remove();
@@ -594,10 +607,11 @@ seasonalHooks.push(setWinterEnabled);
         const o = document.createElement('div');
         o.className = 'hw-intro' + (simple ? ' hw-intro--simple' : '');
         o.setAttribute('aria-hidden', 'true');
-        o.innerHTML = '<div class="hw-flash"></div>';
+        o.innerHTML = '<div class="hw-intro-blur"></div><div class="hw-intro-fx"><div class="hw-flash"></div></div>';
         document.body.appendChild(o);
-        if (!simple) burst(o, 54, innerWidth / 2, innerHeight + 30, true);
-        setTimeout(onReveal, simple ? 1000 : 2300);
+        if (!simple) burst(o.querySelector('.hw-intro-fx'), 54, innerWidth / 2, innerHeight + 30, true);
+        setTimeout(onReveal, simple ? 1000 : 1500);
+        setTimeout(() => { const b = o.querySelector('.hw-intro-blur'); if (b) b.remove(); }, simple ? 2100 : 3100);
         setTimeout(() => o.remove(), simple ? 2300 : 3400);
     }
 

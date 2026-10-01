@@ -11,6 +11,12 @@ html.winter-outro .winter-snow-canvas {
     display: block;
 }
 
+html.winter-prewarm .lightrope,
+html.winter-prewarm .winter-snow-canvas {
+    display: block;
+    opacity: 0;
+}
+
 html.winter-revealing .lightrope {
     animation: winter-reveal-garland 2.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -38,12 +44,10 @@ html.winter-revealing .winter-snow-canvas {
 @keyframes winter-reveal-snow {
     0% {
         opacity: 0;
-        filter: blur(8px);
     }
 
     100% {
         opacity: 1;
-        filter: blur(0);
     }
 }
 
@@ -218,28 +222,108 @@ html.winter-outro .winter-snow-canvas {
     opacity: 1;
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
-    transition: opacity 1s ease, backdrop-filter 1s ease, -webkit-backdrop-filter 1s ease;
+    --wash: 0.62;
+    --flake: 255, 255, 255;
 }
 
 .winter-intro-overlay.winter-intro-active {
     display: block;
+    animation: winter-intro-out 1s ease var(--intro-dur, 2.5s) both;
 }
 
 .winter-intro-overlay.winter-intro-simple {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-}
-
-.winter-intro-overlay.winter-intro-fade {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
+    --wash: 0.12;
 }
 
 .winter-intro-overlay canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
+    display: none;
+}
+
+@keyframes winter-intro-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.winter-wash {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    animation: winter-wash var(--intro-dur, 2.5s) linear both;
+}
+
+@keyframes winter-wash {
+    0% {
+        opacity: 0;
+    }
+
+    12.5% {
+        opacity: calc(var(--wash) * 0.383);
+    }
+
+    25% {
+        opacity: calc(var(--wash) * 0.707);
+    }
+
+    37.5% {
+        opacity: calc(var(--wash) * 0.924);
+    }
+
+    50% {
+        opacity: var(--wash);
+    }
+
+    62.5% {
+        opacity: calc(var(--wash) * 0.924);
+    }
+
+    75% {
+        opacity: calc(var(--wash) * 0.707);
+    }
+
+    87.5% {
+        opacity: calc(var(--wash) * 0.383);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.winter-snowfall {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    contain: layout paint style;
+}
+
+.winter-flake {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--s);
+    height: var(--s);
+    border-radius: 50%;
+    background: rgb(var(--flake));
+    opacity: var(--o);
+    animation: winter-fall var(--dur) linear var(--del) infinite backwards;
+}
+
+@keyframes winter-fall {
+    from {
+        transform: translate3d(var(--x), -20px, 0);
+    }
+
+    to {
+        transform: translate3d(calc(var(--x) + var(--dx)), calc(var(--h) + 20px), 0);
+    }
 }
 
 @keyframes winter-light-glow-soft {
@@ -349,7 +433,7 @@ html.winter-revealing .santa-hat-svg {
     display: contents;
 }
 
-.hw-layer * {
+.hw-layer>* {
     pointer-events: none;
 }
 
@@ -747,12 +831,27 @@ html[data-theme="light"] .hw-bat {
     z-index: 10600;
     overflow: hidden;
     pointer-events: none;
+}
+
+.hw-intro-blur {
+    position: absolute;
+    inset: 0;
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
+    animation: hw-blur-life 3s ease both;
+}
+
+.hw-intro-fx {
+    position: absolute;
+    inset: 0;
     animation: hw-intro-life 3.3s ease both;
 }
 
-.hw-intro--simple {
+.hw-intro--simple .hw-intro-blur {
+    animation-duration: 2s;
+}
+
+.hw-intro--simple .hw-intro-fx {
     animation-duration: 2.2s;
 }
 
@@ -770,6 +869,21 @@ html[data-theme="light"] .hw-bat {
     }
 
     76% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes hw-blur-life {
+    0% {
+        opacity: 0;
+    }
+
+    8%,
+    70% {
         opacity: 1;
     }
 
