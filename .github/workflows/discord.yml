@@ -35,14 +35,14 @@ jobs:
         id: gif
         env:
           RUN_NUMBER: ${{ github.run_number }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ inputs.head_sha }}
         run: |
-          GIFS=(
-            "https://i.postimg.cc/B6vK2TkK/d2pfx-1.gif"
-            "https://i.postimg.cc/cH58hKGt/d2pfx-2.gif"
-            "https://i.postimg.cc/1tYNBg1n/d2pfx-3.gif"
-          )
+          BASE="https://raw.githubusercontent.com/$REPO/$SHA/.github/discord"
+          GIFS=("d2pfx-1.gif" "d2pfx-2.gif" "d2pfx-3.gif")
           INDEX=$(( RUN_NUMBER % ${#GIFS[@]} ))
-          echo "url=${GIFS[$INDEX]}" >> "$GITHUB_OUTPUT"
+          echo "url=$BASE/${GIFS[$INDEX]}" >> "$GITHUB_OUTPUT"
+          echo "avatar=$BASE/github.webp" >> "$GITHUB_OUTPUT"
 
       - name: Build message from changes
         id: build
@@ -50,6 +50,7 @@ jobs:
           BASE_SHA: ${{ inputs.base_sha }}
           HEAD_SHA: ${{ inputs.head_sha }}
           GIF_URL: ${{ steps.gif.outputs.url }}
+          AVATAR_URL: ${{ steps.gif.outputs.avatar }}
         run: python3 scripts/discord_changes.py --out discord_payload.json
 
       - name: Send discord notification

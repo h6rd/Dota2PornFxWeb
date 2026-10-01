@@ -877,7 +877,7 @@
           "steps": [
             {
               "icon": "priority_high",
-              "text": "This mod will not work with Huds"
+              "text": "For this mod to work with HUDs, it must be loaded before the HUD mod (it may not work reliably)."
             }
           ]
         }
@@ -889,7 +889,7 @@
           "steps": [
             {
               "icon": "priority_high",
-              "text": "Этот мод не будет работать с Huds"
+              "text": "Чтобы этот мод работал с HUD, он должен быть выше мода на HUD (может работать нестабильно)."
             }
           ]
         }

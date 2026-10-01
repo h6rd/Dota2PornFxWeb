@@ -114,6 +114,7 @@ def main():
     base = os.environ.get("BASE_SHA", "").strip()
     head = os.environ.get("HEAD_SHA", "").strip() or "HEAD"
     gif = os.environ.get("GIF_URL", "")
+    avatar = os.environ.get("AVATAR_URL", "")
 
     def finish(has):
         out = os.environ.get("GITHUB_OUTPUT")
@@ -201,10 +202,12 @@ def main():
             },
         ],
         "username": "Github",
-        "avatar_url": "https://i.postimg.cc/zGJTFHyj/github.webp",
+        "avatar_url": avatar,
     }
     if not gif:
         del payload["embeds"][0]["image"]
+    if not avatar:
+        del payload["avatar_url"]
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False)

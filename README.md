@@ -5,19 +5,19 @@
 
   <p>
     <a href="https://h6rd.github.io/Dota2PornFxWeb">
-      <img height="28" alt="Website" src="https://img.shields.io/badge/Website-Open-9d4edd?style=flat&logo=googlechrome&logoColor=white">
+      <img alt="Website" src="https://img.shields.io/badge/Website-Open-9d4edd?style=flat&logo=googlechrome&logoColor=white">
     </a>
     <a href="https://d2pfxwiki.pages.dev/">
-      <img height="28" alt="Wiki" src="https://img.shields.io/badge/Wiki-Open-9d4edd?style=flat&logo=bookstack&logoColor=white">
+      <img alt="Wiki" src="https://img.shields.io/badge/Wiki-Open-9d4edd?style=flat&logo=bookstack&logoColor=white">
     </a>
     <a href="https://github.com/h6rd/Dota2PornFxStatus#live-status">
-      <img height="28" alt="Mirrors status" src="https://img.shields.io/badge/Mirrors-Status-4edd53?style=flat&logo=github&logoColor=white">
+      <img alt="Mirrors status" src="https://img.shields.io/badge/Mirrors-Status-4edd53?style=flat&logo=github&logoColor=white">
     </a>
     <a href="https://t.me/dota2pornfx">
-      <img height="28" alt="Telegram" src="https://img.shields.io/badge/Telegram-Join-26A5E4?style=flat&logo=telegram&logoColor=white">
+      <img alt="Telegram" src="https://img.shields.io/badge/Telegram-Join-26A5E4?style=flat&logo=telegram&logoColor=white">
     </a>
     <a href="https://discord.com/invite/PBvG8D9MxT">
-      <img height="28" alt="Join the Dota2PornFx Discord server" src="https://img.shields.io/badge/Discord-Join-5865f2?style=flat&logo=discord&logoColor=white">
+      <img alt="Join the Dota2PornFx Discord server" src="https://img.shields.io/badge/Discord-Join-5865f2?style=flat&logo=discord&logoColor=white">
     </a>
   </p>
 
