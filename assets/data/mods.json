@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kunkka Inquisitor Tide",
+      "category": "heroes"
+    },
+    {
+      "name": "Enigma Infinity Space",
+      "category": "heroes"
+    },
+    {
+      "name": "Visage Vulture Wraith",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend 7.28",
+      "category": "heroes"
+    },
+    {
+      "name": "Larger Minimap",
+      "category": "parts"
+    },
+    {
+      "name": "Magnus Shock of the Anvil Crimson",
+      "category": "hero-items"
+    },
+    {
       "name": "Grey Minimap",
       "category": "parts"
     },
@@ -14,10 +38,6 @@
     },
     {
       "name": "Larger Timer",
-      "category": "parts"
-    },
-    {
-      "name": "Larger Minimap",
       "category": "parts"
     },
     {
@@ -12717,6 +12737,66 @@
           "date": 1790809354,
           "commit-sha": "f05eee91685f88f36f57e612f6e0b0ea86bc0d45"
         }
+      },
+      {
+        "name": "Shadow Fiend 7.28",
+        "preview": "Shadow Fiend 7.28.webp",
+        "file": "Shadow Fiend 7.28.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "not paradise"
+          }
+        ]
+      },
+      {
+        "name": "Visage Vulture Wraith",
+        "preview": "Visage Vulture Wraith.webp",
+        "file": "Visage Vulture Wraith.zip",
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
+      },
+      {
+        "name": "Enigma Infinity Space",
+        "preview": "Enigma Infinity Space.webp",
+        "file": "Enigma Infinity Space.zip",
+        "tags": {
+          "effects": true,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
+      },
+      {
+        "name": "Kunkka Inquisitor Tide",
+        "preview": "Kunkka Inquisitor Tide.webp",
+        "file": "Kunkka Inquisitor Tide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -15676,6 +15756,22 @@
                 "date": 1777037538,
                 "commit-sha": "a8c22e9e6df2e2db9e0497711f777b7eeca63aa2"
               }
+            },
+            {
+              "name": "Magnus Shock of the Anvil Crimson",
+              "preview": "Magnus Shock of the Anvil Crimson.webp",
+              "file": "Magnus Shock of the Anvil Crimson.zip",
+              "tags": {
+                "effects": true,
+                "icons": true,
+                "weapon": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
