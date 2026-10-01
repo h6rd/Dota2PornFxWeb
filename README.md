@@ -80,6 +80,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/activity/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
 </p>
+
 ---
 
 ## [**Installation Guide**](https://d2pfxwiki.pages.dev/en/install.html) / [**Troubleshooting**](https://d2pfxwiki.pages.dev/en/troubleshoot.html)
