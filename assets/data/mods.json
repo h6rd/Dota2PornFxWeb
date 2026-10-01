@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Timbersaw Claw Frostbloom",
+      "category": "hero-items"
+    },
+    {
+      "name": "Oracle Automaton Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Chaos Knight Celestial Sentine",
+      "category": "heroes"
+    },
+    {
+      "name": "Enchantress Diretide Shimmer",
+      "category": "heroes"
+    },
+    {
+      "name": "Magnus Collapse",
+      "category": "heroes"
+    },
+    {
+      "name": "Treant Protector Diretide",
+      "category": "heroes"
+    },
+    {
       "name": "Kunkka Inquisitor Tide",
       "category": "heroes"
     },
@@ -12813,6 +12837,100 @@
           "date": 1790894654,
           "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
         }
+      },
+      {
+        "name": "Treant Protector Diretide",
+        "preview": "Treant Protector Diretide.webp",
+        "file": "Treant Protector Diretide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790895745,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Magnus Collapse",
+        "preview": "Magnus Collapse.webp",
+        "file": "Magnus Collapse.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1790895746,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Enchantress Diretide Shimmer",
+        "preview": "Enchantress Diretide Shimmer.webp",
+        "file": "Enchantress Diretide Shimmer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790895746,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Chaos Knight Celestial Sentine",
+        "preview": "Chaos Knight Celestial Sentine.webp",
+        "file": "Chaos Knight Celestial Sentine.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790895746,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Oracle Automaton Reborn",
+        "preview": "Oracle Automaton Reborn.webp",
+        "file": "Oracle Automaton Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1790895746,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -16858,6 +16976,25 @@
               "meta": {
                 "date": 1788091261,
                 "commit-sha": "0ee14dac020f0c53a88d7a100db45081ab6f747c"
+              }
+            },
+            {
+              "name": "Timbersaw Claw Frostbloom",
+              "preview": "Timbersaw Claw Frostbloom.webp",
+              "file": "Timbersaw Claw Frostbloom.zip",
+              "tags": {
+                "off-hand": true,
+                "effects": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1790895746,
+                "commit-sha": ""
               }
             }
           ]
