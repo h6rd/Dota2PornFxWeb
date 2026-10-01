@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Grey Minimap",
+      "category": "parts"
+    },
+    {
       "name": "Techies Minimap-Hero Mine Icon",
       "category": "other"
     },
@@ -18000,6 +18004,21 @@
         "meta": {
           "date": 1790818573,
           "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
+        }
+      },
+      {
+        "name": "Grey Minimap",
+        "preview": "Grey Minimap.webp",
+        "file": "Grey Minimap.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1790825298,
+          "commit-sha": ""
         }
       }
     ],
