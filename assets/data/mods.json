@@ -12751,7 +12751,11 @@
             "type": "author",
             "url": "not paradise"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790894654,
+          "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
+        }
       },
       {
         "name": "Visage Vulture Wraith",
@@ -12766,7 +12770,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790894654,
+          "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
+        }
       },
       {
         "name": "Enigma Infinity Space",
@@ -12781,7 +12789,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790894654,
+          "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
+        }
       },
       {
         "name": "Kunkka Inquisitor Tide",
@@ -12796,7 +12808,11 @@
             "type": "author",
             "url": "александр"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1790894654,
+          "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
+        }
       }
     ],
     "shaders": [
@@ -15771,7 +15787,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1790894654,
+                "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
+              }
             }
           ]
         },
@@ -18066,8 +18086,8 @@
           }
         ],
         "meta": {
-          "date": 1790818573,
-          "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
+          "date": 1790894654,
+          "commit-sha": "4cd72434812de8820f42e3bec2d93b4042093f3c"
         }
       },
       {
