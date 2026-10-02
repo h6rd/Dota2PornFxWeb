@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="assets/theme.js"></script>
+    <script type="module" src="assets/m3e/theme.bundle.js"></script>
     
     <script>
         if (window.document && document.fonts && document.fonts.ready) {
@@ -212,6 +213,8 @@
 </head>
 
 <body class="error-page">
+    <m3e-theme id="appTheme" color="#6750A4" variant="tonal-spot" scheme="dark"></m3e-theme>
+    <script>window.syncM3eTheme && window.syncM3eTheme();</script>
     <div class="error-card">
         <img class="error-sticker" src="assets/previews/hueta/brew-sticker-2.png">
         <img class="error-sticker error-sticker-right" src="assets/previews/hueta/brew-sticker.png">

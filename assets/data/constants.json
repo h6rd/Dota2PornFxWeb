@@ -542,7 +542,8 @@
       "assets/previews/hueta/invoker.gif",
       "assets/previews/hueta/meepo.gif",
       "assets/previews/hueta/bh.gif",
-      "assets/previews/hueta/axe.gif"
+      "assets/previews/hueta/axe.gif",
+      "assets/previews/hueta/od.gif"
     ],
     "themes": [
       "ursa",
@@ -552,7 +553,8 @@
       "invoker",
       "meepo",
       "bh",
-      "axe"
+      "axe",
+      "od"
     ]
   },
   "HEROES_LIST": [

@@ -642,13 +642,14 @@ function removeFromCart(itemId) {
 }
 
 function updateCartButtons() {
+    const cartIds = new Set(cart.map(item => item.id));
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-        const modData = JSON.parse(btn.getAttribute('data-mod'));
+        const modData = btn._modData || (btn._modData = JSON.parse(btn.getAttribute('data-mod')));
         const category = btn.getAttribute('data-category');
         const card = btn.closest('.card');
         const groupId = card?.getAttribute('data-group-id');
         const id = groupId ? `${category}-${groupId}-${modData.name}` : `${category}-${modData.name}`;
-        const inCart = cart.some(item => item.id === id);
+        const inCart = cartIds.has(id);
 
         const icon = btn.querySelector('.material-symbols-rounded');
         const text = btn.querySelector('.add-to-cart-text');

@@ -15,12 +15,15 @@
   <script src="assets/theme.js" defer></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="assets/stats/stats.css">
+  <script src="assets/m3e/theme.bundle.js" type="module"></script>
   <script src="assets/m3e/shape.bundle.js" type="module"></script>
   <script src="assets/m3e/loading-indicator.bundle.js" type="module"></script>
   <script src="assets/stats/stats.js" defer></script>
 </head>
 
 <body class="stats-page">
+  <m3e-theme id="appTheme" color="#6750A4" variant="tonal-spot" scheme="dark"></m3e-theme>
+  <script>window.syncM3eTheme && window.syncM3eTheme();</script>
   <header class="header">
     <div class="container">
       <div class="header-content">

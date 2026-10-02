@@ -1268,7 +1268,7 @@ function setupGifSwitcher() {
 
 function setupThemeToggle() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.setAttribute('data-theme', window.resolveTheme ? window.resolveTheme(savedTheme) : savedTheme);
 }
 
 // Mobile Menu
@@ -1490,48 +1490,70 @@ function openCategoryAndHighlightMod(categoryId, modName) {
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         const targetCard = elements.modsGrid.querySelector(
-            `[data-mod-name="${modName}"][data-category-id="${categoryId}"]`
+            `[data-mod-name="${CSS.escape(modName)}"][data-category-id="${CSS.escape(categoryId)}"]`
         );
+        if (!targetCard) return;
 
-        if (targetCard) {
-            targetCard.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'nearest'
+        const rect = targetCard.getBoundingClientRect();
+        const targetY = rect.top + window.pageYOffset - (window.innerHeight - rect.height) / 2;
+        const distance = targetY - window.pageYOffset;
+        if (Math.abs(distance) > HIGHLIGHT_JUMP_THRESHOLD) {
+            window.scrollTo({
+                top: targetY - Math.sign(distance) * HIGHLIGHT_SMOOTH_TAIL,
+                behavior: 'instant'
             });
+        }
 
-            let scrollTimeout;
-            const startAnimation = () => {
+        requestAnimationFrame(() => {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+            whenScrollSettled(() => {
                 requestAnimationFrame(() => targetCard.classList.add('highlighted'));
                 vibrate([50, 100, 50]);
                 setTimeout(() => {
                     requestAnimationFrame(() => targetCard.classList.remove('highlighted'));
                 }, 1500);
-            };
+            });
+        });
+    });
+}
 
-            let scrollStarted = false;
+const HIGHLIGHT_JUMP_THRESHOLD = 1500;
+const HIGHLIGHT_SMOOTH_TAIL = 1000;
 
-            const onScrollEnd = () => {
-                scrollStarted = true;
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    startAnimation();
-                    window.removeEventListener('scroll', onScrollEnd);
-                }, 100);
-            };
+function whenScrollSettled(cb, maxWait = 1500) {
+    let finished = false;
+    let quietTimer;
+    const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(quietTimer);
+        clearTimeout(maxTimer);
+        window.removeEventListener('scroll', onScroll);
+        cb();
+    };
+    const onScroll = () => {
+        clearTimeout(quietTimer);
+        quietTimer = setTimeout(finish, 120);
+    };
+    const maxTimer = setTimeout(finish, maxWait);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    quietTimer = setTimeout(finish, 400); // scroll never started (card already centered)
+}
 
-            window.addEventListener('scroll', onScrollEnd);
-
-            setTimeout(() => {
-                if (!scrollStarted) {
-                    window.removeEventListener('scroll', onScrollEnd);
-                    startAnimation();
-                }
-            }, 900);
-        }
-    }, 100);
+let cardVideoObserver = null;
+function getCardVideoObserver() {
+    if (!cardVideoObserver) {
+        cardVideoObserver = new IntersectionObserver(entries => {
+            entries.forEach(({ target, isIntersecting }) => {
+                if (!target.isConnected) { cardVideoObserver.unobserve(target); return; }
+                if (isIntersecting) target.play().catch(() => { });
+                else target.pause();
+            });
+        }, { rootMargin: '150px' });
+    }
+    return cardVideoObserver;
 }
 
 function setupRecentlyAdded() {
@@ -2248,6 +2270,7 @@ function showCategoryPage(categoryId) {
 }
 
 function renderMods(categoryId) {
+    if (cardVideoObserver) cardVideoObserver.disconnect();
     elements.modsGrid.innerHTML = '';
     elements.modsGrid.style.display = '';
     let mods = modsData[categoryId] || [];
@@ -2291,10 +2314,9 @@ function renderMods(categoryId) {
             return;
         }
 
-        mods.forEach(mod => {
-            const card = createModCard(mod, categoryId);
-            elements.modsGrid.appendChild(card);
-        });
+        const frag = document.createDocumentFragment();
+        mods.forEach(mod => frag.appendChild(createModCard(mod, categoryId)));
+        elements.modsGrid.appendChild(frag);
     }
 
     if (typeof updateCartButtons === 'function') {
@@ -2690,9 +2712,11 @@ function createModCard(mod, categoryId, groupId = null) {
     const preview = activeMod.preview || '';
     const isVideo = preview.endsWith('.mp4');
     const mediaElement = isVideo ? 'video' : 'img';
-    const mediaAttrs = isVideo && categoryId !== 'backgrounds'
-        ? 'autoplay muted loop playsinline'
-        : isVideo ? 'muted loop playsinline' : '';
+    const mediaAttrs = isVideo
+        ? (categoryId !== 'backgrounds'
+            ? 'data-autoplay muted loop playsinline preload="metadata"'
+            : 'muted loop playsinline preload="metadata"')
+        : 'loading="lazy" decoding="async"';
 
     const tagsHtml = generateTagsHtml(mod, categoryId);
     const linkButtonsHtml = generateLinkButtonsHtml(mod, categoryId);
@@ -2741,6 +2765,9 @@ function createModCard(mod, categoryId, groupId = null) {
             </div>
         </div>
     `;
+
+    const autoVideo = card.querySelector('video[data-autoplay]');
+    if (autoVideo) getCardVideoObserver().observe(autoVideo);
 
     attachCardEventListeners(card, mod, categoryId, groupId);
     return card;
@@ -3795,7 +3822,7 @@ function saveSettings(patch) {
 
 function applySettings(s) {
     if (s.theme) {
-        document.documentElement.setAttribute('data-theme', s.theme);
+        document.documentElement.setAttribute('data-theme', window.resolveTheme ? window.resolveTheme(s.theme) : s.theme);
         localStorage.setItem('theme', s.theme);
     }
     const activeTheme = s.theme || 'dark';
