@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Lycan Collector 2021",
+      "category": "heroes"
+    },
+    {
+      "name": "Slardar Diretide Shimmer",
+      "category": "heroes"
+    },
+    {
       "name": "Timbersaw Claw Frostbloom",
       "category": "hero-items"
     },
@@ -12930,6 +12938,43 @@
         "meta": {
           "date": 1790895746,
           "commit-sha": "e64d07ddb192293df804e6d8a53c715bfb1c96ea"
+        }
+      },
+      {
+        "name": "Slardar Diretide Shimmer",
+        "preview": "Slardar Diretide Shimmer.webp",
+        "file": "Slardar Diretide Shimmer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790931352,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Lycan Collector 2021",
+        "preview": "Lycan Collector 2021.webp",
+        "file": "Lycan Collector 2021.zip",
+        "tags": {
+          "effects": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1790931352,
+          "commit-sha": ""
         }
       }
     ],
