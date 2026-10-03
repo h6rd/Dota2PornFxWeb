@@ -32,14 +32,14 @@ function closeModal() {
 if (!window.modalScrollListenersAdded) {
     document.addEventListener('wheel', (e) => {
         if (document.body.classList.contains('modal-open')) {
-            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content, .upload-form-panel, .upload-preview-panel');
             if (!scrollable) e.preventDefault();
         }
     }, { passive: false });
 
     document.addEventListener('touchmove', (e) => {
         if (document.body.classList.contains('modal-open')) {
-            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content');
+            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content, .upload-form-panel, .upload-preview-panel');
             if (!scrollable) e.preventDefault();
         }
     }, { passive: false });

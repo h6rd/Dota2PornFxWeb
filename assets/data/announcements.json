@@ -21,5 +21,10 @@
     "time": 1790352852,
     "type": "update",
     "text": "Update Dota Terrains."
+  },
+  {
+    "time": "",
+    "type": "info",
+    "text": "Added option to create wallpapers (beta)"
   }
 ]
