@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Legion Commander Diretide",
+      "category": "heroes"
+    },
+    {
       "name": "Lycan Collector 2021",
       "category": "heroes"
     },
@@ -12975,6 +12979,25 @@
         "meta": {
           "date": 1790931352,
           "commit-sha": "d0b980ffe25be606aa436430e6fb7f85bb4d39f8"
+        }
+      },
+      {
+        "name": "Legion Commander Diretide",
+        "preview": "Legion Commander Diretide.webp",
+        "file": "Legion Commander Diretide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1790986277,
+          "commit-sha": ""
         }
       }
     ],
