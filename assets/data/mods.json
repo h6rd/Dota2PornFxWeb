@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Default Lite Hud",
+      "category": "huds"
+    },
+    {
       "name": "Morphling Yatoro Burning",
       "category": "heroes"
     },
@@ -18681,6 +18685,21 @@
         "meta": {
           "date": 1789988579,
           "commit-sha": "36a36d12dfca93ba12e06974613afb324c76b4be"
+        }
+      },
+      {
+        "name": "Default Lite Hud",
+        "preview": "Default Lite Hud.webp",
+        "file": "Default Lite Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1790997589,
+          "commit-sha": ""
         }
       }
     ],
