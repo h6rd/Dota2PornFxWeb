@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Default Lite Hud",
       "category": "huds"
     },
@@ -427,10 +431,6 @@
     {
       "name": "Batrider Verna Frostbloom",
       "category": "hero-items"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Earthshaker Planetfall Burning",
