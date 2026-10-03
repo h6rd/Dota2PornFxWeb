@@ -94,7 +94,7 @@
 
   function drawView(ctx, cw, ch, source, quality) {
     const src = source || (S.src && S.src.el);
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = '#212121';
     ctx.fillRect(0, 0, cw, ch);
     if (!src || !S.src) return;
     const { w: sw, h: sh } = drawableSize(src);
@@ -224,9 +224,9 @@
       if (S.src.kind === 'video') {
         const dur = Math.max(0, S.trimEnd - S.trimStart);
         const est = targetBitrate() * dur / 8;
-        text += ` · ${S.fps} fps · ${dur.toFixed(1)}s · ≈ ${fmtBytes(est)} (upper bound)`;
+        text += ` · ${S.fps}fps · ${dur.toFixed(1)}s · ≈ ${fmtBytes(est)}`;
       } else {
-        text += ' · still image (2-frame WebM)';
+        text += ' · Image';
       }
     }
     el.info.textContent = text;
@@ -271,7 +271,7 @@
     if (blob) {
       el.downloadBtn.dataset.name = name;
       el.resultText.textContent = `${name} · ${fmtBytes(blob.size)}`;
-      el.installHint.textContent = `Put ${name} into your game language folder (e.g. …\\dota 2 beta\\game\\${gameFolder()}\\), like any other VPK mod.`;
+      el.installHint.textContent = `Put ${name} into your game language folder, like any other VPK mods.`;
     }
   }
 

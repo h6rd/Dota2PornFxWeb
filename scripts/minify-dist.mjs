@@ -9,6 +9,7 @@ const CONCURRENCY = Math.max(2, os.cpus().length);
 
 const SKIP_PATTERNS = [
   (file) => file.includes("assets/m3e"),
+  (file) => file.includes("assets/wallpaper"),
   (file) => file.endsWith("assets/lz-string.min.js"),
   (file) => file.endsWith("assets/zip.min.js"),
 ];

@@ -148,6 +148,7 @@ Special thanks to those who share these mods with their audience through streams
 | [zip.js](https://github.com/gildas-lormeau/zip.js/) | ZIP read/write in the browser |
 | [lz-string](https://github.com/pieroxy/lz-string) | LZ-based string compression |
 | [m3e](https://github.com/matraic/m3e) | Material 3 Expressive UI components |
+| [mediabunny](https://github.com/Vanilagy/mediabunny) & [webm-muxer](https://github.com/Vanilagy/webm-muxer) | Working with videos for Wallpaper Creator |
 
 ---
 
