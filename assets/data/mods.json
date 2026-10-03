@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Morphling Yatoro Burning",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Wyrdwing Exort",
+      "category": "heroes"
+    },
+    {
+      "name": "Arc Warden The Last Survivor",
+      "category": "heroes"
+    },
+    {
       "name": "Legion Commander Diretide",
       "category": "heroes"
     },
@@ -12998,6 +13010,63 @@
         "meta": {
           "date": 1790986277,
           "commit-sha": "64b5a836b8f8e358070d6d12ad02e3a3aa3b0e0b"
+        }
+      },
+      {
+        "name": "Arc Warden The Last Survivor",
+        "preview": "Arc Warden The Last Survivor.webp",
+        "file": "Arc Warden The Last Survivor.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Schizo"
+          }
+        ],
+        "meta": {
+          "date": 1790988498,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Wyrdwing Exort",
+        "preview": "Invoker Wyrdwing Exort.webp",
+        "file": "Invoker Wyrdwing Exort.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "ibcsz"
+          }
+        ],
+        "meta": {
+          "date": 1790988498,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Yatoro Burning",
+        "preview": "Morphling Yatoro Burning.webp",
+        "file": "Morphling Yatoro Burning.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1790988498,
+          "commit-sha": ""
         }
       }
     ],
