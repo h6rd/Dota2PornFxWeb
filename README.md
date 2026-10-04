@@ -38,7 +38,7 @@
     <a href="#project-activity">Activity</a> &nbsp;·&nbsp;
     <a href="https://d2pfxwiki.pages.dev/en/install.html">Installation</a> &nbsp;·&nbsp;
     <a href="#credits">Credits</a> &nbsp;·&nbsp;
-    <a href="#attribution--reuse">Attribution</a>
+    <a href="#-attribution--reuse">Attribution</a>
   </p>
 </div>
 
@@ -148,39 +148,33 @@ Special thanks to those who share these mods with their audience through streams
 | [zip.js](https://github.com/gildas-lormeau/zip.js/) | ZIP read/write in the browser |
 | [lz-string](https://github.com/pieroxy/lz-string) | LZ-based string compression |
 | [m3e](https://github.com/matraic/m3e) | Material 3 Expressive UI components |
-| [mediabunny](https://github.com/Vanilagy/mediabunny)  | Working with videos for Wallpaper Creator |
+| [mediabunny](https://github.com/Vanilagy/mediabunny) | Working with videos for Wallpaper Creator |
 
 ---
 
 ## Attribution & Reuse
 
-This repository is distributed under [GPL-3.0](LICENSE). If you reuse, mirror, or redistribute mods or any other part of it, the following attribution terms apply (additional terms under GPLv3 §7(b)):
+> [!IMPORTANT]
+> **Sharing these mods? Credit the people who made them.**
 
-1. **Credit Dota2PornFx.** Link to the website (https://h6rd.github.io/Dota2PornFxWeb) and to this repository (https://github.com/h6rd/Dota2PornFxWeb) in a visible place (description, README or UI).
-2. **Keep the authors.** Credit the original mod authors listed in [Credits](#credits) for the mods you use, and do not remove existing author tags or watermarks.
-3. **Don't present it as your own.** Don't claim the collection or its mods as your work or as an official source, and don't use the name "Dota2PornFx" to suggest endorsement of your project.
+| | Rule |
+|:-:|---|
+| 🔗 | **Link to Dota2PornFx:** the [website](https://h6rd.github.io/Dota2PornFxWeb) and this [repository](https://github.com/h6rd/Dota2PornFxWeb), somewhere visible (description, README or UI). |
+| 👤 | **Credit the original authors** listed in [Credits](#credits). Don't remove author tags or watermarks. |
+| 🚫 | **Don't present the collection or its mods as your own or as an official source**, and don't use the name "Dota2PornFx" to suggest endorsement. |
 
-**Mods without a listed author or source** are credited to **h6rd / Dota2PornFx**. If you publish such a mod, you must always credit **h6rd** with a link to the website and this repository, and please ask me first via Discord: `.hrdq`.
+Mods without a listed author or source were made by **h6rd**. Credit them to **h6rd / Dota2PornFx**. If your mod is missing from the credits, message me and I'll fix it.
 
-Ready-to-copy text:
+**Ready-to-copy text:**
 
 ```
-Mods from [Dota2PornFx](https://h6rd.github.io/Dota2PornFxWeb), repository: https://github.com/h6rd/Dota2PornFxWeb.
+Mods from [Dota2PornFx](https://h6rd.github.io/Dota2PornFxWeb).
 Original mod authors: https://github.com/h6rd/Dota2PornFxWeb#credits
 ```
 
-> **Let me know.** For any other mods, this is not required, but if you republish, mirror, or bundle this collection, please drop me a message on Discord: `.hrdq` with a link, so I can check that the credits are correct.
+**License:** my code and my mods are under [GPL-3.0](LICENSE) with the attribution terms above (additional terms under GPLv3 §7(b)). Other authors' mods and Valve files are **not** covered and stay with their owners. More in **[ATTRIBUTION.md](ATTRIBUTION.md)**.
 
-
-### Approved projects
- 
-[Dota2 Minify](https://github.com/Egezenn/dota2-minify) and [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) use this catalog with my permission.
-> Don't fall for fake re-uploads or low-effort knockoffs created by clowns pretending to be developers. Use trusted sources only.
-
-
-### Third-party and Valve content
-
-This collection contains mods made by other community authors (credited above) and files that belong to **Valve**. Rights to those works remain with their respective owners. This repository's license applies only to what the maintainer has the right to license and does not grant rights to third-party or Valve material.
+**Approved projects:** [Dota2 Minify](https://github.com/Egezenn/dota2-minify) · [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager)
 
 ---
 
@@ -190,4 +184,4 @@ Modifying game files is done **entirely at your own risk**. In the event of a ba
 
 ## License
 
-Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#attribution--reuse) above and the rights of third parties and Valve.
+Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#-attribution--reuse) above and the rights of third parties and Valve. See [ATTRIBUTION.md](ATTRIBUTION.md).
