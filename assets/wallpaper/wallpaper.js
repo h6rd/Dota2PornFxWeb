@@ -14,10 +14,14 @@
   const WEBM_PATH_IN_VPK = 'zxc/zxc.webm';
 
   const ASPECTS = { '16:9': [16, 9], '16:10': [16, 10], '21:9': [21, 9], '4:3': [4, 3] };
-  const BITRATE_BY_QUALITY = { low: 2.5e6, medium: 5e6, high: 8e6 };
+  const BITRATE_BY_QUALITY = { low: 2.5e6, medium: 4.5e6, high: 6.5e6 };
   const MAX_SOURCE_SECONDS = 120;
-  const MAX_BITRATE = 8e6;
-  const WARN_BITRATE = 9e6;
+  const MAX_BITRATE = 7e6;
+  const HARD_LIMIT_BITRATE = 7.6e6;
+  const WARN_BITRATE = 7.6e6;
+  const MAX_ENCODE_ATTEMPTS = 2;
+  const YIELD_EVERY_MS = 24;
+  const HEAVY_WORK_BUDGET_MS = 45;
   const MIN_TRIM = 0.2;
   const GIF_MEMORY_BUDGET = 600 * 1024 * 1024;
   const DEFAULT_PAK = 2;
@@ -75,9 +79,29 @@
     return { w, h };
   }
 
-  function targetBitrate() {
+  function targetBitrate(scale) {
     const { w, h } = outputSize();
-    return Math.min(MAX_BITRATE, Math.round(BITRATE_BY_QUALITY[S.quality] * (w * h) / (1920 * 1080)));
+    const base = BITRATE_BY_QUALITY[S.quality] * (w * h) / (1920 * 1080);
+    return Math.round(Math.min(MAX_BITRATE, base) * (scale || 1));
+  }
+
+  let lastYield = 0, lastUi = 0;
+  function heavyFx() {
+    const f = S.fx;
+    return f.blur > 0 || f.wave > 0 || f.chroma > 0 || f.pixelate > 0 || f.sharpen > 0 || f.edges > 0 || f.grain > 0;
+  }
+
+  async function yieldUI() {
+    const now = performance.now();
+    if (now - lastYield < (heavyFx() ? HEAVY_WORK_BUDGET_MS : YIELD_EVERY_MS)) return false;
+    await new Promise(r => {
+      let done = false;
+      const fin = () => { if (!done) { done = true; r(); } };
+      if (heavyFx()) { requestAnimationFrame(fin); setTimeout(fin, 60); }
+      else setTimeout(fin, 0);
+    });
+    lastYield = performance.now();
+    return true;
   }
 
   function fmtBytes(n) {
@@ -726,10 +750,24 @@
 
   function clearLog() { el.logBody.innerHTML = ''; }
 
-  function setProgress(pct) {
+  let progShown = 0, progTarget = 0, progRaf = 0;
+  function paintProgress() {
+    el.progressBar.value = progShown;
+    el.progressPct.textContent = Math.round(progShown) + '%';
+  }
+  function progStep() {
+    progRaf = 0;
+    const d = progTarget - progShown;
+    if (Math.abs(d) < 0.1) { progShown = progTarget; paintProgress(); return; }
+    progShown += d * 0.15;
+    paintProgress();
+    progRaf = requestAnimationFrame(progStep);
+  }
+  function setProgress(pct, instant) {
     el.progressWrap.style.display = '';
-    el.progressBar.value = pct;
-    el.progressPct.textContent = Math.round(pct) + '%';
+    progTarget = pct;
+    if (instant) { progShown = pct; paintProgress(); return; }
+    if (!progRaf) progRaf = requestAnimationFrame(progStep);
   }
 
   function updateGenerateBtn() {
@@ -928,13 +966,16 @@
   const CANCELLED = 'cancelled';
   function checkCancel() { if (S.cancel) throw new Error(CANCELLED); }
 
-  async function encodeWebM() {
+  async function encodeWebM(bitrateScale, progressBase, progressSpan, maxSeconds) {
     const MB = Mediabunny;
     const { w, h } = outputSize();
     const kind = S.src.kind;
     const timed = kind === 'video' || kind === 'gif';
     const fps = timed ? S.fps : 1;
-    const bitrate = targetBitrate();
+    const bitrate = targetBitrate(bitrateScale);
+    const pb = progressBase || 0, ps = progressSpan || 90;
+    const prog = (frac) => setProgress(pb + frac * ps);
+    lastYield = performance.now();
 
     const ok = await MB.canEncodeVideo(S.codec, { width: w, height: h, bitrate });
     if (!ok) throw new Error(`${S.codec.toUpperCase()} at ${w}\u00d7${h} is not supported by this browser. Try a lower resolution or the other codec.`);
@@ -951,7 +992,7 @@
     await output.start();
 
     const frameDur = 1 / fps;
-    const dur = S.trimEnd - S.trimStart;
+    const dur = maxSeconds ? Math.min(S.trimEnd - S.trimStart, maxSeconds) : S.trimEnd - S.trimStart;
     let total, i = 0;
 
     if (kind === 'image') {
@@ -960,7 +1001,7 @@
       for (; i < total; i++) {
         checkCancel();
         await source.add(i, 1, { keyFrame: true });
-        setProgress(((i + 1) / total) * 90);
+        prog((i + 1) / total);
       }
     } else if (kind === 'gif') {
       S.src.player.pause();
@@ -969,10 +1010,9 @@
         checkCancel();
         renderFrame(ctx, w, h, S.src.frameAt(S.trimStart + i / fps), 'medium');
         await source.add(i * frameDur, frameDur);
-        if (i % 3 === 0) {
-          setProgress(((i + 1) / total) * 90);
+        if (await yieldUI()) {
+          prog((i + 1) / total);
           setStatus(`Encoding frame ${i + 1} / ${total}`);
-          await new Promise(r => setTimeout(r, 0));
         }
       }
     } else {
@@ -998,10 +1038,9 @@
         if (wrapped) renderFrame(ctx, w, h, wrapped.canvas, 'medium');
         await source.add(i * frameDur, frameDur);
         i++;
-        if (i % 3 === 0) {
-          setProgress((i / total) * 90);
+        if (await yieldUI()) {
+          prog(i / total);
           setStatus(`Encoding frame ${i} / ${total}`);
-          await new Promise(r => setTimeout(r, 0));
         }
       }
       total = i;
@@ -1034,21 +1073,54 @@
     setResult(null);
     setStatus('');
     setBusy(true);
-    setProgress(0);
+    setProgress(0, true);
     const t0 = performance.now();
 
     try {
-      logLine('Encoding WebM (' + S.codec.toUpperCase() + ')…', 'info');
-      const webm = await encodeWebM();
-      logLine(`WebM ready: ${fmtBytes(webm.length)}`, 'success');
-      if (isTimed()) {
-        const secs = S.trimEnd - S.trimStart;
-        const real = webm.length * 8 / secs;
-        logLine(`Average bitrate: ${(real / 1e6).toFixed(1)} Mbit/s`, real > WARN_BITRATE ? 'warn' : 'info');
-        if (real > WARN_BITRATE) {
-          logLine('Bitrate is high, the game may show a black screen. Lower the quality or the frame rate.', 'warn');
+      const timed = isTimed();
+      const secs = timed ? S.trimEnd - S.trimStart : 0;
+      const { w: ow, h: oh } = outputSize();
+      if (timed && (ow * oh * S.fps > 1920 * 1080 * 30 * 1.05)) {
+        logLine('Resolution/FPS above 1080p30: Panorama decode limit was only verified at 1080p30, a black screen is possible.', 'warn');
+      }
+
+      let scale = 1, webm = null;
+
+      const PROBE_SEC = 3;
+      let probeSpan = 0;
+      if (timed && secs > PROBE_SEC * 1.5) {
+        probeSpan = 8;
+        logLine('Calibrating bitrate on a short sample…', 'info');
+        const probe = await encodeWebM(1, 0, probeSpan, PROBE_SEC);
+        const pReal = probe.length * 8 / PROBE_SEC;
+        const pTarget = targetBitrate(1);
+        const safe = HARD_LIMIT_BITRATE * 0.92;
+        if (pReal > safe) {
+          scale = Math.max(0.3, safe / pReal);
+          logLine(`Sample: ${(pReal / 1e6).toFixed(2)} Mbit/s (target ${(pTarget / 1e6).toFixed(1)}), lowering target to ${(targetBitrate(scale) / 1e6).toFixed(1)} Mbit/s`, 'warn');
+        } else {
+          logLine(`Sample: ${(pReal / 1e6).toFixed(2)} Mbit/s, OK`, 'info');
         }
       }
+
+      for (let attempt = 1; attempt <= MAX_ENCODE_ATTEMPTS; attempt++) {
+        const tb = targetBitrate(scale);
+        logLine(`Encoding WebM (${S.codec.toUpperCase()}, target ${(tb / 1e6).toFixed(1)} Mbit/s)` +
+          (attempt > 1 ? `, attempt ${attempt}` : '') + '…', 'info');
+        webm = await encodeWebM(scale, probeSpan, 90 - probeSpan);
+        if (!timed) break;
+        const real = webm.length * 8 / secs;
+        const over = real > HARD_LIMIT_BITRATE;
+        logLine(`Average bitrate: ${(real / 1e6).toFixed(2)} Mbit/s`, over ? 'warn' : 'info');
+        if (!over) break;
+        if (attempt === MAX_ENCODE_ATTEMPTS) {
+          logLine('Bitrate is still above the safe limit, the game may show a black screen. Lower the quality, frame rate or effects (grain/sharpen/edges inflate bitrate).', 'warn');
+          break;
+        }
+        scale *= (HARD_LIMIT_BITRATE * 0.9) / real;
+        logLine('Over the Panorama limit, re-encoding with a lower target…', 'warn');
+      }
+      logLine(`WebM ready: ${fmtBytes(webm.length)}`, 'success');
 
       setProgress(92);
       setStatus('Loading panorama template…');
