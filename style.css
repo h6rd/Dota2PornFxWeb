@@ -1569,6 +1569,106 @@ fcode {
   opacity: 0;
 }
 
+.gif-picker {
+  --picker-bg: var(--md-sys-color-surface-container-high);
+  position: fixed;
+  z-index: 9000;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 10px;
+  background: var(--picker-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
+  transform-origin: var(--arrow-x, 50%) 100%;
+  pointer-events: none;
+  transition: opacity 0.18s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.18s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.gif-picker.open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.gif-picker::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: var(--arrow-x, 50%);
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background: var(--picker-bg);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.gif-picker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -16px;
+  height: 16px;
+}
+
+.gif-picker[data-side="bottom"] {
+  transform: translateY(-6px) scale(0.96);
+  transform-origin: var(--arrow-x, 50%) 0;
+}
+
+.gif-picker[data-side="bottom"].open {
+  transform: none;
+}
+
+.gif-picker[data-side="bottom"]::after {
+  bottom: auto;
+  top: -5px;
+}
+
+.gif-picker[data-side="bottom"]::before {
+  bottom: auto;
+  top: -16px;
+}
+
+.gif-picker-item {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-radius: 12px;
+  background: var(--md-sys-color-surface-container-highest);
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s;
+}
+
+.gif-picker-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.gif-picker-item:hover {
+  transform: scale(1.12);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 18%, var(--md-sys-color-surface-container-highest));
+}
+
+.gif-picker-item.active {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 22%, var(--md-sys-color-surface-container-highest));
+  box-shadow: inset 0 0 0 2px var(--md-sys-color-primary);
+}
+
+@media (hover: none) {
+  .gif-picker {
+    display: none;
+  }
+}
+
 /* sort toggle */
 .category-header {
   display: flex;
@@ -2821,7 +2921,8 @@ body.compact-category-view .carousel-track .card .add-to-cart-btn span:not(.mate
   contain-intrinsic-size: auto 330px;
 }
 
-#modsGrid .card.highlighted {
+#modsGrid .card.highlighted,
+#modsGrid .card.cv-pinned {
   content-visibility: visible;
 }
 
@@ -2830,7 +2931,6 @@ body.compact-category-view .carousel-track .card .add-to-cart-btn span:not(.mate
   animation: highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1;
   scroll-margin-top: 120px;
   position: relative;
-  will-change: transform, box-shadow;
 }
 
 .card.highlighted.fade-in {

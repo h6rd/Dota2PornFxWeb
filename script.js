@@ -1232,19 +1232,15 @@ function setupGifSwitcher() {
         hintElement.classList.add('show');
     }
 
-    gifElement.addEventListener('click', () => {
-        syncGifIndex();
-        if (hintElement && !hasClicked) {
-            hintElement.classList.remove('show');
-            setTimeout(() => hintElement.style.display = 'none', 300);
-            localStorage.setItem('gifClicked', 'true');
-        }
-
+    let switching = false;
+    const switchToIndex = (nextIndex) => {
+        if (switching) return;
+        switching = true;
         gifElement.classList.add('clicked', 'no-hover');
 
         setTimeout(() => {
             gifElement.classList.remove('clicked');
-            currentIndex = (currentIndex + 1) % GIF_CONFIG.gifs.length;
+            currentIndex = nextIndex;
             const newTheme = GIF_CONFIG.themes[currentIndex];
             html.classList.add('no-transition');
             gifElement.src = GIF_CONFIG.gifs[currentIndex];
@@ -1258,12 +1254,119 @@ function setupGifSwitcher() {
             gifElement.classList.add('appear');
             setTimeout(() => {
                 gifElement.classList.remove('appear');
-                setTimeout(() => gifElement.classList.remove('no-hover'), 400);
+                setTimeout(() => {
+                    gifElement.classList.remove('no-hover');
+                    switching = false;
+                }, 400);
             }, 400);
         }, 400);
 
         vibrate(10);
+    };
+
+    gifElement.addEventListener('click', () => {
+        syncGifIndex();
+        if (hintElement && !hasClicked) {
+            hintElement.classList.remove('show');
+            setTimeout(() => hintElement.style.display = 'none', 300);
+            localStorage.setItem('gifClicked', 'true');
+        }
+        switchToIndex((currentIndex + 1) % GIF_CONFIG.gifs.length);
     });
+
+    if (!window.matchMedia('(hover: hover)').matches) return;
+
+    let popup = null;
+    let showTimer = 0;
+    let hideTimer = 0;
+
+    const buildPopup = () => {
+        popup = document.createElement('div');
+        popup.className = 'gif-picker';
+        popup.setAttribute('role', 'listbox');
+        popup.setAttribute('aria-label', 'Theme');
+        GIF_CONFIG.gifs.forEach((src, i) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'gif-picker-item';
+            btn.dataset.index = String(i);
+            btn.setAttribute('aria-label', GIF_CONFIG.themes[i]);
+            btn.setAttribute('role', 'option');
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = GIF_CONFIG.themes[i];
+            img.draggable = false;
+            btn.appendChild(img);
+            popup.appendChild(btn);
+        });
+        popup.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+        popup.addEventListener('mouseleave', scheduleHide);
+        popup.addEventListener('click', (e) => {
+            const btn = e.target.closest('.gif-picker-item');
+            if (!btn) return;
+            e.stopPropagation();
+            syncGifIndex();
+            const idx = parseInt(btn.dataset.index, 10);
+            hidePopup();
+            if (idx !== currentIndex) switchToIndex(idx);
+        });
+        document.body.appendChild(popup);
+    };
+
+    const positionPopup = () => {
+        const r = gifElement.getBoundingClientRect();
+        const w = popup.offsetWidth;
+        const h = popup.offsetHeight;
+        const gap = 14;
+        let side = 'top';
+        let top = r.top - gap - h;
+        if (top < 8) {
+            side = 'bottom';
+            top = r.bottom + gap;
+        }
+        const cx = r.left + r.width / 2;
+        const left = Math.min(Math.max(8, cx - w / 2), Math.max(8, window.innerWidth - w - 8));
+        const arrowX = Math.min(Math.max(cx - left, 20), w - 20);
+        if (side === 'top') delete popup.dataset.side;
+        else popup.dataset.side = 'bottom';
+        popup.style.left = `${left}px`;
+        popup.style.top = `${top}px`;
+        popup.style.setProperty('--arrow-x', `${arrowX}px`);
+    };
+
+    const showPopup = () => {
+        if (switching) return;
+        clearTimeout(hideTimer);
+        if (!popup) buildPopup();
+        syncGifIndex();
+        popup.querySelectorAll('.gif-picker-item').forEach(b => {
+            b.classList.toggle('active', parseInt(b.dataset.index, 10) === currentIndex);
+        });
+        positionPopup();
+        requestAnimationFrame(() => popup.classList.add('open'));
+    };
+
+    function hidePopup() {
+        clearTimeout(showTimer);
+        clearTimeout(hideTimer);
+        popup?.classList.remove('open');
+    }
+
+    function scheduleHide() {
+        clearTimeout(showTimer);
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hidePopup, 200);
+    }
+
+    gifElement.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimer);
+        showTimer = setTimeout(showPopup, 200);
+    });
+    gifElement.addEventListener('mouseleave', scheduleHide);
+
+    window.addEventListener('scroll', hidePopup, { passive: true });
+    window.addEventListener('resize', hidePopup);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hidePopup(); });
 }
 
 function setupThemeToggle() {
@@ -1509,6 +1612,7 @@ function openCategoryAndHighlightMod(categoryId, modName) {
         requestAnimationFrame(() => {
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
             whenScrollSettled(() => {
+                targetCard.classList.add('cv-pinned');
                 requestAnimationFrame(() => targetCard.classList.add('highlighted'));
                 vibrate([50, 100, 50]);
                 setTimeout(() => {

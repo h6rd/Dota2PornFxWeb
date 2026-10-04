@@ -10,9 +10,16 @@
     { id: 'cursor_default_enemy', label: 'Default enemy', hot: [0, 0] },
     { id: 'cursor_default_team', label: 'Default ally', hot: [0, 0] },
     { id: 'cursor_learn_ability', label: 'Learn ability', hot: [0, 0] },
-    { id: 'cursor_move', label: 'Move', hot: [16, 16] }
+    { id: 'cursor_move', label: 'Move', hot: [16, 16] },
+    { id: 'cursor_db_default', label: 'DB default', hot: [0, 0], base: false, ani: false },
+    { id: 'cursor_coach', label: 'Coach', hot: [0, 0] },
+    { id: 'cursor_item_drop', label: 'Item drop', hot: [0, 0], vsz: false },
+    { id: 'cursor_spell_default', label: 'Spell', hot: [0, 0] },
+    { id: 'cursor_spell_illegal', label: 'Spell illegal', hot: [0, 0] },
+    { id: 'cursor_spell_walkto', label: 'Spell walk to', hot: [16, 16] }
   ];
   const BASE = 32;
+  const ORIGINAL_INNER = 32;
   const VSZ = [32, 32, 32, 32];
   const $ = (id) => document.getElementById(id);
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -27,7 +34,7 @@
   let busy = false;
   let resultBlob = null;
   let resultName = '';
-  
+
   function log(msg, kind) {
     const row = document.createElement('div');
     row.className = 'upload-preview-log-entry' + (kind ? ' ' + kind : '');
@@ -214,7 +221,7 @@
       b.type = 'button';
       b.className = 'cr-item';
       b.dataset.id = c.id;
-      b.innerHTML = '<canvas width="40" height="40"></canvas><span class="cr-item-name"></span><span class="material-symbols-rounded cr-item-ok">check_circle</span>';
+      b.innerHTML = '<canvas width="40" height="40"></canvas><span class="cr-item-name"></span><span class="material-symbols-rounded cr-item-ok"></span>';
       b.querySelector('.cr-item-name').textContent = c.label;
       b.addEventListener('click', () => select(c.id));
       el.list.appendChild(b);
@@ -226,10 +233,23 @@
       const id = b.dataset.id;
       b.classList.toggle('active', id === active);
       b.classList.toggle('filled', isDirty(id));
+      const ok = b.querySelector('.cr-item-ok');
+      const filled = isDirty(id);
+      ok.textContent = filled ? 'check_circle' : '';
+      ok.style.display = filled ? 'inline-block' : 'none';
       const cv = b.querySelector('canvas');
       const ctx = cv.getContext('2d');
       ctx.clearRect(0, 0, 40, 40);
-      if (state[id].img) ctx.drawImage(renderSize(state[id], 40), 0, 0);
+      if (state[id].img) {
+        ctx.drawImage(renderSize(state[id], 40), 0, 0);
+      } else if (originals[id]) {
+        const o = originals[id];
+        const w = o.naturalWidth || o.width, h = o.naturalHeight || o.height;
+        const fit = Math.min(ORIGINAL_INNER / w, ORIGINAL_INNER / h);
+        const k = fit >= 1 ? Math.floor(fit) : fit;
+        ctx.imageSmoothingEnabled = fit < 1;
+        ctx.drawImage(o, (40 - w * k) / 2, (40 - h * k) / 2, w * k, h * k);
+      }
     });
     el.count.textContent = filledIds().length + ' / ' + CURSORS.length;
     el.generate.disabled = busy || filledIds().length === 0;
@@ -364,7 +384,12 @@
     el.stage.addEventListener('drop', e => { if (e.dataTransfer.files[0]) setImage(active, e.dataTransfer.files[0]); });
   }
 
+  let templateCache = null;
+  const originals = {};
+  let originalsStarted = false;
+
   async function loadTemplate() {
+    if (templateCache) return templateCache;
     try {
       const r = await fetch(TEMPLATE_URL, { cache: 'no-cache' });
       if (!r.ok) throw new Error(r.status);
@@ -373,6 +398,7 @@
       const root = names.length && names.every(n => n.includes('/')) ? names[0].split('/')[0] + '/' : '';
       const out = {};
       names.forEach(n => { out[root ? n.slice(root.length) : n] = files[n]; });
+      templateCache = out;
       return out;
     } catch (e) {
       return null;
@@ -407,9 +433,13 @@
       for (const id of ids) {
         const st = state[id];
         log('Converting ' + id);
-        out['cursor/' + id + '.bmp'] = encodeBmp(renderSize(st, BASE));
-        VSZ.forEach((sz, i) => { out['cursor/' + id + '_vsz' + i + '.bmp'] = encodeBmp(renderSize(st, sz)); });
-        out['cursor/' + id + '.ani'] = encodeAni(encodeCur(renderSize(st, BASE), CURSORS.find(c => c.id === id).hot[0], CURSORS.find(c => c.id === id).hot[1]));
+        const c = CURSORS.find(x => x.id === id);
+        const base = renderSize(st, BASE);
+        const bmp = encodeBmp(base);
+        if (c.base !== false) out['cursor/' + id + '.bmp'] = bmp;
+        if (c.vsz !== false) VSZ.forEach((sz, k) => { out['cursor/' + id + '_vsz' + k + '.bmp'] = encodeBmp(renderSize(st, sz)); });
+        (c.extra || []).forEach(suffix => { out['cursor/' + id + suffix + '.bmp'] = bmp; });
+        if (c.ani !== false) out['cursor/' + id + '.ani'] = encodeAni(encodeCur(base, c.hot[0], c.hot[1]));
         await new Promise(r => setTimeout(r));
       }
       log('Packing archive');
@@ -440,12 +470,96 @@
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
   }
 
+  const ORIGINALS_DIR = 'assets/tools/cursors/';
+
+  function decodeBmp(buf) {
+    const dv = new DataView(buf);
+    if (dv.byteLength < 54 || dv.getUint16(0, true) !== 0x4d42) return null;
+    const off = dv.getUint32(10, true);
+    const hs = dv.getUint32(14, true);
+    if (hs < 40) return null;
+    const w = dv.getInt32(18, true);
+    let h = dv.getInt32(22, true);
+    const bpp = dv.getUint16(28, true);
+    const comp = dv.getUint32(30, true);
+    const topDown = h < 0;
+    h = Math.abs(h);
+    if ((comp !== 0 && comp !== 3) || ![1, 4, 8, 24, 32].includes(bpp) || w <= 0 || h <= 0) return null;
+    let palette = null;
+    if (bpp <= 8) {
+      const n = dv.getUint32(46, true) || (1 << bpp);
+      palette = [];
+      for (let i = 0; i < n; i++) {
+        const p = 14 + hs + i * 4;
+        palette.push([dv.getUint8(p + 2), dv.getUint8(p + 1), dv.getUint8(p)]);
+      }
+    }
+    const rowSize = Math.floor((bpp * w + 31) / 32) * 4;
+    const data = new Uint8ClampedArray(w * h * 4);
+    let anyAlpha = false;
+    for (let y = 0; y < h; y++) {
+      const row = off + (topDown ? y : h - 1 - y) * rowSize;
+      for (let x = 0; x < w; x++) {
+        const d = (y * w + x) * 4;
+        let r, g, b, a = 255;
+        if (bpp === 32) {
+          const p = row + x * 4;
+          b = dv.getUint8(p); g = dv.getUint8(p + 1); r = dv.getUint8(p + 2); a = dv.getUint8(p + 3);
+          if (a) anyAlpha = true;
+        } else if (bpp === 24) {
+          const p = row + x * 3;
+          b = dv.getUint8(p); g = dv.getUint8(p + 1); r = dv.getUint8(p + 2);
+        } else {
+          const perByte = 8 / bpp;
+          const byte = dv.getUint8(row + Math.floor(x / perByte));
+          const shift = 8 - bpp * ((x % perByte) + 1);
+          const c = palette[(byte >> shift) & ((1 << bpp) - 1)] || [0, 0, 0];
+          r = c[0]; g = c[1]; b = c[2];
+        }
+        data[d] = r; data[d + 1] = g; data[d + 2] = b; data[d + 3] = a;
+      }
+    }
+    if (bpp === 32 && !anyAlpha) {
+      for (let i = 3; i < data.length; i += 4) data[i] = 255;
+    }
+    if (!anyAlpha) {
+      for (let i = 0; i < data.length; i += 4) {
+        if (data[i] === 255 && data[i + 1] === 0 && data[i + 2] === 255) data[i + 3] = 0;
+      }
+    }
+    const cv = document.createElement('canvas');
+    cv.width = w; cv.height = h;
+    cv.getContext('2d').putImageData(new ImageData(data, w, h), 0, 0);
+    return cv;
+  }
+
+  async function tryImage(url) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) return null;
+      return decodeBmp(await r.arrayBuffer());
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function ensureOriginals() {
+    if (originalsStarted) return;
+    originalsStarted = true;
+    for (const c of CURSORS) {
+      const img = await tryImage(ORIGINALS_DIR + c.id + '.bmp');
+      if (img) originals[c.id] = img;
+    }
+    updateList();
+  }
+
   function open() {
     el.overlay.classList.add('active');
     el.modal.classList.add('active');
     if (typeof window.openModal === 'function') window.openModal();
     else document.body.classList.add('modal-open');
     renderAll();
+    ensureOriginals();
   }
 
   function close() {
