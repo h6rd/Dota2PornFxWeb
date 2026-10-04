@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tiny Frostivus",
+      "category": "heroes"
+    },
+    {
+      "name": "Tiny Cherepashka",
+      "category": "heroes"
+    },
+    {
       "name": "Broodmother Shaker Spiderlings",
       "category": "hero-items"
     },
@@ -13075,6 +13083,36 @@
         "meta": {
           "date": 1790988499,
           "commit-sha": "2533b0f5d830434e2c196adbc4e6a7c49343bd9d"
+        }
+      },
+      {
+        "name": "Tiny Cherepashka",
+        "preview": "Tiny Cherepashka.webp",
+        "file": "Tiny Cherepashka.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791104397,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tiny Frostivus",
+        "preview": "Tiny Frostivus.webp",
+        "file": "Tiny Frostivus.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791104397,
+          "commit-sha": ""
         }
       }
     ],
