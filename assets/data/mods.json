@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Broodmother Shaker Spiderlings",
+      "category": "hero-items"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14739,7 +14743,24 @@
         {
           "id": "broodmother",
           "name": "Broodmother",
-          "mods": []
+          "mods": [
+            {
+              "name": "Broodmother Shaker Spiderlings",
+              "preview": "Broodmother Shaker Spiderlings.webp",
+              "file": "Broodmother Shaker Spiderlings.zip",
+              "tags": {
+                "effects": false,
+                "icons": false,
+                "spiderling": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Новомодный"
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "centaur",
