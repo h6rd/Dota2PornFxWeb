@@ -35,7 +35,9 @@
   <script src="assets/m3e/select.js"></script>
   <script src="assets/theme.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/wallpaper/wallpaper.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/tools.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/wallpaper/wallpaper.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/cursors/cursors.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/events.css" />
   <script src="assets/events.js"></script>
 </head>
@@ -100,8 +102,8 @@
           <!-- <button class="notes-button" id="uploadModButton" aria-label="Upload mod">
             <span class="material-symbols-rounded">upload</span>
           </button> -->
-          <button class="notes-button" id="wallpaperButton" aria-label="Wallpaper creator" title="Wallpaper creator">
-            <span class="material-symbols-rounded">wallpaper</span>
+          <button class="notes-button" id="toolsButton" aria-label="Tools" title="Tools">
+            <span class="material-symbols-rounded">construction</span>
           </button>
           <button class="settings-button" id="settingsButton" aria-label="Settings">
             <span class="material-symbols-rounded">settings</span>
@@ -524,6 +526,9 @@
   <!-- wallpaper creator -->
   <div id="wallpaperOverlay" class="info-overlay"></div>
   <div id="wallpaperModal" class="info-modal upload-mod-modal wp-modal">
+    <button class="tools-back" data-tools-back aria-label="Back to tools" title="Back to tools">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
     <button class="info-modal-close" id="closeWallpaperModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
@@ -822,6 +827,120 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- tools -->
+  <div id="toolsOverlay" class="info-overlay"></div>
+  <div id="toolsModal" class="info-modal tools-modal">
+    <button class="info-modal-close" id="closeToolsModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <h2 class="info-modal-title">Tools</h2>
+    <p class="tools-sub">Pick a tool to get started.</p>
+    <div class="tools-list">
+      <button type="button" class="tools-card" data-tool="wallpaper">
+        <span class="tools-card-icon"><span class="material-symbols-rounded">wallpaper</span></span>
+        <span class="tools-card-text">
+          <span class="tools-card-title">Wallpaper Creator <span class="tools-card-badge">BETA</span></span>
+          <p class="tools-card-desc">Turn an image, GIF or video into an animated main menu background. Crop, trim, add effects and get a ready to install VPK.</p>
+        </span>
+        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+      </button>
+      <button type="button" class="tools-card" data-tool="cursors">
+        <span class="tools-card-icon"><span class="material-symbols-rounded">mouse</span></span>
+        <span class="tools-card-text">
+          <span class="tools-card-title">Cursor Creator <span class="tools-card-badge">BETA</span></span>
+          <p class="tools-card-desc">Make your own cursor set from images. Move, scale and rotate each cursor and download an archive with an installer.</p>
+        </span>
+        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- cursor creator -->
+  <div id="cursorOverlay" class="info-overlay"></div>
+  <div id="cursorModal" class="info-modal cr-modal">
+    <button class="tools-back" data-tools-back aria-label="Back to tools" title="Back to tools">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <button class="info-modal-close" id="closeCursorModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="cr-head">
+      <h2 class="info-modal-title">Cursor Creator</h2>
+      <span class="cr-beta">BETA</span>
+    </div>
+    <div class="cr-body">
+      <aside class="cr-col">
+        <div class="cr-list-head"><span>Cursors</span><span id="crCount">0 / 9</span></div>
+        <div class="cr-list" id="crList"></div>
+      </aside>
+
+      <section class="cr-col cr-col-fixed">
+        <div class="cr-editor" id="crEditor">
+          <div class="cr-editor-head">
+            <span class="cr-editor-title" id="crTitle"></span>
+          </div>
+          <div class="cr-row">
+            <button type="button" class="cr-btn primary" id="crChoose"><span class="material-symbols-rounded">image</span>Choose image</button>
+            <button type="button" class="cr-btn" id="crReset"><span class="material-symbols-rounded">restart_alt</span>Reset</button>
+            <button type="button" class="cr-btn" id="crRemove"><span class="material-symbols-rounded">delete</span>Remove</button>
+            <button type="button" class="cr-btn" id="crImgAll"><span class="material-symbols-rounded">collections</span>One image for all</button>
+          </div>
+          <div class="cr-controls">
+            <div class="cr-slider">
+              <span class="material-symbols-rounded">zoom_in</span>
+              <input type="range" id="crScale" min="10" max="400" value="100" step="1">
+              <output id="crScaleVal">100%</output>
+            </div>
+            <div class="cr-slider">
+              <span class="material-symbols-rounded">rotate_right</span>
+              <input type="range" id="crRot" min="-180" max="180" value="0" step="1">
+              <output id="crRotVal">0°</output>
+            </div>
+          </div>
+          <div class="cr-stage-wrap">
+            <div class="cr-stage empty" id="crStage">
+              <canvas id="crCanvas" width="512" height="512"></canvas>
+              <div class="cr-grid"></div>
+              <div class="cr-empty">
+                <span class="material-symbols-rounded">add_photo_alternate</span>
+                <span>Click or drop an image</span>
+              </div>
+            </div>
+          </div>
+          <p class="cr-hint">Drag the image to move it, scroll to scale. Every cursor is exported at 32×32.</p>
+          <input type="file" id="crFile" accept="image/*" hidden>
+          <input type="file" id="crAllFile" accept="image/*" hidden>
+        </div>
+      </section>
+
+      <aside class="cr-col cr-col-side">
+        <div class="cr-card grow-a">
+          <h3>Preview</h3>
+          <div class="cr-test" id="crTest">
+            <span class="cr-test-hint">Hover over this area to preview the selected cursor</span>
+          </div>
+        </div>
+        <div class="cr-card grow-b">
+          <h3>Activity</h3>
+          <div class="upload-preview-log-body cr-log" id="crLog"></div>
+        </div>
+      </aside>
+    </div>
+    <div class="cr-foot">
+      <div class="cr-name">
+        <label for="crName">Name</label>
+        <input type="text" id="crName" maxlength="48" value="My Cursor" placeholder="My Cursor">
+      </div>
+      <div class="cr-status" id="crStatus"></div>
+      <div class="cr-result" id="crResult">
+        <span class="material-symbols-rounded">check_circle</span>
+        <div><strong id="crResultText"></strong>Unpack and run Install.bat</div>
+        <button type="button" class="cr-btn primary" id="crDownload"><span class="material-symbols-rounded">download</span>Download</button>
+      </div>
+      <button type="button" class="cr-btn primary" id="crGenerate" disabled><span class="material-symbols-rounded">folder_zip</span>Create archive</button>
     </div>
   </div>
 
@@ -1527,9 +1646,11 @@
   <script src="assets/lz-string.min.js"></script>
   <script src="script.js"></script>
   <script src="upload.js"></script>
-  <script src="assets/wallpaper/mediabunny.min.js"></script>
-  <script src="assets/wallpaper/vpk.js"></script>
-  <script src="assets/wallpaper/wallpaper.js"></script>
+  <script src="assets/tools/wallpaper/mediabunny.min.js"></script>
+  <script src="assets/tools/wallpaper/vpk.js"></script>
+  <script src="assets/tools/wallpaper/wallpaper.js"></script>
+  <script src="assets/tools/cursors/cursors.js"></script>
+  <script src="assets/tools/tools.js"></script>
   </body>
   
 </html>

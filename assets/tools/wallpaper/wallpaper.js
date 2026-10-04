@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const TEMPLATE_BASE = 'assets/wallpaper/template/';
+  const TEMPLATE_BASE = 'assets/tools/wallpaper/template/';
   const TEMPLATE_FILES = [
     'panorama/styles/dashboard_background_manager.vcss_c',
     'panorama/styles/hero_loadout_background_images.vcss_c',
@@ -1220,7 +1220,7 @@
     el.ctx = el.canvas.getContext('2d');
     el.videoOnly.forEach(n => n.style.display = 'none');
 
-    ['wallpaperButton', 'mobileWallpaperButton', 'wallpaperAboutLink'].forEach(id => {
+    ['wallpaperAboutLink'].forEach(id => {
       const b = $(id);
       if (!b) return;
       b.addEventListener('click', (e) => {

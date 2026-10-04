@@ -1,0 +1,125 @@
+.tools-modal {
+  max-width: 560px;
+  padding: 28px 24px 24px;
+}
+
+.tools-modal .info-modal-title {
+  margin: 0 0 4px;
+  padding-right: 48px;
+}
+
+.tools-sub {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tools-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.tools-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 20px;
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.tools-card:hover {
+  background: var(--md-sys-color-surface-container-highest);
+  transform: translateY(-1px);
+}
+
+.tools-card:active {
+  transform: scale(0.99);
+}
+
+.tools-card-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tools-card-icon .material-symbols-rounded {
+  font-size: 28px;
+}
+
+.tools-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.tools-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tools-card-desc {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tools-card-badge {
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.tools-card-arrow {
+  flex: 0 0 auto;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tools-back {
+  position: absolute;
+  top: 16px;
+  right: 64px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.tools-back:hover {
+  background: var(--md-sys-color-secondary-container);
+  transform: translateX(-2px);
+}
+
+.tools-back .material-symbols-rounded {
+  font-size: 20px;
+}
