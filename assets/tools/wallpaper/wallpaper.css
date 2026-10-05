@@ -106,7 +106,7 @@
   word-break: break-word;
 }
 
-.wp-modal.wp-busy .wp-form > *:not(.upload-submit-row):not(.wp-status):not(h2) {
+.wp-modal.wp-busy .wp-form>*:not(.upload-submit-row):not(.wp-status):not(h2) {
   opacity: 0.55;
   pointer-events: none;
 }
@@ -125,7 +125,7 @@
   gap: 4px;
   aspect-ratio: 16 / 9;
   border: 2px dashed var(--md-sys-color-outline);
-  border-radius: 16px;
+  border-radius: 6px;
   color: var(--md-sys-color-on-surface-variant);
   transition: background 0.15s ease, border-color 0.15s ease;
 }
@@ -167,7 +167,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
   cursor: grab;
   touch-action: none;
@@ -206,9 +206,66 @@
 }
 
 .wp-info {
-  margin-top: 8px;
+  flex: 1;
+  min-width: 0;
   font-size: 12px;
   color: var(--md-sys-color-on-surface-variant);
+}
+
+.wp-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.wp-ui-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 1;
+}
+
+.wp-ui-overlay.hidden,
+.wp-ui-overlay.missing {
+  display: none;
+}
+
+.wp-ui-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.wp-ui-toggle .material-symbols-rounded {
+  font-size: 16px;
+}
+
+.wp-ui-toggle.active {
+  background: var(--md-sys-color-secondary-container);
+  border-color: transparent;
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.wp-ui-toggle.missing {
+  display: none;
 }
 
 .wp-result {
@@ -223,7 +280,7 @@
   color: var(--md-sys-color-on-primary-container);
 }
 
-.wp-result > .material-symbols-rounded {
+.wp-result>.material-symbols-rounded {
   font-size: 28px;
   flex: 0 0 auto;
 }
@@ -401,8 +458,15 @@
   pointer-events: none;
 }
 
-.wp-tl-dim-l { left: 0; border-radius: 10px 0 0 10px; }
-.wp-tl-dim-r { right: 0; border-radius: 0 10px 10px 0; }
+.wp-tl-dim-l {
+  left: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.wp-tl-dim-r {
+  right: 0;
+  border-radius: 0 10px 10px 0;
+}
 
 .wp-tl-range {
   position: absolute;
@@ -442,8 +506,14 @@
   opacity: 0.85;
 }
 
-.wp-tl-handle.start { transform: translateX(-100%); border-radius: 10px 0 0 10px; }
-.wp-tl-handle.end { border-radius: 0 10px 10px 0; }
+.wp-tl-handle.start {
+  transform: translateX(-100%);
+  border-radius: 10px 0 0 10px;
+}
+
+.wp-tl-handle.end {
+  border-radius: 0 10px 10px 0;
+}
 
 .wp-tl-handle:focus-visible {
   outline: 2px solid var(--md-sys-color-on-surface);
@@ -482,7 +552,9 @@
   flex-wrap: wrap;
 }
 
-.wp-spacer { flex: 1; }
+.wp-spacer {
+  flex: 1;
+}
 
 .wp-playtime {
   font-size: 13px;
@@ -511,7 +583,7 @@
   gap: 8px;
 }
 
-.wp-trim-stats > div {
+.wp-trim-stats>div {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -709,4 +781,75 @@
   .wp-grid-2 {
     grid-template-columns: 1fr;
   }
+}
+
+.wp-info-row {
+  flex-wrap: wrap;
+}
+
+.wp-fs {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.wp-fs-frame {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.wp-fs-canvas,
+.wp-fs-ui {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.wp-fs-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .0;
+  transition: opacity .2s;
+}
+
+.wp-fs:hover .wp-fs-close {
+  opacity: 1;
+}
+
+.wp-fs-note {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+
+.wp-fs:hover .wp-fs-note {
+  opacity: 1;
 }

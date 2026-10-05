@@ -63,8 +63,8 @@
     });
   }
 
-  function drawFrame(ctx, size, st) {
-    ctx.clearRect(0, 0, size, size);
+  function drawFrame(ctx, size, st, keep) {
+    if (!keep) ctx.clearRect(0, 0, size, size);
     if (!st.img) return;
     const w = st.img.naturalWidth, h = st.img.naturalHeight;
     const k = Math.min(size / w, size / h) * st.scale;
@@ -283,18 +283,45 @@
     }
   }
 
+  const ghostAlpha = 0.4;
+  let ghostOn = true;
+  try {
+    if (localStorage.getItem('d2pfx_cr_ghost_on') === '0') ghostOn = false;
+  } catch { }
+
+  function drawGhost() {
+    const o = originals[active];
+    if (!o) return;
+    const size = el.canvas.width;
+    const w = o.naturalWidth || o.width, h = o.naturalHeight || o.height;
+    const fit = Math.min(1, ORIGINAL_INNER / w, ORIGINAL_INNER / h);
+    const k = (size / BASE) * fit;
+    el.ctx.save();
+    el.ctx.globalAlpha = ghostAlpha;
+    el.ctx.imageSmoothingEnabled = fit < 1;
+    el.ctx.imageSmoothingQuality = 'high';
+    el.ctx.drawImage(o, 0, 0, w * k, h * k);
+    el.ctx.restore();
+  }
+
+  function drawStage() {
+    el.ctx.clearRect(0, 0, el.canvas.width, el.canvas.height);
+    if (ghostOn) drawGhost();
+    drawFrame(el.ctx, el.canvas.width, state[active], true);
+  }
+
   let raf = 0;
   function renderAll() {
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(() => {
-      drawFrame(el.ctx, el.canvas.width, state[active]);
+      drawStage();
       renderPreviews();
       updateList();
     });
   }
 
   function renderStageOnly() {
-    drawFrame(el.ctx, el.canvas.width, state[active]);
+    drawStage();
   }
 
   async function setImage(id, file) {
@@ -548,7 +575,10 @@
     originalsStarted = true;
     for (const c of CURSORS) {
       const img = await tryImage(ORIGINALS_DIR + c.id + '.bmp');
-      if (img) originals[c.id] = img;
+      if (img) {
+        originals[c.id] = img;
+        if (c.id === active) renderAll();
+      }
     }
     updateList();
   }
@@ -576,6 +606,7 @@
       list: $('crList'), count: $('crCount'), title: $('crTitle'),
       editor: $('crEditor'), stage: $('crStage'), canvas: $('crCanvas'),
       file: $('crFile'), allFile: $('crAllFile'),
+      ghostToggle: $('crGhostToggle'),
       scale: $('crScale'), scaleVal: $('crScaleVal'), rot: $('crRot'), rotVal: $('crRotVal'),
       reset: $('crReset'), remove: $('crRemove'),
       imgAll: $('crImgAll'), choose: $('crChoose'),
@@ -626,6 +657,14 @@
       resetResult();
       renderAll();
     });
+    if (el.ghostToggle) {
+      el.ghostToggle.checked = ghostOn;
+      el.ghostToggle.addEventListener('change', () => {
+        ghostOn = el.ghostToggle.checked;
+        try { localStorage.setItem('d2pfx_cr_ghost_on', ghostOn ? '1' : '0'); } catch { }
+        renderAll();
+      });
+    }
     el.reset.addEventListener('click', resetTransform);
     el.remove.addEventListener('click', () => removeImage(active));
 

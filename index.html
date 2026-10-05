@@ -682,8 +682,32 @@
             <div class="wp-fx-block is-off" data-block="chroma">
               <div class="wp-fx-row">
                 <span class="wp-fx-title">Chromatic Aberration</span>
-                <input type="range" id="wpChroma" data-fx="chroma" min="0" max="100" step="1" value="0" aria-label="Chromatic aberration">
+                <input type="range" id="wpChroma" data-fx="chroma" min="-100" max="100" step="1" value="0" aria-label="Chromatic aberration">
                 <span class="wp-val" id="wpChromaVal">Off</span>
+              </div>
+            </div>
+
+            <div class="wp-fx-block is-off" data-block="bloom">
+              <div class="wp-fx-row">
+                <span class="wp-fx-title">Bloom</span>
+                <input type="range" id="wpBloom" data-fx="bloom" min="0" max="100" step="1" value="0" aria-label="Bloom">
+                <span class="wp-val" id="wpBloomVal">Off</span>
+              </div>
+            </div>
+
+            <div class="wp-fx-block is-off" data-block="radial">
+              <div class="wp-fx-row">
+                <span class="wp-fx-title">Radial Blur</span>
+                <input type="range" id="wpRadial" data-fx="radial" min="0" max="100" step="1" value="0" aria-label="Radial blur">
+                <span class="wp-val" id="wpRadialVal">Off</span>
+              </div>
+            </div>
+
+            <div class="wp-fx-block is-off" data-block="crt">
+              <div class="wp-fx-row">
+                <span class="wp-fx-title">CRT</span>
+                <input type="range" id="wpCrt" data-fx="crt" min="0" max="100" step="1" value="0" aria-label="CRT">
+                <span class="wp-val" id="wpCrtVal">Off</span>
               </div>
             </div>
 
@@ -745,9 +769,9 @@
             <div class="upload-form-group">
               <label for="wpQualityTrigger">Quality</label>
               <select id="wpQuality" class="settings-select">
-                <option value="low">Low (smallest)</option>
-                <option value="medium" selected>Medium</option>
-                <option value="high">High</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high" selected>High</option>
               </select>
             </div>
             <div class="upload-form-group wp-video-only">
@@ -755,14 +779,14 @@
               <select id="wpFps" class="settings-select">
                 <option value="24">24 fps</option>
                 <option value="30" selected>30 fps</option>
-                <option value="60">60 fps</option>
+                <option value="60">60 fps (not recommended)</option>
               </select>
             </div>
             <div class="upload-form-group">
               <label for="wpCodecTrigger">Codec</label>
               <select id="wpCodec" class="settings-select">
-                <option value="vp8" selected>VP8 (recommended)</option>
-                <option value="vp9">VP9</option>
+                <option value="vp8">VP8 (most compatible)</option>
+                <option value="vp9" selected>VP9</option>
               </select>
             </div>
             <div class="upload-form-group">
@@ -800,9 +824,18 @@
             <div class="wp-stage-wrap">
               <div class="wp-stage" id="wpStage">
                 <canvas id="wpCanvas" width="960" height="540"></canvas>
+                <img class="wp-ui-overlay" id="wpUiOverlay" src="assets/tools/wallpaper/preview-ui.png" alt="" draggable="false">
                 <div class="wp-grid-overlay"></div>
               </div>
-              <div class="wp-info" id="wpInfo"></div>
+              <div class="wp-info-row">
+                <div class="wp-info" id="wpInfo"></div>
+                <button type="button" class="wp-ui-toggle" id="wpRealToggle" title="Open a fullscreen preview at the real output resolution with approximate video compression">
+                  <span class="material-symbols-rounded">high_quality</span> Real quality
+                </button>
+                <button type="button" class="wp-ui-toggle active" id="wpUiToggle" title="Show / hide game interface preview">
+                  <span class="material-symbols-rounded">dashboard</span> Game UI
+                </button>
+              </div>
             </div>
           </div>
 
@@ -910,7 +943,13 @@
               </div>
             </div>
           </div>
-          <p class="cr-hint">Drag the image to move it, scroll to scale. Every cursor is exported at 32×32.</p>
+          <div class="cr-ghost-row">
+            <label class="settings-toggle-label">
+              <span class="cr-ghost-text"><strong>Show original cursor</strong><small>Faded guide for size and position.</small></span>
+        <input type="checkbox" id="crGhostToggle" class="settings-toggle-input" checked>
+              <span class="settings-toggle-track"></span>
+            </label>
+          </div>
           <input type="file" id="crFile" accept="image/*" hidden>
           <input type="file" id="crAllFile" accept="image/*" hidden>
         </div>

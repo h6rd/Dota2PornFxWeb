@@ -635,3 +635,36 @@
 .cr-item-ok {
   opacity: 1;
 }
+
+.cr-ghost-row {
+  padding: 0;
+  background: none;
+  flex: 0 0 auto;
+}
+
+.cr-ghost-row .settings-toggle-label {
+  gap: 10px;
+  align-items: center;
+  padding: 0;
+}
+
+.cr-ghost-text {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  min-width: 0;
+}
+
+.cr-ghost-text strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.cr-ghost-text small {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--md-sys-color-on-surface-variant);
+}

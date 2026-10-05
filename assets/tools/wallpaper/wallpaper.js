@@ -25,10 +25,11 @@
   const MIN_TRIM = 0.2;
   const GIF_MEMORY_BUDGET = 600 * 1024 * 1024;
   const DEFAULT_PAK = 2;
+  const CHROMA_MAX = 0.06;
 
   const FX_DEFAULTS = {
     blur: 0, wave: 0, waveCount: 16, waveDir: 'vertical', grain: 0, grainSize: 1, vignette: 0, brightness: 0, contrast: 0, saturation: 0,
-    pixelate: 0, chroma: 0, sharpen: 0, edges: 0
+    pixelate: 0, chroma: 0, sharpen: 0, edges: 0, bloom: 0, radial: 0, crt: 0
   };
 
   const S = {
@@ -37,8 +38,8 @@
     customW: 16, customH: 9,
     height: 1080,
     fps: 30,
-    quality: 'medium',
-    codec: 'vp8',
+    quality: 'high',
+    codec: 'vp9',
     zoom: 1, cx: 0.5, cy: 0.5,
     trimStart: 0, trimEnd: 0,
     pakNum: DEFAULT_PAK,
@@ -88,7 +89,7 @@
   let lastYield = 0, lastUi = 0;
   function heavyFx() {
     const f = S.fx;
-    return f.blur > 0 || f.wave > 0 || f.chroma > 0 || f.pixelate > 0 || f.sharpen > 0 || f.edges > 0 || f.grain > 0;
+    return f.blur > 0 || f.wave > 0 || f.chroma !== 0 || f.bloom > 0 || f.radial > 0 || f.crt > 0 || f.pixelate > 0 || f.sharpen > 0 || f.edges > 0 || f.grain > 0;
   }
 
   async function yieldUI() {
@@ -235,6 +236,7 @@
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, w, h);
     }
+    if (fx.crt > 0) applyCrt(ctx, w, h);
     if (fx.grain > 0) {
       const k = fx.grainSize * h / 1080;
       const rx = Math.random() * 256, ry = Math.random() * 256; // new noise every frame
@@ -266,7 +268,9 @@
   function stageWave(src, dst, w, h) { applyWave(src, dst.getContext('2d'), w, h); }
 
   function stageChroma(src, dst, w, h) {
-    const a = S.fx.chroma / 100 * 0.025;
+    const v = S.fx.chroma;
+    const a = Math.abs(v) / 100 * CHROMA_MAX;
+    const kr = v > 0 ? 1 + a : 1, kb = v > 0 ? 1 : 1 + a;
     const d = dst.getContext('2d');
     const tmp = getScratch('chroma', w, h);
     const t = tmp.getContext('2d');
@@ -276,7 +280,7 @@
     d.globalCompositeOperation = 'lighter';
     d.imageSmoothingEnabled = true;
     d.imageSmoothingQuality = 'medium';
-    [['#ff0000', 1 + a], ['#00ff00', 1 + a * 0.5], ['#0000ff', 1]].forEach(([col, k]) => {
+    [['#ff0000', kr], ['#00ff00', 1 + a * 0.5], ['#0000ff', kb]].forEach(([col, k]) => {
       t.globalCompositeOperation = 'source-over';
       t.drawImage(src, 0, 0);
       t.globalCompositeOperation = 'multiply';
@@ -285,6 +289,80 @@
       d.drawImage(tmp, w / 2 * (1 - k), h / 2 * (1 - k), w * k, h * k);
     });
     d.globalCompositeOperation = 'source-over';
+  }
+
+  function stageRadial(src, dst, w, h) {
+    const amt = S.fx.radial / 100 * 0.14;
+    const N = 10;
+    const d = dst.getContext('2d');
+    d.globalCompositeOperation = 'source-over';
+    d.globalAlpha = 1;
+    d.imageSmoothingEnabled = true;
+    d.imageSmoothingQuality = 'medium';
+    d.drawImage(src, 0, 0);
+    for (let i = 1; i <= N; i++) {
+      const k = 1 + (i / N) * amt;
+      d.globalAlpha = 1 / (i + 1);
+      d.drawImage(src, w / 2 * (1 - k), h / 2 * (1 - k), w * k, h * k);
+    }
+    d.globalAlpha = 1;
+  }
+
+  function stageBloom(src, dst, w, h) {
+    const v = S.fx.bloom / 100;
+    const d = dst.getContext('2d');
+    d.globalCompositeOperation = 'source-over';
+    d.globalAlpha = 1;
+    d.drawImage(src, 0, 0);
+    const tiny = getScratch('bloom', Math.max(2, Math.round(w / 6)), Math.max(2, Math.round(h / 6)));
+    const tc = tiny.getContext('2d');
+    tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = 'high';
+    tc.save();
+    tc.clearRect(0, 0, tiny.width, tiny.height);
+    if (SUPPORTS_FILTER) tc.filter = 'brightness(0.75) contrast(1.9)';
+    tc.drawImage(src, 0, 0, tiny.width, tiny.height);
+    tc.restore();
+    d.save();
+    d.globalCompositeOperation = 'screen';
+    d.globalAlpha = Math.min(1, v * 1.1);
+    d.imageSmoothingEnabled = true; d.imageSmoothingQuality = 'high';
+    if (SUPPORTS_FILTER) d.filter = `blur(${(h / 1080 * (4 + v * 10)).toFixed(1)}px)`;
+    d.drawImage(tiny, 0, 0, w, h);
+    d.restore();
+  }
+
+  let crtMask = null;
+  function getCrtMask(ctx) {
+    if (crtMask) return crtMask;
+    const c = document.createElement('canvas');
+    c.width = 3; c.height = 1;
+    const cc = c.getContext('2d');
+    ['#ff7070', '#70ff70', '#7070ff'].forEach((col, i) => { cc.fillStyle = col; cc.fillRect(i, 0, 1, 1); });
+    crtMask = ctx.createPattern(c, 'repeat');
+    return crtMask;
+  }
+
+  function applyCrt(ctx, w, h) {
+    const v = S.fx.crt / 100;
+    const k = h / 1080;
+    const p = Math.max(2, Math.round(3 * k));
+    ctx.save();
+    ctx.globalCompositeOperation = 'multiply';
+    ctx.globalAlpha = Math.min(1, v * 1.2);
+    ctx.fillStyle = getCrtMask(ctx);
+    ctx.setTransform(Math.max(1, k), 0, 0, 1, 0, 0);
+    ctx.fillRect(0, 0, w / Math.max(1, k) + 1, h);
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = `rgba(0,0,0,${(0.5 * v).toFixed(3)})`;
+    const lh = Math.max(1, Math.round(p / 2));
+    for (let y = 0; y < h; y += p) ctx.fillRect(0, y, w, lh);
+    const g = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.45, w / 2, h / 2, Math.hypot(w, h) * 0.55);
+    g.addColorStop(0, 'rgba(0,0,0,0)');
+    g.addColorStop(1, `rgba(0,0,0,${(0.55 * v).toFixed(3)})`);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
   }
 
   const buf = { img: null, lum: null };
@@ -347,7 +425,9 @@
     if (fx.pixelate > 0) stages.push(stagePixelate);
     if (fx.blur > 0) stages.push(stageBlur);
     if (fx.wave > 0) stages.push(stageWave);
-    if (fx.chroma > 0) stages.push(stageChroma);
+    if (fx.radial > 0) stages.push(stageRadial);
+    if (fx.bloom > 0) stages.push(stageBloom);
+    if (fx.chroma !== 0) stages.push(stageChroma);
     if (fx.sharpen > 0) stages.push(stageSharpen);
     if (fx.edges > 0) stages.push(stageEdges);
 
@@ -369,7 +449,7 @@
   const pv = { tier: 0, ema: 0, cool: 0 };
 
   function adaptPreview(ms) {
-    if (S.busy) return;
+    if (S.busy || S.real) return;
     const heavy = S.fx && Object.keys(FX_DEFAULTS).some(k => k !== 'waveCount' && k !== 'waveDir' && k !== 'grainSize' && S.fx[k]);
     if (!heavy) {
       if (pv.tier !== 0) { pv.tier = 0; pv.ema = 0; resizePreview(); }
@@ -387,6 +467,88 @@
     if (pv.tier !== t) { pv.ema = 0; pv.cool = 20; resizePreview(); }
   }
 
+  let fs = null;
+  function openRealView() {
+    if (fs) return;
+    if (!S.src) { toast('Load an image or video first.'); return; }
+    const root = document.createElement('div');
+    root.className = 'wp-fs';
+    const frame = document.createElement('div');
+    frame.className = 'wp-fs-frame';
+    const cv = document.createElement('canvas');
+    cv.className = 'wp-fs-canvas';
+    frame.appendChild(cv);
+    const uiImg = $('wpUiOverlay');
+    if (uiImg && !uiImg.classList.contains('hidden') && !uiImg.classList.contains('missing')) {
+      const im = document.createElement('img');
+      im.className = 'wp-fs-ui';
+      im.src = uiImg.src;
+      im.draggable = false;
+      frame.appendChild(im);
+    }
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'wp-fs-close';
+    close.innerHTML = '<span class="material-symbols-rounded">close</span>';
+    const note = document.createElement('div');
+    note.className = 'wp-fs-note';
+    root.append(frame, close, note);
+    document.body.appendChild(root);
+
+    const layout = () => {
+      const w = el.canvas.width, h = el.canvas.height;
+      const dpr = window.devicePixelRatio || 1;
+      let cw = w / dpr, ch = h / dpr;
+      const k = Math.min(1, innerWidth / cw, innerHeight / ch);
+      cw *= k; ch *= k;
+      frame.style.width = cw + 'px';
+      frame.style.height = ch + 'px';
+      if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+      note.textContent = `${w}×${h}` + (k < 1 ? ` · fitted to screen (${Math.round(k * 100)}%)` : ' · actual size') + ' · Esc to close';
+    };
+
+    fs = { root, raf: 0, layout };
+    S.real = true;
+    realToken++;
+    resizePreview();
+    layout();
+
+    const ctx = cv.getContext('2d');
+    const tick = () => {
+      if (!fs) return;
+      if (cv.width !== el.canvas.width || cv.height !== el.canvas.height) layout();
+      ctx.drawImage(el.canvas, 0, 0);
+      fs.raf = requestAnimationFrame(tick);
+    };
+    tick();
+
+    close.addEventListener('click', closeRealView);
+    root.addEventListener('click', (e) => { if (e.target === root) closeRealView(); });
+    window.addEventListener('resize', layout);
+    document.addEventListener('keydown', fsKey, true);
+    document.addEventListener('fullscreenchange', fsChange);
+    try { const p = root.requestFullscreen && root.requestFullscreen(); if (p && p.catch) p.catch(() => { }); } catch { }
+  }
+  function fsKey(e) {
+    if (e.key === 'Escape') { e.stopPropagation(); closeRealView(); }
+  }
+  function fsChange() {
+    if (!document.fullscreenElement) closeRealView();
+  }
+  function closeRealView() {
+    if (!fs) return;
+    const f = fs; fs = null;
+    cancelAnimationFrame(f.raf);
+    window.removeEventListener('resize', f.layout);
+    document.removeEventListener('keydown', fsKey, true);
+    document.removeEventListener('fullscreenchange', fsChange);
+    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch { } }
+    f.root.remove();
+    S.real = false;
+    realToken++;
+    resizePreview();
+  }
+
   let renderQueued = false;
   function scheduleRender() {
     if (renderQueued) return;
@@ -396,7 +558,7 @@
 
   function resizePreview() {
     const { w, h } = outputSize();
-    const pw = PREVIEW_TIERS[pv.tier];
+    const pw = S.real ? w : PREVIEW_TIERS[pv.tier];
     el.canvas.width = pw;
     el.canvas.height = Math.round(pw * h / w);
     el.stage.style.aspectRatio = w + ' / ' + h;
@@ -404,8 +566,36 @@
     updateInfo();
   }
 
+  let realToken = 0;
+  function realQ() {
+    const { w, h } = outputSize();
+    const bpp = targetBitrate() / (w * h * (S.fps || 30));
+    return clamp(0.35 + bpp * 3, 0.45, 0.8);
+  }
+  let realTimer = 0;
+  function renderReal() {
+    const cv = el.canvas, w = cv.width, h = cv.height;
+    clearTimeout(realTimer);
+    const token = ++realToken;
+    renderFrame(el.ctx, w, h);
+    const playing = isTimed() && !S.src.player.paused;
+    if (playing || !S.src) return;
+    realTimer = setTimeout(() => {
+      if (token !== realToken || !S.real) return;
+      cv.toBlob(async (blob) => {
+        if (!blob || token !== realToken) return;
+        try {
+          const bmp = await createImageBitmap(blob);
+          if (token === realToken && S.real && cv.width === bmp.width) el.ctx.drawImage(bmp, 0, 0);
+          bmp.close && bmp.close();
+        } catch { }
+      }, 'image/jpeg', realQ());
+    }, 140);
+  }
+
   function renderPreview() {
     const t0 = performance.now();
+    if (S.real) { renderReal(); S.lastRenderT = S.src && S.src.player ? S.src.player.time : -1; return; }
     renderFrame(el.ctx, el.canvas.width, el.canvas.height);
     S.lastRenderT = S.src && S.src.player ? S.src.player.time : -1;
     adaptPreview(performance.now() - t0);
@@ -728,7 +918,8 @@
         text += ' · Image';
       }
     }
-    if (pv.tier > 0) text += ` · preview ${PREVIEW_TIERS[pv.tier]}px`;
+    if (S.real) text += ' · real quality';
+    else if (pv.tier > 0) text += ` · preview ${PREVIEW_TIERS[pv.tier]}px`;
     el.info.textContent = text;
   }
 
@@ -874,7 +1065,10 @@
     contrast: (v) => v > 0 ? '+' + v : String(v),
     saturation: (v) => v > 0 ? '+' + v : String(v),
     pixelate: (v) => v > 0 ? v + 'px' : 'Off',
-    chroma: (v) => v > 0 ? v + '%' : 'Off',
+    chroma: (v) => v !== 0 ? (v > 0 ? '+' : '') + v + '%' : 'Off',
+    bloom: (v) => v > 0 ? v + '%' : 'Off',
+    radial: (v) => v > 0 ? v + '%' : 'Off',
+    crt: (v) => v > 0 ? v + '%' : 'Off',
     sharpen: (v) => v > 0 ? v + '%' : 'Off',
     edges: (v) => v > 0 ? v + '%' : 'Off'
   };
@@ -887,7 +1081,7 @@
     });
     document.querySelectorAll('.wp-fx-block').forEach((block) => {
       const k = block.dataset.block;
-      if (k in S.fx) block.classList.toggle('is-off', !(S.fx[k] > 0));
+      if (k in S.fx) block.classList.toggle('is-off', k === 'chroma' ? S.fx[k] === 0 : !(S.fx[k] > 0));
     });
     updateFxBadge();
   }
@@ -896,7 +1090,8 @@
 
   function activeFxCount() {
     const f = S.fx;
-    let n = ['blur', 'wave', 'grain', 'vignette', 'chroma', 'pixelate', 'sharpen', 'edges'].filter(k => f[k] > 0).length;
+    let n = ['blur', 'wave', 'grain', 'vignette', 'pixelate', 'sharpen', 'edges', 'bloom', 'radial', 'crt'].filter(k => f[k] > 0).length;
+    if (f.chroma !== 0) n++;
     if (f.brightness || f.contrast || f.saturation) n++;
     return n;
   }
@@ -1276,6 +1471,29 @@
       generate();
     });
     el.downloadBtn.addEventListener('click', download);
+
+    // game overlay
+    const uiImg = $('wpUiOverlay'), uiBtn = $('wpUiToggle');
+    if (uiImg && uiBtn) {
+      const missing = () => { uiImg.classList.add('missing'); uiBtn.classList.add('missing'); };
+      uiImg.addEventListener('error', missing);
+      if (uiImg.complete && !uiImg.naturalWidth) missing();
+      let uiOn = true;
+      try { uiOn = localStorage.getItem('d2pfx_wp_ui') !== '0'; } catch { }
+      const applyUi = () => {
+        uiImg.classList.toggle('hidden', !uiOn);
+        uiBtn.classList.toggle('active', uiOn);
+      };
+      applyUi();
+      uiBtn.addEventListener('click', () => {
+        uiOn = !uiOn;
+        try { localStorage.setItem('d2pfx_wp_ui', uiOn ? '1' : '0'); } catch { }
+        applyUi();
+      });
+    }
+
+    const rqBtn = $('wpRealToggle');
+    if (rqBtn) rqBtn.addEventListener('click', openRealView);
 
     setAspect('16:9');
     setBusy(false);
