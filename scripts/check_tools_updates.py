@@ -55,7 +55,15 @@ TOOLS = [
         "name": "Patcher - Weather & More",
         "category": "tools",
         "exclude_pattern": None,
-    }
+    },
+    {
+        "owner": "J0nathan550",
+        "repo": "Source2Viewer-d2pfx",
+        "name": "Better Source2Viewer",
+        "category": "tools",
+        "exclude_pattern": None,
+        "include_prerelease": True,
+    },
 ]
 
 REPO_ROOT = os.environ.get("GITHUB_WORKSPACE", os.getcwd())

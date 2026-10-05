@@ -20475,9 +20475,14 @@
       {
         "name": "Better Source2Viewer",
         "preview": "better-s2v.webp",
-        "file": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/",
-        "type": "guide",
+        "multiPlatform": true,
+        "fileWin": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/latest/download/Source2Viewer.exe",
+        "fileLinux": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/latest/download/Source2Viewer-x86_64.AppImage",
         "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/J0nathan550/Source2Viewer-d2pfx"
+          },
           {
             "type": "author",
             "url": "J0nathan550"
