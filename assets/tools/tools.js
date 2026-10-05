@@ -31,7 +31,8 @@
 
   const OPENERS = {
     wallpaper: () => window.openWallpaperModal && window.openWallpaperModal(),
-    cursors: () => window.openCursorModal && window.openCursorModal()
+    cursors: () => window.openCursorModal && window.openCursorModal(),
+    localization: () => window.openLocalizationModal && window.openLocalizationModal()
   };
 
   function pick(tool) {

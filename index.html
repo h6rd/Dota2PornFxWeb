@@ -38,6 +38,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/tools.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/wallpaper/wallpaper.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/cursors/cursors.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/localization/localization.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/events.css" />
   <script src="assets/events.js"></script>
 </head>
@@ -883,11 +884,59 @@
       <button type="button" class="tools-card" data-tool="cursors">
         <span class="tools-card-icon"><span class="material-symbols-rounded">mouse</span></span>
         <span class="tools-card-text">
-          <span class="tools-card-title">Cursor Creator <span class="tools-card-badge">BETA</span></span>
+          <span class="tools-card-title">Cursor Creator</span>
           <p class="tools-card-desc">Make your own cursor set from images. Move, scale and rotate each cursor and download an archive with an installer.</p>
         </span>
         <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
       </button>
+      <button type="button" class="tools-card" data-tool="localization">
+        <span class="tools-card-icon"><span class="material-symbols-rounded">translate</span></span>
+        <span class="tools-card-text">
+          <span class="tools-card-title">Localization Editor</span>
+          <p class="tools-card-desc">Pick a language, edit any game text with search and get a ready to install VPK. Your changes are saved and can be updated when the game files change.</p>
+        </span>
+        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- localization editor -->
+  <div id="localeOverlay" class="info-overlay"></div>
+  <div id="localeModal" class="info-modal lc-modal">
+    <button class="tools-back" data-tools-back aria-label="Back to tools" title="Back to tools">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <button class="info-modal-close" id="closeLocaleModal" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="lc-inner">
+      <div class="lc-head">
+        <h2 class="info-modal-title">Localization Editor</h2>
+        <p class="lc-status" id="lcStatus"></p>
+      </div>
+
+      <div class="lc-bar" id="lcBar">
+        <div class="lc-field"><span>Language</span><select id="lcLang" class="settings-select" aria-label="Language"></select></div>
+        <div class="lc-field"><span>File</span><select id="lcFile" class="settings-select" aria-label="File"></select></div>
+        <input type="search" id="lcSearch" class="lc-search" placeholder="Search by key or text…" autocomplete="off">
+        <label class="lc-check"><input type="checkbox" id="lcOnlyMod"> Changed only</label>
+      </div>
+
+      <div class="lc-saved" id="lcSaved" hidden><span>Saved:</span><span id="lcSavedList"></span></div>
+      <div class="lc-banner" id="lcBanner" hidden>
+        <span id="lcBannerText"></span>
+        <button type="button" class="lc-btn tonal" id="lcUpdate">Update my file</button>
+      </div>
+
+      <div class="lc-list" id="lcList"></div>
+
+      <div class="lc-footer">
+        <span class="lc-count" id="lcCount"></span>
+        <span class="grow"></span>
+        <button type="button" class="lc-btn tonal" id="lcReset" disabled>Reset file</button>
+        <label>VPK <input type="text" id="lcPak" class="lc-pak" inputmode="numeric" maxlength="2" autocomplete="off" spellcheck="false" value="03"></label>
+        <button type="button" class="lc-btn" id="lcBuild">Build VPK</button>
+      </div>
     </div>
   </div>
 
@@ -902,7 +951,6 @@
     </button>
     <div class="cr-head">
       <h2 class="info-modal-title">Cursor Creator</h2>
-      <span class="cr-beta">BETA</span>
     </div>
     <div class="cr-body">
       <aside class="cr-col">
@@ -1689,6 +1737,7 @@
   <script src="assets/tools/wallpaper/vpk.js"></script>
   <script src="assets/tools/wallpaper/wallpaper.js"></script>
   <script src="assets/tools/cursors/cursors.js"></script>
+  <script src="assets/tools/localization/localization.js"></script>
   <script src="assets/tools/tools.js"></script>
   </body>
   

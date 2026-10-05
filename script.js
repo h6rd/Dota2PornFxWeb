@@ -4001,7 +4001,7 @@ function applySettings(s) {
     if (seasonalToggle) seasonalToggle.checked = s.seasonalThemes !== false;
 }
 
-function exportSettings() {
+async function exportSettings() {
     const s = loadSettings();
     const cartData = JSON.parse(localStorage.getItem('modCart') || '[]');
     const assemblies = JSON.parse(localStorage.getItem('savedAssemblies') || '[]');
@@ -4026,6 +4026,15 @@ function exportSettings() {
         cart: cartData,
     };
 
+    try {
+        if (window.LocalizationStore) {
+            const localization = await window.LocalizationStore.exportAll();
+            if (localization.length) obj.localization = localization;
+        }
+    } catch (err) {
+        console.error('Failed to export localization edits:', err);
+    }
+
     const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -4038,7 +4047,7 @@ function exportSettings() {
 
 function importSettings(file) {
     const reader = new FileReader();
-    reader.onload = e => {
+    reader.onload = async e => {
         try {
             const obj = JSON.parse(e.target.result);
             if (obj.version !== 1) throw new Error('Unknown format');
@@ -4046,6 +4055,9 @@ function importSettings(file) {
             if (obj.cart) localStorage.setItem('modCart', JSON.stringify(obj.cart));
             if (obj.styles) localStorage.setItem('styleIndexMap', JSON.stringify(obj.styles));
             if (obj.assemblies) localStorage.setItem('savedAssemblies', JSON.stringify(obj.assemblies));
+            if (Array.isArray(obj.localization) && window.LocalizationStore) {
+                await window.LocalizationStore.importAll(obj.localization);
+            }
 
             const patch = {};
             if (obj.theme) patch.theme = obj.theme;

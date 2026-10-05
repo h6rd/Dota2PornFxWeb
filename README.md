@@ -94,7 +94,6 @@
 | [Egezenn](https://github.com/Egezenn) | Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) |
 | [Fleece](https://github.com/TheFleece) | Creation of the [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) |
 | [ibcsz](https://github.com/ibcsz12) | Added Santa hat to the logo for winter theme |
-| [GridStudio](https://github.com/linsisss/dota2-grid-toolkit) | Idea for the Wallpaper Creator |
 
 ---
 
@@ -140,14 +139,16 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 
 ---
 
-## Libraries Used
+## Libraries & Resources
 
-| Library | Purpose |
-|---------|---------|
+| Name | Purpose |
+|------|---------|
 | [zip.js](https://github.com/gildas-lormeau/zip.js/) | ZIP read/write in the browser |
 | [lz-string](https://github.com/pieroxy/lz-string) | LZ-based string compression |
 | [m3e](https://github.com/matraic/m3e) | Material 3 Expressive UI components |
 | [mediabunny](https://github.com/Vanilagy/mediabunny) | Working with videos for Wallpaper Creator |
+| [GridStudio](https://github.com/linsisss/dota2-grid-toolkit) | Inspiration for the Wallpaper Creator |
+| [DOTA 2 VPK Updates](https://github.com/spirit-bear-productions/dota_vpk_updates) | Game localization files for the Localization Editor |
 
 ---
 
