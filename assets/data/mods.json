@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Twisted Maelstrom Enigma",
       "category": "heroes"
     },
@@ -607,10 +611,6 @@
     {
       "name": "Ringmaster Ibalai",
       "category": "heroes"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Ancient Apparition Shatterblast",
