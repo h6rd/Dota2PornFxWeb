@@ -58,5 +58,18 @@
       "Patcher-Linux.zip": "8c177fb54743a03923dcc25109da7a7c1bda816f200715c7505edbddb2213ad5",
       "Patcher-Win.zip": "b6db5ca213ca8aec7ac40bccb66326cf8f8e44652e2efb6688eddaca9573f9ef"
     }
+  },
+  "J0nathan550/Source2Viewer-d2pfx": {
+    "version": "build-21",
+    "hashes": {
+      "cli-linux-x64.zip": "b32f787afc097bd2b60044b686c29f10cb6c5734ac50b97d910702362d86f794",
+      "cli-windows-x64.zip": "1602b19bb98afcfd047dccf4c3c061643453fa088feec0b91cf772a2397033cf",
+      "gui-avalonia-windows-x64.zip": "9fd536a0c091f9c003e2852b889b70601aad6f8e904123147e84c79258e1f96d",
+      "gui-windows-x64.zip": "62d7af6a8815c9705427efbc04d1aaaab9b42390bcd6560f926b0af13a784b35",
+      "latest.json": "e70c5e383e1e8196405cf5091123f358c9ecfbca9cd55845d5de3d868019cdca",
+      "Source2Viewer-x86_64.AppImage": "2938fa986dee402bbd05262c50a7e71d40c78223e6a9e955174483f5929046e7",
+      "Source2Viewer.Avalonia.exe": "eab765b13816acd6b82975168e71371f58d343cc67065ba48dec7fff4b120270",
+      "Source2Viewer.exe": "dcaca7499e35593283ed29957481bb03d2c8e00bc1bc5ab5f4783f8a58dcbbc7"
+    }
   }
 }
