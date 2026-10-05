@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Zeus Immortal Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Kunkka Leviathan",
       "category": "heroes"
     },
@@ -13209,6 +13213,25 @@
         "meta": {
           "date": 1791162755,
           "commit-sha": "24ce96d9589aefae228611d95066d99ab934b34e"
+        }
+      },
+      {
+        "name": "Zeus Immortal Arcana",
+        "preview": "Zeus Immortal Arcana.webp",
+        "file": "Zeus Immortal Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791168414,
+          "commit-sha": ""
         }
       }
     ],
