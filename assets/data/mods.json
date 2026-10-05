@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kunkka Leviathan",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Ult Miura Xm Aura",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tidehunter Golden Diretide",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Cosmic",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Love Undying",
+      "category": "heroes"
+    },
+    {
       "name": "Tiny Frostivus",
       "category": "heroes"
     },
@@ -13114,6 +13134,82 @@
           "date": 1791104398,
           "commit-sha": "498bdba5b7feba3784f75aa288e3a62a64625aea"
         }
+      },
+      {
+        "name": "Immortal Love Undying",
+        "preview": "Immortal Love Undying.webp",
+        "file": "Immortal Love Undying.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791162754,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Luna Cosmic",
+        "preview": "Luna Cosmic.webp",
+        "file": "Luna Cosmic.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791162754,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tidehunter Golden Diretide",
+        "preview": "Tidehunter Golden Diretide.webp",
+        "file": "Tidehunter Golden Diretide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1791162754,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Kunkka Leviathan",
+        "preview": "Kunkka Leviathan.webp",
+        "file": "Kunkka Leviathan.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1791162754,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22737,6 +22833,25 @@
         "meta": {
           "date": 1790809354,
           "commit-sha": "f05eee91685f88f36f57e612f6e0b0ea86bc0d45"
+        }
+      },
+      {
+        "name": "Shadow Fiend Ult Miura Xm Aura",
+        "preview": "Shadow Fiend Ult Miura Xm Aura.webp",
+        "file": "Shadow Fiend Ult Miura Xm Aura.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/PEi8x1BpvKs"
+          }
+        ],
+        "meta": {
+          "date": 1791162754,
+          "commit-sha": ""
         }
       }
     ],
