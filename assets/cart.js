@@ -1608,38 +1608,78 @@ function diagnoseFetchError(error, filePath) {
     };
 }
 
-async function fetchWithRetry(url, retries = 3, onProgress = null) {
-    let lastError;
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+const FETCH_CONNECT_TIMEOUT = 20000;
+const FETCH_STALL_TIMEOUT = 30000;
 
-            if (!onProgress) return response;
+async function fetchOnce(url, onProgress) {
+    const controller = new AbortController();
+    let timer = setTimeout(() => controller.abort(), FETCH_CONNECT_TIMEOUT);
+    const bump = () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => controller.abort(), FETCH_STALL_TIMEOUT);
+    };
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-            const contentLength = response.headers.get('Content-Length');
-            const total = contentLength ? parseInt(contentLength, 10) : 0;
-            let loaded = 0;
+        const type = (response.headers.get('Content-Type') || '').toLowerCase();
+        if (type.includes('text/html')) throw new Error('HTTP 404 (got HTML instead of a file)');
 
-            const reader = response.body.getReader();
-            const chunks = [];
+        const total = parseInt(response.headers.get('Content-Length') || '0', 10) || 0;
+        bump();
+        if (!response.body) return await response.blob();
 
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                chunks.push(value);
-                loaded += value.length;
-                onProgress(loaded, total);
+        if (!onProgress) {
+            if (typeof TransformStream === 'function') {
+                const watchdog = new TransformStream({
+                    transform(chunk, ctl) { bump(); ctl.enqueue(chunk); }
+                });
+                return await new Response(response.body.pipeThrough(watchdog)).blob();
             }
+            clearTimeout(timer);
+            return await response.blob();
+        }
 
-            const blob = new Blob(chunks);
-            return { ok: true, blob: async () => blob };
-        } catch (error) {
-            lastError = error;
-            if (i < retries - 1) {
-                await new Promise(r => setTimeout(r, 1000 * Math.pow(2, i)));
+        const reader = response.body.getReader();
+        const chunks = [];
+        let loaded = 0;
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            loaded += value.length;
+            bump();
+            if (onProgress) onProgress(loaded, total);
+        }
+        return new Blob(chunks);
+    } catch (err) {
+        if (err.name === 'AbortError') throw new Error('Timeout');
+        throw err;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function fetchWithRetry(urls, retries = 3, onProgress = null, onFallback = null) {
+    const list = Array.isArray(urls) ? urls : [urls];
+    const attempts = list.length > 1 ? Math.min(retries, 2) : retries;
+    let lastError;
+
+    for (let s = 0; s < list.length; s++) {
+        const url = list[s];
+        for (let i = 0; i < attempts; i++) {
+            try {
+                const blob = await fetchOnce(url, onProgress);
+                return { ok: true, url, blob: async () => blob };
+            } catch (error) {
+                lastError = error;
+                if (/HTTP 4\d\d/.test(error.message)) break;
+                if (i < attempts - 1) {
+                    await new Promise(r => setTimeout(r, 1000 * Math.pow(2, i)));
+                }
             }
         }
+        if (s < list.length - 1 && onFallback) onFallback(url, list[s + 1], lastError);
     }
     throw lastError;
 }
@@ -1691,7 +1731,7 @@ async function getVPKMergeBlob(platform, addLog, onProgress = null) {
         return await fetchBinaryWithProgress(VPKMERGE_GITHUB_URLS[platform], { onProgress });
     } catch (err) {
         addLog(`GitHub download failed (${err.message}), using local file...`, 'warning');
-        const localResponse = await fetchWithRetry(getFileUrl('VPKMerge', targetFileName), 3, onProgress);
+        const localResponse = await fetchWithRetry(getFileUrls('VPKMerge', targetFileName), 3, onProgress);
         return await localResponse.blob();
     }
 }
@@ -1867,7 +1907,7 @@ async function packAndDownload() {
 
         await asyncPool(8, cart, async (item) => {
             const { file: liveFile } = resolveItemFiles(item);
-            const filePath = liveFile ? getFileUrl(item.categoryId, liveFile) : null;
+            const filePath = liveFile ? getFileUrls(item.categoryId, liveFile) : null;
             try {
                 if (!liveFile) throw new Error('Mod no longer exists');
 
@@ -1904,7 +1944,9 @@ async function packAndDownload() {
                     logContainer.scrollTop = logContainer.scrollHeight;
                 }
 
-                const response = await fetchWithRetry(filePath, 3, isExternalUrl ? onProgress : null);
+                const response = await fetchWithRetry(filePath, 3, isExternalUrl ? onProgress : null, (failedUrl, nextUrl) => {
+                    addLog(`${item.name}: ${getSourceLabel(failedUrl)} failed, trying ${getSourceLabel(nextUrl)}...`, 'warning');
+                });
                 const blob = await response.blob();
 
                 if (progressEntry) progressEntry.remove();

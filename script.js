@@ -1,29 +1,57 @@
-const FILES_BASE_URL = (() => {
+const SOURCE_URLS = {
+    github: 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main',
+    hf: 'https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main',
+    local: ''
+};
+
+const FILE_SOURCES = (() => {
     const host = window.location.hostname;
-    if (host === 'hrdq.codeberg.page' || host.endsWith('.hrdq.codeberg.page')) {
-        return 'https://codeberg.org/hrdq/Dota2PornFxWeb/raw/branch/main';
-    }
+    const matches = list => list.some(h => host === h || host.endsWith('.' + h));
+    const { github, hf, local } = SOURCE_URLS;
 
-    const localHosts = [
-        'd2pfx.onrender.com',
-        'd2pfx.netlify.app',
-        'd2pfx.vercel.app',
-        '127.0.0.1',
-    ];
-
-    if (localHosts.some(h => host === h || host.endsWith('.' + h))) {
-        return '';
-    }
-
-    return 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main';
+    if (matches(['d2pfx.onrender.com', 'd2pfx.netlify.app', 'd2pfx.vercel.app'])) return [hf, github, local];
+    if (matches(['127.0.0.1'])) return [local, hf, github];
+    return [github, hf];
 })();
 
+const FILES_BASE_URL = FILE_SOURCES[0];
+
+function buildSourceUrl(base, path) {
+    return base ? `${base}/${path}` : path;
+}
+
+function getFileUrls(categoryId, filename) {
+    if (filename.startsWith('http')) return [filename];
+    const path = `assets/files/${categoryId}/${encodeURIComponent(filename)}`;
+    return FILE_SOURCES.map(base => buildSourceUrl(base, path));
+}
+
 function getFileUrl(categoryId, filename) {
-    if (filename.startsWith('http')) return filename;
-    if (FILES_BASE_URL) {
-        return `${FILES_BASE_URL}/assets/files/${categoryId}/${encodeURIComponent(filename)}`;
+    return getFileUrls(categoryId, filename)[0];
+}
+
+function getSourceLabel(url) {
+    if (!url || !/^https?:/.test(url)) return 'this site';
+    if (url.includes('huggingface.co')) return 'Hugging Face';
+    if (url.includes('githubusercontent.com') || url.includes('github.com')) return 'GitHub';
+    return new URL(url).hostname;
+}
+
+async function pickWorkingUrl(urls, timeoutMs = 2500) {
+    if (urls.length < 2) return urls[0];
+    for (const url of urls) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+            const r = await fetch(url, { method: 'HEAD', signal: controller.signal });
+            const type = (r.headers.get('Content-Type') || '').toLowerCase();
+            if (r.ok && !type.includes('text/html')) return url;
+        } catch (_) {
+        } finally {
+            clearTimeout(timer);
+        }
     }
-    return `assets/files/${categoryId}/${filename}`;
+    return urls[0];
 }
 
 document.fonts.ready.then(() => {
@@ -3331,9 +3359,11 @@ function shortenHash(hash) {
     return hash.length > 20 ? `${hash.slice(0, 10)}…${hash.slice(-8)}` : hash;
 }
 
-function downloadMod(mod, categoryId) {
+async function downloadMod(mod, categoryId) {
+    let url = await pickWorkingUrl(getFileUrls(categoryId, mod.file));
+    if (url.includes('huggingface.co')) url += '?download=true';
     const link = document.createElement('a');
-    link.href = getFileUrl(categoryId, mod.file);
+    link.href = url;
     link.download = mod.file;
     link.style.display = 'none';
     document.body.appendChild(link);
@@ -3461,9 +3491,30 @@ function showHomePage() {
 }
 
 async function loadData() {
-    const dataBase = FILES_BASE_URL
-        ? `${FILES_BASE_URL}/assets/data`
-        : 'assets/data';
+    const PRIMARY_TIMEOUT = 15000;
+    const FALLBACK_TIMEOUT = 10000;
+    const dataBases = FILE_SOURCES.map(base => buildSourceUrl(base, 'assets/data'));
+
+    async function fetchDataBundle(base, timeoutMs) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        const get = (name, optional) =>
+            fetch(`${base}/${name}`, { signal: controller.signal })
+                .then(r => {
+                    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                    return r.json();
+                })
+                .catch(err => { if (optional) return null; throw err; });
+        try {
+            const [mods, guides, constants, announcements, toolVersions] = await Promise.all([
+                get('mods.json'), get('guides.json'), get('constants.json'),
+                get('announcements.json', true), get('tool-versions.json', true)
+            ]);
+            return { mods, guides, constants, announcements, toolVersions };
+        } finally {
+            clearTimeout(timer);
+        }
+    }
 
     const grid = document.getElementById('categoriesGrid');
     if (!grid) return;
@@ -3480,61 +3531,46 @@ async function loadData() {
             label.textContent = 'Slow connection…';
             label.classList.add('data-loading-label--slow');
         }
-    }, 10000);
-
-    const controller = new AbortController();
-    const hardTimeoutTimer = setTimeout(() => controller.abort(), 20000);
+    }, 6000);
 
     try {
-        const [modsRes, guidesRes, constantsRes, announcementsRes, toolVersionsRes] = await Promise.all([
-            fetch(`${dataBase}/mods.json`, { signal: controller.signal }),
-            fetch(`${dataBase}/guides.json`, { signal: controller.signal }),
-            fetch(`${dataBase}/constants.json`, { signal: controller.signal }),
-            fetch(`${dataBase}/announcements.json`, { signal: controller.signal }).catch(() => null),
-            fetch(`${dataBase}/tool-versions.json`, { signal: controller.signal }).catch(() => null)
-        ]);
-
+        let data = null;
+        let lastError = null;
+        for (let i = 0; i < dataBases.length; i++) {
+            const base = dataBases[i];
+            try {
+                data = await fetchDataBundle(base, i === 0 ? PRIMARY_TIMEOUT : FALLBACK_TIMEOUT);
+                console.info(`[Data] Loaded from ${getSourceLabel(base)}`);
+                break;
+            } catch (err) {
+                lastError = err;
+                console.warn(`[Data] ${getSourceLabel(base)} failed (${err.message}), trying next source...`);
+            }
+        }
         clearTimeout(slowWarningTimer);
-        clearTimeout(hardTimeoutTimer);
+        if (!data) throw lastError || new Error('No data source available');
 
-        if (!modsRes.ok) throw new Error(`HTTP ${modsRes.status}`);
-        if (!guidesRes.ok) throw new Error(`HTTP ${guidesRes.status}`);
-        if (!constantsRes.ok) throw new Error(`HTTP ${constantsRes.status}`);
+        window.recentlyAddedMods = data.mods.recentlyAddedMods;
+        window.modsData = data.mods.modsData;
+        window.guidesData = data.guides;
 
-        const modsDataFile = await modsRes.json();
-        const guidesDataFile = await guidesRes.json();
-        const constantsDataFile = await constantsRes.json();
-
-        window.recentlyAddedMods = modsDataFile.recentlyAddedMods;
-        window.modsData = modsDataFile.modsData;
-        window.guidesData = guidesDataFile;
-
-        Object.assign(window, constantsDataFile);
+        Object.assign(window, data.constants);
 
         window.ANNOUNCEMENTS_DATA = [];
-        if (announcementsRes && announcementsRes.ok) {
+        if (data.announcements) {
             try {
-                const announcementsDataFile = await announcementsRes.json();
-                const rawAnnouncements = Array.isArray(announcementsDataFile) ? announcementsDataFile : [];
+                const rawAnnouncements = Array.isArray(data.announcements) ? data.announcements : [];
                 window.ANNOUNCEMENTS_DATA = await resolveAnnouncementTimes(rawAnnouncements);
             } catch (e) {
-                console.error('Failed to parse announcements.json:', e);
+                console.error('Failed to process announcements.json:', e);
             }
         }
 
-        window.toolVersions = {};
-        if (toolVersionsRes && toolVersionsRes.ok) {
-            try {
-                window.toolVersions = await toolVersionsRes.json();
-            } catch (e) {
-                console.error('Failed to parse tool-versions.json:', e);
-            }
-        }
+        window.toolVersions = data.toolVersions || {};
 
         init();
     } catch (e) {
         clearTimeout(slowWarningTimer);
-        clearTimeout(hardTimeoutTimer);
         console.error("Failed to load application data:", e);
         setupFAB();
         setupScrollToTop();
@@ -3547,8 +3583,8 @@ async function loadData() {
                 <div class="mirror-error-title">${isTimeout ? 'Connection timed out' : 'Failed to load data'}</div>
                 <div class="mirror-error-subtitle">
                     ${isTimeout
-                ? 'GitHub is taking too long<br>Try a VPN or one of the mirrors:'
-                : 'GitHub is unavailable<br>Try a VPN or one of the mirrors:'}
+                ? 'Servers are taking too long<br>Try a VPN or one of the mirrors:'
+                : 'All data sources are unavailable<br>Try a VPN or one of the mirrors:'}
                 </div>
                 <div class="mirror-error-links">
                     <a href="https://d2pfx.netlify.app/" target="_blank" rel="noopener" class="mirror-error-btn mirror-error-btn--primary">

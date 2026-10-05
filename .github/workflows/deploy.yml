@@ -97,3 +97,16 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Publish dist to mirror branch
+        continue-on-error: true
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: mirror
+          force_orphan: true
+          disable_nojekyll: true
+          user_name: ${{ vars.MIRROR_COMMIT_NAME || 'github-actions[bot]' }}
+          user_email: ${{ vars.MIRROR_COMMIT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
+          commit_message: "mirror: ${{ github.sha }}"
