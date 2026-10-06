@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Drow Ranger Japan Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Outworld Destroyer Exile",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Toy Inc Boss",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -13446,6 +13458,62 @@
         "meta": {
           "date": 1791282085,
           "commit-sha": "e97ffd086566d1d6e7b4ffcc61514bde09f1c3c9"
+        }
+      },
+      {
+        "name": "Pudge Toy Inc Boss",
+        "preview": "Pudge Toy Inc Boss.webp",
+        "file": "Pudge Toy Inc Boss.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791298972,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Outworld Destroyer Exile",
+        "preview": "Outworld Destroyer Exile.webp",
+        "file": "Outworld Destroyer Exile.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791298972,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Japan Arcana",
+        "preview": "Drow Ranger Japan Arcana.webp",
+        "file": "Drow Ranger Japan Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791298972,
+          "commit-sha": ""
         }
       }
     ],
