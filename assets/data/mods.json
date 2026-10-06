@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Naga Siren Diretide",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Arcana Diretide",
+      "category": "heroes"
+    },
+    {
+      "name": "Aberrant Observer Pudge",
+      "category": "heroes"
+    },
+    {
+      "name": "Wyrdwing Exaltation Invoker",
+      "category": "heroes"
+    },
+    {
+      "name": "One Piece Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Arc Warden Magician",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Tectonic",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -13294,6 +13322,108 @@
           "date": 1791203792,
           "commit-sha": "99f139fbb4f5aaa441d53b8234b03ea6979c8107"
         }
+      },
+      {
+        "name": "Earthshaker Tectonic",
+        "preview": "Earthshaker Tectonic.webp",
+        "file": "Earthshaker Tectonic.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arc Warden Magician",
+        "preview": "Arc Warden Magician.webp",
+        "file": "Arc Warden Magician.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Schizo"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Wyrdwing Exaltation Invoker",
+        "preview": "Wyrdwing Exaltation Invoker.webp",
+        "file": "Wyrdwing Exaltation Invoker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Aberrant Observer Pudge",
+        "preview": "Aberrant Observer Pudge.webp",
+        "file": "Aberrant Observer Pudge.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Arcana Diretide",
+        "preview": "Pudge Arcana Diretide.webp",
+        "file": "Pudge Arcana Diretide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Naga Siren Diretide",
+        "preview": "Naga Siren Diretide.webp",
+        "file": "Naga Siren Diretide.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -18943,6 +19073,21 @@
         "meta": {
           "date": 1790997589,
           "commit-sha": "e220447f4574ac8503c07a8d0133297ce4a7b735"
+        }
+      },
+      {
+        "name": "One Piece Hud",
+        "preview": "One Piece Hud.webp",
+        "file": "One Piece Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1791253115,
+          "commit-sha": ""
         }
       }
     ],
