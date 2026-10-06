@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Naga Siren Diretide",
       "category": "heroes"
     },
@@ -27,10 +31,6 @@
     {
       "name": "Earthshaker Tectonic",
       "category": "heroes"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Twisted Maelstrom Enigma",
