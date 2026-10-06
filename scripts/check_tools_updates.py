@@ -62,8 +62,7 @@ TOOLS = [
         "name": "Better Source2Viewer",
         "category": "tools",
         "exclude_pattern": None,
-        "include_prerelease": True,
-    },
+    }
 ]
 
 REPO_ROOT = os.environ.get("GITHUB_WORKSPACE", os.getcwd())

@@ -3319,7 +3319,8 @@ const HASH_MODAL_WHITELIST = [
     'h6rd/Patcher',
     'h6rd/Compiler',
     'h6rd/VPCF-Editor',
-    'TheFleece/dota2-mod-manager'
+    'TheFleece/dota2-mod-manager',
+    'J0nathan550/Source2Viewer-d2pfx'
 ];
 
 function extractGithubRepo(url) {
