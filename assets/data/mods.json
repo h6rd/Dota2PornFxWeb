@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crimson Immortal Bristleback",
+      "category": "heroes"
+    },
+    {
+      "name": "Undying Direstone Desecration",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Shaman Curse Wyrmbender",
+      "category": "heroes"
+    },
+    {
+      "name": "Marci Patchwork",
+      "category": "heroes"
+    },
+    {
       "name": "Broodmother Anathema",
       "category": "heroes"
     },
@@ -14041,6 +14057,82 @@
         "meta": {
           "date": 1791376639,
           "commit-sha": "8bc4694d7b33def509484b0c938d75d4ec8a350e"
+        }
+      },
+      {
+        "name": "Marci Patchwork",
+        "preview": "Marci Patchwork.webp",
+        "file": "Marci Patchwork.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791379892,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Shaman Curse Wyrmbender",
+        "preview": "Shadow Shaman Curse Wyrmbender.webp",
+        "file": "Shadow Shaman Curse Wyrmbender.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791379892,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Undying Direstone Desecration",
+        "preview": "Undying Direstone Desecration.webp",
+        "file": "Undying Direstone Desecration.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1791379892,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Crimson Immortal Bristleback",
+        "preview": "Crimson Immortal Bristleback.webp",
+        "file": "Crimson Immortal Bristleback.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791379892,
+          "commit-sha": ""
         }
       }
     ],
