@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Marci Silent Comedy",
+      "category": "heroes"
+    },
+    {
+      "name": "Primal Beast Strongbox",
+      "category": "heroes"
+    },
+    {
+      "name": "Eternal Roshan",
+      "category": "roshan"
+    },
+    {
+      "name": "Naga Siren Coral Cultist Frost",
+      "category": "heroes"
+    },
+    {
       "name": "Drow Ranger Madness Stealth",
       "category": "heroes"
     },
@@ -13761,6 +13777,55 @@
           "date": 1791369985,
           "commit-sha": "3a1d12ce9bb697906370d7800a8f59da881fd4d9"
         }
+      },
+      {
+        "name": "Naga Siren Coral Cultist Frost",
+        "preview": "Naga Siren Coral Cultist Frost.webp",
+        "file": "Naga Siren Coral Cultist Frost.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791372524,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Primal Beast Strongbox",
+        "preview": "Primal Beast Strongbox.webp",
+        "file": "Primal Beast Strongbox.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791372524,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Marci Silent Comedy",
+        "preview": "Marci Silent Comedy.webp",
+        "file": "Marci Silent Comedy.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791372524,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -18171,6 +18236,15 @@
         "meta": {
           "date": 1770899849,
           "commit-sha": "33e49eba125663f6fabdb51993657cfc8bffb866"
+        }
+      },
+      {
+        "name": "Eternal Roshan",
+        "preview": "Eternal Roshan.webp",
+        "file": "Eternal Roshan.zip",
+        "meta": {
+          "date": 1791372524,
+          "commit-sha": ""
         }
       }
     ],
