@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Meepo Mafia",
+      "category": "heroes"
+    },
+    {
+      "name": "Slobbering Strong Boxhound",
+      "category": "couriers"
+    },
+    {
+      "name": "Slobbering Strongbox",
+      "category": "wards"
+    },
+    {
+      "name": "Baby Roshan The Eternal",
+      "category": "couriers"
+    },
+    {
       "name": "Megalodon Cursor",
       "category": "cursors"
     },
@@ -14188,6 +14204,25 @@
           "date": 1791383152,
           "commit-sha": "f32b3c8478b1c5666edd5fb456c8f6a208c92395"
         }
+      },
+      {
+        "name": "Meepo Mafia",
+        "preview": "Meepo Mafia.webp",
+        "file": "Meepo Mafia.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791389366,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21985,6 +22020,15 @@
           "date": 1763798331,
           "commit-sha": "3ad6eacd061d9b9e88dee587fd139995cb4c78a8"
         }
+      },
+      {
+        "name": "Slobbering Strongbox",
+        "preview": "Slobbering Strongbox.webp",
+        "file": "Slobbering Strongbox.zip",
+        "meta": {
+          "date": 1791389366,
+          "commit-sha": ""
+        }
       }
     ],
     "couriers": [
@@ -22305,6 +22349,24 @@
         "meta": {
           "date": 1790375737,
           "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
+        }
+      },
+      {
+        "name": "Baby Roshan The Eternal",
+        "preview": "Baby Roshan The Eternal.webp",
+        "file": "Baby Roshan The Eternal.zip",
+        "meta": {
+          "date": 1791389366,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Slobbering Strong Boxhound",
+        "preview": "Slobbering Strong Boxhound.webp",
+        "file": "Slobbering Strong Boxhound.zip",
+        "meta": {
+          "date": 1791389366,
+          "commit-sha": ""
         }
       }
     ],
