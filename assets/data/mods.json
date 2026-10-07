@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tidehunter Arcana Pedestal",
+      "category": "pedestal"
+    },
+    {
+      "name": "Smaller Hud",
+      "category": "huds"
+    },
+    {
       "name": "Earthshaker Aura Derevni",
       "category": "heroes"
     },
@@ -18785,6 +18793,21 @@
           "date": 1790809354,
           "commit-sha": "f05eee91685f88f36f57e612f6e0b0ea86bc0d45"
         }
+      },
+      {
+        "name": "Tidehunter Arcana Pedestal",
+        "preview": "Tidehunter Arcana Pedestal.webp",
+        "file": "Tidehunter Arcana Pedestal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1791365613,
+          "commit-sha": ""
+        }
       }
     ],
     "parts": [
@@ -19242,6 +19265,21 @@
         "meta": {
           "date": 1791253117,
           "commit-sha": "949bcf40cd038aef70a7e584c0670c821dcb24a5"
+        }
+      },
+      {
+        "name": "Smaller Hud",
+        "preview": "Smaller Hud.webp",
+        "file": "Smaller Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1791365613,
+          "commit-sha": ""
         }
       }
     ],
