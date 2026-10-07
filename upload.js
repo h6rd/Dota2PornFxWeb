@@ -4,7 +4,7 @@ const MAX_OUTER_ARCHIVE_BYTES = 100 * 1024 * 1024;
 const MAX_ARCHIVE_ENTRIES = 1000;
 const MAX_EXTRACTED_BYTES = 250 * 1024 * 1024;
 const MAX_ENTRY_BYTES = 100 * 1024 * 1024;
-const MAX_NAME_LENGTH = 30;
+const MAX_NAME_LENGTH = 29;
 const NAME_LENGTH_EXCEPTIONS = {
   'keeper of the light': 40,
   'natures prophet': 40

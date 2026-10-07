@@ -9,7 +9,7 @@
       "category": "heroes"
     },
     {
-      "name": "Shadow Shaman Curse Wyrmbender",
+      "name": "Shadow Shaman Wyrmbender",
       "category": "heroes"
     },
     {
@@ -29,7 +29,7 @@
       "category": "heroes"
     },
     {
-      "name": "Legion Commander Hell'S Origin",
+      "name": "Legion Commander Hell Origin",
       "category": "heroes"
     },
     {
@@ -13994,9 +13994,9 @@
         }
       },
       {
-        "name": "Legion Commander Hell'S Origin",
-        "preview": "Legion Commander Hell'S Origin.webp",
-        "file": "Legion Commander Hell'S Origin.zip",
+        "name": "Legion Commander Hell Origin",
+        "preview": "Legion Commander Hell Origin.webp",
+        "file": "Legion Commander Hell Origin.zip",
         "tags": {
           "effects": true,
           "icons": true
@@ -14079,9 +14079,9 @@
         }
       },
       {
-        "name": "Shadow Shaman Curse Wyrmbender",
-        "preview": "Shadow Shaman Curse Wyrmbender.webp",
-        "file": "Shadow Shaman Curse Wyrmbender.zip",
+        "name": "Shadow Shaman Wyrmbender",
+        "preview": "Shadow Shaman Wyrmbender.webp",
+        "file": "Shadow Shaman Wyrmbender.zip",
         "tags": {
           "effects": true,
           "icons": true
