@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tidehunter Hammer Of Maeldrawn",
+      "category": "heroes"
+    },
+    {
+      "name": "Pangolier Barkfart",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tidehunter Maw Of Megalodon",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Unfathomable Hunger",
+      "category": "heroes"
+    },
+    {
       "name": "Tidehunter Arcana Pedestal",
       "category": "pedestal"
     },
@@ -13577,6 +13593,63 @@
           "date": 1791342818,
           "commit-sha": "79a9a1f564d4895caacac2c8420abe3699ea4a75"
         }
+      },
+      {
+        "name": "Tidehunter Unfathomable Hunger",
+        "preview": "Tidehunter Unfathomable Hunger.webp",
+        "file": "Tidehunter Unfathomable Hunger.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791366543,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tidehunter Maw Of Megalodon",
+        "preview": "Tidehunter Maw Of Megalodon.webp",
+        "file": "Tidehunter Maw Of Megalodon.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791366543,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tidehunter Hammer Of Maeldrawn",
+        "preview": "Tidehunter Hammer Of Maeldrawn.webp",
+        "file": "Tidehunter Hammer Of Maeldrawn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791366544,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -23282,6 +23355,21 @@
         "meta": {
           "date": 1791162755,
           "commit-sha": "24ce96d9589aefae228611d95066d99ab934b34e"
+        }
+      },
+      {
+        "name": "Pangolier Barkfart",
+        "preview": "Pangolier Barkfart.webp",
+        "file": "Pangolier Barkfart.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "M1su"
+          }
+        ],
+        "meta": {
+          "date": 1791366543,
+          "commit-sha": ""
         }
       }
     ],
