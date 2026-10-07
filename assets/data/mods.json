@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anti-Mage Mod Rotten",
+      "category": "heroes"
+    },
+    {
+      "name": "Crimson Immortal Riki",
+      "category": "heroes"
+    },
+    {
       "name": "Crimson Immortal Bristleback",
       "category": "heroes"
     },
@@ -14133,6 +14141,44 @@
         "meta": {
           "date": 1791379892,
           "commit-sha": "6f877379124cc7462a0419e78b4e278787ab2ddd"
+        }
+      },
+      {
+        "name": "Crimson Immortal Riki",
+        "preview": "Crimson Immortal Riki.webp",
+        "file": "Crimson Immortal Riki.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791383152,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Mod Rotten",
+        "preview": "Anti-Mage Mod Rotten.webp",
+        "file": "Anti-Mage Mod Rotten.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mopsyara"
+          }
+        ],
+        "meta": {
+          "date": 1791383152,
+          "commit-sha": ""
         }
       }
     ],
