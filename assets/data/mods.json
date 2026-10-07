@@ -22931,12 +22931,20 @@
       {
         "name": "Sepulchral Stalker Cursor",
         "preview": "Sepulchral Stalker Cursor.webp",
-        "file": "Sepulchral Stalker Cursor.zip"
+        "file": "Sepulchral Stalker Cursor.zip",
+        "meta": {
+          "date": 1791386142,
+          "commit-sha": "5a449d5944731d90687d11c2278f040856b0b1a6"
+        }
       },
       {
         "name": "Megalodon Cursor",
         "preview": "Megalodon Cursor.webp",
-        "file": "Megalodon Cursor.zip"
+        "file": "Megalodon Cursor.zip",
+        "meta": {
+          "date": 1791386142,
+          "commit-sha": "5a449d5944731d90687d11c2278f040856b0b1a6"
+        }
       }
     ],
     "fonts": [
