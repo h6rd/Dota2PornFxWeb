@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Broodmother Anathema",
+      "category": "heroes"
+    },
+    {
+      "name": "Hoodwink Spring Tide Raider",
+      "category": "heroes"
+    },
+    {
+      "name": "Nyx Assassin Mesmer Eye",
+      "category": "heroes"
+    },
+    {
+      "name": "Legion Commander Hell'S Origin",
+      "category": "heroes"
+    },
+    {
+      "name": "Lifestealer Fire",
+      "category": "heroes"
+    },
+    {
       "name": "Shadow Fiend Fire",
       "category": "heroes"
     },
@@ -13940,6 +13960,87 @@
         "meta": {
           "date": 1791374590,
           "commit-sha": "026439e10b1e5e5b124395e12942077e3a9f0589"
+        }
+      },
+      {
+        "name": "Lifestealer Fire",
+        "preview": "Lifestealer Fire.webp",
+        "file": "Lifestealer Fire.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791376638,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Legion Commander Hell'S Origin",
+        "preview": "Legion Commander Hell'S Origin.webp",
+        "file": "Legion Commander Hell'S Origin.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791376638,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Nyx Assassin Mesmer Eye",
+        "preview": "Nyx Assassin Mesmer Eye.webp",
+        "file": "Nyx Assassin Mesmer Eye.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "meta": {
+          "date": 1791376638,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Hoodwink Spring Tide Raider",
+        "preview": "Hoodwink Spring Tide Raider.webp",
+        "file": "Hoodwink Spring Tide Raider.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791376638,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Broodmother Anathema",
+        "preview": "Broodmother Anathema.webp",
+        "file": "Broodmother Anathema.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791376638,
+          "commit-sha": ""
         }
       }
     ],
