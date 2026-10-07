@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Drow Ranger Madness Stealth",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Madness Stalker",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Sepulchral Stealth",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Sepulchral Stalker",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Midnight Stalker",
+      "category": "heroes"
+    },
+    {
       "name": "Tidehunter Hammer Of Maeldrawn",
       "category": "heroes"
     },
@@ -13649,6 +13669,97 @@
         "meta": {
           "date": 1791366544,
           "commit-sha": "bebbbb7736f4c52361ad0f49c2bb1d2662425123"
+        }
+      },
+      {
+        "name": "Luna Midnight Stalker",
+        "preview": "Luna Midnight Stalker.webp",
+        "file": "Luna Midnight Stalker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791369983,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Sepulchral Stalker",
+        "preview": "Drow Ranger Sepulchral Stalker.webp",
+        "file": "Drow Ranger Sepulchral Stalker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791369983,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Sepulchral Stealth",
+        "preview": "Drow Ranger Sepulchral Stealth.webp",
+        "file": "Drow Ranger Sepulchral Stealth.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791369983,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Madness Stalker",
+        "preview": "Drow Ranger Madness Stalker.webp",
+        "file": "Drow Ranger Madness Stalker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791369983,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Madness Stealth",
+        "preview": "Drow Ranger Madness Stealth.webp",
+        "file": "Drow Ranger Madness Stealth.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791369984,
+          "commit-sha": ""
         }
       }
     ],
