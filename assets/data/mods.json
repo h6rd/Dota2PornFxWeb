@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Lycan Vakir Min Silvath",
+      "category": "heroes"
+    },
+    {
+      "name": "Zeleniy Techies",
+      "category": "hero-items"
+    },
+    {
+      "name": "Wraith King Papich Attacks",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Greasepaint Gutbuster Pudge",
+      "category": "heroes"
+    },
+    {
+      "name": "Treant Protector Calabash",
+      "category": "heroes"
+    },
+    {
       "name": "Rictus Ripper Terrorblade",
       "category": "heroes"
     },
@@ -13849,6 +13873,74 @@
           "date": 1791372988,
           "commit-sha": "7294abad443699f839b3b42ddf60a4b93a1997b0"
         }
+      },
+      {
+        "name": "Treant Protector Calabash",
+        "preview": "Treant Protector Calabash.webp",
+        "file": "Treant Protector Calabash.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791374590,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Greasepaint Gutbuster Pudge",
+        "preview": "Greasepaint Gutbuster Pudge.webp",
+        "file": "Greasepaint Gutbuster Pudge.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791374590,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Lycan Vakir Min Silvath",
+        "preview": "Lycan Vakir Min Silvath.webp",
+        "file": "Lycan Vakir Min Silvath.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791374590,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Fiend Fire",
+        "preview": "Shadow Fiend Fire.webp",
+        "file": "Shadow Fiend Fire.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791374590,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -17777,6 +17869,25 @@
               "meta": {
                 "date": 1790392857,
                 "commit-sha": "178bff403a3ee7a92144a7f049f64257670086b5"
+              }
+            },
+            {
+              "name": "Zeleniy Techies",
+              "preview": "Zeleniy Techies.webp",
+              "file": "Zeleniy Techies.zip",
+              "tags": {
+                "cart": true,
+                "effects": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "shears001"
+                }
+              ],
+              "meta": {
+                "date": 1791374590,
+                "commit-sha": ""
               }
             }
           ]
@@ -23578,6 +23689,21 @@
         "meta": {
           "date": 1791366544,
           "commit-sha": "bebbbb7736f4c52361ad0f49c2bb1d2662425123"
+        }
+      },
+      {
+        "name": "Wraith King Papich Attacks",
+        "preview": "Wraith King Papich Attacks.webp",
+        "file": "Wraith King Papich Attacks.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "shears001"
+          }
+        ],
+        "meta": {
+          "date": 1791374590,
+          "commit-sha": ""
         }
       }
     ],
