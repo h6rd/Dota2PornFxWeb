@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Megalodon Cursor",
+      "category": "cursors"
+    },
+    {
+      "name": "Sepulchral Stalker Cursor",
+      "category": "cursors"
+    },
+    {
       "name": "Anti-Mage Mod Rotten",
       "category": "heroes"
     },
@@ -22919,6 +22927,16 @@
           "date": 1784360373,
           "commit-sha": "3852272d672318d9c6b076788a9b6c10a5d6481f"
         }
+      },
+      {
+        "name": "Sepulchral Stalker Cursor",
+        "preview": "Sepulchral Stalker Cursor.webp",
+        "file": "Sepulchral Stalker Cursor.zip"
+      },
+      {
+        "name": "Megalodon Cursor",
+        "preview": "Megalodon Cursor.webp",
+        "file": "Megalodon Cursor.zip"
       }
     ],
     "fonts": [
