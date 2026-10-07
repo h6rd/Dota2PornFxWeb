@@ -50,7 +50,7 @@ function getPreviewVideoCategories() {
 
 const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
 
-const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
+const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
 
 function getSlotTags(categoryId) {
   const cfg = (window.TAG_CONFIGS || {})[categoryId];
