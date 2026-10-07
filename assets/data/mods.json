@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Aura Derevni",
+      "category": "heroes"
+    },
+    {
+      "name": "Naga Siren Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Dragon Ball Blink",
+      "category": "sounds"
+    },
+    {
+      "name": "Obscene Eye Tormentor",
+      "category": "tormentor"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -13515,6 +13531,44 @@
           "date": 1791298973,
           "commit-sha": "9a3512e7e87d3c420b894579f57e2dc453c30065"
         }
+      },
+      {
+        "name": "Naga Siren Immortal",
+        "preview": "Naga Siren Immortal.webp",
+        "file": "Naga Siren Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1791342817,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Earthshaker Aura Derevni",
+        "preview": "Earthshaker Aura Derevni.webp",
+        "file": "Earthshaker Aura Derevni.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791342817,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -17971,6 +18025,15 @@
         "meta": {
           "date": 1788932483,
           "commit-sha": "20567e32ba93e21416cfd2904d00e1a352878d4a"
+        }
+      },
+      {
+        "name": "Obscene Eye Tormentor",
+        "preview": "Obscene Eye Tormentor.webp",
+        "file": "Obscene Eye Tormentor.zip",
+        "meta": {
+          "date": 1791342817,
+          "commit-sha": ""
         }
       }
     ],
@@ -23440,6 +23503,25 @@
         "meta": {
           "date": 1789727816,
           "commit-sha": "3bc787e597e6aa2bf13d7c515065d00e925fc661"
+        }
+      },
+      {
+        "name": "Dragon Ball Blink",
+        "preview": "Dragon Ball Blink.webp",
+        "file": "Dragon Ball Blink.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "M1su"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/nUceg1yGi08"
+          }
+        ],
+        "meta": {
+          "date": 1791342817,
+          "commit-sha": ""
         }
       }
     ],
