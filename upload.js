@@ -14,6 +14,22 @@ function getMaxNameLength(hero) {
   return override || MAX_NAME_LENGTH;
 }
 const MAX_URL_LENGTH = 2048;
+const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
+
+function loadAuthorPref() {
+  try {
+    const p = JSON.parse(localStorage.getItem(AUTHOR_PREF_KEY) || 'null');
+    return p && typeof p === 'object' ? p : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveAuthorPref(pref) {
+  try {
+    localStorage.setItem(AUTHOR_PREF_KEY, JSON.stringify(pref));
+  } catch { }
+}
 const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
 
 const MOD_NAME_RE = /^[a-zA-Z0-9 \-_'.,!]+$/;
@@ -936,6 +952,56 @@ function setupUploadModal() {
     updatePreview();
   });
 
+  function persistAuthorPref() {
+    const mode = form.querySelector('input[name="authorMode"]:checked')?.value;
+    if (mode === 'existing') {
+      if (authorExistingSelect.value) saveAuthorPref({ mode, name: authorExistingSelect.value });
+    } else if (mode === 'new') {
+      const name = document.getElementById('umAuthorName')?.value.trim() || '';
+      const url = document.getElementById('umAuthorUrl')?.value.trim() || '';
+      if (name) saveAuthorPref({ mode, name, url });
+    } else if (mode === 'skip') {
+      saveAuthorPref({ mode });
+    }
+  }
+
+  function applyAuthorPref() {
+    const pref = loadAuthorPref();
+    if (!pref) return;
+
+    const authors = window.MOD_AUTHOR || {};
+    let mode = pref.mode;
+    let name = String(pref.name || '');
+
+    if (mode === 'new' && name) {
+      const target = normalizeModName(name);
+      const match = Object.keys(authors).find(a => normalizeModName(a) === target);
+      if (match) {
+        mode = 'existing';
+        name = match;
+      }
+    }
+
+    if (mode === 'existing' && !Object.prototype.hasOwnProperty.call(authors, name)) return;
+    if (mode === 'new' && !name) return;
+
+    const radio = form.querySelector(`input[name="authorMode"][value="${mode}"]`);
+    if (!radio) return;
+    radio.checked = true;
+    radio.dispatchEvent(new Event('change', { bubbles: true }));
+
+    if (mode === 'existing') {
+      authorExistingSelect.value = name;
+      authorExistingSelect.dispatchEvent(new Event('change'));
+    } else if (mode === 'new') {
+      const nameEl = document.getElementById('umAuthorName');
+      const urlEl = document.getElementById('umAuthorUrl');
+      if (nameEl) nameEl.value = name;
+      if (urlEl) urlEl.value = pref.url || '';
+      nameEl?.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
+
   form.querySelectorAll('input[name="extraMode"]').forEach(radio => {
     radio.addEventListener('change', () => {
       const mode = form.querySelector('input[name="extraMode"]:checked').value;
@@ -1365,6 +1431,7 @@ function setupUploadModal() {
     wireSegmented(document.getElementById('umAuthorSegmented'));
     wireSegmented(document.getElementById('umExtraSegmented'));
     wireSegmented(document.getElementById('umExtraOriginSegmented'));
+    applyAuthorPref();
     updatePreview();
   }
 
@@ -1520,6 +1587,8 @@ function setupUploadModal() {
     }
 
 
+    persistAuthorPref();
+
     const fd = buildFormData(name, category);
     setSubmitBusy(true);
     showProgress();
@@ -1572,6 +1641,7 @@ function setupUploadModal() {
     }
   });
 
+  applyAuthorPref();
   clearActivityLog();
   updatePreview();
   initTurnstile();
