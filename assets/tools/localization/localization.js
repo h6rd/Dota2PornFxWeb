@@ -151,7 +151,8 @@
       if (onlyMod && !S.edits.has(e.key)) return;
       if (q) {
         const cur = S.edits.get(e.key) || '';
-        if (!(e.key.toLowerCase().includes(q) || e.val.toLowerCase().includes(q) || cur.toLowerCase().includes(q))) return;
+        if (e.kl === undefined) { e.kl = e.key.toLowerCase(); e.vl = e.val.toLowerCase(); }
+        if (!(e.kl.includes(q) || e.vl.includes(q) || (cur && cur.toLowerCase().includes(q)))) return;
       }
       S.view.push(i);
     });
@@ -171,6 +172,20 @@
   }
 
   function fit(ta) { ta.style.height = 'auto'; ta.style.height = Math.min(ta.scrollHeight + 2, 260) + 'px'; }
+
+  let fitQueue = [], fitRaf = 0;
+  function queueFit(ta) {
+    fitQueue.push(ta);
+    if (fitRaf) return;
+    fitRaf = requestAnimationFrame(() => {
+      fitRaf = 0;
+      const list = fitQueue; fitQueue = [];
+      const alive = list.filter(t => t.isConnected);
+      alive.forEach(t => { t.style.height = 'auto'; });
+      const hs = alive.map(t => Math.min(t.scrollHeight + 2, 260));
+      alive.forEach((t, i) => { t.style.height = hs[i] + 'px'; });
+    });
+  }
 
   function buildRow(e) {
     const row = document.createElement('div');
@@ -228,7 +243,7 @@
     edit.append(ta, revert);
     row.append(info, edit);
     refresh();
-    requestAnimationFrame(() => fit(ta));
+    queueFit(ta);
     return row;
   }
 

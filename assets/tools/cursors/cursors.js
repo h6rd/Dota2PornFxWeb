@@ -228,15 +228,25 @@
     });
   }
 
+  const thumbDirty = new Set(CURSORS.map(c => c.id));
+  let itemEls = null;
+  let countText = '';
+
   function updateList() {
-    el.list.querySelectorAll('.cr-item').forEach(b => {
+    if (!itemEls) itemEls = Array.from(el.list.querySelectorAll('.cr-item'));
+    itemEls.forEach(b => {
       const id = b.dataset.id;
-      b.classList.toggle('active', id === active);
-      b.classList.toggle('filled', isDirty(id));
-      const ok = b.querySelector('.cr-item-ok');
       const filled = isDirty(id);
-      ok.textContent = filled ? 'check_circle' : '';
-      ok.style.display = filled ? 'inline-block' : 'none';
+      if (b._active !== (id === active)) { b._active = id === active; b.classList.toggle('active', b._active); }
+      if (b._filled !== filled) {
+        b._filled = filled;
+        b.classList.toggle('filled', filled);
+        const ok = b.querySelector('.cr-item-ok');
+        ok.textContent = filled ? 'check_circle' : '';
+        ok.style.display = filled ? 'inline-block' : 'none';
+      }
+      if (!thumbDirty.has(id)) return;
+      thumbDirty.delete(id);
       const cv = b.querySelector('canvas');
       const ctx = cv.getContext('2d');
       ctx.clearRect(0, 0, 40, 40);
@@ -251,7 +261,8 @@
         ctx.drawImage(o, (40 - w * k) / 2, (40 - h * k) / 2, w * k, h * k);
       }
     });
-    el.count.textContent = filledIds().length + ' / ' + CURSORS.length;
+    const ct = filledIds().length + ' / ' + CURSORS.length;
+    if (ct !== countText) { countText = ct; el.count.textContent = ct; }
     el.generate.disabled = busy || filledIds().length === 0;
   }
 
@@ -313,6 +324,7 @@
   let raf = 0;
   function renderAll() {
     cancelAnimationFrame(raf);
+    thumbDirty.add(active);
     raf = requestAnimationFrame(() => {
       drawStage();
       renderPreviews();
@@ -332,6 +344,7 @@
       if (st.url) URL.revokeObjectURL(st.url);
       st.img = img; st.url = url;
       st.scale = 1; st.ox = 0; st.oy = 0; st.rot = 0; st.fx = false; st.fy = false;
+      thumbDirty.add(id);
       setStatus('');
       resetResult();
       if (id === active) syncControls();
@@ -345,6 +358,7 @@
     const st = state[id];
     if (st.url) URL.revokeObjectURL(st.url);
     st.img = st.url = null;
+    thumbDirty.add(id);
     st.scale = 1; st.ox = 0; st.oy = 0; st.rot = 0; st.fx = false; st.fy = false;
     resetResult();
     if (id === active) syncControls();
@@ -364,6 +378,7 @@
 
     const renderSoft = () => {
       cancelAnimationFrame(soft);
+      thumbDirty.add(active);
       soft = requestAnimationFrame(() => { renderPreviews(); updateList(); });
     };
 
@@ -573,13 +588,14 @@
   async function ensureOriginals() {
     if (originalsStarted) return;
     originalsStarted = true;
-    for (const c of CURSORS) {
+    await Promise.all(CURSORS.map(async (c) => {
       const img = await tryImage(ORIGINALS_DIR + c.id + '.bmp');
       if (img) {
         originals[c.id] = img;
+        thumbDirty.add(c.id);
         if (c.id === active) renderAll();
       }
-    }
+    }));
     updateList();
   }
 

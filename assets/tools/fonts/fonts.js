@@ -84,7 +84,7 @@
     name.textContent = (full || st.file.name) + ' · ' + st.font.numGlyphs + ' glyphs · ' + (st.file.size / 1024).toFixed(0) + ' KB';
     const chips = document.createElement('div');
     chips.className = 'fc-chips';
-    coverageOf(st.font).forEach((c) => {
+    (st.cov || coverageOf(st.font)).forEach((c) => {
       const chip = document.createElement('span');
       chip.className = 'fc-chip ' + (c.pct === 100 ? 'ok' : c.pct === 0 ? 'bad' : 'warn');
       chip.textContent = c.label + ' ' + c.pct + '%';
@@ -120,7 +120,7 @@
       const font = opentype.parse(buf);
       const st = state[key];
       if (st.family) {
-        document.fonts.forEach((f) => { if (f.family.replace(/"/g, '') === st.family) document.fonts.delete(f); });
+        Array.from(document.fonts).forEach((f) => { if (f.family.replace(/"/g, '') === st.family) document.fonts.delete(f); });
       }
       let family = '';
       try {
@@ -132,8 +132,9 @@
         family = '';
         log('Preview unavailable for ' + file.name, 'error');
       }
-      Object.assign(st, { file, buf, font, family });
-      const cov = coverageOf(font).find((c) => c.label === 'Cyrillic');
+      const covAll = coverageOf(font);
+      Object.assign(st, { file, buf, font, family, cov: covAll });
+      const cov = covAll.find((c) => c.label === 'Cyrillic');
       log('Loaded ' + file.name + ' (' + font.numGlyphs + ' glyphs)');
       if (cov && cov.pct < 100) log(file.name + ': Cyrillic coverage is ' + cov.pct + '%, missing letters will not render in game', 'error');
       setStatus('');
@@ -393,7 +394,11 @@
       renderPreview();
       updateButtons();
     });
-    el.sample.addEventListener('input', renderPreview);
+    let pvRaf = 0;
+    el.sample.addEventListener('input', () => {
+      if (pvRaf) return;
+      pvRaf = requestAnimationFrame(() => { pvRaf = 0; renderPreview(); });
+    });
     el.name.addEventListener('input', resetResult);
     el.generate.addEventListener('click', generate);
     el.download.addEventListener('click', download);

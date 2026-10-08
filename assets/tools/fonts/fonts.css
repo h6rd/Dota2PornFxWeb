@@ -243,7 +243,7 @@
 .fc-modal {
   width: min(1080px, 96vw);
   max-width: 1080px;
-  min-height: min(80vh, 740px);
+  min-height: min(80vh, 74px);
   height: auto;
   max-height: 94vh;
 }
@@ -295,7 +295,7 @@
 }
 
 .fc-actions {
-  margin-top: auto;
+  margin-top: 0;
   gap: 8px;
 }
 
@@ -332,4 +332,29 @@
   #fnTitleGroup.fc-disabled {
     display: none;
   }
+}
+
+.fc-bottom {
+  margin-top: auto;
+}
+
+.cr-ghost-text {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  min-width: 0;
+}
+
+.cr-ghost-text strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.cr-ghost-text small {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--md-sys-color-on-surface-variant);
 }

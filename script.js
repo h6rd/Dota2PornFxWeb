@@ -4028,6 +4028,7 @@ async function exportSettings() {
     };
 
     try {
+        if (window.ToolsLoader && !window.LocalizationStore) await window.ToolsLoader.load('localization');
         if (window.LocalizationStore) {
             const localization = await window.LocalizationStore.exportAll();
             if (localization.length) obj.localization = localization;
@@ -4056,6 +4057,9 @@ function importSettings(file) {
             if (obj.cart) localStorage.setItem('modCart', JSON.stringify(obj.cart));
             if (obj.styles) localStorage.setItem('styleIndexMap', JSON.stringify(obj.styles));
             if (obj.assemblies) localStorage.setItem('savedAssemblies', JSON.stringify(obj.assemblies));
+            if (Array.isArray(obj.localization) && obj.localization.length && window.ToolsLoader && !window.LocalizationStore) {
+                await window.ToolsLoader.load('localization');
+            }
             if (Array.isArray(obj.localization) && window.LocalizationStore) {
                 await window.LocalizationStore.importAll(obj.localization);
             }
