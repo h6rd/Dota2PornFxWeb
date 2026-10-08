@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anti-Mage Daemon Hunter",
+      "category": "heroes"
+    },
+    {
+      "name": "Death Prophet Silken Sibyl",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Greasepaint Gutbuster",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Blood Moon",
+      "category": "heroes"
+    },
+    {
+      "name": "Undying Desecration Reborn",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14222,6 +14242,101 @@
         "meta": {
           "date": 1791389366,
           "commit-sha": "3c6341c52e1e831cb17128c7e05886b8b8ce5619"
+        }
+      },
+      {
+        "name": "Undying Desecration Reborn",
+        "preview": "Undying Desecration Reborn.webp",
+        "file": "Undying Desecration Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791449984,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Luna Blood Moon",
+        "preview": "Luna Blood Moon.webp",
+        "file": "Luna Blood Moon.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1791449984,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Greasepaint Gutbuster",
+        "preview": "Pudge Greasepaint Gutbuster.webp",
+        "file": "Pudge Greasepaint Gutbuster.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791449984,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Death Prophet Silken Sibyl",
+        "preview": "Death Prophet Silken Sibyl.webp",
+        "file": "Death Prophet Silken Sibyl.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791449984,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Daemon Hunter",
+        "preview": "Anti-Mage Daemon Hunter.webp",
+        "file": "Anti-Mage Daemon Hunter.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791449984,
+          "commit-sha": ""
         }
       }
     ],
