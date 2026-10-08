@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Anti-Mage Daemon Hunter",
       "category": "heroes"
     },
@@ -195,10 +199,6 @@
     {
       "name": "Obscene Eye Tormentor",
       "category": "tormentor"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Drow Ranger Japan Arcana",
