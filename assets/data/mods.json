@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Treant Protector Calabash V2",
+      "category": "heroes"
+    },
+    {
+      "name": "Primal Beast Strongbox Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Arcana Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Marci Patchwork Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Anime",
+      "category": "backgrounds"
+    },
+    {
       "name": "Better Source2Viewer Guide",
       "category": "guides"
     },
@@ -14457,6 +14477,82 @@
           "date": 1791462345,
           "commit-sha": "361428bfd6b2424e9ee9c8a11c634097e9d660ce"
         }
+      },
+      {
+        "name": "Marci Patchwork Reborn",
+        "preview": "Marci Patchwork Reborn.webp",
+        "file": "Marci Patchwork Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791469530,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Earthshaker Arcana Reborn",
+        "preview": "Earthshaker Arcana Reborn.webp",
+        "file": "Earthshaker Arcana Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791469530,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Primal Beast Strongbox Reborn",
+        "preview": "Primal Beast Strongbox Reborn.webp",
+        "file": "Primal Beast Strongbox Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791469530,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Treant Protector Calabash V2",
+        "preview": "Treant Protector Calabash V2.webp",
+        "file": "Treant Protector Calabash V2.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791469530,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21621,6 +21717,24 @@
         "meta": {
           "date": 1790709328,
           "commit-sha": "c4b50f745f2301852d6a8e4f17467298167a5a95"
+        }
+      },
+      {
+        "name": "Anime",
+        "preview": "Anime.webp",
+        "file": "Anime.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791469530,
+          "commit-sha": ""
         }
       }
     ],
