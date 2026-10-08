@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Meepo Mafia",
       "category": "heroes"
     },
@@ -267,10 +271,6 @@
     {
       "name": "Broodmother Shaker Spiderlings",
       "category": "hero-items"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Default Lite Hud",
