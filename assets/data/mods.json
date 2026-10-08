@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Rictus Manta",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Rictus Skadi",
+      "category": "heroes"
+    },
+    {
       "name": "Tidehunter Hammer Of Maeldrawn",
       "category": "heroes"
     },
@@ -14338,6 +14346,36 @@
           "date": 1791449984,
           "commit-sha": "0b3038bfda6cfc668799e09d3559997e53aac82e"
         }
+      },
+      {
+        "name": "Terrorblade Rictus Skadi",
+        "preview": "Terrorblade Rictus Skadi.webp",
+        "file": "Terrorblade Rictus Skadi.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
+      },
+      {
+        "name": "Terrorblade Rictus Manta",
+        "preview": "Terrorblade Rictus Manta.webp",
+        "file": "Terrorblade Rictus Manta.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ]
       }
     ],
     "shaders": [
