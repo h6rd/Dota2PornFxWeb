@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer Guide",
+      "category": "guides"
+    },
+    {
+      "name": "Drow Ranger Madness Stealth",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Madness Stalker",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Sepulchral Stealth",
+      "category": "heroes"
+    },
+    {
+      "name": "Drow Ranger Sepulchral Stalker",
+      "category": "heroes"
+    },
+    {
       "name": "Oracle Clairvoyant",
       "category": "heroes"
     },
@@ -170,22 +190,6 @@
     },
     {
       "name": "Naga Siren Coral Cultist Frost",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Madness Stealth",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Madness Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Sepulchral Stealth",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Sepulchral Stalker",
       "category": "heroes"
     },
     {
@@ -21933,6 +21937,12 @@
         "name": "Mod Manager Guide",
         "preview": "Mod Manager Guide.webp",
         "file": "https://www.youtube.com/watch?v=Z_yalpuP6pA",
+        "type": "guide"
+      },
+      {
+        "name": "Better Source2Viewer Guide",
+        "preview": "Better Source2Viewer Guide.webp",
+        "file": "https://www.youtube.com/watch?v=d4ejORaKR-Y",
         "type": "guide"
       }
     ],
