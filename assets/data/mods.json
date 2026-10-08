@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tidehunter Hammer Of Maeldrawn",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Maw Of Megalodon",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Unfathomable Hunger",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -161,20 +173,8 @@
       "category": "heroes"
     },
     {
-      "name": "Tidehunter Hammer Of Maeldrawn",
-      "category": "heroes"
-    },
-    {
       "name": "Pangolier Barkfart",
       "category": "hero-sounds"
-    },
-    {
-      "name": "Tidehunter Maw Of Megalodon",
-      "category": "heroes"
-    },
-    {
-      "name": "Tidehunter Unfathomable Hunger",
-      "category": "heroes"
     },
     {
       "name": "Tidehunter Arcana Pedestal",
