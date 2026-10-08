@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tiny Stoneback Sovereign",
+      "category": "heroes"
+    },
+    {
+      "name": "Broodmother Anathema Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Bladeform Legacy",
+      "category": "heroes"
+    },
+    {
       "name": "Treant Protector Calabash V2",
       "category": "heroes"
     },
@@ -14552,6 +14564,63 @@
         "meta": {
           "date": 1791469531,
           "commit-sha": "f31f5de15018c7eb19cb1ae19edd0455d9dd3ac8"
+        }
+      },
+      {
+        "name": "Juggernaut Bladeform Legacy",
+        "preview": "Juggernaut Bladeform Legacy.webp",
+        "file": "Juggernaut Bladeform Legacy.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791470872,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Broodmother Anathema Reborn",
+        "preview": "Broodmother Anathema Reborn.webp",
+        "file": "Broodmother Anathema Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791470872,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tiny Stoneback Sovereign",
+        "preview": "Tiny Stoneback Sovereign.webp",
+        "file": "Tiny Stoneback Sovereign.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791470872,
+          "commit-sha": ""
         }
       }
     ],
