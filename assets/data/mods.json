@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Assassin Arcana V1",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Bladeform Origins",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Arcana V2 Reborn",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -14621,6 +14633,63 @@
         "meta": {
           "date": 1791470872,
           "commit-sha": "e454720de1df9b4b8ccf0dea95d9e1d5640e3714"
+        }
+      },
+      {
+        "name": "Earthshaker Arcana V2 Reborn",
+        "preview": "Earthshaker Arcana V2 Reborn.webp",
+        "file": "Earthshaker Arcana V2 Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791520425,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Juggernaut Bladeform Origins",
+        "preview": "Juggernaut Bladeform Origins.webp",
+        "file": "Juggernaut Bladeform Origins.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791520425,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Phantom Assassin Arcana V1",
+        "preview": "Phantom Assassin Arcana V1.webp",
+        "file": "Phantom Assassin Arcana V1.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791520425,
+          "commit-sha": ""
         }
       }
     ],
