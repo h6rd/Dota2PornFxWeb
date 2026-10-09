@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Tiny Stoneback Sovereign",
       "category": "heroes"
     },
@@ -83,10 +87,6 @@
     {
       "name": "Tidehunter Unfathomable Hunger",
       "category": "heroes"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Anti-Mage Daemon Hunter",
