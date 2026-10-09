@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Luna Golden Immortal Stalker",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Manta",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Skadi",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Blades",
+      "category": "heroes"
+    },
+    {
       "name": "Phantom Assassin Arcana V1",
       "category": "heroes"
     },
@@ -14690,6 +14706,82 @@
         "meta": {
           "date": 1791520425,
           "commit-sha": "e932add322a2c9103b8b1ce426f9b3dddaaea1d7"
+        }
+      },
+      {
+        "name": "Terrorblade Arcana Blades",
+        "preview": "Terrorblade Arcana Blades.webp",
+        "file": "Terrorblade Arcana Blades.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791549623,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Arcana Skadi",
+        "preview": "Terrorblade Arcana Skadi.webp",
+        "file": "Terrorblade Arcana Skadi.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791549623,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Arcana Manta",
+        "preview": "Terrorblade Arcana Manta.webp",
+        "file": "Terrorblade Arcana Manta.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791549623,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Luna Golden Immortal Stalker",
+        "preview": "Luna Golden Immortal Stalker.webp",
+        "file": "Luna Golden Immortal Stalker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791549623,
+          "commit-sha": ""
         }
       }
     ],
