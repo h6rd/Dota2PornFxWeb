@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "10000Weeping Choirs Mega-Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Luna Golden Immortal Stalker",
       "category": "heroes"
     },
@@ -19815,6 +19819,21 @@
         "meta": {
           "date": 1790528664,
           "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
+        }
+      },
+      {
+        "name": "10000Weeping Choirs Mega-Kill",
+        "preview": "10000Weeping Choirs Mega-Kill.webp",
+        "file": "10000Weeping Choirs Mega-Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791566552,
+          "commit-sha": ""
         }
       }
     ],
