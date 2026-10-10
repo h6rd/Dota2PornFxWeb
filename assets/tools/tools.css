@@ -90,10 +90,15 @@
   position: absolute;
   top: 14px;
   right: 10px;
-  transform: scale(0.8);
+  scale: 0.8;
   transform-origin: center;
   pointer-events: none;
-  animation: fadeIn 0.2s ease;
+  animation: toolsLoaderFade 0.2s ease;
+}
+
+@keyframes toolsLoaderFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .tools-card.is-loading {
