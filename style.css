@@ -7506,6 +7506,9 @@ m3e-loading-indicator {
 }
 
 .upload-segmented {
+  width: fit-content;
+  max-width: 100%;
+  align-self: flex-start;
   display: inline-flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -7785,6 +7788,11 @@ m3e-loading-indicator {
   transition-duration: 0.15s;
 }
 
+.upload-mod-modal .info-modal-close {
+  transition: background 0.2s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
 .upload-preview-card {
   contain: layout paint;
 }
@@ -7827,7 +7835,7 @@ m3e-loading-indicator {
 
 .upload-history-btn {
   padding: 10px 18px 10px 12px;
-  margin-right: 40px;
+  margin-right: 0;
 }
 
 .upload-history-back,
@@ -8019,9 +8027,5 @@ a.upload-history-item:hover {
 @media (max-width: 700px) {
   .upload-history-view {
     padding: 24px 16px 16px;
-  }
-
-  .upload-history-btn {
-    margin-right: 36px;
   }
 }

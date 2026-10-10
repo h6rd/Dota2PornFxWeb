@@ -267,21 +267,23 @@
       <div class="info-modal-section">
         <h3 class="info-modal-subtitle">Resources & Links</h3>
         <div class="info-modal-links">
-          <span class="info-modal-link" onclick="openGuideForMod({ guideId: 'install' })">
+          <a href="https://d2pfxwiki.pages.dev/en/" 
+          target="_blank" class="info-modal-link">
             <span class="material-symbols-rounded">description</span>
             <span>Installation Guide</span>
-          </span>
+          </a>
           <span class="info-modal-link" onclick="openGuideForMod({ guideId: 'info-and-troubleshooting' })">
             <span class="material-symbols-rounded">help</span>
             <span>Info & Troubleshooting</span>
           </span>
-          <a href="https://t.me/dota2pornfx" target="_blank" class="info-modal-link">
+          <a href="https://t.me/dota2pornfx" 
+          target="_blank" class="info-modal-link">
             <span class="material-symbols-rounded">forum</span>
             <span>Join Our Community</span>
           </a>
           <span class="info-modal-link" id="uploadModAboutLink">
             <span class="material-symbols-rounded">upload</span>
-            <span>Upload mod</span>
+            <span>Upload Mod</span>
           </span>
           <a href="#" class="info-modal-link" onclick="openDonateModal(); return false;">
             <span class="material-symbols-rounded">volunteer_activism</span>
@@ -364,7 +366,7 @@
       <div class="upload-form-panel">
         <div class="upload-form-panel-inner">
           <div class="upload-form-title-row">
-            <h2 class="info-modal-title upload-form-title">Upload mod</h2>
+            <h2 class="info-modal-title upload-form-title">Upload Mod</h2>
             <button type="button" class="upload-history-btn" id="umHistoryBtn">
               <span class="material-symbols-rounded">history</span>
               <span>History</span>
@@ -382,8 +384,7 @@
                 </label>
               </div>
               <p class="upload-form-hint">
-                Please use <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" id="tg">PreMod</a>.
-                The archive must contain a folder structured like <code>Mod Name/Mod Name.zip + Mod Name.webp</code>
+                Please use <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" id="tg">PreMod</a>
               </p>
             </div>
   
@@ -395,10 +396,10 @@
             <div class="upload-form-group">
               <label for="umName">Mod name</label>
               <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin"
-                pattern="[a-zA-Z0-9 \-_'.,!]+" maxlength="30" required>
+                pattern="[a-zA-Z0-9 \-_'.,!]+" maxlength="29" required>
               <p class="upload-form-hint">
-                English &amp; numbers only. A hyphen is allowed only inside a word ("big-cat", not "big - cat"). Max <span id="umNameMaxLen">30</span> characters
-                (<span id="umNameCount">0</span>/<span id="umNameMaxLen2">30</span>) so the mod card doesn't break.
+                English &amp; numbers only. Max <span id="umNameMaxLen">29</span> characters
+                (<span id="umNameCount">0</span>/<span id="umNameMaxLen2">29</span>) so the mod card doesn't break.
               </p>
               <p class="upload-form-hint upload-duplicate-hint" id="umDuplicateHint" style="display:none;">
                 <span class="material-symbols-rounded">warning</span>
@@ -552,13 +553,12 @@
       <span class="material-symbols-rounded">close</span>
     </button>
     <h2 class="info-modal-title">Tools</h2>
-    <p class="tools-sub">Pick a tool to get started.</p>
     <div class="tools-list">
       <button type="button" class="tools-card" data-tool="wallpaper">
         <span class="tools-card-icon"><span class="material-symbols-rounded">wallpaper</span></span>
         <span class="tools-card-text">
           <span class="tools-card-title">Wallpaper Creator <span class="tools-card-badge">BETA</span></span>
-          <p class="tools-card-desc">Turn an image, GIF or video into an animated main menu background. Crop, trim, add effects and get a ready to install VPK.</p>
+          <p class="tools-card-desc">Turn an image, GIF or video into an main menu background.</p>
         </span>
         <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
       </button>
@@ -566,7 +566,7 @@
         <span class="tools-card-icon"><span class="material-symbols-rounded">mouse</span></span>
         <span class="tools-card-text">
           <span class="tools-card-title">Cursor Creator</span>
-          <p class="tools-card-desc">Make your own cursor set from images. Move, scale and rotate each cursor and download an archive with an installer.</p>
+          <p class="tools-card-desc">Make your own cursor set from images.</p>
         </span>
         <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
       </button>
@@ -574,7 +574,7 @@
         <span class="tools-card-icon"><span class="material-symbols-rounded">translate</span></span>
         <span class="tools-card-text">
           <span class="tools-card-title">Localization Editor</span>
-          <p class="tools-card-desc">Pick a language, edit any game text with search and get a ready to install VPK. Your changes are saved and can be updated when the game files change.</p>
+          <p class="tools-card-desc">Edit any game text. Your changes can be updated when the game files change.</p>
         </span>
         <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
       </button>
@@ -582,7 +582,7 @@
         <span class="tools-card-icon"><span class="material-symbols-rounded">text_fields</span></span>
         <span class="tools-card-text">
           <span class="tools-card-title">Font Changer <span class="tools-card-badge">BETA</span></span>
-          <p class="tools-card-desc">Replace the interface and title fonts with any .ttf / .otf. Check Cyrillic support, preview the result and download an archive with an installer.</p>
+          <p class="tools-card-desc">Replace the interface and title fonts.</p>
         </span>
         <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
       </button>
