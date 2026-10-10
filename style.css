@@ -7151,7 +7151,46 @@ m3e-loading-indicator {
 }
 
 .upload-preview-log-icon.is-busy {
-  animation: um-spin 1s linear infinite;
+  display: none;
+}
+
+.upload-log-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transform-origin: 50% 50%;
+}
+
+.upload-log-spinner.is-active {
+  display: block;
+  animation: um-spinner-rotate 1.4s linear infinite;
+}
+
+.upload-log-spinner circle {
+  fill: none;
+  stroke-width: 2.6;
+}
+
+.upload-log-spinner-track {
+  stroke: var(--md-sys-color-surface-container-highest);
+}
+
+.upload-log-spinner-arc {
+  stroke: var(--md-sys-color-primary);
+  stroke-linecap: round;
+  stroke-dasharray: 1 99;
+  animation: um-spinner-dash 1.4s ease-in-out infinite;
+}
+
+@keyframes um-spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes um-spinner-dash {
+  0%   { stroke-dasharray: 1 99;  stroke-dashoffset: 0; }
+  50%  { stroke-dasharray: 70 30; stroke-dashoffset: -25; }
+  100% { stroke-dasharray: 1 99;  stroke-dashoffset: -99; }
 }
 
 .upload-preview-log-icon.is-success {

@@ -236,6 +236,7 @@ function setupUploadModal() {
   const previewButtonsGroup = document.getElementById('umPreviewButtonsGroup');
   const previewLogBody = document.getElementById('umPreviewLogBody');
   const previewLogIcon = document.getElementById('umPreviewLogIcon');
+  const previewLogSpinner = document.getElementById('umPreviewLogSpinner');
   const turnstileContainer = document.getElementById('uploadTurnstile');
   let previewObjectUrl = null;
   let turnstileWidgetId = null;
@@ -348,9 +349,10 @@ function setupUploadModal() {
   function setLogIconState(state) {
     if (!previewLogIcon) return;
     previewLogIcon.classList.remove('is-busy', 'is-success', 'is-error');
-    if (state === 'busy') {
-      previewLogIcon.textContent = 'progress_activity';
-      previewLogIcon.classList.add('is-busy');
+    const busy = state === 'busy';
+    previewLogIcon.classList.toggle('is-busy', busy);
+    previewLogSpinner?.classList.toggle('is-active', busy);
+    if (busy) {
     } else if (state === 'success') {
       previewLogIcon.textContent = 'check_circle';
       previewLogIcon.classList.add('is-success');
