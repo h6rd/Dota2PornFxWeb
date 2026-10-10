@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Rictus Blood",
+      "category": "heroes"
+    },
+    {
+      "name": "Claszian Apostasy Pedestal",
+      "category": "pedestal"
+    },
+    {
+      "name": "Kaneki Mach",
+      "category": "parts"
+    },
+    {
+      "name": "Terrorblade White Icons",
+      "category": "herofx"
+    },
+    {
       "name": "Drow Ranger Crimson Stalker",
       "category": "heroes"
     },
@@ -13958,6 +13974,25 @@
           "date": 1791610372,
           "commit-sha": "44ef0eec012df97614bbbc05af0cbab47c1042c9"
         }
+      },
+      {
+        "name": "Terrorblade Rictus Blood",
+        "preview": "Terrorblade Rictus Blood.webp",
+        "file": "Terrorblade Rictus Blood.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1791612286,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19247,6 +19282,21 @@
           "date": 1791365613,
           "commit-sha": "482d6968540bad0f24a73cd9ed030cf40ea4314d"
         }
+      },
+      {
+        "name": "Claszian Apostasy Pedestal",
+        "preview": "Claszian Apostasy Pedestal.webp",
+        "file": "Claszian Apostasy Pedestal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1791612286,
+          "commit-sha": ""
+        }
       }
     ],
     "parts": [
@@ -19402,6 +19452,21 @@
         "meta": {
           "date": 1790825298,
           "commit-sha": "3478dcb2ccb61f10aaa00ce7a7ec7a902306a0d5"
+        }
+      },
+      {
+        "name": "Kaneki Mach",
+        "preview": "Kaneki Mach.webp",
+        "file": "Kaneki Mach.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791612286,
+          "commit-sha": ""
         }
       }
     ],
@@ -23101,6 +23166,24 @@
         "meta": {
           "date": 1790113207,
           "commit-sha": "5e9e3c3941694345c6e497ba39607a0eb9935c7c"
+        }
+      },
+      {
+        "name": "Terrorblade White Icons",
+        "preview": "Terrorblade White Icons.webp",
+        "file": "Terrorblade White Icons.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791612286,
+          "commit-sha": ""
         }
       }
     ],
