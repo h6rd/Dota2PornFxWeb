@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kaneki Mach V1.2",
+      "category": "parts"
+    },
+    {
       "name": "Monkey King Kapitan",
       "category": "heroes"
     },
@@ -19490,6 +19494,21 @@
         "meta": {
           "date": 1791612287,
           "commit-sha": "a5ebca5079e2cfe60d528c2c03fa573d756db3de"
+        }
+      },
+      {
+        "name": "Kaneki Mach V1.2",
+        "preview": "Kaneki Mach V1.2.webp",
+        "file": "Kaneki Mach V1.2.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791627251,
+          "commit-sha": ""
         }
       }
     ],
