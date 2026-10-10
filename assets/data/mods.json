@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Arcana Desolator",
+      "category": "heroes"
+    },
+    {
       "name": "Kaneki Mach V1.2",
       "category": "parts"
     },
@@ -31,10 +35,6 @@
     {
       "name": "Tidehunter Deny",
       "category": "creep-deny"
-    },
-    {
-      "name": "Shadow Fiend Arcana Desolator",
-      "category": "heroes"
     },
     {
       "name": "Treant Protector Wraithwood",
