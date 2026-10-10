@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Treant Protector Wraithwood",
+      "category": "heroes"
+    },
+    {
+      "name": "Unlock Hidden Profile Animations",
+      "category": "other"
+    },
+    {
+      "name": "Default Lite Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Larger Timer",
+      "category": "parts"
+    },
+    {
+      "name": "Larger Minimap",
+      "category": "parts"
+    },
+    {
+      "name": "Nyx Assassin Mesmer Eye",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Shaman Wyrmbender",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Arcana Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Legion Commander Hell Origin",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Lineage Kantusa",
+      "category": "heroes"
+    },
+    {
       "name": "10000Weeping Choirs Mega-Kill",
       "category": "mega-kill"
     },
@@ -54,10 +94,6 @@
     },
     {
       "name": "Primal Beast Strongbox Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Arcana Reborn",
       "category": "heroes"
     },
     {
@@ -185,10 +221,6 @@
       "category": "heroes"
     },
     {
-      "name": "Shadow Shaman Wyrmbender",
-      "category": "heroes"
-    },
-    {
       "name": "Marci Patchwork",
       "category": "heroes"
     },
@@ -202,10 +234,6 @@
     },
     {
       "name": "Nyx Assassin Mesmer Eye",
-      "category": "heroes"
-    },
-    {
-      "name": "Legion Commander Hell Origin",
       "category": "heroes"
     },
     {
@@ -422,950 +450,6 @@
     },
     {
       "name": "Enchantress Diretide Shimmer",
-      "category": "heroes"
-    },
-    {
-      "name": "Magnus Collapse",
-      "category": "heroes"
-    },
-    {
-      "name": "Treant Protector Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Kunkka Inquisitor Tide",
-      "category": "heroes"
-    },
-    {
-      "name": "Enigma Infinity Space",
-      "category": "heroes"
-    },
-    {
-      "name": "Visage Vulture Wraith",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend 7.28",
-      "category": "heroes"
-    },
-    {
-      "name": "Larger Minimap",
-      "category": "parts"
-    },
-    {
-      "name": "Magnus Shock of the Anvil Crimson",
-      "category": "hero-items"
-    },
-    {
-      "name": "Grey Minimap",
-      "category": "parts"
-    },
-    {
-      "name": "Techies Minimap-Hero Mine Icon",
-      "category": "other"
-    },
-    {
-      "name": "Grey Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Larger Timer",
-      "category": "parts"
-    },
-    {
-      "name": "Lina Sharm Lady",
-      "category": "heroes"
-    },
-    {
-      "name": "Huskar Bleeding Edge",
-      "category": "heroes"
-    },
-    {
-      "name": "Brewmaster Snowdrift Pirat",
-      "category": "heroes"
-    },
-    {
-      "name": "Chen Perils Of The Red Banks",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Ravenblight",
-      "category": "hero-items"
-    },
-    {
-      "name": "Anti-Mage Guilt Survivor",
-      "category": "heroes"
-    },
-    {
-      "name": "Naga Siren Growth Correction",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Terrorblade Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Storm Spirit Avice",
-      "category": "heroes"
-    },
-    {
-      "name": "Pedestal Shadow Fiend",
-      "category": "pedestal"
-    },
-    {
-      "name": "Anti-Mage Persona Sakura",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Assassin Gothic",
-      "category": "heroes"
-    },
-    {
-      "name": "The Great Awakening",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Xvii",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Kez Chickez",
-      "category": "heroes"
-    },
-    {
-      "name": "Gwardjan Tad Dawl Perfezzjoni",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Morphling Green Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Anti-Mage Fervent Conscript",
-      "category": "heroes"
-    },
-    {
-      "name": "Largo Largling",
-      "category": "heroes"
-    },
-    {
-      "name": "Morphling Akulenok",
-      "category": "heroes"
-    },
-    {
-      "name": "Enchantress Golubika",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Aura",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Knight Persona Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Axe Automaton Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Arc Warden Frosty Toy",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Lineage Kantusa",
-      "category": "heroes"
-    },
-    {
-      "name": "Phoenix Vermillion Crucible",
-      "category": "heroes"
-    },
-    {
-      "name": "Bliss",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Windows Xp Top Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Whatsapp Tranquill",
-      "category": "item-icons"
-    },
-    {
-      "name": "Stariy Bog Mega-Kill",
-      "category": "mega-kill"
-    },
-    {
-      "name": "Juggernaut Ancient Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper Of The Light BMW",
-      "category": "hero-items"
-    },
-    {
-      "name": "Luna Sematary Rainbow Bridge III",
-      "category": "heroes"
-    },
-    {
-      "name": "Lina Soul Slayer Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Master Of Madness",
-      "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
-    },
-    {
-      "name": "Abaddon Endless Night Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Dark Carnaval Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Bane Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Desire Requiem",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Kunkka Sea Spirit",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Ame",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Assassin Athena",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Immortal Frost",
-      "category": "hero-items"
-    },
-    {
-      "name": "Pedestal Feast Abscession",
-      "category": "pedestal"
-    },
-    {
-      "name": "Techies Arcana Shanachnetsya",
-      "category": "hero-items"
-    },
-    {
-      "name": "Pudge Feast Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Axe Automaton Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Pedestal Grand Abscession",
-      "category": "pedestal"
-    },
-    {
-      "name": "Ogre Magi Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Morphling Blade Of Tears",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Provocation Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Hypergamy Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Immortal Troll Warlord",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Knight Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Abscession Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Taghmel Ix-Xita",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Courier Gonjubasik",
-      "category": "couriers"
-    },
-    {
-      "name": "Omniknight Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper of the Light Sematary",
-      "category": "heroes"
-    },
-    {
-      "name": "Dark Tree",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Sematary",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Invoker Dark Artistry V4",
-      "category": "heroes"
-    },
-    {
-      "name": "Anti-Mage Forgotten Planes",
-      "category": "heroes"
-    },
-    {
-      "name": "Windranger Arcana Prismatic",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper Of The Light - Snowdrift",
-      "category": "hero-items"
-    },
-    {
-      "name": "Nyx Assassin - Mecha Nyx",
-      "category": "heroes"
-    },
-    {
-      "name": "Kunkka Saltworn Mariner",
-      "category": "hero-items"
-    },
-    {
-      "name": "Windranger Reflections Of Gale",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Wings Foulfell",
-      "category": "hero-items"
-    },
-    {
-      "name": "Windranger Compass Rising Gale",
-      "category": "heroes"
-    },
-    {
-      "name": "Vengeful Spirit Queen Imperia",
-      "category": "heroes"
-    },
-    {
-      "name": "Clockwerk Cogwerk",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana White",
-      "category": "heroes"
-    },
-    {
-      "name": "Better Lycan",
-      "category": "heroes"
-    },
-    {
-      "name": "Rubick Caloedick Mage",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Sunrise",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Dendi Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Battle Icons",
-      "category": "ranks"
-    },
-    {
-      "name": "Silencer Oscilla Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Crimson Dark Willow",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Jagged Honor",
-      "category": "heroes"
-    },
-    {
-      "name": "Batrider Verna Frostbloom",
-      "category": "hero-items"
-    },
-    {
-      "name": "Earthshaker Planetfall Burning",
-      "category": "heroes"
-    },
-    {
-      "name": "Lina Soul Slayer Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Lancer Concord Revers",
-      "category": "hero-items"
-    },
-    {
-      "name": "Earthshaker Planetfall Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Mars Crimson Set",
-      "category": "heroes"
-    },
-    {
-      "name": "Lifestealer Red Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Midnight Blue",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Plushy Shag",
-      "category": "heroes"
-    },
-    {
-      "name": "Sematary Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Love Ping II",
-      "category": "pings"
-    },
-    {
-      "name": "Love Ping",
-      "category": "pings"
-    },
-    {
-      "name": "Beastmaster Prismatic Bone",
-      "category": "heroes"
-    },
-    {
-      "name": "Dili Tili Bom Pudge",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Princess Naga Siren",
-      "category": "heroes"
-    },
-    {
-      "name": "Spectre Immortal Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Enchantress Sematary",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Kid Forge",
-      "category": "hero-items"
-    },
-    {
-      "name": "Invoker Esl Relics Forge",
-      "category": "hero-items"
-    },
-    {
-      "name": "Clockwerk Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Master Of Madness",
-      "category": "heroes"
-    },
-    {
-      "name": "Razor Stormlord Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Reflow Radiance",
-      "category": "item-icons"
-    },
-    {
-      "name": "Primal Beast Temple Guardian",
-      "category": "hero-items"
-    },
-    {
-      "name": "Primal Beast Frostbloom",
-      "category": "hero-items"
-    },
-    {
-      "name": "Lycan Frostbloom Claws",
-      "category": "hero-items"
-    },
-    {
-      "name": "Invoker Frostbloom",
-      "category": "hero-items"
-    },
-    {
-      "name": "Immortal Grimstroke",
-      "category": "heroes"
-    },
-    {
-      "name": "Razor Voidstorm Asylum",
-      "category": "heroes"
-    },
-    {
-      "name": "Golden Natures Prophet",
-      "category": "heroes"
-    },
-    {
-      "name": "Spectre Arcana Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Venomancer Zuzik",
-      "category": "heroes"
-    },
-    {
-      "name": "Ringmaster Ibalai",
-      "category": "heroes"
-    },
-    {
-      "name": "Ancient Apparition Shatterblast",
-      "category": "herofx"
-    },
-    {
-      "name": "Mega Greevil Courier",
-      "category": "couriers"
-    },
-    {
-      "name": "Diabolical Shadow Fiend",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Blackguard Magus",
-      "category": "heroes"
-    },
-    {
-      "name": "Black Top Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Kaneki Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Scolopendra Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "All Grandmasters",
-      "category": "other"
-    },
-    {
-      "name": "Beastmaster Egxrdemxn",
-      "category": "heroes"
-    },
-    {
-      "name": "Windranger Papizi",
-      "category": "heroes"
-    },
-    {
-      "name": "Pangolier Windward Rogue",
-      "category": "heroes"
-    },
-    {
-      "name": "Bloodseeker Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Ranks",
-      "category": "ranks"
-    },
-    {
-      "name": "Doom Sematary",
-      "category": "heroes"
-    },
-    {
-      "name": "Horror Black Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Marci Bloomjewel Unusual",
-      "category": "heroes"
-    },
-    {
-      "name": "Chaos Knight Unities Of Discord",
-      "category": "heroes"
-    },
-    {
-      "name": "Anti-Mage Manta",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Gol0vach",
-      "category": "heroes"
-    },
-    {
-      "name": "Broodmother Immortal Antiquity",
-      "category": "heroes"
-    },
-    {
-      "name": "Tinker Flame",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Arcana Golden Edge",
-      "category": "heroes"
-    },
-    {
-      "name": "Reverse Broodmother",
-      "category": "heroes"
-    },
-    {
-      "name": "Reverse Tinker",
-      "category": "heroes"
-    },
-    {
-      "name": "Mirana Sacred Grove",
-      "category": "heroes"
-    },
-    {
-      "name": "Broodskoe",
-      "category": "music"
-    },
-    {
-      "name": "Earthshaker Burning Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Bounty Hunter Golden Rat",
-      "category": "heroes"
-    },
-    {
-      "name": "Wraith King Papizi",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Burning Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Sewerslvt Music",
-      "category": "music"
-    },
-    {
-      "name": "Rory in early 20s Music",
-      "category": "music"
-    },
-    {
-      "name": "Mops Lone Druid Bear",
-      "category": "hero-items"
-    },
-    {
-      "name": "Japan Invoker",
-      "category": "heroes"
-    },
-    {
-      "name": "Dazzle Graveman",
-      "category": "heroes"
-    },
-    {
-      "name": "Batrider Night Marauder",
-      "category": "heroes"
-    },
-    {
-      "name": "Star Sage Phoenix",
-      "category": "heroes"
-    },
-    {
-      "name": "Reverse Lone Druid",
-      "category": "heroes"
-    },
-    {
-      "name": "Dagon Cobra Kick",
-      "category": "sounds"
-    },
-    {
-      "name": "Clinkz Black & White",
-      "category": "heroes"
-    },
-    {
-      "name": "Slark Tellurian Trespass",
-      "category": "heroes"
-    },
-    {
-      "name": "Terraria Music",
-      "category": "music"
-    },
-    {
-      "name": "LenS Tinker",
-      "category": "heroes"
-    },
-    {
-      "name": "Chen Green Infernal",
-      "category": "hero-items"
-    },
-    {
-      "name": "Gotohouse Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Shadow Fiend Lightning Soul",
-      "category": "heroes"
-    },
-    {
-      "name": "Brewmaster Wilding Tiger",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Fireborn Assault",
-      "category": "heroes"
-    },
-    {
-      "name": "Void Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Centaur Otday",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Keeper of the Light Waitureally",
-      "category": "heroes"
-    },
-    {
-      "name": "Total Black Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Dagon Revolver",
-      "category": "sounds"
-    },
-    {
-      "name": "Black Huskar",
-      "category": "heroes"
-    },
-    {
-      "name": "Monkey King Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Abaddon Endless Night",
-      "category": "heroes"
-    },
-    {
-      "name": "Old Items",
-      "category": "item-icons"
-    },
-    {
-      "name": "Enigma Black Hole Kate Scream",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Keeper of the Light Darklord",
-      "category": "heroes"
-    },
-    {
-      "name": "Brewmaster Aghanim",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Magus Mimicry",
-      "category": "heroes"
-    },
-    {
-      "name": "Nyx Assassin Dalbaeb",
-      "category": "heroes"
-    },
-    {
-      "name": "Batrider Chubzarik Prime",
-      "category": "heroes"
-    },
-    {
-      "name": "Techies Sunken Galley",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper of the Light Wings of Daybreak",
-      "category": "hero-items"
-    },
-    {
-      "name": "Black Click",
-      "category": "other"
-    },
-    {
-      "name": "Dark Willow Fairy Godmummer",
-      "category": "heroes"
-    },
-    {
-      "name": "Sasuke Invoker",
-      "category": "heroes"
-    },
-    {
-      "name": "Virus Trees",
-      "category": "trees"
-    },
-    {
-      "name": "Bane Origin of the Unmaking",
-      "category": "hero-items"
-    },
-    {
-      "name": "Sapphire Click",
-      "category": "other"
-    },
-    {
-      "name": "Light Brown Click",
-      "category": "other"
-    },
-    {
-      "name": "Pudge Toy Woodcutter",
-      "category": "heroes"
-    },
-    {
-      "name": "Zeus Thundervolt",
-      "category": "heroes"
-    },
-    {
-      "name": "Ken Kaneki Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Anime Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Shadow Demon Grim Facade",
-      "category": "hero-items"
-    },
-    {
-      "name": "Mirana of Nightsilver",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Knight Dragon Hold",
-      "category": "heroes"
-    },
-    {
-      "name": "VPCF Editor",
-      "category": "tools"
-    },
-    {
-      "name": "Grimstroke Purple",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper of the Light Prominence",
-      "category": "hero-items"
-    },
-    {
-      "name": "Kawaii Hud",
-      "category": "huds"
-    },
-    {
-      "name": "1st September Horn",
-      "category": "sounds"
-    },
-    {
-      "name": "Hoodwink Immortal Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Fire Natures Prophet",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Yatoro Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Lone Druid Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Puck Wanderers Brush Crimson",
-      "category": "hero-items"
-    },
-    {
-      "name": "Beastmaster Primal Paean Crimson",
-      "category": "hero-items"
-    },
-    {
-      "name": "Storm Spirit Gay",
-      "category": "heroes"
-    },
-    {
-      "name": "Keeper of the Light Northlight Illuminance",
-      "category": "herofx"
-    },
-    {
-      "name": "Crimson Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Team Spirit Visage",
-      "category": "heroes"
-    },
-    {
-      "name": "White Click",
-      "category": "other"
-    },
-    {
-      "name": "Storm Spirit Lightning Orchid Tyrian",
-      "category": "hero-items"
-    },
-    {
-      "name": "Timbersaw Rectifier",
-      "category": "hero-items"
-    },
-    {
-      "name": "Nyx Assassin Latticean Hierarchy",
-      "category": "hero-items"
-    },
-    {
-      "name": "Drow Ranger Silent Wake",
-      "category": "hero-items"
-    },
-    {
-      "name": "Disruptor Resistive Pinfold",
-      "category": "hero-items"
-    },
-    {
-      "name": "White Keeper of the Light",
-      "category": "heroes"
-    },
-    {
-      "name": "Purple Naga Siren",
-      "category": "heroes"
-    },
-    {
-      "name": "Queen of Pain Blue Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Deathrun Eggs",
-      "category": "trees"
-    },
-    {
-      "name": "Sniper Full-Bore Bonanza",
-      "category": "hero-items"
-    },
-    {
-      "name": "Sniper Occultists Pursuit",
-      "category": "hero-items"
-    },
-    {
-      "name": "Sniper Blacksail Cannoneer",
       "category": "heroes"
     }
   ],
@@ -14160,6 +13244,12 @@
           "effects": true,
           "icons": true
         },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
         "meta": {
           "date": 1791376639,
           "commit-sha": "8bc4694d7b33def509484b0c938d75d4ec8a350e"
@@ -14787,6 +13877,33 @@
           "date": 1791549623,
           "commit-sha": "968ede7d5fc42b1a05719b6a511fbf83a7081639"
         }
+      },
+      {
+        "name": "Treant Protector Wraithwood",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "linear-gradient(135deg, #e19232 50%, #a4ff4c 50%)",
+            "preview": "Treant Protector Wraithwood.webp",
+            "file": "Treant Protector Wraithwood.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "linear-gradient(135deg, #e19232 50%, #000000 50%)",
+            "preview": "Treant Protector Wraithwood II.webp",
+            "file": "Treant Protector Wraithwood II.zip"
+          }
+        ],
+        "tags": {
+          "effects": false,
+          "icons": false
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "hizu"
+          }
+        ]
       }
     ],
     "shaders": [
