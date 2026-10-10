@@ -50,11 +50,15 @@ function getPreviewVideoCategories() {
 
 const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
 
+const NON_SLOT_TAGS = ['effects', 'icons'];
 const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
 
 function getSlotTags(categoryId) {
+  const list = (window.slotTags || {})[categoryId];
+  if (Array.isArray(list) && list.length) return list;
   const cfg = (window.TAG_CONFIGS || {})[categoryId];
-  return (cfg && Array.isArray(cfg.slotTags)) ? cfg.slotTags : FALLBACK_SLOT_TAGS;
+  if (cfg && cfg.map) return Object.keys(cfg.map).filter(k => !NON_SLOT_TAGS.includes(k));
+  return FALLBACK_SLOT_TAGS;
 }
 
 function waitForAppData() {
@@ -170,11 +174,6 @@ function setupUploadModal() {
 
   const overlay = document.getElementById('uploadModOverlay');
   const modal = document.getElementById('uploadModModal');
-  modal?.querySelectorAll('.upload-form-panel, .upload-preview-panel').forEach((panel) => {
-    panel.addEventListener('wheel', (e) => {
-      panel.scrollTop += e.deltaY;
-    }, { passive: true });
-  });
   const openBtns = [
     document.getElementById('uploadModButton'),
     document.getElementById('mobileUploadModButton'),
@@ -638,7 +637,117 @@ function setupUploadModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
     heroDropdown.classList.remove('open');
+    const hv = document.getElementById('umHistoryView');
+    if (hv) hv.hidden = true;
   }
+
+  const historyBtn = document.getElementById('umHistoryBtn');
+  const historyBack = document.getElementById('umHistoryBack');
+  const historyRefresh = document.getElementById('umHistoryRefresh');
+  const historyView = document.getElementById('umHistoryView');
+  const historyList = document.getElementById('umHistoryList');
+  const HISTORY_STATUS = {
+    moderation: { label: 'On moderation', icon: 'hourglass_top' },
+    accepted: { label: 'Accepted', icon: 'check_circle' },
+    rejected: { label: 'Rejected', icon: 'cancel' }
+  };
+  let historyLoading = false;
+
+  function historyMessage(text, icon) {
+    historyList.textContent = '';
+    const box = document.createElement('div');
+    box.className = 'upload-history-empty';
+    const i = document.createElement('span');
+    i.className = 'material-symbols-rounded';
+    i.textContent = icon;
+    const t = document.createElement('span');
+    t.textContent = text;
+    box.append(i, t);
+    historyList.appendChild(box);
+  }
+
+  function safeGithubUrl(url) {
+    try {
+      const u = new URL(url);
+      return u.protocol === 'https:' && u.hostname === 'github.com' ? u.href : null;
+    } catch { return null; }
+  }
+
+  function renderHistory(items) {
+    historyList.textContent = '';
+    if (!items.length) {
+      historyMessage('No submissions from this network yet.', 'inbox');
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    for (const item of items) {
+      const st = HISTORY_STATUS[item.status] || HISTORY_STATUS.moderation;
+      const href = safeGithubUrl(item.url);
+      const row = document.createElement(href ? 'a' : 'div');
+      row.className = 'upload-history-item upload-history-' + (HISTORY_STATUS[item.status] ? item.status : 'moderation');
+      if (href) { row.href = href; row.target = '_blank'; row.rel = 'noopener noreferrer'; }
+
+      const top = document.createElement('div');
+      top.className = 'upload-history-item-top';
+      const name = document.createElement('span');
+      name.className = 'upload-history-name';
+      name.textContent = item.name || 'Untitled';
+      const badge = document.createElement('span');
+      badge.className = 'upload-history-badge';
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-rounded';
+      icon.textContent = st.icon;
+      const label = document.createElement('span');
+      label.textContent = st.label;
+      badge.append(icon, label);
+      top.append(name, badge);
+      row.appendChild(top);
+
+      if (item.createdAt) {
+        const d = new Date(item.createdAt);
+        if (!isNaN(d)) {
+          const date = document.createElement('div');
+          date.className = 'upload-history-date';
+          date.textContent = d.toLocaleString();
+          row.appendChild(date);
+        }
+      }
+      if (item.status === 'rejected' && item.reason) {
+        const reason = document.createElement('div');
+        reason.className = 'upload-history-reason';
+        reason.textContent = item.reason;
+        row.appendChild(reason);
+      }
+      frag.appendChild(row);
+    }
+    historyList.appendChild(frag);
+  }
+
+  async function loadHistory() {
+    if (historyLoading) return;
+    historyLoading = true;
+    historyRefresh?.classList.add('is-loading');
+    historyMessage('Loading\u2026', 'progress_activity');
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/api/history`);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      renderHistory(Array.isArray(data.items) ? data.items : []);
+    } catch {
+      historyMessage('Could not load history. Try again later.', 'error');
+    } finally {
+      historyLoading = false;
+      historyRefresh?.classList.remove('is-loading');
+    }
+  }
+
+  function showHistory(show) {
+    historyView.hidden = !show;
+    if (show) loadHistory();
+  }
+  historyBtn?.addEventListener('click', () => showHistory(true));
+  historyBack?.addEventListener('click', () => showHistory(false));
+  historyRefresh?.addEventListener('click', loadHistory);
 
   openBtns.forEach(btn => btn && btn.addEventListener('click', () => {
     document.getElementById('mobileMenu')?.classList.remove('active');
@@ -1491,6 +1600,11 @@ function setupUploadModal() {
     }
 
     const hero = heroHidden.value.trim();
+    if (HERO_AWARE_CATEGORIES.includes(category) && !hero) {
+      appendActivityLog('Select a hero for this category.', 'error');
+      setLogIconState('error');
+      return;
+    }
     if (HERO_AWARE_CATEGORIES.includes(category) && hero &&
       !(window.HEROES_LIST || []).includes(hero)) {
       appendActivityLog('Invalid hero.', 'error');

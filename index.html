@@ -346,10 +346,30 @@
     <button class="info-modal-close" id="closeUploadModModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
+    <div class="upload-history-view" id="umHistoryView" hidden>
+      <div class="upload-history-head">
+        <div class="upload-history-actions">
+          <button type="button" class="upload-history-back" id="umHistoryBack" aria-label="Back" title="Back">
+            <span class="material-symbols-rounded">arrow_back</span>
+          </button>
+          <button type="button" class="upload-history-refresh" id="umHistoryRefresh" aria-label="Refresh" title="Refresh">
+            <span class="material-symbols-rounded">refresh</span>
+          </button>
+        </div>
+        <h2 class="info-modal-title upload-form-title">Submission history</h2>
+      </div>
+      <div class="upload-history-list" id="umHistoryList"></div>
+    </div>
     <div class="upload-modal-body">
       <div class="upload-form-panel">
         <div class="upload-form-panel-inner">
-          <h2 class="info-modal-title upload-form-title">Upload mod</h2>
+          <div class="upload-form-title-row">
+            <h2 class="info-modal-title upload-form-title">Upload mod</h2>
+            <button type="button" class="upload-history-btn" id="umHistoryBtn">
+              <span class="material-symbols-rounded">history</span>
+              <span>History</span>
+            </button>
+          </div>
           <form id="uploadModForm" class="upload-form" novalidate>
   
             <div class="upload-form-group">
