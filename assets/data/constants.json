@@ -468,7 +468,29 @@
     "modded": "construction"
   },
   "slotTags": {
-    "hero-items": ["base", "totem", "cart", "weapon", "spiderling", "tail", "legs", "bear", "off-hand", "mount", "head", "forge", "arm", "arms", "armor", "shoulders", "back", "shield", "hair", "neck", "rocket"]
+    "hero-items": [
+      "base",
+      "totem",
+      "cart",
+      "weapon",
+      "spiderling",
+      "tail",
+      "legs",
+      "bear",
+      "off-hand",
+      "mount",
+      "head",
+      "forge",
+      "arm",
+      "arms",
+      "armor",
+      "shoulders",
+      "back",
+      "shield",
+      "hair",
+      "neck",
+      "rocket"
+    ]
   },
   "TAG_CONFIGS": {
     "heroes": {
