@@ -1,0 +1,928 @@
+{
+  "translations": {
+    "shaders": "Shaders",
+    "shaders-desc": "Replaces the fog of war effect",
+    "ti-bp-effects": "Effect Packs",
+    "ti-bp-effects-desc": "Battle Pass / The International / Pack effects",
+    "item-effects": "Item Effects",
+    "item-effects-desc": "Effects for various items",
+    "creep-deny": "Creep Deny",
+    "creep-deny-desc": "Creep deny animations and effects",
+    "emblems": "Emblems",
+    "emblems-desc": "Collection of various emblems",
+    "versus-screens": "Versus Screens",
+    "versus-screens-desc": "Custom versus screen",
+    "terrains": "Terrains",
+    "terrains-desc": "Terrains modifications",
+    "trees": "Trees",
+    "trees-desc": "Custom trees",
+    "heroes": "Heroes",
+    "heroes-desc": "Hero models and sets",
+    "roshan": "Roshan",
+    "roshan-desc": "Custom Roshan models and skins",
+    "creeps": "Creeps",
+    "creeps-desc": "Custom creeps",
+    "ancient": "Ancient",
+    "ancient-desc": "Ancient mods",
+    "tormentor": "Tormentor",
+    "tormentor-desc": "Custom Tormentor",
+    "towers": "Towers",
+    "towers-desc": "Custom towers",
+    "high-five": "High Five",
+    "high-five-desc": "Custom high five animations",
+    "packs": "Packs",
+    "packs-desc": "Themed mods packs",
+    "ranged-attack": "Ranged Attack",
+    "ranged-attack-desc": "Custom ranged attack effects",
+    "weather": "Weather",
+    "weather-desc": "Weather Changer",
+    "mega-kill": "Mega-Kill",
+    "mega-kill-desc": "Custom mega-kill announcers",
+    "guides": "Guides",
+    "guides-desc": "Guides and tutorials",
+    "pedestal": "Pedestal",
+    "pedestal-desc": "Custom hero pedestals",
+    "other": "Other",
+    "other-desc": "Miscellaneous mods",
+    "download": "Download",
+    "source": "Source",
+    "author": "Author",
+    "sender": "Sender",
+    "guide": "Guide",
+    "preview": "Preview",
+    "bug": "Bug",
+    "optimization": "Optimization",
+    "optimization-desc": "Dota2 optimization stuff",
+    "sites": "Websites",
+    "sites-desc": "Useful websites",
+    "tools": "Tools",
+    "tools-desc": "Various tools",
+    "addToCart": "Add to cart",
+    "backgrounds": "Backgrounds",
+    "backgrounds-desc": "Custom backgrounds",
+    "river": "River",
+    "river-desc": "Custom river colors",
+    "ranks": "Rank Icons",
+    "ranks-desc": "Custom Rank Icons",
+    "item-icons": "Item Icons",
+    "item-icons-desc": "Custom Icons for Items",
+    "wards": "Wards",
+    "wards-desc": "Custom Wards",
+    "couriers": "Couriers",
+    "couriers-desc": "Custom Couriers",
+    "announcers": "Announcers",
+    "announcers-desc": "Custom Announcers",
+    "music": "Music",
+    "music-desc": "Custom Music",
+    "cursors": "Cursors",
+    "cursors-desc": "Custom Cursors",
+    "pings": "Pings",
+    "pings-desc": "Custom Pings",
+    "file-search-results": "Mods by file:",
+    "herofx": "Hero Spells",
+    "herofx-desc": "Effect sets for hero spells",
+    "hero-sounds": "Hero Sounds",
+    "hero-sounds-desc": "Custom hero sounds",
+    "how-to-install": "How to install?",
+    "not-safe": "Not Safe",
+    "info": "info",
+    "hero-items": "Hero Items",
+    "hero-items-desc": "Individual items of heroes",
+    "fonts": "Fonts",
+    "fonts-desc": "Custom fonts",
+    "source-code": "Source Code",
+    "author-search-results": "Mods by author:",
+    "news": "News",
+    "news-desc": "News and announcements",
+    "item-sounds": "Item Sounds",
+    "item-sounds-desc": "Custom item sounds",
+    "parts": "Parts",
+    "parts-desc": "Different individual parts, like for the HUDs",
+    "huds": "Huds",
+    "huds-desc": "Custom Huds",
+    "modded": "Modded",
+    "sounds": "Sounds",
+    "sounds-desc": "Custom sounds"
+  },
+  "categories": [
+    {
+      "id": "shaders",
+      "emoji": "🎨",
+      "key": "shaders",
+      "preview": "shaders.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "ti-bp-effects",
+      "emoji": "🌟",
+      "key": "ti-bp-effects",
+      "preview": "effects-packs.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "heroes",
+      "emoji": "👤",
+      "key": "heroes",
+      "preview": "heroes.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "terrains",
+      "emoji": "🏞️",
+      "key": "terrains",
+      "preview": "terrains.webp",
+      "guideId": "install-terrains"
+    },
+    {
+      "id": "trees",
+      "emoji": "🌲",
+      "key": "trees",
+      "preview": "trees.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "creeps",
+      "emoji": "🕷",
+      "key": "creeps",
+      "preview": "creeps.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "creep-deny",
+      "emoji": "🎯",
+      "key": "creep-deny",
+      "preview": "creep-deny.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "emblems",
+      "emoji": "🏵",
+      "key": "emblems",
+      "preview": "emblems.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "backgrounds",
+      "emoji": "🖼️",
+      "key": "backgrounds",
+      "preview": "backgrounds.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "hero-items",
+      "emoji": "👤",
+      "key": "hero-items",
+      "preview": "hero-items.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "herofx",
+      "emoji": "✨",
+      "key": "herofx",
+      "preview": "hero-spells.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "hero-sounds",
+      "emoji": "🔊",
+      "key": "hero-sounds",
+      "preview": "hero-sounds.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "sounds",
+      "emoji": "🔊",
+      "key": "sounds",
+      "preview": "sounds.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "wards",
+      "emoji": "📖",
+      "key": "wards",
+      "preview": "wards.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "couriers",
+      "emoji": "🦛",
+      "key": "couriers",
+      "preview": "couriers.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "river",
+      "emoji": "🏞️",
+      "key": "river",
+      "preview": "river.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "item-effects",
+      "emoji": "✨",
+      "key": "item-effects",
+      "preview": "item-effects.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "ranged-attack",
+      "emoji": "🏹",
+      "key": "ranged-attack",
+      "preview": "ranged-atk.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "pings",
+      "emoji": "📌",
+      "key": "pings",
+      "preview": "pings.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "parts",
+      "emoji": "🎴",
+      "key": "parts",
+      "preview": "parts.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "huds",
+      "emoji": "🎴",
+      "key": "huds",
+      "preview": "huds.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "packs",
+      "emoji": "📦",
+      "key": "packs",
+      "preview": "packs.webp"
+    },
+    {
+      "id": "versus-screens",
+      "emoji": "🆚",
+      "key": "versus-screens",
+      "preview": "vs.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "mega-kill",
+      "emoji": "🔊",
+      "key": "mega-kill",
+      "preview": "megakill.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "announcers",
+      "emoji": "🔊",
+      "key": "announcers",
+      "preview": "announcer.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "music",
+      "emoji": "🔊",
+      "key": "music",
+      "preview": "music.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "roshan",
+      "emoji": "🦖",
+      "key": "roshan",
+      "preview": "roshan.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "ancient",
+      "emoji": "🗻",
+      "key": "ancient",
+      "preview": "ancient.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "tormentor",
+      "emoji": "🎈",
+      "key": "tormentor",
+      "preview": "tormentor.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "towers",
+      "emoji": "🗼",
+      "key": "towers",
+      "preview": "towers.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "pedestal",
+      "emoji": "🗿",
+      "key": "pedestal",
+      "preview": "pedestal.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "high-five",
+      "emoji": "🖐️",
+      "key": "high-five",
+      "preview": "high-five.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "item-icons",
+      "emoji": "👀",
+      "key": "item-icons",
+      "preview": "item-icons.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "ranks",
+      "emoji": "🎖️",
+      "key": "ranks",
+      "preview": "rank-icons.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "cursors",
+      "emoji": "🛠️",
+      "key": "cursors",
+      "preview": "cursors.webp"
+    },
+    {
+      "id": "fonts",
+      "emoji": "🔤",
+      "key": "fonts",
+      "preview": "fonts.webp"
+    },
+    {
+      "id": "other",
+      "emoji": "⚙️",
+      "key": "other",
+      "preview": "other.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "optimization",
+      "emoji": "🛠️",
+      "key": "optimization",
+      "preview": "optimization.webp"
+    },
+    {
+      "id": "tools",
+      "emoji": "🛠️",
+      "key": "tools",
+      "preview": "tools.webp"
+    },
+    {
+      "id": "guides",
+      "emoji": "📖",
+      "key": "guides",
+      "preview": "guides.webp"
+    },
+    {
+      "id": "sites",
+      "emoji": "🌐",
+      "key": "sites",
+      "preview": "websites.webp"
+    },
+    {
+      "id": "news",
+      "emoji": "📢",
+      "key": "news",
+      "preview": "",
+      "hidden": true
+    }
+  ],
+  "categoryNotes": {
+    "item-effects": {
+      "enabled": false,
+      "text": "During events with custom effects (e.g. Quartero's Curios), some effects will not work. Use <a href=\"https://h6rd.github.io/Dota2PornFxWeb/?category=ti-bp-effects\"><span id=\"tg\">Effect Packs</span></a>."
+    },
+    "emblems": {
+      "enabled": true,
+      "text": "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
+    },
+    "tools": {
+      "enabled": true,
+      "text": "This category includes both my own tools and ones made by third-party developers. I'm only responsible for the tools I've created myself. Third-party programs are reviewed before being listed, but I can't continuously monitor them, so use them at your own risk"
+    }
+  },
+  "addToCartRules": {
+    "hiddenCategories": [
+      "guides",
+      "tools",
+      "packs"
+    ],
+    "allowedMods": {
+      "optimization": [
+        "Default Wards",
+        "Tinker Lite Machines"
+      ],
+      "other": [
+        "Showcase Rotation",
+        "Rage Voice Icon",
+        "Gabe Shopkeeper",
+        "Techies Mine Radius",
+        "Tower re-aggro Radius",
+        "Purple Click",
+        "Unlock Hidden Profile Animations",
+        "Profile Graffiti & Phrases",
+        "Dummy In Profile",
+        "Blue Click",
+        "White Click",
+        "Light Brown Click",
+        "Sapphire Click",
+        "Black Click",
+        "All Grandmasters",
+        "Techies Minimap-Hero Mine Icon"
+      ]
+    }
+  },
+  "SORT_MODES": [
+    {
+      "key": "default",
+      "label": "Default",
+      "icon": "sort"
+    },
+    {
+      "key": "name",
+      "label": "Name",
+      "icon": "sort_by_alpha"
+    },
+    {
+      "key": "date",
+      "label": "Newest",
+      "icon": "schedule"
+    }
+  ],
+  "LINK_ICONS": {
+    "author": "person",
+    "sender": "send",
+    "preview": "play_circle",
+    "source": "captive_portal",
+    "guide": "description",
+    "bug": "bug_report",
+    "not-safe": "warning",
+    "info": "warning",
+    "source-code": "code",
+    "modded": "construction"
+  },
+  "slotTags": {
+    "hero-items": [
+      "base",
+      "totem",
+      "cart",
+      "weapon",
+      "spiderling",
+      "tail",
+      "legs",
+      "bear",
+      "off-hand",
+      "mount",
+      "head",
+      "forge",
+      "arm",
+      "arms",
+      "armor",
+      "shoulders",
+      "back",
+      "shield",
+      "hair",
+      "neck",
+      "rocket"
+    ]
+  },
+  "TAG_CONFIGS": {
+    "heroes": {
+      "allowForGuides": false,
+      "map": {
+        "effects": "Effects",
+        "icons": "Icons"
+      }
+    },
+    "backgrounds": {
+      "allowForGuides": false,
+      "map": {
+        "image": "Image",
+        "video": "Video"
+      }
+    },
+    "sites": {
+      "allowForGuides": true,
+      "map": {
+        "stats": "Stats",
+        "meta": "Meta",
+        "fun": "Fun"
+      }
+    },
+    "herofx": {
+      "allowForGuides": false,
+      "map": {
+        "effects": "Effects",
+        "icons": "Icons",
+        "sounds": "Sounds"
+      }
+    },
+    "hero-items": {
+      "allowForGuides": false,
+      "map": {
+        "base": "Base",
+        "totem": "Totem",
+        "cart": "Cart",
+        "weapon": "Weapon",
+        "spiderling": "Spiderling",
+        "tail": "Tail",
+        "legs": "Legs",
+        "bear": "Bear",
+        "off-hand": "Off-Hand",
+        "mount": "Mount",
+        "head": "Head",
+        "forge": "Forge",
+        "arm": "Arm",
+        "arms": "Arms",
+        "armor": "Armor",
+        "shoulders": "Shoulders",
+        "back": "Back",
+        "shield": "Shield",
+        "hair": "Hair",
+        "neck": "Neck",
+        "rocket": "Rocket",
+        "effects": "Effects",
+        "icons": "Icons",
+        "sounds": "Sounds"
+      }
+    },
+    "tools": {
+      "allowForGuides": false,
+      "map": {
+        "source-code": "Source Code"
+      }
+    }
+  },
+  "GIF_CONFIG": {
+    "gifs": [
+      "assets/previews/hueta/ursa.gif",
+      "assets/previews/hueta/brew.gif",
+      "assets/previews/hueta/fura.gif",
+      "assets/previews/hueta/storm.gif",
+      "assets/previews/hueta/invoker.gif",
+      "assets/previews/hueta/meepo.gif",
+      "assets/previews/hueta/bh.gif",
+      "assets/previews/hueta/axe.gif",
+      "assets/previews/hueta/od.gif"
+    ],
+    "themes": [
+      "ursa",
+      "brew",
+      "fura",
+      "storm",
+      "invoker",
+      "meepo",
+      "bh",
+      "axe",
+      "od"
+    ]
+  },
+  "HEROES_LIST": [
+    "Anti-Mage",
+    "Axe",
+    "Bane",
+    "Bloodseeker",
+    "Crystal Maiden",
+    "Drow Ranger",
+    "Earthshaker",
+    "Juggernaut",
+    "Mirana",
+    "Morphling",
+    "Shadow Fiend",
+    "Phantom Lancer",
+    "Puck",
+    "Pudge",
+    "Razor",
+    "Sand King",
+    "Storm Spirit",
+    "Sven",
+    "Tiny",
+    "Vengeful Spirit",
+    "Windranger",
+    "Zeus",
+    "Kunkka",
+    "Lina",
+    "Lion",
+    "Shadow Shaman",
+    "Slardar",
+    "Tidehunter",
+    "Witch Doctor",
+    "Lich",
+    "Riki",
+    "Enigma",
+    "Tinker",
+    "Sniper",
+    "Necrophos",
+    "Warlock",
+    "Beastmaster",
+    "Queen of Pain",
+    "Venomancer",
+    "Faceless Void",
+    "Wraith King",
+    "Death Prophet",
+    "Phantom Assassin",
+    "Pugna",
+    "Templar Assassin",
+    "Viper",
+    "Luna",
+    "Dragon Knight",
+    "Dazzle",
+    "Clockwerk",
+    "Leshrac",
+    "Natures Prophet",
+    "Lifestealer",
+    "Dark Seer",
+    "Clinkz",
+    "Omniknight",
+    "Enchantress",
+    "Huskar",
+    "Night Stalker",
+    "Broodmother",
+    "Bounty Hunter",
+    "Weaver",
+    "Jakiro",
+    "Batrider",
+    "Chen",
+    "Spectre",
+    "Ancient Apparition",
+    "Doom",
+    "Ursa",
+    "Spirit Breaker",
+    "Gyrocopter",
+    "Alchemist",
+    "Invoker",
+    "Silencer",
+    "Outworld Destroyer",
+    "Lycan",
+    "Brewmaster",
+    "Shadow Demon",
+    "Lone Druid",
+    "Chaos Knight",
+    "Meepo",
+    "Treant Protector",
+    "Ogre Magi",
+    "Undying",
+    "Rubick",
+    "Disruptor",
+    "Nyx Assassin",
+    "Naga Siren",
+    "Keeper of the Light",
+    "Io",
+    "Visage",
+    "Slark",
+    "Medusa",
+    "Troll Warlord",
+    "Centaur",
+    "Magnus",
+    "Timbersaw",
+    "Bristleback",
+    "Tusk",
+    "Skywrath Mage",
+    "Abaddon",
+    "Elder Titan",
+    "Legion Commander",
+    "Techies",
+    "Ember Spirit",
+    "Earth Spirit",
+    "Underlord",
+    "Terrorblade",
+    "Phoenix",
+    "Oracle",
+    "Winter Wyvern",
+    "Arc Warden",
+    "Monkey King",
+    "Dark Willow",
+    "Pangolier",
+    "Grimstroke",
+    "Hoodwink",
+    "Void Spirit",
+    "Snapfire",
+    "Mars",
+    "Dawnbreaker",
+    "Marci",
+    "Primal Beast",
+    "Muerta",
+    "Ringmaster",
+    "Kez",
+    "Largo"
+  ],
+  "MOD_AUTHOR": {
+    "333": "https://t.me/cousf",
+    "Darkness": "https://t.me/Darkness_Logovo",
+    "Defiree": "https://vk.com/defiree2mods",
+    "Amir4an": "https://vk.com/amir4an",
+    "Kisilev": "https://vk.com/id363951132",
+    "Skratch": "https://www.youtube.com/@skratch",
+    "Lenz": "https://www.youtube.com/@Lenz13377",
+    "Robbyz": "https://github.com/robbyz512",
+    "Egezenn": "https://github.com/Egezenn",
+    "Kliromin": "https://www.youtube.com/@mrkliromin7723",
+    "Pinkpapa": "https://www.patreon.com/Pinkpapa",
+    "laskotdota": "https://t.me/laskotdota",
+    "NahuiToSay": "https://t.me/NahuiToSay",
+    "lebensinhalt": "https://t.me/turnoffyourlebensinhalt",
+    "Kynomi": "https://vk.com/kynomi",
+    "Pinkie": "https://steamcommunity.com/profiles/76561198142595363",
+    "VPKDota": "https://t.me/vpkdota",
+    "ya_lyosha": "https://www.twitch.tv/ya_lyosha",
+    "SanyaBane": "https://steamcommunity.com/profiles/76561198072955043",
+    "Twinque": "https://t.me/DotA_2_Mods",
+    "kebabmaker": "",
+    "YMOM77": "https://t.me/mod_dota",
+    "Slipersone": "https://t.me/slipersone",
+    "Timmyone": "https://t.me/timmyone",
+    "HiddenPool": "https://t.me/hiddenpoolcm",
+    "BackSpace": "https://t.me/BackSpaceHub",
+    "zzzebra": "https://vk.com/zzzfans",
+    "arti4e": "https://t.me/d2modsreborn",
+    "Hooorde": "https://steamcommunity.com/profiles/76561199405322406",
+    "HyrX": "https://steamcommunity.com/profiles/76561198016243370",
+    "Sarath": "https://steamcommunity.com/profiles/76561198127797541",
+    "Naix": "https://www.youtube.com/channel/UCOfO6lf7jJO88NMlHDBkkCw",
+    "Shiro_R": "https://t.me/shiro_rez",
+    "apathydxd": "https://discord.com/users/538760177470668810",
+    "Dota2VPK": "https://t.me/dota2freevpk",
+    "yoshimura": "https://sites.google.com/view/yosh1mur2",
+    "dabaqz": "",
+    "Миша Талант": "https://t.me/madberserker",
+    "Fr0dech": "https://t.me/fr0dech_vpk",
+    "DARK BLADE": "",
+    "deathrun": "https://steamcommunity.com/profiles/76561198351884277",
+    "SkippingHades": "https://www.youtube.com/@skippinghadesofficialmc",
+    "buba43": "https://steamcommunity.com/profiles/76561199220865017",
+    "palekid666": "https://t.me/ubiycasmerty",
+    "CeoMods": "https://t.me/modsceo",
+    "Ромчик": "https://watchmy.bio/shidehara",
+    "Mopsyara": "https://t.me/+AM_aLD0x2TcwY2My",
+    "Vpotokwe": "https://steamcommunity.com/sharedfiles/filedetails/?id=3766199700",
+    "Senop": "https://t.me/senopD2",
+    "Arthas": "https://t.me/ArthasModMaker",
+    "DotaMiniProfile": "https://t.me/DotaMiniProfile",
+    "Fleece": "https://github.com/TheFleece",
+    "qizlik": "https://t.me/qizlikmod",
+    "ПАПАНЯ НА ШАМАНЕ": "https://steamcommunity.com/profiles/76561199483735695/",
+    "SuperStas0": "https://t.me/SuperStas0",
+    "Tenkay": "https://t.me/dota2Tenkay",
+    "Aven": "https://t.me/Aven1337",
+    "lansory": "https://discord.com/users/1108248721768071210",
+    "depex": "https://t.me/depexfx",
+    "frayserclick": "https://t.me/frayserclick",
+    "CiDDi": "https://steamcommunity.com/profiles/76561198087399221",
+    "3atvorn1k": "https://discord.com/users/642254136053596200",
+    "keeper": "https://t.me/eternalsadism",
+    "spectr": "https://discord.com/users/1531254146559250438",
+    "hatsu": "",
+    "hanfukj": "https://t.me/hanfukj",
+    "Niski25": "https://github.com/cus-nyam",
+    "lssqqqq": "https://t.me/lssqqqq",
+    "hltw": "https://discord.com/users/1012077862355996722",
+    "zitock": "https://steamcommunity.com/profiles/76561198790474721/",
+    "wannakissyou": "https://t.me/wannakissyouuu",
+    "александр": "https://t.me/+VY-_XaaDg00wYmI6",
+    "YuyaKizami": "https://t.me/YuyaKizami",
+    "Morecursed": "",
+    "ibcsz": "http://t.me/nixwaretop",
+    "Новомодный": "",
+    "J0nathan550": "https://t.me/j0nvpk",
+    "мс яйцо": "https://steamcommunity.com/id/mcegg/",
+    "rasstegai": "https://steamcommunity.com/id/rasstegai/",
+    "твавт": "https://steamcommunity.com/id/myasu0/",
+    "XIIIpsiblade": "https://t.me/XIIIpsiblade",
+    "illidan": "https://t.me/illidan888",
+    "shears001": "https://discord.com/users/1204344805748903948",
+    "Harlord": "https://t.me/harlord_mods",
+    "драг": "https://t.me/dragvpk",
+    "Gibus": "https://steamcommunity.com/id/nqkln/",
+    "cursedseizures": "https://t.me/drainAngel",
+    "1995rnx": "https://t.me/rnx1995rnx",
+    "YZT": "https://t.me/YZTdota",
+    "not paradise": "https://t.me/zitraks_second",
+    "Schizo": "https://t.me/schizo_workshop",
+    "Anonymous": "",
+    "M1su": "https://steamcommunity.com/id/A-ds/",
+    "hizu": "https://steamcommunity.com/id/digitalsilenc3/"
+  },
+  "MOD_SENDER": {
+    "dabaqz": "",
+    "lebensinhalt": "https://t.me/turnoffyourlebensinhalt",
+    "NahuiToSay": "https://t.me/NahuiToSay",
+    "papapodzaborniy": "https://t.me/papapodzaborniy2",
+    "скорая помощь": "https://t.me/avitopodderzhka",
+    "Lenz": "https://www.youtube.com/@Lenz13377",
+    "Haruma": "https://t.me/DotA_2_Mods"
+  },
+  "MOD_SOURCES": {
+    "Minify": "https://github.com/egezenn/dota2-minify",
+    "Dota 2 Skin Changer": "https://dota2changer.com/",
+    "MOR": "https://vk.com/amir4anmods",
+    "Arkadium Mods": "https://www.youtube.com/@arkadiumdota2mods"
+  },
+  "CONTENT_CREATORS": [
+    {
+      "name": "Lenz",
+      "avatar": "assets/previews/hueta/creators/Lenz.webp",
+      "shape": "slanted",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@Lenz13377",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "romantic",
+      "avatar": "assets/previews/hueta/creators/romantic.webp",
+      "shape": "9-sided-cookie",
+      "links": {
+        "youtube": "",
+        "twitch": "https://www.twitch.tv/romantic991",
+        "tiktok": "https://www.tiktok.com/@romantic_9991"
+      }
+    },
+    {
+      "name": "hanta",
+      "avatar": "assets/previews/hueta/creators/hanta.webp",
+      "shape": "sunny",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@hqnta",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "dricsy66",
+      "avatar": "assets/previews/hueta/creators/dricsy66.webp",
+      "shape": "pentagon",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@dricsy66",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "Jez4",
+      "avatar": "assets/previews/hueta/creators/Jez4.webp",
+      "shape": "arch",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@Jez4444",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "SNOW SUCKER",
+      "avatar": "assets/previews/hueta/creators/SNOW SUCKER.webp",
+      "shape": "7-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@AYE22814",
+        "tiktok": ""
+      }
+    },
+    {
+      "name": "hypothermia",
+      "avatar": "assets/previews/hueta/creators/hypothermia.webp",
+      "shape": "4-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@methedonetherapy"
+      }
+    },
+    {
+      "name": "0cyzdau",
+      "avatar": "assets/previews/hueta/creators/0cyzdau.webp",
+      "shape": "12-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@0cyzdau"
+      }
+    },
+    {
+      "name": "nedavovchik",
+      "avatar": "assets/previews/hueta/creators/nedavovchik.webp",
+      "shape": "6-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@nedavovchik"
+      }
+    },
+    {
+      "name": "pr1me",
+      "avatar": "assets/previews/hueta/creators/pr1me.webp",
+      "shape": "4-sided-cookie",
+      "links": {
+        "twitch": "",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@pr1meee_999"
+      }
+    }
+  ]
+}

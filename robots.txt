@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://h6rd.github.io/Dota2PornFxWeb/sitemap.xml
