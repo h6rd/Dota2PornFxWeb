@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Pink Spell",
+      "category": "herofx"
+    },
+    {
+      "name": "Faceless Void Arcana Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Gotic",
+      "category": "parts"
+    },
+    {
+      "name": "Terrorblade Blue Spell",
+      "category": "herofx"
+    },
+    {
+      "name": "Terrorblade Black Spell",
+      "category": "herofx"
+    },
+    {
+      "name": "Terrorblade Orange Spell",
+      "category": "herofx"
+    },
+    {
+      "name": "Terrorblade Green Spell Icons",
+      "category": "herofx"
+    },
+    {
       "name": "Shadow Fiend Arcana Desolator",
       "category": "heroes"
     },
@@ -14020,6 +14048,25 @@
           "date": 1791614062,
           "commit-sha": "01ff35ac5f1b7aeedf6b1dc46b939e6cd8f318e7"
         }
+      },
+      {
+        "name": "Faceless Void Arcana Reborn",
+        "preview": "Faceless Void Arcana Reborn.webp",
+        "file": "Faceless Void Arcana Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19510,6 +19557,21 @@
           "date": 1791627251,
           "commit-sha": "95695f632a9074af7875d71cebfd113c6be53588"
         }
+      },
+      {
+        "name": "Gotic",
+        "preview": "Gotic.webp",
+        "file": "Gotic.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -23226,6 +23288,96 @@
         "meta": {
           "date": 1791612287,
           "commit-sha": "a5ebca5079e2cfe60d528c2c03fa573d756db3de"
+        }
+      },
+      {
+        "name": "Terrorblade Green Spell Icons",
+        "preview": "Terrorblade Green Spell Icons.webp",
+        "file": "Terrorblade Green Spell Icons.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Orange Spell",
+        "preview": "Terrorblade Orange Spell.webp",
+        "file": "Terrorblade Orange Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Black Spell",
+        "preview": "Terrorblade Black Spell.webp",
+        "file": "Terrorblade Black Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Blue Spell",
+        "preview": "Terrorblade Blue Spell.webp",
+        "file": "Terrorblade Blue Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Pink Spell",
+        "preview": "Terrorblade Pink Spell.webp",
+        "file": "Terrorblade Pink Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791636264,
+          "commit-sha": ""
         }
       }
     ],
