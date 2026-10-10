@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Monkey King Kapitan",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Rictus Blood",
       "category": "heroes"
     },
@@ -13993,6 +13997,21 @@
           "date": 1791612287,
           "commit-sha": "a5ebca5079e2cfe60d528c2c03fa573d756db3de"
         }
+      },
+      {
+        "name": "Monkey King Kapitan",
+        "preview": "Monkey King Kapitan.webp",
+        "file": "Monkey King Kapitan.zip",
+        "tags": {
+          "effects": false,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ]
       }
     ],
     "shaders": [

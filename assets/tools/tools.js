@@ -136,18 +136,40 @@
   }
 
   let picking = false;
-  async function pick(tool) {
+  async function pick(tool, card) {
     if (picking) return;
     picking = true;
-    hide();
+
+    let loader = null;
+    const clearLoader = () => {
+      clearTimeout(showTimer);
+      if (loader) loader.remove();
+      loader = null;
+      card?.classList.remove('is-loading');
+      modal.classList.remove('is-busy');
+    };
+
+    const showTimer = setTimeout(() => {
+      if (!card) return;
+      card.classList.add('is-loading');
+      modal.classList.add('is-busy');
+      loader = document.createElement('m3e-loading-indicator');
+      loader.setAttribute('variant', 'contained');
+      loader.setAttribute('aria-label', 'Loading tool');
+      loader.className = 'tools-card-loader';
+      card.appendChild(loader);
+    }, 120);
+
     try {
-      const ready = load(tool);
-      await Promise.all([ready, new Promise((r) => setTimeout(r, 180))]);
+      await load(tool);
+      hide();
+      await new Promise((r) => setTimeout(r, 180));
+      clearLoader();
       if (OPENERS[tool]) OPENERS[tool]();
     } catch (err) {
       console.error(err);
+      clearLoader();
       toast('The tool could not be loaded. Please check your connection and try again.');
-      open();
     } finally {
       picking = false;
     }
@@ -176,7 +198,7 @@
     });
 
     modal.querySelectorAll('[data-tool]').forEach(card => {
-      card.addEventListener('click', () => pick(card.dataset.tool));
+      card.addEventListener('click', () => pick(card.dataset.tool, card));
     });
 
     document.addEventListener('click', (e) => {
