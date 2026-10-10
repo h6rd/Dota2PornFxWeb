@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Winlose Music Suffocation Kit",
       "category": "sounds"
     },
@@ -247,10 +251,6 @@
     {
       "name": "Undying Desecration Reborn",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Meepo Mafia",
