@@ -21,10 +21,6 @@
       "category": "herofx"
     },
     {
-      "name": "Tusk Burning",
-      "category": "heroes"
-    },
-    {
       "name": "Broodmother Gray Immortals",
       "category": "heroes"
     },
@@ -14162,25 +14158,6 @@
           {
             "type": "author",
             "url": "3atvorn1k"
-          }
-        ],
-        "meta": {
-          "date": 1791699101,
-          "commit-sha": "f3c53c071abcda29cbff1abe9c22a60fa694e8c2"
-        }
-      },
-      {
-        "name": "Tusk Burning",
-        "preview": "Tusk Burning.webp",
-        "file": "Tusk Burning.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "твавт"
           }
         ],
         "meta": {
