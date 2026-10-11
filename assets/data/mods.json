@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spirit Breaker Bash Kachal",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Tusk Immortal Fire",
       "category": "heroes"
     },
@@ -24298,6 +24302,25 @@
         "meta": {
           "date": 1791699101,
           "commit-sha": "f3c53c071abcda29cbff1abe9c22a60fa694e8c2"
+        }
+      },
+      {
+        "name": "Spirit Breaker Bash Kachal",
+        "preview": "Spirit Breaker Bash Kachal.webp",
+        "file": "Spirit Breaker Bash Kachal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "EmodzI"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/pg6_eLKGhAU"
+          }
+        ],
+        "meta": {
+          "date": 1791700943,
+          "commit-sha": ""
         }
       }
     ],
