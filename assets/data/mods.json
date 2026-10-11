@@ -1,10 +1,6 @@
 {
   "recentlyAddedMods": [
     {
-      "name": "Tidehunter Vetmo",
-      "category": "heroes"
-    },
-    {
       "name": "Wraith King Papich",
       "category": "heroes"
     },
@@ -14232,21 +14228,6 @@
         "meta": {
           "date": 1791720440,
           "commit-sha": "3d4a2f8021e7cc39cd66ed89d5ece2d26b9e981a"
-        }
-      },
-      {
-        "name": "Tidehunter Vetmo",
-        "preview": "Tidehunter Vetmo.webp",
-        "file": "Tidehunter Vetmo.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Mirik522"
-          }
-        ],
-        "meta": {
-          "date": 1791730476,
-          "commit-sha": "f52702e713792af8c4fc23fb308e75fa49b1971e"
         }
       }
     ],
