@@ -396,10 +396,14 @@
             <div class="upload-form-group">
               <label for="umName">Mod name</label>
               <input type="text" id="umName" name="name" class="md3-field" placeholder="e.g. Bane Origin"
-                pattern="[a-zA-Z0-9 \-_'.,!]+" maxlength="29" required>
+                pattern="[a-zA-Z0-9 \-_'.,!]+" autocomplete="off" required>
               <p class="upload-form-hint">
                 English &amp; numbers only. Max <span id="umNameMaxLen">29</span> characters
                 (<span id="umNameCount">0</span>/<span id="umNameMaxLen2">29</span>) so the mod card doesn't break.
+              </p>
+              <p class="upload-form-hint upload-trim-hint" id="umNameTrimHint" style="display:none;" aria-live="polite">
+                <span class="material-symbols-rounded">content_cut</span>
+                <span id="umNameTrimHintText"></span>
               </p>
               <p class="upload-form-hint upload-duplicate-hint" id="umDuplicateHint" style="display:none;">
                 <span class="material-symbols-rounded">warning</span>
@@ -484,6 +488,11 @@
               </div>
             </div>
   
+            <div id="umPreviewRequiredHint" class="upload-form-hint upload-duplicate-hint" style="display:none;" aria-live="polite">
+              <span class="material-symbols-rounded">image_not_supported</span>
+              <span id="umPreviewRequiredHintText"></span>
+            </div>
+
             <div id="umCooldownHint" class="upload-form-hint upload-cooldown-hint" style="display:none;">
               <span class="material-symbols-rounded">schedule</span>
               <span id="umCooldownHintText"></span>

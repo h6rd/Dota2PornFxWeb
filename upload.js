@@ -5,15 +5,33 @@ const MAX_ARCHIVE_ENTRIES = 1000;
 const MAX_EXTRACTED_BYTES = 250 * 1024 * 1024;
 const MAX_ENTRY_BYTES = 100 * 1024 * 1024;
 const MAX_NAME_LENGTH = 29;
+const MAX_PREVIEW_BYTES = 8 * 1024 * 1024;
+const NAME_CHAR_RE = /[a-zA-Z0-9 \-_'.,!]/;
 const NAME_LENGTH_EXCEPTIONS = {
-  'keeper of the light': 40,
-  'natures prophet': 40
+  'keeper of the light': 39,
+  'natures prophet': 39
 };
 function getMaxNameLength(hero) {
   const override = NAME_LENGTH_EXCEPTIONS[String(hero || '').trim().toLowerCase()];
   return override || MAX_NAME_LENGTH;
 }
 const MAX_URL_LENGTH = 2048;
+
+function cleanNameValue(raw, max) {
+  let kept = '', badChars = '', overflow = '';
+  for (const ch of String(raw || '')) {
+    if (!NAME_CHAR_RE.test(ch)) badChars += ch;
+    else if (kept.length >= max) overflow += ch;
+    else kept += ch;
+  }
+  return { kept, badChars, overflow };
+}
+
+function isWebpBytes(b) {
+  return b instanceof Uint8Array && b.length > 12 &&
+    b[0] === 0x52 && b[1] === 0x49 && b[2] === 0x46 && b[3] === 0x46 &&
+    b[8] === 0x57 && b[9] === 0x45 && b[10] === 0x42 && b[11] === 0x50;
+}
 const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
 
 function loadAuthorPref() {
@@ -195,15 +213,82 @@ function setupUploadModal() {
   const nameInput = document.getElementById('umName');
   const nameCountEl = document.getElementById('umNameCount');
   const nameMaxLenEls = document.querySelectorAll('#umNameMaxLen, #umNameMaxLen2');
+  const nameTrimHint = document.getElementById('umNameTrimHint');
+  const nameTrimHintText = document.getElementById('umNameTrimHintText');
+  let nameTrimTimer = null;
+  let nameFlashTimer = null;
+  let extractedArchive = null;
+  let archiveReading = false;
+
+  function hideNameTrimNotice() {
+    clearTimeout(nameTrimTimer);
+    if (nameTrimHint) nameTrimHint.style.display = 'none';
+  }
+
+  function showNameTrimNotice(badChars, overflow, max) {
+    if (!nameTrimHint || (!badChars && !overflow)) return;
+    nameTrimHintText.textContent = '';
+    const addPart = (label, chars) => {
+      if (!chars) return;
+      const wrap = document.createElement('span');
+      wrap.className = 'um-removed-part';
+      wrap.append(label + ' ');
+      const mark = document.createElement('mark');
+      mark.className = 'um-removed';
+      mark.textContent = chars;
+      wrap.appendChild(mark);
+      nameTrimHintText.appendChild(wrap);
+    };
+    addPart('Removed (not allowed):', badChars);
+    addPart(`Removed (over ${max} characters):`, overflow);
+    nameTrimHint.style.display = '';
+    clearTimeout(nameTrimTimer);
+    nameTrimTimer = setTimeout(hideNameTrimNotice, 6000);
+
+    nameInput.classList.remove('um-flash');
+    void nameInput.offsetWidth;
+    nameInput.classList.add('um-flash');
+    clearTimeout(nameFlashTimer);
+    nameFlashTimer = setTimeout(() => nameInput.classList.remove('um-flash'), 700);
+  }
+
+  function syncNameField({ trimEdges = false } = {}) {
+    const max = getMaxNameLength(heroHidden.value);
+    const raw = nameInput.value;
+    const caret = nameInput.selectionStart == null ? raw.length : nameInput.selectionStart;
+    const { kept: keptRaw, badChars, overflow } = cleanNameValue(raw, max);
+    const kept = trimEdges ? keptRaw.trim() : keptRaw;
+
+    if (kept !== raw) {
+      nameInput.value = kept;
+      if (document.activeElement === nameInput) {
+        const pos = Math.min(cleanNameValue(raw.slice(0, caret), max).kept.length, kept.length);
+        nameInput.setSelectionRange(pos, pos);
+      }
+    }
+    if (nameCountEl) {
+      nameCountEl.textContent = String(kept.length);
+      nameCountEl.classList.toggle('um-count-full', kept.length >= max);
+    }
+    showNameTrimNotice(badChars, overflow, max);
+    return kept;
+  }
+
+  function setNameValue(value) {
+    nameInput.value = value;
+    return syncNameField({ trimEdges: true });
+  }
+
   function updateNameMaxLength() {
     const max = getMaxNameLength(heroHidden.value);
-    nameInput.maxLength = max;
     nameMaxLenEls.forEach(el => { el.textContent = String(max); });
+    syncNameField();
   }
   updateNameMaxLength();
   const heroNameHint = document.getElementById('umHeroNameHint');
   const heroNameHintText = document.getElementById('umHeroNameHintText');
   let isHeroNameInvalid = false;
+  let isHeroOnlyName = false;
   const archiveInput = document.getElementById('umArchive');
 
   const previewVideoGroup = document.getElementById('umPreviewVideoGroup');
@@ -254,8 +339,31 @@ function setupUploadModal() {
     return m > 0 ? `${m}:${String(r).padStart(2, '0')}` : `${r}s`;
   }
 
+  const previewRequiredHint = document.getElementById('umPreviewRequiredHint');
+  const previewRequiredHintText = document.getElementById('umPreviewRequiredHintText');
+
+  function getPreviewBlock() {
+    if (archiveReading) return { blocked: true, message: '' };
+    if (!archiveInput.files[0]) {
+      return { blocked: true, message: 'A mod preview is required. Choose an archive made with PreMod that includes a preview image.' };
+    }
+    if (!extractedArchive) {
+      return { blocked: true, message: 'The archive could not be read, so there is no preview. Check the activity log or choose another archive.' };
+    }
+    if (!extractedArchive.preview) {
+      return { blocked: true, message: extractedArchive.previewError || 'This archive has no preview image. A mod preview is required.' };
+    }
+    return { blocked: false, message: '' };
+  }
+
   function updateSubmitDisabledState() {
-    submitBtn.disabled = isUploadBusy || cooldownRemaining > 0;
+    const block = getPreviewBlock();
+    submitBtn.disabled = isUploadBusy || cooldownRemaining > 0 || block.blocked || isHeroOnlyName;
+    if (previewRequiredHint) {
+      const show = block.blocked && !!block.message && !isUploadBusy;
+      if (show) previewRequiredHintText.textContent = block.message;
+      previewRequiredHint.style.display = show ? '' : 'none';
+    }
   }
 
   function renderCooldown() {
@@ -467,21 +575,33 @@ function setupUploadModal() {
     const hero = heroHidden.value.trim();
     if (!HERO_AWARE_CATEGORIES.includes(category) || !hero) {
       isHeroNameInvalid = false;
+      isHeroOnlyName = false;
       heroNameHint.style.display = 'none';
+      updateSubmitDisabledState();
       return;
     }
     const current = nameInput.value.trim();
     if (current.toLowerCase().includes(hero.toLowerCase())) {
-      isHeroNameInvalid = false;
-      heroNameHint.style.display = 'none';
+      const rest = current.toLowerCase().split(hero.toLowerCase()).join(' ').replace(/[^a-z0-9]/g, '');
+      isHeroOnlyName = rest.length === 0;
+      isHeroNameInvalid = isHeroOnlyName;
+      if (isHeroOnlyName) {
+        heroNameHintText.textContent = `Add a title after the hero name (e.g. "${hero} Origin"). The name can't be just "${hero}".`;
+        heroNameHint.style.display = '';
+      } else {
+        heroNameHint.style.display = 'none';
+      }
+      updateSubmitDisabledState();
       return;
     }
+    isHeroOnlyName = false;
     isHeroNameInvalid = true;
     const wouldFit = !current || `${hero} ${current}`.length <= getMaxNameLength(hero);
     heroNameHintText.textContent = wouldFit
       ? `The mod name must include the hero name "${hero}".`
       : `Name is too long to fit the hero name "${hero}" — shorten it.`;
     heroNameHint.style.display = '';
+    updateSubmitDisabledState();
   }
 
   function checkPreviewVideo() {
@@ -812,14 +932,13 @@ function setupUploadModal() {
     if (!hero) return;
     const current = nameInput.value.trim();
     if (!current) {
-      nameInput.value = hero;
-      autoFilledName = hero;
+      autoFilledName = setNameValue(hero);
       return;
     }
     if (current.toLowerCase().includes(hero.toLowerCase())) return;
     const combined = `${hero} ${current}`;
     if (combined.length <= getMaxNameLength(hero)) {
-      nameInput.value = combined;
+      setNameValue(combined);
     }
   }
 
@@ -1007,7 +1126,7 @@ function setupUploadModal() {
   });
 
   nameInput.addEventListener('input', () => {
-    if (nameCountEl) nameCountEl.textContent = String(nameInput.value.length);
+    syncNameField();
     checkDuplicate();
     checkHeroInName();
     updatePreview();
@@ -1016,7 +1135,7 @@ function setupUploadModal() {
   nameInput.addEventListener('blur', () => {
     const titled = titleCaseWords(nameInput.value);
     if (titled !== nameInput.value) {
-      nameInput.value = titled;
+      setNameValue(titled);
       checkDuplicate();
       checkHeroInName();
       updatePreview();
@@ -1151,8 +1270,6 @@ function setupUploadModal() {
     updatePreview();
   });
 
-  let extractedArchive = null;
-
   function isAllowedHttpUrl(value) {
     try {
       const url = new URL(String(value || ''));
@@ -1207,6 +1324,7 @@ function setupUploadModal() {
     }
 
     let modZip = null, preview = null, previewExt = null, folderName = null;
+    let otherImageFound = false, previewError = null;
     for (const name of Object.keys(entries)) {
       if (name.endsWith('/')) continue;
       const parts = name.split('/');
@@ -1214,10 +1332,27 @@ function setupUploadModal() {
       const lower = name.toLowerCase();
       if (lower.endsWith('.zip') && !modZip) {
         modZip = entries[name];
-      } else if (/\.(webp|png|jpe?g)$/.test(lower) && !preview) {
-        preview = entries[name];
-        previewExt = lower.split('.').pop();
+      } else if (/\.(webp|png|jpe?g)$/.test(lower)) {
+        if (lower.endsWith('.webp')) {
+          if (!preview) {
+            preview = entries[name];
+            previewExt = 'webp';
+          }
+        } else {
+          otherImageFound = true;
+        }
       }
+    }
+    if (preview) {
+      if (preview.length > MAX_PREVIEW_BYTES) {
+        preview = null; previewExt = null;
+        previewError = `Preview image is too large (max ${MAX_PREVIEW_BYTES / 1024 / 1024} MB).`;
+      } else if (!isWebpBytes(preview)) {
+        preview = null; previewExt = null;
+        previewError = 'The preview file is not a valid WebP image.';
+      }
+    } else if (otherImageFound) {
+      previewError = 'The preview must be a WebP image (.webp). PNG/JPG previews are not accepted.';
     }
     if (!modZip) throw new Error('Archive must contain a .zip file with the mod inside it.');
 
@@ -1273,7 +1408,7 @@ function setupUploadModal() {
 
     appendActivityLog('Integrity check passed', 'success');
 
-    return { modZip, preview, previewExt, folderName };
+    return { modZip, preview, previewExt, previewError, folderName };
   }
 
   const archiveField = archiveInput.closest('.md3-file-field');
@@ -1282,11 +1417,13 @@ function setupUploadModal() {
   archiveInput.addEventListener('change', async () => {
     const file = archiveInput.files[0];
     extractedArchive = null;
+    archiveReading = false;
     if (!file) {
       archiveField?.classList.remove('has-file');
       if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
       checkDuplicate();
       updatePreview();
+      updateSubmitDisabledState();
       return;
     }
     try {
@@ -1294,56 +1431,68 @@ function setupUploadModal() {
     } catch (err) {
       archiveInput.value = '';
       archiveField?.classList.remove('has-file');
-      if (archiveLabel) archiveLabel.textContent = 'Choose archive…';
+      if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
       statusEl.textContent = err.message;
       statusEl.className = 'upload-status upload-status-error';
+      updateSubmitDisabledState();
       return;
     }
 
     archiveField?.classList.add('has-file');
     if (archiveLabel) archiveLabel.textContent = file.name;
+    archiveReading = true;
+    updateSubmitDisabledState();
 
-    const suggestedFromFile = suggestNameFromText(stripArchiveExtension(file.name));
-    if (suggestedFromFile && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
-      nameInput.value = suggestedFromFile;
-      autoFilledName = suggestedFromFile;
-    }
-
-    const heroFromFileName = findHeroInText(stripArchiveExtension(file.name));
+    const baseName = stripArchiveExtension(file.name);
+    const heroFromFileName = findHeroInText(baseName);
     if (heroFromFileName) selectHero(heroFromFileName);
 
-    checkDuplicate();
+    const suggestedFromFile = suggestNameFromText(baseName);
+    if (suggestedFromFile && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
+      autoFilledName = setNameValue(suggestedFromFile);
+    }
 
-    appendActivityLog('Reading archive…', 'progress');
+    checkDuplicate();
+    checkHeroInName();
+    updatePreview();
+
+    appendActivityLog('Reading archive\u2026', 'progress');
     setLogIconState('busy');
     try {
-      extractedArchive = await extractArchive(file);
+      const result = await extractArchive(file);
+      if (archiveInput.files[0] !== file) return; // another archive was picked meanwhile
+      extractedArchive = result;
 
       if (extractedArchive.folderName) {
-        const suggestedFromFolder = suggestNameFromText(extractedArchive.folderName);
-        if (suggestedFromFolder && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
-          nameInput.value = suggestedFromFolder;
-          autoFilledName = suggestedFromFolder;
-        }
         if (!heroHidden.value) {
           const heroFromFolder = findHeroInText(extractedArchive.folderName);
           if (heroFromFolder) selectHero(heroFromFolder);
         }
+        const suggestedFromFolder = suggestNameFromText(extractedArchive.folderName);
+        if (suggestedFromFolder && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
+          autoFilledName = setNameValue(suggestedFromFolder);
+        }
       }
 
-      appendActivityLog(
-        extractedArchive.preview
-          ? 'Archive OK'
-          : 'Archive OK, no preview image found',
-        'success'
-      );
-      setLogIconState('idle');
+      if (extractedArchive.preview) {
+        appendActivityLog('Archive OK', 'success');
+        setLogIconState('idle');
+      } else {
+        appendActivityLog(extractedArchive.previewError || 'No preview image found in the archive. A preview is required.', 'error');
+        setLogIconState('error');
+      }
     } catch (err) {
+      if (archiveInput.files[0] !== file) return;
       appendActivityLog('Archive error: ' + err.message, 'error');
       setLogIconState('error');
     } finally {
-      checkDuplicate();
-      updatePreview();
+      if (archiveInput.files[0] === file) {
+        archiveReading = false;
+        checkDuplicate();
+        checkHeroInName();
+        updatePreview();
+        updateSubmitDisabledState();
+      }
     }
   });
 
@@ -1518,12 +1667,15 @@ function setupUploadModal() {
     isDuplicateExtra = false;
     extraDuplicateHint.style.display = 'none';
     isHeroNameInvalid = false;
+    isHeroOnlyName = false;
     heroNameHint.style.display = 'none';
     isPreviewVideoInvalid = false;
     previewVideoHint.style.display = 'none';
     previewVideoGroup.style.display = 'none';
     previewVideoInput.value = '';
-    if (nameCountEl) nameCountEl.textContent = '0';
+    hideNameTrimNotice();
+    archiveReading = false;
+    syncNameField();
     tagsGroup.style.display = 'none';
     heroGroup.style.display = 'none';
     slotGroup.style.display = 'none';
@@ -1544,6 +1696,7 @@ function setupUploadModal() {
     wireSegmented(document.getElementById('umExtraOriginSegmented'));
     applyAuthorPref();
     updatePreview();
+    updateSubmitDisabledState();
   }
 
   form.addEventListener('submit', async e => {
@@ -1552,7 +1705,7 @@ function setupUploadModal() {
     statusEl.className = 'upload-status';
 
     const titled = titleCaseWords(nameInput.value);
-    if (titled !== nameInput.value) nameInput.value = titled;
+    if (titled !== nameInput.value) setNameValue(titled);
 
     const category = categorySelect.value;
     if (HERO_AWARE_CATEGORIES.includes(category) && heroHidden.value) {
@@ -1582,6 +1735,12 @@ function setupUploadModal() {
         setLogIconState('error');
         return;
       }
+    }
+    if (!extractedArchive.preview) {
+      appendActivityLog(extractedArchive.previewError || 'A mod preview is required.', 'error');
+      setLogIconState('error');
+      updateSubmitDisabledState();
+      return;
     }
     const effectiveMaxNameLength = getMaxNameLength(heroHidden.value);
     if (name.length > effectiveMaxNameLength || !MOD_NAME_RE.test(name)) {
@@ -1760,6 +1919,7 @@ function setupUploadModal() {
   applyAuthorPref();
   clearActivityLog();
   updatePreview();
+  updateSubmitDisabledState();
   initTurnstile();
 }
 
