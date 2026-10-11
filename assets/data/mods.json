@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Spirit Breaker Bash Kachal",
       "category": "hero-sounds"
     },
@@ -31,10 +35,6 @@
     {
       "name": "Terrorblade Purple Spell",
       "category": "herofx"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Winlose Music Suffocation Kit",

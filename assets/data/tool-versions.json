@@ -8,20 +8,20 @@
     }
   },
   "TheFleece/dota2-mod-manager": {
-    "version": "v2.10.0",
+    "version": "v2.11.0",
     "hashes": {
-      "beta-linux.yml": "7709a90c4057840ec0c114ddb92d2a6e3ae784dd19649937e36c9d00c41c7c83",
-      "beta.yml": "35b7132cac344c695e5c5c42386aad6d4beece639f08ee9467bc859950b2a848",
-      "Dota-2-Mod-Manager-Portable.exe": "00f322cf6decb4cddfa929896120b14510eacfb7a248ef7759a99a4eb1ac9e64",
-      "Dota-2-Mod-Manager-Setup.exe": "cb8a732316c39d8339207653c1b8847133b75f1c111b1c0dddf7484669ab765d",
-      "Dota-2-Mod-Manager-Setup.exe.blockmap": "7aadac1837634d6612ae330655cb0c5b3ae685f2f001ce9b43eed3075862face",
-      "Dota-2-Mod-Manager.AppImage": "ab68233a5e6190360060e50f559a7f436f24c184969174f1121dd6b91259b480",
-      "dota2-mod-manager.cdx.json": "d502e676ca68bd6f7a9ae0ec89eff70f2b152b1ee1b04c0c17f43286b8b34cf5",
-      "latest-linux.yml": "7709a90c4057840ec0c114ddb92d2a6e3ae784dd19649937e36c9d00c41c7c83",
-      "latest.yml": "35b7132cac344c695e5c5c42386aad6d4beece639f08ee9467bc859950b2a848",
-      "portable.yml": "c8f3c31170b3924f3360db3fa4a069b05c7799d7caa0d11151b2999b99425c35",
-      "SHA256SUMS": "c9b7aa6a17afd756e1d35638a8fecb0c7a929ab41234869e4cf370c109fe4ee1",
-      "SHA256SUMS.intoto.jsonl": "1ea888c340d4dc482772a1b7776f4d4246fb506f0f0371b6455782b698dd4e39"
+      "beta-linux.yml": "e2b58c94c0acc761cd598b4138d21103c0f580fe3427b91c277bef7023612782",
+      "beta.yml": "01931e0062c906abfbb2a8c35759beca8c5e2f6c59ca8f01496e833f6e06a310",
+      "Dota-2-Mod-Manager-Portable.exe": "e4de1259e00870a7cff492d61db0c0e939db72ea95fe35fa1f75284d92f97c59",
+      "Dota-2-Mod-Manager-Setup.exe": "634746aee89bd08acb3342e0b8d9dd005731a6a5d1c8c0a892cac51e4f2aa5f5",
+      "Dota-2-Mod-Manager-Setup.exe.blockmap": "990d6ef46e19578582f1a17bd7fb263e853fe3300a9233e6d8933e66a75581f9",
+      "Dota-2-Mod-Manager.AppImage": "dbde8e38a4be4dc3ad14393a52f9a6cd88a6c98971ebbdaba060d54f275964ad",
+      "dota2-mod-manager.cdx.json": "ef793da4360995179852e9fe9694f87221a3300efb8061407779ae2018fd0788",
+      "latest-linux.yml": "e2b58c94c0acc761cd598b4138d21103c0f580fe3427b91c277bef7023612782",
+      "latest.yml": "01931e0062c906abfbb2a8c35759beca8c5e2f6c59ca8f01496e833f6e06a310",
+      "portable.yml": "5c83786270fdf13a89691377898c397bfa123e375014b54f03467f4ae4ccd278",
+      "SHA256SUMS": "66131d8a5a79cd281875fd8ee99d8e52a45d6ed4fc8216822171f9bf57b77160",
+      "SHA256SUMS.intoto.jsonl": "70f2310ff7d3576c44e3bae0ba0ed1e3e6e7763c22a5cb7667986b443cd1d4f3"
     }
   },
   "h6rd/VPKTool": {
