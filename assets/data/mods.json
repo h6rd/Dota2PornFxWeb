@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tusk Immortal Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker Laser Contra Whistle",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tcoaal Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Terrorblade Yellow Spell",
+      "category": "herofx"
+    },
+    {
+      "name": "Tusk Burning",
+      "category": "heroes"
+    },
+    {
+      "name": "Broodmother Gray Immortals",
+      "category": "heroes"
+    },
+    {
+      "name": "Juggernaut Arima",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Purple Spell",
+      "category": "herofx"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14094,6 +14126,78 @@
           "date": 1791645604,
           "commit-sha": "74c13fe185e4a502282a310c5a198f49013a6d80"
         }
+      },
+      {
+        "name": "Juggernaut Arima",
+        "preview": "Juggernaut Arima.webp",
+        "file": "Juggernaut Arima.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Broodmother Gray Immortals",
+        "preview": "Broodmother Gray Immortals.webp",
+        "file": "Broodmother Gray Immortals.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tusk Burning",
+        "preview": "Tusk Burning.webp",
+        "file": "Tusk Burning.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tusk Immortal Fire",
+        "preview": "Tusk Immortal Fire.webp",
+        "file": "Tusk Immortal Fire.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hizu"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19599,6 +19703,21 @@
           "date": 1791636264,
           "commit-sha": "8591a412d2c1b2221c3a03820ffda9a53a243c6f"
         }
+      },
+      {
+        "name": "Tcoaal Search Bar",
+        "preview": "Tcoaal Search Bar.webp",
+        "file": "Tcoaal Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -23406,6 +23525,42 @@
           "date": 1791636264,
           "commit-sha": "8591a412d2c1b2221c3a03820ffda9a53a243c6f"
         }
+      },
+      {
+        "name": "Terrorblade Purple Spell",
+        "preview": "Terrorblade Purple Spell.webp",
+        "file": "Terrorblade Purple Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Yellow Spell",
+        "preview": "Terrorblade Yellow Spell.webp",
+        "file": "Terrorblade Yellow Spell.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
+        }
       }
     ],
     "hero-sounds": [
@@ -24124,6 +24279,25 @@
         "meta": {
           "date": 1791374590,
           "commit-sha": "026439e10b1e5e5b124395e12942077e3a9f0589"
+        }
+      },
+      {
+        "name": "Tinker Laser Contra Whistle",
+        "preview": "Tinker Laser Contra Whistle.webp",
+        "file": "Tinker Laser Contra Whistle.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "EmodzI"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=44PscVk7kWs"
+          }
+        ],
+        "meta": {
+          "date": 1791699100,
+          "commit-sha": ""
         }
       }
     ],
