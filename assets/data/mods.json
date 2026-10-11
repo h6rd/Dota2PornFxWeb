@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Wraith King Papich",
+      "category": "heroes"
+    },
+    {
+      "name": "Dark Seer Oloxicams Glass",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14178,6 +14186,48 @@
         "meta": {
           "date": 1791699101,
           "commit-sha": "f3c53c071abcda29cbff1abe9c22a60fa694e8c2"
+        }
+      },
+      {
+        "name": "Dark Seer Oloxicams Glass",
+        "preview": "Dark Seer Oloxicams Glass.webp",
+        "file": "Dark Seer Oloxicams Glass.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791720440,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Wraith King Papich",
+        "preview": "Wraith King Papich.webp",
+        "file": "Wraith King Papich.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=4AUc4nB0utk"
+          }
+        ],
+        "meta": {
+          "date": 1791720440,
+          "commit-sha": ""
         }
       }
     ],
