@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pink Spell Radius",
+      "category": "other"
+    },
+    {
+      "name": "Terrorblade Load Out Rubiline",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Cosmic Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Cosmic Arcana V2",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -14510,6 +14526,63 @@
           "date": 1791794920,
           "commit-sha": "19c53b71608a56d9457388c6bf5f07e59085779f"
         }
+      },
+      {
+        "name": "Earthshaker Cosmic Arcana V2",
+        "preview": "Earthshaker Cosmic Arcana V2.webp",
+        "file": "Earthshaker Cosmic Arcana V2.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791821609,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Earthshaker Cosmic Arcana",
+        "preview": "Earthshaker Cosmic Arcana.webp",
+        "file": "Earthshaker Cosmic Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791821609,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Load Out Rubiline",
+        "preview": "Terrorblade Load Out Rubiline.webp",
+        "file": "Terrorblade Load Out Rubiline.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ],
+        "meta": {
+          "date": 1791821609,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20617,6 +20690,21 @@
         "meta": {
           "date": 1790818573,
           "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
+        }
+      },
+      {
+        "name": "Pink Spell Radius",
+        "preview": "Pink Spell Radius.webp",
+        "file": "Pink Spell Radius.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1791821609,
+          "commit-sha": ""
         }
       }
     ],
