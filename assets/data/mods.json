@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Dattebayo Puck",
       "category": "hero-sounds"
     },
@@ -86,10 +90,6 @@
     },
     {
       "name": "Minify",
-      "category": "tools"
-    },
-    {
-      "name": "Better Source2Viewer",
       "category": "tools"
     },
     {
