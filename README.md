@@ -60,18 +60,13 @@
 
 ## Screenshots
 
-<table>
-  <tr>
-    <td width="33%"><img src=".github/screenshots/home.png" alt="Dota2PornFx website: main page"></td>
-    <td width="33%"><img src=".github/screenshots/heroes.png" alt="Dota2PornFx website: heroes category"></td>
-    <td width="33%"><img src=".github/screenshots/cart.png" alt="Dota2PornFx website: cart"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Main page</b></td>
-    <td align="center"><b>Heroes</b></td>
-    <td align="center"><b>Cart</b></td>
-  </tr>
-</table>
+| Main page | Heroes | Cart | Tools |
+|:---:|:---:|:---:|:---:|
+| <img src=".github/screenshots/home.png" alt="Main page" width="100%"> | <img src=".github/screenshots/heroes.png" alt="Heroes" width="100%"> | <img src=".github/screenshots/cart.png" alt="Cart" width="100%"> | <img src=".github/screenshots/tools.png" alt="Tools" width="100%"> |
+
+| Wallpaper Creator | Cursor Creator | Localization Editor | Font Changer |
+|:---:|:---:|:---:|:---:|
+| <img src=".github/screenshots/wp-creator.png" alt="Wallpaper Creator" width="100%"> | <img src=".github/screenshots/cs-creator.png" alt="Cursor Creator" width="100%"> | <img src=".github/screenshots/lc-editor.png" alt="Localization Editor" width="100%"> | <img src=".github/screenshots/font-changer.png" alt="Font Changer" width="100%"> |
 
 ---
 
