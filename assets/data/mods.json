@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Wraith King Papich Pamparam",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Night Stalker Dark Oath V2",
+      "category": "heroes"
+    },
+    {
+      "name": "Spectre Phantom Ascension V2",
+      "category": "heroes"
+    },
+    {
+      "name": "Kunkka Frostbloom Sword",
+      "category": "hero-items"
+    },
+    {
+      "name": "Kez Chicken Gun Napapiri",
+      "category": "heroes"
+    },
+    {
+      "name": "Wraith King Papich",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Doom Sematary Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Slark Collector Fire",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker Jack Daniels",
+      "category": "heroes"
+    },
+    {
+      "name": "Spectre Phantom Advent V1",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -14252,6 +14292,108 @@
           "date": 1791747523,
           "commit-sha": "143636f8f40e0f15de6cfabb61e666c4c7902d3a"
         }
+      },
+      {
+        "name": "Spectre Phantom Advent V1",
+        "preview": "Spectre Phantom Advent V1.webp",
+        "file": "Spectre Phantom Advent V1.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Jack Daniels",
+        "preview": "Invoker Jack Daniels.webp",
+        "file": "Invoker Jack Daniels.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Slark Collector Fire",
+        "preview": "Slark Collector Fire.webp",
+        "file": "Slark Collector Fire.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Kez Chicken Gun Napapiri",
+        "preview": "Kez Chicken Gun Napapiri.webp",
+        "file": "Kez Chicken Gun Napapiri.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Spectre Phantom Ascension V2",
+        "preview": "Spectre Phantom Ascension V2.webp",
+        "file": "Spectre Phantom Ascension V2.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Night Stalker Dark Oath V2",
+        "preview": "Night Stalker Dark Oath V2.webp",
+        "file": "Night Stalker Dark Oath V2.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -16877,6 +17019,25 @@
               "meta": {
                 "date": 1790294026,
                 "commit-sha": "d975a9751f1cb379345f4cf10e0e0b73d3f8358f"
+              }
+            },
+            {
+              "name": "Kunkka Frostbloom Sword",
+              "preview": "Kunkka Frostbloom Sword.webp",
+              "file": "Kunkka Frostbloom Sword.zip",
+              "tags": {
+                "weapon": true,
+                "effects": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Harlord"
+                }
+              ],
+              "meta": {
+                "date": 1791785645,
+                "commit-sha": ""
               }
             }
           ]
@@ -24371,6 +24532,63 @@
         "meta": {
           "date": 1791701314,
           "commit-sha": "8aceb4a46b4958c7eced3b64540289ff9bef8912"
+        }
+      },
+      {
+        "name": "Doom Sematary Sound",
+        "preview": "Doom Sematary Sound.webp",
+        "file": "Doom Sematary Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/6AvvruZpmU0"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Wraith King Papich",
+        "preview": "Wraith King Papich.webp",
+        "file": "Wraith King Papich.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/W-6HhLX9NsY"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Wraith King Papich Pamparam",
+        "preview": "Wraith King Papich Pamparam.webp",
+        "file": "Wraith King Papich Pamparam.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/c_ZaeL3__zw"
+          }
+        ],
+        "meta": {
+          "date": 1791785645,
+          "commit-sha": ""
         }
       }
     ],
