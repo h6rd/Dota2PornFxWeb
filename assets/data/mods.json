@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Windranger Reflections Of Gale",
+      "category": "heroes"
+    },
+    {
+      "name": "Windranger Compass Rising Gale",
+      "category": "heroes"
+    },
+    {
+      "name": "Razor Voidstorm Asylum",
+      "category": "heroes"
+    },
+    {
+      "name": "Razor Stormlord",
+      "category": "heroes"
+    },
+    {
       "name": "Wraith King Papich Pamparam",
       "category": "hero-sounds"
     },
@@ -11015,10 +11031,6 @@
           {
             "type": "author",
             "url": "J0nathan550"
-          },
-          {
-            "type": "modded",
-            "url": "ibcsz"
           }
         ],
         "meta": {
@@ -11153,9 +11165,9 @@
         }
       },
       {
-        "name": "Razor Stormlord Reborn",
-        "preview": "Razor Stormlord Reborn.webp",
-        "file": "Razor Stormlord Reborn.zip",
+        "name": "Razor Stormlord",
+        "preview": "Razor Stormlord.webp",
+        "file": "Razor Stormlord.zip",
         "tags": {
           "effects": true,
           "icons": true
@@ -21838,12 +21850,12 @@
         "name": "Better Source2Viewer",
         "preview": "better-s2v.webp",
         "multiPlatform": true,
-        "fileWin": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/latest/download/Source2Viewer.exe",
-        "fileLinux": "https://github.com/J0nathan550/Source2Viewer-d2pfx/releases/latest/download/Source2Viewer-x86_64.AppImage",
+        "fileWin": "https://github.com/J0nathan550/BetterSource2Viewer/releases/latest/download/Source2Viewer.exe",
+        "fileLinux": "https://github.com/J0nathan550/BetterSource2Viewer/releases/latest/download/Source2Viewer-x86_64.AppImage",
         "links": [
           {
             "type": "source-code",
-            "url": "https://github.com/J0nathan550/Source2Viewer-d2pfx"
+            "url": "https://github.com/J0nathan550/BetterSource2Viewer"
           },
           {
             "type": "author",

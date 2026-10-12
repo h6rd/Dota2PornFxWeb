@@ -58,7 +58,7 @@ TOOLS = [
     },
     {
         "owner": "J0nathan550",
-        "repo": "Source2Viewer-d2pfx",
+        "repo": "BetterSource2Viewer",
         "name": "Better Source2Viewer",
         "category": "tools",
         "exclude_pattern": None,

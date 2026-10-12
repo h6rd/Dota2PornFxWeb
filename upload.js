@@ -1098,21 +1098,23 @@
     refreshCooldownFromServer();
   }
 
-  async function initTurnstile() {
+  async function initTurnstile({ quiet = false } = {}) {
     const box = $('upTurnstile');
     try {
       await ensureTurnstile();
     } catch {
-      showStepError('Could not load the captcha. Check your connection (or an ad-blocker) and reload.');
+      if (!quiet) showStepError('Could not load the captcha. Check your connection (or an ad-blocker) and reload.');
       return;
     }
-    if (S.turnstileId !== null) { try { turnstile.reset(S.turnstileId); } catch { } return; }
+    if (S.turnstileId !== null || S.turnstileRendering) return;
+    S.turnstileRendering = true;
     S.turnstileId = turnstile.render(box, {
       sitekey: box.dataset.sitekey,
       theme: 'auto',
       appearance: 'interaction-only',
       action: 'submit_mod'
     });
+    S.turnstileRendering = false;
   }
   function resetTurnstile() { if (S.turnstileId !== null) { try { turnstile.reset(S.turnstileId); } catch { } } }
 
@@ -1545,6 +1547,7 @@
     refreshAll();
     goToStep(0);
     ensureFflate().catch(() => { });
+    initTurnstile({ quiet: true });
   }
 
   async function boot() {

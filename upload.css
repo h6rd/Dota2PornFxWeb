@@ -1604,3 +1604,8 @@ a.up-history-item:hover {
   position: relative;
   z-index: 20;
 }
+
+.up-log-body {
+  height: clamp(80px, calc(100dvh - 685px), 200px);
+  max-height: clamp(80px, calc(100dvh - 685px), 200px);
+}
