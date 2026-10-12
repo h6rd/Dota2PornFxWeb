@@ -40,29 +40,30 @@
   const CDN_FFLATE = 'https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js';
   const CDN_OPENTYPE = 'https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js';
   const VPK = BASE + 'wallpaper/vpk.js';
+  const BASE_CSS = BASE + 'tool-base.css';
 
   const REGISTRY = {
     wallpaper: {
       html: BASE + 'wallpaper/wallpaper.html',
-      css: [BASE + 'wallpaper/wallpaper.css'],
+      css: [BASE_CSS, BASE + 'wallpaper/wallpaper.css'],
       libs: [BASE + 'wallpaper/mediabunny.min.js', VPK],
       js: BASE + 'wallpaper/wallpaper.js'
     },
     cursors: {
       html: BASE + 'cursors/cursors.html',
-      css: [BASE + 'cursors/cursors.css'],
+      css: [BASE_CSS, BASE + 'cursors/cursors.css'],
       libs: [CDN_FFLATE],
       js: BASE + 'cursors/cursors.js'
     },
     localization: {
       html: BASE + 'localization/localization.html',
-      css: [BASE + 'localization/localization.css'],
+      css: [BASE_CSS, BASE + 'localization/localization.css'],
       libs: [VPK],
       js: BASE + 'localization/localization.js'
     },
     fonts: {
       html: BASE + 'fonts/fonts.html',
-      css: [BASE + 'fonts/fonts.css'],
+      css: [BASE_CSS, BASE + 'fonts/fonts.css'],
       libs: [CDN_FFLATE, CDN_OPENTYPE],
       js: BASE + 'fonts/fonts.js'
     }

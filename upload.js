@@ -1,1285 +1,257 @@
-const WORKER_BASE_URL = 'https://uploader.hrdq.workers.dev';
+(() => {
+  'use strict';
 
-const MAX_OUTER_ARCHIVE_BYTES = 100 * 1024 * 1024;
-const MAX_ARCHIVE_ENTRIES = 1000;
-const MAX_EXTRACTED_BYTES = 250 * 1024 * 1024;
-const MAX_ENTRY_BYTES = 100 * 1024 * 1024;
-const MAX_NAME_LENGTH = 29;
-const MAX_PREVIEW_BYTES = 8 * 1024 * 1024;
-const NAME_CHAR_RE = /[a-zA-Z0-9 \-_'.,!]/;
-const NAME_LENGTH_EXCEPTIONS = {
-  'keeper of the light': 39,
-  'natures prophet': 39
-};
-function getMaxNameLength(hero) {
-  const override = NAME_LENGTH_EXCEPTIONS[String(hero || '').trim().toLowerCase()];
-  return override || MAX_NAME_LENGTH;
-}
-const MAX_URL_LENGTH = 2048;
+  const WORKER_BASE_URL = 'https://uploader.hrdq.workers.dev';
+  const FFLATE_URL = 'https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js';
+  const TURNSTILE_URL = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
-function cleanNameValue(raw, max) {
-  let kept = '', badChars = '', overflow = '';
-  for (const ch of String(raw || '')) {
-    if (!NAME_CHAR_RE.test(ch)) badChars += ch;
-    else if (kept.length >= max) overflow += ch;
-    else kept += ch;
-  }
-  return { kept, badChars, overflow };
-}
-
-function isWebpBytes(b) {
-  return b instanceof Uint8Array && b.length > 12 &&
-    b[0] === 0x52 && b[1] === 0x49 && b[2] === 0x46 && b[3] === 0x46 &&
-    b[8] === 0x57 && b[9] === 0x45 && b[10] === 0x42 && b[11] === 0x50;
-}
-const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
-
-function loadAuthorPref() {
-  try {
-    const p = JSON.parse(localStorage.getItem(AUTHOR_PREF_KEY) || 'null');
-    return p && typeof p === 'object' ? p : null;
-  } catch {
-    return null;
-  }
-}
-
-function saveAuthorPref(pref) {
-  try {
-    localStorage.setItem(AUTHOR_PREF_KEY, JSON.stringify(pref));
-  } catch { }
-}
-const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
-
-const MOD_NAME_RE = /^[a-zA-Z0-9 \-_'.,!]+$/;
-const MISPLACED_HYPHEN_RE = /(^|[^a-zA-Z0-9])-|-([^a-zA-Z0-9]|$)/;
-const NICK_RE = /^[\p{L}\p{N} _.\-!,()\[\]#@+]+$/u;
-const SAFE_TEXT_RE = /^[^<>"`\\\u0000-\u001f\u007f]+$/;
-const NICK_HINT = 'letters, digits, spaces and . _ - ! , ( ) [ ] # @ + only';
-
-const TAG_DESCRIPTIONS = {
-  effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS',
-  icons: 'ONLY ABILITY ICONS'
-};
-
-const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects', 'heroes'];
-function getPreviewVideoCategories() {
-  return Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
-}
-
-const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
-
-const NON_SLOT_TAGS = ['effects', 'icons'];
-const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
-
-function getSlotTags(categoryId) {
-  const list = (window.slotTags || {})[categoryId];
-  if (Array.isArray(list) && list.length) return list;
-  const cfg = (window.TAG_CONFIGS || {})[categoryId];
-  if (cfg && cfg.map) return Object.keys(cfg.map).filter(k => !NON_SLOT_TAGS.includes(k));
-  return FALLBACK_SLOT_TAGS;
-}
-
-function waitForAppData() {
-  return new Promise(resolve => {
-    if (window.categories && window.translations) return resolve();
-    const iv = setInterval(() => {
-      if (window.categories && window.translations) {
-        clearInterval(iv);
-        resolve();
-      }
-    }, 150);
-  });
-}
-
-function waitForTurnstile() {
-  return new Promise(resolve => {
-    if (window.turnstile) {
-      resolve();
-      return;
-    }
-
-    const iv = setInterval(() => {
-      if (window.turnstile) {
-        clearInterval(iv);
-        resolve();
-      }
-    }, 100);
-  });
-}
-
-function tr(key, fallback) {
-  return (window.translations && window.translations[key]) || fallback || key;
-}
-
-function populateSelect(select, items, { placeholder } = {}) {
-  select.innerHTML = '';
-  if (placeholder) {
-    const opt = document.createElement('option');
-    opt.value = '';
-    opt.textContent = placeholder;
-    select.appendChild(opt);
-  }
-  for (const item of items) {
-    const opt = document.createElement('option');
-    opt.value = item.value;
-    opt.textContent = item.label;
-    if (item.disabled) opt.disabled = true;
-    select.appendChild(opt);
-  }
-}
-
-function toTitleCase(str) {
-  return String(str || '')
-    .replace(/[_\-.]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .split(' ')
-    .map(w => (w ? w[0].toUpperCase() + w.slice(1).toLowerCase() : w))
-    .join(' ');
-}
-
-function stripArchiveExtension(fileName) {
-  return String(fileName || '').replace(/\.[^./\\]+$/, '');
-}
-
-function titleCaseWords(str) {
-  return String(str || '').replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, (word) => {
-    if (!word) return word;
-    if (word.includes("'")) {
-      return word.split("'").map(p => p ? p[0].toUpperCase() + p.slice(1).toLowerCase() : p).join("'");
-    }
-    return word[0].toUpperCase() + word.slice(1).toLowerCase();
-  });
-}
-
-const YOUTUBE_HOST_RE = /^(m\.|www\.|music\.)?youtube\.com$|^youtu\.be$/i;
-
-function isYouTubeUrl(value) {
-  try {
-    const url = new URL(String(value || ''));
-    if (url.protocol !== 'https:') return false;
-    if (!YOUTUBE_HOST_RE.test(url.hostname)) return false;
-    if (url.href.length > MAX_URL_LENGTH) return false;
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function normalizeModName(name) {
-  return String(name || '').trim().toLowerCase().replace(/\s+/g, ' ');
-}
-
-async function sha256Hex(bytes) {
-  const digest = await crypto.subtle.digest('SHA-256', bytes);
-  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-function getModsForCategory(category) {
-  const data = window.modsData && window.modsData[category];
-  if (!data) return [];
-  if (Array.isArray(data)) return data;
-  if (Array.isArray(data.groups)) {
-    return data.groups.flatMap(g => Array.isArray(g.mods) ? g.mods : []);
-  }
-  return [];
-}
-
-function setupUploadModal() {
-  function selectVisualEl(select) {
-    return (select && select.closest('.md3-select')) || select;
-  }
-
-  const overlay = document.getElementById('uploadModOverlay');
-  const modal = document.getElementById('uploadModModal');
-  const openBtns = [
-    document.getElementById('uploadModButton'),
-    document.getElementById('mobileUploadModButton'),
-    document.getElementById('uploadModAboutLink')
-  ];
-  const closeBtn = document.getElementById('closeUploadModModal');
-  const form = document.getElementById('uploadModForm');
-  const statusEl = document.getElementById('umStatus');
-  const submitBtn = document.getElementById('umSubmitBtn');
-  const submitText = submitBtn.querySelector('.upload-submit-text');
-  const submitIcon = submitBtn.querySelector('.upload-submit-icon');
-
-  const categorySelect = document.getElementById('umCategory');
-  const heroGroup = document.getElementById('umHeroGroup');
-  const heroSearch = document.getElementById('umHeroSearch');
-  const heroHidden = document.getElementById('umHero');
-  const heroDropdown = document.getElementById('umHeroDropdown');
-  const tagsGroup = document.getElementById('umTagsGroup');
-  const nameInput = document.getElementById('umName');
-  const nameCountEl = document.getElementById('umNameCount');
-  const nameMaxLenEls = document.querySelectorAll('#umNameMaxLen, #umNameMaxLen2');
-  const nameTrimHint = document.getElementById('umNameTrimHint');
-  const nameTrimHintText = document.getElementById('umNameTrimHintText');
-  let nameTrimTimer = null;
-  let nameFlashTimer = null;
-  let extractedArchive = null;
-  let archiveReading = false;
-
-  function hideNameTrimNotice() {
-    clearTimeout(nameTrimTimer);
-    if (nameTrimHint) nameTrimHint.style.display = 'none';
-  }
-
-  function showNameTrimNotice(badChars, overflow, max) {
-    if (!nameTrimHint || (!badChars && !overflow)) return;
-    nameTrimHintText.textContent = '';
-    const addPart = (label, chars) => {
-      if (!chars) return;
-      const wrap = document.createElement('span');
-      wrap.className = 'um-removed-part';
-      wrap.append(label + ' ');
-      const mark = document.createElement('mark');
-      mark.className = 'um-removed';
-      mark.textContent = chars;
-      wrap.appendChild(mark);
-      nameTrimHintText.appendChild(wrap);
-    };
-    addPart('Removed (not allowed):', badChars);
-    addPart(`Removed (over ${max} characters):`, overflow);
-    nameTrimHint.style.display = '';
-    clearTimeout(nameTrimTimer);
-    nameTrimTimer = setTimeout(hideNameTrimNotice, 6000);
-
-    nameInput.classList.remove('um-flash');
-    void nameInput.offsetWidth;
-    nameInput.classList.add('um-flash');
-    clearTimeout(nameFlashTimer);
-    nameFlashTimer = setTimeout(() => nameInput.classList.remove('um-flash'), 700);
-  }
-
-  function syncNameField({ trimEdges = false } = {}) {
-    const max = getMaxNameLength(heroHidden.value);
-    const raw = nameInput.value;
-    const caret = nameInput.selectionStart == null ? raw.length : nameInput.selectionStart;
-    const { kept: keptRaw, badChars, overflow } = cleanNameValue(raw, max);
-    const kept = trimEdges ? keptRaw.trim() : keptRaw;
-
-    if (kept !== raw) {
-      nameInput.value = kept;
-      if (document.activeElement === nameInput) {
-        const pos = Math.min(cleanNameValue(raw.slice(0, caret), max).kept.length, kept.length);
-        nameInput.setSelectionRange(pos, pos);
-      }
-    }
-    if (nameCountEl) {
-      nameCountEl.textContent = String(kept.length);
-      nameCountEl.classList.toggle('um-count-full', kept.length >= max);
-    }
-    showNameTrimNotice(badChars, overflow, max);
-    return kept;
-  }
-
-  function setNameValue(value) {
-    nameInput.value = value;
-    return syncNameField({ trimEdges: true });
-  }
-
-  function updateNameMaxLength() {
-    const max = getMaxNameLength(heroHidden.value);
-    nameMaxLenEls.forEach(el => { el.textContent = String(max); });
-    syncNameField();
-  }
-  updateNameMaxLength();
-  const heroNameHint = document.getElementById('umHeroNameHint');
-  const heroNameHintText = document.getElementById('umHeroNameHintText');
-  let isHeroNameInvalid = false;
-  let isHeroOnlyName = false;
-  const archiveInput = document.getElementById('umArchive');
-
-  const previewVideoGroup = document.getElementById('umPreviewVideoGroup');
-  const previewVideoInput = document.getElementById('umPreviewVideo');
-  const previewVideoHint = document.getElementById('umPreviewVideoHint');
-  const previewVideoHintText = document.getElementById('umPreviewVideoHintText');
-  let isPreviewVideoInvalid = false;
-
-  const slotGroup = document.getElementById('umSlotGroup');
-  const slotTagsWrap = document.getElementById('umSlotTags');
-  const effectsGroup = document.getElementById('umEffectsGroup');
-  const effectsTagsWrap = document.getElementById('umEffectsTags');
-  const genericGroup = document.getElementById('umGenericTagsGroup');
-  const genericTagsWrap = document.getElementById('umGenericTags');
-
-  const authorExistingSelect = document.getElementById('umAuthorExisting');
-  const authorNewFields = document.getElementById('umAuthorNewFields');
-
-  const extraFields = document.getElementById('umExtraFields');
-  const extraExistingSelect = document.getElementById('umExtraExisting');
-  const extraNewFields = document.getElementById('umExtraNewFields');
-
-  const progressWrap = document.getElementById('umProgressWrap');
-  const progressBar = document.getElementById('umProgressBar');
-  const progressPct = document.getElementById('umProgressPct');
-
-  const previewMedia = document.getElementById('umPreviewMedia');
-  const previewTitle = document.getElementById('umPreviewTitle');
-  const previewSubtitle = document.getElementById('umPreviewSubtitle');
-  const previewButtonsGroup = document.getElementById('umPreviewButtonsGroup');
-  const previewLogBody = document.getElementById('umPreviewLogBody');
-  const previewLogIcon = document.getElementById('umPreviewLogIcon');
-  const previewLogSpinner = document.getElementById('umPreviewLogSpinner');
-  const turnstileContainer = document.getElementById('uploadTurnstile');
-  let previewObjectUrl = null;
-  let turnstileWidgetId = null;
-
-  const cooldownHint = document.getElementById('umCooldownHint');
-  const cooldownHintText = document.getElementById('umCooldownHintText');
-  let cooldownInterval = null;
-  let cooldownRemaining = 0;
-  let isUploadBusy = false;
-
-  function formatCooldown(totalSeconds) {
-    const s = Math.max(0, Math.ceil(totalSeconds));
-    const m = Math.floor(s / 60);
-    const r = s % 60;
-    return m > 0 ? `${m}:${String(r).padStart(2, '0')}` : `${r}s`;
-  }
-
-  const previewRequiredHint = document.getElementById('umPreviewRequiredHint');
-  const previewRequiredHintText = document.getElementById('umPreviewRequiredHintText');
-
-  function getPreviewBlock() {
-    if (archiveReading) return { blocked: true, message: '' };
-    if (!archiveInput.files[0]) {
-      return { blocked: true, message: 'A mod preview is required. Choose an archive made with PreMod that includes a preview image.' };
-    }
-    if (!extractedArchive) {
-      return { blocked: true, message: 'The archive could not be read, so there is no preview. Check the activity log or choose another archive.' };
-    }
-    if (!extractedArchive.preview) {
-      return { blocked: true, message: extractedArchive.previewError || 'This archive has no preview image. A mod preview is required.' };
-    }
-    return { blocked: false, message: '' };
-  }
-
-  function updateSubmitDisabledState() {
-    const block = getPreviewBlock();
-    submitBtn.disabled = isUploadBusy || cooldownRemaining > 0 || block.blocked || isHeroOnlyName;
-    if (previewRequiredHint) {
-      const show = block.blocked && !!block.message && !isUploadBusy;
-      if (show) previewRequiredHintText.textContent = block.message;
-      previewRequiredHint.style.display = show ? '' : 'none';
-    }
-  }
-
-  function renderCooldown() {
-    cooldownHintText.textContent =
-      `You can submit your next mod in ${formatCooldown(cooldownRemaining)}.`;
-    cooldownHint.style.display = '';
-    updateSubmitDisabledState();
-  }
-
-  function clearCooldown() {
-    if (cooldownInterval) {
-      clearInterval(cooldownInterval);
-      cooldownInterval = null;
-    }
-    cooldownRemaining = 0;
-    cooldownHint.style.display = 'none';
-    updateSubmitDisabledState();
-  }
-
-  function startCooldown(seconds) {
-    if (cooldownInterval) {
-      clearInterval(cooldownInterval);
-      cooldownInterval = null;
-    }
-    cooldownRemaining = Math.ceil(Number(seconds) || 0);
-    if (cooldownRemaining <= 0) {
-      clearCooldown();
-      return;
-    }
-    renderCooldown();
-    cooldownInterval = setInterval(() => {
-      cooldownRemaining -= 1;
-      if (cooldownRemaining <= 0) {
-        clearCooldown();
-      } else {
-        renderCooldown();
-      }
-    }, 1000);
-  }
-
-  async function refreshCooldownFromServer() {
-    try {
-      const res = await fetch(`${WORKER_BASE_URL}/api/status`);
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data && data.nextSubmitInSeconds > 0) {
-        startCooldown(data.nextSubmitInSeconds);
-      } else {
-        clearCooldown();
-      }
-    } catch {
-    }
-  }
-
-  const duplicateHint = document.getElementById('umDuplicateHint');
-  const duplicateHintText = document.getElementById('umDuplicateHintText');
-  let isDuplicateName = false;
-  let autoFilledName = '';
-
-  function buildInlineDuplicateHint(id) {
-    const p = document.createElement('p');
-    p.className = 'upload-form-hint upload-duplicate-hint';
-    p.id = id;
-    p.style.display = 'none';
-    const icon = document.createElement('span');
-    icon.className = 'material-symbols-rounded';
-    icon.textContent = 'warning';
-    const text = document.createElement('span');
-    text.id = id + 'Text';
-    p.appendChild(icon);
-    p.appendChild(text);
-    return { hint: p, text };
-  }
-
-  const { hint: authorDuplicateHint, text: authorDuplicateHintText } = buildInlineDuplicateHint('umAuthorDuplicateHint');
-  authorNewFields.appendChild(authorDuplicateHint);
-  let isDuplicateAuthor = false;
-
-  const { hint: extraDuplicateHint, text: extraDuplicateHintText } = buildInlineDuplicateHint('umExtraDuplicateHint');
-  extraNewFields.appendChild(extraDuplicateHint);
-  let isDuplicateExtra = false;
-
-  const LOG_ICONS = {
-    muted: 'info',
-    info: 'info',
-    progress: 'sync',
-    success: 'check_circle',
-    error: 'error',
+  const SOURCE_URLS = {
+    github: 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main',
+    hf: 'https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main',
+    local: ''
   };
+  const DATA_SOURCES = (() => {
+    const host = location.hostname;
+    const matches = list => list.some(h => host === h || host.endsWith('.' + h));
+    const { github, hf, local } = SOURCE_URLS;
+    if (matches(['d2pfx.onrender.com', 'd2pfx.netlify.app', 'd2pfx.vercel.app'])) return [hf, github, local];
+    if (matches(['127.0.0.1', 'localhost'])) return [local, hf, github];
+    return [github, hf];
+  })();
 
-  function setLogIconState(state) {
-    if (!previewLogIcon) return;
-    previewLogIcon.classList.remove('is-busy', 'is-success', 'is-error');
-    const busy = state === 'busy';
-    previewLogIcon.classList.toggle('is-busy', busy);
-    previewLogSpinner?.classList.toggle('is-active', busy);
-    if (busy) {
-    } else if (state === 'success') {
-      previewLogIcon.textContent = 'check_circle';
-      previewLogIcon.classList.add('is-success');
-    } else if (state === 'error') {
-      previewLogIcon.textContent = 'error';
-      previewLogIcon.classList.add('is-error');
-    } else {
-      previewLogIcon.textContent = 'terminal';
-    }
+  const MAX_OUTER_ARCHIVE_BYTES = 100 * 1024 * 1024;
+  const MAX_ARCHIVE_ENTRIES = 1000;
+  const MAX_EXTRACTED_BYTES = 250 * 1024 * 1024;
+  const MAX_ENTRY_BYTES = 100 * 1024 * 1024;
+  const MAX_PREVIEW_BYTES = 8 * 1024 * 1024;
+  const MAX_NAME_LENGTH = 29;
+  const NAME_LENGTH_EXCEPTIONS = { 'keeper of the light': 39, 'natures prophet': 39 };
+  const MAX_URL_LENGTH = 2048;
+
+  const NAME_CHAR_RE = /[a-zA-Z0-9 \-_.,!]/;
+  const MOD_NAME_RE = /^[a-zA-Z0-9 \-_'.,!]+$/;
+  const MISPLACED_HYPHEN_RE = /(^|[^a-zA-Z0-9])-|-([^a-zA-Z0-9]|$)/;
+  const NICK_RE = /^[\p{L}\p{N} _.\-!,()\[\]#@+]+$/u;
+  const SAFE_TEXT_RE = /^[^<>"`\\\u0000-\u001f\u007f]+$/;
+  const NICK_HINT = 'letters, digits, spaces and . _ - ! , ( ) [ ] # @ + only';
+  const YOUTUBE_HOST_RE = /^(m\.|www\.|music\.)?youtube\.com$|^youtu\.be$/i;
+
+  const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
+  const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
+  const NON_SLOT_TAGS = ['effects', 'icons'];
+  const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
+  const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects', 'heroes'];
+  const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS' };
+  const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
+
+  const STEP_COUNT = 5;
+  const $ = id => document.getElementById(id);
+
+  document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
+
+  function getMaxNameLength(hero) {
+    return NAME_LENGTH_EXCEPTIONS[String(hero || '').trim().toLowerCase()] || MAX_NAME_LENGTH;
   }
-
-  function clearActivityLog(placeholder = 'Waiting for submit…') {
-    if (!previewLogBody) return;
-    previewLogBody.innerHTML = '';
-    appendActivityLog(placeholder, 'muted');
-    setLogIconState('idle');
+  function tr(key, fallback) { return (window.translations && window.translations[key]) || fallback || key; }
+  function normalizeModName(name) { return String(name || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+  function toTitleCase(str) {
+    return String(str || '').replace(/[_\-.]+/g, ' ').replace(/\s+/g, ' ').trim().split(' ')
+      .map(w => (w ? w[0].toUpperCase() + w.slice(1).toLowerCase() : w)).join(' ');
   }
-
-  function appendActivityLog(message, type = 'info') {
-    if (!previewLogBody) return null;
-    if (type !== 'muted') {
-      const onlyMuted = previewLogBody.querySelectorAll('.upload-preview-log-entry.muted');
-      if (onlyMuted.length && previewLogBody.children.length === onlyMuted.length) {
-        previewLogBody.innerHTML = '';
-      }
-    }
-    const row = document.createElement('div');
-    row.className = `upload-preview-log-entry ${type}`;
-    const icon = document.createElement('span');
-    icon.className = 'material-symbols-rounded';
-    icon.textContent = LOG_ICONS[type] || 'info';
-    const text = document.createElement('span');
-    text.textContent = message;
-    row.appendChild(icon);
-    row.appendChild(text);
-    previewLogBody.appendChild(row);
-    previewLogBody.scrollTop = previewLogBody.scrollHeight;
-    return row;
-  }
-
-  function updateActivityLog(row, message) {
-    if (!row) return;
-    const text = row.querySelector('span:last-child');
-    if (text) text.textContent = message;
-    if (previewLogBody) previewLogBody.scrollTop = previewLogBody.scrollHeight;
-  }
-
-  function initTurnstile() {
-    if (!turnstileContainer || typeof turnstile === 'undefined') return;
-
-    if (turnstileWidgetId !== null) {
-      try {
-        turnstile.reset(turnstileWidgetId);
-      } catch { }
-      return;
-    }
-
-    turnstileWidgetId = turnstile.render(turnstileContainer, {
-      sitekey: turnstileContainer.dataset.sitekey,
-      theme: 'auto',
-      appearance: 'interaction-only',
-      action: 'submit_mod',
+  function titleCaseWords(str) {
+    return String(str || '').replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, word => {
+      if (word.includes("'")) return word.split("'").map(p => (p ? p[0].toUpperCase() + p.slice(1).toLowerCase() : p)).join("'");
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
     });
   }
-
-  function checkDuplicate() {
-    const name = nameInput.value.trim();
-    const category = categorySelect.value;
-
-    if (!name || !category || BLACKLISTED_CATEGORIES.includes(category)) {
-      isDuplicateName = false;
-      duplicateHint.style.display = 'none';
-      return;
+  function stripExt(fileName) { return String(fileName || '').replace(/\.[^./\\]+$/, ''); }
+  function cleanNameValue(raw, max) {
+    let kept = '', badChars = '', overflow = '';
+    for (const ch of String(raw || '')) {
+      if (!NAME_CHAR_RE.test(ch)) badChars += ch;
+      else if (kept.length >= max) overflow += ch;
+      else kept += ch;
     }
-
-    const target = normalizeModName(name);
-    const dup = getModsForCategory(category).some(m => normalizeModName(m.name) === target);
-
-    isDuplicateName = dup;
-    if (dup) {
-      duplicateHintText.textContent = `A mod named "${name}" already exists in this category.`;
-      duplicateHint.style.display = '';
-    } else {
-      duplicateHint.style.display = 'none';
-    }
+    return { kept, badChars, overflow };
   }
-
-  function checkAuthorDuplicate() {
-    const mode = form.querySelector('input[name="authorMode"]:checked')?.value;
-    const nick = document.getElementById('umAuthorName')?.value.trim() || '';
-
-    if (mode !== 'new' || !nick) {
-      isDuplicateAuthor = false;
-      authorDuplicateHint.style.display = 'none';
-      return;
-    }
-
-    const target = normalizeModName(nick);
-    const match = Object.keys(window.MOD_AUTHOR || {}).find(a => normalizeModName(a) === target);
-
-    isDuplicateAuthor = !!match;
-    if (match) {
-      authorDuplicateHintText.textContent = `An author named "${match}" already exists — select "Existing" instead.`;
-      authorDuplicateHint.style.display = '';
-    } else {
-      authorDuplicateHint.style.display = 'none';
-    }
+  function isWebpBytes(b) {
+    return b instanceof Uint8Array && b.length > 12 &&
+      b[0] === 0x52 && b[1] === 0x49 && b[2] === 0x46 && b[3] === 0x46 &&
+      b[8] === 0x57 && b[9] === 0x45 && b[10] === 0x42 && b[11] === 0x50;
   }
-
-  function checkHeroInName() {
-    const category = categorySelect.value;
-    const hero = heroHidden.value.trim();
-    if (!HERO_AWARE_CATEGORIES.includes(category) || !hero) {
-      isHeroNameInvalid = false;
-      isHeroOnlyName = false;
-      heroNameHint.style.display = 'none';
-      updateSubmitDisabledState();
-      return;
-    }
-    const current = nameInput.value.trim();
-    if (current.toLowerCase().includes(hero.toLowerCase())) {
-      const rest = current.toLowerCase().split(hero.toLowerCase()).join(' ').replace(/[^a-z0-9]/g, '');
-      isHeroOnlyName = rest.length === 0;
-      isHeroNameInvalid = isHeroOnlyName;
-      if (isHeroOnlyName) {
-        heroNameHintText.textContent = `Add a title after the hero name (e.g. "${hero} Origin"). The name can't be just "${hero}".`;
-        heroNameHint.style.display = '';
-      } else {
-        heroNameHint.style.display = 'none';
-      }
-      updateSubmitDisabledState();
-      return;
-    }
-    isHeroOnlyName = false;
-    isHeroNameInvalid = true;
-    const wouldFit = !current || `${hero} ${current}`.length <= getMaxNameLength(hero);
-    heroNameHintText.textContent = wouldFit
-      ? `The mod name must include the hero name "${hero}".`
-      : `Name is too long to fit the hero name "${hero}" — shorten it.`;
-    heroNameHint.style.display = '';
-    updateSubmitDisabledState();
+  function isYouTubeUrl(value) {
+    try {
+      const url = new URL(String(value || ''));
+      return url.protocol === 'https:' && YOUTUBE_HOST_RE.test(url.hostname) && url.href.length <= MAX_URL_LENGTH;
+    } catch { return false; }
   }
-
-  function checkPreviewVideo() {
-    const value = previewVideoInput.value.trim();
-    if (!value) {
-      isPreviewVideoInvalid = false;
-      previewVideoHint.style.display = 'none';
-      return;
-    }
-    const ok = isYouTubeUrl(value);
-    isPreviewVideoInvalid = !ok;
-    if (!ok) {
-      previewVideoHintText.textContent = 'Only youtube.com / youtu.be links are accepted.';
-      previewVideoHint.style.display = '';
-    } else {
-      previewVideoHint.style.display = 'none';
-    }
+  function isAllowedHttpUrl(value) {
+    try {
+      const url = new URL(String(value || ''));
+      return (url.protocol === 'https:' || url.protocol === 'http:') && !url.username && !url.password && url.href.length <= MAX_URL_LENGTH;
+    } catch { return false; }
   }
-
-
-  function checkExtraDuplicate() {
-    const extraMode = form.querySelector('input[name="extraMode"]:checked')?.value;
-    const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
-    const value = document.getElementById('umExtraName')?.value.trim() || '';
-
-    if (extraMode === 'none' || originMode !== 'new' || !value) {
-      isDuplicateExtra = false;
-      extraDuplicateHint.style.display = 'none';
-      return;
-    }
-
-    const target = normalizeModName(value);
-    const registry = extraMode === 'source' ? window.MOD_SOURCES : window.MOD_AUTHOR;
-    const match = Object.keys(registry || {}).find(a => normalizeModName(a) === target);
-
-    isDuplicateExtra = !!match;
-    if (match) {
-      const label = extraMode === 'source' ? 'source' : 'author';
-      extraDuplicateHintText.textContent = `A ${label} named "${match}" already exists — select "Existing" instead.`;
-      extraDuplicateHint.style.display = '';
-    } else {
-      extraDuplicateHint.style.display = 'none';
-    }
-  }
-
-  function updatePreview() {
-    const name = nameInput.value.trim();
-    previewTitle.textContent = name || 'Mod name';
-
-    const catOpt = categorySelect.selectedOptions[0];
-    const catLabel = catOpt && catOpt.value ? catOpt.textContent : 'Category';
-    previewSubtitle.textContent = catLabel;
-
-    previewButtonsGroup.innerHTML = buildPreviewLinkButtonsHtml();
-
-    previewMedia.innerHTML = '';
-    if (extractedArchive && extractedArchive.preview) {
-      if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-      const blob = new Blob([extractedArchive.preview]);
-      previewObjectUrl = URL.createObjectURL(blob);
-      const img = document.createElement('img');
-      img.src = previewObjectUrl;
-      img.alt = name;
-      previewMedia.appendChild(img);
-    } else {
-      const span = document.createElement('span');
-      span.style.fontSize = '40px';
-      span.style.opacity = '0.5';
-      span.textContent = '\u{1F9E9}';
-      previewMedia.appendChild(span);
-    }
-
-    const catId = categorySelect.value;
-    const cfg = (window.TAG_CONFIGS || {})[catId];
-    const tagMap = cfg?.map || {};
-    const slotTags = getSlotTags(catId);
-    const tagDescriptions = TAG_DESCRIPTIONS;
-
-    const slotRadio = slotTagsWrap.querySelector('input[type="radio"]:checked');
-    const checkedEffects = Array.from(effectsTagsWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-    const checkedGeneric = Array.from(genericTagsWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-
-    const tagsEl = document.createElement('div');
-    tagsEl.className = 'mod-tags';
-
-    function addTag(key, isSlot) {
-      const label = tagMap[key] || key;
-      const span = document.createElement('span');
-      span.className = 'mod-tag' + (isSlot ? ' mod-tag--slot' : '');
-      span.textContent = label;
-      if (tagDescriptions[key]) span.title = tagDescriptions[key];
-      tagsEl.appendChild(span);
-    }
-
-    if (slotRadio) addTag(slotRadio.value, true);
-    for (const k of checkedEffects) addTag(k, false);
-    for (const k of checkedGeneric) addTag(k, slotTags.includes(k));
-
-    if (tagsEl.children.length) previewMedia.appendChild(tagsEl);
-  }
-
-  function buildPreviewLinkButtonsHtml() {
-    if (typeof generateLinkButtonsHtml !== 'function') return '';
-
-    const links = [];
-
-    const authorMode = form.querySelector('input[name="authorMode"]:checked')?.value;
-    if (authorMode === 'existing' && authorExistingSelect.value) {
-      links.push({ type: 'author', url: authorExistingSelect.value });
-    } else if (authorMode === 'new') {
-      const nick = document.getElementById('umAuthorName')?.value.trim();
-      if (nick) links.push({ type: 'author', url: nick });
-    }
-
-    const extraMode = form.querySelector('input[name="extraMode"]:checked')?.value;
-    if (extraMode === 'source' || extraMode === 'modded' || extraMode === 'author') {
-      const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
-      const value = originMode === 'existing'
-        ? extraExistingSelect.value
-        : document.getElementById('umExtraName')?.value.trim();
-      if (value) links.push({ type: extraMode, url: value });
-    }
-
-    const previewVideo = previewVideoInput.value.trim();
-    if (previewVideo && !isPreviewVideoInvalid && isYouTubeUrl(previewVideo)) {
-      links.push({ type: 'preview', url: previewVideo });
-    }
-
-    if (!links.length) return '';
-    return generateLinkButtonsHtml({ links }, categorySelect.value);
-  }
-
-  function wireSegmented(container) {
-    if (!container) return;
-    const radios = container.querySelectorAll('input[type="radio"]');
-    function refresh() {
-      radios.forEach(r => r.closest('label').classList.toggle('selected', r.checked));
-    }
-    radios.forEach(r => r.addEventListener('change', refresh));
-    refresh();
-  }
-  wireSegmented(document.getElementById('umAuthorSegmented'));
-  wireSegmented(document.getElementById('umExtraSegmented'));
-  wireSegmented(document.getElementById('umExtraOriginSegmented'));
-
-  function openModal() {
-    overlay.classList.add('active');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    refreshCooldownFromServer();
-    clearActivityLog();
-  }
-  function closeModal() {
-    overlay.classList.remove('active');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    heroDropdown.classList.remove('open');
-    const hv = document.getElementById('umHistoryView');
-    if (hv) hv.hidden = true;
-  }
-
-  const historyBtn = document.getElementById('umHistoryBtn');
-  const historyBack = document.getElementById('umHistoryBack');
-  const historyRefresh = document.getElementById('umHistoryRefresh');
-  const historyView = document.getElementById('umHistoryView');
-  const historyList = document.getElementById('umHistoryList');
-  const HISTORY_STATUS = {
-    moderation: { label: 'On moderation', icon: 'hourglass_top' },
-    accepted: { label: 'Accepted', icon: 'check_circle' },
-    rejected: { label: 'Rejected', icon: 'cancel' }
-  };
-  let historyLoading = false;
-
-  function historyMessage(text, icon) {
-    historyList.textContent = '';
-    const box = document.createElement('div');
-    box.className = 'upload-history-empty';
-    const i = document.createElement('span');
-    i.className = 'material-symbols-rounded';
-    i.textContent = icon;
-    const t = document.createElement('span');
-    t.textContent = text;
-    box.append(i, t);
-    historyList.appendChild(box);
-  }
-
   function safeGithubUrl(url) {
     try {
       const u = new URL(url);
       return u.protocol === 'https:' && u.hostname === 'github.com' ? u.href : null;
     } catch { return null; }
   }
+  async function sha256Hex(bytes) {
+    const digest = await crypto.subtle.digest('SHA-256', bytes);
+    return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  function formatBytes(n) {
+    if (n >= 1024 * 1024) return (n / 1024 / 1024).toFixed(1) + ' MB';
+    return Math.max(1, Math.round(n / 1024)) + ' KB';
+  }
+  function formatCooldown(totalSeconds) {
+    const s = Math.max(0, Math.ceil(totalSeconds));
+    const m = Math.floor(s / 60), r = s % 60;
+    return m > 0 ? `${m}:${String(r).padStart(2, '0')}` : `${r}s`;
+  }
+  function el(tag, className, text) {
+    const e = document.createElement(tag);
+    if (className) e.className = className;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function icon(name) { return el('span', 'material-symbols-rounded', name); }
+  function show(node, visible = true) { if (node) node.hidden = !visible; }
 
-  function renderHistory(items) {
-    historyList.textContent = '';
-    if (!items.length) {
-      historyMessage('No submissions from this network yet.', 'inbox');
-      return;
-    }
-    const frag = document.createDocumentFragment();
-    for (const item of items) {
-      const st = HISTORY_STATUS[item.status] || HISTORY_STATUS.moderation;
-      const href = safeGithubUrl(item.url);
-      const row = document.createElement(href ? 'a' : 'div');
-      row.className = 'upload-history-item upload-history-' + (HISTORY_STATUS[item.status] ? item.status : 'moderation');
-      if (href) { row.href = href; row.target = '_blank'; row.rel = 'noopener noreferrer'; }
-
-      const top = document.createElement('div');
-      top.className = 'upload-history-item-top';
-      const name = document.createElement('span');
-      name.className = 'upload-history-name';
-      name.textContent = item.name || 'Untitled';
-      const badge = document.createElement('span');
-      badge.className = 'upload-history-badge';
-      const icon = document.createElement('span');
-      icon.className = 'material-symbols-rounded';
-      icon.textContent = st.icon;
-      const label = document.createElement('span');
-      label.textContent = st.label;
-      badge.append(icon, label);
-      top.append(name, badge);
-      row.appendChild(top);
-
-      if (item.createdAt) {
-        const d = new Date(item.createdAt);
-        if (!isNaN(d)) {
-          const date = document.createElement('div');
-          date.className = 'upload-history-date';
-          date.textContent = d.toLocaleString();
-          row.appendChild(date);
-        }
-      }
-      if (item.status === 'rejected' && item.reason) {
-        const reason = document.createElement('div');
-        reason.className = 'upload-history-reason';
-        reason.textContent = item.reason;
-        row.appendChild(reason);
-      }
-      frag.appendChild(row);
-    }
-    historyList.appendChild(frag);
+  function refreshSelect(sel) { if (sel && window.MD3Select) window.MD3Select.enhance(sel); }
+  function setSelectValue(sel, value) { sel.value = value; refreshSelect(sel); }
+  function showSelect(sel, visible) {
+    if (window.MD3Select) window.MD3Select.setVisible(sel, visible);
+    else sel.style.display = visible ? '' : 'none';
   }
 
-  async function loadHistory() {
-    if (historyLoading) return;
-    historyLoading = true;
-    historyRefresh?.classList.add('is-loading');
-    historyMessage('Loading\u2026', 'progress_activity');
+  function loadScriptOnce(src, readyCheck) {
+    if (readyCheck()) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = () => (readyCheck() ? resolve() : reject(new Error('Script loaded but is unavailable: ' + src)));
+      s.onerror = () => reject(new Error('Could not load ' + src));
+      document.head.appendChild(s);
+    });
+  }
+  const ensureFflate = () => loadScriptOnce(FFLATE_URL, () => typeof window.fflate !== 'undefined');
+  const ensureTurnstile = () => loadScriptOnce(TURNSTILE_URL, () => typeof window.turnstile !== 'undefined');
+
+  function loadAuthorPref() {
     try {
-      const res = await fetch(`${WORKER_BASE_URL}/api/history`);
+      const p = JSON.parse(localStorage.getItem(AUTHOR_PREF_KEY) || 'null');
+      return p && typeof p === 'object' ? p : null;
+    } catch { return null; }
+  }
+  function saveAuthorPref(pref) { try { localStorage.setItem(AUTHOR_PREF_KEY, JSON.stringify(pref)); } catch { } }
+
+  async function fetchJson(base, name, timeoutMs) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const url = base ? `${base}/assets/data/${name}` : `assets/data/${name}`;
+      const res = await fetch(url, { signal: controller.signal });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      const data = await res.json();
-      renderHistory(Array.isArray(data.items) ? data.items : []);
-    } catch {
-      historyMessage('Could not load history. Try again later.', 'error');
-    } finally {
-      historyLoading = false;
-      historyRefresh?.classList.remove('is-loading');
+      return await res.json();
+    } finally { clearTimeout(timer); }
+  }
+
+  async function loadCatalog() {
+    let lastError = null;
+    for (let i = 0; i < DATA_SOURCES.length; i++) {
+      try {
+        const timeout = i === 0 ? 15000 : 10000;
+        const [mods, constants] = await Promise.all([fetchJson(DATA_SOURCES[i], 'mods.json', timeout), fetchJson(DATA_SOURCES[i], 'constants.json', timeout)]);
+        window.modsData = mods.modsData || {};
+        Object.assign(window, constants);
+        return;
+      } catch (err) { lastError = err; }
     }
+    throw lastError || new Error('No data source available');
   }
 
-  function showHistory(show) {
-    historyView.hidden = !show;
-    if (show) loadHistory();
+  function getPreviewVideoCategories() {
+    return Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
   }
-  historyBtn?.addEventListener('click', () => showHistory(true));
-  historyBack?.addEventListener('click', () => showHistory(false));
-  historyRefresh?.addEventListener('click', loadHistory);
-
-  openBtns.forEach(btn => btn && btn.addEventListener('click', () => {
-    document.getElementById('mobileMenu')?.classList.remove('active');
-    openModal();
-  }));
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
-
-  const categoryItems = (window.categories || [])
-    .filter(c => !BLACKLISTED_CATEGORIES.includes(c.id))
-    .map(c => ({ value: c.id, label: tr(c.key, c.id) }));
-  populateSelect(categorySelect, categoryItems, { placeholder: 'Select category\u2026' });
-  window.MD3Select?.enhance(categorySelect);
-
-  function refreshAuthorSelect() {
-    const authors = Object.keys(window.MOD_AUTHOR || {}).sort();
-    populateSelect(authorExistingSelect, authors.map(a => ({ value: a, label: a })), { placeholder: 'Select author\u2026' });
-    window.MD3Select?.enhance(authorExistingSelect);
-  }
-  refreshAuthorSelect();
-
-  function refreshExtraExistingSelect(mode) {
-    if (mode === 'source') {
-      const items = Object.keys(window.MOD_SOURCES || {}).sort();
-      populateSelect(extraExistingSelect, items.map(a => ({ value: a, label: a })), { placeholder: 'Select source\u2026' });
-    } else if (mode === 'modded' || mode === 'author') {
-      const items = Object.keys(window.MOD_AUTHOR || {}).sort();
-      populateSelect(extraExistingSelect, items.map(a => ({ value: a, label: a })), { placeholder: 'Select author\u2026' });
-    }
-    window.MD3Select?.enhance(extraExistingSelect);
-  }
-
-  let allHeroes = [];
-
-  function buildHeroDropdown(filter) {
-    const q = (filter || '').toLowerCase().trim();
-    heroDropdown.innerHTML = '';
-    const visible = q ? allHeroes.filter(h => h.toLowerCase().includes(q)) : allHeroes;
-    if (!visible.length) {
-      const empty = document.createElement('div');
-      empty.className = 'um-hero-option um-hero-no-match';
-      empty.textContent = 'No heroes found';
-      heroDropdown.appendChild(empty);
-      return;
-    }
-    for (const h of visible) {
-      const opt = document.createElement('div');
-      opt.className = 'um-hero-option';
-      opt.setAttribute('role', 'option');
-      opt.textContent = h;
-      opt.addEventListener('mousedown', ev => {
-        ev.preventDefault();
-        selectHero(h);
-      });
-      heroDropdown.appendChild(opt);
-    }
-  }
-
-  function ensureHeroInName(hero) {
-    if (!hero) return;
-    const current = nameInput.value.trim();
-    if (!current) {
-      autoFilledName = setNameValue(hero);
-      return;
-    }
-    if (current.toLowerCase().includes(hero.toLowerCase())) return;
-    const combined = `${hero} ${current}`;
-    if (combined.length <= getMaxNameLength(hero)) {
-      setNameValue(combined);
-    }
-  }
-
-  function selectHero(hero) {
-    heroHidden.value = hero;
-    heroSearch.value = hero;
-    heroDropdown.classList.remove('open');
-    updateNameMaxLength();
-    ensureHeroInName(hero);
-    checkDuplicate();
-    checkHeroInName();
-    updatePreview();
-  }
-
-  function renderHeroCombo() {
-    allHeroes = (window.HEROES_LIST || []).slice().sort((a, b) => a.localeCompare(b));
-    heroSearch.value = '';
-    heroHidden.value = '';
-    buildHeroDropdown('');
-  }
-  renderHeroCombo();
-
-  function findHeroInText(text) {
-    const normalize = s => String(s || '').toLowerCase().replace(/[_\-.]+/g, ' ');
-    const haystack = normalize(text);
-    if (!haystack) return null;
-    let best = null;
-    for (const hero of allHeroes) {
-      const needle = normalize(hero);
-      if (needle && haystack.includes(needle)) {
-        if (!best || needle.length > normalize(best).length) best = hero;
-      }
-    }
-    return best;
-  }
-
-  function suggestNameFromText(rawText) {
-    const titled = toTitleCase(rawText);
-    const hero = findHeroInText(rawText);
-    if (!hero || hero === toTitleCase(hero)) return titled;
-    const mangledHero = toTitleCase(hero);
-    return titled.includes(mangledHero) ? titled.split(mangledHero).join(hero) : titled;
-  }
-
-  heroSearch.addEventListener('focus', () => {
-    buildHeroDropdown(heroSearch.value);
-    heroDropdown.classList.add('open');
-  });
-  heroSearch.addEventListener('input', () => {
-    heroHidden.value = '';
-    buildHeroDropdown(heroSearch.value);
-    heroDropdown.classList.add('open');
-    updateNameMaxLength();
-    checkHeroInName();
-    updatePreview();
-  });
-  heroSearch.addEventListener('blur', () => {
-    setTimeout(() => {
-      heroDropdown.classList.remove('open');
-      const typed = heroSearch.value.trim();
-      const match = allHeroes.find(h => h.toLowerCase() === typed.toLowerCase());
-      if (match) {
-        selectHero(match);
-      } else if (!heroHidden.value) {
-        heroSearch.value = heroHidden.value;
-      }
-    }, 150);
-  });
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.um-hero-combo')) heroDropdown.classList.remove('open');
-  });
-
-  function renderTags(categoryId) {
-    slotTagsWrap.innerHTML = '';
-    effectsTagsWrap.innerHTML = '';
-    genericTagsWrap.innerHTML = '';
-    slotGroup.style.display = 'none';
-    effectsGroup.style.display = 'none';
-    genericGroup.style.display = 'none';
-
+  function getSlotTags(categoryId) {
+    const list = (window.slotTags || {})[categoryId];
+    if (Array.isArray(list) && list.length) return list;
     const cfg = (window.TAG_CONFIGS || {})[categoryId];
-    if (!cfg || !cfg.map) {
-      tagsGroup.style.display = 'none';
-      return;
-    }
-    tagsGroup.style.display = '';
-
-    const slotTags = categoryId === 'hero-items' ? getSlotTags(categoryId) : [];
-    let hasSlot = false, hasEffects = false, hasGeneric = false;
-
-    for (const [key, label] of Object.entries(cfg.map)) {
-      if (slotTags.includes(key)) {
-        const id = `umSlot_${key}`;
-        const wrap = document.createElement('label');
-        wrap.className = 'upload-tag-chip upload-slot-chip';
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'slotTag';
-        radio.id = id;
-        radio.value = key;
-        wrap.appendChild(radio);
-        wrap.append(' ' + label);
-        radio.addEventListener('change', () => {
-          slotTagsWrap.querySelectorAll('label.upload-slot-chip').forEach(l =>
-            l.classList.toggle('selected', l.querySelector('input')?.checked));
-          updatePreview();
-        });
-        slotTagsWrap.appendChild(wrap);
-        hasSlot = true;
-      } else if (key === 'effects' || key === 'icons') {
-        const id = `umEffect_${key}`;
-        const wrap = document.createElement('label');
-        wrap.className = 'upload-tag-chip';
-        if (TAG_DESCRIPTIONS[key]) wrap.title = TAG_DESCRIPTIONS[key];
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.id = id;
-        cb.value = key;
-        wrap.appendChild(cb);
-        wrap.append(' ' + label);
-        cb.addEventListener('change', updatePreview);
-        effectsTagsWrap.appendChild(wrap);
-        hasEffects = true;
-      } else {
-        const id = `umTag_${key}`;
-        const wrap = document.createElement('label');
-        wrap.className = 'upload-tag-chip';
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.id = id;
-        cb.value = key;
-        wrap.appendChild(cb);
-        wrap.append(' ' + label);
-        cb.addEventListener('change', updatePreview);
-        genericTagsWrap.appendChild(wrap);
-        hasGeneric = true;
-      }
-    }
-
-    if (hasSlot) slotGroup.style.display = '';
-    if (hasEffects) effectsGroup.style.display = '';
-    if (hasGeneric) genericGroup.style.display = '';
+    if (cfg && cfg.map) return Object.keys(cfg.map).filter(k => !NON_SLOT_TAGS.includes(k));
+    return FALLBACK_SLOT_TAGS;
   }
 
-  categorySelect.addEventListener('change', () => {
-    const cat = categorySelect.value;
-
-    if (BLACKLISTED_CATEGORIES.includes(cat)) {
-      categorySelect.value = '';
-      statusEl.textContent = 'This category is temporarily unavailable for new submissions.';
-      statusEl.className = 'upload-status upload-status-error';
-      heroGroup.style.display = 'none';
-      previewVideoGroup.style.display = 'none';
-      renderTags('');
-      checkDuplicate();
-      updatePreview();
-      return;
+  function listCategoryMods(category) {
+    const data = window.modsData && window.modsData[category];
+    if (!data) return [];
+    if (Array.isArray(data)) return data.map(mod => ({ mod, group: null }));
+    if (Array.isArray(data.groups)) {
+      return data.groups.flatMap(g => (Array.isArray(g.mods) ? g.mods : []).map(mod => ({ mod, group: g.name || null })));
     }
-
-    heroGroup.style.display = HERO_AWARE_CATEGORIES.includes(cat) ? '' : 'none';
-    if (HERO_AWARE_CATEGORIES.includes(cat)) {
-      if (heroHidden.value) ensureHeroInName(heroHidden.value);
-    } else {
-      heroHidden.value = '';
-      heroSearch.value = '';
-    }
-    updateNameMaxLength();
-    checkHeroInName();
-
-    const showsPreviewVideo = getPreviewVideoCategories().includes(cat);
-    previewVideoGroup.style.display = showsPreviewVideo ? '' : 'none';
-    if (!showsPreviewVideo) {
-      previewVideoInput.value = '';
-      checkPreviewVideo();
-    }
-
-    renderTags(cat);
-    checkDuplicate();
-    updatePreview();
-  });
-
-  previewVideoInput.addEventListener('input', () => {
-    checkPreviewVideo();
-    updatePreview();
-  });
-
-  nameInput.addEventListener('input', () => {
-    syncNameField();
-    checkDuplicate();
-    checkHeroInName();
-    updatePreview();
-  });
-
-  nameInput.addEventListener('blur', () => {
-    const titled = titleCaseWords(nameInput.value);
-    if (titled !== nameInput.value) {
-      setNameValue(titled);
-      checkDuplicate();
-      checkHeroInName();
-      updatePreview();
-    }
-  });
-
-
-  function setAuthorExistingVisible(visible) {
-    if (window.MD3Select?.setVisible) {
-      window.MD3Select.setVisible(authorExistingSelect, visible);
-    } else {
-      selectVisualEl(authorExistingSelect).style.display = visible ? '' : 'none';
-    }
-    if (!visible && authorExistingSelect.value) {
-      authorExistingSelect.value = '';
-      authorExistingSelect.dispatchEvent(new Event('change'));
-    }
+    return [];
+  }
+  function findExistingMod(category, name) {
+    const key = normalizeModName(name);
+    if (!key || !category) return null;
+    return listCategoryMods(category).find(x => x.mod && normalizeModName(x.mod.name) === key) || null;
+  }
+  function modIsReplaceable(mod) {
+    return typeof mod.file === 'string' && /^[^\\/]+\.zip$/i.test(mod.file);
   }
 
-  function setExtraExistingVisible(visible) {
-    if (window.MD3Select?.setVisible) {
-      window.MD3Select.setVisible(extraExistingSelect, visible);
-    } else {
-      selectVisualEl(extraExistingSelect).style.display = visible ? '' : 'none';
-    }
-    if (!visible && extraExistingSelect.value) {
-      extraExistingSelect.value = '';
-      extraExistingSelect.dispatchEvent(new Event('change'));
-    }
+  const S = {
+    step: 0,
+    maxStep: 0,
+    archiveFile: null,
+    archive: null,
+    reading: false,
+    update: null,
+    prefillKey: '',
+    autoFilledName: '',
+    busy: false,
+    cooldown: 0,
+    cooldownTimer: null,
+    turnstileId: null,
+    previewUrl: null,
+    allHeroes: []
+  };
+
+  let form, categorySelect, heroGroup, heroSearch, heroHidden, heroList, nameInput, nameSuggest;
+  let slotTagsWrap, effectsTagsWrap, genericTagsWrap;
+
+  const LOG_ICONS = { muted: 'info', info: 'info', progress: 'sync', success: 'check_circle', error: 'error' };
+
+  function setLogState(state) {
+    const i = $('upLogIcon');
+    i.classList.remove('is-busy', 'is-success', 'is-error');
+    if (state === 'busy') { i.textContent = 'sync'; i.classList.add('is-busy'); }
+    else if (state === 'success') { i.textContent = 'check_circle'; i.classList.add('is-success'); }
+    else if (state === 'error') { i.textContent = 'error'; i.classList.add('is-error'); }
+    else i.textContent = 'terminal';
   }
-
-  form.querySelectorAll('input[name="authorMode"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const mode = form.querySelector('input[name="authorMode"]:checked').value;
-      setAuthorExistingVisible(mode === 'existing');
-      authorNewFields.style.display = mode === 'new' ? '' : 'none';
-      checkAuthorDuplicate();
-      updatePreview();
-    });
-  });
-  authorExistingSelect.addEventListener('change', updatePreview);
-  document.getElementById('umAuthorName')?.addEventListener('input', () => {
-    checkAuthorDuplicate();
-    updatePreview();
-  });
-
-  function persistAuthorPref() {
-    const mode = form.querySelector('input[name="authorMode"]:checked')?.value;
-    if (mode === 'existing') {
-      if (authorExistingSelect.value) saveAuthorPref({ mode, name: authorExistingSelect.value });
-    } else if (mode === 'new') {
-      const name = document.getElementById('umAuthorName')?.value.trim() || '';
-      const url = document.getElementById('umAuthorUrl')?.value.trim() || '';
-      if (name) saveAuthorPref({ mode, name, url });
-    } else if (mode === 'skip') {
-      saveAuthorPref({ mode });
-    }
+  function clearLog(placeholder = 'Nothing yet') {
+    $('upLogBody').textContent = '';
+    logLine(placeholder, 'muted');
+    setLogState('idle');
   }
-
-  function applyAuthorPref() {
-    const pref = loadAuthorPref();
-    if (!pref) return;
-
-    const authors = window.MOD_AUTHOR || {};
-    let mode = pref.mode;
-    let name = String(pref.name || '');
-
-    if (mode === 'new' && name) {
-      const target = normalizeModName(name);
-      const match = Object.keys(authors).find(a => normalizeModName(a) === target);
-      if (match) {
-        mode = 'existing';
-        name = match;
-      }
+  function logLine(message, type = 'info') {
+    const body = $('upLogBody');
+    if (type !== 'muted') {
+      const kids = Array.from(body.children);
+      if (kids.length && kids.every(k => k.classList.contains('muted'))) body.textContent = '';
     }
-
-    if (mode === 'existing' && !Object.prototype.hasOwnProperty.call(authors, name)) return;
-    if (mode === 'new' && !name) return;
-
-    const radio = form.querySelector(`input[name="authorMode"][value="${mode}"]`);
-    if (!radio) return;
-    radio.checked = true;
-    radio.dispatchEvent(new Event('change', { bubbles: true }));
-
-    if (mode === 'existing') {
-      authorExistingSelect.value = name;
-      authorExistingSelect.dispatchEvent(new Event('change'));
-    } else if (mode === 'new') {
-      const nameEl = document.getElementById('umAuthorName');
-      const urlEl = document.getElementById('umAuthorUrl');
-      if (nameEl) nameEl.value = name;
-      if (urlEl) urlEl.value = pref.url || '';
-      nameEl?.dispatchEvent(new Event('input', { bubbles: true }));
-    }
+    const row = el('div', `up-log-entry ${type}`);
+    row.append(icon(LOG_ICONS[type] || 'info'), el('span', '', message));
+    body.appendChild(row);
+    body.scrollTop = body.scrollHeight;
+    return row;
   }
-
-  form.querySelectorAll('input[name="extraMode"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const mode = form.querySelector('input[name="extraMode"]:checked').value;
-      extraFields.style.display = mode === 'none' ? 'none' : '';
-      if (mode === 'none') {
-        setExtraExistingVisible(false);
-        extraNewFields.style.display = 'none';
-        const extraName = document.getElementById('umExtraName');
-        const extraUrl = document.getElementById('umExtraUrl');
-        if (extraName) extraName.value = '';
-        if (extraUrl) extraUrl.value = '';
-      } else {
-        const originExisting = form.querySelector('input[name="extraOriginMode"][value="existing"]');
-        if (originExisting) originExisting.checked = true;
-        setExtraExistingVisible(true);
-        extraNewFields.style.display = 'none';
-        refreshExtraExistingSelect(mode);
-      }
-      checkExtraDuplicate();
-      updatePreview();
-    });
-  });
-
-  form.querySelectorAll('input[name="extraOriginMode"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const isNew = form.querySelector('input[name="extraOriginMode"]:checked').value === 'new';
-      setExtraExistingVisible(!isNew);
-      extraNewFields.style.display = isNew ? '' : 'none';
-      checkExtraDuplicate();
-      updatePreview();
-    });
-  });
-  extraExistingSelect.addEventListener('change', updatePreview);
-  document.getElementById('umExtraName')?.addEventListener('input', () => {
-    checkExtraDuplicate();
-    updatePreview();
-  });
-
-  function isAllowedHttpUrl(value) {
-    try {
-      const url = new URL(String(value || ''));
-      return (url.protocol === 'https:' || url.protocol === 'http:')
-        && url.username === ''
-        && url.password === ''
-        && url.href.length <= MAX_URL_LENGTH;
-    } catch {
-      return false;
-    }
+  function updateLogLine(row, message) {
+    if (!row) return;
+    row.querySelector('span:last-child').textContent = message;
   }
 
   function validateArchiveFile(file) {
@@ -1289,58 +261,37 @@ function setupUploadModal() {
     }
   }
 
-  async function extractArchive(file) {
+  async function extractArchive(file, report) {
     validateArchiveFile(file);
-
+    report('Reading the ZIP…');
     const buf = new Uint8Array(await file.arrayBuffer());
     let entries;
-    try {
-      entries = fflate.unzipSync(buf);
-    } catch {
-      throw new Error('The selected file is not a valid ZIP archive.');
-    }
+    try { entries = fflate.unzipSync(buf); } catch { throw new Error('The selected file is not a valid ZIP archive.'); }
 
     const names = Object.keys(entries);
-    if (names.length > MAX_ARCHIVE_ENTRIES) {
-      throw new Error(`Archive contains too many files. Maximum is ${MAX_ARCHIVE_ENTRIES}.`);
-    }
+    if (names.length > MAX_ARCHIVE_ENTRIES) throw new Error(`Archive contains too many files. Maximum is ${MAX_ARCHIVE_ENTRIES}.`);
 
-    let totalExtracted = 0;
+    let total = 0;
     for (const name of names) {
       const data = entries[name];
       if (!(data instanceof Uint8Array)) continue;
-      if (data.length > MAX_ENTRY_BYTES) {
-        throw new Error('Archive contains a file that is too large.');
-      }
-      totalExtracted += data.length;
-      if (totalExtracted > MAX_EXTRACTED_BYTES) {
-        throw new Error('Archive expands to too much data.');
-      }
-
+      if (data.length > MAX_ENTRY_BYTES) throw new Error('Archive contains a file that is too large.');
+      total += data.length;
+      if (total > MAX_EXTRACTED_BYTES) throw new Error('Archive expands to too much data.');
       const normalized = name.replace(/\\/g, '/');
-      if (normalized.startsWith('/') || normalized.split('/').includes('..')) {
-        throw new Error('Archive contains an unsafe file path.');
-      }
+      if (normalized.startsWith('/') || normalized.split('/').includes('..')) throw new Error('Archive contains an unsafe file path.');
     }
 
-    let modZip = null, preview = null, previewExt = null, folderName = null;
-    let otherImageFound = false, previewError = null;
-    for (const name of Object.keys(entries)) {
+    let modZip = null, preview = null, previewExt = null, folderName = null, otherImage = false, previewError = null;
+    for (const name of names) {
       if (name.endsWith('/')) continue;
       const parts = name.split('/');
       if (parts.length > 1 && !folderName) folderName = parts[0];
       const lower = name.toLowerCase();
-      if (lower.endsWith('.zip') && !modZip) {
-        modZip = entries[name];
-      } else if (/\.(webp|png|jpe?g)$/.test(lower)) {
-        if (lower.endsWith('.webp')) {
-          if (!preview) {
-            preview = entries[name];
-            previewExt = 'webp';
-          }
-        } else {
-          otherImageFound = true;
-        }
+      if (lower.endsWith('.zip') && !modZip) modZip = entries[name];
+      else if (/\.(webp|png|jpe?g)$/.test(lower)) {
+        if (lower.endsWith('.webp')) { if (!preview) { preview = entries[name]; previewExt = 'webp'; } }
+        else otherImage = true;
       }
     }
     if (preview) {
@@ -1351,242 +302,904 @@ function setupUploadModal() {
         preview = null; previewExt = null;
         previewError = 'The preview file is not a valid WebP image.';
       }
-    } else if (otherImageFound) {
+    } else if (otherImage) {
       previewError = 'The preview must be a WebP image (.webp). PNG/JPG previews are not accepted.';
     }
     if (!modZip) throw new Error('Archive must contain a .zip file with the mod inside it.');
 
-    const hashEntryName = Object.keys(entries).find(n => n.toLowerCase().split('/').pop() === 'hash.json');
-    if (!hashEntryName) {
-      throw new Error('Archive is missing hashes');
-    }
+    const hashEntryName = names.find(n => n.toLowerCase().split('/').pop() === 'hash.json');
+    if (!hashEntryName) throw new Error('Archive is missing hashes');
     let hashData;
-    try {
-      hashData = JSON.parse(new TextDecoder('utf-8').decode(entries[hashEntryName]));
-    } catch {
-      throw new Error('hash.json is not valid JSON.');
-    }
-    const expectedVpkZipHash = String(hashData.vpk_zip_hash || '').toLowerCase().trim();
-    const expectedVpkHash = String(hashData.vpk_hash || '').toLowerCase().trim();
-    if (!/^[a-f0-9]{64}$/.test(expectedVpkZipHash) || !/^[a-f0-9]{64}$/.test(expectedVpkHash)) {
+    try { hashData = JSON.parse(new TextDecoder('utf-8').decode(entries[hashEntryName])); }
+    catch { throw new Error('hash.json is not valid JSON.'); }
+    const expectedZip = String(hashData.vpk_zip_hash || '').toLowerCase().trim();
+    const expectedVpk = String(hashData.vpk_hash || '').toLowerCase().trim();
+    if (!/^[a-f0-9]{64}$/.test(expectedZip) || !/^[a-f0-9]{64}$/.test(expectedVpk)) {
       throw new Error('hash.json does not contain valid vpk_hash/vpk_zip_hash values (expected sha256 hex digests).');
     }
 
-    const actualVpkZipHash = await sha256Hex(modZip);
-    if (actualVpkZipHash !== expectedVpkZipHash) {
-      appendActivityLog(`Hash mismatch: vpk_zip_hash expected ${expectedVpkZipHash.slice(0, 12)}…, got ${actualVpkZipHash.slice(0, 12)}…`, 'error');
+    report('Verifying integrity…');
+    if ((await sha256Hex(modZip)) !== expectedZip) {
       throw new Error('Integrity check failed: the mod archive does not match. The file may be corrupted or was tampered with.');
     }
-
-    let innerEntries;
-    try {
-      innerEntries = fflate.unzipSync(modZip);
-    } catch {
-      throw new Error('The inner mod archive is not a valid ZIP file.');
-    }
-    const innerFiles = Object.keys(innerEntries).filter(n => !n.endsWith('/'));
-    const unexpectedInner = innerFiles.find(n => !n.toLowerCase().endsWith('.vpk'));
-    if (unexpectedInner) {
-      throw new Error(`The mod archive must contain only a .vpk file. Unexpected file: ${unexpectedInner}`);
-    }
-    if (innerFiles.length === 0) {
-      throw new Error('The inner mod archive does not contain a .vpk file.');
-    }
-    if (innerFiles.length > 1) {
-      throw new Error(`The mod archive must contain exactly one .vpk file (found ${innerFiles.length}).`);
-    }
-    const vpkEntryName = innerFiles[0];
-    const vpkBytes = innerEntries[vpkEntryName];
-    if (!(vpkBytes instanceof Uint8Array) || vpkBytes.length > MAX_ENTRY_BYTES) {
-      throw new Error('The .vpk file inside the mod archive is too large or unreadable.');
-    }
-    const actualVpkHash = await sha256Hex(vpkBytes);
-    if (actualVpkHash !== expectedVpkHash) {
-      appendActivityLog(`Hash mismatch: vpk_hash expected ${expectedVpkHash.slice(0, 12)}…, got ${actualVpkHash.slice(0, 12)}…`, 'error');
+    let inner;
+    try { inner = fflate.unzipSync(modZip); } catch { throw new Error('The inner mod archive is not a valid ZIP file.'); }
+    const innerFiles = Object.keys(inner).filter(n => !n.endsWith('/'));
+    const unexpected = innerFiles.find(n => !n.toLowerCase().endsWith('.vpk'));
+    if (unexpected) throw new Error(`The mod archive must contain only a .vpk file. Unexpected file: ${unexpected}`);
+    if (innerFiles.length === 0) throw new Error('The inner mod archive does not contain a .vpk file.');
+    if (innerFiles.length > 1) throw new Error(`The mod archive must contain exactly one .vpk file (found ${innerFiles.length}).`);
+    const vpk = inner[innerFiles[0]];
+    if (!(vpk instanceof Uint8Array) || vpk.length > MAX_ENTRY_BYTES) throw new Error('The .vpk file inside the mod archive is too large or unreadable.');
+    if ((await sha256Hex(vpk)) !== expectedVpk) {
       throw new Error('Integrity check failed: the .vpk file does not match. The file may be corrupted or was tampered with.');
     }
-
-    appendActivityLog('Integrity check passed', 'success');
-
     return { modZip, preview, previewExt, previewError, folderName };
   }
 
-  const archiveField = archiveInput.closest('.md3-file-field');
-  const archiveLabel = document.getElementById('umArchiveLabel');
+  function setChecks(items) {
+    const ul = $('upChecks');
+    ul.textContent = '';
+    for (const it of items) {
+      const li = el('li', it.state);
+      li.append(icon(it.state === 'ok' ? 'check_circle' : it.state === 'err' ? 'error' : 'progress_activity'), el('span', '', it.text));
+      ul.appendChild(li);
+    }
+  }
 
-  archiveInput.addEventListener('change', async () => {
-    const file = archiveInput.files[0];
-    extractedArchive = null;
-    archiveReading = false;
-    if (!file) {
-      archiveField?.classList.remove('has-file');
-      if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
-      checkDuplicate();
-      updatePreview();
-      updateSubmitDisabledState();
+  function resetArchiveUi() {
+    S.archive = null;
+    S.archiveFile = null;
+    S.reading = false;
+    $('upDrop').classList.remove('has-file', 'is-error');
+    $('upArchiveLabel').textContent = 'Drop archive here or click to browse';
+    $('upArchiveSub').textContent = 'ZIP made with PreMod · up to 100 MB';
+    $('upChecks').textContent = '';
+  }
+
+  async function handleArchiveFile(file) {
+    const drop = $('upDrop');
+    S.archive = null;
+    S.archiveFile = null;
+    drop.classList.remove('has-file', 'is-error');
+    if (!file) { resetArchiveUi(); refreshAll(); return; }
+
+    try { validateArchiveFile(file); }
+    catch (err) {
+      resetArchiveUi();
+      $('upArchive').value = '';
+      drop.classList.add('is-error');
+      setChecks([{ state: 'err', text: err.message }]);
+      refreshAll();
       return;
     }
+
+    S.archiveFile = file;
+    S.reading = true;
+    drop.classList.add('has-file');
+    $('upArchiveLabel').textContent = file.name;
+    $('upArchiveSub').textContent = formatBytes(file.size);
+    setChecks([{ state: 'busy', text: 'Checking your archive…' }]);
+    setLogState('busy');
+    const logRow = logLine('Reading archive…', 'progress');
+    refreshAll();
+
     try {
-      validateArchiveFile(file);
-    } catch (err) {
-      archiveInput.value = '';
-      archiveField?.classList.remove('has-file');
-      if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
-      statusEl.textContent = err.message;
-      statusEl.className = 'upload-status upload-status-error';
-      updateSubmitDisabledState();
-      return;
-    }
+      await ensureFflate();
+      const result = await extractArchive(file, msg => setChecks([{ state: 'busy', text: msg }]));
+      if (S.archiveFile !== file) return;
+      S.archive = result;
 
-    archiveField?.classList.add('has-file');
-    if (archiveLabel) archiveLabel.textContent = file.name;
-    archiveReading = true;
-    updateSubmitDisabledState();
-
-    const baseName = stripArchiveExtension(file.name);
-    const heroFromFileName = findHeroInText(baseName);
-    if (heroFromFileName) selectHero(heroFromFileName);
-
-    const suggestedFromFile = suggestNameFromText(baseName);
-    if (suggestedFromFile && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
-      autoFilledName = setNameValue(suggestedFromFile);
-    }
-
-    checkDuplicate();
-    checkHeroInName();
-    updatePreview();
-
-    appendActivityLog('Reading archive\u2026', 'progress');
-    setLogIconState('busy');
-    try {
-      const result = await extractArchive(file);
-      if (archiveInput.files[0] !== file) return; // another archive was picked meanwhile
-      extractedArchive = result;
-
-      if (extractedArchive.folderName) {
-        if (!heroHidden.value) {
-          const heroFromFolder = findHeroInText(extractedArchive.folderName);
-          if (heroFromFolder) selectHero(heroFromFolder);
-        }
-        const suggestedFromFolder = suggestNameFromText(extractedArchive.folderName);
-        if (suggestedFromFolder && (!nameInput.value.trim() || nameInput.value.trim() === autoFilledName)) {
-          autoFilledName = setNameValue(suggestedFromFolder);
-        }
+      const baseName = stripExt(file.name);
+      const hero = findHeroInText(baseName) || (result.folderName ? findHeroInText(result.folderName) : null);
+      if (hero && HERO_AWARE_CATEGORIES.includes(categorySelect.value) && !heroHidden.value) selectHero(hero, { silent: true });
+      const suggestion = suggestNameFromText(result.folderName || baseName);
+      if (suggestion && (!nameInput.value.trim() || nameInput.value.trim() === S.autoFilledName)) {
+        S.autoFilledName = setNameValue(suggestion);
       }
 
-      if (extractedArchive.preview) {
-        appendActivityLog('Archive OK', 'success');
-        setLogIconState('idle');
+      const checks = [
+        { state: 'ok', text: 'Valid ZIP with an inner mod archive' },
+        { state: 'ok', text: 'Integrity hashes match' },
+        result.preview
+          ? { state: 'ok', text: 'WebP preview image found' }
+          : { state: 'err', text: result.previewError || 'No preview image found. A WebP preview is required.' }
+      ];
+      setChecks(checks);
+      if (result.preview) {
+        updateLogLine(logRow, 'Archive OK');
+        logRow.className = 'up-log-entry success';
+        logRow.querySelector('.material-symbols-rounded').textContent = 'check_circle';
+        setLogState('idle');
       } else {
-        appendActivityLog(extractedArchive.previewError || 'No preview image found in the archive. A preview is required.', 'error');
-        setLogIconState('error');
+        drop.classList.add('is-error');
+        logLine(result.previewError || 'No preview image in the archive.', 'error');
+        setLogState('error');
       }
     } catch (err) {
-      if (archiveInput.files[0] !== file) return;
-      appendActivityLog('Archive error: ' + err.message, 'error');
-      setLogIconState('error');
+      if (S.archiveFile !== file) return;
+      drop.classList.add('is-error');
+      setChecks([{ state: 'err', text: err.message }]);
+      logLine('Archive error: ' + err.message, 'error');
+      setLogState('error');
     } finally {
-      if (archiveInput.files[0] === file) {
-        archiveReading = false;
-        checkDuplicate();
-        checkHeroInName();
-        updatePreview();
-        updateSubmitDisabledState();
+      if (S.archiveFile === file) {
+        S.reading = false;
+        detectUpdate();
+        refreshAll();
       }
     }
-  });
+  }
 
-  let progressAnimFrame = null;
-  let progressTrickleInterval = null;
-  let displayedProgressPct = 0;
+  function wireDropZone() {
+    const drop = $('upDrop');
+    const input = $('upArchive');
+    input.addEventListener('change', () => handleArchiveFile(input.files[0]));
+    ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('dragover'); }));
+    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('dragover'); }));
+    drop.addEventListener('drop', e => {
+      const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (!file) return;
+      try {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        input.files = dt.files;
+      } catch { }
+      handleArchiveFile(file);
+    });
+  }
 
+  function findHeroInText(text) {
+    const norm = s => String(s || '').toLowerCase().replace(/[_\-.]+/g, ' ');
+    const hay = norm(text);
+    if (!hay) return null;
+    let best = null;
+    for (const hero of S.allHeroes) {
+      const needle = norm(hero);
+      if (needle && hay.includes(needle) && (!best || needle.length > norm(best).length)) best = hero;
+    }
+    return best;
+  }
+  function suggestNameFromText(raw) {
+    const titled = toTitleCase(raw);
+    const hero = findHeroInText(raw);
+    if (!hero || hero === toTitleCase(hero)) return titled;
+    const mangled = toTitleCase(hero);
+    return titled.includes(mangled) ? titled.split(mangled).join(hero) : titled;
+  }
+
+  function currentMaxNameLength() { return getMaxNameLength(heroHidden.value); }
+
+  function showNameTrim(badChars, overflow, max) {
+    const box = $('upNameTrim');
+    if (!badChars && !overflow) return;
+    box.textContent = '';
+    const add = (label, chars) => {
+      if (!chars) return;
+      const wrap = el('span', '', label + ' ');
+      wrap.appendChild(el('mark', '', chars));
+      wrap.append(' ');
+      box.appendChild(wrap);
+    };
+    add('Removed (not allowed):', badChars);
+    add(`Removed (over ${max} characters):`, overflow);
+    box.hidden = false;
+    clearTimeout(showNameTrim.timer);
+    showNameTrim.timer = setTimeout(() => { box.hidden = true; }, 6000);
+    nameInput.classList.remove('flash');
+    void nameInput.offsetWidth;
+    nameInput.classList.add('flash');
+  }
+
+  function syncNameField({ trimEdges = false } = {}) {
+    const max = currentMaxNameLength();
+    const raw = nameInput.value;
+    const caret = nameInput.selectionStart == null ? raw.length : nameInput.selectionStart;
+    const { kept: keptRaw, badChars, overflow } = cleanNameValue(raw, max);
+    const kept = trimEdges ? keptRaw.trim() : keptRaw;
+    if (kept !== raw) {
+      nameInput.value = kept;
+      if (document.activeElement === nameInput) {
+        const pos = Math.min(cleanNameValue(raw.slice(0, caret), max).kept.length, kept.length);
+        nameInput.setSelectionRange(pos, pos);
+      }
+    }
+    $('upNameCount').textContent = String(kept.length);
+    $('upNameMax').textContent = String(max);
+    showNameTrim(badChars, overflow, max);
+    return kept;
+  }
+  function setNameValue(v) { nameInput.value = v; return syncNameField({ trimEdges: true }); }
+
+  function ensureHeroInName(hero) {
+    if (!hero || S.update) return;
+    const current = nameInput.value.trim();
+    if (!current) { S.autoFilledName = setNameValue(hero); return; }
+    if (current.toLowerCase().includes(hero.toLowerCase())) return;
+    const combined = `${hero} ${current}`;
+    if (combined.length <= getMaxNameLength(hero)) setNameValue(combined);
+  }
+
+  function buildHeroList(filter) {
+    const q = (filter || '').toLowerCase().trim();
+    heroList.textContent = '';
+    const visible = q ? S.allHeroes.filter(h => h.toLowerCase().includes(q)) : S.allHeroes;
+    if (!visible.length) { heroList.appendChild(el('div', 'up-combo-item muted', 'No heroes found')); return; }
+    for (const h of visible) {
+      const opt = el('div', 'up-combo-item', h);
+      opt.setAttribute('role', 'option');
+      opt.addEventListener('mousedown', ev => { ev.preventDefault(); selectHero(h); });
+      heroList.appendChild(opt);
+    }
+  }
+
+  function swapHeroInName(prev, next) {
+    if (!prev || !next || S.update) return false;
+    const cur = nameInput.value;
+    const i = cur.toLowerCase().indexOf(prev.toLowerCase());
+    if (i < 0 || prev.toLowerCase() === next.toLowerCase()) return false;
+    const swapped = (cur.slice(0, i) + next + cur.slice(i + prev.length)).replace(/\s+/g, ' ').trim();
+    if (swapped.length > getMaxNameLength(next)) return false;
+    setNameValue(swapped);
+    return true;
+  }
+
+  function selectHero(hero, { silent = false } = {}) {
+    const prev = S.lastHero;
+    heroHidden.value = hero;
+    heroSearch.value = hero;
+    heroList.classList.remove('open');
+    syncNameField();
+    if (!silent && !swapHeroInName(prev, hero)) ensureHeroInName(hero);
+    S.lastHero = hero;
+    onNameOrHeroChanged();
+  }
+
+  function renderCategorySelect() {
+    categorySelect.textContent = '';
+    const ph = el('option', '', 'Select category…');
+    ph.value = '';
+    categorySelect.appendChild(ph);
+    for (const c of (window.categories || []).filter(c => !BLACKLISTED_CATEGORIES.includes(c.id))) {
+      const o = el('option', '', tr(c.key, c.id));
+      o.value = c.id;
+      categorySelect.appendChild(o);
+    }
+    refreshSelect(categorySelect);
+  }
+
+  function renderNameSuggestions() {
+    const list = nameSuggest;
+    const cat = categorySelect.value;
+    list.textContent = '';
+    const q = nameInput.value.trim().toLowerCase();
+    if (!cat || document.activeElement !== nameInput || q.length < 4) { list.classList.remove('open'); return; }
+    const hero = heroHidden.value.toLowerCase();
+    const matches = listCategoryMods(cat)
+      .filter(x => x.mod && String(x.mod.name).toLowerCase().includes(q) && (!hero || !HERO_AWARE_CATEGORIES.includes(cat) || String(x.mod.name).toLowerCase().includes(hero)))
+      .slice(0, 8);
+    if (!matches.length) { list.classList.remove('open'); return; }
+    list.appendChild(el('div', 'up-combo-item muted', 'Already in the catalog - pick one to update it'));
+    for (const { mod } of matches) {
+      const row = el('div', 'up-combo-item');
+      row.setAttribute('role', 'option');
+      row.append(el('span', '', mod.name), el('small', '', 'update'));
+      row.addEventListener('mousedown', ev => {
+        ev.preventDefault();
+        nameInput.value = mod.name;
+        syncNameField();
+        list.classList.remove('open');
+        onNameOrHeroChanged();
+      });
+      list.appendChild(row);
+    }
+    list.classList.add('open');
+  }
+
+  function onNameOrHeroChanged() {
+    detectUpdate();
+    updateNameHints();
+    refreshAll();
+  }
+
+  function updateNameHints() {
+    const hint = $('upNameHint');
+    const max = currentMaxNameLength();
+    $('upNameCount').textContent = String(nameInput.value.length);
+    $('upNameMax').textContent = String(max);
+    hint.classList.remove('up-hint-warn');
+  }
+
+  function detectUpdate() {
+    const category = categorySelect.value;
+    const name = nameInput.value.trim();
+    const found = BLACKLISTED_CATEGORIES.includes(category) ? null : findExistingMod(category, name);
+    const prevKey = S.prefillKey;
+    const newKey = found ? `${category}::${normalizeModName(found.mod.name)}` : '';
+
+    S.update = found;
+    const banner = $('upUpdateBanner');
+    const blocked = $('upBlockedBanner');
+    show(banner, !!found && modIsReplaceable(found.mod));
+    show(blocked, !!found && !modIsReplaceable(found.mod));
+    if (found) {
+      if (modIsReplaceable(found.mod)) {
+        $('upUpdateBannerText').textContent =
+          `"${found.mod.name}" is already in the catalog. Your archive replaces its files via a GitHub pull request; the author stays unchanged.`;
+      } else {
+        $('upBlockedBannerText').textContent =
+          `"${found.mod.name}" is hosted outside the catalog, so its files can't be replaced from here. Choose a different name or contact the moderators.`;
+      }
+      if (HERO_AWARE_CATEGORIES.includes(category) && found.group && S.allHeroes.includes(found.group) && heroHidden.value !== found.group) {
+        heroHidden.value = found.group;
+        heroSearch.value = found.group;
+        S.lastHero = found.group;
+      }
+    }
+
+    if (newKey !== prevKey) {
+      S.prefillKey = newKey;
+      if (found) prefillFromExisting(found.mod);
+      else resetDetails();
+      applyUpdateModeUi();
+    } else {
+      applyUpdateModeUi();
+    }
+    syncPageTitle();
+  }
+
+  function syncPageTitle() {
+    document.title = S.update ? 'Update mod — Dota2PornFx' : 'Upload mod — Dota2PornFx';
+  }
+
+  function resetDetails() {
+    slotTagsWrap.querySelectorAll('input').forEach(i => { i.checked = false; });
+    effectsTagsWrap.querySelectorAll('input').forEach(i => { i.checked = false; });
+    genericTagsWrap.querySelectorAll('input').forEach(i => { i.checked = false; });
+    $('upVideo').value = '';
+    setRadio('extraMode', 'none');
+    $('upExtraName').value = '';
+    $('upExtraUrl').value = '';
+    syncExtraUi();
+    applyAuthorPref();
+  }
+
+  function prefillFromExisting(mod) {
+    const tags = mod.tags && typeof mod.tags === 'object' ? mod.tags : {};
+    for (const wrap of [slotTagsWrap, effectsTagsWrap, genericTagsWrap]) {
+      wrap.querySelectorAll('input').forEach(i => { i.checked = tags[i.value] === true; });
+    }
+    const links = Array.isArray(mod.links) ? mod.links : [];
+    const video = links.find(l => l && l.type === 'preview' && typeof l.url === 'string');
+    $('upVideo').value = video ? video.url : '';
+    const extra = links.find(l => l && (l.type === 'source' || l.type === 'modded') && typeof l.url === 'string');
+    if (extra) {
+      setRadio('extraMode', extra.type);
+      setRadio('extraOriginMode', 'existing');
+      syncExtraUi();
+      const sel = $('upExtraExisting');
+      if (Array.from(sel.options).some(o => o.value === extra.url)) setSelectValue(sel, extra.url);
+    } else {
+      setRadio('extraMode', 'none');
+      syncExtraUi();
+    }
+  }
+
+  function lockedAuthorLinks(mod) {
+    return (Array.isArray(mod.links) ? mod.links : []).filter(l => l && (l.type === 'author' || l.type === 'sender') && l.url);
+  }
+
+  function applyUpdateModeUi() {
+    const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
+    const authorGroup = $('upAuthorExisting').closest('.up-field-group');
+    show($('upAuthorLocked'), !!upd);
+    show(authorGroup, !upd);
+
+    const coAuthorLabel = form.querySelector('input[name="extraMode"][value="author"]').closest('label');
+    show(coAuthorLabel, !upd);
+    if (upd && getRadio('extraMode') === 'author') { setRadio('extraMode', 'none'); syncExtraUi(); }
+
+    if (upd) {
+      const names = $('upAuthorLockedNames');
+      names.textContent = '';
+      const locked = lockedAuthorLinks(upd.mod);
+      if (!locked.length) names.appendChild(el('span', '', 'No author listed'));
+      for (const l of locked) names.appendChild(el('span', '', l.type === 'sender' && l.name ? l.name : l.url));
+      $('upCreditsDesc').textContent = 'The author is fixed for updates. You can add or change a source / "modded by" link and the video below.';
+      $('upReviewDesc').textContent = 'This will open a pull request that replaces the existing files of this mod once approved.';
+      $('upSubmitText').textContent = S.busy ? 'Uploading…' : 'Submit update';
+    } else {
+      $('upCreditsDesc').textContent = 'Who made this mod?';
+      $('upReviewDesc').textContent = 'Check everything below, then send it for moderation.';
+      $('upSubmitText').textContent = S.busy ? 'Uploading…' : 'Submit for review';
+    }
+    $('upNext').parentElement;
+  }
+
+  function renderTags(categoryId) {
+    slotTagsWrap.textContent = '';
+    effectsTagsWrap.textContent = '';
+    genericTagsWrap.textContent = '';
+    show($('upSlotGroup'), false);
+    show($('upEffectsGroup'), false);
+    show($('upGenericGroup'), false);
+
+    const cfg = (window.TAG_CONFIGS || {})[categoryId];
+    const hasTags = !!(cfg && cfg.map && Object.keys(cfg.map).length);
+    show($('upTagsGroup'), hasTags);
+    show($('upNoTags'), !!categoryId && !hasTags);
+    if (!hasTags) return;
+
+    const slotTags = categoryId === 'hero-items' ? getSlotTags(categoryId) : [];
+    let hasSlot = false, hasEffects = false, hasGeneric = false;
+    const chip = (type, key, label, wrap, extraClass = '') => {
+      const l = el('label', 'up-chip' + extraClass);
+      if (TAG_DESCRIPTIONS[key]) l.title = TAG_DESCRIPTIONS[key];
+      const input = document.createElement('input');
+      input.type = type;
+      input.value = key;
+      if (type === 'radio') input.name = 'slotTag';
+      input.addEventListener('change', () => { refreshAll(); });
+      l.append(input, ' ' + label);
+      wrap.appendChild(l);
+    };
+    for (const [key, label] of Object.entries(cfg.map)) {
+      if (slotTags.includes(key)) { chip('radio', key, label, slotTagsWrap, ' up-chip-slot'); hasSlot = true; }
+      else if (key === 'effects' || key === 'icons') { chip('checkbox', key, label, effectsTagsWrap); hasEffects = true; }
+      else { chip('checkbox', key, label, genericTagsWrap); hasGeneric = true; }
+    }
+    show($('upSlotGroup'), hasSlot);
+    show($('upEffectsGroup'), hasEffects);
+    show($('upGenericGroup'), hasGeneric);
+  }
+
+  function selectedTags() {
+    const tags = {};
+    const slot = slotTagsWrap.querySelector('input:checked');
+    if (slot) tags[slot.value] = true;
+    effectsTagsWrap.querySelectorAll('input:checked').forEach(i => { tags[i.value] = true; });
+    genericTagsWrap.querySelectorAll('input:checked').forEach(i => { tags[i.value] = true; });
+    return tags;
+  }
+
+  function getRadio(name) { const r = form.querySelector(`input[name="${name}"]:checked`); return r ? r.value : null; }
+  function setRadio(name, value) {
+    const r = form.querySelector(`input[name="${name}"][value="${value}"]`);
+    if (r) r.checked = true;
+  }
+  function fillSelect(select, values, placeholder) {
+    select.textContent = '';
+    const ph = el('option', '', placeholder);
+    ph.value = '';
+    select.appendChild(ph);
+    for (const v of values) { const o = el('option', '', v); o.value = v; select.appendChild(o); }
+    refreshSelect(select);
+  }
+
+  function syncAuthorUi() {
+    const mode = getRadio('authorMode');
+    showSelect($('upAuthorExisting'), mode === 'existing');
+    show($('upAuthorNew'), mode === 'new');
+    checkAuthorDuplicate();
+  }
+  function syncExtraUi() {
+    const mode = getRadio('extraMode');
+    show($('upExtraFields'), mode !== 'none');
+    if (mode === 'none') {
+      $('upExtraName').value = '';
+      $('upExtraUrl').value = '';
+      return;
+    }
+    const registry = mode === 'source' ? window.MOD_SOURCES : window.MOD_AUTHOR;
+    const current = $('upExtraExisting').value;
+    fillSelect($('upExtraExisting'), Object.keys(registry || {}).sort(), mode === 'source' ? 'Select source…' : 'Select author…');
+    if (current && registry && Object.prototype.hasOwnProperty.call(registry, current)) setSelectValue($('upExtraExisting'), current);
+    const origin = getRadio('extraOriginMode');
+    showSelect($('upExtraExisting'), origin === 'existing');
+    show($('upExtraNew'), origin === 'new');
+    checkExtraDuplicate();
+  }
+
+  function checkAuthorDuplicate() {
+    const hint = $('upAuthorDup');
+    const nick = $('upAuthorName').value.trim();
+    if (getRadio('authorMode') !== 'new' || !nick) { show(hint, false); return false; }
+    const match = Object.keys(window.MOD_AUTHOR || {}).find(a => normalizeModName(a) === normalizeModName(nick));
+    if (match) hint.textContent = `An author named "${match}" already exists — choose "Existing" instead.`;
+    show(hint, !!match);
+    return !!match;
+  }
+  function checkExtraDuplicate() {
+    const hint = $('upExtraDup');
+    const mode = getRadio('extraMode');
+    const value = $('upExtraName').value.trim();
+    if (mode === 'none' || getRadio('extraOriginMode') !== 'new' || !value) { show(hint, false); return false; }
+    const registry = mode === 'source' ? window.MOD_SOURCES : window.MOD_AUTHOR;
+    const match = Object.keys(registry || {}).find(a => normalizeModName(a) === normalizeModName(value));
+    if (match) hint.textContent = `A ${mode === 'source' ? 'source' : 'author'} named "${match}" already exists — choose "Existing" instead.`;
+    show(hint, !!match);
+    return !!match;
+  }
+
+  function applyAuthorPref() {
+    if (S.update) return;
+    const pref = loadAuthorPref();
+    if (!pref) return;
+    const authors = window.MOD_AUTHOR || {};
+    let mode = pref.mode;
+    let name = String(pref.name || '');
+    if (mode === 'new' && name) {
+      const match = Object.keys(authors).find(a => normalizeModName(a) === normalizeModName(name));
+      if (match) { mode = 'existing'; name = match; }
+    }
+    if (mode === 'existing' && !Object.prototype.hasOwnProperty.call(authors, name)) return;
+    if (mode === 'new' && !name) return;
+    if (!['existing', 'new', 'skip'].includes(mode)) return;
+    setRadio('authorMode', mode);
+    if (mode === 'existing') setSelectValue($('upAuthorExisting'), name);
+    if (mode === 'new') { $('upAuthorName').value = name; $('upAuthorUrl').value = pref.url || ''; }
+    syncAuthorUi();
+  }
+  function persistAuthorPref() {
+    const mode = getRadio('authorMode');
+    if (mode === 'existing') { if ($('upAuthorExisting').value) saveAuthorPref({ mode, name: $('upAuthorExisting').value }); }
+    else if (mode === 'new') {
+      const name = $('upAuthorName').value.trim();
+      if (name) saveAuthorPref({ mode, name, url: $('upAuthorUrl').value.trim() });
+    } else if (mode === 'skip') saveAuthorPref({ mode });
+  }
+
+  function previewLinkButton(type, text) {
+    const b = el('span', 'link-button');
+    if (type !== 'author') b.setAttribute('data-custom-name', 'false');
+    else b.setAttribute('data-custom-name', 'true');
+    b.append(icon((window.LINK_ICONS || {})[type] || 'link'), text);
+    return b;
+  }
+
+  function currentCredits() {
+    const out = { author: null, extra: null, video: null };
+    if (S.update && modIsReplaceable(S.update.mod)) {
+      const locked = lockedAuthorLinks(S.update.mod);
+      out.author = locked.map(l => (l.type === 'sender' && l.name ? l.name : l.url)).join(', ') || null;
+    } else {
+      const mode = getRadio('authorMode');
+      if (mode === 'existing') out.author = $('upAuthorExisting').value || null;
+      else if (mode === 'new') out.author = $('upAuthorName').value.trim() || null;
+    }
+    const extraMode = getRadio('extraMode');
+    if (extraMode && extraMode !== 'none') {
+      const value = getRadio('extraOriginMode') === 'existing' ? $('upExtraExisting').value : $('upExtraName').value.trim();
+      if (value) out.extra = { type: extraMode, value };
+    }
+    const v = $('upVideo').value.trim();
+    if (v && isYouTubeUrl(v) && getPreviewVideoCategories().includes(categorySelect.value)) out.video = v;
+    return out;
+  }
+
+  function updatePreviewCard() {
+    const name = (S.update && modIsReplaceable(S.update.mod)) ? S.update.mod.name : nameInput.value.trim();
+    $('upPreviewTitle').textContent = name || 'Mod name';
+    const catOpt = categorySelect.selectedOptions[0];
+    $('upPreviewSubtitle').textContent = catOpt && catOpt.value ? catOpt.textContent : 'Category';
+
+    const buttons = $('upPreviewButtons');
+    buttons.textContent = '';
+    const c = currentCredits();
+    if (c.author) buttons.appendChild(previewLinkButton('author', c.author));
+    if (c.extra) buttons.appendChild(previewLinkButton(c.extra.type, c.extra.value));
+    if (c.video) buttons.appendChild(previewLinkButton('preview', tr('preview', 'Preview')));
+
+    const media = $('upPreviewMedia');
+    const previewData = S.archive && S.archive.preview ? S.archive.preview : null;
+    if (S.previewShown !== previewData || !media.firstElementChild) {
+      media.textContent = '';
+      if (S.previewUrl) { URL.revokeObjectURL(S.previewUrl); S.previewUrl = null; }
+      if (previewData) {
+        S.previewUrl = URL.createObjectURL(new Blob([previewData], { type: 'image/webp' }));
+        const img = document.createElement('img');
+        img.src = S.previewUrl;
+        media.appendChild(img);
+      } else {
+        media.appendChild(el('span', 'up-preview-placeholder', '\u{1F9E9}'));
+      }
+      S.previewShown = previewData;
+    }
+    const shownImg = media.querySelector('img');
+    if (shownImg) shownImg.alt = name;
+    media.querySelectorAll('.mod-tags').forEach(n => n.remove());
+
+    const catId = categorySelect.value;
+    const tagMap = ((window.TAG_CONFIGS || {})[catId] || {}).map || {};
+    const slotTags = getSlotTags(catId);
+    const tags = Object.keys(selectedTags());
+    if (tags.length) {
+      const wrap = el('div', 'mod-tags');
+      for (const k of tags) {
+        const t = el('span', 'mod-tag' + (slotTags.includes(k) ? ' mod-tag--slot' : ''), tagMap[k] || k);
+        if (TAG_DESCRIPTIONS[k]) t.title = TAG_DESCRIPTIONS[k];
+        wrap.appendChild(t);
+      }
+      media.appendChild(wrap);
+    }
+  }
+
+  function validateStep(step) {
+    const category = categorySelect.value;
+    const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
+
+    if (step === 0) {
+      if (S.reading) return 'Still checking your archive — one moment.';
+      if (!S.archiveFile) return 'Choose the archive made with PreMod first.';
+      if (!S.archive) return 'The archive could not be read. Check the messages above or choose another file.';
+      if (!S.archive.preview) return S.archive.previewError || 'This archive has no preview image. A mod preview is required.';
+    }
+
+    if (step === 1) {
+      if (!category) return 'Select a category.';
+      if (BLACKLISTED_CATEGORIES.includes(category) || !(window.categories || []).some(c => c.id === category)) {
+        return 'This category is temporarily unavailable for new submissions.';
+      }
+      const hero = heroHidden.value.trim();
+      if (HERO_AWARE_CATEGORIES.includes(category)) {
+        if (!hero) return 'Select a hero for this category.';
+        if (!(window.HEROES_LIST || []).includes(hero)) return 'Invalid hero.';
+      }
+      const name = nameInput.value.trim();
+      if (!name) return 'Enter a mod name.';
+      if (S.update && !modIsReplaceable(S.update.mod)) return 'This mod is hosted externally and cannot be updated here.';
+      if (!upd) {
+        const max = getMaxNameLength(hero);
+        if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters, English letters/numbers only).`;
+        if (MISPLACED_HYPHEN_RE.test(name)) return 'A hyphen is allowed only inside a word (e.g. "big-cat"), not with spaces around it ("big - cat").';
+        if (HERO_AWARE_CATEGORIES.includes(category) && hero) {
+          const lower = name.toLowerCase();
+          if (!lower.includes(hero.toLowerCase())) return `The mod name must include the hero name "${hero}".`;
+          const rest = lower.split(hero.toLowerCase()).join(' ').replace(/[^a-z0-9]/g, '');
+          if (!rest) return `Add a title after the hero name (e.g. "${hero} Origin"). The name can't be just "${hero}".`;
+        }
+      }
+    }
+
+    if (step === 2) {
+      if (category === 'hero-items' && slotTagsWrap.querySelector('input') && !slotTagsWrap.querySelector('input:checked')) {
+        return 'Select a slot for the hero item.';
+      }
+      const v = $('upVideo').value.trim();
+      if (v && !getPreviewVideoCategories().includes(category)) return 'This category does not accept a preview video.';
+      if (v && !isYouTubeUrl(v)) return 'Preview video must be a youtube.com / youtu.be link.';
+    }
+
+    if (step === 3) {
+      if (!upd) {
+        const mode = getRadio('authorMode');
+        if (mode === 'existing') {
+          const v = $('upAuthorExisting').value;
+          if (!v) return 'Select an author, or choose "New" / "None".';
+          if (!SAFE_TEXT_RE.test(v)) return `Author name: ${NICK_HINT}.`;
+        } else if (mode === 'new') {
+          const nick = $('upAuthorName').value.trim();
+          if (!nick) return 'Enter the author nickname.';
+          if (nick.length > 150 || !NICK_RE.test(nick)) return `Author name: ${NICK_HINT}.`;
+          const url = $('upAuthorUrl').value.trim();
+          if (url && !isAllowedHttpUrl(url)) return 'Author profile link is invalid.';
+          if (checkAuthorDuplicate()) return 'That author already exists — choose "Existing" instead.';
+        }
+      }
+      const extraMode = getRadio('extraMode');
+      if (extraMode && extraMode !== 'none') {
+        const label = extraMode === 'source' ? 'source' : extraMode === 'modded' ? '"modded by" author' : 'co-author';
+        if (getRadio('extraOriginMode') === 'existing') {
+          const v = $('upExtraExisting').value;
+          if (!v) return `Select a ${label}, or switch to "New".`;
+          if (!SAFE_TEXT_RE.test(v)) return `Additional link: ${NICK_HINT}.`;
+        } else {
+          const v = $('upExtraName').value.trim();
+          if (!v) return `Enter the ${label} name.`;
+          if (v.length > 150 || !NICK_RE.test(v)) return `Additional link: ${NICK_HINT}.`;
+          const url = $('upExtraUrl').value.trim();
+          if (url && !isAllowedHttpUrl(url)) return 'Additional link URL is invalid.';
+          if (checkExtraDuplicate()) return 'That name already exists — choose "Existing" instead.';
+        }
+      }
+    }
+    return null;
+  }
+
+  function showStepError(msg) {
+    const box = $('upStepError');
+    box.textContent = msg || '';
+    box.hidden = !msg;
+  }
+
+  function refreshAll() {
+    if (!$('upStepError').hidden && !S.busy && S.step < STEP_COUNT - 1) showStepError(validateStep(S.step) || '');
+    updatePreviewCard();
+    updateNav();
+  }
+
+  function updateNav() {
+    const last = S.step === STEP_COUNT - 1;
+    $('upPrev').style.visibility = S.step === 0 || S.busy ? 'hidden' : 'visible';
+    show($('upNext'), !last);
+    show($('upSubmit'), last);
+    $('upNext').disabled = S.reading;
+    $('upSubmit').disabled = S.busy || S.cooldown > 0;
+    $('upSubmitIcon').textContent = S.busy ? 'hourglass_empty' : 'send';
+
+    document.querySelectorAll('#upStepper li').forEach(li => {
+      const n = Number(li.dataset.step);
+      li.classList.toggle('active', n === S.step);
+      li.classList.toggle('done', n < S.step);
+      li.style.cursor = n < S.step && !S.busy && !stepSkipped(n) ? 'pointer' : '';
+    });
+    document.querySelectorAll('.up-step').forEach(sec => { sec.hidden = Number(sec.dataset.step) !== S.step; });
+  }
+
+  function stepSkipped(n) {
+    if (n !== 2) return false;
+    const cat = categorySelect.value;
+    const cfg = (window.TAG_CONFIGS || {})[cat];
+    const hasTags = !!(cfg && cfg.map && Object.keys(cfg.map).length);
+    return !hasTags && !getPreviewVideoCategories().includes(cat);
+  }
+  function neighbourStep(from, dir) {
+    let n = from + dir;
+    while (n > 0 && n < STEP_COUNT - 1 && stepSkipped(n)) n += dir;
+    return n;
+  }
+
+  function goToStep(n) {
+    S.step = Math.max(0, Math.min(STEP_COUNT - 1, n));
+    S.maxStep = Math.max(S.maxStep, S.step);
+    showStepError('');
+    if (S.step === 4) enterReviewStep();
+    updateNav();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function tryNext() {
+    if (S.busy) return;
+    if (S.step === 1) {
+      if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
+      else setNameValue(titleCaseWords(nameInput.value));
+      ensureHeroInName(heroHidden.value);
+      detectUpdate();
+    }
+    const err = validateStep(S.step);
+    if (err) { showStepError(err); return; }
+    goToStep(neighbourStep(S.step, 1));
+  }
+
+  function row(dl, label, value) {
+    dl.append(el('dt', '', label), el('dd', '', value));
+  }
+
+  function enterReviewStep() {
+    const dl = $('upSummary');
+    dl.textContent = '';
+    const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
+    const category = categorySelect.value;
+    const tagMap = ((window.TAG_CONFIGS || {})[category] || {}).map || {};
+    const tags = Object.keys(selectedTags()).map(k => tagMap[k] || k);
+    const credits = currentCredits();
+
+    row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : 'New mod');
+    row(dl, 'Name', upd ? upd.mod.name : nameInput.value.trim());
+    row(dl, 'Category', categorySelect.selectedOptions[0] ? categorySelect.selectedOptions[0].textContent : category);
+    if (HERO_AWARE_CATEGORIES.includes(category)) row(dl, 'Hero', heroHidden.value || '—');
+    row(dl, 'Archive', S.archiveFile ? `${S.archiveFile.name} (${formatBytes(S.archiveFile.size)})` : '—');
+    row(dl, 'Tags', tags.length ? tags.join(', ') : '—');
+    row(dl, upd ? 'Author (locked)' : 'Author', credits.author || '—');
+    if (credits.extra) row(dl, { source: 'Source', modded: 'Modded by', author: 'Co-author' }[credits.extra.type] || 'Link', credits.extra.value);
+    if (credits.video) row(dl, 'Preview video', credits.video);
+
+    initTurnstile();
+    refreshCooldownFromServer();
+  }
+
+  async function initTurnstile() {
+    const box = $('upTurnstile');
+    try {
+      await ensureTurnstile();
+    } catch {
+      showStepError('Could not load the captcha. Check your connection (or an ad-blocker) and reload.');
+      return;
+    }
+    if (S.turnstileId !== null) { try { turnstile.reset(S.turnstileId); } catch { } return; }
+    S.turnstileId = turnstile.render(box, {
+      sitekey: box.dataset.sitekey,
+      theme: 'auto',
+      appearance: 'interaction-only',
+      action: 'submit_mod'
+    });
+  }
+  function resetTurnstile() { if (S.turnstileId !== null) { try { turnstile.reset(S.turnstileId); } catch { } } }
+
+  function renderCooldown() {
+    $('upCooldownText').textContent = `You can submit your next mod in ${formatCooldown(S.cooldown)}.`;
+    show($('upCooldown'), true);
+    updateNav();
+  }
+  function clearCooldown() {
+    clearInterval(S.cooldownTimer);
+    S.cooldownTimer = null;
+    S.cooldown = 0;
+    show($('upCooldown'), false);
+    updateNav();
+  }
+  function startCooldown(seconds) {
+    clearInterval(S.cooldownTimer);
+    S.cooldownTimer = null;
+    S.cooldown = Math.ceil(Number(seconds) || 0);
+    if (S.cooldown <= 0) { clearCooldown(); return; }
+    renderCooldown();
+    S.cooldownTimer = setInterval(() => {
+      S.cooldown -= 1;
+      if (S.cooldown <= 0) clearCooldown(); else renderCooldown();
+    }, 1000);
+  }
+  async function refreshCooldownFromServer() {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/api/status`);
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data && data.nextSubmitInSeconds > 0) startCooldown(data.nextSubmitInSeconds); else clearCooldown();
+    } catch { }
+  }
+
+  let progressFrame = null, trickleTimer = null, shownPct = 0;
   function renderProgress(pct) {
     const v = Math.min(100, Math.max(0, pct));
-    if (progressBar) progressBar.value = v;
-    if (progressPct) progressPct.textContent = Math.round(v) + '%';
-    displayedProgressPct = v;
+    $('upProgressBar').value = v;
+    $('upProgressPct').textContent = Math.round(v) + '%';
+    shownPct = v;
   }
-
-  function animateProgressTo(targetPct, duration = 300) {
-    const target = Math.min(100, Math.max(0, targetPct));
-    if (progressAnimFrame) cancelAnimationFrame(progressAnimFrame);
-    const start = displayedProgressPct;
-    const delta = target - start;
-    if (Math.abs(delta) < 0.05 || duration <= 0) {
-      renderProgress(target);
-      return;
-    }
-    const startTime = performance.now();
-    function step(now) {
-      const t = Math.min(1, (now - startTime) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      renderProgress(start + delta * eased);
-      progressAnimFrame = t < 1 ? requestAnimationFrame(step) : null;
-    }
-    progressAnimFrame = requestAnimationFrame(step);
+  function animateProgressTo(target, duration = 300) {
+    target = Math.min(100, Math.max(0, target));
+    if (progressFrame) cancelAnimationFrame(progressFrame);
+    const start = shownPct, delta = target - start;
+    if (Math.abs(delta) < 0.05 || duration <= 0) { renderProgress(target); return; }
+    const t0 = performance.now();
+    const step = now => {
+      const t = Math.min(1, (now - t0) / duration);
+      renderProgress(start + delta * (1 - Math.pow(1 - t, 3)));
+      progressFrame = t < 1 ? requestAnimationFrame(step) : null;
+    };
+    progressFrame = requestAnimationFrame(step);
   }
-
-  function startProgressTrickle() {
-    stopProgressTrickle();
-    progressTrickleInterval = setInterval(() => {
-      animateProgressTo(displayedProgressPct + (96 - displayedProgressPct) * 0.12, 650);
-    }, 650);
+  function startTrickle() {
+    stopTrickle();
+    trickleTimer = setInterval(() => animateProgressTo(shownPct + (96 - shownPct) * 0.12, 650), 650);
   }
-
-  function stopProgressTrickle() {
-    if (progressTrickleInterval) {
-      clearInterval(progressTrickleInterval);
-      progressTrickleInterval = null;
-    }
-  }
-
-  function showProgress() {
-    progressWrap.style.display = '';
-    renderProgress(0);
-  }
+  function stopTrickle() { clearInterval(trickleTimer); trickleTimer = null; }
+  function showProgress() { show($('upProgressWrap'), true); renderProgress(0); }
   function hideProgress() {
-    stopProgressTrickle();
-    if (progressAnimFrame) {
-      cancelAnimationFrame(progressAnimFrame);
-      progressAnimFrame = null;
-    }
-    progressWrap.style.display = 'none';
+    stopTrickle();
+    if (progressFrame) { cancelAnimationFrame(progressFrame); progressFrame = null; }
+    show($('upProgressWrap'), false);
     renderProgress(0);
-  }
-
-  function setSubmitBusy(busy) {
-    isUploadBusy = busy;
-    updateSubmitDisabledState();
-    if (submitIcon) submitIcon.textContent = busy ? 'hourglass_empty' : 'send';
-    if (submitText) submitText.textContent = busy ? 'Uploading\u2026' : 'Submit for review';
   }
 
   function xhrUpload(fd, onProgress, onSent) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open('POST', `${WORKER_BASE_URL}/api/submit`);
-      let sentFired = false;
+      let sent = false;
       xhr.upload.addEventListener('progress', ev => {
         if (!ev.lengthComputable) return;
         const pct = (ev.loaded / ev.total) * 100;
-        if (onProgress) onProgress(pct);
-        if (pct >= 99.9 && !sentFired) {
-          sentFired = true;
-          if (onSent) onSent();
-        }
+        onProgress(pct);
+        if (pct >= 99.9 && !sent) { sent = true; onSent(); }
       });
       xhr.addEventListener('load', () => {
-        if (!sentFired && onSent) onSent();
+        if (!sent) onSent();
         try {
           const data = JSON.parse(xhr.responseText);
           if (xhr.status < 200 || xhr.status >= 300 || data.error) {
             reject(Object.assign(new Error(data.message || data.error || `HTTP ${xhr.status}`), { data }));
-          } else {
-            resolve(data);
-          }
-        } catch {
-          reject(new Error('Invalid server response'));
-        }
+          } else resolve(data);
+        } catch { reject(new Error('Invalid server response')); }
       });
       xhr.addEventListener('error', () => reject(new Error('Network error')));
       xhr.addEventListener('timeout', () => reject(new Error('Request timed out')));
@@ -1594,338 +1207,363 @@ function setupUploadModal() {
     });
   }
 
-  function buildFormData(name, category) {
-    const authorMode = form.querySelector('input[name="authorMode"]:checked').value;
-    const extraMode = form.querySelector('input[name="extraMode"]:checked').value;
-    const extraOriginMode = extraMode !== 'none'
-      ? form.querySelector('input[name="extraOriginMode"]:checked').value
-      : null;
+  function buildFormData() {
+    if (S.turnstileId === null) throw new Error('Captcha is not ready. Please wait a moment and try again.');
+    const token = turnstile.getResponse(S.turnstileId);
+    if (!token) throw new Error('Please complete the captcha.');
 
-    if (turnstileWidgetId === null) {
-      throw new Error('Captcha is not ready. Please wait a moment and try again.');
-    }
-
-    const turnstileToken = turnstile.getResponse(turnstileWidgetId);
-
-    if (!turnstileToken) {
-      throw new Error('Please complete the captcha.');
-    }
-
-    const tags = {};
-    const slotRadio = slotTagsWrap.querySelector('input[type="radio"]:checked');
-    if (slotRadio) tags[slotRadio.value] = true;
-    effectsTagsWrap.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => { tags[cb.value] = true; });
-    genericTagsWrap.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => { tags[cb.value] = true; });
+    const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
+    const category = categorySelect.value;
+    const name = upd ? upd.mod.name : nameInput.value.trim();
 
     const fd = new FormData();
-
-    fd.set('cf-turnstile-response', turnstileToken);
-
+    fd.set('cf-turnstile-response', token);
+    fd.set('mode', upd ? 'update' : 'new');
+    if (upd) fd.set('existingName', upd.mod.name);
     fd.set('name', name);
     fd.set('category', category);
     fd.set('hero', HERO_AWARE_CATEGORIES.includes(category) ? (heroHidden.value || '') : '');
-    fd.set('tags', JSON.stringify(tags));
-    fd.set('authorMode', authorMode);
-    if (authorMode === 'existing') {
-      fd.set('authorName', authorExistingSelect.value);
-    } else if (authorMode === 'new') {
-      fd.set('authorName', document.getElementById('umAuthorName').value.trim());
-      fd.set('authorUrl', document.getElementById('umAuthorUrl').value.trim());
-    }
-    fd.set('extraMode', extraMode);
-    if (extraMode !== 'none') {
-      if (extraOriginMode === 'existing') {
-        fd.set('extraExistingName', extraExistingSelect.value);
-      } else {
-        fd.set('extraName', document.getElementById('umExtraName').value.trim());
-        fd.set('extraUrl', document.getElementById('umExtraUrl').value.trim());
+    fd.set('tags', JSON.stringify(selectedTags()));
+
+    if (!upd) {
+      const authorMode = getRadio('authorMode');
+      fd.set('authorMode', authorMode);
+      if (authorMode === 'existing') fd.set('authorName', $('upAuthorExisting').value);
+      else if (authorMode === 'new') {
+        fd.set('authorName', $('upAuthorName').value.trim());
+        fd.set('authorUrl', $('upAuthorUrl').value.trim());
       }
     }
-    if (getPreviewVideoCategories().includes(category)) {
-      const previewVideo = previewVideoInput.value.trim();
-      if (previewVideo) fd.set('previewVideo', previewVideo);
+    const extraMode = getRadio('extraMode') || 'none';
+    fd.set('extraMode', extraMode);
+    if (extraMode !== 'none') {
+      if (getRadio('extraOriginMode') === 'existing') fd.set('extraExistingName', $('upExtraExisting').value);
+      else {
+        fd.set('extraName', $('upExtraName').value.trim());
+        fd.set('extraUrl', $('upExtraUrl').value.trim());
+      }
     }
-    fd.set('modZip', new Blob([extractedArchive.modZip]), `${name}.zip`);
-    if (extractedArchive.preview) {
-      fd.set('preview', new Blob([extractedArchive.preview]), `${name}.${extractedArchive.previewExt}`);
-    }
+    const video = $('upVideo').value.trim();
+    if (video && getPreviewVideoCategories().includes(category)) fd.set('previewVideo', video);
+
+    fd.set('modZip', new Blob([S.archive.modZip]), `${name}.zip`);
+    fd.set('preview', new Blob([S.archive.preview]), `${name}.${S.archive.previewExt}`);
     return fd;
   }
 
-  function resetForm() {
-    form.reset();
-    if (previewObjectUrl) {
-      URL.revokeObjectURL(previewObjectUrl);
-      previewObjectUrl = null;
-    }
-    extractedArchive = null;
-    autoFilledName = '';
-    isDuplicateName = false;
-    duplicateHint.style.display = 'none';
-    isDuplicateAuthor = false;
-    authorDuplicateHint.style.display = 'none';
-    isDuplicateExtra = false;
-    extraDuplicateHint.style.display = 'none';
-    isHeroNameInvalid = false;
-    isHeroOnlyName = false;
-    heroNameHint.style.display = 'none';
-    isPreviewVideoInvalid = false;
-    previewVideoHint.style.display = 'none';
-    previewVideoGroup.style.display = 'none';
-    previewVideoInput.value = '';
-    hideNameTrimNotice();
-    archiveReading = false;
-    syncNameField();
-    tagsGroup.style.display = 'none';
-    heroGroup.style.display = 'none';
-    slotGroup.style.display = 'none';
-    effectsGroup.style.display = 'none';
-    genericGroup.style.display = 'none';
-    heroSearch.value = '';
-    heroHidden.value = '';
-    updateNameMaxLength();
-    setAuthorExistingVisible(true);
-    authorNewFields.style.display = 'none';
-    extraFields.style.display = 'none';
-    setExtraExistingVisible(true);
-    extraNewFields.style.display = 'none';
-    archiveField?.classList.remove('has-file');
-    if (archiveLabel) archiveLabel.textContent = 'Choose archive\u2026';
-    wireSegmented(document.getElementById('umAuthorSegmented'));
-    wireSegmented(document.getElementById('umExtraSegmented'));
-    wireSegmented(document.getElementById('umExtraOriginSegmented'));
-    applyAuthorPref();
-    updatePreview();
-    updateSubmitDisabledState();
+  function setBusy(busy) {
+    S.busy = busy;
+    $('upSubmitText').textContent = busy ? 'Uploading…' : (S.update ? 'Submit update' : 'Submit for review');
+    form.querySelectorAll('input, select, button').forEach(c => {
+      if (c.id === 'upSubmit') return;
+      if (busy) { c.dataset.wasDisabled = c.disabled ? '1' : ''; c.disabled = true; }
+      else if (c.dataset.wasDisabled !== undefined) { c.disabled = c.dataset.wasDisabled === '1'; delete c.dataset.wasDisabled; }
+    });
+    updateNav();
   }
 
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    statusEl.textContent = '';
-    statusEl.className = 'upload-status';
+  function showDone(data, wasUpdate) {
+    form.hidden = true;
+    $('upStepper').hidden = true;
+    const old = $('upDone');
+    if (old) old.remove();
+    const box = el('div', 'up-banner up-banner-update');
+    box.id = 'upDone';
+    box.appendChild(icon('check_circle'));
+    const inner = el('div');
+    inner.appendChild(el('strong', '', wasUpdate ? 'Update submitted' : 'Mod submitted'));
+    inner.appendChild(el('p', '', wasUpdate
+      ? 'Your update is awaiting moderation as a pull request. Once approved, it replaces the existing files.'
+      : 'Your mod is awaiting moderation. Once approved it will appear in the catalog.'));
+    const href = safeGithubUrl(data && data.prUrl);
+    const actions = el('div', 'up-nav');
+    if (href) {
+      const a = el('a', 'up-btn up-btn-tonal', 'View pull request');
+      a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      actions.appendChild(a);
+    }
+    const again = el('button', 'up-btn up-btn-primary', 'Submit another');
+    again.type = 'button';
+    again.addEventListener('click', () => { box.remove(); form.hidden = false; $('upStepper').hidden = false; resetWizard(); });
+    actions.appendChild(again);
+    inner.appendChild(actions);
+    box.appendChild(inner);
+    form.parentNode.insertBefore(box, form);
+  }
 
-    const titled = titleCaseWords(nameInput.value);
-    if (titled !== nameInput.value) setNameValue(titled);
+  async function submit() {
+    if (S.busy) return;
+    if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
+    for (let i = 0; i < STEP_COUNT - 1; i++) {
+      const err = validateStep(i);
+      if (err) { goToStep(i); showStepError(err); return; }
+    }
+    let fd;
+    try { fd = buildFormData(); }
+    catch (err) { showStepError(err.message); return; }
 
-    const category = categorySelect.value;
-    if (HERO_AWARE_CATEGORIES.includes(category) && heroHidden.value) {
-      ensureHeroInName(heroHidden.value);
-    }
-
-    const name = nameInput.value.trim();
-
-    if (!name || !category || !archiveInput.files[0]) {
-      appendActivityLog('Fill in name, category and archive first.', 'error');
-      setLogIconState('error');
-      return;
-    }
-    if (BLACKLISTED_CATEGORIES.includes(category)) {
-      appendActivityLog('Category temporarily unavailable.', 'error');
-      setLogIconState('error');
-      return;
-    }
-    if (!extractedArchive) {
-      try {
-        appendActivityLog('Reading archive…', 'progress');
-        setLogIconState('busy');
-        extractedArchive = await extractArchive(archiveInput.files[0]);
-        appendActivityLog('Archive ready', 'success');
-      } catch (err) {
-        appendActivityLog('Archive error: ' + err.message, 'error');
-        setLogIconState('error');
-        return;
-      }
-    }
-    if (!extractedArchive.preview) {
-      appendActivityLog(extractedArchive.previewError || 'A mod preview is required.', 'error');
-      setLogIconState('error');
-      updateSubmitDisabledState();
-      return;
-    }
-    const effectiveMaxNameLength = getMaxNameLength(heroHidden.value);
-    if (name.length > effectiveMaxNameLength || !MOD_NAME_RE.test(name)) {
-      appendActivityLog(`Invalid mod name (max ${effectiveMaxNameLength} characters, English letters/numbers only).`, 'error');
-      setLogIconState('error');
-      return;
-    }
-    if (MISPLACED_HYPHEN_RE.test(name)) {
-      appendActivityLog('A hyphen is allowed only inside a word (e.g. "big-cat"), not with spaces around it ("big - cat").', 'error');
-      setLogIconState('error');
-      return;
-    }
-
-    if (!Array.isArray(window.categories) || !window.categories.some(c => c.id === category)) {
-      appendActivityLog('Invalid category.', 'error');
-      setLogIconState('error');
-      return;
-    }
-
-    const hero = heroHidden.value.trim();
-    if (HERO_AWARE_CATEGORIES.includes(category) && !hero) {
-      appendActivityLog('Select a hero for this category.', 'error');
-      setLogIconState('error');
-      return;
-    }
-    if (HERO_AWARE_CATEGORIES.includes(category) && hero &&
-      !(window.HEROES_LIST || []).includes(hero)) {
-      appendActivityLog('Invalid hero.', 'error');
-      setLogIconState('error');
-      return;
-    }
-
-    checkHeroInName();
-    if (isHeroNameInvalid) {
-      appendActivityLog(heroNameHintText.textContent || 'Mod name must include the hero name.', 'error');
-      setLogIconState('error');
-      return;
-    }
-
-    if (getPreviewVideoCategories().includes(category)) {
-      checkPreviewVideo();
-      if (isPreviewVideoInvalid) {
-        appendActivityLog('Preview video must be a youtube.com / youtu.be link.', 'error');
-        setLogIconState('error');
-        return;
-      }
-    }
-
-    const authorMode = form.querySelector('input[name="authorMode"]:checked')?.value;
-    if (authorMode === 'new') {
-      const authorUrl = document.getElementById('umAuthorUrl')?.value.trim();
-      if (authorUrl && !isAllowedHttpUrl(authorUrl)) {
-        appendActivityLog('Author URL is invalid.', 'error');
-        setLogIconState('error');
-        return;
-      }
-      checkAuthorDuplicate();
-      if (isDuplicateAuthor) {
-        appendActivityLog('Duplicate author name.', 'error');
-        setLogIconState('error');
-        return;
-      }
-    }
-
-    const extraMode = form.querySelector('input[name="extraMode"]:checked')?.value;
-    if (extraMode !== 'none') {
-      const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
-      if (originMode === 'new') {
-        const extraUrl = document.getElementById('umExtraUrl')?.value.trim();
-        if (extraUrl && !isAllowedHttpUrl(extraUrl)) {
-          appendActivityLog('Source URL is invalid.', 'error');
-          setLogIconState('error');
-          return;
-        }
-        checkExtraDuplicate();
-        if (isDuplicateExtra) {
-          const label = extraMode === 'source' ? 'source' : 'author';
-          appendActivityLog(`Duplicate ${label} name.`, 'error');
-          setLogIconState('error');
-          return;
-        }
-      }
-    }
-
-    checkDuplicate();
-    if (isDuplicateName) {
-      appendActivityLog(`Duplicate name: "${name}"`, 'error');
-      setLogIconState('error');
-      return;
-    }
-
-    {
-      const authorNick = authorMode === 'existing'
-        ? authorExistingSelect.value
-        : authorMode === 'new' ? (document.getElementById('umAuthorName')?.value.trim() || '') : '';
-      if (authorNick && !(authorMode === 'existing' ? SAFE_TEXT_RE : NICK_RE).test(authorNick)) {
-        appendActivityLog(`Author name: ${NICK_HINT}.`, 'error');
-        setLogIconState('error');
-        return;
-      }
-      if (extraMode !== 'none') {
-        const originMode = form.querySelector('input[name="extraOriginMode"]:checked')?.value;
-        const extraValue = originMode === 'existing'
-          ? extraExistingSelect.value
-          : (document.getElementById('umExtraName')?.value.trim() || '');
-        if (extraValue && !(originMode === 'existing' ? SAFE_TEXT_RE : NICK_RE).test(extraValue)) {
-          appendActivityLog(`Additional link name: ${NICK_HINT}.`, 'error');
-          setLogIconState('error');
-          return;
-        }
-      }
-    }
-
-    if (category === 'hero-items' && slotTagsWrap.querySelector('input[type="radio"]') &&
-      !slotTagsWrap.querySelector('input[type="radio"]:checked')) {
-      appendActivityLog('Select a slot for the hero item.', 'error');
-      setLogIconState('error');
-      return;
-    }
-
-
+    const upd = S.update && modIsReplaceable(S.update.mod);
+    const label = upd ? S.update.mod.name : nameInput.value.trim();
+    showStepError('');
     persistAuthorPref();
-
-    const fd = buildFormData(name, category);
-    setSubmitBusy(true);
+    setBusy(true);
     showProgress();
-    setLogIconState('busy');
-    appendActivityLog(`Preparing "${name}"…`, 'info');
-    const uploadLogRow = appendActivityLog('Uploading to server… 0%', 'progress');
+    setLogState('busy');
+    logLine(`${upd ? 'Updating' : 'Preparing'} "${label}"…`, 'info');
+    const uploadRow = logLine('Uploading to server… 0%', 'progress');
+    const guard = e => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', guard);
 
     try {
-      await xhrUpload(
+      const data = await xhrUpload(
         fd,
-        pct => {
-          const clamped = Math.min(100, Math.max(0, pct));
-          animateProgressTo(clamped * 0.9, 220);
-          updateActivityLog(uploadLogRow, `Uploading to server… ${Math.round(clamped)}%`);
-        },
-        () => {
-          updateActivityLog(uploadLogRow, 'Uploaded — waiting for the server…');
-          startProgressTrickle();
-        }
+        pct => { animateProgressTo(pct * 0.9, 220); updateLogLine(uploadRow, `Uploading to server… ${Math.round(pct)}%`); },
+        () => { updateLogLine(uploadRow, 'Uploaded — waiting for the server…'); startTrickle(); }
       );
-
-      stopProgressTrickle();
-      if (turnstileWidgetId !== null) {
-        turnstile.reset(turnstileWidgetId);
-      }
-      updateActivityLog(uploadLogRow, 'Upload confirmed by server');
-      appendActivityLog('Submitted successfully — awaiting review', 'success');
-      setLogIconState('success');
+      stopTrickle();
       animateProgressTo(100, 350);
-      resetForm();
+      updateLogLine(uploadRow, 'Upload confirmed by server');
+      logLine('Submitted successfully — awaiting review', 'success');
+      setLogState('success');
+      resetTurnstile();
       refreshCooldownFromServer();
       setTimeout(hideProgress, 500);
-      setTimeout(closeModal, 2500);
+      setBusy(false);
+      showDone(data, !!upd);
     } catch (err) {
-      stopProgressTrickle();
-      if (turnstileWidgetId !== null) {
-        try {
-          turnstile.reset(turnstileWidgetId);
-        } catch { }
-      }
-
-      appendActivityLog('Error: ' + err.message, 'error');
-      setLogIconState('error');
+      stopTrickle();
+      resetTurnstile();
       hideProgress();
-      if (err.data && err.data.nextSubmitInSeconds > 0) {
-        startCooldown(err.data.nextSubmitInSeconds);
-      }
+      logLine('Error: ' + err.message, 'error');
+      setLogState('error');
+      showStepError(err.message);
+      if (err.data && err.data.nextSubmitInSeconds > 0) startCooldown(err.data.nextSubmitInSeconds);
+      setBusy(false);
     } finally {
-      setSubmitBusy(false);
+      window.removeEventListener('beforeunload', guard);
     }
-  });
+  }
 
-  applyAuthorPref();
-  clearActivityLog();
-  updatePreview();
-  updateSubmitDisabledState();
-  initTurnstile();
-}
+  function resetWizard() {
+    form.reset();
+    [categorySelect, $('upAuthorExisting'), $('upExtraExisting')].forEach(refreshSelect);
+    $('upArchive').value = '';
+    resetArchiveUi();
+    S.update = null;
+    S.prefillKey = '';
+    S.autoFilledName = '';
+    S.step = 0;
+    S.maxStep = 0;
+    heroHidden.value = '';
+    heroSearch.value = '';
+    S.lastHero = '';
+    show(heroGroup, false);
+    show($('upVideoGroup'), false);
+    renderTags('');
+    show($('upUpdateBanner'), false);
+    show($('upBlockedBanner'), false);
+    syncNameField();
+    syncAuthorUi();
+    syncExtraUi();
+    applyAuthorPref();
+    applyUpdateModeUi();
+    syncPageTitle();
+    clearLog();
+    refreshAll();
+    goToStep(0);
+  }
 
-Promise.all([
-  waitForAppData(),
-  waitForTurnstile(),
-]).then(() => {
-  setupUploadModal();
-});
+  const HISTORY_STATUS = {
+    moderation: { label: 'On moderation', icon: 'hourglass_top' },
+    accepted: { label: 'Accepted', icon: 'check_circle' },
+    rejected: { label: 'Rejected', icon: 'cancel' }
+  };
+  let historyLoading = false;
+
+  function historyMessage(text, iconName) {
+    const list = $('upHistoryList');
+    list.textContent = '';
+    const box = el('div', 'up-history-empty');
+    box.append(icon(iconName), el('span', '', text));
+    list.appendChild(box);
+  }
+  function renderHistory(items) {
+    const list = $('upHistoryList');
+    list.textContent = '';
+    if (!items.length) { historyMessage('No submissions from this network yet.', 'inbox'); return; }
+    for (const item of items) {
+      const status = HISTORY_STATUS[item.status] ? item.status : 'moderation';
+      const st = HISTORY_STATUS[status];
+      const href = safeGithubUrl(item.url);
+      const rowEl = el(href ? 'a' : 'div', `up-history-item ${status}`);
+      if (href) { rowEl.href = href; rowEl.target = '_blank'; rowEl.rel = 'noopener noreferrer'; }
+      const top = el('div', 'up-history-top');
+      const badge = el('span', 'up-history-badge');
+      badge.append(icon(st.icon), el('span', '', st.label));
+      top.append(el('span', 'up-history-name', item.name || 'Untitled'), badge);
+      rowEl.appendChild(top);
+      if (item.kind === 'update') rowEl.appendChild(el('div', 'up-history-kind', 'Update'));
+      if (item.createdAt) {
+        const d = new Date(item.createdAt);
+        if (!isNaN(d)) rowEl.appendChild(el('div', 'up-history-date', d.toLocaleString()));
+      }
+      if (status === 'rejected' && item.reason) rowEl.appendChild(el('div', 'up-history-reason', item.reason));
+      list.appendChild(rowEl);
+    }
+  }
+  async function loadHistory() {
+    if (historyLoading) return;
+    historyLoading = true;
+    $('upHistoryRefresh').classList.add('is-loading');
+    historyMessage('Loading…', 'progress_activity');
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/api/history`);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      renderHistory(Array.isArray(data.items) ? data.items : []);
+    } catch { historyMessage('Could not load history. Try again later.', 'error'); }
+    finally { historyLoading = false; $('upHistoryRefresh').classList.remove('is-loading'); }
+  }
+  function showHistory(visible) {
+    show($('upHistory'), visible);
+    show($('upScrim'), visible);
+    if (visible) { loadHistory(); $('upHistoryClose').focus(); }
+    else $('upHistoryBtn').focus();
+  }
+
+  function wireEvents() {
+    wireDropZone();
+
+    categorySelect.addEventListener('change', () => {
+      const cat = categorySelect.value;
+      const heroAware = HERO_AWARE_CATEGORIES.includes(cat);
+      show(heroGroup, heroAware);
+      if (!heroAware) { heroHidden.value = ''; heroSearch.value = ''; S.lastHero = ''; }
+      const showsVideo = getPreviewVideoCategories().includes(cat);
+      show($('upVideoGroup'), showsVideo);
+      if (!showsVideo) $('upVideo').value = '';
+      S.prefillKey = '__category_changed__';
+      renderTags(cat);
+      syncNameField();
+      onNameOrHeroChanged();
+    });
+
+    heroSearch.addEventListener('focus', () => { buildHeroList(heroSearch.value); heroList.classList.add('open'); });
+    heroSearch.addEventListener('input', () => {
+      heroHidden.value = '';
+      buildHeroList(heroSearch.value);
+      heroList.classList.add('open');
+      syncNameField();
+      onNameOrHeroChanged();
+    });
+    heroSearch.addEventListener('blur', () => {
+      setTimeout(() => {
+        heroList.classList.remove('open');
+        const typed = heroSearch.value.trim();
+        const match = S.allHeroes.find(h => h.toLowerCase() === typed.toLowerCase());
+        if (match) selectHero(match);
+        else if (!heroHidden.value) heroSearch.value = '';
+      }, 150);
+    });
+
+    nameInput.addEventListener('input', () => { syncNameField(); renderNameSuggestions(); onNameOrHeroChanged(); });
+    nameInput.addEventListener('focus', renderNameSuggestions);
+    nameInput.addEventListener('blur', () => {
+      setTimeout(() => nameSuggest.classList.remove('open'), 150);
+      if (S.update && modIsReplaceable(S.update.mod)) return;
+      const titled = titleCaseWords(nameInput.value);
+      if (titled !== nameInput.value) setNameValue(titled);
+      if (HERO_AWARE_CATEGORIES.includes(categorySelect.value)) ensureHeroInName(heroHidden.value);
+      onNameOrHeroChanged();
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.up-combo')) { heroList.classList.remove('open'); nameSuggest.classList.remove('open'); }
+    });
+
+    $('upVideo').addEventListener('input', () => {
+      const v = $('upVideo').value.trim();
+      show($('upVideoHint'), !!v && !isYouTubeUrl(v));
+      refreshAll();
+    });
+
+    form.querySelectorAll('input[name="authorMode"]').forEach(r => r.addEventListener('change', () => { syncAuthorUi(); refreshAll(); }));
+    $('upAuthorExisting').addEventListener('change', refreshAll);
+    $('upAuthorName').addEventListener('input', () => { checkAuthorDuplicate(); refreshAll(); });
+
+    form.querySelectorAll('input[name="extraMode"]').forEach(r => r.addEventListener('change', () => {
+      if (getRadio('extraMode') !== 'none') setRadio('extraOriginMode', 'existing');
+      syncExtraUi();
+      refreshAll();
+    }));
+    form.querySelectorAll('input[name="extraOriginMode"]').forEach(r => r.addEventListener('change', () => { syncExtraUi(); refreshAll(); }));
+    $('upExtraExisting').addEventListener('change', refreshAll);
+    $('upExtraName').addEventListener('input', () => { checkExtraDuplicate(); refreshAll(); });
+
+    $('upPrev').addEventListener('click', () => { if (!S.busy) goToStep(neighbourStep(S.step, -1)); });
+    $('upNext').addEventListener('click', tryNext);
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (S.step < STEP_COUNT - 1) tryNext(); else submit();
+    });
+
+    document.querySelectorAll('#upStepper li').forEach(li => li.addEventListener('click', () => {
+      const n = Number(li.dataset.step);
+      if (n < S.step && !S.busy && !stepSkipped(n)) goToStep(n);
+    }));
+
+    $('upHistoryBtn').addEventListener('click', () => showHistory(true));
+    $('upHistoryClose').addEventListener('click', () => showHistory(false));
+    $('upScrim').addEventListener('click', () => showHistory(false));
+    $('upHistoryRefresh').addEventListener('click', loadHistory);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('upHistory').hidden) showHistory(false); });
+  }
+
+  function setupUi() {
+    form = $('upForm');
+    categorySelect = $('upCategory');
+    heroGroup = $('upHeroGroup');
+    heroSearch = $('upHeroSearch');
+    heroHidden = $('upHero');
+    heroList = $('upHeroList');
+    nameInput = $('upName');
+    nameSuggest = $('upNameSuggest');
+    slotTagsWrap = $('upSlotTags');
+    effectsTagsWrap = $('upEffectsTags');
+    genericTagsWrap = $('upGenericTags');
+
+    S.allHeroes = (window.HEROES_LIST || []).slice().sort((a, b) => a.localeCompare(b));
+    renderCategorySelect();
+    buildHeroList('');
+    fillSelect($('upAuthorExisting'), Object.keys(window.MOD_AUTHOR || {}).sort(), 'Select author…');
+    syncNameField();
+    syncAuthorUi();
+    syncExtraUi();
+    applyAuthorPref();
+    wireEvents();
+    clearLog();
+    applyUpdateModeUi();
+    refreshAll();
+    goToStep(0);
+    ensureFflate().catch(() => { });
+  }
+
+  async function boot() {
+    show($('upLoading'), true);
+    show($('upLoadError'), false);
+    show($('upLayout'), false);
+    try {
+      await loadCatalog();
+    } catch (err) {
+      console.error('[upload] catalog failed', err);
+      show($('upLoading'), false);
+      show($('upLoadError'), true);
+      return;
+    }
+    show($('upLoading'), false);
+    show($('upLayout'), true);
+    if (!boot.done) { boot.done = true; setupUi(); }
+  }
+
+  $('upRetry').addEventListener('click', boot);
+  boot();
+})();

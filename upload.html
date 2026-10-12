@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-gif-theme="ursa">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Submit a new mod or update an existing one">
+  <meta name="robots" content="noindex">
+  <title>Upload Mod</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" />
+  <script type="module" src="assets/m3e/theme.bundle.js"></script>
+  <script type="module" src="assets/m3e/progress-indicator.bundle.js"></script>
+  <script src="assets/theme.js"></script>
+  <script src="assets/m3e/select.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="upload.css" />
+</head>
+
+<body class="up-body">
+  <m3e-theme id="appTheme" color="#7b00ff" variant="tonal-spot" scheme="dark"></m3e-theme>
+  <script>window.syncM3eTheme && window.syncM3eTheme();</script>
+
+  <header class="up-header">
+    <a class="up-back" href="index.html">
+      <span class="material-symbols-rounded">arrow_back</span>
+      <span>Catalog</span>
+    </a>
+    <h1 class="up-title"><span class="up-title-accent">Dota2</span>PornFx <span class="up-title-sub">/ Upload</span>
+    </h1>
+    <button type="button" class="up-chip-btn" id="upHistoryBtn">
+      <span class="material-symbols-rounded">history</span>
+      <span>History</span>
+    </button>
+  </header>
+
+  <main class="up-main">
+    <div class="up-loading" id="upLoading">
+      <svg class="up-spinner" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="up-spinner-track" cx="24" cy="24" r="20" />
+        <circle class="up-spinner-arc" cx="24" cy="24" r="20" />
+      </svg>
+      <p id="upLoadingText">Loading catalog…</p>
+    </div>
+
+    <div class="up-load-error" id="upLoadError" hidden>
+      <span class="material-symbols-rounded">cloud_off</span>
+      <p>Could not load the catalog. Check your connection and try again.</p>
+      <button type="button" class="up-btn up-btn-tonal" id="upRetry">Retry</button>
+    </div>
+
+    <div class="up-layout" id="upLayout" hidden>
+      <section class="up-wizard" aria-label="Upload wizard">
+        <ol class="up-stepper" id="upStepper">
+          <li data-step="0"><span class="up-step-dot">1</span><span class="up-step-label">Archive</span></li>
+          <li data-step="1"><span class="up-step-dot">2</span><span class="up-step-label">Mod</span></li>
+          <li data-step="2"><span class="up-step-dot">3</span><span class="up-step-label">Details</span></li>
+          <li data-step="3"><span class="up-step-dot">4</span><span class="up-step-label">Credits</span></li>
+          <li data-step="4"><span class="up-step-dot">5</span><span class="up-step-label">Review</span></li>
+        </ol>
+
+        <form id="upForm" novalidate>
+          <!-- step 1: archive -->
+          <section class="up-step" data-step="0">
+            <h2 class="up-step-title">Choose your archive</h2>
+            <p class="up-step-desc">Pack the mod with
+              <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" rel="noopener">PreMod</a>
+              and drop the resulting <code>.zip</code> here.
+            </p>
+
+            <label class="up-drop" id="upDrop" for="upArchive">
+              <input type="file" id="upArchive" accept=".zip">
+              <span class="material-symbols-rounded up-drop-icon">upload_file</span>
+              <span class="up-drop-title" id="upArchiveLabel">Drop archive here or click to browse</span>
+              <span class="up-drop-sub" id="upArchiveSub">ZIP made with PreMod · up to 100 MB</span>
+            </label>
+
+            <ul class="up-checks" id="upChecks"></ul>
+          </section>
+
+          <!-- step 2: what is it -->
+          <section class="up-step" data-step="1" hidden>
+            <h2 class="up-step-title">What is it?</h2>
+            <p class="up-step-desc">Pick a category and name your mod. Type the name of an existing mod to update it
+              instead.</p>
+
+            <div class="up-field-group">
+              <label for="upCategory">Category</label>
+              <select id="upCategory" class="settings-select" required></select>
+            </div>
+
+            <div class="up-field-group" id="upHeroGroup" hidden>
+              <label for="upHeroSearch">Hero</label>
+              <div class="up-combo">
+                <input type="text" id="upHeroSearch" class="up-field" placeholder="Type to search hero…"
+                  autocomplete="off">
+                <input type="hidden" id="upHero">
+                <div class="up-combo-list" id="upHeroList" role="listbox" aria-label="Hero options"></div>
+              </div>
+            </div>
+
+            <div class="up-field-group">
+              <label for="upName">Mod name</label>
+              <div class="up-combo">
+                <input type="text" id="upName" class="up-field" placeholder="e.g. Bane Origin" autocomplete="off"
+                  maxlength="80">
+                <div class="up-combo-list" id="upNameSuggest" role="listbox" aria-label="Existing mods"></div>
+              </div>
+              <p class="up-hint" id="upNameHint">English letters &amp; numbers only · <span
+                  id="upNameCount">0</span>/<span id="upNameMax">29</span></p>
+              <p class="up-hint up-hint-warn" id="upNameTrim" hidden aria-live="polite"></p>
+            </div>
+
+            <div class="up-banner up-banner-update" id="upUpdateBanner" hidden>
+              <span class="material-symbols-rounded">sync_alt</span>
+              <div>
+                <strong>Updating an existing mod</strong>
+                <p id="upUpdateBannerText"></p>
+              </div>
+            </div>
+            <div class="up-banner up-banner-error" id="upBlockedBanner" hidden>
+              <span class="material-symbols-rounded">block</span>
+              <div>
+                <strong>This mod can't be updated here</strong>
+                <p id="upBlockedBannerText"></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- step 3: details -->
+          <section class="up-step" data-step="2" hidden>
+            <h2 class="up-step-title">Details</h2>
+            <p class="up-step-desc">Tags help users understand what the mod includes.</p>
+
+            <div class="up-field-group" id="upTagsGroup" hidden>
+              <div id="upSlotGroup" hidden>
+                <p class="up-sublabel">Slot <span>(required)</span></p>
+                <div class="up-chips" id="upSlotTags"></div>
+              </div>
+              <div id="upEffectsGroup" hidden>
+                <p class="up-sublabel">Effects &amp; icons</p>
+                <div class="up-chips" id="upEffectsTags"></div>
+              </div>
+              <div id="upGenericGroup" hidden>
+                <p class="up-sublabel">Tags</p>
+                <div class="up-chips" id="upGenericTags"></div>
+              </div>
+            </div>
+
+            <div class="up-field-group" id="upVideoGroup" hidden>
+              <label for="upVideo">Preview video <span class="up-opt">(YouTube link, optional)</span></label>
+              <input type="url" id="upVideo" class="up-field" placeholder="https://www.youtube.com/watch?v=…">
+              <p class="up-hint up-hint-warn" id="upVideoHint" hidden>Only youtube.com / youtu.be links are accepted.
+              </p>
+            </div>
+          </section>
+
+          <!-- step 4: credits -->
+          <section class="up-step" data-step="3" hidden>
+            <h2 class="up-step-title">Credits</h2>
+            <p class="up-step-desc" id="upCreditsDesc">Who made this mod?</p>
+
+            <div class="up-locked" id="upAuthorLocked" hidden>
+              <span class="material-symbols-rounded">lock</span>
+              <div>
+                <p class="up-locked-title">Author</p>
+                <div class="up-locked-names" id="upAuthorLockedNames"></div>
+                <p class="up-hint">Taken from the existing mod. It can't be changed in an update.</p>
+              </div>
+            </div>
+
+            <div id="upCreditsEditable">
+              <div class="up-field-group">
+                <label>Author</label>
+                <div class="up-segmented" id="upAuthorSeg">
+                  <label><input type="radio" name="authorMode" value="existing" checked><span>Existing</span></label>
+                  <label><input type="radio" name="authorMode" value="new"><span>New</span></label>
+                  <label><input type="radio" name="authorMode" value="skip"><span>None</span></label>
+                </div>
+                <select id="upAuthorExisting" class="settings-select"></select>
+                <div id="upAuthorNew" class="up-sub" hidden>
+                  <input type="text" id="upAuthorName" class="up-field" placeholder="Nickname" autocomplete="off">
+                  <input type="url" id="upAuthorUrl" class="up-field" placeholder="Profile link (optional, https://)">
+                  <p class="up-hint up-hint-warn" id="upAuthorDup" hidden></p>
+                </div>
+              </div>
+
+              <div class="up-field-group">
+                <label>Additional link <span class="up-opt">(optional)</span></label>
+                <div class="up-segmented" id="upExtraSeg">
+                  <label><input type="radio" name="extraMode" value="none" checked><span>None</span></label>
+                  <label><input type="radio" name="extraMode" value="author"><span>Co-author</span></label>
+                  <label><input type="radio" name="extraMode" value="source"><span>Source</span></label>
+                  <label><input type="radio" name="extraMode" value="modded"><span>Modded by</span></label>
+                </div>
+                <div id="upExtraFields" hidden>
+                  <div class="up-segmented up-segmented-sm" id="upExtraOriginSeg">
+                    <label><input type="radio" name="extraOriginMode" value="existing"
+                        checked><span>Existing</span></label>
+                    <label><input type="radio" name="extraOriginMode" value="new"><span>New</span></label>
+                  </div>
+                  <select id="upExtraExisting" class="settings-select"></select>
+                  <div id="upExtraNew" class="up-sub" hidden>
+                    <input type="text" id="upExtraName" class="up-field" placeholder="Name" autocomplete="off">
+                    <input type="url" id="upExtraUrl" class="up-field" placeholder="Link (optional, https://)">
+                    <p class="up-hint up-hint-warn" id="upExtraDup" hidden></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- step 5: review -->
+          <section class="up-step" data-step="4" hidden>
+            <h2 class="up-step-title">Review &amp; submit</h2>
+            <p class="up-step-desc" id="upReviewDesc">Check everything below, then send it for moderation.</p>
+
+            <dl class="up-summary" id="upSummary"></dl>
+
+            <div class="up-cooldown" id="upCooldown" hidden>
+              <span class="material-symbols-rounded">schedule</span>
+              <span id="upCooldownText"></span>
+            </div>
+
+            <div class="up-progress" id="upProgressWrap" hidden>
+              <m3e-linear-progress-indicator id="upProgressBar" variant="wavy" value="0"
+                max="100"></m3e-linear-progress-indicator>
+              <span id="upProgressPct">0%</span>
+            </div>
+          </section>
+
+          <p class="up-step-error" id="upStepError" role="alert" hidden></p>
+
+          <div class="up-nav">
+            <button type="button" class="up-btn up-btn-tonal" id="upPrev">
+              <span class="material-symbols-rounded">arrow_back</span> Back
+            </button>
+            <button type="button" class="up-btn up-btn-primary" id="upNext">
+              Next <span class="material-symbols-rounded">arrow_forward</span>
+            </button>
+            <button type="submit" class="up-btn up-btn-primary" id="upSubmit" hidden>
+              <span class="material-symbols-rounded" id="upSubmitIcon">send</span>
+              <span id="upSubmitText">Submit for review</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="up-aside">
+        <div class="up-aside-inner">
+          <div class="card up-preview-card">
+            <div class="card-media" id="upPreviewMedia"><span class="up-preview-placeholder">🧩</span></div>
+            <div class="card-content">
+              <h3 class="card-title" id="upPreviewTitle">Mod name</h3>
+              <div class="card-subtitle-wrapper">
+                <p class="card-subtitle" id="upPreviewSubtitle">Category</p>
+                <div class="card-buttons-group" id="upPreviewButtons"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="up-log">
+            <div class="up-log-head">
+              <span class="material-symbols-rounded" id="upLogIcon">terminal</span>
+              <span>Activity</span>
+            </div>
+            <div class="up-log-body" id="upLogBody" aria-live="polite"></div>
+          </div>
+
+          <div class="cf-turnstile up-captcha" id="upTurnstile" data-sitekey="0x4AAAAAAE98FxEQ8HQ40ZH2"
+            data-theme="auto"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="up-scrim" id="upScrim" hidden></div>
+  <aside class="up-history" id="upHistory" hidden aria-label="Submission history">
+    <div class="up-history-head">
+      <h2>Submission history</h2>
+      <button type="button" class="up-icon-btn" id="upHistoryRefresh" aria-label="Refresh"><span
+          class="material-symbols-rounded">refresh</span></button>
+      <button type="button" class="up-icon-btn" id="upHistoryClose" aria-label="Close"><span
+          class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="up-history-list" id="upHistoryList"></div>
+  </aside>
+
+  <script src="upload.js"></script>
+</body>
+
+</html>
