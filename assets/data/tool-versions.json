@@ -1,10 +1,10 @@
 {
   "Egezenn/dota2-minify": {
-    "version": "Minify-v2rc5",
+    "version": "Minify-v2rc6",
     "hashes": {
-      "Minify-Setup-v2rc5.exe": "fb8a2e2ed169a0a55a50d5cea985bcba0a2d6637ac4db4ee5439c10b7026ce89",
-      "Minify-v2rc5-linux.zip": "ed807cd0887a4e2f7ef9956b3f59c1fbe9d3ea581257a9db9aa9060278cc5a9d",
-      "Minify-v2rc5-windows.zip": "071bd4591f85ca541e333e44c44aba8c20cf3db886a4b1a1eecdc127a4180e39"
+      "Minify-Setup-v2rc6.exe": "df033346e652a9830ac7b9e9ec83ca8f262563af40b61a8a56fcd7dd76229ee1",
+      "Minify-v2rc6-linux.zip": "b6f468d822d8b056fa15fe1d97c2c164c022bbfc2ea2f9942c33192e29335ad7",
+      "Minify-v2rc6-windows.zip": "dce582b0b36d2226dd06f2a8e9b19337022a29d11ebdb1b4c22953fa8603a990"
     }
   },
   "TheFleece/dota2-mod-manager": {
@@ -60,16 +60,16 @@
     }
   },
   "J0nathan550/Source2Viewer-d2pfx": {
-    "version": "build-27",
+    "version": "build-29",
     "hashes": {
-      "cli-linux-x64.zip": "2393073df54353a197e378999fd54e1207356426c1a01d493a6459caf0b95ba0",
-      "cli-windows-x64.zip": "5c2ced37a6c509ac45c20f5c1971dc30e02b6fff864f7b4f64c6604aaee9f1f1",
-      "gui-avalonia-windows-x64.zip": "24e4caf837c1b5cfdb62aa049034b33482570291df2fbba7dfaacde9abb5105e",
-      "gui-windows-x64.zip": "ea92a5b1c00d0d61fc0b7406263df71a47f595f79874b77ee4d024f6048a097b",
-      "latest.json": "7f2f257e50d313f46067b69ddf26fa680ff7b329d218594cdad60c7973afe897",
-      "Source2Viewer-x86_64.AppImage": "50cf84f89d8b0f347b12e18403bd806cdf54df8d22388b8f1e6ad7b0ccb58c63",
-      "Source2Viewer.Avalonia.exe": "af9cf20d94efd51e7a076ac3a19d6365b28d16987ceebd682bcff209929ba9bb",
-      "Source2Viewer.exe": "ee6e6d420eaa30085ef69128b04afbe94b728ac12010aca715f38a936c9f87c8"
+      "cli-linux-x64.zip": "f65ff619b198636b810d6381ac268b0a711e57b6a0ae3cf5309c3f80f3fc831a",
+      "cli-windows-x64.zip": "d68d78efc1d9e27d47bb6521d982094e85db4fac0e57146bb719e2ec755fdb1a",
+      "gui-avalonia-windows-x64.zip": "c652545eeefc7a2e4ec7edff9232acd41576dbffe44d9c13c490692121450f9a",
+      "gui-windows-x64.zip": "2778754d869241b7b4235705a4b508c7879c1139d10ae648765c76b862224fd5",
+      "latest.json": "4084264a0f2cd3117f5542cb39944fe122d27507a36fc66e4425ed6af128200e",
+      "Source2Viewer-x86_64.AppImage": "9f3f9199ca887741d28c89ce2621be1e182943c522737127bb900d6e699c633c",
+      "Source2Viewer.Avalonia.exe": "354456373805631d59ab8c133b44724e6c34588ef3f3b398d9d1b686f7ed95a7",
+      "Source2Viewer.exe": "3b594307b879876c5957638d76767d90e5b6272393bfb174a7cf9691df917375"
     }
   }
 }

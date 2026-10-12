@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Tidehunter Vetmo",
       "category": "heroes"
     },
@@ -191,10 +199,6 @@
     {
       "name": "Earthshaker Arcana V2 Reborn",
       "category": "heroes"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Tiny Stoneback Sovereign",
