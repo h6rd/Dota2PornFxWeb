@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dattebayo Puck",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Batrider Napapiri",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Crimson",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Black White",
+      "category": "heroes"
+    },
+    {
+      "name": "Snapfire Blue Icon",
+      "category": "herofx"
+    },
+    {
+      "name": "Phantom Lancer Black",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Bismilyah",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Windranger Reflections Of Gale",
       "category": "heroes"
     },
@@ -14406,6 +14434,82 @@
           "date": 1791785647,
           "commit-sha": "5b1e4edb695ec0e5aa06098c224de2d14b6b3a07"
         }
+      },
+      {
+        "name": "Phantom Lancer Black",
+        "preview": "Phantom Lancer Black.webp",
+        "file": "Phantom Lancer Black.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Fiend Black White",
+        "preview": "Shadow Fiend Black White.webp",
+        "file": "Shadow Fiend Black White.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Crimson",
+        "preview": "Morphling Crimson.webp",
+        "file": "Morphling Crimson.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "CeoMods"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Batrider Napapiri",
+        "preview": "Batrider Napapiri.webp",
+        "file": "Batrider Napapiri.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -23788,6 +23892,24 @@
           "date": 1791699101,
           "commit-sha": "f3c53c071abcda29cbff1abe9c22a60fa694e8c2"
         }
+      },
+      {
+        "name": "Snapfire Blue Icon",
+        "preview": "Snapfire Blue Icon.webp",
+        "file": "Snapfire Blue Icon.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Tom4ik"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
       }
     ],
     "hero-sounds": [
@@ -24601,6 +24723,36 @@
         "meta": {
           "date": 1791785647,
           "commit-sha": "5b1e4edb695ec0e5aa06098c224de2d14b6b3a07"
+        }
+      },
+      {
+        "name": "Shadow Fiend Bismilyah",
+        "preview": "Shadow Fiend Bismilyah.webp",
+        "file": "Shadow Fiend Bismilyah.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Tom4ik"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Dattebayo Puck",
+        "preview": "Dattebayo Puck.webp",
+        "file": "Dattebayo Puck.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Tom4ik"
+          }
+        ],
+        "meta": {
+          "date": 1791794919,
+          "commit-sha": ""
         }
       }
     ],
