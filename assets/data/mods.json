@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Templar Assassin Black",
+      "category": "heroes"
+    },
+    {
+      "name": "Spectre Phantom Ascension V2",
+      "category": "heroes"
+    },
+    {
+      "name": "Slark Fernando",
+      "category": "heroes"
+    },
+    {
+      "name": "Luna Diretide Shimmer",
+      "category": "heroes"
+    },
+    {
       "name": "Vodolaska Marci",
       "category": "heroes"
     },
@@ -74,10 +90,6 @@
     },
     {
       "name": "Night Stalker Dark Oath V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Spectre Phantom Ascension V2",
       "category": "heroes"
     },
     {
@@ -14436,8 +14448,8 @@
           }
         ],
         "meta": {
-          "date": 1791785647,
-          "commit-sha": "5b1e4edb695ec0e5aa06098c224de2d14b6b3a07"
+          "date": 1791861640,
+          "commit-sha": ""
         }
       },
       {
@@ -14586,6 +14598,59 @@
         "meta": {
           "date": 1791821609,
           "commit-sha": "c7b9836ca22826a51190fa0e9775a85254e8f455"
+        }
+      },
+      {
+        "name": "Luna Diretide Shimmer",
+        "preview": "Luna Diretide Shimmer.webp",
+        "file": "Luna Diretide Shimmer.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Миша Талант"
+          }
+        ],
+        "meta": {
+          "date": 1791861640,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Slark Fernando",
+        "preview": "Slark Fernando.webp",
+        "file": "Slark Fernando.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1791861640,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Templar Assassin Black",
+        "preview": "Templar Assassin Black.webp",
+        "file": "Templar Assassin Black.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1791861640,
+          "commit-sha": ""
         }
       }
     ],
