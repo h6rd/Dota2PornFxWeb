@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Earthshaker Arcana Planetfall",
       "category": "heroes"
     },
@@ -99,10 +103,6 @@
     {
       "name": "Earthshaker Cosmic Arcana V2",
       "category": "heroes"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Dattebayo Puck",
