@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Arcana Planetfall",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Blades",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Legacy Green",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Skadi",
+      "category": "heroes"
+    },
+    {
+      "name": "Terrorblade Arcana Manta",
+      "category": "heroes"
+    },
+    {
+      "name": "Weawer Ult Net Idi Nahui",
+      "category": "sounds"
+    },
+    {
+      "name": "Dazzle Immortal",
+      "category": "heroes"
+    },
+    {
       "name": "Tidehunter Arcana",
       "category": "heroes"
     },
@@ -322,18 +350,6 @@
     },
     {
       "name": "Luna Golden Immortal Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Manta",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Skadi",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Blades",
       "category": "heroes"
     },
     {
@@ -13932,8 +13948,8 @@
           }
         ],
         "meta": {
-          "date": 1791549623,
-          "commit-sha": "968ede7d5fc42b1a05719b6a511fbf83a7081639"
+          "date": 1791922170,
+          "commit-sha": ""
         }
       },
       {
@@ -13951,8 +13967,8 @@
           }
         ],
         "meta": {
-          "date": 1791549623,
-          "commit-sha": "968ede7d5fc42b1a05719b6a511fbf83a7081639"
+          "date": 1791922170,
+          "commit-sha": ""
         }
       },
       {
@@ -13970,8 +13986,8 @@
           }
         ],
         "meta": {
-          "date": 1791549623,
-          "commit-sha": "968ede7d5fc42b1a05719b6a511fbf83a7081639"
+          "date": 1791922170,
+          "commit-sha": ""
         }
       },
       {
@@ -14655,6 +14671,75 @@
         "meta": {
           "date": 1791904368,
           "commit-sha": "71bfe58b6cb60043cee0c17f351af8c14896108e"
+        }
+      },
+      {
+        "name": "Dazzle Immortal",
+        "preview": "Dazzle Immortal.webp",
+        "file": "Dazzle Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "hizu"
+          }
+        ],
+        "meta": {
+          "date": 1791922170,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade Legacy Green",
+        "preview": "Terrorblade Legacy Green.webp",
+        "file": "Terrorblade Legacy Green.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1791922170,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Earthshaker Arcana Planetfall",
+        "styles": [
+          {
+            "label": "Celestial",
+            "color": "#00fbff",
+            "preview": "Earthshaker Arcana Planetfall.webp",
+            "file": "Earthshaker Arcana Planetfall.zip"
+          },
+          {
+            "label": "Burning",
+            "color": "#ea4b1a",
+            "preview": "Earthshaker Arcana Planetfall Burning.webp",
+            "file": "Earthshaker Arcana Planetfall Burning.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791922170,
+          "commit-sha": ""
         }
       }
     ],
@@ -25271,6 +25356,25 @@
         "meta": {
           "date": 1791645604,
           "commit-sha": "74c13fe185e4a502282a310c5a198f49013a6d80"
+        }
+      },
+      {
+        "name": "Weawer Ult Net Idi Nahui",
+        "preview": "Weawer Ult Net Idi Nahui.webp",
+        "file": "Weawer Ult Net Idi Nahui.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "EmodzI"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/rvkUEC3SKG0"
+          }
+        ],
+        "meta": {
+          "date": 1791922170,
+          "commit-sha": ""
         }
       }
     ],
