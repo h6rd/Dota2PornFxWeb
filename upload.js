@@ -38,11 +38,19 @@
 
   const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
   const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
-  const NON_SLOT_TAGS = ['effects', 'icons'];
+  const UPLOAD_HIDDEN_TAGS = { herofx: ['sounds'], 'hero-items': ['sounds'] };
+  const NON_SLOT_TAGS = ['effects', 'icons', 'sounds'];
   const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
-  const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects', 'heroes'];
+  const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
+  const UPLOAD_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
   const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS' };
   const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
+
+  const STYLE_COUNT = 2;
+  const MAX_STYLE_LABEL = 12;
+  const STYLE_LABEL_RE = /^[a-zA-Z0-9 _.\-!]+$/;
+  const HEX_RE = /^#[0-9a-f]{6}$/i;
+  const MAX_STYLED_TOTAL_BYTES = 60 * 1024 * 1024;
 
   const STEP_COUNT = 5;
   const $ = id => document.getElementById(id);
@@ -174,7 +182,8 @@
   }
 
   function getPreviewVideoCategories() {
-    return Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
+    const site = Array.isArray(window.PREVIEW_VIDEO_CATEGORIES) ? window.PREVIEW_VIDEO_CATEGORIES : FALLBACK_PREVIEW_VIDEO_CATEGORIES;
+    return site.filter(c => UPLOAD_VIDEO_CATEGORIES.includes(c));
   }
   function getSlotTags(categoryId) {
     const list = (window.slotTags || {})[categoryId];
@@ -199,7 +208,7 @@
     return listCategoryMods(category).find(x => x.mod && normalizeModName(x.mod.name) === key) || null;
   }
   function modIsReplaceable(mod) {
-    return typeof mod.file === 'string' && /^[^\\/]+\.zip$/i.test(mod.file);
+    return !S.styled && typeof mod.file === 'string' && /^[^\\/]+\.zip$/i.test(mod.file);
   }
 
   const S = {
@@ -216,7 +225,11 @@
     cooldownTimer: null,
     turnstileId: null,
     previewUrl: null,
-    allHeroes: []
+    allHeroes: [],
+    styled: false,
+    sub: 0,
+    activeStyle: 0,
+    slot2: { archiveFile: null, archive: null, reading: false }
   };
 
   let form, categorySelect, heroGroup, heroSearch, heroHidden, heroList, nameInput, nameSuggest;
@@ -334,11 +347,15 @@
     if ((await sha256Hex(vpk)) !== expectedVpk) {
       throw new Error('Integrity check failed: the .vpk file does not match. The file may be corrupted or was tampered with.');
     }
-    return { modZip, preview, previewExt, previewError, folderName };
+    return { modZip, preview, previewExt, previewError, folderName, zipHash: expectedZip };
   }
 
-  function setChecks(items) {
-    const ul = $('upChecks');
+  function slotState(slot) { return slot ? S.slot2 : S; }
+  function slotSfx(slot) { return slot ? '2' : ''; }
+  function anyReading() { return S.reading || (S.styled && S.slot2.reading); }
+
+  function setChecks(items, slot = 0) {
+    const ul = $('upChecks' + slotSfx(slot));
     ul.textContent = '';
     for (const it of items) {
       const li = el('li', it.state);
@@ -347,55 +364,60 @@
     }
   }
 
-  function resetArchiveUi() {
-    S.archive = null;
-    S.archiveFile = null;
-    S.reading = false;
-    $('upDrop').classList.remove('has-file', 'is-error');
-    $('upArchiveLabel').textContent = 'Drop archive here or click to browse';
-    $('upArchiveSub').textContent = 'ZIP made with PreMod · up to 100 MB';
-    $('upChecks').textContent = '';
+  function resetArchiveUi(slot = 0) {
+    const sfx = slotSfx(slot), st = slotState(slot);
+    st.archive = null;
+    st.archiveFile = null;
+    st.reading = false;
+    $('upDrop' + sfx).classList.remove('has-file', 'is-error');
+    $('upArchiveLabel' + sfx).textContent = 'Drop archive here or click to browse';
+    $('upArchiveSub' + sfx).textContent = 'ZIP made with PreMod · up to 100 MB';
+    $('upChecks' + sfx).textContent = '';
   }
 
-  async function handleArchiveFile(file) {
-    const drop = $('upDrop');
-    S.archive = null;
-    S.archiveFile = null;
+  async function handleArchiveFile(file, slot = 0) {
+    const sfx = slotSfx(slot), st = slotState(slot);
+    const who = S.styled ? `Style ${slot + 1}: ` : '';
+    const drop = $('upDrop' + sfx);
+    st.archive = null;
+    st.archiveFile = null;
     drop.classList.remove('has-file', 'is-error');
-    if (!file) { resetArchiveUi(); refreshAll(); return; }
+    if (!file) { resetArchiveUi(slot); refreshAll(); return; }
 
     try { validateArchiveFile(file); }
     catch (err) {
-      resetArchiveUi();
-      $('upArchive').value = '';
+      resetArchiveUi(slot);
+      $('upArchive' + sfx).value = '';
       drop.classList.add('is-error');
-      setChecks([{ state: 'err', text: err.message }]);
+      setChecks([{ state: 'err', text: err.message }], slot);
       refreshAll();
       return;
     }
 
-    S.archiveFile = file;
-    S.reading = true;
+    st.archiveFile = file;
+    st.reading = true;
     drop.classList.add('has-file');
-    $('upArchiveLabel').textContent = file.name;
-    $('upArchiveSub').textContent = formatBytes(file.size);
-    setChecks([{ state: 'busy', text: 'Checking your archive…' }]);
+    $('upArchiveLabel' + sfx).textContent = file.name;
+    $('upArchiveSub' + sfx).textContent = formatBytes(file.size);
+    setChecks([{ state: 'busy', text: 'Checking your archive…' }], slot);
     setLogState('busy');
-    const logRow = logLine('Reading archive…', 'progress');
+    const logRow = logLine(`${who}Reading archive…`, 'progress');
     refreshAll();
 
     try {
       await ensureFflate();
-      const result = await extractArchive(file, msg => setChecks([{ state: 'busy', text: msg }]));
-      if (S.archiveFile !== file) return;
-      S.archive = result;
+      const result = await extractArchive(file, msg => setChecks([{ state: 'busy', text: msg }], slot));
+      if (st.archiveFile !== file) return;
+      st.archive = result;
 
-      const baseName = stripExt(file.name);
-      const hero = findHeroInText(baseName) || (result.folderName ? findHeroInText(result.folderName) : null);
-      if (hero && HERO_AWARE_CATEGORIES.includes(categorySelect.value) && !heroHidden.value) selectHero(hero, { silent: true });
-      const suggestion = suggestNameFromText(result.folderName || baseName);
-      if (suggestion && (!nameInput.value.trim() || nameInput.value.trim() === S.autoFilledName)) {
-        S.autoFilledName = setNameValue(suggestion);
+      if (slot === 0) {
+        const baseName = stripExt(file.name);
+        const hero = findHeroInText(baseName) || (result.folderName ? findHeroInText(result.folderName) : null);
+        if (hero && HERO_AWARE_CATEGORIES.includes(categorySelect.value) && !heroHidden.value) selectHero(hero, { silent: true });
+        const suggestion = suggestNameFromText(result.folderName || baseName);
+        if (suggestion && (!nameInput.value.trim() || nameInput.value.trim() === S.autoFilledName)) {
+          S.autoFilledName = setNameValue(suggestion);
+        }
       }
 
       const checks = [
@@ -405,26 +427,26 @@
           ? { state: 'ok', text: 'WebP preview image found' }
           : { state: 'err', text: result.previewError || 'No preview image found. A WebP preview is required.' }
       ];
-      setChecks(checks);
+      setChecks(checks, slot);
       if (result.preview) {
-        updateLogLine(logRow, 'Archive OK');
+        updateLogLine(logRow, `${who}Archive OK`);
         logRow.className = 'up-log-entry success';
         logRow.querySelector('.material-symbols-rounded').textContent = 'check_circle';
         setLogState('idle');
       } else {
         drop.classList.add('is-error');
-        logLine(result.previewError || 'No preview image in the archive.', 'error');
+        logLine(who + (result.previewError || 'No preview image in the archive.'), 'error');
         setLogState('error');
       }
     } catch (err) {
-      if (S.archiveFile !== file) return;
+      if (st.archiveFile !== file) return;
       drop.classList.add('is-error');
-      setChecks([{ state: 'err', text: err.message }]);
-      logLine('Archive error: ' + err.message, 'error');
+      setChecks([{ state: 'err', text: err.message }], slot);
+      logLine(`${who}Archive error: ` + err.message, 'error');
       setLogState('error');
     } finally {
-      if (S.archiveFile === file) {
-        S.reading = false;
+      if (st.archiveFile === file) {
+        st.reading = false;
         detectUpdate();
         refreshAll();
       }
@@ -432,21 +454,105 @@
   }
 
   function wireDropZone() {
-    const drop = $('upDrop');
-    const input = $('upArchive');
-    input.addEventListener('change', () => handleArchiveFile(input.files[0]));
-    ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('dragover'); }));
-    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('dragover'); }));
-    drop.addEventListener('drop', e => {
-      const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
-      if (!file) return;
-      try {
-        const dt = new DataTransfer();
-        dt.items.add(file);
-        input.files = dt.files;
-      } catch { }
-      handleArchiveFile(file);
+    [0, 1].forEach(slot => {
+      const sfx = slotSfx(slot);
+      const drop = $('upDrop' + sfx);
+      const input = $('upArchive' + sfx);
+      input.addEventListener('change', () => handleArchiveFile(input.files[0], slot));
+      ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('dragover'); }));
+      ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('dragover'); }));
+      drop.addEventListener('drop', e => {
+        const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (!file) return;
+        try {
+          const dt = new DataTransfer();
+          dt.items.add(file);
+          input.files = dt.files;
+        } catch { }
+        handleArchiveFile(file, slot);
+      });
     });
+  }
+
+  function getStyleCfg(i) {
+    return {
+      label: $('upStyleLabel' + i).value.trim(),
+      mode: getRadio('styleColorMode' + i) === 'two' ? 'two' : 'one',
+      a: $('upStyleColorA' + i).value,
+      b: $('upStyleColorB' + i).value
+    };
+  }
+  function styleColors(i) {
+    const c = getStyleCfg(i);
+    return (c.mode === 'two' ? [c.a, c.b] : [c.a]).map(x => String(x).toLowerCase());
+  }
+  function colorsToCss(colors) {
+    return colors.length > 1 ? `linear-gradient(135deg, ${colors[0]} 50%, ${colors[1]} 50%)` : colors[0];
+  }
+  function syncStyleCfgUi() {
+    for (let i = 0; i < STYLE_COUNT; i++) show($('upStyleColorB' + i), getRadio('styleColorMode' + i) === 'two');
+  }
+  function applyStyledUi() {
+    const on = S.styled;
+    $('upStyledToggle').checked = on;
+    show($('upArchiveDesc'), !on);
+    show($('upArchiveDescStyled'), on);
+    document.querySelectorAll('.up-style-cfg').forEach(n => show(n, on));
+    if (!on) { S.sub = 0; S.activeStyle = 0; }
+    syncStyleCfgUi();
+    applySubUi();
+  }
+  function applySubUi() {
+    const on = S.styled;
+    const sub = on ? S.sub : 0;
+    show($('upSlot0'), sub === 0);
+    show($('upSlot1'), on && sub === 1);
+    show($('upStyledToggle').closest('.up-switch'), !on || sub === 0);
+    const titleEl = $('upArchiveTitle');
+    const titleText = on ? `Style ${sub + 1} of ${STYLE_COUNT}` : 'Choose your archive';
+    if (titleEl.textContent !== titleText) {
+      titleEl.textContent = titleText;
+      titleEl.classList.remove('up-swap');
+      void titleEl.offsetWidth;
+      titleEl.classList.add('up-swap');
+    }
+    const sec = document.querySelector('.up-step[data-step="0"]');
+    if (sec) sec.classList.toggle('is-styled', on);
+
+    show($('upStepperExtra'), on);
+    let num = 1;
+    document.querySelectorAll('#upStepper li').forEach(li => {
+      if (li.hidden) return;
+      li.querySelector('.up-step-dot').textContent = String(num++);
+    });
+    const first = document.querySelector('#upStepper li[data-step="0"] .up-step-label');
+    if (first) first.textContent = on ? 'Style 1' : 'Archive';
+  }
+  function setSub(sub) {
+    S.sub = sub;
+    S.activeStyle = sub;
+    updatePreviewCard();
+  }
+  function stepPos() { return S.step === 0 ? (S.styled ? S.sub * 0.5 : 0) : S.step; }
+  function validateStyleCfg(count = STYLE_COUNT) {
+    const seen = new Set();
+    for (let i = 0; i < count; i++) {
+      const c = getStyleCfg(i);
+      if (!c.label) return `Style ${i + 1}: enter a style name.`;
+      if (c.label.length > MAX_STYLE_LABEL || !STYLE_LABEL_RE.test(c.label)) {
+        return `Style ${i + 1}: the name may contain English letters, digits, spaces and . _ - ! only (max ${MAX_STYLE_LABEL}).`;
+      }
+      const key = c.label.toLowerCase();
+      if (seen.has(key)) return 'The two styles must have different names.';
+      seen.add(key);
+      if (!styleColors(i).every(h => HEX_RE.test(h))) return `Style ${i + 1}: invalid color.`;
+    }
+    return null;
+  }
+  function blockedMessage(mod) {
+    if (S.styled) return `"${mod.name}" already exists in the catalog. A mod with styles can only be added as a new entry — choose a different name.`;
+    if (Array.isArray(mod.styles) && mod.styles.length) return `"${mod.name}" has several styles, and updating mods with styles isn't supported here yet. Choose a different name or contact the moderators.`;
+    return `"${mod.name}" is hosted outside the catalog, so its files can't be replaced from here. Choose a different name or contact the moderators.`;
   }
 
   function findHeroInText(text) {
@@ -627,8 +733,7 @@
         $('upUpdateBannerText').textContent =
           `"${found.mod.name}" is already in the catalog. Your archive replaces its files via a GitHub pull request; the author stays unchanged.`;
       } else {
-        $('upBlockedBannerText').textContent =
-          `"${found.mod.name}" is hosted outside the catalog, so its files can't be replaced from here. Choose a different name or contact the moderators.`;
+        $('upBlockedBannerText').textContent = blockedMessage(found.mod);
       }
       if (HERO_AWARE_CATEGORIES.includes(category) && found.group && S.allHeroes.includes(found.group) && heroHidden.value !== found.group) {
         heroHidden.value = found.group;
@@ -686,7 +791,9 @@
   }
 
   function lockedAuthorLinks(mod) {
-    return (Array.isArray(mod.links) ? mod.links : []).filter(l => l && (l.type === 'author' || l.type === 'sender') && l.url);
+    return (Array.isArray(mod.links) ? mod.links : []).filter(l => l && (
+      (l.type === 'author' && l.url) || (l.type === 'sender' && (l.url || l.name))
+    ));
   }
 
   function applyUpdateModeUi() {
@@ -743,9 +850,11 @@
       l.append(input, ' ' + label);
       wrap.appendChild(l);
     };
+    const hiddenTags = UPLOAD_HIDDEN_TAGS[categoryId] || [];
     for (const [key, label] of Object.entries(cfg.map)) {
+      if (hiddenTags.includes(key)) continue;
       if (slotTags.includes(key)) { chip('radio', key, label, slotTagsWrap, ' up-chip-slot'); hasSlot = true; }
-      else if (key === 'effects' || key === 'icons') { chip('checkbox', key, label, effectsTagsWrap); hasEffects = true; }
+      else if (categoryId === 'hero-items' && (key === 'effects' || key === 'icons')) { chip('checkbox', key, label, effectsTagsWrap); hasEffects = true; }
       else { chip('checkbox', key, label, genericTagsWrap); hasGeneric = true; }
     }
     show($('upSlotGroup'), hasSlot);
@@ -858,14 +967,17 @@
   }
 
   function currentCredits() {
-    const out = { author: null, extra: null, video: null };
+    const out = { author: null, authors: [], extra: null, video: null };
     if (S.update && modIsReplaceable(S.update.mod)) {
       const locked = lockedAuthorLinks(S.update.mod);
-      out.author = locked.map(l => (l.type === 'sender' && l.name ? l.name : l.url)).join(', ') || null;
+      out.authors = locked.map(l => (l.type === 'sender' && l.name ? l.name : l.url))
+        .flatMap(n => String(n).split(/\s*,\s*/)).filter(Boolean);
+      out.author = out.authors.join(', ') || null;
     } else {
       const mode = getRadio('authorMode');
       if (mode === 'existing') out.author = $('upAuthorExisting').value || null;
       else if (mode === 'new') out.author = $('upAuthorName').value.trim() || null;
+      if (out.author) out.authors = [out.author];
     }
     const extraMode = getRadio('extraMode');
     if (extraMode && extraMode !== 'none') {
@@ -886,12 +998,13 @@
     const buttons = $('upPreviewButtons');
     buttons.textContent = '';
     const c = currentCredits();
-    if (c.author) buttons.appendChild(previewLinkButton('author', c.author));
+    for (const a of c.authors) buttons.appendChild(previewLinkButton('author', a));
     if (c.extra) buttons.appendChild(previewLinkButton(c.extra.type, c.extra.value));
     if (c.video) buttons.appendChild(previewLinkButton('preview', tr('preview', 'Preview')));
 
     const media = $('upPreviewMedia');
-    const previewData = S.archive && S.archive.preview ? S.archive.preview : null;
+    const shownSt = S.styled && S.activeStyle === 1 ? S.slot2 : S;
+    const previewData = shownSt.archive && shownSt.archive.preview ? shownSt.archive.preview : null;
     if (S.previewShown !== previewData || !media.firstElementChild) {
       media.textContent = '';
       if (S.previewUrl) { URL.revokeObjectURL(S.previewUrl); S.previewUrl = null; }
@@ -907,7 +1020,7 @@
     }
     const shownImg = media.querySelector('img');
     if (shownImg) shownImg.alt = name;
-    media.querySelectorAll('.mod-tags').forEach(n => n.remove());
+    media.querySelectorAll('.mod-tags, .style-circles').forEach(n => n.remove());
 
     const catId = categorySelect.value;
     const tagMap = ((window.TAG_CONFIGS || {})[catId] || {}).map || {};
@@ -922,17 +1035,52 @@
       }
       media.appendChild(wrap);
     }
+
+    if (S.styled) {
+      const circles = el('div', 'style-circles');
+      for (let i = 0; i < STYLE_COUNT; i++) {
+        const c = el('span', 'style-circle' + (i === S.activeStyle ? ' active' : ''));
+        c.dataset.styleIndex = String(i);
+        c.style.background = colorsToCss(styleColors(i));
+        c.title = getStyleCfg(i).label;
+        c.addEventListener('click', e => {
+          e.stopPropagation();
+          S.activeStyle = i;
+          updatePreviewCard();
+        });
+        circles.appendChild(c);
+      }
+      media.appendChild(circles);
+    }
   }
 
-  function validateStep(step) {
+  function validateStep(step, full = false) {
     const category = categorySelect.value;
     const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
 
     if (step === 0) {
-      if (S.reading) return 'Still checking your archive — one moment.';
-      if (!S.archiveFile) return 'Choose the archive made with PreMod first.';
-      if (!S.archive) return 'The archive could not be read. Check the messages above or choose another file.';
-      if (!S.archive.preview) return S.archive.previewError || 'This archive has no preview image. A mod preview is required.';
+      if (anyReading()) return 'Still checking your archive — one moment.';
+      const allSlots = S.styled ? [S, S.slot2] : [S];
+      const upTo = !full && S.styled && S.step === 0 ? S.sub + 1 : allSlots.length;
+      const slots = allSlots.slice(0, upTo);
+      for (let i = 0; i < slots.length; i++) {
+        const st = slots[i];
+        const who = S.styled ? `Style ${i + 1}: ` : '';
+        if (!st.archiveFile) return `${who}Choose the archive made with PreMod first.`;
+        if (!st.archive) return `${who}The archive could not be read. Check the messages above or choose another file.`;
+        if (!st.archive.preview) return who + (st.archive.previewError || 'This archive has no preview image. A mod preview is required.');
+      }
+      if (S.styled) {
+        const cfgErr = validateStyleCfg(upTo);
+        if (cfgErr) return cfgErr;
+      }
+      if (S.styled && upTo === STYLE_COUNT) {
+        if (S.archive.zipHash === S.slot2.archive.zipHash) return 'Both styles contain the same mod file. Each style needs its own archive.';
+        const total = S.archive.modZip.length + S.slot2.archive.modZip.length;
+        if (total > MAX_STYLED_TOTAL_BYTES) {
+          return `The two mod files together are ${formatBytes(total)}. The limit for a mod with styles is ${Math.floor(MAX_STYLED_TOTAL_BYTES / 1024 / 1024)} MB in total.`;
+        }
+      }
     }
 
     if (step === 1) {
@@ -947,7 +1095,7 @@
       }
       const name = nameInput.value.trim();
       if (!name) return 'Enter a mod name.';
-      if (S.update && !modIsReplaceable(S.update.mod)) return 'This mod is hosted externally and cannot be updated here.';
+      if (S.update && !modIsReplaceable(S.update.mod)) return blockedMessage(S.update.mod);
       if (!upd) {
         const max = getMaxNameLength(hero);
         if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters, English letters/numbers only).`;
@@ -1007,6 +1155,7 @@
   }
 
   function showStepError(msg) {
+    if (msg && S.cooldown > 0 && /too many|rate.?limit/i.test(String(msg))) msg = '';
     const box = $('upStepError');
     box.textContent = msg || '';
     box.hidden = !msg;
@@ -1020,18 +1169,22 @@
 
   function updateNav() {
     const last = S.step === STEP_COUNT - 1;
-    $('upPrev').style.visibility = S.step === 0 || S.busy ? 'hidden' : 'visible';
+    $('upPrev').style.visibility = (S.step === 0 && (!S.styled || S.sub === 0)) || S.busy ? 'hidden' : 'visible';
     show($('upNext'), !last);
     show($('upSubmit'), last);
-    $('upNext').disabled = S.reading;
+    $('upNext').disabled = anyReading();
     $('upSubmit').disabled = S.busy || S.cooldown > 0;
-    $('upSubmitIcon').textContent = S.busy ? 'hourglass_empty' : 'send';
+    $('upSubmitIcon').textContent = S.busy ? 'progress_activity' : 'send';
+    $('upSubmitIcon').classList.toggle('is-busy', S.busy);
 
+    applySubUi();
+    show($('upCooldown'), S.cooldown > 0 && S.step === STEP_COUNT - 1);
+    const pos = stepPos();
     document.querySelectorAll('#upStepper li').forEach(li => {
       const n = Number(li.dataset.step);
-      li.classList.toggle('active', n === S.step);
-      li.classList.toggle('done', n < S.step);
-      li.style.cursor = n < S.step && !S.busy && !stepSkipped(n) ? 'pointer' : '';
+      li.classList.toggle('active', n === pos);
+      li.classList.toggle('done', n < pos);
+      li.style.cursor = n < pos && !S.busy && !stepSkipped(Math.ceil(n)) ? 'pointer' : '';
     });
     document.querySelectorAll('.up-step').forEach(sec => { sec.hidden = Number(sec.dataset.step) !== S.step; });
   }
@@ -1060,6 +1213,14 @@
 
   function tryNext() {
     if (S.busy) return;
+    if (S.step === 0 && S.styled && S.sub < STYLE_COUNT - 1) {
+      const subErr = validateStep(0);
+      if (subErr) { showStepError(subErr); return; }
+      showStepError('');
+      setSub(S.sub + 1);
+      updateNav();
+      return;
+    }
     if (S.step === 1) {
       if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
       else setNameValue(titleCaseWords(nameInput.value));
@@ -1084,11 +1245,22 @@
     const tags = Object.keys(selectedTags()).map(k => tagMap[k] || k);
     const credits = currentCredits();
 
-    row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : 'New mod');
+    row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : (S.styled ? 'New mod with 2 styles' : 'New mod'));
     row(dl, 'Name', upd ? upd.mod.name : nameInput.value.trim());
     row(dl, 'Category', categorySelect.selectedOptions[0] ? categorySelect.selectedOptions[0].textContent : category);
     if (HERO_AWARE_CATEGORIES.includes(category)) row(dl, 'Hero', heroHidden.value || '—');
-    row(dl, 'Archive', S.archiveFile ? `${S.archiveFile.name} (${formatBytes(S.archiveFile.size)})` : '—');
+    if (S.styled) {
+      for (let i = 0; i < STYLE_COUNT; i++) {
+        const st = slotState(i);
+        const dd = el('dd');
+        const sw = el('span', 'up-swatch');
+        sw.style.background = colorsToCss(styleColors(i));
+        dd.append(sw, `${getStyleCfg(i).label} · ${st.archiveFile ? `${st.archiveFile.name} (${formatBytes(st.archiveFile.size)})` : '—'}`);
+        dl.append(el('dt', '', `Style ${i + 1}`), dd);
+      }
+    } else {
+      row(dl, 'Archive', S.archiveFile ? `${S.archiveFile.name} (${formatBytes(S.archiveFile.size)})` : '—');
+    }
     row(dl, 'Tags', tags.length ? tags.join(', ') : '—');
     row(dl, upd ? 'Author (locked)' : 'Author', credits.author || '—');
     if (credits.extra) row(dl, { source: 'Source', modded: 'Modded by', author: 'Co-author' }[credits.extra.type] || 'Link', credits.extra.value);
@@ -1119,15 +1291,13 @@
   function resetTurnstile() { if (S.turnstileId !== null) { try { turnstile.reset(S.turnstileId); } catch { } } }
 
   function renderCooldown() {
-    $('upCooldownText').textContent = `You can submit your next mod in ${formatCooldown(S.cooldown)}.`;
-    show($('upCooldown'), true);
+    $('upCooldownText').textContent = `Next mod in ${formatCooldown(S.cooldown)}`;
     updateNav();
   }
   function clearCooldown() {
     clearInterval(S.cooldownTimer);
     S.cooldownTimer = null;
     S.cooldown = 0;
-    show($('upCooldown'), false);
     updateNav();
   }
   function startCooldown(seconds) {
@@ -1250,6 +1420,13 @@
 
     fd.set('modZip', new Blob([S.archive.modZip]), `${name}.zip`);
     fd.set('preview', new Blob([S.archive.preview]), `${name}.${S.archive.previewExt}`);
+
+    if (S.styled) {
+      fd.set('styled', '1');
+      fd.set('styles', JSON.stringify([0, 1].map(i => ({ label: getStyleCfg(i).label, colors: styleColors(i) }))));
+      fd.set('modZip2', new Blob([S.slot2.archive.modZip]), `${name} Style 2.zip`);
+      fd.set('preview2', new Blob([S.slot2.archive.preview]), `${name} Style 2.${S.slot2.archive.previewExt}`);
+    }
     return fd;
   }
 
@@ -1265,40 +1442,77 @@
   }
 
   function showDone(data, wasUpdate) {
+    const modName = (S.update && modIsReplaceable(S.update.mod)) ? S.update.mod.name : nameInput.value.trim();
+    const catOpt = categorySelect.selectedOptions[0];
+    const catName = catOpt && catOpt.value ? catOpt.textContent : '';
+
     form.hidden = true;
     $('upStepper').hidden = true;
     const old = $('upDone');
     if (old) old.remove();
-    const box = el('div', 'up-banner up-banner-update');
+
+    const box = el('div', 'up-done');
     box.id = 'upDone';
-    box.appendChild(icon('check_circle'));
-    const inner = el('div');
-    inner.appendChild(el('strong', '', wasUpdate ? 'Update submitted' : 'Mod submitted'));
-    inner.appendChild(el('p', '', wasUpdate
+    box.setAttribute('role', 'status');
+
+    const badge = el('div', 'up-done-badge');
+    badge.appendChild(icon('check'));
+    box.appendChild(badge);
+
+    box.appendChild(el('h2', 'up-done-title', wasUpdate ? 'Update submitted' : 'Mod submitted'));
+    box.appendChild(el('p', 'up-done-text', wasUpdate
       ? 'Your update is awaiting moderation as a pull request. Once approved, it replaces the existing files.'
       : 'Your mod is awaiting moderation. Once approved it will appear in the catalog.'));
-    const href = safeGithubUrl(data && data.prUrl);
-    const actions = el('div', 'up-nav');
-    if (href) {
-      const a = el('a', 'up-btn up-btn-tonal', 'View pull request');
-      a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      actions.appendChild(a);
+
+    if (modName) {
+      const meta = el('div', 'up-done-meta');
+      meta.append(icon(wasUpdate ? 'sync_alt' : 'extension'), el('span', 'up-done-meta-name', modName));
+      if (catName) meta.appendChild(el('span', 'up-done-meta-cat', catName));
+      box.appendChild(meta);
     }
-    const again = el('button', 'up-btn up-btn-primary', 'Submit another');
+
+    const steps = el('ol', 'up-done-steps');
+    [
+      ['Submitted', 'done'],
+      ['On moderation', 'active'],
+      [wasUpdate ? 'Files replaced' : 'Published', '']
+    ].forEach(([label, state]) => {
+      const li = el('li', state);
+      li.append(el('span', 'up-done-dot'), el('span', '', label));
+      steps.appendChild(li);
+    });
+    box.appendChild(steps);
+
+    const href = safeGithubUrl(data && data.prUrl);
+    const actions = el('div', 'up-done-actions');
+    const again = el('button', 'up-btn up-btn-primary', '');
     again.type = 'button';
+    again.append(icon('add'), el('span', '', 'Submit another'));
     again.addEventListener('click', () => { box.remove(); form.hidden = false; $('upStepper').hidden = false; resetWizard(); });
     actions.appendChild(again);
-    inner.appendChild(actions);
-    box.appendChild(inner);
+    if (href) {
+      const a = el('a', 'up-btn up-btn-outline', '');
+      a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.append(icon('open_in_new'), el('span', '', 'View pull request'));
+      actions.appendChild(a);
+    }
+    box.appendChild(actions);
+
     form.parentNode.insertBefore(box, form);
+    again.focus({ preventScroll: true });
   }
 
   async function submit() {
     if (S.busy) return;
     if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
     for (let i = 0; i < STEP_COUNT - 1; i++) {
-      const err = validateStep(i);
-      if (err) { goToStep(i); showStepError(err); return; }
+      const err = validateStep(i, true);
+      if (err) {
+        if (i === 0 && S.styled) setSub(/^Style 1/.test(err) ? 0 : STYLE_COUNT - 1);
+        goToStep(i);
+        showStepError(err);
+        return;
+      }
     }
     let fd;
     try { fd = buildFormData(); }
@@ -1338,8 +1552,14 @@
       hideProgress();
       logLine('Error: ' + err.message, 'error');
       setLogState('error');
-      showStepError(err.message);
-      if (err.data && err.data.nextSubmitInSeconds > 0) startCooldown(err.data.nextSubmitInSeconds);
+      const rateLimited = (err.data && (err.data.error === 'rate_limited' || err.data.nextSubmitInSeconds > 0)) || /too many|rate.?limit/i.test(err.message || '');
+      if (rateLimited) {
+        showStepError('');
+        if (err.data && err.data.nextSubmitInSeconds > 0) startCooldown(err.data.nextSubmitInSeconds);
+        else refreshCooldownFromServer();
+      } else {
+        showStepError(err.message);
+      }
       setBusy(false);
     } finally {
       window.removeEventListener('beforeunload', guard);
@@ -1350,7 +1570,13 @@
     form.reset();
     [categorySelect, $('upAuthorExisting'), $('upExtraExisting')].forEach(refreshSelect);
     $('upArchive').value = '';
-    resetArchiveUi();
+    $('upArchive2').value = '';
+    resetArchiveUi(0);
+    resetArchiveUi(1);
+    S.styled = false;
+    S.sub = 0;
+    S.activeStyle = 0;
+    applyStyledUi();
     S.update = null;
     S.prefillKey = '';
     S.autoFilledName = '';
@@ -1386,7 +1612,9 @@
     const list = $('upHistoryList');
     list.textContent = '';
     const box = el('div', 'up-history-empty');
-    box.append(icon(iconName), el('span', '', text));
+    const ic = icon(iconName);
+    if (iconName === 'progress_activity') ic.classList.add('is-busy');
+    box.append(ic, el('span', '', text));
     list.appendChild(box);
   }
   function renderHistory(items) {
@@ -1435,6 +1663,19 @@
 
   function wireEvents() {
     wireDropZone();
+
+    $('upStyledToggle').addEventListener('change', () => {
+      S.styled = $('upStyledToggle').checked;
+      applyStyledUi();
+      detectUpdate();
+      refreshAll();
+    });
+    for (let i = 0; i < STYLE_COUNT; i++) {
+      $('upStyleLabel' + i).addEventListener('input', refreshAll);
+      form.querySelectorAll(`input[name="styleColorMode${i}"]`).forEach(r => r.addEventListener('change', () => { syncStyleCfgUi(); refreshAll(); }));
+      $('upStyleColorA' + i).addEventListener('input', refreshAll);
+      $('upStyleColorB' + i).addEventListener('input', refreshAll);
+    }
 
     categorySelect.addEventListener('change', () => {
       const cat = categorySelect.value;
@@ -1501,7 +1742,13 @@
     $('upExtraExisting').addEventListener('change', refreshAll);
     $('upExtraName').addEventListener('input', () => { checkExtraDuplicate(); refreshAll(); });
 
-    $('upPrev').addEventListener('click', () => { if (!S.busy) goToStep(neighbourStep(S.step, -1)); });
+    $('upPrev').addEventListener('click', () => {
+      if (S.busy) return;
+      if (S.step === 0 && S.styled && S.sub > 0) { showStepError(''); setSub(S.sub - 1); updateNav(); return; }
+      const target = neighbourStep(S.step, -1);
+      if (target === 0 && S.styled) setSub(STYLE_COUNT - 1);
+      goToStep(target);
+    });
     $('upNext').addEventListener('click', tryNext);
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -1510,7 +1757,8 @@
 
     document.querySelectorAll('#upStepper li').forEach(li => li.addEventListener('click', () => {
       const n = Number(li.dataset.step);
-      if (n < S.step && !S.busy && !stepSkipped(n)) goToStep(n);
+      if (n >= stepPos() || S.busy || stepSkipped(Math.ceil(n))) return;
+      if (n === 0 || n === 0.5) { setSub(n === 0 ? 0 : 1); goToStep(0); } else goToStep(n);
     }));
 
     $('upHistoryBtn').addEventListener('click', () => showHistory(true));
@@ -1544,6 +1792,7 @@
     wireEvents();
     clearLog();
     applyUpdateModeUi();
+    applyStyledUi();
     refreshAll();
     goToStep(0);
     ensureFflate().catch(() => { });

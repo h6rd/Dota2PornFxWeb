@@ -56,6 +56,8 @@
       <section class="up-wizard" aria-label="Upload wizard">
         <ol class="up-stepper" id="upStepper">
           <li data-step="0"><span class="up-step-dot">1</span><span class="up-step-label">Archive</span></li>
+          <li data-step="0.5" id="upStepperExtra" hidden><span class="up-step-dot">2</span><span
+              class="up-step-label">Style 2</span></li>
           <li data-step="1"><span class="up-step-dot">2</span><span class="up-step-label">Mod</span></li>
           <li data-step="2"><span class="up-step-dot">3</span><span class="up-step-label">Details</span></li>
           <li data-step="3"><span class="up-step-dot">4</span><span class="up-step-label">Credits</span></li>
@@ -65,20 +67,92 @@
         <form id="upForm" novalidate>
           <!-- step 1: archive -->
           <section class="up-step" data-step="0">
-            <h2 class="up-step-title">Choose your archive</h2>
-            <p class="up-step-desc">Pack the mod with
-              <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" rel="noopener">PreMod</a>
-              and drop the resulting <code>.zip</code> here.
-            </p>
+            <div class="up-step-head">
+              <div class="up-step-head-text">
+                <h2 class="up-step-title" id="upArchiveTitle">Choose your archive</h2>
+                <p class="up-step-desc" id="upArchiveDesc">Pack the mod with
+                  <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" rel="noopener">PreMod</a>
+                  and drop the resulting <code>.zip</code> here.
+                </p>
+                <p class="up-step-desc" id="upArchiveDescStyled" hidden>Pack the style with
+                  <a href="https://github.com/h6rd/PreMod/releases/latest/" target="_blank" rel="noopener">PreMod</a>,
+                  drop its <code>.zip</code>, then name the style and pick its circle color.
+                </p>
+              </div>
+              <label class="up-switch up-switch-inline" for="upStyledToggle"
+                title="Mod with styles: two archives in one card (max 2)">
+                <input type="checkbox" id="upStyledToggle">
+                <span class="up-switch-track" aria-hidden="true"></span>
+                <span class="up-switch-text">Styles</span>
+              </label>
+            </div>
 
-            <label class="up-drop" id="upDrop" for="upArchive">
-              <input type="file" id="upArchive" accept=".zip">
-              <span class="material-symbols-rounded up-drop-icon">upload_file</span>
-              <span class="up-drop-title" id="upArchiveLabel">Drop archive here or click to browse</span>
-              <span class="up-drop-sub" id="upArchiveSub">ZIP made with PreMod · up to 100 MB</span>
-            </label>
+            <div class="up-slot" id="upSlot0">
 
-            <ul class="up-checks" id="upChecks"></ul>
+              <label class="up-drop" id="upDrop" for="upArchive">
+                <input type="file" id="upArchive" accept=".zip">
+                <span class="material-symbols-rounded up-drop-icon">upload_file</span>
+                <span class="up-drop-title" id="upArchiveLabel">Drop archive here or click to browse</span>
+                <span class="up-drop-sub" id="upArchiveSub">ZIP made with PreMod · up to 100 MB</span>
+              </label>
+
+              <ul class="up-checks" id="upChecks"></ul>
+
+              <div class="up-style-cfg" id="upStyleCfg0" hidden>
+                <div class="up-field-group">
+                  <label for="upStyleLabel0">Style name <span class="up-opt">(shown on hover)</span></label>
+                  <input type="text" id="upStyleLabel0" class="up-field" value="Style I" maxlength="12"
+                    autocomplete="off">
+                </div>
+                <div class="up-field-group">
+                  <label>Circle color</label>
+                  <div class="up-color-row">
+                    <div class="up-segmented up-segmented-sm">
+                      <label><input type="radio" name="styleColorMode0" value="one" checked><span>One
+                          color</span></label>
+                      <label><input type="radio" name="styleColorMode0" value="two"><span>Two colors</span></label>
+                    </div>
+                    <input type="color" id="upStyleColorA0" class="up-color" value="#ddd4ff"
+                      aria-label="Style 1 color 1">
+                    <input type="color" id="upStyleColorB0" class="up-color" value="#ffffff"
+                      aria-label="Style 1 color 2" hidden>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="up-slot" id="upSlot1" hidden>
+
+              <label class="up-drop" id="upDrop2" for="upArchive2">
+                <input type="file" id="upArchive2" accept=".zip">
+                <span class="material-symbols-rounded up-drop-icon">upload_file</span>
+                <span class="up-drop-title" id="upArchiveLabel2">Drop archive here or click to browse</span>
+                <span class="up-drop-sub" id="upArchiveSub2">ZIP made with PreMod · up to 100 MB</span>
+              </label>
+
+              <ul class="up-checks" id="upChecks2"></ul>
+
+              <div class="up-style-cfg" id="upStyleCfg1" hidden>
+                <div class="up-field-group">
+                  <label for="upStyleLabel1">Style name <span class="up-opt">(shown on hover)</span></label>
+                  <input type="text" id="upStyleLabel1" class="up-field" value="Style II" maxlength="12"
+                    autocomplete="off">
+                </div>
+                <div class="up-field-group">
+                  <label>Circle color</label>
+                  <div class="up-color-row">
+                    <div class="up-segmented up-segmented-sm">
+                      <label><input type="radio" name="styleColorMode1" value="one" checked><span>One
+                          color</span></label>
+                      <label><input type="radio" name="styleColorMode1" value="two"><span>Two colors</span></label>
+                    </div>
+                    <input type="color" id="upStyleColorA1" class="up-color" value="#ff8f8f"
+                      aria-label="Style 2 color 1">
+                    <input type="color" id="upStyleColorB1" class="up-color" value="#ffffff"
+                      aria-label="Style 2 color 2" hidden>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
 
           <!-- step 2: what is it -->
@@ -220,10 +294,6 @@
 
             <dl class="up-summary" id="upSummary"></dl>
 
-            <div class="up-cooldown" id="upCooldown" hidden>
-              <span class="material-symbols-rounded">schedule</span>
-              <span id="upCooldownText"></span>
-            </div>
 
             <div class="up-progress" id="upProgressWrap" hidden>
               <m3e-linear-progress-indicator id="upProgressBar" variant="wavy" value="0"
@@ -238,6 +308,11 @@
             <button type="button" class="up-btn up-btn-tonal" id="upPrev">
               <span class="material-symbols-rounded">arrow_back</span> Back
             </button>
+            <div class="up-cooldown" id="upCooldown" hidden>
+              <span class="material-symbols-rounded">schedule</span>
+              <span id="upCooldownText"></span>
+            </div>
+
             <button type="button" class="up-btn up-btn-primary" id="upNext">
               Next <span class="material-symbols-rounded">arrow_forward</span>
             </button>
