@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tidehunter Maw Of Megalodon",
+      "category": "heroes"
+    },
+    {
+      "name": "Krutoi Gyrocopter",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Insatiable Hunger",
+      "category": "heroes"
+    },
+    {
+      "name": "Tidehunter Hammer Of Maelrawn",
+      "category": "heroes"
+    },
+    {
+      "name": "Crystal Maiden Narwolf Nebula",
+      "category": "heroes"
+    },
+    {
       "name": "Io Verity",
       "category": "heroes"
     },
@@ -13131,8 +13151,8 @@
           }
         ],
         "meta": {
-          "date": 1791454886,
-          "commit-sha": "7ee9a54643609c13c946097fa6fe77b1d324f8e7"
+          "date": 1791904367,
+          "commit-sha": ""
         }
       },
       {
@@ -14587,6 +14607,82 @@
         "meta": {
           "date": 1791882610,
           "commit-sha": "1b23653223cb36825abd69e9f12b25bb0879ac1e"
+        }
+      },
+      {
+        "name": "Crystal Maiden Narwolf Nebula",
+        "preview": "Crystal Maiden Narwolf Nebula.webp",
+        "file": "Crystal Maiden Narwolf Nebula.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791904367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tidehunter Hammer Of Maelrawn",
+        "preview": "Tidehunter Hammer Of Maelrawn.webp",
+        "file": "Tidehunter Hammer Of Maelrawn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791904367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tidehunter Insatiable Hunger",
+        "preview": "Tidehunter Insatiable Hunger.webp",
+        "file": "Tidehunter Insatiable Hunger.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791904367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Krutoi Gyrocopter",
+        "preview": "Krutoi Gyrocopter.webp",
+        "file": "Krutoi Gyrocopter.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "rasstegai"
+          }
+        ],
+        "meta": {
+          "date": 1791904367,
+          "commit-sha": ""
         }
       }
     ],
