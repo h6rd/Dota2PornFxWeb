@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Io Verity",
+      "category": "heroes"
+    },
+    {
       "name": "Shroomy",
       "category": "couriers"
     },
@@ -14698,6 +14702,25 @@
         "meta": {
           "date": 1791877099,
           "commit-sha": "915a4b24d817f0aa21d8f32ab1260cbc945a0b82"
+        }
+      },
+      {
+        "name": "Io Verity",
+        "preview": "Io Verity.webp",
+        "file": "Io Verity.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1791882610,
+          "commit-sha": ""
         }
       }
     ],
