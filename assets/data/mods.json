@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shroomy",
+      "category": "couriers"
+    },
+    {
+      "name": "Fluttershy Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Terrorblade Really Black",
+      "category": "heroes"
+    },
+    {
+      "name": "Pandora The Packwyrm",
+      "category": "couriers"
+    },
+    {
+      "name": "Chess Ranks",
+      "category": "ranks"
+    },
+    {
       "name": "Templar Assassin Black",
       "category": "heroes"
     },
@@ -14652,6 +14672,33 @@
           "date": 1791861641,
           "commit-sha": "9e06053152ee6c6accb350e4781bbddfbc59e17b"
         }
+      },
+      {
+        "name": "Terrorblade Really Black",
+        "preview": "Terrorblade Really Black.webp",
+        "file": "Terrorblade Really Black.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          },
+          {
+            "type": "modded",
+            "url": "CeoMods"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/SgzD38aN1K4"
+          }
+        ],
+        "meta": {
+          "date": 1791877098,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20508,6 +20555,21 @@
           "date": 1791365613,
           "commit-sha": "482d6968540bad0f24a73cd9ed030cf40ea4314d"
         }
+      },
+      {
+        "name": "Fluttershy Hud",
+        "preview": "Fluttershy Hud.webp",
+        "file": "Fluttershy Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "raddan"
+          }
+        ],
+        "meta": {
+          "date": 1791877098,
+          "commit-sha": ""
+        }
       }
     ],
     "high-five": [
@@ -22424,6 +22486,21 @@
           "date": 1790263250,
           "commit-sha": "0b245237cf441eb51a1c322ed36e02b33a4aabd1"
         }
+      },
+      {
+        "name": "Chess Ranks",
+        "preview": "Chess Ranks.webp",
+        "file": "Chess Ranks.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "raddan"
+          }
+        ],
+        "meta": {
+          "date": 1791877098,
+          "commit-sha": ""
+        }
       }
     ],
     "item-icons": [
@@ -22959,6 +23036,36 @@
         "meta": {
           "date": 1791389366,
           "commit-sha": "3c6341c52e1e831cb17128c7e05886b8b8ce5619"
+        }
+      },
+      {
+        "name": "Pandora The Packwyrm",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "linear-gradient(135deg, #6461ff 50%, #ff8080 50%)",
+            "preview": "Pandora The Packwyrm.webp",
+            "file": "Pandora The Packwyrm.zip"
+          },
+          {
+            "label": "Golden",
+            "color": "#ffd270",
+            "preview": "Pandora The Packwyrm Golden.webp",
+            "file": "Pandora The Packwyrm Golden.zip"
+          }
+        ],
+        "meta": {
+          "date": 1791877098,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shroomy",
+        "preview": "Shroomy.webp",
+        "file": "Shroomy.zip",
+        "meta": {
+          "date": 1791877098,
+          "commit-sha": ""
         }
       }
     ],
