@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Rose Chinese Medals",
+      "category": "ranks"
+    },
+    {
+      "name": "Phantom Assassin Altuxa",
+      "category": "heroes"
+    },
+    {
+      "name": "Bluelock Scoreboard And Shop",
+      "category": "parts"
+    },
+    {
+      "name": "Rose Overcast Search Bar",
+      "category": "parts"
+    },
+    {
       "name": "Noir Rose Top Bar",
       "category": "parts"
     },
@@ -14784,6 +14800,25 @@
           "date": 1791964895,
           "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
         }
+      },
+      {
+        "name": "Phantom Assassin Altuxa",
+        "preview": "Phantom Assassin Altuxa.webp",
+        "file": "Phantom Assassin Altuxa.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1791974605,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20383,6 +20418,36 @@
           "date": 1791964895,
           "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
         }
+      },
+      {
+        "name": "Rose Overcast Search Bar",
+        "preview": "Rose Overcast Search Bar.webp",
+        "file": "Rose Overcast Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          }
+        ],
+        "meta": {
+          "date": 1791974605,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Bluelock Scoreboard And Shop",
+        "preview": "Bluelock Scoreboard And Shop.webp",
+        "file": "Bluelock Scoreboard And Shop.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          }
+        ],
+        "meta": {
+          "date": 1791974605,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -22664,6 +22729,21 @@
         "meta": {
           "date": 1791877099,
           "commit-sha": "915a4b24d817f0aa21d8f32ab1260cbc945a0b82"
+        }
+      },
+      {
+        "name": "Rose Chinese Medals",
+        "preview": "Rose Chinese Medals.webp",
+        "file": "Rose Chinese Medals.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          }
+        ],
+        "meta": {
+          "date": 1791974605,
+          "commit-sha": ""
         }
       }
     ],
