@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Noir Rose Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Arcana Vengeful Spirit Pedest",
+      "category": "pedestal"
+    },
+    {
+      "name": "Pedestal V1",
+      "category": "pedestal"
+    },
+    {
+      "name": "Wraith King Crimson Arcana",
+      "category": "heroes"
+    },
+    {
+      "name": "Rose Lycoris Mode Cards",
+      "category": "parts"
+    },
+    {
+      "name": "Noir Rose Hud",
+      "category": "huds"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -14741,6 +14765,25 @@
           "date": 1791922171,
           "commit-sha": "f0d91076662887030c9791f701586acb9aa35203"
         }
+      },
+      {
+        "name": "Wraith King Crimson Arcana",
+        "preview": "Wraith King Crimson Arcana.webp",
+        "file": "Wraith King Crimson Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20064,6 +20107,36 @@
           "date": 1791612287,
           "commit-sha": "a5ebca5079e2cfe60d528c2c03fa573d756db3de"
         }
+      },
+      {
+        "name": "Pedestal V1",
+        "preview": "Pedestal V1.webp",
+        "file": "Pedestal V1.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arcana Vengeful Spirit Pedest",
+        "preview": "Arcana Vengeful Spirit Pedest.webp",
+        "file": "Arcana Vengeful Spirit Pedest.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
+        }
       }
     ],
     "parts": [
@@ -20279,6 +20352,36 @@
         "meta": {
           "date": 1791908483,
           "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+        }
+      },
+      {
+        "name": "Rose Lycoris Mode Cards",
+        "preview": "Rose Lycoris Mode Cards.webp",
+        "file": "Rose Lycoris Mode Cards.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Noir Rose Top Bar",
+        "preview": "Noir Rose Top Bar.webp",
+        "file": "Noir Rose Top Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
         }
       }
     ],
@@ -20611,6 +20714,25 @@
         "meta": {
           "date": 1791877099,
           "commit-sha": "915a4b24d817f0aa21d8f32ab1260cbc945a0b82"
+        }
+      },
+      {
+        "name": "Noir Rose Hud",
+        "preview": "Noir Rose Hud.webp",
+        "file": "Noir Rose Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "chineseg0d"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/nfFuNjl4epg"
+          }
+        ],
+        "meta": {
+          "date": 1791964894,
+          "commit-sha": ""
         }
       }
     ],
