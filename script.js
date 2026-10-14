@@ -11,6 +11,7 @@ const FILE_SOURCES = (() => {
 
     if (matches(['d2pfx.onrender.com', 'd2pfx.netlify.app', 'd2pfx.vercel.app'])) return [hf, github, local];
     if (matches(['127.0.0.1'])) return [local, hf, github];
+    if (matches(['gitlab.io'])) return [github, hf];
     return [github, hf];
 })();
 

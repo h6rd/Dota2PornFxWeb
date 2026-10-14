@@ -110,3 +110,40 @@ jobs:
           user_name: ${{ vars.MIRROR_COMMIT_NAME || 'github-actions[bot]' }}
           user_email: ${{ vars.MIRROR_COMMIT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
           commit_message: "mirror: ${{ github.sha }}"
+
+      - name: Push dist to GitLab Pages
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_REPO: ${{ vars.GITLAB_REPO }}
+        run: |
+          if [ -z "$GITLAB_TOKEN" ] || [ -z "$GITLAB_REPO" ]; then
+            echo "GITLAB_TOKEN or GITLAB_REPO is not set - skipping GitLab push"
+            exit 0
+          fi
+
+          rm -rf /tmp/gitlab-site
+          cp -a dist /tmp/gitlab-site
+
+          cat > /tmp/gitlab-site/.gitlab-ci.yml <<'EOF'
+          pages:
+            stage: deploy
+            image: alpine:latest
+            script:
+              - mkdir -p public
+              - tar --exclude=./public --exclude=./.git --exclude=./.gitlab-ci.yml -cf - . | tar -xf - -C public
+            artifacts:
+              paths:
+                - public
+            rules:
+              - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+          EOF
+
+          cd /tmp/gitlab-site
+          git init -q -b main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "deploy: ${GITHUB_SHA}"
+          git push --force "https://oauth2:${GITLAB_TOKEN}@gitlab.com/${GITLAB_REPO}.git" main:main
