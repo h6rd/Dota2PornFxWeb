@@ -31,5 +31,13 @@
     "time": 1791343598,
     "type": "update",
     "text": "Update Dota Terrains"
+  },
+  {
+    "time": "",
+    "type": "info",
+    "text": "Please take a short survey",
+    "urls": [
+      "https://forms.gle/DoUeYZfr6S9chfis7"
+    ]
   }
 ]
