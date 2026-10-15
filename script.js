@@ -2351,6 +2351,46 @@ function createCategoryCard(category) {
     return card;
 }
 
+// seo
+const seoDefaults = (() => {
+    const get = (sel, attr) => document.querySelector(sel)?.getAttribute(attr) || '';
+    return {
+        title: document.title,
+        description: get('meta[name="description"]', 'content'),
+        canonical: get('link[rel="canonical"]', 'href')
+    };
+})();
+
+function setSeoMeta({ title, description, canonical }) {
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
+}
+
+function updateSeoForCategory(category) {
+    const name = translations[category.key];
+    if (!name) return;
+    const desc = String(translations[category.key + '-desc'] || '').replace(/<[^>]+>/g, '').trim();
+    const hasStaticPage = !category.hidden && !!modsData[category.id] && (
+        Array.isArray(modsData[category.id])
+            ? modsData[category.id].length > 0
+            : (modsData[category.id].groups || []).some(g => g.mods && g.mods.length)
+    );
+    const base = seoDefaults.canonical || (window.location.origin + window.location.pathname);
+    setSeoMeta({
+        title: `Dota 2 ${name} Mods – Free Download | Dota2PornFx (D2PFX)`,
+        description: (desc ? desc + ' ' : '') + `Free Dota 2 ${name.toLowerCase()} mods on Dota2PornFx (D2PFX).`,
+        canonical: hasStaticPage ? new URL(`category-${category.id}.html`, base).href : seoDefaults.canonical
+    });
+}
+
+function resetSeoMeta() {
+    setSeoMeta(seoDefaults);
+}
+
 function showCategoryPage(categoryId) {
     state.scrollPosition = window.pageYOffset;
     state.currentCategory = categoryId;
@@ -2394,6 +2434,7 @@ function showCategoryPage(categoryId) {
     }
 
     renderMods(categoryId);
+    updateSeoForCategory(category);
 
     elements.homePage.classList.add('hidden');
     elements.categoryPage.classList.remove('hidden');
@@ -3475,6 +3516,7 @@ function showHomePage() {
 
     resetSort();
     renderCategories();
+    resetSeoMeta();
 
     const baseUrl = window.location.origin + window.location.pathname;
     window.history.pushState({}, '', baseUrl);

@@ -60,6 +60,14 @@ jobs:
             --delete "*" \
             --commit-message "Sync compressed data from GitHub ${GITHUB_SHA::7}"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ vars.NODE_VERSION || '24' }}
+
+      - name: Generate SEO pages and sitemap
+        run: node scripts/generate-seo.mjs
+
       - name: Prepare dist folder
         run: |
           rsync -a \
@@ -69,11 +77,6 @@ jobs:
             --exclude='assets/files' \
             --exclude='compressed' \
             . dist/
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: ${{ vars.NODE_VERSION || '24' }}
 
       - name: Minify HTML, CSS, and JS
         run: |
@@ -111,39 +114,17 @@ jobs:
           user_email: ${{ vars.MIRROR_COMMIT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
           commit_message: "mirror: ${{ github.sha }}"
 
-      - name: Push dist to GitLab Pages
+      - name: Commit sitemap to main
         continue-on-error: true
-        timeout-minutes: 10
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-          GITLAB_REPO: ${{ vars.GITLAB_REPO }}
         run: |
-          if [ -z "$GITLAB_TOKEN" ] || [ -z "$GITLAB_REPO" ]; then
-            echo "GITLAB_TOKEN or GITLAB_REPO is not set - skipping GitLab push"
-            exit 0
-          fi
-
-          rm -rf /tmp/gitlab-site
-          cp -a dist /tmp/gitlab-site
-
-          cat > /tmp/gitlab-site/.gitlab-ci.yml <<'EOF'
-          pages:
-            stage: deploy
-            image: alpine:latest
-            script:
-              - mkdir -p public
-              - tar --exclude=./public --exclude=./.git --exclude=./.gitlab-ci.yml -cf - . | tar -xf - -C public
-            artifacts:
-              paths:
-                - public
-            rules:
-              - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-          EOF
-
-          cd /tmp/gitlab-site
-          git init -q -b main
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -q -m "deploy: ${GITHUB_SHA}"
-          git push --force "https://oauth2:${GITLAB_TOKEN}@gitlab.com/${GITLAB_REPO}.git" main:main
+          git restore index.html
+          git add sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Sitemap unchanged"
+          else
+            git commit -m "chore: update sitemap [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
