@@ -18,7 +18,7 @@
     },
     {
       "name": "Sound To Battle! From Wot",
-      "category": "parts"
+      "category": "sounds"
     },
     {
       "name": "Pink Play Button",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Naga Siren Cute Icon",
-      "category": "parts"
+      "category": "hero-icons"
     },
     {
       "name": "Objective Timers",
@@ -133,8 +133,8 @@
       "category": "heroes"
     },
     {
-      "name": "Weawer Ult Net Idi Nahui",
-      "category": "sounds"
+      "name": "Weaver Ult Net Idi Nahui",
+      "category": "hero-sounds"
     },
     {
       "name": "Dazzle Immortal",
@@ -226,7 +226,7 @@
     },
     {
       "name": "Snapfire Blue Icon",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Phantom Lancer Black",
@@ -322,7 +322,7 @@
     },
     {
       "name": "Terrorblade Yellow Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Broodmother Gray Immortals",
@@ -334,7 +334,7 @@
     },
     {
       "name": "Terrorblade Purple Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Winlose Music Suffocation Kit",
@@ -350,7 +350,7 @@
     },
     {
       "name": "Terrorblade Pink Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Gotic",
@@ -358,19 +358,19 @@
     },
     {
       "name": "Terrorblade Blue Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Terrorblade Black Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Terrorblade Orange Spell",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Terrorblade Green Spell Icons",
-      "category": "herofx"
+      "category": "hero-icons"
     },
     {
       "name": "Shadow Fiend Arcana Desolator",
@@ -20638,21 +20638,6 @@
         }
       },
       {
-        "name": "Naga Siren Cute Icon",
-        "preview": "Naga Siren Cute Icon.webp",
-        "file": "Naga Siren Cute Icon.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792011470,
-          "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
-        }
-      },
-      {
         "name": "Purple Minimap",
         "preview": "Purple Minimap.webp",
         "file": "Purple Minimap.zip",
@@ -20680,21 +20665,6 @@
         "meta": {
           "date": 1792011470,
           "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
-        }
-      },
-      {
-        "name": "Sound To Battle! From Wot",
-        "preview": "Sound To Battle! From Wot.webp",
-        "file": "Sound To Battle! From Wot.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792050673,
-          "commit-sha": "af6577c93ace5de2622bd6062a980d396834de52"
         }
       }
     ],
@@ -23166,6 +23136,158 @@
         }
       }
     ],
+    "hero-icons": [
+      {
+        "name": "Snapfire Blue Icon",
+        "preview": "Snapfire Blue Icon.webp",
+        "file": "Snapfire Blue Icon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Tom4ik"
+          }
+        ],
+        "meta": {
+          "date": 1791794920,
+          "commit-sha": "19c53b71608a56d9457388c6bf5f07e59085779f"
+        }
+      },
+      {
+        "name": "Naga Siren Cute Icon",
+        "preview": "Naga Siren Cute Icon.webp",
+        "file": "Naga Siren Cute Icon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792011470,
+          "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+        }
+      },
+      {
+        "name": "Terrorblade White Spell",
+        "preview": "Terrorblade White Spell.webp",
+        "file": "Terrorblade White Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Green Spell",
+        "preview": "Terrorblade Green Spell.webp",
+        "file": "Terrorblade Green Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Orange Spell",
+        "preview": "Terrorblade Orange Spell.webp",
+        "file": "Terrorblade Orange Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Black Spell",
+        "preview": "Terrorblade Black Spell.webp",
+        "file": "Terrorblade Black Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Blue Spell",
+        "preview": "Terrorblade Blue Spell.webp",
+        "file": "Terrorblade Blue Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Pink Spell",
+        "preview": "Terrorblade Pink Spell.webp",
+        "file": "Terrorblade Pink Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Purple Spell",
+        "preview": "Terrorblade Purple Spell.webp",
+        "file": "Terrorblade Purple Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      },
+      {
+        "name": "Terrorblade Yellow Spell",
+        "preview": "Terrorblade Yellow Spell.webp",
+        "file": "Terrorblade Yellow Spell.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1791974153,
+          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
+        }
+      }
+    ],
     "wards": [
       {
         "name": "Curious Snaptrap",
@@ -24534,168 +24656,6 @@
           "date": 1790113207,
           "commit-sha": "5e9e3c3941694345c6e497ba39607a0eb9935c7c"
         }
-      },
-      {
-        "name": "Terrorblade White Spell",
-        "preview": "Terrorblade White Spell.webp",
-        "file": "Terrorblade White Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Green Spell Icons",
-        "preview": "Terrorblade Green Spell Icons.webp",
-        "file": "Terrorblade Green Spell Icons.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Orange Spell",
-        "preview": "Terrorblade Orange Spell.webp",
-        "file": "Terrorblade Orange Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Black Spell",
-        "preview": "Terrorblade Black Spell.webp",
-        "file": "Terrorblade Black Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Blue Spell",
-        "preview": "Terrorblade Blue Spell.webp",
-        "file": "Terrorblade Blue Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Pink Spell",
-        "preview": "Terrorblade Pink Spell.webp",
-        "file": "Terrorblade Pink Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Purple Spell",
-        "preview": "Terrorblade Purple Spell.webp",
-        "file": "Terrorblade Purple Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Terrorblade Yellow Spell",
-        "preview": "Terrorblade Yellow Spell.webp",
-        "file": "Terrorblade Yellow Spell.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791974153,
-          "commit-sha": "16312307b1a6ebb6a9c50f0abac84cd5a3c00752"
-        }
-      },
-      {
-        "name": "Snapfire Blue Icon",
-        "preview": "Snapfire Blue Icon.webp",
-        "file": "Snapfire Blue Icon.zip",
-        "tags": {
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Tom4ik"
-          }
-        ],
-        "meta": {
-          "date": 1791794920,
-          "commit-sha": "19c53b71608a56d9457388c6bf5f07e59085779f"
-        }
       }
     ],
     "hero-sounds": [
@@ -25540,6 +25500,25 @@
           "date": 1791794920,
           "commit-sha": "19c53b71608a56d9457388c6bf5f07e59085779f"
         }
+      },
+      {
+        "name": "Weaver Ult Net Idi Nahui",
+        "preview": "Weaver Ult Net Idi Nahui.webp",
+        "file": "Weaver Ult Net Idi Nahui.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "EmodzI"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/rvkUEC3SKG0"
+          }
+        ],
+        "meta": {
+          "date": 1791922171,
+          "commit-sha": "f0d91076662887030c9791f701586acb9aa35203"
+        }
       }
     ],
     "sounds": [
@@ -25839,22 +25818,18 @@
         }
       },
       {
-        "name": "Weawer Ult Net Idi Nahui",
-        "preview": "Weawer Ult Net Idi Nahui.webp",
-        "file": "Weawer Ult Net Idi Nahui.zip",
+        "name": "Sound To Battle! From Wot",
+        "preview": "Sound To Battle! From Wot.webp",
+        "file": "Sound To Battle! From Wot.zip",
         "links": [
           {
             "type": "author",
-            "url": "EmodzI"
-          },
-          {
-            "type": "preview",
-            "url": "https://youtu.be/rvkUEC3SKG0"
+            "url": "XIIIpsiblade"
           }
         ],
         "meta": {
-          "date": 1791922171,
-          "commit-sha": "f0d91076662887030c9791f701586acb9aa35203"
+          "date": 1792050673,
+          "commit-sha": "af6577c93ace5de2622bd6062a980d396834de52"
         }
       }
     ],

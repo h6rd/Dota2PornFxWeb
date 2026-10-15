@@ -1859,7 +1859,7 @@ async function packAndDownload() {
         packProgressRaf = requestAnimationFrame(step);
     }
 
-    const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items', 'optimization', 'parts'];
+    const RENAME_CATEGORIES = ['trees', 'river', 'shaders', 'herofx', 'ranged-attack', 'hero-items', 'hero-icons', 'optimization', 'parts'];
 
     try {
         addLog('Starting pack creation...', 'start');

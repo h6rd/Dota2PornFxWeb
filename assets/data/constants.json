@@ -88,6 +88,8 @@
     "info": "info",
     "hero-items": "Hero Items",
     "hero-items-desc": "Individual items of heroes",
+    "hero-icons": "Hero Icons",
+    "hero-icons-desc": "Various icons for heroes",
     "fonts": "Fonts",
     "fonts-desc": "Custom fonts",
     "source-code": "Source Code",
@@ -333,6 +335,13 @@
       "emoji": "👀",
       "key": "item-icons",
       "preview": "item-icons.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "hero-icons",
+      "emoji": "👀",
+      "key": "hero-icons",
+      "preview": "hero-icons.webp",
       "guideId": "install"
     },
     {
