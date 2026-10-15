@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Old Shadow Fiend Secret Shop",
+      "category": "other"
+    },
+    {
+      "name": "Invoker Pack 1",
+      "category": "heroes"
+    },
+    {
+      "name": "Queen Of Pain Arcane Pedestal",
+      "category": "pedestal"
+    },
+    {
+      "name": "Arc Warden Frosty Toy",
+      "category": "heroes"
+    },
+    {
+      "name": "Sound To Battle! From Wot",
+      "category": "parts"
+    },
+    {
       "name": "Pink Play Button",
       "category": "parts"
     },
@@ -47,10 +67,6 @@
     {
       "name": "30 Tier Deny",
       "category": "creep-deny"
-    },
-    {
-      "name": "Arc Warden Frosty Toy",
-      "category": "heroes"
     },
     {
       "name": "Rose Chinese Medals",
@@ -12245,8 +12261,8 @@
           }
         ],
         "meta": {
-          "date": 1792011470,
-          "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+          "date": 1792050672,
+          "commit-sha": ""
         }
       },
       {
@@ -14911,6 +14927,25 @@
         "meta": {
           "date": 1792011470,
           "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+        }
+      },
+      {
+        "name": "Invoker Pack 1",
+        "preview": "Invoker Pack 1.webp",
+        "file": "Invoker Pack 1.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792050672,
+          "commit-sha": ""
         }
       }
     ],
@@ -20310,6 +20345,21 @@
           "date": 1791964895,
           "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
         }
+      },
+      {
+        "name": "Queen Of Pain Arcane Pedestal",
+        "preview": "Queen Of Pain Arcane Pedestal.webp",
+        "file": "Queen Of Pain Arcane Pedestal.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792050672,
+          "commit-sha": ""
+        }
       }
     ],
     "parts": [
@@ -20630,6 +20680,21 @@
         "meta": {
           "date": 1792011470,
           "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+        }
+      },
+      {
+        "name": "Sound To Battle! From Wot",
+        "preview": "Sound To Battle! From Wot.webp",
+        "file": "Sound To Battle! From Wot.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792050672,
+          "commit-sha": ""
         }
       }
     ],
@@ -21263,6 +21328,21 @@
         "meta": {
           "date": 1792011470,
           "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+        }
+      },
+      {
+        "name": "Old Shadow Fiend Secret Shop",
+        "preview": "Old Shadow Fiend Secret Shop.webp",
+        "file": "Old Shadow Fiend Secret Shop.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792050672,
+          "commit-sha": ""
         }
       }
     ],
