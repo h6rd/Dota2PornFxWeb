@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Skadi Blossom Red",
+      "category": "heroes"
+    },
+    {
+      "name": "Grey Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Hud Forgotten Distortion",
+      "category": "huds"
+    },
+    {
       "name": "Black Background",
       "category": "backgrounds"
     },
@@ -14971,6 +14983,25 @@
           "date": 1792050673,
           "commit-sha": "af6577c93ace5de2622bd6062a980d396834de52"
         }
+      },
+      {
+        "name": "Terrorblade Skadi Blossom Red",
+        "preview": "Terrorblade Skadi Blossom Red.webp",
+        "file": "Terrorblade Skadi Blossom Red.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "zkll"
+          }
+        ],
+        "meta": {
+          "date": 1792095190,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20690,6 +20721,21 @@
           "date": 1792011470,
           "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
         }
+      },
+      {
+        "name": "Grey Play Button",
+        "preview": "Grey Play Button.webp",
+        "file": "Grey Play Button.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1792095190,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -21040,6 +21086,21 @@
         "meta": {
           "date": 1791964895,
           "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
+        }
+      },
+      {
+        "name": "Hud Forgotten Distortion",
+        "preview": "Hud Forgotten Distortion.webp",
+        "file": "Hud Forgotten Distortion.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1792095190,
+          "commit-sha": ""
         }
       }
     ],
