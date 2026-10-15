@@ -8,20 +8,20 @@
     }
   },
   "TheFleece/dota2-mod-manager": {
-    "version": "v2.11.0",
+    "version": "v2.12.0",
     "hashes": {
-      "beta-linux.yml": "e2b58c94c0acc761cd598b4138d21103c0f580fe3427b91c277bef7023612782",
-      "beta.yml": "01931e0062c906abfbb2a8c35759beca8c5e2f6c59ca8f01496e833f6e06a310",
-      "Dota-2-Mod-Manager-Portable.exe": "e4de1259e00870a7cff492d61db0c0e939db72ea95fe35fa1f75284d92f97c59",
-      "Dota-2-Mod-Manager-Setup.exe": "634746aee89bd08acb3342e0b8d9dd005731a6a5d1c8c0a892cac51e4f2aa5f5",
-      "Dota-2-Mod-Manager-Setup.exe.blockmap": "990d6ef46e19578582f1a17bd7fb263e853fe3300a9233e6d8933e66a75581f9",
-      "Dota-2-Mod-Manager.AppImage": "dbde8e38a4be4dc3ad14393a52f9a6cd88a6c98971ebbdaba060d54f275964ad",
-      "dota2-mod-manager.cdx.json": "ef793da4360995179852e9fe9694f87221a3300efb8061407779ae2018fd0788",
-      "latest-linux.yml": "e2b58c94c0acc761cd598b4138d21103c0f580fe3427b91c277bef7023612782",
-      "latest.yml": "01931e0062c906abfbb2a8c35759beca8c5e2f6c59ca8f01496e833f6e06a310",
-      "portable.yml": "5c83786270fdf13a89691377898c397bfa123e375014b54f03467f4ae4ccd278",
-      "SHA256SUMS": "66131d8a5a79cd281875fd8ee99d8e52a45d6ed4fc8216822171f9bf57b77160",
-      "SHA256SUMS.intoto.jsonl": "70f2310ff7d3576c44e3bae0ba0ed1e3e6e7763c22a5cb7667986b443cd1d4f3"
+      "beta-linux.yml": "95eee5b129a7c7c70debad3051b0dd51ea11935688d816de629fd7fdfd485859",
+      "beta.yml": "6a209b01b00b803cd7f4b2e605cf0d784179fed473b5cec2dda4b4603f07b8e3",
+      "Dota-2-Mod-Manager-Portable.exe": "9838c0a9db2ea9e9f40c9a25edaf7a1ee1b777ed02d95af07948610f1736ee93",
+      "Dota-2-Mod-Manager-Setup.exe": "48409339af18afef4387ff09604b7ff342f06d6da42722233466363e6fd36d98",
+      "Dota-2-Mod-Manager-Setup.exe.blockmap": "8fcf554f86db40ba3c4e039aa013b0f530a0f0f14b8695e20ad8ea819da341ec",
+      "Dota-2-Mod-Manager.AppImage": "eb26a79c98e90127ef7363b3db43087e97ffc7fd380f1559a1a25550952214a4",
+      "dota2-mod-manager.cdx.json": "2ba79527059295fadf22def49eda50874052a3678a4e9c280e794c1d9af73c0e",
+      "latest-linux.yml": "95eee5b129a7c7c70debad3051b0dd51ea11935688d816de629fd7fdfd485859",
+      "latest.yml": "6a209b01b00b803cd7f4b2e605cf0d784179fed473b5cec2dda4b4603f07b8e3",
+      "portable.yml": "600aeca0840c488c7d2bb5089023a004bc7b684b5254eb4b47f1bd2db18a00a2",
+      "SHA256SUMS": "78e8be9fb7939ca65f3ca90d5c44f908afa3e883f46c6bc50347bf89d8ac201c",
+      "SHA256SUMS.intoto.jsonl": "8095267b81820c1567c32c2633445c968d7a44a7f278cc4f9525a049cc6d9cf1"
     }
   },
   "h6rd/VPKTool": {
@@ -60,16 +60,16 @@
     }
   },
   "J0nathan550/BetterSource2Viewer": {
-    "version": "build-31",
+    "version": "build-33",
     "hashes": {
-      "cli-linux-x64.zip": "181cb4af67b1e5c748806f74a1418eb4fd0648c06608c559441ed7191150a441",
-      "cli-windows-x64.zip": "57de7668ca0dd7c40f630606764ad6d1c5408c00f0d20aaa6612b2598562cf95",
-      "gui-avalonia-windows-x64.zip": "b9c98caf5143ac2fee6d2b280a4ff3dcb9ff44b30928385e0749d811dffc26bd",
-      "gui-windows-x64.zip": "073d6b0d5389e051497ff1ff401803a5d67611c1c4af424a5ba9f97661e6c669",
-      "latest.json": "5b29230fd0f9affca4252c532a84d6c2944a618b302a43aff1ec2b73706d8f54",
-      "Source2Viewer-x86_64.AppImage": "5d3d14497cccf7884cead43424c3bf48cb3c037ffc28012e6dad153766382384",
-      "Source2Viewer.Avalonia.exe": "a69abce2935e957f2904fd05ab8ec7145b651a78a2086a47aaad808864c01dc1",
-      "Source2Viewer.exe": "14707ecdb961bc3b116ebd4b95cac8c5082390b09679d73312b1903737b9e5c7"
+      "cli-linux-x64.zip": "705cd8bdbd36c3a8602cfb0e2b0829a0705fe7bfa881cf02f69fa61e22a9309a",
+      "cli-windows-x64.zip": "db5a7230a2144c0a2f533b21e917d01faa1e791bae536f1693b61dfd0d310434",
+      "gui-avalonia-windows-x64.zip": "6f08c4f8366ef418999e7e2fbcf4f2a74703b989bd14098bb7db58ac6897a183",
+      "gui-windows-x64.zip": "c01c9d61d7827d1057c61b1f72d586c3ed3a7d5396abdff4867d3bb15b78e756",
+      "latest.json": "851ee814e58d43c51a3623f81ebca8a4d3d6aef1a9fa661c48bd2489ddcde0df",
+      "Source2Viewer-x86_64.AppImage": "34510666a3f2e6b1dc951d65feb537257d0738e7fc6ad0feb8069a761c12a74e",
+      "Source2Viewer.Avalonia.exe": "926906a866d20da43cc2ca7e1430a7535405b626efcdd3bb1f1228f657622db1",
+      "Source2Viewer.exe": "4c92e6d7146a6e764df177519dfc812b005d0a68da65114fd416a34f4833287a"
     }
   }
 }

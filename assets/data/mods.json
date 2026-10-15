@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Terrorblade Skadi Blossom Red",
       "category": "heroes"
     },
@@ -143,10 +151,6 @@
     {
       "name": "Noir Rose Hud",
       "category": "huds"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Earthshaker Arcana Planetfall",
@@ -335,10 +339,6 @@
     {
       "name": "Dark Seer Oloxicams Glass",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Spirit Breaker Bash Kachal",
