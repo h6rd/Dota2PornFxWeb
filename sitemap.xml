@@ -1,20 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Homepage -->
+
   <url>
     <loc>https://h6rd.github.io/Dota2PornFxWeb/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-15</lastmod>
   </url>
 
-  <!-- Stats -->
   <url>
     <loc>https://h6rd.github.io/Dota2PornFxWeb/stats.html</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-shaders.html</loc>
+    <lastmod>2026-03-05</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-ti-bp-effects.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-heroes.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-terrains.html</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-trees.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-creeps.html</loc>
+    <lastmod>2026-06-26</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-creep-deny.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-emblems.html</loc>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-backgrounds.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-hero-items.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-herofx.html</loc>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-hero-sounds.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-sounds.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-wards.html</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-couriers.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-river.html</loc>
+    <lastmod>2026-02-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-item-effects.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-ranged-attack.html</loc>
+    <lastmod>2025-11-24</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-pings.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-parts.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-huds.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-packs.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-versus-screens.html</loc>
+    <lastmod>2026-02-09</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-mega-kill.html</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-announcers.html</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-music.html</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-roshan.html</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-ancient.html</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-tormentor.html</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-towers.html</loc>
+    <lastmod>2025-12-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-pedestal.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-high-five.html</loc>
+    <lastmod>2026-07-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-item-icons.html</loc>
+    <lastmod>2026-09-27</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-hero-icons.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-ranks.html</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-cursors.html</loc>
+    <lastmod>2026-10-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-fonts.html</loc>
+    <lastmod>2026-07-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-other.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-optimization.html</loc>
+    <lastmod>2026-03-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-tools.html</loc>
+    <lastmod>2026-03-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-guides.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://h6rd.github.io/Dota2PornFxWeb/category-sites.html</loc>
+    <lastmod>2026-10-15</lastmod>
   </url>
 
 </urlset>
