@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Black Background",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Ogre Magi Mogg",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Ech Cat Sound Game Startup",
+      "category": "sounds"
+    },
+    {
+      "name": "Greevil Vetmo",
+      "category": "couriers"
+    },
+    {
+      "name": "Invoker Mogg",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Marci Mogg",
+      "category": "hero-icons"
+    },
+    {
       "name": "Old Shadow Fiend Secret Shop",
       "category": "other"
     },
@@ -22513,6 +22537,24 @@
           "date": 1791908483,
           "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
         }
+      },
+      {
+        "name": "Black Background",
+        "preview": "Black Background.webp",
+        "file": "Black Background.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "loveculted"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -23286,6 +23328,51 @@
           "date": 1792055497,
           "commit-sha": "cfcaca6f2dfcd37080abded6d0961f452ecb256f"
         }
+      },
+      {
+        "name": "Marci Mogg",
+        "preview": "Marci Mogg.webp",
+        "file": "Marci Mogg.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Mogg",
+        "preview": "Invoker Mogg.webp",
+        "file": "Invoker Mogg.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ogre Magi Mogg",
+        "preview": "Ogre Magi Mogg.webp",
+        "file": "Ogre Magi Mogg.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
+        }
       }
     ],
     "wards": [
@@ -23710,6 +23797,21 @@
         "meta": {
           "date": 1791877099,
           "commit-sha": "915a4b24d817f0aa21d8f32ab1260cbc945a0b82"
+        }
+      },
+      {
+        "name": "Greevil Vetmo",
+        "preview": "Greevil Vetmo.webp",
+        "file": "Greevil Vetmo.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
         }
       }
     ],
@@ -25830,6 +25932,21 @@
         "meta": {
           "date": 1792055497,
           "commit-sha": "cfcaca6f2dfcd37080abded6d0961f452ecb256f"
+        }
+      },
+      {
+        "name": "Ech Cat Sound Game Startup",
+        "preview": "Ech Cat Sound Game Startup.webp",
+        "file": "Ech Cat Sound Game Startup.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792060611,
+          "commit-sha": ""
         }
       }
     ],
