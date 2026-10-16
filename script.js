@@ -2370,10 +2370,14 @@ function setSeoMeta({ title, description, canonical }) {
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
 }
 
+const PLAIN_SEO_CATEGORIES = new Set(['tools', 'guides', 'sites', 'packs', 'ti-bp-effects']);
+
 function updateSeoForCategory(category) {
     const name = translations[category.key];
     if (!name) return;
-    const desc = String(translations[category.key + '-desc'] || '').replace(/<[^>]+>/g, '').trim();
+    const plain = PLAIN_SEO_CATEGORIES.has(category.id);
+    const rawDesc = String(translations[category.key + '-desc'] || '').replace(/<[^>]+>/g, '').trim();
+    const desc = rawDesc && !/[.!?…]$/.test(rawDesc) ? rawDesc + '.' : rawDesc;
     const hasStaticPage = !category.hidden && !!modsData[category.id] && (
         Array.isArray(modsData[category.id])
             ? modsData[category.id].length > 0
@@ -2381,8 +2385,10 @@ function updateSeoForCategory(category) {
     );
     const base = seoDefaults.canonical || (window.location.origin + window.location.pathname);
     setSeoMeta({
-        title: `Dota 2 ${name} Mods – Free Download | Dota2PornFx (D2PFX)`,
-        description: (desc ? desc + ' ' : '') + `Free Dota 2 ${name.toLowerCase()} mods on Dota2PornFx (D2PFX).`,
+        title: plain
+            ? `Dota 2 ${name} | Dota2PornFx (D2PFX)`
+            : `Dota 2 ${name} Mods – Free Download | Dota2PornFx (D2PFX)`,
+        description: (desc ? desc + ' ' : '') + `Free Dota 2 ${name.toLowerCase()} on Dota2PornFx (D2PFX).`,
         canonical: hasStaticPage ? new URL(`category-${category.id}.html`, base).href : seoDefaults.canonical
     });
 }

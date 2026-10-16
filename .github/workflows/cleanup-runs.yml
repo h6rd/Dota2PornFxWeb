@@ -1,0 +1,52 @@
+name: Cleanup workflow runs
+
+on:
+  schedule:
+    - cron: '30 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      retention_days:
+        description: "Delete runs older than N days"
+        type: string
+        default: "14"
+      keep_latest:
+        description: "Always keep the newest N runs of every workflow"
+        type: string
+        default: "5"
+      dry_run:
+        description: "Only list what would be deleted"
+        type: boolean
+        default: true
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: cleanup-runs
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout scripts
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            scripts
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Delete old runs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RETENTION_DAYS: ${{ inputs.retention_days || '14' }}
+          KEEP_LATEST: ${{ inputs.keep_latest || '5' }}
+          DRY_RUN: ${{ inputs.dry_run || 'true' }}
+        run: python scripts/cleanup_runs.py

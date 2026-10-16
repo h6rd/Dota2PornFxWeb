@@ -1,0 +1,82 @@
+name: Lint
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'script.js'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'script.js'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    name: Workflows (actionlint)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            .github
+          sparse-checkout-cone-mode: true
+
+      - name: Run actionlint
+        run: |
+          docker run --rm \
+            -v "$PWD:/repo" -w /repo \
+            -e SHELLCHECK_OPTS="-S warning" \
+            rhysd/actionlint:1.7.7 -color
+
+  scripts:
+    name: Scripts (Python, Node, script.js)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ vars.NODE_VERSION || '24' }}
+
+      - name: Ruff (Python scripts)
+        run: |
+          pip install ruff==0.14.0
+          ruff check --select E9,F63,F7,F82 scripts
+
+      - name: Syntax check (Node scripts)
+        run: |
+          shopt -s nullglob
+          for f in scripts/*.mjs; do
+            echo "node --check $f"
+            node --check "$f"
+          done
+
+      - name: Syntax check (script.js)
+        run: node --check script.js

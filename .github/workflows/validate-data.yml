@@ -1,0 +1,63 @@
+name: Validate data
+
+on:
+  pull_request:
+    paths:
+      - 'assets/data/**'
+      - 'assets/files/**'
+      - 'assets/previews/**'
+      - 'scripts/validate_data.py'
+      - '.github/workflows/validate-data.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/data/**'
+      - 'assets/files/**'
+      - 'assets/previews/**'
+      - 'scripts/validate_data.py'
+      - '.github/workflows/validate-data.yml'
+  workflow_dispatch:
+    inputs:
+      strict_previews:
+        description: "Treat missing previews as errors (otherwise warnings)"
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      strict_previews:
+        description: "Treat missing previews as errors (otherwise warnings)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Validate assets/data
+        env:
+          STRICT_PREVIEWS: ${{ inputs.strict_previews || 'false' }}
+        run: python scripts/validate_data.py
