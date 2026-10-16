@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ogre Arcana Egg Sound Fix",
+      "category": "other"
+    },
+    {
+      "name": "Kruc Fungi Imp Shadow Demon",
+      "category": "heroes"
+    },
+    {
+      "name": "Derpy Hooves Donkey",
+      "category": "couriers"
+    },
+    {
       "name": "Pug",
       "category": "backgrounds"
     },
@@ -15045,6 +15057,25 @@
           "date": 1792151800,
           "commit-sha": "4ee1cd716642148f38e0c2144e781659441e3ed2"
         }
+      },
+      {
+        "name": "Kruc Fungi Imp Shadow Demon",
+        "preview": "Kruc Fungi Imp Shadow Demon.webp",
+        "file": "Kruc Fungi Imp Shadow Demon.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1792163561,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21442,6 +21473,33 @@
           "date": 1792050673,
           "commit-sha": "af6577c93ace5de2622bd6062a980d396834de52"
         }
+      },
+      {
+        "name": "Ogre Arcana Egg Sound Fix",
+        "styles": [
+          {
+            "label": "Full remove",
+            "color": "linear-gradient(135deg, #4548a5 50%, #e1ad3d 50%)",
+            "preview": "Ogre Arcana Egg Sound Fix.webp",
+            "file": "Ogre Arcana Egg Sound Fix.zip"
+          },
+          {
+            "label": "Sound remove",
+            "color": "#c62f2f",
+            "preview": "Ogre Arcana Egg Sound Fix Sound remove.webp",
+            "file": "Ogre Arcana Egg Sound Fix Sound remove.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1792163561,
+          "commit-sha": ""
+        }
       }
     ],
     "river": [
@@ -23949,6 +24007,21 @@
         "meta": {
           "date": 1792060612,
           "commit-sha": "1e8f6286b1e590646ae3f1369ea63805c6f352a3"
+        }
+      },
+      {
+        "name": "Derpy Hooves Donkey",
+        "preview": "Derpy Hooves Donkey.webp",
+        "file": "Derpy Hooves Donkey.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1792163561,
+          "commit-sha": ""
         }
       }
     ],
