@@ -48,5 +48,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RETENTION_DAYS: ${{ inputs.retention_days || '14' }}
           KEEP_LATEST: ${{ inputs.keep_latest || '5' }}
-          DRY_RUN: ${{ inputs.dry_run || 'true' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: python scripts/cleanup_runs.py
