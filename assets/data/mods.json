@@ -501,10 +501,6 @@
       "category": "parts"
     },
     {
-      "name": "Nyx Assassin Mesmer Eye",
-      "category": "heroes"
-    },
-    {
       "name": "Shadow Shaman Wyrmbender",
       "category": "heroes"
     },
@@ -670,10 +666,6 @@
     },
     {
       "name": "Hoodwink Spring Tide Raider",
-      "category": "heroes"
-    },
-    {
-      "name": "Nyx Assassin Mesmer Eye",
       "category": "heroes"
     },
     {
@@ -13562,25 +13554,6 @@
         "name": "Legion Commander Hell Origin",
         "preview": "Legion Commander Hell Origin.webp",
         "file": "Legion Commander Hell Origin.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "J0nathan550"
-          }
-        ],
-        "meta": {
-          "date": 1791607322,
-          "commit-sha": "090ed338f274e86b02a399661229f7d4b41657f5"
-        }
-      },
-      {
-        "name": "Nyx Assassin Mesmer Eye",
-        "preview": "Nyx Assassin Mesmer Eye.webp",
-        "file": "Nyx Assassin Mesmer Eye.zip",
         "tags": {
           "effects": true,
           "icons": true
