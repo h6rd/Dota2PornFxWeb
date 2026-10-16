@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Ogre Arcana Egg Sound Fix",
       "category": "other"
     },
@@ -38,10 +42,6 @@
     },
     {
       "name": "Better Source2Viewer",
-      "category": "tools"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
     {
