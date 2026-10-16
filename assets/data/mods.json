@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Artifact Voices",
+      "category": "sounds"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -26009,6 +26013,17 @@
           "date": 1792060612,
           "commit-sha": "1e8f6286b1e590646ae3f1369ea63805c6f352a3"
         }
+      },
+      {
+        "name": "Artifact Voices",
+        "preview": "Artifact Voices.webp",
+        "file": "https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/assets/files/sounds/Artifact%20Voices.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "packs": [
