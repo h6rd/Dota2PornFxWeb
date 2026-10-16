@@ -71,9 +71,9 @@
 ---
 
 ## Project activity
- 
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/activity/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
+  <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main/.github/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
 </p>
 
 ---

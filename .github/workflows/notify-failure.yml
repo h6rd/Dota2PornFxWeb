@@ -1,0 +1,43 @@
+name: Notify on failure
+
+on:
+  workflow_run:
+    workflows:
+      - Pipeline
+      - Check Tool Updates
+      - Update project activity
+      - Update m3e components
+      - Sync to Hugging Face
+      - Validate data
+      - Lint
+      - Cleanup workflow runs
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  notify:
+    if: contains(fromJSON('["failure","timed_out"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout scripts
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            scripts
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Send Discord alert
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_ADMIN_WEBHOOK_URL: ${{ secrets.DISCORD_ADMIN_WEBHOOK_URL }}
+        run: python scripts/notify_failure.py

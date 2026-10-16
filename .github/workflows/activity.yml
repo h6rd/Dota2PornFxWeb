@@ -29,15 +29,26 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Generate activity.svg
-        run: python3 scripts/make_activity.py --out out/activity.svg
+        run: python3 scripts/make_activity.py --out .github/activity.svg
 
-      - name: Publish to activity branch
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: activity
-          force_orphan: true
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          commit_message: "chore: update project activity"
+      - name: Commit and push to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .github/activity.svg
+          if git diff --cached --quiet; then
+            echo "Activity unchanged"
+            exit 0
+          fi
+
+          git commit -m "chore: update project activity [skip ci]"
+
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt), rebasing onto main"
+            git pull --rebase origin main
+          done
+          exit 1

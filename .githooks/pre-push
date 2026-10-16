@@ -1,0 +1,90 @@
+if [ "${SKIP_HOOKS:-}" = "1" ]; then
+  echo "pre-push: skipped (SKIP_HOOKS=1)"
+  exit 0
+fi
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+zero=0000000000000000000000000000000000000000
+changed=""
+check_all=0
+
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue # branch deletion
+  if [ "$remote_sha" = "$zero" ] || ! git cat-file -e "${remote_sha}^{commit}" 2>/dev/null; then
+    check_all=1
+  else
+    changed+=$'\n'$(git -c core.quotepath=false diff --name-only "$remote_sha" "$local_sha")
+  fi
+done
+
+if [ "$check_all" = "1" ]; then
+  changed=$(git -c core.quotepath=false ls-files)
+fi
+
+[ -z "${changed//[$'\n ']/}" ] && exit 0
+
+touched() { printf '%s\n' "$changed" | grep -Eq "$1"; }
+have() { command -v "$1" >/dev/null 2>&1; }
+
+failed=()
+run() {
+  local name=$1
+  shift
+  echo "pre-push > $name"
+  if "$@"; then
+    echo "pre-push OK  $name"
+  else
+    echo "pre-push FAIL $name" >&2
+    failed+=("$name")
+  fi
+}
+
+if touched '^(assets/(data|files|previews)/|scripts/validate_data\.py$)'; then
+  if have python3; then
+    if ! git diff --quiet HEAD -- assets/data 2>/dev/null; then
+      echo "pre-push: note - uncommitted changes in assets/data are validated too"
+    fi
+    run "validate data" python3 scripts/validate_data.py
+  else
+    echo "pre-push: python3 not found, skipping data validation"
+  fi
+fi
+
+if touched '^script\.js$|^scripts/[^/]+\.mjs$'; then
+  if have node; then
+    [ -f script.js ] && run "node --check script.js" node --check script.js
+    for f in scripts/*.mjs; do
+      [ -e "$f" ] || continue
+      run "node --check $f" node --check "$f"
+    done
+  else
+    echo "pre-push: node not found, skipping JS syntax checks"
+  fi
+fi
+
+if touched '^scripts/[^/]+\.py$'; then
+  if have ruff; then
+    run "ruff (scripts)" ruff check --select E9,F63,F7,F82 scripts
+  elif have python3; then
+    run "python syntax (scripts)" python3 -c \
+      'import ast,sys; [ast.parse(open(f, encoding="utf-8").read(), f) for f in sys.argv[1:]]' scripts/*.py
+  fi
+fi
+
+if touched '^\.github/workflows/[^/]+\.ya?ml$'; then
+  if have actionlint; then
+    run "actionlint" env SHELLCHECK_OPTS="-S warning" actionlint
+  else
+    echo "pre-push: actionlint not installed, skipping workflow checks"
+  fi
+fi
+
+if [ "${#failed[@]}" -gt 0 ]; then
+  echo "" >&2
+  echo "pre-push: push cancelled, failed checks:" >&2
+  printf '  - %s\n' "${failed[@]}" >&2
+  echo "Fix them, or bypass with: SKIP_HOOKS=1 git push" >&2
+  exit 1
+fi
+exit 0

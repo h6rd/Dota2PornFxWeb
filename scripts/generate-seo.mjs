@@ -9,7 +9,8 @@ const OUT_DIR = ".";
 const SITEMAP_PATH = "sitemap.xml";
 const INDEX_PATH = "index.html";
 const MARKER = "<!--SEO_CATEGORY_LINKS-->";
-const MAX_LIST_ITEMS = 300;
+const MAX_LIST_ITEMS = 1000;
+const MAX_JSONLD_ITEMS = 100;
 const MAX_IMAGES = 120;
 
 const today = new Date().toISOString().slice(0, 10);
@@ -28,6 +29,17 @@ const titleCase = (id) =>
     .split("-")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
+
+const PLAIN_CATEGORIES = new Set(["tools", "guides", "sites", "packs", "ti-bp-effects"]);
+
+const categoryLabel = (cat) => `Dota 2 ${cat.title}${PLAIN_CATEGORIES.has(cat.id) ? "" : " mods"}`;
+
+const sentence = (text) => {
+  const t = String(text ?? "").trim();
+  return t && !/[.!?…]$/.test(t) ? `${t}.` : t;
+};
+
+const encodePath = (p) => p.split("/").map(encodeURIComponent).join("/");
 
 const isoDate = (unixSeconds) => new Date(unixSeconds * 1000).toISOString().slice(0, 10);
 
@@ -72,12 +84,16 @@ function renderCategoryPage(cat, mods, allCats) {
   const url = SITE + pageFileName(cat.id);
   const visibleMods = mods.filter((m) => !m.tags?.adult && m.name);
   const catName = cat.title;
-  const pageTitle = `Dota 2 ${catName} Mods – Free Download | ${BRAND} (${ALIAS})`;
+  const label = categoryLabel(cat);
+  const plain = PLAIN_CATEGORIES.has(cat.id);
+  const pageTitle = plain
+    ? `${label} | ${BRAND} (${ALIAS})`
+    : `Dota 2 ${catName} Mods – Free Download | ${BRAND} (${ALIAS})`;
 
   const baseDesc = cat.description
-    ? `${cat.description} `
-    : `Free community-made Dota 2 ${catName.toLowerCase()} mods. `;
-  const description = `${baseDesc}Browse ${visibleMods.length || mods.length} mods on ${BRAND} (${ALIAS}).`
+    ? `${sentence(cat.description)} `
+    : `Free community-made Dota 2 ${catName.toLowerCase()}. `;
+  const description = `${baseDesc}Browse ${visibleMods.length || mods.length} items on ${BRAND} (${ALIAS}).`
     .replace(/\s+/g, " ")
     .slice(0, 300);
 
@@ -87,9 +103,12 @@ function renderCategoryPage(cat, mods, allCats) {
     .map((m, i) => {
       const preview = typeof m.preview === "string" ? m.preview : "";
       const isImage = preview && !/\.(mp4|webm)$/i.test(preview) && !/^https?:/i.test(preview);
+      const previewPath = preview.startsWith("assets/previews/")
+        ? preview
+        : `assets/previews/${cat.id}/${preview}`;
       const img =
         isImage && i < MAX_IMAGES
-          ? `<img src="assets/previews/${esc(cat.id)}/${esc(preview)}" alt="${esc(m.name)} – Dota 2 ${esc(catName)} mod" loading="lazy" decoding="async" width="320" height="180">`
+          ? `<img src="${esc(encodePath(previewPath))}" alt="${esc(m.name)} – Dota 2 ${esc(catName)} mod" loading="lazy" decoding="async" width="320" height="180">`
           : "";
       return `<li><a href="${modLink(cat.id, m.name)}">${img}<span>${esc(m.name)}</span></a></li>`;
     })
@@ -107,19 +126,19 @@ function renderCategoryPage(cat, mods, allCats) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: BRAND, item: SITE },
-          { "@type": "ListItem", position: 2, name: `${catName} mods`, item: url },
+          { "@type": "ListItem", position: 2, name: label, item: url },
         ],
       },
       {
         "@type": "CollectionPage",
-        name: `Dota 2 ${catName} mods`,
+        name: label,
         url,
         description: stripTags(description),
         isPartOf: { "@type": "WebSite", name: BRAND, alternateName: ALIAS, url: SITE },
         mainEntity: {
           "@type": "ItemList",
           numberOfItems: listed.length,
-          itemListElement: listed.map((m, i) => ({
+          itemListElement: listed.slice(0, MAX_JSONLD_ITEMS).map((m, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: m.name,
@@ -180,8 +199,8 @@ function renderCategoryPage(cat, mods, allCats) {
       <a class="cta" href="./?category=${encodeURIComponent(cat.id)}">Open in ${BRAND}</a>
     </header>
     <main>
-      <h1>Dota 2 ${esc(catName)} mods</h1>
-      <p class="lead">${esc(stripTags(cat.description) || `Free community-made Dota 2 ${catName.toLowerCase()} mods.`)}</p>
+      <h1>${esc(label)}</h1>
+      <p class="lead">${esc(sentence(stripTags(cat.description)) || `Free community-made Dota 2 ${catName.toLowerCase()}.`)}</p>
       ${empty}
       <ul class="grid">
       ${items}
@@ -227,7 +246,7 @@ async function injectNoscriptLinks(cats) {
     return;
   }
   const links = cats
-    .map((c) => `<li><a href="${pageFileName(c.id)}">Dota 2 ${esc(c.title)} mods</a></li>`)
+    .map((c) => `<li><a href="${pageFileName(c.id)}">${esc(categoryLabel(c))}</a></li>`)
     .join("");
   html = html.replace(MARKER, `<nav aria-label="Mod categories"><ul>${links}</ul></nav>`);
   await fs.writeFile(INDEX_PATH, html);

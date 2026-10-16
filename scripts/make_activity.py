@@ -6,6 +6,7 @@ from html import escape
 
 DAYS = 60
 CI_PATTERNS = ("[bot]", "github-actions", "dependabot", "renovate")
+SELF_COMMIT_SUBJECT = "chore: update project activity"
 
 TITLE = "Project activity"
 SUBTITLE = "Commits per day over the last {days} days, updated {today}"
@@ -37,8 +38,10 @@ def utc_date(ts):
 
 def real_data():
     commits = []
-    for line in git("log", "--format=%at\x1f%an\x1f%ae").splitlines():
-        ts, name, email = line.split("\x1f", 2)
+    for line in git("log", "--format=%at\x1f%an\x1f%ae\x1f%s").splitlines():
+        ts, name, email, subject = line.split("\x1f", 3)
+        if subject.startswith(SELF_COMMIT_SUBJECT):
+            continue
         who = f"{name} {email}".lower()
         commits.append((utc_date(ts), any(p in who for p in CI_PATTERNS)))
     return commits
