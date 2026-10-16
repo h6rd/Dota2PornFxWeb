@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pug",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Techies Chance Allahu Akbar",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Arc Warden Xvii",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Shadow Fiend Zxcursed Icon",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Terrorblade Emerald Arcana",
+      "category": "heroes"
+    },
+    {
       "name": "Artifact Voices",
       "category": "sounds"
     },
@@ -15006,6 +15026,25 @@
           "date": 1792095190,
           "commit-sha": "7e2ea116d4b1c3f5383f2e848d4b27a05aaa753c"
         }
+      },
+      {
+        "name": "Terrorblade Emerald Arcana",
+        "preview": "Terrorblade Emerald Arcana.webp",
+        "file": "Terrorblade Emerald Arcana.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1792151800,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22620,6 +22659,24 @@
           "date": 1792060612,
           "commit-sha": "1e8f6286b1e590646ae3f1369ea63805c6f352a3"
         }
+      },
+      {
+        "name": "Pug",
+        "preview": "Pug.webp",
+        "file": "Pug.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792151800,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -23437,6 +23494,21 @@
         "meta": {
           "date": 1792060612,
           "commit-sha": "1e8f6286b1e590646ae3f1369ea63805c6f352a3"
+        }
+      },
+      {
+        "name": "Shadow Fiend Zxcursed Icon",
+        "preview": "Shadow Fiend Zxcursed Icon.webp",
+        "file": "Shadow Fiend Zxcursed Icon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792151800,
+          "commit-sha": ""
         }
       }
     ],
@@ -25685,6 +25757,44 @@
         "meta": {
           "date": 1792055497,
           "commit-sha": "cfcaca6f2dfcd37080abded6d0961f452ecb256f"
+        }
+      },
+      {
+        "name": "Arc Warden Xvii",
+        "preview": "Arc Warden Xvii.webp",
+        "file": "Arc Warden Xvii.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/oqTPZnHltso"
+          }
+        ],
+        "meta": {
+          "date": 1792151800,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Techies Chance Allahu Akbar",
+        "preview": "Techies Chance Allahu Akbar.webp",
+        "file": "Techies Chance Allahu Akbar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/1PImhnL7cyo"
+          }
+        ],
+        "meta": {
+          "date": 1792151800,
+          "commit-sha": ""
         }
       }
     ],
