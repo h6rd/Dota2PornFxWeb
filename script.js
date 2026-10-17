@@ -4019,14 +4019,26 @@ function applySettings(s) {
     const activeOS = s.os || 'default';
     const activeLang = s.gameLang === 'default' || !s.gameLang ? 'english' : s.gameLang;
 
-    document.querySelectorAll('.settings-theme-btn').forEach(btn => {
+    document.querySelectorAll('.st-opt[data-theme]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.theme === activeTheme);
     });
-    document.querySelectorAll('.settings-os-btn').forEach(btn => {
+    document.querySelectorAll('.settings-os-btn, .st-opt[data-os]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.os === activeOS);
     });
     const sel = document.getElementById('gameLangSelect');
     if (sel) sel.value = activeLang;
+
+    const COLOR_VARIANTS = ['tonal-spot', 'content', 'fidelity', 'vibrant', 'expressive', 'rainbow', 'neutral'];
+    const COLOR_CONTRASTS = ['standard', 'medium', 'high'];
+    const activeVariant = COLOR_VARIANTS.includes(s.variant) ? s.variant : 'tonal-spot';
+    const activeContrast = COLOR_CONTRASTS.includes(s.contrast) ? s.contrast : 'standard';
+    document.querySelectorAll('.st-opt[data-variant]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.variant === activeVariant);
+    });
+    document.querySelectorAll('.st-opt[data-contrast]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.contrast === activeContrast);
+    });
+    if (window.setM3eColorOptions) window.setM3eColorOptions(activeVariant, activeContrast);
 
     const pathInput = document.getElementById('dotaPathInput');
     if (pathInput) {
@@ -4064,6 +4076,8 @@ async function exportSettings() {
             ? GIF_CONFIG.themes[parseInt(localStorage.getItem('gifIndex'))]
             : 'ursa',
         gifIndex: localStorage.getItem('gifIndex') || '0',
+        variant: s.variant || 'tonal-spot',
+        contrast: s.contrast || 'standard',
         gameLang: (s.gameLang === 'default' || !s.gameLang) ? 'english' : s.gameLang,
         os: s.os || 'default',
         dotaPath: s.dotaPath || '',
@@ -4128,6 +4142,8 @@ function importSettings(file) {
                     });
                 });
             }
+            patch.variant = obj.variant || 'tonal-spot';
+            patch.contrast = obj.contrast || 'standard';
             if (obj.gameLang) patch.gameLang = obj.gameLang;
             if (obj.os) patch.os = obj.os;
             if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
@@ -4253,7 +4269,7 @@ function setupSettingsModal() {
         }
     });
 
-    document.querySelectorAll('.settings-theme-btn').forEach(b => {
+    document.querySelectorAll('.st-opt[data-theme]').forEach(b => {
         b.addEventListener('click', () => {
             saveSettings({ theme: b.dataset.theme });
             applySettings(loadSettings());
@@ -4261,9 +4277,25 @@ function setupSettingsModal() {
         });
     });
 
-    document.querySelectorAll('.settings-os-btn').forEach(b => {
+    document.querySelectorAll('.settings-os-btn, .st-opt[data-os]').forEach(b => {
         b.addEventListener('click', () => {
             saveSettings({ os: b.dataset.os });
+            applySettings(loadSettings());
+            vibrate(10);
+        });
+    });
+
+    document.querySelectorAll('.st-opt[data-variant]').forEach(b => {
+        b.addEventListener('click', () => {
+            saveSettings({ variant: b.dataset.variant });
+            applySettings(loadSettings());
+            vibrate(10);
+        });
+    });
+
+    document.querySelectorAll('.st-opt[data-contrast]').forEach(b => {
+        b.addEventListener('click', () => {
+            saveSettings({ contrast: b.dataset.contrast });
             applySettings(loadSettings());
             vibrate(10);
         });

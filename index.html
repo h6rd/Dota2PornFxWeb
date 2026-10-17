@@ -701,132 +701,117 @@
 
   <!-- Settings modal -->
   <div id="settingsOverlay" class="info-overlay"></div>
-  <div id="settingsModal" class="info-modal settings-modal">
+  <div id="settingsModal" class="info-modal settings-modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <button class="info-modal-close" id="closeSettingsModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
-    <div class="info-modal-content settings-modal-layout">
-      
-      <!-- left col -->
-      <div class="settings-col settings-col--left">
-        <h2 class="info-modal-title">Settings</h2>
-        <div class="settings-section">
-          <h3 class="settings-section-title">Theme</h3>
-          <div class="settings-option-row">
-            <button class="settings-theme-btn" data-theme="auto">
-              <span class="material-symbols-rounded">brightness_auto</span> Auto
-            </button>
-            <button class="settings-theme-btn" data-theme="dark">
-              <span class="material-symbols-rounded">dark_mode</span> Dark
-            </button>
-            <button class="settings-theme-btn" data-theme="light">
-              <span class="material-symbols-rounded">light_mode</span> Light
-            </button>
-          </div>
 
-          <div class="settings-toggle-row settings-toggle-row--spaced">
-            <label class="settings-toggle-label">
-              <span>Compact View</span>
-              <input type="checkbox" id="compactCategoryView" class="settings-toggle-input">
-              <span class="settings-toggle-track"></span>
-            </label>
-            <label class="settings-toggle-label">
-              <span>Seasonal Themes</span>
-              <input type="checkbox" id="seasonalThemes" class="settings-toggle-input" checked>
-              <span class="settings-toggle-track"></span>
-            </label>
-          </div>
+    <div class="st-header">
+      <h2 class="st-title" id="settingsTitle">Settings</h2>
+    </div>
+
+    <div class="st-scroll">
+      <div class="st-grid">
+
+        <div class="st-col">
+          <section class="st-section">
+            <h3 class="st-section-title">Appearance</h3>
+
+            <div class="st-field">
+              <div class="st-label">Theme</div>
+              <div class="st-seg">
+                <button class="st-opt" data-theme="auto">
+                  <span class="material-symbols-rounded">brightness_auto</span> Auto
+                </button>
+                <button class="st-opt" data-theme="dark">
+                  <span class="material-symbols-rounded">dark_mode</span> Dark
+                </button>
+                <button class="st-opt" data-theme="light">
+                  <span class="material-symbols-rounded">light_mode</span> Light
+                </button>
+              </div>
+            </div>
+
+            <div class="st-field">
+              <div class="st-label">Color variant</div>
+              <div class="st-seg st-seg--variant">
+                <button class="st-opt" data-variant="tonal-spot">Tonal Spot</button>
+                <button class="st-opt" data-variant="fidelity">Fidelity</button>
+                <button class="st-opt" data-variant="expressive">Expressive</button>
+                <button class="st-opt" data-variant="vibrant">Vibrant</button>
+                <button class="st-opt" data-variant="rainbow">Rainbow</button>
+                <button class="st-opt" data-variant="neutral">Neutral</button>
+              </div>
+            </div>
+
+            <div class="st-field">
+              <div class="st-label">Contrast</div>
+              <div class="st-seg">
+                <button class="st-opt" data-contrast="standard">Standard</button>
+                <button class="st-opt" data-contrast="medium">Medium</button>
+                <button class="st-opt" data-contrast="high">High</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="st-section st-section--end">
+            <h3 class="st-section-title">Interface</h3>
+            <div class="st-list">
+              <label class="st-switch">
+                <span>Compact View</span>
+                <input type="checkbox" id="compactCategoryView" class="settings-toggle-input">
+                <span class="settings-toggle-track"></span>
+              </label>
+              <label class="st-switch">
+                <span>Seasonal Themes</span>
+                <input type="checkbox" id="seasonalThemes" class="settings-toggle-input" checked>
+                <span class="settings-toggle-track"></span>
+              </label>
+            </div>
+          </section>
         </div>
-  
-        <div class="settings-section">
-          <h3 class="settings-section-title">Content Filter</h3>
-          <div class="settings-toggle-row">
-            <label class="settings-toggle-label">
-              <span>Hide Anime mods</span>
-              <input type="checkbox" id="hideAnimeMods" class="settings-toggle-input">
-              <span class="settings-toggle-track"></span>
-            </label>
-            <label class="settings-toggle-label">
-              <span>Hide Adult (18+) mods</span>
-              <input type="checkbox" id="hideAdultMods" class="settings-toggle-input">
-              <span class="settings-toggle-track"></span>
-            </label>
-          </div>
+
+        <div class="st-col">
+          <section class="st-section">
+            <h3 class="st-section-title">System</h3>
+            <div class="st-seg st-seg--os">
+              <button class="st-opt" data-os="default">Default</button>
+              <button class="st-opt" data-os="windows"><i class="bi bi-windows"></i> Windows</button>
+              <button class="st-opt" data-os="linux"><i class="bi bi-tux"></i> Linux</button>
+              <button class="st-opt" data-os="macos"><i class="bi bi-apple"></i> macOS</button>
+            </div>
+          </section>
+
+          <section class="st-section">
+            <h3 class="st-section-title">Content filter</h3>
+            <div class="st-list">
+              <label class="st-switch">
+                <span>Hide Anime mods</span>
+                <input type="checkbox" id="hideAnimeMods" class="settings-toggle-input">
+                <span class="settings-toggle-track"></span>
+              </label>
+              <label class="st-switch">
+                <span>Hide Adult (18+) mods</span>
+                <input type="checkbox" id="hideAdultMods" class="settings-toggle-input">
+                <span class="settings-toggle-track"></span>
+              </label>
+            </div>
+          </section>
+
+          <section class="st-section st-section--end">
+            <h3 class="st-section-title">Backup</h3>
+            <div class="st-seg">
+              <button class="st-btn" id="exportSettingsBtn">
+                <span class="material-symbols-rounded">upload_file</span> Export
+              </button>
+              <button class="st-btn" id="importSettingsBtn">
+                <span class="material-symbols-rounded">download</span> Import
+              </button>
+              <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
+            </div>
+          </section>
         </div>
-  
-        <div class="settings-section">
-          <h3 class="settings-section-title">Export / Import Settings</h3>
-          <div class="settings-option-row">
-            <button class="settings-action-btn" id="exportSettingsBtn">
-              <span class="material-symbols-rounded">upload_file</span> Export
-            </button>
-            <button class="settings-action-btn" id="importSettingsBtn">
-              <span class="material-symbols-rounded">download</span> Import
-            </button>
-            <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
-          </div>
-        </div>
-      </div>
-  
-      <!-- right col -->
-      <div class="settings-col settings-col--right">
-        <div class="settings-section">
-          <h3 class="settings-section-title">System</h3>
-          <div class="settings-option-row">
-            <button class="settings-os-btn" data-os="default">Default</button>
-            <button class="settings-os-btn" data-os="windows">
-              <i class="bi bi-windows"></i> Windows
-            </button>
-            <button class="settings-os-btn" data-os="linux">
-              <i class="bi bi-tux"></i> Linux
-            </button>
-            <button class="settings-os-btn" data-os="macos">
-              <i class="bi bi-apple"></i> macOS
-            </button>
-          </div>
-        </div>
-  
-        <div class="settings-section">
-          <h3 class="settings-section-title">Game Language</h3>
-          <select class="settings-select" id="gameLangSelect">
-            <option value="russian">Russian [dota_russian]</option>
-            <option value="english" selected>English [dota_123]</option>
-            <option value="minify">Minify [dota_minify]</option>
-            <option value="ukrainian">Ukrainian [dota_ukrainian]</option>
-            <option value="koreana">한국어 [dota_koreana]</option>
-            <option value="schinese">简体中文 [dota_schinese]</option>
-            <option value="tchinese">繁體中文 [dota_tchinese]</option>
-            <option value="brazilian">Português [dota_brazilian]</option>
-            <option value="latam">Español latinoamericano [dota_latam]</option>
-            <option value="spanish">Español [dota_spanish]</option>
-            <option value="french">Français [dota_french]</option>
-            <option value="italian">Italiano [dota_italian]</option>
-            <option value="german">Deutsch [dota_german]</option>
-            <option value="greek">Ελληνικά [dota_greek]</option>
-            <option value="thai">ไทย [dota_thai]</option>
-            <option value="japanese">日本語 [dota_japanese]</option>
-            <option value="portuguese">Português [dota_portuguese]</option>
-            <option value="polish">Polski [dota_polish]</option>
-            <option value="danish">Dansk [dota_danish]</option>
-            <option value="dutch">Nederlands [dota_dutch]</option>
-            <option value="finnish">Suomi [dota_finnish]</option>
-            <option value="norwegian">Norsk [dota_norwegian]</option>
-            <option value="swedish">Svenska [dota_swedish]</option>
-            <option value="czech">Čeština [dota_czech]</option>
-            <option value="hungarian">Magyar [dota_hungarian]</option>
-            <option value="romanian">Română [dota_romanian]</option>
-            <option value="bulgarian">Български [dota_bulgarian]</option>
-            <option value="turkish">Türkçe [dota_turkish]</option>
-            <option value="vietnamese">Tiếng Việt [dota_vietnamese]</option>
-          </select>
-        </div>
-  
-        <div class="settings-section">
-          <h3 class="settings-section-title">Dota 2 Path</h3>
-          <input type="text" class="settings-path-input" id="dotaPathInput" placeholder="Auto detect" autocomplete="off"
-            spellcheck="false" />
-          <span class="settings-section-hint">e.g. C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game</span>
-        </div>
+
       </div>
     </div>
   </div>
