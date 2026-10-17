@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Shadow Fiend Arcana Fixv1",
       "category": "hero-icons"
     },
@@ -407,10 +411,6 @@
     {
       "name": "Spectre Phantom Advent V1",
       "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Tidehunter Vetmo",
