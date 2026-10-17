@@ -27,6 +27,7 @@ jobs:
     outputs:
       files: ${{ steps.changes.outputs.files }}
       data: ${{ steps.changes.outputs.data }}
+      site: ${{ steps.changes.outputs.site }}
       full_rehash: ${{ steps.changes.outputs.full_rehash }}
       base_sha: ${{ steps.changes.outputs.base_sha }}
       head_sha: ${{ steps.changes.outputs.head_sha }}
@@ -51,6 +52,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "schedule" ]; then
             echo "files=true" >> "$GITHUB_OUTPUT"
             echo "data=true" >> "$GITHUB_OUTPUT"
+            echo "site=true" >> "$GITHUB_OUTPUT"
             echo "full_rehash=true" >> "$GITHUB_OUTPUT"
             echo "base_sha=" >> "$GITHUB_OUTPUT"
             echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
@@ -66,16 +68,27 @@ jobs:
           echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
           echo "full_rehash=false" >> "$GITHUB_OUTPUT"
 
-          if git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -q -E '^assets/files/|^assets/previews/|^assets/data/mods\.json$|^assets/data/announcements\.json$'; then
+          CHANGED=$(git -c core.quotepath=false diff --name-only "$BASE_SHA" "$HEAD_SHA")
+
+          if echo "$CHANGED" | grep -q -E '^assets/files/|^assets/previews/|^assets/data/mods\.json$|^assets/data/announcements\.json$'; then
             echo "files=true" >> "$GITHUB_OUTPUT"
           else
             echo "files=false" >> "$GITHUB_OUTPUT"
           fi
 
-          if git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -q '^assets/data/.*\.json$'; then
+          if echo "$CHANGED" | grep -q '^assets/data/.*\.json$'; then
             echo "data=true" >> "$GITHUB_OUTPUT"
           else
             echo "data=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          NON_SITE='^(assets/data/|assets/files/|assets/signatures/|scripts/|\.github/|[^/]+\.md$|LICENSE$|\.git(ignore|attributes)$)'
+          FORCE_SITE='^(\.github/workflows/deploy\.yml|scripts/generate-seo\.mjs|scripts/minify-dist\.mjs)$'
+
+          if echo "$CHANGED" | grep -v -E "$NON_SITE" | grep -q . || echo "$CHANGED" | grep -q -E "$FORCE_SITE"; then
+            echo "site=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "site=false" >> "$GITHUB_OUTPUT"
           fi
 
   catalog:
@@ -133,6 +146,29 @@ jobs:
 
     secrets: inherit
 
+  publish_data:
+    name: Publish compressed data
+    needs:
+      - changes
+      - catalog
+      - signatures
+
+    if: |
+      always() &&
+      needs.changes.result == 'success' &&
+      (
+        needs.changes.outputs.files == 'true' ||
+        needs.changes.outputs.data == 'true'
+      ) &&
+      needs.catalog.result != 'failure' &&
+      needs.catalog.result != 'cancelled' &&
+      needs.signatures.result != 'failure' &&
+      needs.signatures.result != 'cancelled'
+
+    uses: ./.github/workflows/publish-data.yml
+
+    secrets: inherit
+
   deploy:
     name: Deploy
     needs:
@@ -143,23 +179,11 @@ jobs:
     if: |
       always() &&
       needs.changes.result == 'success' &&
-      (
-        (
-          needs.changes.outputs.files == 'true' &&
-          needs.catalog.result == 'success'
-        )
-        ||
-        (
-          needs.changes.outputs.files != 'true' &&
-          needs.changes.outputs.data == 'true' &&
-          needs.signatures.result == 'success'
-        )
-        ||
-        (
-          needs.changes.outputs.files != 'true' &&
-          needs.changes.outputs.data != 'true'
-        )
-      )
+      needs.changes.outputs.site == 'true' &&
+      needs.catalog.result != 'failure' &&
+      needs.catalog.result != 'cancelled' &&
+      needs.signatures.result != 'failure' &&
+      needs.signatures.result != 'cancelled'
 
     uses: ./.github/workflows/deploy.yml
 
@@ -169,13 +193,23 @@ jobs:
     name: Discord notification
     needs:
       - changes
+      - catalog
+      - signatures
+      - publish_data
       - deploy
 
     if: |
       always() &&
       github.event_name == 'push' &&
       needs.changes.result == 'success' &&
-      needs.deploy.result == 'success'
+      needs.catalog.result != 'failure' &&
+      needs.catalog.result != 'cancelled' &&
+      needs.signatures.result != 'failure' &&
+      needs.signatures.result != 'cancelled' &&
+      needs.publish_data.result != 'failure' &&
+      needs.publish_data.result != 'cancelled' &&
+      needs.deploy.result != 'failure' &&
+      needs.deploy.result != 'cancelled'
 
     uses: ./.github/workflows/discord.yml
     with:

@@ -1,0 +1,53 @@
+name: Publish compressed data
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+            !assets/previews
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Generate Compressed Data
+        run: python scripts/generate_data.py
+
+      - name: Deploy Data to data branch
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./compressed
+          publish_branch: data
+
+      - name: Sync compressed data to Hugging Face
+        continue-on-error: true
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ vars.HF_REPO_ID }}
+          HF_REPO_TYPE: ${{ vars.HF_REPO_TYPE || 'dataset' }}
+          HF_HUB_DISABLE_PROGRESS_BARS: "1"
+        run: |
+          pip install -U huggingface_hub
+          hf upload "$HF_REPO_ID" ./compressed compressed \
+            --repo-type "$HF_REPO_TYPE" \
+            --delete "*" \
+            --commit-message "Sync compressed data from GitHub ${GITHUB_SHA::7}"
