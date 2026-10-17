@@ -27,6 +27,7 @@ jobs:
     outputs:
       files: ${{ steps.changes.outputs.files }}
       data: ${{ steps.changes.outputs.data }}
+      publish_code: ${{ steps.changes.outputs.publish_code }}
       site: ${{ steps.changes.outputs.site }}
       full_rehash: ${{ steps.changes.outputs.full_rehash }}
       base_sha: ${{ steps.changes.outputs.base_sha }}
@@ -80,6 +81,12 @@ jobs:
             echo "data=true" >> "$GITHUB_OUTPUT"
           else
             echo "data=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if echo "$CHANGED" | grep -q -E '^(scripts/generate_data\.py|\.github/workflows/publish-data\.yml)$'; then
+            echo "publish_code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish_code=false" >> "$GITHUB_OUTPUT"
           fi
 
           NON_SITE='^(assets/data/|assets/files/|assets/signatures/|scripts/|\.github/|[^/]+\.md$|LICENSE$|\.git(ignore|attributes)$)'
@@ -158,7 +165,8 @@ jobs:
       needs.changes.result == 'success' &&
       (
         needs.changes.outputs.files == 'true' ||
-        needs.changes.outputs.data == 'true'
+        needs.changes.outputs.data == 'true' ||
+        needs.changes.outputs.publish_code == 'true'
       ) &&
       needs.catalog.result != 'failure' &&
       needs.catalog.result != 'cancelled' &&
