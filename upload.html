@@ -55,9 +55,11 @@
     <div class="up-layout" id="upLayout" hidden>
       <section class="up-wizard" aria-label="Upload wizard">
         <ol class="up-stepper" id="upStepper">
-          <li data-step="0"><span class="up-step-dot">1</span><span class="up-step-label">Archive</span></li>
-          <li data-step="0.5" id="upStepperExtra" hidden><span class="up-step-dot">2</span><span
+          <li data-step="0" data-sub="0"><span class="up-step-dot">1</span><span class="up-step-label">Archive</span></li>
+          <li data-step="0.25" data-sub="1" id="upStepperExtra" hidden><span class="up-step-dot">2</span><span
               class="up-step-label">Style 2</span></li>
+          <li data-step="0.5" data-sub="2" id="upStepperExtra3" hidden><span class="up-step-dot">3</span><span
+              class="up-step-label">Style 3</span></li>
           <li data-step="1"><span class="up-step-dot">2</span><span class="up-step-label">Mod</span></li>
           <li data-step="2"><span class="up-step-dot">3</span><span class="up-step-label">Details</span></li>
           <li data-step="3"><span class="up-step-dot">4</span><span class="up-step-label">Credits</span></li>
@@ -80,7 +82,7 @@
                 </p>
               </div>
               <label class="up-switch up-switch-inline" for="upStyledToggle"
-                title="Mod with styles: two archives in one card (max 2)">
+                title="Mod with styles: 2–3 archives in one card (the third is optional)">
                 <input type="checkbox" id="upStyledToggle">
                 <span class="up-switch-track" aria-hidden="true"></span>
                 <span class="up-switch-text">Styles</span>
@@ -150,6 +152,51 @@
                     <input type="color" id="upStyleColorB1" class="up-color" value="#ffffff"
                       aria-label="Style 2 color 2" hidden>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="up-slot" id="upSlot2" hidden>
+              <div id="upSlot2Body">
+                <label class="up-drop" id="upDrop3" for="upArchive3">
+                  <input type="file" id="upArchive3" accept=".zip">
+                  <span class="material-symbols-rounded up-drop-icon">upload_file</span>
+                  <span class="up-drop-title" id="upArchiveLabel3">Drop archive here or click to browse</span>
+                  <span class="up-drop-sub" id="upArchiveSub3">ZIP made with PreMod · up to 100 MB</span>
+                </label>
+
+                <ul class="up-checks" id="upChecks3"></ul>
+
+                <div class="up-style-cfg" id="upStyleCfg2" hidden>
+                  <div class="up-field-group">
+                    <label for="upStyleLabel2">Style name <span class="up-opt">(shown on hover)</span></label>
+                    <input type="text" id="upStyleLabel2" class="up-field" value="Style III" maxlength="12"
+                      autocomplete="off">
+                  </div>
+                  <div class="up-field-group">
+                    <label>Circle color</label>
+                    <div class="up-color-row">
+                      <div class="up-segmented up-segmented-sm">
+                        <label><input type="radio" name="styleColorMode2" value="one" checked><span>One
+                            color</span></label>
+                        <label><input type="radio" name="styleColorMode2" value="two"><span>Two colors</span></label>
+                      </div>
+                      <input type="color" id="upStyleColorA2" class="up-color" value="#8fd3ff"
+                        aria-label="Style 3 color 1">
+                      <input type="color" id="upStyleColorB2" class="up-color" value="#ffffff"
+                        aria-label="Style 3 color 2" hidden>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="up-banner up-banner-update up-skip-note" id="upSkipNote" hidden>
+                <span class="material-symbols-rounded">skip_next</span>
+                <div>
+                  <strong>Style 3 skipped</strong>
+                  <p>The mod will be submitted with 2 styles.</p>
+                  <button type="button" class="up-btn up-btn-tonal" id="upUnskipStyle3">
+                    <span class="material-symbols-rounded">add</span> Add style 3
+                  </button>
                 </div>
               </div>
             </div>
@@ -313,13 +360,18 @@
               <span id="upCooldownText"></span>
             </div>
 
-            <button type="button" class="up-btn up-btn-primary" id="upNext">
-              Next <span class="material-symbols-rounded">arrow_forward</span>
-            </button>
-            <button type="submit" class="up-btn up-btn-primary" id="upSubmit" hidden>
-              <span class="material-symbols-rounded" id="upSubmitIcon">send</span>
-              <span id="upSubmitText">Submit for review</span>
-            </button>
+            <div class="up-nav-end">
+              <button type="button" class="up-btn up-btn-tonal" id="upSkipStyle3" hidden>
+                <span class="material-symbols-rounded">skip_next</span> Skip Style
+              </button>
+              <button type="button" class="up-btn up-btn-primary" id="upNext">
+                Next <span class="material-symbols-rounded">arrow_forward</span>
+              </button>
+              <button type="submit" class="up-btn up-btn-primary" id="upSubmit" hidden>
+                <span class="material-symbols-rounded" id="upSubmitIcon">send</span>
+                <span id="upSubmitText">Submit for review</span>
+              </button>
+            </div>
           </div>
         </form>
       </section>

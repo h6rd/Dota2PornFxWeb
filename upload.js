@@ -46,7 +46,8 @@
   const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS' };
   const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
 
-  const STYLE_COUNT = 2;
+  const STYLE_COUNT = 3;
+  const MIN_STYLES = 2;
   const MAX_STYLE_LABEL = 12;
   const STYLE_LABEL_RE = /^[a-zA-Z0-9 _.\-!]+$/;
   const HEX_RE = /^#[0-9a-f]{6}$/i;
@@ -229,7 +230,9 @@
     styled: false,
     sub: 0,
     activeStyle: 0,
-    slot2: { archiveFile: null, archive: null, reading: false }
+    skip3: false,
+    slot2: { archiveFile: null, archive: null, reading: false },
+    slot3: { archiveFile: null, archive: null, reading: false }
   };
 
   let form, categorySelect, heroGroup, heroSearch, heroHidden, heroList, nameInput, nameSuggest;
@@ -350,9 +353,12 @@
     return { modZip, preview, previewExt, previewError, folderName, zipHash: expectedZip };
   }
 
-  function slotState(slot) { return slot ? S.slot2 : S; }
-  function slotSfx(slot) { return slot ? '2' : ''; }
-  function anyReading() { return S.reading || (S.styled && S.slot2.reading); }
+  function slotState(slot) { return [S, S.slot2, S.slot3][slot] || S; }
+  function slotSfx(slot) { return slot ? String(slot + 1) : ''; }
+  function styleCount() { return !S.styled ? 1 : (S.skip3 ? MIN_STYLES : STYLE_COUNT); }
+  function anyReading() {
+    return S.reading || (S.styled && (S.slot2.reading || (!S.skip3 && S.slot3.reading)));
+  }
 
   function setChecks(items, slot = 0) {
     const ul = $('upChecks' + slotSfx(slot));
@@ -454,7 +460,7 @@
   }
 
   function wireDropZone() {
-    [0, 1].forEach(slot => {
+    [0, 1, 2].forEach(slot => {
       const sfx = slotSfx(slot);
       const drop = $('upDrop' + sfx);
       const input = $('upArchive' + sfx);
@@ -507,9 +513,12 @@
     const sub = on ? S.sub : 0;
     show($('upSlot0'), sub === 0);
     show($('upSlot1'), on && sub === 1);
+    show($('upSlot2'), on && sub === 2);
+    show($('upSlot2Body'), !S.skip3);
+    show($('upSkipNote'), S.skip3);
     show($('upStyledToggle').closest('.up-switch'), !on || sub === 0);
     const titleEl = $('upArchiveTitle');
-    const titleText = on ? `Style ${sub + 1} of ${STYLE_COUNT}` : 'Choose your archive';
+    const titleText = on ? `Style ${sub + 1}${sub === 2 ? ' (optional)' : ''}` : 'Choose your archive';
     if (titleEl.textContent !== titleText) {
       titleEl.textContent = titleText;
       titleEl.classList.remove('up-swap');
@@ -520,6 +529,8 @@
     if (sec) sec.classList.toggle('is-styled', on);
 
     show($('upStepperExtra'), on);
+    show($('upStepperExtra3'), on);
+    $('upStepperExtra3').classList.toggle('is-skipped', on && S.skip3);
     let num = 1;
     document.querySelectorAll('#upStepper li').forEach(li => {
       if (li.hidden) return;
@@ -528,12 +539,30 @@
     const first = document.querySelector('#upStepper li[data-step="0"] .up-step-label');
     if (first) first.textContent = on ? 'Style 1' : 'Archive';
   }
+  function skipStyle3() {
+    if (!S.styled || S.skip3) return;
+    S.skip3 = true;
+    resetArchiveUi(2);
+    $('upArchive3').value = '';
+    S.activeStyle = Math.min(S.activeStyle, MIN_STYLES - 1);
+    applySubUi();
+    refreshAll();
+    tryNext();
+  }
+  function unskipStyle3() {
+    if (!S.styled || !S.skip3) return;
+    S.skip3 = false;
+    S.activeStyle = 2;
+    showStepError('');
+    applySubUi();
+    refreshAll();
+  }
   function setSub(sub) {
     S.sub = sub;
     S.activeStyle = sub;
     updatePreviewCard();
   }
-  function stepPos() { return S.step === 0 ? (S.styled ? S.sub * 0.5 : 0) : S.step; }
+  function stepPos() { return S.step === 0 ? (S.styled ? S.sub * 0.25 : 0) : S.step; }
   function validateStyleCfg(count = STYLE_COUNT) {
     const seen = new Set();
     for (let i = 0; i < count; i++) {
@@ -543,7 +572,7 @@
         return `Style ${i + 1}: the name may contain English letters, digits, spaces and . _ - ! only (max ${MAX_STYLE_LABEL}).`;
       }
       const key = c.label.toLowerCase();
-      if (seen.has(key)) return 'The two styles must have different names.';
+      if (seen.has(key)) return 'Styles must have different names.';
       seen.add(key);
       if (!styleColors(i).every(h => HEX_RE.test(h))) return `Style ${i + 1}: invalid color.`;
     }
@@ -1003,7 +1032,8 @@
     if (c.video) buttons.appendChild(previewLinkButton('preview', tr('preview', 'Preview')));
 
     const media = $('upPreviewMedia');
-    const shownSt = S.styled && S.activeStyle === 1 ? S.slot2 : S;
+    if (S.styled && S.activeStyle >= styleCount()) S.activeStyle = styleCount() - 1;
+    const shownSt = S.styled ? slotState(S.activeStyle) : S;
     const previewData = shownSt.archive && shownSt.archive.preview ? shownSt.archive.preview : null;
     if (S.previewShown !== previewData || !media.firstElementChild) {
       media.textContent = '';
@@ -1038,7 +1068,7 @@
 
     if (S.styled) {
       const circles = el('div', 'style-circles');
-      for (let i = 0; i < STYLE_COUNT; i++) {
+      for (let i = 0; i < styleCount(); i++) {
         const c = el('span', 'style-circle' + (i === S.activeStyle ? ' active' : ''));
         c.dataset.styleIndex = String(i);
         c.style.background = colorsToCss(styleColors(i));
@@ -1060,8 +1090,9 @@
 
     if (step === 0) {
       if (anyReading()) return 'Still checking your archive — one moment.';
-      const allSlots = S.styled ? [S, S.slot2] : [S];
-      const upTo = !full && S.styled && S.step === 0 ? S.sub + 1 : allSlots.length;
+      const total = styleCount();
+      const allSlots = [S, S.slot2, S.slot3].slice(0, total);
+      const upTo = !full && S.styled && S.step === 0 ? Math.min(S.sub + 1, total) : total;
       const slots = allSlots.slice(0, upTo);
       for (let i = 0; i < slots.length; i++) {
         const st = slots[i];
@@ -1074,11 +1105,12 @@
         const cfgErr = validateStyleCfg(upTo);
         if (cfgErr) return cfgErr;
       }
-      if (S.styled && upTo === STYLE_COUNT) {
-        if (S.archive.zipHash === S.slot2.archive.zipHash) return 'Both styles contain the same mod file. Each style needs its own archive.';
-        const total = S.archive.modZip.length + S.slot2.archive.modZip.length;
-        if (total > MAX_STYLED_TOTAL_BYTES) {
-          return `The two mod files together are ${formatBytes(total)}. The limit for a mod with styles is ${Math.floor(MAX_STYLED_TOTAL_BYTES / 1024 / 1024)} MB in total.`;
+      if (S.styled && upTo === total) {
+        const hashes = new Set(allSlots.map(st => st.archive.zipHash));
+        if (hashes.size !== allSlots.length) return 'Two styles contain the same mod file. Each style needs its own archive.';
+        const bytes = allSlots.reduce((sum, st) => sum + st.archive.modZip.length, 0);
+        if (bytes > MAX_STYLED_TOTAL_BYTES) {
+          return `The mod files together are ${formatBytes(bytes)}. The limit for a mod with styles is ${Math.floor(MAX_STYLED_TOTAL_BYTES / 1024 / 1024)} MB in total.`;
         }
       }
     }
@@ -1172,6 +1204,7 @@
     $('upPrev').style.visibility = (S.step === 0 && (!S.styled || S.sub === 0)) || S.busy ? 'hidden' : 'visible';
     show($('upNext'), !last);
     show($('upSubmit'), last);
+    show($('upSkipStyle3'), S.styled && S.step === 0 && S.sub === 2 && !S.skip3 && !S.busy);
     $('upNext').disabled = anyReading();
     $('upSubmit').disabled = S.busy || S.cooldown > 0;
     $('upSubmitIcon').textContent = S.busy ? 'progress_activity' : 'send';
@@ -1245,12 +1278,12 @@
     const tags = Object.keys(selectedTags()).map(k => tagMap[k] || k);
     const credits = currentCredits();
 
-    row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : (S.styled ? 'New mod with 2 styles' : 'New mod'));
+    row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : (S.styled ? `New mod with ${styleCount()} styles` : 'New mod'));
     row(dl, 'Name', upd ? upd.mod.name : nameInput.value.trim());
     row(dl, 'Category', categorySelect.selectedOptions[0] ? categorySelect.selectedOptions[0].textContent : category);
     if (HERO_AWARE_CATEGORIES.includes(category)) row(dl, 'Hero', heroHidden.value || '—');
     if (S.styled) {
-      for (let i = 0; i < STYLE_COUNT; i++) {
+      for (let i = 0; i < styleCount(); i++) {
         const st = slotState(i);
         const dd = el('dd');
         const sw = el('span', 'up-swatch');
@@ -1423,9 +1456,14 @@
 
     if (S.styled) {
       fd.set('styled', '1');
-      fd.set('styles', JSON.stringify([0, 1].map(i => ({ label: getStyleCfg(i).label, colors: styleColors(i) }))));
+      const count = styleCount();
+      fd.set('styles', JSON.stringify(Array.from({ length: count }, (_, i) => ({ label: getStyleCfg(i).label, colors: styleColors(i) }))));
       fd.set('modZip2', new Blob([S.slot2.archive.modZip]), `${name} Style 2.zip`);
       fd.set('preview2', new Blob([S.slot2.archive.preview]), `${name} Style 2.${S.slot2.archive.previewExt}`);
+      if (count > 2) {
+        fd.set('modZip3', new Blob([S.slot3.archive.modZip]), `${name} Style 3.zip`);
+        fd.set('preview3', new Blob([S.slot3.archive.preview]), `${name} Style 3.${S.slot3.archive.previewExt}`);
+      }
     }
     return fd;
   }
@@ -1508,7 +1546,10 @@
     for (let i = 0; i < STEP_COUNT - 1; i++) {
       const err = validateStep(i, true);
       if (err) {
-        if (i === 0 && S.styled) setSub(/^Style 1/.test(err) ? 0 : STYLE_COUNT - 1);
+        if (i === 0 && S.styled) {
+          const m = /^Style (\d)/.exec(err);
+          setSub(m ? Math.min(Number(m[1]) - 1, styleCount() - 1) : styleCount() - 1);
+        }
         goToStep(i);
         showStepError(err);
         return;
@@ -1571,8 +1612,11 @@
     [categorySelect, $('upAuthorExisting'), $('upExtraExisting')].forEach(refreshSelect);
     $('upArchive').value = '';
     $('upArchive2').value = '';
+    $('upArchive3').value = '';
     resetArchiveUi(0);
     resetArchiveUi(1);
+    resetArchiveUi(2);
+    S.skip3 = false;
     S.styled = false;
     S.sub = 0;
     S.activeStyle = 0;
@@ -1664,6 +1708,9 @@
   function wireEvents() {
     wireDropZone();
 
+    $('upSkipStyle3').addEventListener('click', skipStyle3);
+    $('upUnskipStyle3').addEventListener('click', unskipStyle3);
+
     $('upStyledToggle').addEventListener('change', () => {
       S.styled = $('upStyledToggle').checked;
       applyStyledUi();
@@ -1746,7 +1793,7 @@
       if (S.busy) return;
       if (S.step === 0 && S.styled && S.sub > 0) { showStepError(''); setSub(S.sub - 1); updateNav(); return; }
       const target = neighbourStep(S.step, -1);
-      if (target === 0 && S.styled) setSub(STYLE_COUNT - 1);
+      if (target === 0 && S.styled) setSub(styleCount() - 1);
       goToStep(target);
     });
     $('upNext').addEventListener('click', tryNext);
@@ -1758,7 +1805,7 @@
     document.querySelectorAll('#upStepper li').forEach(li => li.addEventListener('click', () => {
       const n = Number(li.dataset.step);
       if (n >= stepPos() || S.busy || stepSkipped(Math.ceil(n))) return;
-      if (n === 0 || n === 0.5) { setSub(n === 0 ? 0 : 1); goToStep(0); } else goToStep(n);
+      if (li.dataset.sub !== undefined) { setSub(Number(li.dataset.sub)); goToStep(0); } else goToStep(n);
     }));
 
     $('upHistoryBtn').addEventListener('click', () => showHistory(true));

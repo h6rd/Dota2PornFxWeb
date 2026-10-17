@@ -2146,3 +2146,31 @@ a.up-history-item:hover {
     width: 100%;
   }
 }
+
+.up-nav-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.up-skip-note .up-btn {
+  margin-top: 12px;
+}
+
+.up-stepper li.is-skipped:not(.active) {
+  opacity: .45;
+}
+
+.up-stepper li.is-skipped:not(.active) .up-step-label {
+  text-decoration: line-through;
+}
+
+.up-stepper li::before {
+  right: calc(50% + 16px);
+  width: calc(100% + 4px - 32px);
+}
+
+#upStepperExtra3:not([hidden]) {
+  animation: up-fade-in .35s ease both, up-rise .35s var(--up-ease) backwards;
+}
