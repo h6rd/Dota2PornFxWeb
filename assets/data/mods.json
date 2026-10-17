@@ -5,6 +5,10 @@
       "category": "tools"
     },
     {
+      "name": "Terrorblade Foulfell Demon",
+      "category": "hero-items"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -19258,6 +19262,22 @@
                 "date": 1790281615,
                 "commit-sha": "b2d6862fedc9fc98448a16f637e6a015598ec192"
               }
+            },
+            {
+              "name": "Terrorblade Foulfell Demon",
+              "preview": "Terrorblade Foulfell Demon.webp",
+              "file": "Terrorblade Foulfell Demon.zip",
+              "tags": {
+                "demon": true,
+                "effects": false,
+                "icons": false
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "cursedseizures"
+                }
+              ]
             }
           ]
         },

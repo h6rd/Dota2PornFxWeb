@@ -480,7 +480,8 @@
       "shield",
       "hair",
       "neck",
-      "rocket"
+      "rocket",
+      "demon"
     ]
   },
   "TAG_CONFIGS": {
@@ -538,6 +539,7 @@
         "hair": "Hair",
         "neck": "Neck",
         "rocket": "Rocket",
+        "demon": "Demon",
         "effects": "Effects",
         "icons": "Icons",
         "sounds": "Sounds"
