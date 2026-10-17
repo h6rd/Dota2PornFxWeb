@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Yatoro Electric",
+      "category": "wards"
+    },
+    {
+      "name": "Affliction Of Verminbleak",
+      "category": "couriers"
+    },
+    {
+      "name": "Trail Of The Amanitadiretide",
+      "category": "couriers"
+    },
+    {
+      "name": "Shadow Fiend Arcana Fixv2",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Winter Wyvern Defender",
+      "category": "heroes"
+    },
+    {
+      "name": "Divine Essencefrost Mighty Bo",
+      "category": "couriers"
+    },
+    {
+      "name": "Tcoaal Wallpaper V1",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Emerald Ectoplasmgrass Osky",
+      "category": "couriers"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -15146,6 +15178,21 @@
           "date": 1792235759,
           "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
         }
+      },
+      {
+        "name": "Winter Wyvern Defender",
+        "preview": "Winter Wyvern Defender.webp",
+        "file": "Winter Wyvern Defender.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "zkll"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22840,6 +22887,24 @@
           "date": 1792151800,
           "commit-sha": "4ee1cd716642148f38e0c2144e781659441e3ed2"
         }
+      },
+      {
+        "name": "Tcoaal Wallpaper V1",
+        "preview": "Tcoaal Wallpaper V1.webp",
+        "file": "Tcoaal Wallpaper V1.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -23703,6 +23768,21 @@
           "date": 1792235759,
           "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
         }
+      },
+      {
+        "name": "Shadow Fiend Arcana Fixv2",
+        "preview": "Shadow Fiend Arcana Fixv2.webp",
+        "file": "Shadow Fiend Arcana Fixv2.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
       }
     ],
     "wards": [
@@ -23818,6 +23898,21 @@
         "meta": {
           "date": 1792235759,
           "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
+        }
+      },
+      {
+        "name": "Yatoro Electric",
+        "preview": "Yatoro Electric.webp",
+        "file": "Yatoro Electric.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
         }
       }
     ],
@@ -24217,6 +24312,66 @@
         "meta": {
           "date": 1792163562,
           "commit-sha": "30eb722c703702846f6c1b0556864a46bd14f2ec"
+        }
+      },
+      {
+        "name": "Emerald Ectoplasmgrass Osky",
+        "preview": "Emerald Ectoplasmgrass Osky.webp",
+        "file": "Emerald Ectoplasmgrass Osky.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Divine Essencefrost Mighty Bo",
+        "preview": "Divine Essencefrost Mighty Bo.webp",
+        "file": "Divine Essencefrost Mighty Bo.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Trail Of The Amanitadiretide",
+        "preview": "Trail Of The Amanitadiretide.webp",
+        "file": "Trail Of The Amanitadiretide.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Affliction Of Verminbleak",
+        "preview": "Affliction Of Verminbleak.webp",
+        "file": "Affliction Of Verminbleak.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792275717,
+          "commit-sha": ""
         }
       }
     ],
