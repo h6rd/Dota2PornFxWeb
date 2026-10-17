@@ -1,6 +1,54 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Arcana Fixv1",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Axe Immortal Rampage",
+      "category": "heroes"
+    },
+    {
+      "name": "Arc Warden Gray Monster",
+      "category": "heroes"
+    },
+    {
+      "name": "Champions Aura 2014 Nightmare",
+      "category": "wards"
+    },
+    {
+      "name": "Felicitys Blessing Class Zero",
+      "category": "wards"
+    },
+    {
+      "name": "Frostivus Frost Trailgazer",
+      "category": "wards"
+    },
+    {
+      "name": "Phantom Assasssin Mogg",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Marsarenasematary",
+      "category": "sounds"
+    },
+    {
+      "name": "Elder Titan Creation Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Cupsize Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Nyx Assassin Mesmer Eye",
+      "category": "heroes"
+    },
+    {
+      "name": "Trail Of Burning Doom Frozen",
+      "category": "wards"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -15049,6 +15097,82 @@
           "date": 1792163562,
           "commit-sha": "30eb722c703702846f6c1b0556864a46bd14f2ec"
         }
+      },
+      {
+        "name": "Nyx Assassin Mesmer Eye",
+        "preview": "Nyx Assassin Mesmer Eye.webp",
+        "file": "Nyx Assassin Mesmer Eye.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Elder Titan Creation Immortal",
+        "preview": "Elder Titan Creation Immortal.webp",
+        "file": "Elder Titan Creation Immortal.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arc Warden Gray Monster",
+        "preview": "Arc Warden Gray Monster.webp",
+        "file": "Arc Warden Gray Monster.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "3atvorn1k"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Axe Immortal Rampage",
+        "preview": "Axe Immortal Rampage.webp",
+        "file": "Axe Immortal Rampage.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -20783,6 +20907,21 @@
           "date": 1792095190,
           "commit-sha": "7e2ea116d4b1c3f5383f2e848d4b27a05aaa753c"
         }
+      },
+      {
+        "name": "Cupsize Search Bar",
+        "preview": "Cupsize Search Bar.webp",
+        "file": "Cupsize Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Tom4ik"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -23541,6 +23680,36 @@
           "date": 1792151800,
           "commit-sha": "4ee1cd716642148f38e0c2144e781659441e3ed2"
         }
+      },
+      {
+        "name": "Phantom Assasssin Mogg",
+        "preview": "Phantom Assasssin Mogg.webp",
+        "file": "Phantom Assasssin Mogg.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Fiend Arcana Fixv1",
+        "preview": "Shadow Fiend Arcana Fixv1.webp",
+        "file": "Shadow Fiend Arcana Fixv1.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
       }
     ],
     "wards": [
@@ -23596,6 +23765,66 @@
         "meta": {
           "date": 1791389366,
           "commit-sha": "3c6341c52e1e831cb17128c7e05886b8b8ce5619"
+        }
+      },
+      {
+        "name": "Trail Of Burning Doom Frozen",
+        "preview": "Trail Of Burning Doom Frozen.webp",
+        "file": "Trail Of Burning Doom Frozen.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Frostivus Frost Trailgazer",
+        "preview": "Frostivus Frost Trailgazer.webp",
+        "file": "Frostivus Frost Trailgazer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Felicitys Blessing Class Zero",
+        "preview": "Felicitys Blessing Class Zero.webp",
+        "file": "Felicitys Blessing Class Zero.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Champions Aura 2014 Nightmare",
+        "preview": "Champions Aura 2014 Nightmare.webp",
+        "file": "Champions Aura 2014 Nightmare.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
         }
       }
     ],
@@ -26180,6 +26409,25 @@
             "url": "Fr0dech"
           }
         ]
+      },
+      {
+        "name": "Marsarenasematary",
+        "preview": "Marsarenasematary.webp",
+        "file": "Marsarenasematary.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/zMPffNxla7c?si=_DUSCq8R8WgOBrJ_"
+          }
+        ],
+        "meta": {
+          "date": 1792235758,
+          "commit-sha": ""
+        }
       }
     ],
     "packs": [
