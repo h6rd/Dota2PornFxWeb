@@ -1,0 +1,211 @@
+.tools-modal {
+  width: 96%;
+  max-width: 860px;
+  padding: 28px 24px 24px;
+}
+
+.tools-modal .info-modal-title {
+  margin: 0 0 4px;
+  padding-right: 48px;
+}
+
+.tools-sub {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tools-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.tools-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 44px 20px 20px;
+  border: none;
+  border-radius: 20px;
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.tools-card:hover {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.tools-card:active {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.tools-card-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.tools-card-icon .material-symbols-rounded {
+  font-size: 28px;
+}
+
+.tools-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.tools-card-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.tools-card-desc {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.tools-card-loader {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  scale: 0.8;
+  transform-origin: center;
+  pointer-events: none;
+  animation: toolsLoaderFade 0.2s ease;
+}
+
+@keyframes toolsLoaderFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tools-card.is-loading {
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.tools-card.is-loading .tools-card-arrow {
+  opacity: 0;
+}
+
+.tools-modal.is-busy .tools-card:not(.is-loading) {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.tools-modal.is-busy .tools-card.is-loading {
+  pointer-events: none;
+}
+
+.tools-card {
+  transition: background 0.15s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  .tools-card-loader {
+    position: static;
+    flex: 0 0 auto;
+  }
+}
+
+.tools-card-badge {
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.tools-card-arrow {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), color 0.15s ease;
+}
+
+.tools-card:hover .tools-card-arrow {
+  color: var(--md-sys-color-primary);
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .tools-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tools-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .tools-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .tools-card-desc {
+    margin-top: 4px;
+  }
+
+  .tools-card-arrow {
+    position: static;
+  }
+
+  .tools-card:hover .tools-card-arrow {
+    transform: none;
+  }
+}
+
+.tools-back {
+  position: absolute;
+  top: 16px;
+  right: 64px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.tools-back:hover {
+  background: var(--md-sys-color-secondary-container);
+  transform: translateX(-2px);
+}
+
+.tools-back .material-symbols-rounded {
+  font-size: 20px;
+}
