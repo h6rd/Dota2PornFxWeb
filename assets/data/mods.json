@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -91,10 +95,6 @@
     {
       "name": "Artifact Voices",
       "category": "sounds"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Terrorblade Skadi Blossom Red",

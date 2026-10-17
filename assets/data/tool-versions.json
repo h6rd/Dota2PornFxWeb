@@ -60,16 +60,16 @@
     }
   },
   "J0nathan550/BetterSource2Viewer": {
-    "version": "build-34",
+    "version": "build-35",
     "hashes": {
-      "cli-linux-x64.zip": "43fdaa8a8b86f165bc6cc4be4b3cc795747dc1e01a3e405654ef7f2ea4a2f14e",
-      "cli-windows-x64.zip": "96c4b5dbc4652ead301929be26946fec4cd710fe4fd67fd82f355853ddcd20d0",
-      "gui-avalonia-windows-x64.zip": "3d2c1103c6d4c5ffde074e8ffe758158ec8e3b53b3a6796d7962a2b84ce09f55",
-      "gui-windows-x64.zip": "92ecbdc51e9915db6d0df20f39f8c1352a500f33845426f6fde00fffe8ea42a3",
-      "latest.json": "12070f38d8559331a40a67e517979f6361dce0b76e47ebeb0f53a09d2aa014d9",
-      "Source2Viewer-x86_64.AppImage": "6bb8b30f7ad5c8d1dfc248f9b41bfd20841e20a7730b2c7ea1d4914dc0f146d0",
-      "Source2Viewer.Avalonia.exe": "714988f6b25abd74c92afe0482592a3cd28a4c23ab164105b902d25ff5292739",
-      "Source2Viewer.exe": "6f7eef0c4cf64b90493d1b41fc393df32de2507d71127c952053586caca0dbab"
+      "cli-linux-x64.zip": "4079c9bb4bfc70569d352a558eb90cb297630c6f89cb049e933e28b8b2a20deb",
+      "cli-windows-x64.zip": "3673afdc01fbba956936bf5394f0826cbddbd7369f9bd42669943ef433a18d3c",
+      "gui-avalonia-windows-x64.zip": "60f8e3e8a2de23bf2c8ff4445139ea7e8ecba03df7a464fdc2e883fbd7853d6b",
+      "gui-windows-x64.zip": "849f06fcdb5da28e943c7523d3938766dd5780379e7ab5d96ffeff35f0a43589",
+      "latest.json": "8decd4a6fe4cfe96bb170f526ed96319a3244f8bdec837889a60aecd572ebdfa",
+      "Source2Viewer-x86_64.AppImage": "c57f6bc5fb63f7bbfb5c110132ceead3dc11c5337d83f5dac35cb07b029f13b3",
+      "Source2Viewer.Avalonia.exe": "8cfab705f9bf1f34b3f67fe2fc90e59c3b326e0d6b18de58d3089697faa79d2d",
+      "Source2Viewer.exe": "d7c8a052dd4efb0f406cad676ba94fbb4f9bb1087399c5804908380a5e9f6064"
     }
   }
 }
