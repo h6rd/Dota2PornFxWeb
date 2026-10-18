@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spectaclcore Blue Girl",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Tcoaal Wallpaper V2",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Tcoaal Wallpaper V3",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Lina Immortal Electric Gem",
+      "category": "heroes"
+    },
+    {
       "name": "Yatoro Electric",
       "category": "wards"
     },
@@ -15193,6 +15209,25 @@
           "date": 1792275718,
           "commit-sha": "d06194602246139701f48f3b345468ea89ebff92"
         }
+      },
+      {
+        "name": "Lina Immortal Electric Gem",
+        "preview": "Lina Immortal Electric Gem.webp",
+        "file": "Lina Immortal Electric Gem.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1792286060,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22904,6 +22939,60 @@
         "meta": {
           "date": 1792275718,
           "commit-sha": "d06194602246139701f48f3b345468ea89ebff92"
+        }
+      },
+      {
+        "name": "Tcoaal Wallpaper V3",
+        "preview": "Tcoaal Wallpaper V3.webp",
+        "file": "Tcoaal Wallpaper V3.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792286060,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tcoaal Wallpaper V2",
+        "preview": "Tcoaal Wallpaper V2.webp",
+        "file": "Tcoaal Wallpaper V2.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792286060,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Spectaclcore Blue Girl",
+        "preview": "Spectaclcore Blue Girl.webp",
+        "file": "Spectaclcore Blue Girl.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792286060,
+          "commit-sha": ""
         }
       }
     ],
