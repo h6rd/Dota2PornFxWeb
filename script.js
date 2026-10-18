@@ -87,28 +87,6 @@ function openModal() {
     document.body.classList.add('modal-open');
 }
 
-document.addEventListener('wheel', (e) => {
-    if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .upload-form-panel, .upload-preview-panel, .upload-history-list');
-    if (!scrollable) {
-        e.preventDefault();
-        return;
-    }
-    const scrollingDown = e.deltaY > 0;
-    const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
-    const atTop = scrollable.scrollTop <= 0;
-    if ((scrollingDown && atBottom) || (!scrollingDown && atTop)) {
-        e.preventDefault();
-    }
-}, { passive: false });
-
-document.addEventListener('touchmove', (e) => {
-    if (!document.body.classList.contains('modal-open')) return;
-    const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .upload-form-panel, .upload-preview-panel, .upload-history-list');
-    if (!scrollable) e.preventDefault();
-}, { passive: false });
-
-
 const state = {
     currentCategory: null,
     searchQuery: '',
@@ -4007,6 +3985,7 @@ function loadSettings() {
 function saveSettings(patch) {
     const s = { ...loadSettings(), ...patch };
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+    if (('os' in patch || 'gameLang' in patch) && typeof applyCartLimit === 'function') applyCartLimit();
     return s;
 }
 

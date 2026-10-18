@@ -818,39 +818,47 @@
 
   <!-- Cart Modal -->
   <div id="cartOverlay" class="info-overlay"></div>
-  <div id="cartModal" class="info-modal cart-modal">
-    <button class="info-modal-close" id="closeCartModal" aria-label="Close">
+  <div id="cartModal" class="info-modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle"
+    aria-hidden="true">
+    <button class="info-modal-close" id="closeCartModal" type="button" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
 
-    <div class="assemblies-panel" id="assembliesPanel">
+    <aside class="assemblies-panel" id="assembliesPanel" aria-labelledby="packsTitle">
+      <div class="panel-heading">
+        <h2 class="info-modal-title" id="packsTitle">Packs</h2>
+        <span class="panel-count" id="assembliesCount"></span>
+      </div>
       <div class="assemblies-list" id="assembliesList"></div>
-    </div>
+    </aside>
 
     <div class="cart-main-content">
       <div class="info-modal-content">
-        <h2 class="info-modal-title">Cart</h2>
+        <div class="cart-header">
+          <h2 class="info-modal-title" id="cartTitle">Cart</h2>
+          <span class="cart-count" id="cartCount" hidden></span>
+        </div>
 
         <div id="cartEmpty" class="cart-empty">
           <span class="material-symbols-rounded">shopping_bag</span>
-          <p>Your cart is empty</p>
-          <p>Click on the «<span id="tg">+</span>» in the upper right corner of mod</p>
+          <p class="cart-empty-title">Your cart is empty</p>
+          <p class="cart-empty-hint">Click on the «<span id="tg">+</span>» in the upper right corner of mod</p>
         </div>
 
-        <div id="cartItems" class="cart-items"></div>
+        <div id="cartItems" class="cart-items" role="list" aria-label="Mods in cart" hidden></div>
 
         <div id="cartActions" class="cart-actions hidden">
-          <button class="cart-save-assembly-btn" id="saveAssemblyBtn">
+          <button class="cart-pack-btn" id="packBtn" type="button">
+            <span class="material-symbols-rounded">archive</span>
+            Download
+          </button>
+          <button class="cart-save-assembly-btn" id="saveAssemblyBtn" type="button">
             <span class="material-symbols-rounded">bookmark_add</span>
             Save Pack
           </button>
-          <button class="cart-clear-btn" id="clearCartBtn">
+          <button class="cart-clear-btn" id="clearCartBtn" type="button">
             <span class="material-symbols-rounded">delete</span>
             Clear Cart
-          </button>
-          <button class="cart-pack-btn" id="packBtn">
-            <span class="material-symbols-rounded">archive</span>
-            Download
           </button>
         </div>
       </div>

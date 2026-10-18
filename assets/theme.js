@@ -8,7 +8,7 @@
     meepo: { color: '#ff006f', variant: 'tonal-spot' },
     bh: { color: '#ffd000', variant: 'tonal-spot' },
     axe: { color: '#ff0000', variant: 'tonal-spot' },
-    od: { color: '#00ffa2', variant: 'tonal-spot' },
+    od: { color: '#00ff99', variant: 'tonal-spot' },
   };
 
   const VARIANTS = ['tonal-spot', 'fidelity', 'vibrant', 'expressive', 'rainbow', 'neutral'];

@@ -21,6 +21,54 @@ function getCartLimitInfo() {
 let savedAssemblies = [];
 const MAX_ASSEMBLIES = 10;
 
+const cartUI = {
+    dirty: true,
+    renderedSig: null,
+    visibleVideos: new Set(),
+    scrollTimer: 0,
+    asmDirty: true,
+    renderToken: 0,
+    raf: 0,
+    asmRaf: 0,
+    btnRaf: 0,
+    io: null,
+    lastFocus: null,
+    els: null
+};
+
+const CART_FIRST_CHUNK = 24;
+const CART_CHUNK = 24;
+
+function getCartEls() {
+    if (cartUI.els) return cartUI.els;
+    const modal = document.getElementById('cartModal');
+    if (!modal) return null;
+    cartUI.els = {
+        modal,
+        overlay: document.getElementById('cartOverlay'),
+        items: document.getElementById('cartItems'),
+        empty: document.getElementById('cartEmpty'),
+        actions: document.getElementById('cartActions'),
+        count: document.getElementById('cartCount'),
+        asmList: document.getElementById('assembliesList'),
+        logPanel: document.getElementById('packLogPanel')
+    };
+    return cartUI.els;
+}
+
+function cartSignature() {
+    return cart.map(i => i.id).join('\n');
+}
+
+function ensureCartRendered() {
+    if (cartUI.dirty || cartUI.renderedSig !== cartSignature()) renderCartItemsNow();
+}
+
+function isCartOpen() {
+    const els = getCartEls();
+    return !!els && els.modal.classList.contains('active');
+}
+
 function openModal() {
     document.body.classList.add('modal-open');
 }
@@ -29,22 +77,635 @@ function closeModal() {
     document.body.classList.remove('modal-open');
 }
 
-if (!window.modalScrollListenersAdded) {
-    document.addEventListener('wheel', (e) => {
-        if (document.body.classList.contains('modal-open')) {
-            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content, .upload-form-panel, .upload-preview-panel, .upload-history-list');
-            if (!scrollable) e.preventDefault();
-        }
-    }, { passive: false });
+function applyCartLimit() {
+    const { limit, countable } = getCartLimitInfo();
+    let kept = 0;
+    let removed = 0;
+    const trimmed = cart.filter(item => {
+        if (!countable(item)) return true;
+        if (kept < limit) { kept++; return true; }
+        removed++;
+        return false;
+    });
 
-    document.addEventListener('touchmove', (e) => {
-        if (document.body.classList.contains('modal-open')) {
-            const scrollable = e.target.closest('.info-modal-content, .cart-items, .pack-log-container, .assemblies-list, .notes-content, .upload-form-panel, .upload-preview-panel, .upload-history-list');
-            if (!scrollable) e.preventDefault();
-        }
-    }, { passive: false });
+    if (removed > 0) {
+        cart = trimmed;
+        saveCart();
+        updateCartButtons();
+        renderCartItems();
+        renderAssembliesList();
+        showToast(`Cart trimmed to ${limit} mods: ${removed} removed`);
+    }
+    updateCartBadge();
+    return removed;
+}
 
-    window.modalScrollListenersAdded = true;
+function findBaseModForItem(item) {
+    const categoryData = modsData[item.categoryId];
+    const match = m =>
+        m.name === item.name ||
+        (m.styles && m.styles.length > 1 &&
+            m.styles.some(s => m.name + ' ' + s.label.replace('Style ', '') === item.name));
+
+    if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+        const group = categoryData.groups.find(g => g.id === item.groupId);
+        return group ? (group.mods.find(match) || null) : null;
+    }
+    return Array.isArray(categoryData) ? (categoryData.find(match) || null) : null;
+}
+
+function cartNameHtml(item) {
+    const safe = escapeHtml(item.name);
+    const isHeroCategory = ['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(item.categoryId);
+    return isHeroCategory && typeof highlightHeroNames === 'function' ? highlightHeroNames(safe) : safe;
+}
+
+function cartPreviewHtml(item) {
+    const { preview } = resolveItemFiles(item);
+    if (!preview) {
+        return `<div class="cart-item-image cart-item-image--empty" aria-hidden="true"><span class="material-symbols-rounded">image</span></div>`;
+    }
+    const src = `assets/previews/${item.categoryId}/${preview}`;
+    if (preview.endsWith('.mp4')) {
+        return `<video class="cart-item-image" data-src="${escapeHtml(src)}" muted loop playsinline preload="none" width="64" height="64" aria-hidden="true"></video>`;
+    }
+    return `<img class="cart-item-image" src="${escapeHtml(src)}" alt="" width="64" height="64" loading="lazy" decoding="async">`;
+}
+
+function buildCartItemEl(item, categoryNameById) {
+    const el = document.createElement('div');
+    el.className = 'cart-item';
+    el.setAttribute('role', 'listitem');
+    el.dataset.id = item.id;
+
+    const categoryName = categoryNameById.get(item.categoryId) || item.categoryId;
+    const mod = findBaseModForItem(item);
+    const hasStyles = !!(mod && mod.styles && mod.styles.length > 1);
+    const activeStyleIndex = hasStyles
+        ? Math.max(0, mod.styles.findIndex(s => mod.name + ' ' + s.label.replace('Style ', '') === item.name))
+        : 0;
+
+    const styleSwitcherHtml = hasStyles ? `
+        <div class="cart-style-circles" role="group" aria-label="Style">
+            ${mod.styles.map((s, i) => `<span class="style-circle${i === activeStyleIndex ? ' active' : ''}" role="button" tabindex="0" data-style-index="${i}" style="background:${escapeHtml(s.color)}" title="${escapeHtml(s.label)}" aria-label="${escapeHtml(s.label)}"></span>`).join('')}
+        </div>` : '';
+
+    el.innerHTML = `
+        ${cartPreviewHtml(item)}
+        <div class="cart-item-info">
+            <h3 class="cart-item-name">${cartNameHtml(item)}</h3>
+            <div class="cart-item-meta">
+                <span class="cart-item-category">${escapeHtml(categoryName)}</span>
+                ${styleSwitcherHtml}
+            </div>
+        </div>
+        <button class="cart-item-remove" type="button" data-id="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.name)}">
+            <span class="material-symbols-rounded">close</span>
+        </button>`;
+    return el;
+}
+
+function syncCartMeta() {
+    const els = getCartEls();
+    if (!els) return;
+    const n = cart.length;
+
+    els.empty.hidden = n !== 0;
+    els.items.hidden = n === 0;
+    els.actions.classList.toggle('hidden', n === 0);
+
+    const saveBtn = document.getElementById('saveAssemblyBtn');
+    if (saveBtn) {
+        const dup = findDuplicateAssembly();
+        saveBtn.setAttribute('aria-disabled', dup ? 'true' : 'false');
+        saveBtn.title = dup ? `Already saved as "${dup.name}"` : '';
+    }
+
+    if (els.count) {
+        const { limit, countable } = getCartLimitInfo();
+        const counted = cart.filter(countable).length;
+        els.count.textContent = n ? `${counted} / ${limit}` : '';
+        els.count.classList.toggle('is-full', n > 0 && counted >= limit);
+        els.count.hidden = n === 0;
+    }
+}
+
+function getCartVideoObserver() {
+    const els = getCartEls();
+    if (cartUI.io || !els || !('IntersectionObserver' in window)) return cartUI.io;
+    cartUI.io = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                cartUI.visibleVideos.add(video);
+                if (!video.getAttribute('src') && video.dataset.src) video.src = video.dataset.src;
+                if (!els.items.classList.contains('is-scrolling')) playCartVideo(video);
+            } else {
+                cartUI.visibleVideos.delete(video);
+                video.pause();
+            }
+        }
+    }, { root: els.items, rootMargin: '120px 0px' });
+    return cartUI.io;
+}
+
+function playCartVideo(video) {
+    const p = video.play();
+    if (p && p.catch) p.catch(() => { });
+}
+
+function observeCartVideos() {
+    const els = getCartEls();
+    if (!els) return;
+    const io = getCartVideoObserver();
+    if (io) io.disconnect();
+    cartUI.visibleVideos.clear();
+    els.items.querySelectorAll('video.cart-item-image').forEach(v => {
+        if (io) io.observe(v);
+        else {
+            if (!v.getAttribute('src')) v.src = v.dataset.src;
+            v.play().catch(() => { });
+        }
+    });
+}
+
+function pauseCartVideos() {
+    const els = getCartEls();
+    if (cartUI.io) cartUI.io.disconnect();
+    cartUI.visibleVideos.clear();
+    if (els) els.items.querySelectorAll('video').forEach(v => v.pause());
+}
+
+function renderCartItemsNow() {
+    const els = getCartEls();
+    if (!els) return;
+
+    cartUI.dirty = false;
+    cartUI.renderedSig = cartSignature();
+    const token = ++cartUI.renderToken;
+    syncCartMeta();
+
+    if (cart.length === 0) {
+        els.items.replaceChildren();
+        return;
+    }
+
+    const categoryNameById = new Map(
+        (typeof categories !== 'undefined' ? categories : [])
+            .map(c => [c.id, translations[c.key] || c.id])
+    );
+
+    const first = document.createDocumentFragment();
+    const firstEnd = Math.min(CART_FIRST_CHUNK, cart.length);
+    for (let i = 0; i < firstEnd; i++) first.appendChild(buildCartItemEl(cart[i], categoryNameById));
+    els.items.replaceChildren(first);
+
+    if (cart.length <= firstEnd) return;
+
+    let i = firstEnd;
+    const step = () => {
+        if (token !== cartUI.renderToken) return;
+        const frag = document.createDocumentFragment();
+        const end = Math.min(i + CART_CHUNK, cart.length);
+        for (; i < end; i++) frag.appendChild(buildCartItemEl(cart[i], categoryNameById));
+        els.items.appendChild(frag);
+        if (isCartOpen()) observeCartVideos();
+        if (i < cart.length) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
+function renderCartItems() {
+    cartUI.dirty = true;
+    if (!isCartOpen() || cartUI.raf) return;
+    cartUI.raf = requestAnimationFrame(() => {
+        cartUI.raf = 0;
+        if (cartUI.dirty) {
+            renderCartItemsNow();
+            observeCartVideos();
+        }
+    });
+}
+
+function handleCartStyleSwitch(circle) {
+    const row = circle.closest('.cart-item');
+    if (!row) return;
+    const cartIdx = cart.findIndex(i => i.id === row.dataset.id);
+    if (cartIdx === -1) return;
+
+    const item = cart[cartIdx];
+    const mod = findBaseModForItem(item);
+    const idx = +circle.dataset.styleIndex;
+    if (!mod || !mod.styles || !mod.styles[idx]) return;
+
+    const style = mod.styles[idx];
+    const newName = mod.name + ' ' + style.label.replace('Style ', '');
+    const newId = item.groupId
+        ? `${item.categoryId}-${item.groupId}-${newName}`
+        : `${item.categoryId}-${newName}`;
+
+    const inSync = !cartUI.dirty && cartUI.renderedSig === cartSignature();
+    saveStyleIndex(mod.name, idx);
+    cart[cartIdx] = { ...item, id: newId, name: newName, file: style.file, preview: style.preview };
+    if (inSync) cartUI.renderedSig = cartSignature();
+    saveCart();
+
+    const updated = cart[cartIdx];
+    row.dataset.id = newId;
+    row.querySelector('.cart-item-remove').dataset.id = newId;
+    row.querySelector('.cart-item-name').innerHTML = cartNameHtml(updated);
+
+    const oldMedia = row.querySelector('.cart-item-image');
+    const tpl = document.createElement('template');
+    tpl.innerHTML = cartPreviewHtml(updated).trim();
+    const newMedia = tpl.content.firstElementChild;
+    if (oldMedia && newMedia) {
+        if (cartUI.io && oldMedia.tagName === 'VIDEO') cartUI.io.unobserve(oldMedia);
+        oldMedia.replaceWith(newMedia);
+        if (newMedia.tagName === 'VIDEO') {
+            const io = getCartVideoObserver();
+            if (io) io.observe(newMedia);
+        }
+    }
+
+    row.querySelectorAll('.style-circle').forEach(c => {
+        c.classList.toggle('active', +c.dataset.styleIndex === idx);
+    });
+
+    document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(card => {
+        const media = card.querySelector('.card-media img, .card-media video');
+        if (media) media.src = `assets/previews/${item.categoryId}/${style.preview}`;
+
+        const btn = card.querySelector('.add-to-cart-btn');
+        if (btn) {
+            btn.setAttribute('data-mod', JSON.stringify({
+                name: newName,
+                file: style.file,
+                preview: style.preview
+            }));
+        }
+        card.querySelectorAll('.style-circle').forEach(c => {
+            c.classList.toggle('active', +c.dataset.styleIndex === idx);
+        });
+    });
+
+    updateCartButtons();
+    renderAssembliesList();
+}
+
+function animateRemoveCartItem(el, done) {
+    el.style.pointerEvents = 'none';
+    if (!el.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.remove();
+        done();
+        return;
+    }
+    const cs = getComputedStyle(el);
+    const gap = parseFloat(getComputedStyle(el.parentElement).rowGap) || 0;
+    const anim = el.animate([
+        {
+            opacity: 1, transform: 'translateX(0)',
+            height: el.offsetHeight + 'px',
+            paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom, marginBottom: '0px'
+        },
+        {
+            opacity: 0, transform: 'translateX(16px)',
+            height: '0px', paddingTop: '0px', paddingBottom: '0px', marginBottom: `-${gap}px`
+        }
+    ], { duration: 220, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards' });
+    el.style.overflow = 'hidden';
+    anim.onfinish = () => { el.remove(); done(); };
+    anim.oncancel = () => { el.remove(); done(); };
+}
+
+function removeFromCart(itemId) {
+    const item = cart.find(i => i.id === itemId);
+    const itemName = item ? item.name : '';
+
+    const els = getCartEls();
+    const row = isCartOpen() && els
+        ? els.items.querySelector(`.cart-item[data-id="${CSS.escape(itemId)}"]`)
+        : null;
+    const inSync = !!row && !cartUI.dirty && cartUI.renderedSig === cartSignature();
+
+    cart = cart.filter(i => i.id !== itemId);
+    if (inSync) cartUI.renderedSig = cartSignature();
+    saveCart();
+    updateCartBadge();
+    updateCartButtons();
+    renderAssembliesList();
+
+    if (row) {
+        animateRemoveCartItem(row, () => { if (cart.length === 0) renderCartItemsNow(); });
+    } else {
+        renderCartItems();
+    }
+
+    if (itemName) {
+        showToast(`Removed <span style="color: var(--md-sys-color-primary)">${escapeHtml(itemName)}</span>`);
+    } else {
+        showToast('Removed from cart');
+    }
+
+    if ('vibrate' in navigator) navigator.vibrate(10);
+}
+
+function updateCartButtonsNow() {
+    const cartIds = new Set(cart.map(item => item.id));
+    const addLabel = (typeof translations !== 'undefined' && translations['addToCart']) || 'Add to cart';
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        const raw = btn.getAttribute('data-mod');
+        if (btn._modRaw !== raw) {
+            btn._modRaw = raw;
+            try { btn._modData = JSON.parse(raw); } catch { btn._modData = null; }
+        }
+        const modData = btn._modData;
+        if (!modData) return;
+
+        const category = btn.getAttribute('data-category');
+        const groupId = btn.closest('.card')?.getAttribute('data-group-id');
+        const id = groupId ? `${category}-${groupId}-${modData.name}` : `${category}-${modData.name}`;
+        const inCart = cartIds.has(id);
+
+        const stateKey = `${inCart}|${addLabel}`;
+        if (btn._cartState === stateKey) return;
+        btn._cartState = stateKey;
+
+        const icon = btn.querySelector('.material-symbols-rounded');
+        const text = btn.querySelector('.add-to-cart-text');
+        if (!icon || !text) return;
+
+        btn.classList.remove('just-added');
+        if (inCart) {
+            btn.classList.add('in-cart');
+            icon.textContent = 'check_circle';
+            text.textContent = 'Added';
+            btn.style.opacity = '1';
+            btn.style.transform = 'scale(1)';
+            btn.onmouseenter = () => { icon.textContent = 'delete'; text.textContent = 'Remove'; };
+            btn.onmouseleave = () => { icon.textContent = 'check_circle'; text.textContent = 'Added'; };
+        } else {
+            btn.classList.remove('in-cart');
+            icon.textContent = 'add';
+            text.textContent = addLabel;
+            btn.style.opacity = '';
+            btn.style.transform = '';
+            btn.onmouseenter = null;
+            btn.onmouseleave = null;
+        }
+    });
+}
+
+function updateCartButtons() {
+    if (cartUI.btnRaf) return;
+    cartUI.btnRaf = requestAnimationFrame(() => {
+        cartUI.btnRaf = 0;
+        updateCartButtonsNow();
+    });
+}
+
+function clearCart() {
+    cart = [];
+    saveCart();
+    updateCartBadge();
+    renderCartItems();
+    renderAssembliesList();
+    updateCartButtons();
+    showToast('Cart cleared');
+}
+
+function updateCartBadge() {
+    if (cartUI.renderedSig !== cartSignature()) renderCartItems();
+
+    const badge = document.getElementById('cartBadge');
+    const mobileBadge = document.getElementById('mobileCartBadge');
+    const count = cart.length;
+
+    if (badge) {
+        const text = String(count);
+        if (badge.textContent !== text) badge.textContent = text;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+
+    if (mobileBadge) {
+        const text = String(count);
+        if (mobileBadge.textContent !== text) mobileBadge.textContent = text;
+        mobileBadge.classList.toggle('show', count > 0);
+    }
+
+    syncCartMeta();
+}
+
+function showToast(message) {
+    document.querySelectorAll('.toast').forEach(t => t.remove());
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(() => toast.classList.add('show'));
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+function renderAssembliesNow() {
+    const container = document.getElementById('assembliesList');
+    if (!container) return;
+    cartUI.asmDirty = false;
+
+    const panel = document.getElementById('assembliesPanel');
+    if (panel) panel.classList.toggle('is-empty', savedAssemblies.length === 0);
+
+    const countEl = document.getElementById('assembliesCount');
+    if (countEl) countEl.textContent = savedAssemblies.length ? `${savedAssemblies.length} / ${MAX_ASSEMBLIES}` : '';
+
+    if (savedAssemblies.length === 0) {
+        container.innerHTML = `
+            <div class="assemblies-empty">
+                <span class="material-symbols-rounded">inventory_2</span>
+                <p>No saved packs</p>
+                <p class="assemblies-empty-hint">Fill the cart and press Save Pack</p>
+            </div>`;
+        return;
+    }
+
+    const frag = document.createDocumentFragment();
+    savedAssemblies.forEach(assembly => {
+        const item = document.createElement('div');
+        item.className = 'assembly-item';
+        item.dataset.id = assembly.id;
+        item.setAttribute('role', 'button');
+        item.tabIndex = 0;
+        if (isAssemblyMatchingCurrentCart(assembly)) item.classList.add('selected');
+
+        const count = assembly.items.length;
+        const dateStr = new Date(assembly.date).toLocaleDateString();
+        const safeName = escapeHtml(assembly.name);
+
+        item.innerHTML = `
+            <div class="assembly-info">
+                <h4 class="assembly-name">${safeName}</h4>
+                <p class="assembly-meta">${count} mod${count !== 1 ? 's' : ''} • ${dateStr}</p>
+            </div>
+            <button class="assembly-share-btn" type="button" data-action="share" aria-label="Share ${safeName}">
+                <span class="material-symbols-rounded">share</span>
+            </button>
+            <button class="assembly-edit-btn" type="button" data-action="edit" aria-label="Rename ${safeName}">
+                <span class="material-symbols-rounded">edit</span>
+            </button>
+            <button class="assembly-delete-btn" type="button" data-action="delete" aria-label="Delete ${safeName}">
+                <span class="material-symbols-rounded">delete</span>
+            </button>`;
+        frag.appendChild(item);
+    });
+    container.replaceChildren(frag);
+}
+
+function renderAssembliesList() {
+    cartUI.asmDirty = true;
+    syncCartMeta();
+    if (!isCartOpen() || cartUI.asmRaf) return;
+    cartUI.asmRaf = requestAnimationFrame(() => {
+        cartUI.asmRaf = 0;
+        if (cartUI.asmDirty) renderAssembliesNow();
+    });
+}
+
+function setupCartModal() {
+    const els = getCartEls();
+    if (!els) return;
+    const { modal, overlay, items, asmList, logPanel } = els;
+
+    const cartButton = document.getElementById('cartButton');
+    const closeBtn = document.getElementById('closeCartModal');
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    const packBtn = document.getElementById('packBtn');
+    const saveAssemblyBtn = document.getElementById('saveAssemblyBtn');
+
+    const openCart = () => {
+        if (isCartOpen()) return;
+        cartUI.lastFocus = document.activeElement;
+
+        const packing = !!window._packingInProgress;
+        modal.classList.toggle('expanded', packing);
+        if (logPanel) logPanel.classList.toggle('active', packing);
+
+        ensureCartRendered();
+        if (cartUI.asmDirty) renderAssembliesNow();
+
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        openModal();
+        observeCartVideos();
+        closeBtn.focus({ preventScroll: true });
+    };
+
+    const closeCart = () => {
+        if (!isCartOpen()) return;
+        modal.classList.remove('active', 'expanded');
+        overlay.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        closeModal();
+        pauseCartVideos();
+
+        if (window._snakeGamePause) window._snakeGamePause();
+        if (logPanel && !window._packingInProgress) logPanel.classList.remove('active');
+
+        const target = cartUI.lastFocus;
+        cartUI.lastFocus = null;
+        if (target && target.focus && document.contains(target)) target.focus({ preventScroll: true });
+    };
+
+    cartButton.addEventListener('click', openCart);
+    closeBtn.addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+    if (saveAssemblyBtn) saveAssemblyBtn.addEventListener('click', showSaveAssemblyDialog);
+    clearCartBtn.addEventListener('click', clearCart);
+    packBtn.addEventListener('click', packAndDownload);
+
+    items.addEventListener('click', (e) => {
+        const removeBtn = e.target.closest('.cart-item-remove');
+        if (removeBtn) {
+            removeFromCart(removeBtn.dataset.id);
+            return;
+        }
+        const circle = e.target.closest('.style-circle');
+        if (circle) {
+            e.stopPropagation();
+            handleCartStyleSwitch(circle);
+        }
+    });
+    items.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.style-circle')) {
+            e.preventDefault();
+            e.target.click();
+        }
+    });
+    items.addEventListener('error', (e) => {
+        const media = e.target;
+        if (!media.matches || !media.matches('.cart-item-image') || media.classList.contains('cart-item-image--empty')) return;
+        const tpl = document.createElement('template');
+        tpl.innerHTML = '<div class="cart-item-image cart-item-image--empty" aria-hidden="true"><span class="material-symbols-rounded">image</span></div>';
+        if (cartUI.io && media.tagName === 'VIDEO') cartUI.io.unobserve(media);
+        media.replaceWith(tpl.content.firstElementChild);
+    }, true);
+
+    items.addEventListener('scroll', () => {
+        if (!items.classList.contains('is-scrolling')) {
+            items.classList.add('is-scrolling');
+            cartUI.visibleVideos.forEach(v => v.pause());
+        }
+        clearTimeout(cartUI.scrollTimer);
+        cartUI.scrollTimer = setTimeout(() => {
+            items.classList.remove('is-scrolling');
+            cartUI.visibleVideos.forEach(playCartVideo);
+        }, 150);
+    }, { passive: true });
+
+    asmList.addEventListener('click', (e) => {
+        const row = e.target.closest('.assembly-item');
+        if (!row) return;
+        const id = row.dataset.id;
+        const action = e.target.closest('[data-action]')?.dataset.action;
+        if (action === 'share') shareAssembly(id);
+        else if (action === 'edit') showEditAssemblyDialog(id);
+        else if (action === 'delete') deleteAssembly(id, e);
+        else loadAssembly(id);
+    });
+    asmList.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('assembly-item')) {
+            e.preventDefault();
+            loadAssembly(e.target.dataset.id);
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!isCartOpen()) return;
+        if (e.key === 'Escape') {
+            if (document.querySelector('.assembly-dialog-overlay.active, .replace-modal-overlay.active')) return;
+            closeCart();
+            return;
+        }
+        if (e.key === 'Tab') {
+            if (document.querySelector('.assembly-dialog-overlay.active, .replace-modal-overlay.active')) return;
+            const focusable = [...modal.querySelectorAll('button:not([disabled]), [tabindex="0"], input, a[href]')]
+                .filter(n => n.offsetParent !== null);
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
+
+    syncCartMeta();
 }
 
 function loadAssemblies() {
@@ -78,6 +739,8 @@ function saveCurrentAssembly(name) {
         return;
     }
 
+    if (notifyDuplicateAssembly()) return;
+
     const assembly = {
         id: Date.now().toString(),
         name: name.trim(),
@@ -88,7 +751,7 @@ function saveCurrentAssembly(name) {
     savedAssemblies.push(assembly);
     saveAssemblies();
     renderAssembliesList();
-    showToast(`Pack <span style="color: var(--md-sys-color-shit); font-weight: bold;">${name}</span> saved`);
+    showToast(`Pack <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(name.trim())}</span> saved`);
     vibrate(20);
 }
 
@@ -131,11 +794,12 @@ function loadAssembly(assemblyId) {
     });
 
     saveCart();
+    applyCartLimit();
     updateCartBadge();
     renderCartItems();
     updateCartButtons();
     renderAssembliesList();
-    showToast(`Loaded <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name}</span> pack`);
+    showToast(`Loaded <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span> pack`);
     vibrate(10);
 }
 
@@ -150,86 +814,28 @@ function deleteAssembly(assemblyId, event) {
     savedAssemblies = savedAssemblies.filter(a => a.id !== assemblyId);
     saveAssemblies();
     renderAssembliesList();
-    showToast(`Deleted <span style="color: var(--md-sys-color-shit); font-weight: bold;">${assembly.name}</span> pack`);
+    showToast(`Deleted <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(assembly.name)}</span> pack`);
     vibrate(10);
 }
 
-function renderAssembliesList() {
-    const assembliesContainer = document.getElementById('assembliesList');
-    if (!assembliesContainer) return;
-
-    if (savedAssemblies.length === 0) {
-        assembliesContainer.innerHTML = `
-            <div class="assemblies-empty">
-                <span class="material-symbols-rounded">inventory_2</span>
-                <p>No saved packs</p>
-            </div>
-        `;
-        return;
-    }
-
-    assembliesContainer.innerHTML = '';
-
-    savedAssemblies.forEach(assembly => {
-        const assemblyItem = document.createElement('div');
-        assemblyItem.className = 'assembly-item';
-
-        const isSelected = isAssemblyMatchingCurrentCart(assembly);
-        if (isSelected) {
-            assemblyItem.classList.add('selected');
-        }
-
-        const date = new Date(assembly.date);
-        const dateStr = date.toLocaleDateString();
-
-        assemblyItem.innerHTML = `
-        <div class="assembly-info">
-            <h4 class="assembly-name">${escapeHtml(assembly.name)}</h4>
-            <p class="assembly-meta">${assembly.items.length} mod${assembly.items.length !== 1 ? 's' : ''} • ${dateStr}</p>
-        </div>
-        <button class="assembly-share-btn" data-id="${assembly.id}">
-            <span class="material-symbols-rounded">share</span>
-        </button>
-        <button class="assembly-edit-btn" data-id="${assembly.id}">
-            <span class="material-symbols-rounded">edit</span>
-        </button>
-        <button class="assembly-delete-btn" data-id="${assembly.id}">
-            <span class="material-symbols-rounded">delete</span>
-        </button>
-        `;
-
-        assemblyItem.addEventListener('click', (e) => {
-            if (!e.target.closest('.assembly-edit-btn') && !e.target.closest('.assembly-delete-btn')) {
-                loadAssembly(assembly.id);
-            }
-        });
-
-        const editBtn = assemblyItem.querySelector('.assembly-edit-btn');
-        editBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            showEditAssemblyDialog(assembly.id);
-        });
-
-        const shareBtn = assemblyItem.querySelector('.assembly-share-btn');
-        shareBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            shareAssembly(assembly.id);
-        });
-
-        const deleteBtn = assemblyItem.querySelector('.assembly-delete-btn');
-        deleteBtn.addEventListener('click', (e) => deleteAssembly(assembly.id, e));
-
-        assembliesContainer.appendChild(assemblyItem);
-    });
-}
-
 function isAssemblyMatchingCurrentCart(assembly) {
-    if (cart.length !== assembly.items.length) return false;
+    if (cart.length === 0 || cart.length !== assembly.items.length) return false;
 
     const cartIds = cart.map(item => item.id).sort();
     const assemblyIds = assembly.items.map(item => item.id).sort();
 
     return JSON.stringify(cartIds) === JSON.stringify(assemblyIds);
+}
+
+function findDuplicateAssembly() {
+    return cart.length ? savedAssemblies.find(isAssemblyMatchingCurrentCart) || null : null;
+}
+
+function notifyDuplicateAssembly() {
+    const dup = findDuplicateAssembly();
+    if (!dup) return false;
+    showToast(`These mods are already saved in <span style="color: var(--md-sys-color-shit); font-weight: bold;">${escapeHtml(dup.name)}</span>`);
+    return true;
 }
 
 function showEditAssemblyDialog(assemblyId) {
@@ -294,6 +900,8 @@ function showSaveAssemblyDialog() {
         showToast('Cart is empty');
         return;
     }
+
+    if (notifyDuplicateAssembly()) return;
 
     const dialog = document.createElement('div');
     dialog.className = 'assembly-dialog-overlay';
@@ -369,6 +977,7 @@ function loadCart() {
                 console.info(`[Cart] Removed ${removed} unavailable mod(s) from cart`);
             }
             updateCartBadge();
+            applyCartLimit();
         } catch (e) {
             cart = [];
         }
@@ -585,414 +1194,6 @@ function addToCart(mod, categoryId) {
     if ('vibrate' in navigator) navigator.vibrate([10, 50, 10]);
 }
 
-function removeFromCart(itemId) {
-    const item = cart.find(i => i.id === itemId);
-    const itemName = item ? item.name : '';
-    const cartItemsEl = document.getElementById('cartItems');
-    const domItem = cartItemsEl
-        ?.querySelector(`.cart-item-remove[data-id="${CSS.escape(itemId)}"]`)
-        ?.closest('.cart-item');
-    const doRemove = () => {
-        cart = cart.filter(i => i.id !== itemId);
-        saveCart();
-        updateCartBadge();
-        updateCartButtons();
-        renderAssembliesList();
-
-        if (cart.length === 0) {
-            renderCartItems();
-        }
-    };
-
-    if (domItem) {
-        domItem.style.transition =
-            'opacity 0.18s cubic-bezier(0.4, 0, 1, 1), ' +
-            'transform 0.18s cubic-bezier(0.4, 0, 1, 1), ' +
-            'max-height 0.25s cubic-bezier(0.4, 0, 1, 1), ' +
-            'padding 0.25s cubic-bezier(0.4, 0, 1, 1), ' +
-            'margin 0.25s cubic-bezier(0.4, 0, 1, 1)';
-        domItem.style.maxHeight = domItem.offsetHeight + 'px';
-        domItem.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            domItem.style.opacity = '0';
-            domItem.style.transform = 'translateX(12px)';
-            domItem.style.maxHeight = '0';
-            domItem.style.paddingTop = '0';
-            domItem.style.paddingBottom = '0';
-            domItem.style.marginBottom = '0';
-        });
-
-        setTimeout(() => {
-            domItem.remove();
-            doRemove();
-        }, 260);
-    } else {
-        doRemove();
-        renderCartItems();
-    }
-
-    if (itemName) {
-        showToast(`Removed <span style="color: var(--md-sys-color-primary)">${escapeHtml(itemName)}</span>`);
-    } else {
-        showToast('Removed from cart');
-    }
-
-    if ('vibrate' in navigator) navigator.vibrate(10);
-}
-
-function updateCartButtons() {
-    const cartIds = new Set(cart.map(item => item.id));
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-        const modData = btn._modData || (btn._modData = JSON.parse(btn.getAttribute('data-mod')));
-        const category = btn.getAttribute('data-category');
-        const card = btn.closest('.card');
-        const groupId = card?.getAttribute('data-group-id');
-        const id = groupId ? `${category}-${groupId}-${modData.name}` : `${category}-${modData.name}`;
-        const inCart = cartIds.has(id);
-
-        const icon = btn.querySelector('.material-symbols-rounded');
-        const text = btn.querySelector('.add-to-cart-text');
-
-        if (inCart) {
-            btn.classList.add('in-cart');
-            btn.classList.remove('just-added');
-            icon.textContent = 'check_circle';
-            text.textContent = 'Added';
-            btn.style.opacity = '1';
-            btn.style.transform = 'scale(1)';
-
-            btn.onmouseenter = () => {
-                icon.textContent = 'delete';
-                text.textContent = 'Remove';
-            };
-            btn.onmouseleave = () => {
-                icon.textContent = 'check_circle';
-                text.textContent = 'Added';
-            };
-        } else {
-            btn.classList.remove('in-cart');
-            btn.classList.remove('just-added');
-            icon.textContent = 'add';
-            text.textContent = translations['addToCart'] || 'Add to cart';
-            btn.style.opacity = '';
-            btn.style.transform = '';
-            btn.onmouseenter = null;
-            btn.onmouseleave = null;
-        }
-    });
-}
-
-function clearCart() {
-    cart = [];
-    saveCart();
-    updateCartBadge();
-    renderCartItems();
-    renderAssembliesList();
-    updateCartButtons();
-    showToast('Cart cleared');
-}
-
-function updateCartBadge() {
-    const badge = document.getElementById('cartBadge');
-    const mobileBadge = document.getElementById('mobileCartBadge');
-    const count = cart.length;
-
-    if (badge) {
-        badge.textContent = count;
-        badge.style.display = count > 0 ? 'flex' : 'none';
-    }
-
-    if (mobileBadge) {
-        mobileBadge.textContent = count;
-        if (count > 0) {
-            mobileBadge.classList.add('show');
-        } else {
-            mobileBadge.classList.remove('show');
-        }
-    }
-}
-
-function showToast(message) {
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = message;
-    document.body.appendChild(toast);
-
-    setTimeout(() => toast.classList.add('show'), 10);
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
-
-function setupCartModal() {
-    const cartButton = document.getElementById('cartButton');
-    const cartModal = document.getElementById('cartModal');
-    const cartOverlay = document.getElementById('cartOverlay');
-    const closeCartModal = document.getElementById('closeCartModal');
-    const clearCartBtn = document.getElementById('clearCartBtn');
-    const packBtn = document.getElementById('packBtn');
-
-    const saveAssemblyBtn = document.getElementById('saveAssemblyBtn');
-    if (saveAssemblyBtn) {
-        saveAssemblyBtn.addEventListener('click', showSaveAssemblyDialog);
-    }
-
-    const openCart = () => {
-        if (!window._packingInProgress) {
-            cartModal.classList.remove('expanded');
-        }
-
-        const logPanel = document.getElementById('packLogPanel');
-        if (logPanel && !window._packingInProgress) {
-            logPanel.classList.remove('active');
-        }
-
-        const elementsToReset = [
-            cartModal,
-            document.querySelector('.cart-main-content'),
-            cartModal.querySelector('.info-modal-content'),
-            document.getElementById('cartItems'),
-            document.getElementById('cartEmpty'),
-            document.getElementById('cartActions')
-        ];
-
-        elementsToReset.forEach(element => {
-            if (element) {
-                element.removeAttribute('style');
-            }
-        });
-
-        requestAnimationFrame(() => {
-            renderCartItems();
-            cartModal.classList.add('active');
-            cartOverlay.classList.add('active');
-            openModal();
-            if (window._packingInProgress) {
-                cartModal.classList.add('expanded');
-                logPanel.classList.add('active');
-            }
-        });
-    };
-
-    const closeCart = () => {
-        cartModal.classList.remove('active');
-        cartModal.classList.remove('expanded');
-        cartOverlay.classList.remove('active');
-        closeModal();
-
-        if (window._snakeGamePause) window._snakeGamePause();
-
-        const logPanel = document.getElementById('packLogPanel');
-        if (logPanel && !window._packingInProgress) {
-            logPanel.classList.remove('active');
-        }
-
-        setTimeout(() => {
-            const elementsToReset = [
-                cartModal,
-                document.querySelector('.cart-main-content'),
-                cartModal.querySelector('.info-modal-content'),
-                document.getElementById('cartItems'),
-                document.getElementById('cartEmpty'),
-                document.getElementById('cartActions')
-            ];
-
-            elementsToReset.forEach(element => {
-                if (element) {
-                    element.removeAttribute('style');
-                }
-            });
-        }, 400);
-    };
-
-    cartButton.addEventListener('click', openCart);
-    closeCartModal.addEventListener('click', closeCart);
-    cartOverlay.addEventListener('click', closeCart);
-
-    clearCartBtn.addEventListener('click', () => {
-        clearCart();
-    });
-
-    packBtn.addEventListener('click', packAndDownload);
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && cartModal.classList.contains('active')) {
-            closeCart();
-        }
-    });
-}
-
-function renderCartItems() {
-    const cartEmpty = document.getElementById('cartEmpty');
-    const cartItems = document.getElementById('cartItems');
-    const cartActions = document.getElementById('cartActions');
-
-    if (cart.length === 0) {
-        cartEmpty.style.display = 'flex';
-        cartItems.innerHTML = '';
-        cartActions.classList.add('hidden');
-        return;
-    }
-
-    cartEmpty.style.display = 'none';
-    cartActions.classList.remove('hidden');
-    cartItems.innerHTML = '';
-
-    cart.forEach(item => {
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-
-        const category = categories.find(cat => cat.id === item.categoryId);
-        const categoryName = category ? translations[category.key] : item.categoryId;
-
-        const categoryData = modsData[item.categoryId];
-        let mod = null;
-        let previewPath = '';
-        let isVideo = false;
-
-        function findBaseMod(mods) {
-            return mods.find(m => {
-                if (m.name === item.name) return true;
-                if (m.styles && m.styles.length > 1) {
-                    return m.styles.some(s =>
-                        m.name + ' ' + s.label.replace('Style ', '') === item.name
-                    );
-                }
-                return false;
-            });
-        }
-
-        if (categoryData?.groups && Array.isArray(categoryData.groups)) {
-            const group = categoryData.groups.find(g => g.id === item.groupId);
-            if (group) {
-                mod = findBaseMod(group.mods);
-            }
-        } else if (Array.isArray(categoryData)) {
-            mod = findBaseMod(categoryData);
-        }
-
-        const { preview: resolvedPreview } = resolveItemFiles(item);
-        const previewFile = resolvedPreview || '';
-        if (previewFile) {
-            previewPath = `assets/previews/${item.categoryId}/${previewFile}`;
-            isVideo = previewFile.endsWith('.mp4');
-        }
-
-        let previewHtml = '';
-        if (previewPath) {
-            if (isVideo) {
-                previewHtml = `<video src="${previewPath}" class="cart-item-image" autoplay muted loop playsinline onerror="this.style.display='none'"></video>`;
-            } else {
-                previewHtml = `<img src="${previewPath}" alt="${escapeHtml(item.name)}" class="cart-item-image" onerror="this.style.display='none'">`;
-            }
-        }
-
-        const hasStyles = mod && mod.styles && mod.styles.length > 1;
-        const activeStyleIndex = hasStyles
-            ? Math.max(0, mod.styles.findIndex(s =>
-                mod.name + ' ' + s.label.replace('Style ', '') === item.name
-            ))
-            : 0;
-
-        const styleSwitcherHtml = hasStyles ? `
-            <div class="cart-style-circles">
-                ${mod.styles.map((s, i) => `
-                    <span class="style-circle ${i === activeStyleIndex ? 'active' : ''}"
-                          data-style-index="${i}"
-                          style="background:${s.color}"
-                          title="${s.label}"></span>
-                `).join('')}
-            </div>
-        ` : '';
-
-        cartItem.innerHTML = `
-                ${previewHtml}
-                <div class="cart-item-info">
-                    <h3 class="cart-item-name">${['heroes', 'hero-sounds', 'hero-items', 'herofx'].includes(item.categoryId) && typeof highlightHeroNames === 'function' ? highlightHeroNames(escapeHtml(item.name)) : escapeHtml(item.name)}</h3>
-                    <div class="cart-item-meta">
-                        <p class="cart-item-category">${escapeHtml(categoryName)}</p>
-                        ${styleSwitcherHtml}
-                    </div>
-                </div>
-                <button class="cart-item-remove" data-id="${escapeHtml(item.id)}">
-                    <span class="material-symbols-rounded">close</span>
-                </button>
-        `;
-
-        if (hasStyles) {
-            cartItem.querySelectorAll('.style-circle').forEach(circle => {
-                circle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const idx = +circle.dataset.styleIndex;
-                    saveStyleIndex(mod.name, idx);
-
-                    const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
-                    const newId = item.groupId
-                        ? `${item.categoryId}-${item.groupId}-${newName}`
-                        : `${item.categoryId}-${newName}`;
-
-                    const cartIdx = cart.findIndex(i => i.id === item.id);
-                    if (cartIdx !== -1) {
-                        cart[cartIdx] = {
-                            ...cart[cartIdx],
-                            id: newId,
-                            name: newName,
-                            file: mod.styles[idx].file,
-                            preview: mod.styles[idx].preview
-                        };
-                        item.id = newId;
-                        item.name = newName;
-                        saveCart();
-                        updateCartButtons();
-                    }
-
-                    const previewEl = cartItem.querySelector('.cart-item-image');
-                    if (previewEl) previewEl.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
-
-                    const nameEl = cartItem.querySelector('.cart-item-name');
-                    if (nameEl) nameEl.textContent = newName;
-
-                    document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
-                        const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                        if (otherImg) otherImg.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
-
-                        const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
-                        if (otherCartBtn) {
-                            otherCartBtn.setAttribute('data-mod', JSON.stringify({
-                                name: newName,
-                                file: mod.styles[idx].file,
-                                preview: mod.styles[idx].preview
-                            }));
-                        }
-
-                        otherCard.querySelectorAll('.style-circle').forEach(c => {
-                            c.classList.toggle('active', +c.dataset.styleIndex === idx);
-                        });
-                    });
-
-                    updateCartButtons();
-
-                    cartItem.querySelectorAll('.style-circle').forEach(c => {
-                        c.classList.toggle('active', +c.dataset.styleIndex === idx);
-                    });
-                });
-            });
-        }
-
-        cartItems.appendChild(cartItem);
-    });
-
-    const removeButtons = cartItems.querySelectorAll('.cart-item-remove');
-    removeButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const itemId = e.currentTarget.getAttribute('data-id');
-            removeFromCart(itemId);
-        });
-    });
-}
-
 function isZipFile(fileName) {
     return fileName.toLowerCase().endsWith('.zip');
 }
@@ -1025,22 +1226,26 @@ function createPakNameAllocator(existingFileNames, isMacos = false) {
     let normalCounter = 10;
 
     function allocatePriority(originalName) {
-        if (priorityCounter <= 9) {
+        while (priorityCounter <= 9) {
             const prefix = isMacos ? 'pak' : '!pak';
             const candidate = `${prefix}${String(priorityCounter).padStart(2, '0')}_dir.vpk`;
             priorityCounter++;
-            existingFileNames.add(candidate.toLowerCase());
-            return candidate;
+            if (!existingFileNames.has(candidate.toLowerCase())) {
+                existingFileNames.add(candidate.toLowerCase());
+                return candidate;
+            }
         }
         return getUniqueFileName(originalName, existingFileNames);
     }
 
     function allocateNormal() {
-        if (normalCounter <= 99) {
+        while (normalCounter <= 99) {
             const candidate = `pak${normalCounter}_dir.vpk`;
             normalCounter++;
-            existingFileNames.add(candidate.toLowerCase());
-            return candidate;
+            if (!existingFileNames.has(candidate.toLowerCase())) {
+                existingFileNames.add(candidate.toLowerCase());
+                return candidate;
+            }
         }
         return getUniqueFileName('pak99_dir.vpk', existingFileNames);
     }
@@ -1895,8 +2100,22 @@ async function packAndDownload() {
 
         const pakAllocator = createPakNameAllocator(existingFileNames, isMacos);
 
+        const usedZipPaths = new Set();
         const addToRoot = async (path, blob) => {
-            await zipWriter.add(path, new zip.BlobReader(blob));
+            let finalPath = path;
+            if (usedZipPaths.has(finalPath.toLowerCase())) {
+                const slash = finalPath.lastIndexOf('/');
+                const dot = finalPath.lastIndexOf('.');
+                const hasExt = dot > slash + 1;
+                const base = hasExt ? finalPath.slice(0, dot) : finalPath;
+                const ext = hasExt ? finalPath.slice(dot) : '';
+                let n = 1;
+                while (usedZipPaths.has(`${base}_${n}${ext}`.toLowerCase())) n++;
+                finalPath = `${base}_${n}${ext}`;
+                console.warn(`Duplicate archive path "${path}" saved as "${finalPath}"`);
+            }
+            usedZipPaths.add(finalPath.toLowerCase());
+            await zipWriter.add(finalPath, new zip.BlobReader(blob));
         };
 
         let zipQueuePromise = Promise.resolve();
@@ -2101,7 +2320,7 @@ RU WINDOWS
 3. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
 4. Переместите все файлы pak10_ (pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: dota 2 beta\\game\\dota_russian
-   • Для английского: используйте фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
+   • Для английского: используйте последнюю вресию Minify (https://h6rd.github.io/Dota2PornFxWiki/ru/install.html)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с файлами pak10.
 - Если вы добавили курсор, у вас будет папка "Название Cursor" в ней вы должны запустить Install.bat (если bat не работает, переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor)
 - Если вы добавили шрифт, у вас будет папка "Название Font" в ней вы должны запустить Install.bat (если bat не работает, прочитайте guide.txt внутри папки)
@@ -2174,7 +2393,7 @@ RU LINUX
 4. Откройте Steam, пкм по Dota2, посмотреть локальные файлы, перейдите в папку game
 5. Переместите все файлы pak10_(pak10_dir.vpk, pak10_000.vpk, pak10_001.vpk, pak10_002.vpk, pak10_003.vpk и тд) в папку с языком игры:
    • Для русского: game/dota_russian
-   • Для английского: фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
+   • Для английского: используйте последнюю вресию Minify (https://h6rd.github.io/Dota2PornFxWiki/ru/install.html)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с pak10_dir.vpk
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
@@ -2245,7 +2464,7 @@ RU MACOS
 1. Откройте Steam, пкм по Dota2, посомотреть локальные файлы, перейдите в папку game
 2. Переместите все файлы из папки mods в папку с языком игры:
    • Для русского: dota_russian
-   • Для английского: используйте фикс от Egezenn (https://www.youtube.com/watch?v=Q_CGKRFoDn8)
+   • Для английского: используйте последнюю вресию Minify (https://h6rd.github.io/Dota2PornFxWiki/ru/install.html)
 - Если вы выбрали ландшафт, у вас будет папка maps, которую также надо переместить в папку языка игры вместе с другими vpk файлами
 - Если вы добавили курсор, у вас будет папка "Название Cursor", переместите содержимое папки cursor в Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\resource\\cursor
 - Если вы добавили шрифт, у вас будет папка "Название Font", прочитайте guide.txt внутри папки
@@ -2451,7 +2670,10 @@ Uninstallation
 
         const cartModalEl = document.getElementById('cartModal');
         if (!cartModalEl.classList.contains('active')) {
+            ensureCartRendered();
+            if (cartUI.asmDirty) renderAssembliesNow();
             cartModalEl.classList.add('active');
+            cartModalEl.setAttribute('aria-hidden', 'false');
             document.getElementById('cartOverlay').classList.add('active');
             cartModalEl.classList.add('expanded');
             logPanel.classList.add('active');
@@ -2566,13 +2788,15 @@ function initSnakeGame() {
 
     if (!boardEl || !tabLogs || !tabGame || !gameView || !logView) return;
 
-    boardEl.style.gridTemplateColumns = `repeat(${GRID}, 1fr)`;
-    boardEl.style.gridTemplateRows = `repeat(${GRID}, 1fr)`;
+    boardEl.style.gridTemplateColumns = `repeat(${GRID}, minmax(0, 1fr))`;
+    boardEl.style.gridTemplateRows = `repeat(${GRID}, minmax(0, 1fr))`;
 
     const bgFragment = document.createDocumentFragment();
     for (let i = 0; i < GRID * GRID; i++) {
         const cell = document.createElement('div');
         cell.className = 'snake-cell';
+        cell.style.gridColumn = (i % GRID) + 1;
+        cell.style.gridRow = Math.floor(i / GRID) + 1;
         bgFragment.appendChild(cell);
     }
     boardEl.appendChild(bgFragment);

@@ -411,6 +411,10 @@
       "enabled": true,
       "text": "If emblem not working, try enter <code>r_draw_selected_ring 1</code> into the console. If this does not work, ensure that you are not using the Minify mod: Misc Optimization"
     },
+    "parts": {
+      "enabled": true,
+      "text": "Some of these mods include CSS files. They may conflict with HUD mods or any mod that edits the same file, and they may break after a major update."
+    },
     "tools": {
       "enabled": true,
       "text": "This category includes both my own tools and ones made by third-party developers. I'm only responsible for the tools I've created myself. Third-party programs are reviewed before being listed, but I can't continuously monitor them, so use them at your own risk"
