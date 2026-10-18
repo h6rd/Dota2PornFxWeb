@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Spectaclcore Blue Girl",
       "category": "backgrounds"
     },
@@ -107,10 +111,6 @@
     {
       "name": "Trail Of Burning Doom Frozen",
       "category": "wards"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Ogre Arcana Egg Sound Fix",
