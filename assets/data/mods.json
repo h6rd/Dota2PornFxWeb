@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Arc Warden Chicken Gun",
+      "category": "heroes"
+    },
+    {
       "name": "Pudge G0Lovach",
       "category": "heroes"
     },
@@ -14328,6 +14332,21 @@
         "meta": {
           "date": 1792415868,
           "commit-sha": "6a07e1e79b910c537b5b5c67b17043f9d8c5efe9"
+        }
+      },
+      {
+        "name": "Arc Warden Chicken Gun",
+        "preview": "Arc Warden Chicken Gun.webp",
+        "file": "Arc Warden Chicken Gun.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1792421381,
+          "commit-sha": ""
         }
       }
     ],
