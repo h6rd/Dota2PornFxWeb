@@ -1,6 +1,50 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Anime Search Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Play White",
+      "category": "parts"
+    },
+    {
+      "name": "Anti-Mage Taunt Serega Pirat",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Dean Norris Match",
+      "category": "parts"
+    },
+    {
+      "name": "Pudge G0Lovach Reborn",
+      "category": "heroes"
+    },
+    {
+      "name": "Queen Of Pain Bloodfeather",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Crimson Furry",
+      "category": "heroes"
+    },
+    {
+      "name": "Remove Innate Icon",
+      "category": "parts"
+    },
+    {
+      "name": "Arc Warden Gay Taunt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Invoker Never",
+      "category": "heroes"
+    },
+    {
+      "name": "Play Black",
+      "category": "parts"
+    },
+    {
       "name": "Push The Button",
       "category": "backgrounds"
     },
@@ -14213,6 +14257,97 @@
           "date": 1792330154,
           "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
         }
+      },
+      {
+        "name": "Invoker Never",
+        "preview": "Invoker Never.webp",
+        "file": "Invoker Never.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Phantom Lancer Crimson Furry",
+        "preview": "Phantom Lancer Crimson Furry.webp",
+        "file": "Phantom Lancer Crimson Furry.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "zkll"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Queen Of Pain Bloodfeather",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#ff0000",
+            "preview": "Queen Of Pain Bloodfeather.webp",
+            "file": "Queen Of Pain Bloodfeather.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#00aaff",
+            "preview": "Queen Of Pain Bloodfeather Style II.webp",
+            "file": "Queen Of Pain Bloodfeather Style II.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge G0Lovach Reborn",
+        "preview": "Pudge G0Lovach Reborn.webp",
+        "file": "Pudge G0Lovach Reborn.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          },
+          {
+            "type": "modded",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19967,6 +20102,93 @@
           "date": 1792330154,
           "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
         }
+      },
+      {
+        "name": "Play Black",
+        "preview": "Play Black.webp",
+        "file": "Play Black.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Remove Innate Icon",
+        "preview": "Remove Innate Icon.webp",
+        "file": "Remove Innate Icon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Dean Norris Match",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#ddd4ff",
+            "preview": "Dean Norris Match.webp",
+            "file": "Dean Norris Match.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#ff8f8f",
+            "preview": "Dean Norris Match Style II.webp",
+            "file": "Dean Norris Match Style II.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Play White",
+        "preview": "Play White.webp",
+        "file": "Play White.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anime Search Bar",
+        "preview": "Anime Search Bar.webp",
+        "file": "Anime Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Defendor"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -25294,6 +25516,36 @@
         "meta": {
           "date": 1792151800,
           "commit-sha": "4ee1cd716642148f38e0c2144e781659441e3ed2"
+        }
+      },
+      {
+        "name": "Arc Warden Gay Taunt",
+        "preview": "Arc Warden Gay Taunt.webp",
+        "file": "Arc Warden Gay Taunt.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Anti-Mage Taunt Serega Pirat",
+        "preview": "Anti-Mage Taunt Serega Pirat.webp",
+        "file": "Anti-Mage Taunt Serega Pirat.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792412052,
+          "commit-sha": ""
         }
       }
     ],
