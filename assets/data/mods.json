@@ -9,6 +9,14 @@
       "category": "tools"
     },
     {
+      "name": "Tcoaal Mach v2",
+      "category": "parts"
+    },
+    {
+      "name": "Tcoaal Mach v1",
+      "category": "parts"
+    },
+    {
       "name": "Arc Warden Chicken Gun",
       "category": "heroes"
     },
@@ -93,6 +101,10 @@
       "category": "sounds"
     },
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Spectaclcore Blue Girl",
       "category": "backgrounds"
     },
@@ -111,10 +123,6 @@
     {
       "name": "Yatoro Electric",
       "category": "wards"
-    },
-    {
-      "name": "Affliction Of Verminbleak",
-      "category": "couriers"
     },
     {
       "name": "Trail Of The Amanitadiretide",
@@ -139,6 +147,10 @@
     {
       "name": "Emerald Ectoplasmgrass Osky",
       "category": "couriers"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
     },
     {
       "name": "Terrorblade Foulfell Demon",
@@ -20189,6 +20201,34 @@
           "date": 1792412054,
           "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
         }
+      },
+      {
+        "name": "Tcoaal Mach v1",
+        "preview": "Tcoaal Mach v1.webp",
+        "file": "Tcoaal Mach v1.zip",
+        "tags": {
+          "adult": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Tcoaal Mach v2",
+        "preview": "Tcoaal Mach v2.webp",
+        "file": "Tcoaal Mach v2.zip",
+        "tags": {
+          "adult": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "huds": [
