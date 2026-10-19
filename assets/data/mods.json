@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Arc Warden Chicken Gun",
       "category": "heroes"
     },
@@ -85,10 +93,6 @@
       "category": "sounds"
     },
     {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
-    },
-    {
       "name": "Spectaclcore Blue Girl",
       "category": "backgrounds"
     },
@@ -135,10 +139,6 @@
     {
       "name": "Emerald Ectoplasmgrass Osky",
       "category": "couriers"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Terrorblade Foulfell Demon",
