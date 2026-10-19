@@ -1810,7 +1810,7 @@ function setupRecentlyAdded() {
                     if (isVideo) {
                         window.openVideoModal(url);
                     } else {
-                        window.open(url, '_blank');
+                        openLinkWithAuthorNotice(url, button.getAttribute('data-author'));
                     }
                 });
             });
@@ -3104,6 +3104,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
                 <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
                       data-url="${escapeHtml(resolvedUrl)}" 
                       data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
+                      ${link.type === "author" || link.type === "modded" ? `data-author="${escapeHtml(link.url)}"` : ""}
                       ${hasCustomName ? 'data-custom-name="true"' : ""}>
                     <span class="material-symbols-rounded">${icon}</span>
                     ${hasCustomName ? escapeHtml(displayText) : displayText}
@@ -3143,6 +3144,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
             <span class="link-button ${isNotSafe ? "not-safe" : ""}" 
                   data-url="${escapeHtml(resolvedUrl)}" 
                   data-video="${resolvedUrl.endsWith(".mp4") || resolvedUrl.endsWith(".webm")}"
+                  ${mod.linkType === "author" || mod.linkType === "modded" ? `data-author="${escapeHtml(mod.linkUrl)}"` : ""}
                   ${hasCustomName ? 'data-custom-name="true"' : ""}>
                 <span class="material-symbols-rounded">${icon}</span>
                 ${hasCustomName ? escapeHtml(displayText) : displayText}
@@ -3271,7 +3273,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             if (isVideo) {
                 window.openVideoModal(url);
             } else {
-                window.open(url, '_blank');
+                openLinkWithAuthorNotice(url, button.getAttribute('data-author'));
             }
         });
     });
@@ -3648,6 +3650,70 @@ function getPlatformInfo(url) {
     return { icon: 'bi-globe', label: 'Website', color: 'var(--md-sys-color-shit-light)' };
 }
 
+// author notice modal
+let pendingAuthorNoticeUrl = null;
+
+function isNoticeAuthor(name) {
+    if (!name) return false;
+    const list = Array.isArray(window.AUTHOR_NOTICE) ? window.AUTHOR_NOTICE : [];
+    const needle = String(name).trim().toLowerCase();
+    return list.some(n => String(n).trim().toLowerCase() === needle);
+}
+
+function openAuthorNoticeModal(name, url) {
+    const overlay = document.getElementById('authorNoticeOverlay');
+    const modal = document.getElementById('authorNoticeModal');
+    const text = document.getElementById('authorNoticeText');
+    if (!overlay || !modal || !text) {
+        window.open(url, '_blank');
+        return;
+    }
+
+    pendingAuthorNoticeUrl = url;
+    text.innerHTML = `Please don't contact <strong class="author-notice-name">${escapeHtml(name)}</strong> about this project. ` +
+        `They have no connection to it: they are credited as the author of the mods, ` +
+        `but that doesn't mean they uploaded their mods here themselves.`;
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+    if (typeof openModal === 'function') openModal();
+}
+
+function closeAuthorNoticeModal() {
+    document.getElementById('authorNoticeOverlay')?.classList.remove('active');
+    document.getElementById('authorNoticeModal')?.classList.remove('active');
+    pendingAuthorNoticeUrl = null;
+
+    if (!document.querySelector('.info-modal.active')) {
+        if (typeof closeModal === 'function') closeModal();
+        else document.body.classList.remove('modal-open');
+    }
+}
+
+function openLinkWithAuthorNotice(url, authorName) {
+    if (isNoticeAuthor(authorName)) {
+        openAuthorNoticeModal(authorName, url);
+        return;
+    }
+    window.open(url, '_blank');
+}
+
+document.getElementById('closeAuthorNoticeModal')?.addEventListener('click', closeAuthorNoticeModal);
+document.getElementById('authorNoticeCancel')?.addEventListener('click', closeAuthorNoticeModal);
+document.getElementById('authorNoticeOverlay')?.addEventListener('click', closeAuthorNoticeModal);
+document.getElementById('authorNoticeContinue')?.addEventListener('click', () => {
+    const url = pendingAuthorNoticeUrl;
+    closeAuthorNoticeModal();
+    if (url) window.open(url, '_blank');
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!document.getElementById('authorNoticeModal')?.classList.contains('active')) return;
+    e.stopPropagation();
+    closeAuthorNoticeModal();
+}, true);
+
 function openModAuthorsModal() {
     const overlay = document.getElementById('modAuthorsOverlay');
     const modal = document.getElementById('modAuthorsModal');
@@ -3673,7 +3739,7 @@ function openModAuthorsModal() {
                 <span class="author-platform-label">${platform.label}</span>
                 <span class="material-symbols-rounded author-arrow">open_in_new</span>`;
             item.style.cursor = 'pointer';
-            item.addEventListener('click', () => window.open(url, '_blank'));
+            item.addEventListener('click', () => openLinkWithAuthorNotice(url, name));
         } else {
             item.classList.add('author-list-item--no-link');
             item.innerHTML = `

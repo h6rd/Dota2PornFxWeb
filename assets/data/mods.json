@@ -1203,29 +1203,6 @@
         }
       },
       {
-        "name": "Ancients Lina",
-        "preview": "Ancients Lina.webp",
-        "file": "Ancients Lina.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "apathydxd"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1777641425,
-          "commit-sha": "64d4940fe45db9d5c6f6a29151776f243e9a8af7"
-        }
-      },
-      {
         "name": "Arc Warden Black Hole",
         "preview": "Arc Warden Black Hole.webp",
         "file": "Arc Warden Black Hole.zip",
@@ -1245,44 +1222,6 @@
         }
       },
       {
-        "name": "Arc Warden Sakura Winter",
-        "preview": "Arc Warden Sakura Winter.webp",
-        "file": "Arc Warden Sakura Winter.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Ashes Arc Warden",
-        "preview": "Ashes Arc Warden.webp",
-        "file": "Ashes Arc Warden.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1775106039,
-          "commit-sha": "47455bc1e73b6185b9c883245f62add01f16ba95"
-        }
-      },
-      {
         "name": "Axe Immortal Bootblack",
         "preview": "Axe Immortal Bootblack.webp",
         "file": "Axe Immortal Bootblack.zip",
@@ -1294,44 +1233,6 @@
           {
             "type": "author",
             "url": "Kisilev"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Bloody Enigma",
-        "preview": "Bloody Enigma.webp",
-        "file": "Bloody Enigma.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Bloody Kez",
-        "preview": "Bloody Kez.webp",
-        "file": "Bloody Kez.zip",
-        "tags": {
-          "effects": true,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1378,48 +1279,6 @@
         }
       },
       {
-        "name": "Clinkz Silver Metall Pink",
-        "preview": "Clinkz Silver Metall Pink.webp",
-        "file": "Clinkz Silver Metall Pink.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Darkness Weaver",
-        "preview": "Darkness Weaver.webp",
-        "file": "Darkness Weaver.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "apathydxd"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1781271434,
-          "commit-sha": "d605f9cacb4b3bb0027224349815e1691cc2a2b8"
-        }
-      },
-      {
         "name": "Drow Ranger Stranger Arcana",
         "preview": "Drow Ranger Stranger Arcana.webp",
         "file": "Drow Ranger Stranger Arcana.zip",
@@ -1450,44 +1309,6 @@
           {
             "type": "author",
             "url": "Defiree"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Ghost Shadow Fiend",
-        "preview": "Ghost Fiend.webp",
-        "file": "Ghost Fiend.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766816203,
-          "commit-sha": "1c7a6e26b8ba5a58ded5076686a927b0610eeec4"
-        }
-      },
-      {
-        "name": "Ghosty Slark",
-        "preview": "Ghosty Slark.webp",
-        "file": "Ghosty Slark.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1553,25 +1374,6 @@
         }
       },
       {
-        "name": "Ice Venomancer",
-        "preview": "Ice Venomancer.webp",
-        "file": "Ice Venomancer.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1768072022,
-          "commit-sha": "703c31dd6922b98f6413b3bcfae9f3712c3c7dba"
-        }
-      },
-      {
         "name": "IO Pink Arcana",
         "preview": "IO Pink Arcana.webp",
         "file": "IO Pink Arcana.zip",
@@ -1583,25 +1385,6 @@
           {
             "type": "author",
             "url": "Defiree"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Kai Meepo",
-        "preview": "Kai Meepo.webp",
-        "file": "Kai Meepo.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1640,25 +1423,6 @@
           {
             "type": "source",
             "url": "https://vk.com/wall-127340251_11856"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Nightmare Chaos Knight",
-        "preview": "Nightmare Chaos Knight.webp",
-        "file": "Nightmare Chaos Knight.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
           }
         ],
         "meta": {
@@ -1781,67 +1545,6 @@
         }
       },
       {
-        "name": "Scarlet Keeper of the Light",
-        "preview": "Scarlet Keeper.webp",
-        "file": "Scarlet Keeper.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Shadow Fiend White",
-        "preview": "Shadow Fiend White.webp",
-        "file": "Shadow Fiend White.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "apathydxd"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1777911854,
-          "commit-sha": "bc714569bc4571d7ef890bc9d41da3dce16d258f"
-        }
-      },
-      {
-        "name": "Spectre Toxin",
-        "preview": "Spectre Toxin.webp",
-        "file": "Spectre Toxin.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
         "name": "Spirit Breaker Ghost Monster",
         "preview": "Spirit Breaker Ghost Monster.webp",
         "file": "Spirit Breaker Ghost Monster.zip",
@@ -1880,44 +1583,6 @@
         }
       },
       {
-        "name": "Ursa White and Red",
-        "preview": "Ursa White and Red.webp",
-        "file": "Ursa White and Red.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
-        "name": "Winter Ember Spirit",
-        "preview": "Winter Ember Spirit.webp",
-        "file": "Winter Ember Spirit.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756539017,
-          "commit-sha": "a4d1dcca84f1ff388cc455fb80a99ea9eb917689"
-        }
-      },
-      {
         "name": "Night Ursa",
         "preview": "Night Ursa.webp",
         "file": "Night Ursa.zip",
@@ -1934,63 +1599,6 @@
         "meta": {
           "date": 1756555535,
           "commit-sha": "dcbb57a2625a07577613c55c4a1ee06691491056"
-        }
-      },
-      {
-        "name": "Flameling Morphling",
-        "preview": "Flameling Morphling.webp",
-        "file": "Flameling Morphling.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756706697,
-          "commit-sha": "5279d6d7322774430102b1210cb118af41b77346"
-        }
-      },
-      {
-        "name": "Ghost Void Spirit",
-        "preview": "Ghost Void Spirit.webp",
-        "file": "Ghost Void Spirit.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756709324,
-          "commit-sha": "d78a46b138d23742d0e7ed364ed2799a758e62ef"
-        }
-      },
-      {
-        "name": "Anti-Mage Shadow Slayer",
-        "preview": "Anti-Mage Shadow Slayer.webp",
-        "file": "Anti-Mage Shadow Slayer.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756923920,
-          "commit-sha": "9039e295389cd0a5c423f7afaf5e6cd3eaa8132c"
         }
       },
       {
@@ -2032,25 +1640,6 @@
         }
       },
       {
-        "name": "Blue Soul Huskar",
-        "preview": "Blue Soul Huskar.webp",
-        "file": "Blue Soul Huskar.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1756923920,
-          "commit-sha": "9039e295389cd0a5c423f7afaf5e6cd3eaa8132c"
-        }
-      },
-      {
         "name": "Red Abaddon",
         "preview": "Red Abaddon.webp",
         "file": "Red Abaddon.zip",
@@ -2067,25 +1656,6 @@
         "meta": {
           "date": 1756972905,
           "commit-sha": "a87dfd13c5195386afdc4c6fabca3757a498a018"
-        }
-      },
-      {
-        "name": "Void Morphling",
-        "preview": "Void Morphling.webp",
-        "file": "Void Morphling.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1757181978,
-          "commit-sha": "240860b8d938e5cc9faf5db5bc35b3b9f5a7aa92"
         }
       },
       {
@@ -2165,25 +1735,6 @@
         }
       },
       {
-        "name": "Ifrit Monkey King",
-        "preview": "Ifrit Monkey King.webp",
-        "file": "Ifrit Monkey King.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1758312287,
-          "commit-sha": "5d4b147aba221d71725623a3a6c34fb227dcc89a"
-        }
-      },
-      {
         "name": "Sven Blue Angel",
         "preview": "Sven Blue Angel.webp",
         "file": "Sven Blue Angel.zip",
@@ -2203,25 +1754,6 @@
         }
       },
       {
-        "name": "Pinkie Sven",
-        "preview": "Pinkie Sven.webp",
-        "file": "Pinkie Sven.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1758703786,
-          "commit-sha": "935111a8606df5f0156c4765c600809a9214d48a"
-        }
-      },
-      {
         "name": "Sherman Crystal Maiden",
         "preview": "Sherman Crystal Maiden.webp",
         "file": "Sherman Crystal Maiden.zip",
@@ -2238,25 +1770,6 @@
         "meta": {
           "date": 1758967933,
           "commit-sha": "af6139586b70dca9c03bf6a1ec72696bef555bb7"
-        }
-      },
-      {
-        "name": "Sakura Pink Invoker",
-        "preview": "Sakura Pink Invoker.webp",
-        "file": "Sakura Pink Invoker.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1762508518,
-          "commit-sha": "edb22a23ff8d0ad8e198e36242edeeea7d0286bc"
         }
       },
       {
@@ -2314,25 +1827,6 @@
         "meta": {
           "date": 1774653192,
           "commit-sha": "37f7bc0b1f1d5cdcab939c667945888090cf8c5f"
-        }
-      },
-      {
-        "name": "Cursed Shadow Fiend",
-        "preview": "Cursed Shadow Fiend.webp",
-        "file": "Cursed Shadow Fiend.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1768720851,
-          "commit-sha": "186cfd2ba804c5248d0f7be4a0a3a98970236579"
         }
       },
       {
@@ -2703,25 +2197,6 @@
         }
       },
       {
-        "name": "Invoker Bloody Wizard",
-        "preview": "Invoker Bloody Wizard.webp",
-        "file": "Invoker Bloody Wizard.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1770621573,
-          "commit-sha": "e1123121fcb51a5901d66993d856b2aad191f099"
-        }
-      },
-      {
         "name": "Techies War Rig Pachyderm",
         "preview": "Techies War Rig Pachyderm.webp",
         "file": "Techies War Rig Pachyderm.zip",
@@ -2745,25 +2220,6 @@
         "meta": {
           "date": 1764486398,
           "commit-sha": "1fb0142fce1d814555511dcae5f75ab15f1f6b58"
-        }
-      },
-      {
-        "name": "Cursed Queen of Pain",
-        "preview": "Cursed Queen of Pain.webp",
-        "file": "Cursed Queen of Pain.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1764846405,
-          "commit-sha": "e1bf9bbd04b159913baa2510ab42477e27ca3325"
         }
       },
       {
@@ -2835,44 +2291,6 @@
         "meta": {
           "date": 1764908114,
           "commit-sha": "5810402f18ae734b61facf5ad4916cf02dbd7831"
-        }
-      },
-      {
-        "name": "Purple Witch Broodmother",
-        "preview": "Purple Witch Broodmother.webp",
-        "file": "Purple Witch Broodmother.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1764938743,
-          "commit-sha": "fbeb6978d1d1ea27046531b82468480abe262a8a"
-        }
-      },
-      {
-        "name": "Blue Dragon Puck",
-        "preview": "Blue Dragon Puck.webp",
-        "file": "Blue Dragon Puck.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1764938743,
-          "commit-sha": "fbeb6978d1d1ea27046531b82468480abe262a8a"
         }
       },
       {
@@ -3015,25 +2433,6 @@
         "meta": {
           "date": 1765358405,
           "commit-sha": "a7df7242d325edd9db5befba0da7583aa5b9b1d6"
-        }
-      },
-      {
-        "name": "Anti-Mage Illidan v2",
-        "preview": "Anti-Mage Illidan v2.webp",
-        "file": "Anti-Mage Illidan v2.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1765372546,
-          "commit-sha": "793965ff2e95ef845095a7e33985e4b0c9303157"
         }
       },
       {
@@ -3307,25 +2706,6 @@
         }
       },
       {
-        "name": "Snowing Marci",
-        "preview": "Snowing Marci.webp",
-        "file": "Snowing Marci.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766145785,
-          "commit-sha": "a97cef58a305f3caa086068c9297bd15821b624a"
-        }
-      },
-      {
         "name": "Phantom Assassin Persona",
         "preview": "Phantom Assassin Persona.webp",
         "file": "Phantom Assassin Persona.zip",
@@ -3529,25 +2909,6 @@
         }
       },
       {
-        "name": "Arc Warden Yin Yang",
-        "preview": "Arc Warden Yin Yang.webp",
-        "file": "Arc Warden Yin Yang.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766265248,
-          "commit-sha": "32ac7f49f4f998cee72f37f9bec19c1374f12468"
-        }
-      },
-      {
         "name": "Monkey King Simian Sovereign",
         "preview": "Monkey King Simian Sovereign.webp",
         "file": "Monkey King Simian Sovereign.zip",
@@ -3668,25 +3029,6 @@
         }
       },
       {
-        "name": "Ice Chaos Knight",
-        "preview": "Ice Chaos Knight.webp",
-        "file": "Ice Chaos Knight.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766382657,
-          "commit-sha": "bc2e43d07fb5552de11d360e15de6fea28139d9b"
-        }
-      },
-      {
         "name": "Invoker Dark Artistry",
         "preview": "Invoker Dark Artistry.webp",
         "file": "Invoker Dark Artistry.zip",
@@ -3736,25 +3078,6 @@
         "meta": {
           "date": 1788958573,
           "commit-sha": "7a627c18de339bd09afa5a7e57966a4f4427569d"
-        }
-      },
-      {
-        "name": "Pink Nyx Assassin",
-        "preview": "Pink Nyx Assassin.webp",
-        "file": "Pink Nyx Assassin.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766443370,
-          "commit-sha": "ca69668aec13a1cde57949c84b3aa9e03e6fca98"
         }
       },
       {
@@ -4302,44 +3625,6 @@
         }
       },
       {
-        "name": "Bloody Gore Spectre",
-        "preview": "Bloody Gore Spectre.webp",
-        "file": "Bloody Gore Spectre.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1767629208,
-          "commit-sha": "cd52339863d29c2d8c83bcac5188126465f94bef"
-        }
-      },
-      {
-        "name": "Undying Archange",
-        "preview": "Undying Archange.webp",
-        "file": "Undying Archange.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1767706409,
-          "commit-sha": "65e8ba7f3b17641e73fbae8f83934f06ac1bf9cd"
-        }
-      },
-      {
         "name": "Nude Drow Ranger v2",
         "preview": "Nude Drow Ranger v2.webp",
         "file": "Nude Drow Ranger v2.zip",
@@ -4357,25 +3642,6 @@
         "meta": {
           "date": 1767707545,
           "commit-sha": "f5091741b2194bd4a7ff0824ea73dce72f860c85"
-        }
-      },
-      {
-        "name": "Ancient Sand Naga Siren",
-        "preview": "Ancient Sand Naga Siren.webp",
-        "file": "Ancient Sand Naga Siren.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1767797001,
-          "commit-sha": "7c5ee4e655a97494f0200c1cccb50be52eba2eab"
         }
       },
       {
@@ -4455,48 +3721,6 @@
         }
       },
       {
-        "name": "Darkness Naga Siren",
-        "preview": "Darkness Naga Siren.webp",
-        "file": "Darkness Naga Siren.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          },
-          {
-            "type": "sender",
-            "url": "NahuiToSay"
-          }
-        ],
-        "meta": {
-          "date": 1768363987,
-          "commit-sha": "65c97f4a649f77f801de1d3c0bfeab7d67ad7663"
-        }
-      },
-      {
-        "name": "Bloody Ancient Apparition",
-        "preview": "Bloody Ancient Apparition.webp",
-        "file": "Bloody Ancient Apparition.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1768458923,
-          "commit-sha": "6094368c9f1dc00cb2b3787c373b7318610d3e2d"
-        }
-      },
-      {
         "name": "Custom Largo",
         "preview": "Custom Largo.webp",
         "file": "Custom Largo.zip",
@@ -4546,25 +3770,6 @@
           "effects": false,
           "icons": false
         },
-        "meta": {
-          "date": 1768491259,
-          "commit-sha": "b670d56dc8408fb4e4ea8e9f69c215227df502bd"
-        }
-      },
-      {
-        "name": "Abaddon Fallen King",
-        "preview": "Abaddon Fallen King.webp",
-        "file": "Abaddon Fallen King.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
         "meta": {
           "date": 1768491259,
           "commit-sha": "b670d56dc8408fb4e4ea8e9f69c215227df502bd"
@@ -4666,67 +3871,6 @@
         }
       },
       {
-        "name": "Winter Lycan",
-        "preview": "Winter Lycan.webp",
-        "file": "Winter Lycan.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1768802599,
-          "commit-sha": "d3abb48b3be091e8bca11d23162c01eec603ce9d"
-        }
-      },
-      {
-        "name": "Dark Reaper Invoker",
-        "preview": "Dark Reaper Invoker.webp",
-        "file": "Dark Reaper Invoker.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1768937603,
-          "commit-sha": "55f5985936aed0af497b8423405dd6124187ecd8"
-        }
-      },
-      {
-        "name": "Dark Ancient Slark",
-        "preview": "Dark Ancient Slark.webp",
-        "file": "Dark Ancient Slark.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "apathydxd"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1777911854,
-          "commit-sha": "bc714569bc4571d7ef890bc9d41da3dce16d258f"
-        }
-      },
-      {
         "name": "Gothic Lifestealer",
         "preview": "Gothic Lifestealer.webp",
         "file": "Gothic Lifestealer.zip",
@@ -4762,25 +3906,6 @@
         "meta": {
           "date": 1769266580,
           "commit-sha": "501d3241a1c99ff6b266d88d50206b0550ac61ff"
-        }
-      },
-      {
-        "name": "Abaddon Bloody Fallen King",
-        "preview": "Abaddon Bloody Fallen King.webp",
-        "file": "Abaddon Bloody Fallen King.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1769266243,
-          "commit-sha": "0a7fa0d3ff906626a969f6e590f6a3039a4e4697"
         }
       },
       {
@@ -5128,25 +4253,6 @@
           {
             "type": "author",
             "url": "Defiree"
-          }
-        ],
-        "meta": {
-          "date": 1770175798,
-          "commit-sha": "ac1370d59286542bf86249c96a16e0dbd03af9ce"
-        }
-      },
-      {
-        "name": "Bunshinjutsu Meepo",
-        "preview": "Bunshinjutsu Meepo.webp",
-        "file": "Bunshinjutsu Meepo.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
           }
         ],
         "meta": {
@@ -5954,25 +5060,6 @@
         }
       },
       {
-        "name": "Anti-Mage Blue Illidan",
-        "preview": "Anti-Mage Blue Illidan.webp",
-        "file": "Anti-Mage Blue Illidan.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1771574066,
-          "commit-sha": "dcdbf491243ab753a1e79a77c8020bbbf89cfc3b"
-        }
-      },
-      {
         "name": "Enchantress Darkwood Witness",
         "preview": "Enchantress Darkwood Witness.webp",
         "file": "Enchantress Darkwood Witness.zip",
@@ -6364,29 +5451,6 @@
         }
       },
       {
-        "name": "Purple Queen of Pain",
-        "preview": "Purple Queen of Pain.webp",
-        "file": "Purple Queen of Pain.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          },
-          {
-            "type": "author",
-            "url": "Pinkie"
-          }
-        ],
-        "meta": {
-          "date": 1774198352,
-          "commit-sha": "7b40e54a00a36c6316433869c527d34f7baacced"
-        }
-      },
-      {
         "name": "Earthshaker Purple Arcana",
         "preview": "Earthshaker Purple Arcana.webp",
         "file": "Earthshaker Purple Arcana.zip",
@@ -6611,25 +5675,6 @@
         }
       },
       {
-        "name": "Phite Phantom Assassin",
-        "preview": "Phite Phantom Assassin.webp",
-        "file": "Phite Phantom Assassin.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1775454991,
-          "commit-sha": "5fb6a4c6b021cb1b2b1e186678944a9068462688"
-        }
-      },
-      {
         "name": "Brewmaster Military Saint",
         "preview": "Brewmaster Military Saint.webp",
         "file": "Brewmaster Military Saint.zip",
@@ -6801,25 +5846,6 @@
         }
       },
       {
-        "name": "Curseding Anti-Mage",
-        "preview": "Curseding Anti-Mage.webp",
-        "file": "Curseding Anti-Mage.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1775819130,
-          "commit-sha": "71befb4266ee0c5aa9161b8f63235cd04111079b"
-        }
-      },
-      {
         "name": "Invoker Dark Artistry v3",
         "preview": "Invoker Dark Artistry v3.webp",
         "file": "Invoker Dark Artistry v3.zip",
@@ -6881,29 +5907,6 @@
         }
       },
       {
-        "name": "Hollow Kez",
-        "preview": "Hollow Kez.webp",
-        "file": "Hollow Kez.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "NahuiToSay"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1779386733,
-          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
-        }
-      },
-      {
         "name": "Shadow Fiend Arcana",
         "preview": "Shadow Fiend Arcana.webp",
         "file": "Shadow Fiend Arcana.zip",
@@ -6920,29 +5923,6 @@
         "meta": {
           "date": 1786154739,
           "commit-sha": "889aa40e9694dff46d8b7910577b569cafb48fb0"
-        }
-      },
-      {
-        "name": "Darkness Crimson Naga Siren",
-        "preview": "Darkness Naga Siren.webp",
-        "file": "Darkness Crimson Naga Siren.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "NahuiToSay"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1776456530,
-          "commit-sha": "c87ba62059d3f975cbd380d7fee08438e69bc217"
         }
       },
       {
@@ -8152,29 +7132,6 @@
         }
       },
       {
-        "name": "Pink Shadow Fiend",
-        "preview": "Pink Shadow Fiend.webp",
-        "file": "Pink Shadow Fiend.zip",
-        "tags": {
-          "effects": true,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "SkippingHades"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1780648482,
-          "commit-sha": "72a95c07ce8fbfbf03ba8499f6e3be991ecb6e6e"
-        }
-      },
-      {
         "name": "Immortal Storm Spirit",
         "preview": "Immortal Storm Spirit.webp",
         "file": "Immortal Storm Spirit.zip",
@@ -8210,29 +7167,6 @@
         "meta": {
           "date": 1780692007,
           "commit-sha": "8d6fe123dcfca13ac4d2a7609e8748c40b941996"
-        }
-      },
-      {
-        "name": "Homelander Invoker",
-        "preview": "Homelander Invoker.webp",
-        "file": "Homelander Invoker.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "DARK BLADE"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1780741566,
-          "commit-sha": "2f5eec4a23cca5aac993693be26532475a0957ef"
         }
       },
       {
@@ -15388,51 +14322,6 @@
         "meta": {
           "date": 1767325919,
           "commit-sha": "a4eb78f4d8c654d8523166147e25f8a0f7035a2c"
-        }
-      },
-      {
-        "name": "Haze",
-        "preview": "haze_shader.webp",
-        "file": "pak11_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766992965,
-          "commit-sha": "9b5b176b630e4fc534fa8b82858b526f5e5b03b4"
-        }
-      },
-      {
-        "name": "Ancient",
-        "preview": "ancient_shader.webp",
-        "file": "pak10_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766992965,
-          "commit-sha": "9b5b176b630e4fc534fa8b82858b526f5e5b03b4"
-        }
-      },
-      {
-        "name": "Purple Ancient",
-        "preview": "purple_ancient_shader.webp",
-        "file": "pak12_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1766992965,
-          "commit-sha": "9b5b176b630e4fc534fa8b82858b526f5e5b03b4"
         }
       },
       {
@@ -25371,51 +24260,6 @@
     ],
     "pings": [
       {
-        "name": "Skeleton Black Ping",
-        "preview": "Skeleton Black Ping.webp",
-        "file": "pak10_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1765193630,
-          "commit-sha": "6fabfc6e17847202c27c0e7294d529b5b7c31889"
-        }
-      },
-      {
-        "name": "Skeleton Blue Ping",
-        "preview": "Skeleton Blue Ping.webp",
-        "file": "pak11_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1765193630,
-          "commit-sha": "6fabfc6e17847202c27c0e7294d529b5b7c31889"
-        }
-      },
-      {
-        "name": "Skeleton Purple Ping",
-        "preview": "Skeleton Purple Ping.webp",
-        "file": "pak12_dir.vpk",
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1765193630,
-          "commit-sha": "6fabfc6e17847202c27c0e7294d529b5b7c31889"
-        }
-      },
-      {
         "name": "Love Ping",
         "preview": "Love Ping.webp",
         "file": "Love Ping.zip",
@@ -25492,25 +24336,6 @@
         "meta": {
           "date": 1778935876,
           "commit-sha": "a65bc32ffefd7aedc39a7aa6c833a3f665799496"
-        }
-      },
-      {
-        "name": "Tinker Peashooter Turrets",
-        "preview": "Tinker Peashooter Turrets.webp",
-        "file": "pak13_dir.vpk",
-        "tags": {
-          "effects": true,
-          "icons": false
-        },
-        "links": [
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1779386733,
-          "commit-sha": "02a5d1c49f1bd5fd9bbe1510a29fa2c4603212e5"
         }
       },
       {
@@ -27377,21 +26202,6 @@
           "name": "Runes",
           "mods": [
             {
-              "name": "Custom Runes",
-              "preview": "Custom Runes.webp",
-              "file": "pak33_dir.vpk",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1788999662,
-                "commit-sha": "6b9948829e2092cbda45779f39c6e9124f536f19"
-              }
-            },
-            {
               "name": "Dark Bounty Rune",
               "preview": "Dark Bounty.webp",
               "file": "pak10_dir.vpk",
@@ -27614,21 +26424,6 @@
               }
             },
             {
-              "name": "Darkness Blink Dagger",
-              "preview": "Darkness Blink Dagger.webp",
-              "file": "Darkness Blink Dagger.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "BP 2022 Blink Dagger",
               "preview": "BP 2022 Blink Dagger.webp",
               "file": "BP 2022 Blink Dagger.zip",
@@ -27719,36 +26514,6 @@
               }
             },
             {
-              "name": "Red Bottle",
-              "preview": "Red Bottle.webp",
-              "file": "pak50_dir.vpk",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
-              "name": "Darkness Bottle",
-              "preview": "Darkness Bottle.webp",
-              "file": "Darkness Bottle.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "BP 2022 Bottle",
               "preview": "BP 2022 Bottle.webp",
               "file": "BP 2022 Bottle.zip",
@@ -27812,21 +26577,6 @@
               "name": "TI10 Euls Scepter",
               "preview": "TI10 Eul.webp",
               "file": "TI10 Eul.zip",
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
-              "name": "Darkness Euls Scepter",
-              "preview": "Darkness Euls Scepter.webp",
-              "file": "Darkness Euls Scepter.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
               "meta": {
                 "date": 1789310506,
                 "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
@@ -27962,21 +26712,6 @@
               }
             },
             {
-              "name": "Darkness Lvl Up",
-              "preview": "Darkness Lvl up.webp",
-              "file": "Darkness Lvl up.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "RPG Lvl Up",
               "preview": "RPG Lvl Up.webp",
               "file": "RPG Lvl Up.zip",
@@ -28043,21 +26778,6 @@
               }
             },
             {
-              "name": "Darkness Shiva",
-              "preview": "Darkness Shivas.webp",
-              "file": "Darkness Shivas.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "BP 2022 Shiva",
               "preview": "BP 2022 Shiva.webp",
               "file": "BP 2022 Shiva.zip",
@@ -28112,21 +26832,6 @@
               "name": "TI10 Mekanism",
               "preview": "TI10 Mekanism.webp",
               "file": "TI10 Mekanism.zip",
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
-              "name": "Darkness Mekanism",
-              "preview": "Darkness Mekanism.webp",
-              "file": "Darkness Mekanism.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
               "meta": {
                 "date": 1789310506,
                 "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
@@ -28193,21 +26898,6 @@
               }
             },
             {
-              "name": "Darkness Mjollnir",
-              "preview": "Darkness Mjollner.webp",
-              "file": "Darkness Mjollner.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "BP 2022 Mjollnir",
               "preview": "BP 2022 Mjollnir.webp",
               "file": "BP 2022 Mjollnir.zip",
@@ -28268,21 +26958,6 @@
               }
             },
             {
-              "name": "Darkness Radiance",
-              "preview": "Darkness Radiance.webp",
-              "file": "Darkness Radiance.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
               "name": "BP 2022 Radiance",
               "preview": "BP 2022 Radiance.webp",
               "file": "BP 2022 Radiance.zip",
@@ -28337,21 +27012,6 @@
               "name": "TI10 Phase Boots",
               "preview": "TI10 Phase Boots.webp",
               "file": "TI10 Phase Boots.zip",
-              "meta": {
-                "date": 1789310506,
-                "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
-              }
-            },
-            {
-              "name": "Darkness Phase Boots",
-              "preview": "Darkness Phase Boots.webp",
-              "file": "Darkness Phase Boots.zip",
-              "links": [
-                {
-                  "type": "author",
-                  "url": "Darkness"
-                }
-              ],
               "meta": {
                 "date": 1789310506,
                 "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"

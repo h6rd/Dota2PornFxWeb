@@ -6282,6 +6282,107 @@ m3e-loading-indicator {
   box-shadow: inset 0 0 0 2px var(--md-sys-color-primary);
 }
 
+/* Author notice modal */
+.author-notice-overlay {
+  z-index: 10010;
+}
+
+.author-notice-modal {
+  z-index: 10011;
+  max-width: 440px;
+}
+
+.author-notice-modal .info-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 28px 28px;
+}
+
+.author-notice-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-error);
+}
+
+.author-notice-icon .material-symbols-rounded {
+  font-size: 30px;
+}
+
+.author-notice-title {
+  margin: 0 0 12px 0;
+  padding-right: 0;
+  font-size: 24px;
+}
+
+.author-notice-text {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.author-notice-name {
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+}
+
+.author-notice-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.author-notice-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 22px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.author-notice-btn .material-symbols-rounded {
+  font-size: 18px;
+}
+
+.author-notice-btn:active {
+  transform: scale(0.97);
+}
+
+.author-notice-btn--secondary {
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+}
+
+.author-notice-btn--secondary:hover {
+  background: var(--md-sys-color-secondary-container);
+}
+
+.author-notice-btn--primary {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.author-notice-btn--primary:hover {
+  background: var(--md-sys-color-shit-light);
+}
+
 @keyframes footer-ping {
 
   75%,

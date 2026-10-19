@@ -339,6 +339,31 @@
     </div>
   </div>
   
+  <!-- author notice modal -->
+  <div id="authorNoticeOverlay" class="info-overlay author-notice-overlay"></div>
+  <div id="authorNoticeModal" class="info-modal author-notice-modal" role="dialog" aria-modal="true"
+    aria-labelledby="authorNoticeTitle">
+    <button class="info-modal-close" id="closeAuthorNoticeModal" type="button" aria-label="Close">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    <div class="info-modal-content">
+      <div class="author-notice-icon">
+        <span class="material-symbols-rounded">report</span>
+      </div>
+      <h2 class="info-modal-title author-notice-title" id="authorNoticeTitle">Please read first</h2>
+      <p class="info-modal-text author-notice-text" id="authorNoticeText"></p>
+      <div class="author-notice-actions">
+        <button class="author-notice-btn author-notice-btn--secondary" id="authorNoticeCancel" type="button">
+          Cancel
+        </button>
+        <button class="author-notice-btn author-notice-btn--primary" id="authorNoticeContinue" type="button">
+          Continue
+          <span class="material-symbols-rounded">open_in_new</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- sources modal -->
   <div id="sourcesOverlay" class="info-overlay"></div>
   <div id="sourcesModal" class="info-modal">
