@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Arc Warden The Duna",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -14360,6 +14364,21 @@
           "date": 1792421381,
           "commit-sha": "511426cde60628d04c1ee1aabb05476be8557405"
         }
+      },
+      {
+        "name": "Arc Warden The Duna",
+        "preview": "Arc Warden The Duna.webp",
+        "file": "Arc Warden The Duna.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Schizo"
+          }
+        ]
       }
     ],
     "shaders": [
