@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Frostbloom Serac",
       "category": "couriers"
     },
@@ -11,10 +15,6 @@
     {
       "name": "Arc Warden The Duna",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Better Source2Viewer",
@@ -111,10 +111,6 @@
     {
       "name": "Ech Cat Sound Game Startup",
       "category": "sounds"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Spectaclcore Blue Girl",
