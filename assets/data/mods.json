@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Frostbloom Serac",
+      "category": "couriers"
+    },
+    {
+      "name": "Frostbloom Black Pool Watcher",
+      "category": "wards"
+    },
+    {
       "name": "Arc Warden The Duna",
       "category": "heroes"
     },
@@ -23317,6 +23325,21 @@
           "date": 1792330154,
           "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
         }
+      },
+      {
+        "name": "Frostbloom Black Pool Watcher",
+        "preview": "Frostbloom Black Pool Watcher.webp",
+        "file": "Frostbloom Black Pool Watcher.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792483384,
+          "commit-sha": ""
+        }
       }
     ],
     "couriers": [
@@ -23805,6 +23828,21 @@
         "meta": {
           "date": 1792330154,
           "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
+        }
+      },
+      {
+        "name": "Frostbloom Serac",
+        "preview": "Frostbloom Serac.webp",
+        "file": "Frostbloom Serac.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1792483384,
+          "commit-sha": ""
         }
       }
     ],
