@@ -38,9 +38,12 @@
     <a href="#project-activity">Activity</a> &nbsp;·&nbsp;
     <a href="https://d2pfxwiki.pages.dev/en/install.html">Installation</a> &nbsp;·&nbsp;
     <a href="#credits">Credits</a> &nbsp;·&nbsp;
-    <a href="#-attribution--reuse">Attribution</a>
+    <a href="#attribution--reuse">Attribution</a>
   </p>
 </div>
+
+> [!WARNING]
+> **Paid for access to Dota2PornFx? You may have been scammed.** The catalog is free to browse and download. We do not sell subscriptions or charge for access. Get the catalog only from the official sources (the [website](https://h6rd.github.io/Dota2PornFxWeb) and its mirrors, the [GitHub repository](https://github.com/h6rd/Dota2PornFxWeb), [Hugging Face](https://huggingface.co/datasets/hrdq/Dota2PornFx)) or through the approved projects, [Minify](https://github.com/Egezenn/dota2-minify) and [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager).
 
 ## What is Dota2PornFx?
 
@@ -147,18 +150,49 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 
 ---
 
+## License
+
+| What | Terms |
+|---|---|
+| Website and tool code | [GPL-3.0](LICENSE) |
+| **Content**: mods marked `author: hrdq`, mods submitted through the website with the author's confirmation, and the catalog | [LICENSE-CONTENT.md](LICENSE-CONTENT.md) |
+| Other mods, without either mark | Their authors' rights. **Not licensed by this project** |
+| Valve assets inside mods | Valve's rights |
+
+Commits up to and including `00f52750112435bb183633a4f982ea335b8ed84a` were released under GPL-3.0 and stay under it for those who received them. From the next commit on, the Content is under the Content License, including files that existed before. Details: [ATTRIBUTION.md](ATTRIBUTION.md).
+
+---
+
 ## Attribution & Reuse
 
-> [!IMPORTANT]
-> **Sharing these mods? Credit the people who made them.**
+**Other authors' mods.** This project does not license them; their authors' rights apply. To republish another author's mod you need **that author's** permission, and mine does not replace it. Authors can ask for removal at any time (Discord `.hrdq`, email `hrdq@proton.me` or an issue naming the mod); it is removed within 7 days after authorship is confirmed.
 
-| | Rule |
+**For the Content** (mods marked `author: hrdq`, mods submitted through the website with the author's confirmation, and the catalog). Authors who submit a mod through the website confirm that it is licensed under the Content License, allow it to be distributed to the approved projects below, and can ask to change or remove it at any time:
+
+| | Allowed without permission |
 |:-:|---|
-| 🔗 | **Link to Dota2PornFx:** the [website](https://h6rd.github.io/Dota2PornFxWeb) and this [repository](https://github.com/h6rd/Dota2PornFxWeb), somewhere visible (description, README or UI). |
-| 👤 | **Credit the original authors** listed in [Credits](#credits). Don't remove author tags or watermarks. |
-| 🚫 | **Don't present the collection or its mods as your own or as an official source**, and don't use the name "Dota2PornFx" to suggest endorsement. |
+| 🎮 | **Personal use.** Download, install and modify for your own game. |
+| 🎥 | **Streams, videos, guides, reviews**, including monetized channels. A link is appreciated. |
+| 🔗 | **Link** to the website, the repository and the official mirrors. |
+| 🤝 | **Approved projects** (listed below). |
 
-Mods without a listed author or source were made by **h6rd**. Credit them to **h6rd / Dota2PornFx**. If your mod is missing from the credits, message me and I'll fix it.
+> [!CAUTION]
+> **Selling is prohibited completely.** Selling the Content, charging for access or earning from its distribution (subscriptions, premium features, paywalls, ads around downloads, paid bundles) is not allowed, and permission is not given to anyone. Voluntary donations that unlock nothing are fine.
+
+| | Requires written permission from h6rd |
+|:-:|---|
+| 🪞 | **Mirrors and re-uploads** of the catalog or a substantial part of it, other than the official ones. |
+| 🤖 | **Sites, apps or bots** that connect to the catalog (API, hot-linking, scraping) or republish and redistribute the Content. |
+| 🚫 | **Presenting the Content as your own or as official**, or removing author tags and watermarks. |
+
+**Official sources:** [website](https://h6rd.github.io/Dota2PornFxWeb) · mirrors: [Vercel](https://d2pfx.vercel.app/), [Netlify](https://d2pfx.netlify.app/), [Render](https://d2pfx.onrender.com/) · [GitHub](https://github.com/h6rd/Dota2PornFxWeb) · [Hugging Face](https://huggingface.co/datasets/hrdq/Dota2PornFx)
+
+**Approved projects**
+
+- [Dota2 Minify](https://github.com/Egezenn/dota2-minify)
+- [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager)
+
+Approval covers only the projects named above, not their forks or derivatives, requires free access and credit to the authors, and can be withdrawn. Projects not listed are not officially approved or endorsed. Valid permissions are recorded in [PERMISSIONS.md](PERMISSIONS.md).
 
 **Ready-to-copy text:**
 
@@ -167,16 +201,4 @@ Mods from [Dota2PornFx](https://h6rd.github.io/Dota2PornFxWeb).
 Original mod authors: https://github.com/h6rd/Dota2PornFxWeb#credits
 ```
 
-**License:** my code and my mods are under [GPL-3.0](LICENSE) with the attribution terms above (additional terms under GPLv3 §7(b)). Other authors' mods and Valve files are **not** covered and stay with their owners. More in **[ATTRIBUTION.md](ATTRIBUTION.md)**.
-
-**Approved projects:** [Dota2 Minify](https://github.com/Egezenn/dota2-minify) · [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager)
-
----
-
-## ⚠️ Disclaimer
-
-Modifying game files is done **entirely at your own risk**. In the event of a ban or other consequences, responsibility lies solely with the user. This project is not affiliated with Valve Corporation or Dota 2.
-
-## License
-
-Contents of this repository are licensed under [GPL-3.0](LICENSE), subject to the [attribution terms](#-attribution--reuse) above and the rights of third parties and Valve. See [ATTRIBUTION.md](ATTRIBUTION.md).
+Full terms: **[LICENSE-CONTENT.md](LICENSE-CONTENT.md)** · **[ATTRIBUTION.md](ATTRIBUTION.md)**
