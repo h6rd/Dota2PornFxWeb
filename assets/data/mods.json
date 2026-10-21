@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "High Five Battle Pass 2022",
+      "category": "high-five"
+    },
+    {
+      "name": "Tcoaal Blink Dagger",
+      "category": "sounds"
+    },
+    {
+      "name": "Dagon Awp From Cs 1.6",
+      "category": "sounds"
+    },
+    {
+      "name": "Play Red",
+      "category": "parts"
+    },
+    {
+      "name": "Techies Gol0Vach",
+      "category": "heroes"
+    },
+    {
+      "name": "Tcoaal V5",
+      "category": "backgrounds"
+    },
+    {
       "name": "Weather Without Patch",
       "category": "sites"
     },
@@ -15264,6 +15288,25 @@
           "date": 1792583758,
           "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
         }
+      },
+      {
+        "name": "Techies Gol0Vach",
+        "preview": "Techies Gol0Vach.webp",
+        "file": "Techies Gol0Vach.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1792591891,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22513,6 +22556,21 @@
           "date": 1792583758,
           "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
         }
+      },
+      {
+        "name": "Play Red",
+        "preview": "Play Red.webp",
+        "file": "Play Red.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792591891,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -22910,6 +22968,21 @@
         "meta": {
           "date": 1782925485,
           "commit-sha": "456f1e237d975d324943dc8b32db439955f96ddc"
+        }
+      },
+      {
+        "name": "High Five Battle Pass 2022",
+        "preview": "High Five Battle Pass 2022.webp",
+        "file": "High Five Battle Pass 2022.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "4d4mf"
+          }
+        ],
+        "meta": {
+          "date": 1792591892,
+          "commit-sha": ""
         }
       }
     ],
@@ -25094,6 +25167,24 @@
         "meta": {
           "date": 1792583758,
           "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+        }
+      },
+      {
+        "name": "Tcoaal V5",
+        "preview": "Tcoaal V5.webp",
+        "file": "Tcoaal V5.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792591891,
+          "commit-sha": ""
         }
       }
     ],
@@ -29461,6 +29552,40 @@
         "meta": {
           "date": 1792235759,
           "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
+        }
+      },
+      {
+        "name": "Dagon Awp From Cs 1.6",
+        "preview": "Dagon Awp From Cs 1.6.webp",
+        "file": "Dagon Awp From Cs 1.6.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ],
+        "meta": {
+          "date": 1792591891,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tcoaal Blink Dagger",
+        "preview": "Tcoaal Blink Dagger.webp",
+        "file": "Tcoaal Blink Dagger.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/4Tk_NsbH7r8"
+          }
+        ],
+        "meta": {
+          "date": 1792591892,
+          "commit-sha": ""
         }
       }
     ],
