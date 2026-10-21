@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ringmaster Monokoleso",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Red Topbar",
       "category": "parts"
     },
@@ -29025,6 +29029,25 @@
         "meta": {
           "date": 1792412054,
           "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+        }
+      },
+      {
+        "name": "Ringmaster Monokoleso",
+        "preview": "Ringmaster Monokoleso.webp",
+        "file": "Ringmaster Monokoleso.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/wwV_ZGanLHw"
+          }
+        ],
+        "meta": {
+          "date": 1792587555,
+          "commit-sha": ""
         }
       }
     ],
