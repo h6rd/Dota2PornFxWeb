@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Weather Without Patch",
+      "category": "sites"
+    },
+    {
+      "name": "Set Builder",
+      "category": "sites"
+    },
+    {
+      "name": "GridStudio",
+      "category": "sites"
+    },
+    {
       "name": "Ringmaster Monokoleso",
       "category": "hero-sounds"
     },
@@ -25361,6 +25373,50 @@
           {
             "type": "author",
             "url": "Egezenn"
+          }
+        ]
+      },
+      {
+        "name": "GridStudio",
+        "preview": "GridStudio.webp",
+        "file": "https://gridstudio.me/",
+        "type": "guide",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/linsisss/dota2-grid-toolkit"
+          }
+        ]
+      },
+      {
+        "name": "Set Builder",
+        "preview": "sets.webp",
+        "file": "https://dota-studio.lol/sets.html",
+        "type": "guide",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/HarlordLeg/Effect-studio"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ]
+      },
+      {
+        "name": "Weather Without Patch",
+        "preview": "weather.webp",
+        "file": "https://dota-studio.lol/weather.html",
+        "type": "guide",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/HarlordLeg/Effect-studio"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
           }
         ]
       }
