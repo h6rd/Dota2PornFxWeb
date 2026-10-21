@@ -162,7 +162,8 @@
   function loadConsent() {
     try {
       const c = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
-      return c && c.v === CONSENT_VERSION && typeof c.at === 'string' ? c : null;
+      const ok = c && c.v === CONSENT_VERSION && typeof c.at === 'string' && typeof c.token === 'string' && c.token.length > 20;
+      return ok ? c : null;
     } catch { return null; }
   }
   function saveConsent(c) { try { localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); } catch { } }
@@ -190,11 +191,30 @@
   function wireConsent() {
     const check = $('upConsentCheck'), accept = $('upConsentAccept');
     check.addEventListener('change', () => { accept.disabled = !check.checked; });
-    accept.addEventListener('click', () => {
-      if (!check.checked) return;
-      consent = { v: CONSENT_VERSION, at: new Date().toISOString() };
-      saveConsent(consent);
-      closeConsent();
+    accept.addEventListener('click', async () => {
+      if (!check.checked || accept.dataset.busy) return;
+      const err = $('upConsentError');
+      show(err, false);
+      accept.dataset.busy = '1';
+      accept.disabled = true;
+      try {
+        const res = await fetch(`${WORKER_BASE_URL}/api/consent`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ version: CONSENT_VERSION, accepted: true })
+        });
+        const data = await res.json().catch(() => null);
+        if (!res.ok || !data || typeof data.token !== 'string') throw new Error('bad response');
+        consent = { v: data.v, at: data.at, token: data.token };
+        saveConsent(consent);
+        closeConsent();
+      } catch {
+        err.textContent = 'Could not record your agreement. Check your connection and try again.';
+        show(err, true);
+      } finally {
+        delete accept.dataset.busy;
+        accept.disabled = !check.checked;
+      }
     });
     if (!consent) openConsent();
   }
@@ -1468,7 +1488,7 @@
     const fd = new FormData();
     fd.set('cf-turnstile-response', token);
     fd.set('consentVersion', consent.v);
-    fd.set('consentAt', consent.at);
+    fd.set('consentToken', consent.token);
     fd.set('mode', upd ? 'update' : 'new');
     if (upd) fd.set('existingName', upd.mod.name);
     fd.set('name', name);
@@ -1640,6 +1660,11 @@
       hideProgress();
       logLine('Error: ' + err.message, 'error');
       setLogState('error');
+      if (err.data && err.data.error === 'consent_required') {
+        consent = null;
+        try { localStorage.removeItem(CONSENT_KEY); } catch { }
+        openConsent();
+      }
       const rateLimited = (err.data && (err.data.error === 'rate_limited' || err.data.nextSubmitInSeconds > 0)) || /too many|rate.?limit/i.test(err.message || '');
       if (rateLimited) {
         showStepError('');
