@@ -416,6 +416,51 @@
     <div class="up-history-list" id="upHistoryList"></div>
   </aside>
 
+  <!-- upload terms -->
+  <div class="up-consent-scrim" id="upConsent" hidden>
+    <div class="up-consent" role="dialog" aria-modal="true" aria-labelledby="upConsentTitle"
+      aria-describedby="upConsentIntro">
+      <div class="up-consent-head">
+        <div class="up-consent-icon"><span class="material-symbols-rounded">gavel</span></div>
+        <h2 class="up-consent-title" id="upConsentTitle">Before you upload</h2>
+      </div>
+      <p class="up-consent-intro" id="upConsentIntro">
+        Mods sent through this form are published in the Dota2PornFx catalog under the
+        <a href="https://github.com/h6rd/Dota2PornFxWeb/blob/main/LICENSE-CONTENT.md" target="_blank"
+          rel="noopener noreferrer" id="license">Content License</a>. By submitting a mod you confirm that:
+      </p>
+      <ol class="up-consent-list">
+        <li>You are the author of the mod, or have the right to share it, and it does not contain other people's work
+          without permission.</li>
+        <li>You allow Dota2PornFx to host and distribute it free of charge, including to the approved projects (Dota2
+          Minify and Dota 2 Mod Manager) for their users, and you agree that it is licensed under the <a href="https://github.com/h6rd/Dota2PornFxWeb/blob/main/LICENSE-CONTENT.md" target="_blank"
+          rel="noopener noreferrer" id="license">Content License</a>.</li>
+        <li>You authorize h6rd to send takedown notices on your behalf against unauthorized copies, mirrors and paid
+          resales of your mod.</li>
+        <li>You keep all rights to your mod and can ask to change or remove it at any time. A removal request is handled
+          within 7 days on the website, in the repository and on the official mirrors.</li>
+        <li>Valve assets inside your mod remain Valve's property.</li>
+      </ol>
+      <p class="up-consent-note">Your nickname, the date and a technical fingerprint of each submission are recorded
+        publicly in pull requests.</p>
+      <label class="up-consent-check" for="upConsentCheck">
+        <span class="up-cb">
+          <input type="checkbox" id="upConsentCheck">
+          <span class="up-cb-box" aria-hidden="true"></span>
+        </span>
+        <span>I have read and agree to these terms for every mod I submit from this browser.</span>
+      </label>
+      <div class="up-consent-actions">
+        <a class="up-btn up-btn-outline" href="index.html">
+          <span class="material-symbols-rounded">arrow_back</span> Back to catalog
+        </a>
+        <button type="button" class="up-btn up-btn-primary" id="upConsentAccept" disabled>
+          Continue <span class="material-symbols-rounded">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="upload.js"></script>
 </body>
 

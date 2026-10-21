@@ -45,6 +45,8 @@
   const UPLOAD_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
   const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS' };
   const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
+  const CONSENT_KEY = 'd2pfx_upload_consent';
+  const CONSENT_VERSION = '1';
 
   const STYLE_COUNT = 3;
   const MIN_STYLES = 2;
@@ -156,6 +158,46 @@
     } catch { return null; }
   }
   function saveAuthorPref(pref) { try { localStorage.setItem(AUTHOR_PREF_KEY, JSON.stringify(pref)); } catch { } }
+
+  function loadConsent() {
+    try {
+      const c = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
+      return c && c.v === CONSENT_VERSION && typeof c.at === 'string' ? c : null;
+    } catch { return null; }
+  }
+  function saveConsent(c) { try { localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); } catch { } }
+  let consent = loadConsent();
+
+  function setPageInert(inert) {
+    const modal = $('upConsent');
+    Array.from(document.body.children).forEach(n => {
+      if (n === modal || n.tagName === 'SCRIPT') return;
+      n.inert = inert;
+    });
+  }
+  function openConsent() {
+    const check = $('upConsentCheck');
+    check.checked = false;
+    $('upConsentAccept').disabled = true;
+    setPageInert(true);
+    show($('upConsent'), true);
+    check.focus({ preventScroll: true });
+  }
+  function closeConsent() {
+    show($('upConsent'), false);
+    setPageInert(false);
+  }
+  function wireConsent() {
+    const check = $('upConsentCheck'), accept = $('upConsentAccept');
+    check.addEventListener('change', () => { accept.disabled = !check.checked; });
+    accept.addEventListener('click', () => {
+      if (!check.checked) return;
+      consent = { v: CONSENT_VERSION, at: new Date().toISOString() };
+      saveConsent(consent);
+      closeConsent();
+    });
+    if (!consent) openConsent();
+  }
 
   async function fetchJson(base, name, timeoutMs) {
     const controller = new AbortController();
@@ -1421,8 +1463,12 @@
     const category = categorySelect.value;
     const name = upd ? upd.mod.name : nameInput.value.trim();
 
+    if (!consent) throw new Error('Please accept the upload terms first.');
+
     const fd = new FormData();
     fd.set('cf-turnstile-response', token);
+    fd.set('consentVersion', consent.v);
+    fd.set('consentAt', consent.at);
     fd.set('mode', upd ? 'update' : 'new');
     if (upd) fd.set('existingName', upd.mod.name);
     fd.set('name', name);
@@ -1542,6 +1588,7 @@
 
   async function submit() {
     if (S.busy) return;
+    if (!consent) { openConsent(); return; }
     if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
     for (let i = 0; i < STEP_COUNT - 1; i++) {
       const err = validateStep(i, true);
@@ -1863,6 +1910,7 @@
     if (!boot.done) { boot.done = true; setupUi(); }
   }
 
+  wireConsent();
   $('upRetry').addEventListener('click', boot);
   boot();
 })();
