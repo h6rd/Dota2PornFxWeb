@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Red Topbar",
+      "category": "parts"
+    },
+    {
+      "name": "Vs Creen Lycoris Colors Pack2",
+      "category": "parts"
+    },
+    {
+      "name": "Girl In The Bus",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Netgraph Purple",
+      "category": "parts"
+    },
+    {
+      "name": "Kda Purple",
+      "category": "parts"
+    },
+    {
+      "name": "Invoker Dark Apex",
+      "category": "heroes"
+    },
+    {
+      "name": "Old Style Menu",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Vs Creen Lycoris Colors Pack1",
+      "category": "parts"
+    },
+    {
+      "name": "Ptu Suzuya Juzo",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Vs Creen,Black-White",
+      "category": "parts"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -15189,6 +15229,25 @@
           "date": 1792453496,
           "commit-sha": "23a432b89c7afd13a1f191aede0cf52df1856884"
         }
+      },
+      {
+        "name": "Invoker Dark Apex",
+        "preview": "Invoker Dark Apex.webp",
+        "file": "Invoker Dark Apex.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22306,6 +22365,138 @@
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
         }
+      },
+      {
+        "name": "Vs Creen,Black-White",
+        "styles": [
+          {
+            "label": "Style black",
+            "color": "#000000",
+            "preview": "Vs Creen,Black-White.webp",
+            "file": "Vs Creen,Black-White.zip"
+          },
+          {
+            "label": "Style white",
+            "color": "#ffffff",
+            "preview": "Vs Creen,Black-White Style white.webp",
+            "file": "Vs Creen,Black-White Style white.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Vs Creen Lycoris Colors Pack1",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#7c0101",
+            "preview": "Vs Creen Lycoris Colors Pack1.webp",
+            "file": "Vs Creen Lycoris Colors Pack1.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#bcf8fc",
+            "preview": "Vs Creen Lycoris Colors Pack1 Style II.webp",
+            "file": "Vs Creen Lycoris Colors Pack1 Style II.zip"
+          },
+          {
+            "label": "Style III",
+            "color": "#9820a2",
+            "preview": "Vs Creen Lycoris Colors Pack1 Style III.webp",
+            "file": "Vs Creen Lycoris Colors Pack1 Style III.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Kda Purple",
+        "preview": "Kda Purple.webp",
+        "file": "Kda Purple.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Netgraph Purple",
+        "preview": "Netgraph Purple.webp",
+        "file": "Netgraph Purple.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Vs Creen Lycoris Colors Pack2",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "linear-gradient(135deg, #000000 50%, #3e3e3e 50%)",
+            "preview": "Vs Creen Lycoris Colors Pack2.webp",
+            "file": "Vs Creen Lycoris Colors Pack2.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "linear-gradient(135deg, #000000 50%, #d53747 50%)",
+            "preview": "Vs Creen Lycoris Colors Pack2 Style II.webp",
+            "file": "Vs Creen Lycoris Colors Pack2 Style II.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Red Topbar",
+        "preview": "Red Topbar.webp",
+        "file": "Red Topbar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -24836,6 +25027,57 @@
         "meta": {
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+        }
+      },
+      {
+        "name": "Ptu Suzuya Juzo",
+        "preview": "Ptu Suzuya Juzo.webp",
+        "file": "Ptu Suzuya Juzo.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Old Style Menu",
+        "preview": "Old Style Menu.webp",
+        "file": "Old Style Menu.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Girl In The Bus",
+        "preview": "Girl In The Bus.webp",
+        "file": "Girl In The Bus.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792583757,
+          "commit-sha": ""
         }
       }
     ],
