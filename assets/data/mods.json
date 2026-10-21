@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Rubiline Sheen War Dog",
       "category": "couriers"
     },
@@ -211,10 +215,6 @@
     {
       "name": "Terrorblade Foulfell Demon",
       "category": "hero-items"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Shadow Fiend Arcana Fixv1",
