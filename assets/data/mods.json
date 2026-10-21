@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Jenna Wallpaper",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Tcoaal Rampage",
+      "category": "announcers"
+    },
+    {
+      "name": "Silencer Oscilla Crimson",
+      "category": "heroes"
+    },
+    {
+      "name": "Axe Molten Fist",
+      "category": "heroes"
+    },
+    {
+      "name": "Earthshaker Herald Gar Beast",
+      "category": "heroes"
+    },
+    {
+      "name": "Win Lose Music Never",
+      "category": "music"
+    },
+    {
+      "name": "Silencer Oscilla Immortal",
+      "category": "heroes"
+    },
+    {
+      "name": "Naga Siren Bell Of Meranthia",
+      "category": "heroes"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -11675,8 +11707,8 @@
           }
         ],
         "meta": {
-          "date": 1790263250,
-          "commit-sha": "0b245237cf441eb51a1c322ed36e02b33a4aabd1"
+          "date": 1792609093,
+          "commit-sha": ""
         }
       },
       {
@@ -15302,6 +15334,74 @@
         "meta": {
           "date": 1792591892,
           "commit-sha": "20e3d803ba96c4197ac029e13a6b5179df422c2e"
+        }
+      },
+      {
+        "name": "Naga Siren Bell Of Meranthia",
+        "preview": "Naga Siren Bell Of Meranthia.webp",
+        "file": "Naga Siren Bell Of Meranthia.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Earthshaker Herald Gar Beast",
+        "preview": "Earthshaker Herald Gar Beast.webp",
+        "file": "Earthshaker Herald Gar Beast.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Axe Molten Fist",
+        "preview": "Axe Molten Fist.webp",
+        "file": "Axe Molten Fist.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Silencer Oscilla Crimson",
+        "preview": "Silencer Oscilla Crimson.webp",
+        "file": "Silencer Oscilla Crimson.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
         }
       }
     ],
@@ -21662,6 +21762,25 @@
           "date": 1764638549,
           "commit-sha": "894db937fdce8ff1f13b4221a7f3b6920b59abc4"
         }
+      },
+      {
+        "name": "Tcoaal Rampage",
+        "preview": "Tcoaal Rampage.webp",
+        "file": "Tcoaal Rampage.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/R29J44Urhys"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
+        }
       }
     ],
     "pedestal": [
@@ -25182,6 +25301,24 @@
           "date": 1792591892,
           "commit-sha": "20e3d803ba96c4197ac029e13a6b5179df422c2e"
         }
+      },
+      {
+        "name": "Jenna Wallpaper",
+        "preview": "Jenna Wallpaper.webp",
+        "file": "Jenna Wallpaper.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "ittem"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -27381,6 +27518,21 @@
         "meta": {
           "date": 1789902229,
           "commit-sha": "a676823247e7e96e3009b749ec2ffaba24f7efcc"
+        }
+      },
+      {
+        "name": "Win Lose Music Never",
+        "preview": "Win Lose Music Never.webp",
+        "file": "Win Lose Music Never.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          }
+        ],
+        "meta": {
+          "date": 1792609093,
+          "commit-sha": ""
         }
       }
     ],
