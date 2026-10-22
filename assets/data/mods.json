@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Pink Meteor Hammer",
+      "category": "other"
+    },
+    {
+      "name": "Phantom Lancer Immortal Frost",
+      "category": "hero-items"
+    },
+    {
+      "name": "Hoodwink Frostbloom Arbalest",
+      "category": "hero-items"
+    },
+    {
       "name": "Acid Electric River",
       "category": "river"
     },
@@ -18427,7 +18443,27 @@
         {
           "id": "hoodwink",
           "name": "Hoodwink",
-          "mods": []
+          "mods": [
+            {
+              "name": "Hoodwink Frostbloom Arbalest",
+              "preview": "Hoodwink Frostbloom Arbalest.webp",
+              "file": "Hoodwink Frostbloom Arbalest.zip",
+              "tags": {
+                "weapon": true,
+                "effects": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792712707,
+                "commit-sha": ""
+              }
+            }
+          ]
         },
         {
           "id": "huskar",
@@ -19701,8 +19737,8 @@
                 }
               ],
               "meta": {
-                "date": 1790424886,
-                "commit-sha": "36df0a932f296ad9b9f6bc253534aef620ea85ed"
+                "date": 1792712707,
+                "commit-sha": ""
               }
             },
             {
@@ -22812,6 +22848,21 @@
           "date": 1792668576,
           "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
         }
+      },
+      {
+        "name": "Purple Play Button",
+        "preview": "Purple Play Button.webp",
+        "file": "Purple Play Button.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1792712707,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -23574,6 +23625,21 @@
         "meta": {
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+        }
+      },
+      {
+        "name": "Pink Meteor Hammer",
+        "preview": "Pink Meteor Hammer.webp",
+        "file": "Pink Meteor Hammer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "4d4mf"
+          }
+        ],
+        "meta": {
+          "date": 1792712707,
+          "commit-sha": ""
         }
       }
     ],
