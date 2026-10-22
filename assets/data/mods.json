@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Acid Electric River",
+      "category": "river"
+    },
+    {
+      "name": "Kotl Spirit Form Litvin Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Bear Deny",
+      "category": "creep-deny"
+    },
+    {
+      "name": "Purple Electric River",
+      "category": "river"
+    },
+    {
       "name": "Hetgraph Black",
       "category": "parts"
     },
@@ -16442,6 +16458,21 @@
                 "date": 1792015098,
                 "commit-sha": "e41ec27b6f5d6130f050cc65bfd814160ddbf49e"
               }
+            },
+            {
+              "name": "Bear Deny",
+              "preview": "Bear Deny.webp",
+              "file": "Bear Deny.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "hrdq"
+                }
+              ],
+              "meta": {
+                "date": 1792685250,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -23846,6 +23877,36 @@
           "date": 1762709998,
           "commit-sha": "07277988576642ac94111d5f394dd10ffae9939c"
         }
+      },
+      {
+        "name": "Purple Electric River",
+        "preview": "Purple Electric River.webp",
+        "file": "Purple Electric River.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1792685250,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Acid Electric River",
+        "preview": "Acid Electric River.webp",
+        "file": "Acid Electric River.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1792685250,
+          "commit-sha": ""
+        }
       }
     ],
     "backgrounds": [
@@ -29493,6 +29554,21 @@
         "meta": {
           "date": 1792587555,
           "commit-sha": "52c8842828b49d5d5f5cf73c4bb4ee35650dcfe9"
+        }
+      },
+      {
+        "name": "Kotl Spirit Form Litvin Sound",
+        "preview": "Kotl Spirit Form Litvin Sound.webp",
+        "file": "Kotl Spirit Form Litvin Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ],
+        "meta": {
+          "date": 1792685250,
+          "commit-sha": ""
         }
       }
     ],
