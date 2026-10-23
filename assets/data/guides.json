@@ -805,6 +805,39 @@
       ]
     }
   },
+  "overlay": {
+    "title": "Important Safety Warning",
+    "content": {
+      "en": [
+        {
+          "title": "Warning",
+          "icon": "warning",
+          "steps": [
+            {
+              "icon": "exclamation",
+              "text": "This is a standard VPK, but its safety is unconfirmed. During patrol, mouse movements in a certain area may be flagged as cheating, so use it at your own risk. Not recommended for use in games on Valve servers. Read more about usage on GitHub."
+            }
+          ],
+          "info": "To open the overlay, press F8",
+          "infoPosition": "bottom"
+        }
+      ],
+      "ru": [
+        {
+          "title": "Предупреждение",
+          "icon": "warning",
+          "steps": [
+            {
+              "icon": "exclamation",
+              "text": "Это обычный VPK, но безопасность не подтверждена. В патруле движения мышью в определённой области могут быть замечены и расценены как использование чита, поэтому используйте на свой страх и риск. Не рекомендуется использовать в играх на серверах Valve. Подробнее про использование читайте на GitHub."
+            }
+          ],
+          "info": "Для открытия оверлея нажмите F8",
+          "infoPosition": "bottom"
+        }
+      ]
+    }
+  },
   "couriers-info": {
     "title": "Courier Info",
     "content": {

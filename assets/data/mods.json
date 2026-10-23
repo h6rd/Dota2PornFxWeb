@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "TikTok Overlay",
+      "category": "parts"
+    },
+    {
       "name": "Dark Carnival",
       "category": "music"
     },
@@ -22879,6 +22883,23 @@
           "date": 1792764215,
           "commit-sha": "03a0e2ad5e216fb920d92f5e38c6cf48677d6047"
         }
+      },
+      {
+        "name": "TikTok Overlay",
+        "preview": "TikTok Overlay.webp",
+        "file": "TikTok Overlay.zip",
+        "guideId": "overlay",
+        "guideType": "not-safe",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/BasteArima/dota2-tiktok-overlay"
+          },
+          {
+            "type": "author",
+            "url": "Baste"
+          }
+        ]
       }
     ],
     "huds": [

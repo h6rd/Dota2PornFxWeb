@@ -429,7 +429,8 @@
     "allowedMods": {
       "optimization": [
         "Default Wards",
-        "Tinker Lite Machines"
+        "Tinker Lite Machines",
+        "No Unnecessary Map Effects"
       ]
     }
   },
@@ -825,7 +826,8 @@
     "Defendor": "",
     "4d4mf": "https://t.me/vpk4d4mmf",
     "ittem": "https://discord.com/users/1292235606184689735",
-    "Danulaguts": ""
+    "Danulaguts": "",
+    "Baste": "https://projects.baste.ru/"
   },
   "MOD_SENDER": {
     "dabaqz": "",
