@@ -6,7 +6,7 @@
     },
     {
       "name": "Pink Meteor Hammer",
-      "category": "other"
+      "category": "item-effects"
     },
     {
       "name": "Phantom Lancer Immortal Frost",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Tcoaal Rampage",
-      "category": "announcers"
+      "category": "mega-kill"
     },
     {
       "name": "Silencer Oscilla Crimson",
@@ -21787,6 +21787,25 @@
           "date": 1791566552,
           "commit-sha": "6bc2a3797a365cbb6b95ad8c4c5b75a3af966587"
         }
+      },
+      {
+        "name": "Tcoaal Rampage",
+        "preview": "Tcoaal Rampage.webp",
+        "file": "Tcoaal Rampage.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/R29J44Urhys"
+          }
+        ],
+        "meta": {
+          "date": 1792609094,
+          "commit-sha": "5971b5e82af7411a0da9b8499ed63a32b33b4163"
+        }
       }
     ],
     "announcers": [
@@ -21893,25 +21912,6 @@
         "meta": {
           "date": 1764638549,
           "commit-sha": "894db937fdce8ff1f13b4221a7f3b6920b59abc4"
-        }
-      },
-      {
-        "name": "Tcoaal Rampage",
-        "preview": "Tcoaal Rampage.webp",
-        "file": "Tcoaal Rampage.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          },
-          {
-            "type": "preview",
-            "url": "https://youtu.be/R29J44Urhys"
-          }
-        ],
-        "meta": {
-          "date": 1792609094,
-          "commit-sha": "5971b5e82af7411a0da9b8499ed63a32b33b4163"
         }
       }
     ],
@@ -23625,21 +23625,6 @@
         "meta": {
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
-        }
-      },
-      {
-        "name": "Pink Meteor Hammer",
-        "preview": "Pink Meteor Hammer.webp",
-        "file": "Pink Meteor Hammer.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "4d4mf"
-          }
-        ],
-        "meta": {
-          "date": 1792712707,
-          "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
         }
       }
     ],
@@ -30662,6 +30647,27 @@
               "meta": {
                 "date": 1788999662,
                 "commit-sha": "6b9948829e2092cbda45779f39c6e9124f536f19"
+              }
+            }
+          ]
+        },
+        {
+          "id": "meteor",
+          "name": "Meteor Hammer",
+          "mods": [
+            {
+              "name": "Pink Meteor Hammer",
+              "preview": "Pink Meteor Hammer.webp",
+              "file": "Pink Meteor Hammer.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1792712707,
+                "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
               }
             }
           ]

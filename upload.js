@@ -37,6 +37,7 @@
   const YOUTUBE_HOST_RE = /^(m\.|www\.|music\.)?youtube\.com$|^youtu\.be$/i;
 
   const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
+  const SUBCATEGORY_CATEGORIES = ['item-effects', 'creep-deny'];
   const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
   const UPLOAD_HIDDEN_TAGS = { herofx: ['sounds'], 'hero-items': ['sounds'] };
   const NON_SLOT_TAGS = ['effects', 'icons', 'sounds'];
@@ -265,6 +266,36 @@
     }
     return [];
   }
+  function hasSubcategories(category) { return SUBCATEGORY_CATEGORIES.includes(category); }
+  function listSubcategories(category) {
+    const data = window.modsData && window.modsData[category];
+    if (!data || !Array.isArray(data.groups)) return [];
+    return data.groups.filter(g => g && g.id && g.name).map(g => ({ id: String(g.id), name: String(g.name) }))
+      .sort((a, b) => ALPHA.compare(a.name, b.name));
+  }
+  function fillSubcategorySelect(category) {
+    subcatSelect.textContent = '';
+    const ph = el('option', '', 'Select subcategory…');
+    ph.value = '';
+    subcatSelect.appendChild(ph);
+    for (const g of listSubcategories(category)) {
+      const o = el('option', '', g.name);
+      o.value = g.id;
+      subcatSelect.appendChild(o);
+    }
+    refreshSelect(subcatSelect);
+  }
+  function resetSubcategory() {
+    subcatSelect.textContent = '';
+    refreshSelect(subcatSelect);
+    show(subcatGroup, false);
+  }
+  function syncSubcategoryUi(category) {
+    const need = hasSubcategories(category);
+    if (!need) { resetSubcategory(); return; }
+    show(subcatGroup, true);
+    fillSubcategorySelect(category);
+  }
   function findExistingMod(category, name) {
     const key = normalizeModName(name);
     if (!key || !category) return null;
@@ -297,7 +328,8 @@
     slot3: { archiveFile: null, archive: null, reading: false }
   };
 
-  let form, categorySelect, heroGroup, heroSearch, heroHidden, heroList, nameInput, nameSuggest;
+  let subcatGroup, subcatSelect;
+  let form, categorySelect, heroGroup, heroSelect, nameInput, nameSuggest;
   let slotTagsWrap, effectsTagsWrap, genericTagsWrap;
 
   const LOG_ICONS = { muted: 'info', info: 'info', progress: 'sync', success: 'check_circle', error: 'error' };
@@ -481,7 +513,7 @@
       if (slot === 0) {
         const baseName = stripExt(file.name);
         const hero = findHeroInText(baseName) || (result.folderName ? findHeroInText(result.folderName) : null);
-        if (hero && HERO_AWARE_CATEGORIES.includes(categorySelect.value) && !heroHidden.value) selectHero(hero, { silent: true });
+        if (hero && HERO_AWARE_CATEGORIES.includes(categorySelect.value) && !heroSelect.value) selectHero(hero, { silent: true });
         const suggestion = suggestNameFromText(result.folderName || baseName);
         if (suggestion && (!nameInput.value.trim() || nameInput.value.trim() === S.autoFilledName)) {
           S.autoFilledName = setNameValue(suggestion);
@@ -665,7 +697,7 @@
     return titled.includes(mangled) ? titled.split(mangled).join(hero) : titled;
   }
 
-  function currentMaxNameLength() { return getMaxNameLength(heroHidden.value); }
+  function currentMaxNameLength() { return getMaxNameLength(heroSelect.value); }
 
   function showNameTrim(badChars, overflow, max) {
     const box = $('upNameTrim');
@@ -717,35 +749,34 @@
     if (combined.length <= getMaxNameLength(hero)) setNameValue(combined);
   }
 
-  function buildHeroList(filter) {
-    const q = (filter || '').toLowerCase().trim();
-    heroList.textContent = '';
-    const visible = q ? S.allHeroes.filter(h => h.toLowerCase().includes(q)) : S.allHeroes;
-    if (!visible.length) { heroList.appendChild(el('div', 'up-combo-item muted', 'No heroes found')); return; }
-    for (const h of visible) {
-      const opt = el('div', 'up-combo-item', h);
-      opt.setAttribute('role', 'option');
-      opt.addEventListener('mousedown', ev => { ev.preventDefault(); selectHero(h); });
-      heroList.appendChild(opt);
-    }
+  function fillHeroSelect() {
+    fillSelect(heroSelect, S.allHeroes, 'Select hero…');
+  }
+
+  function heroNameRegex(hero) {
+    const tokens = String(hero || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    if (!tokens.length) return null;
+    return new RegExp('(?<![a-z0-9])' + tokens.join('[^a-z0-9]*') + '(?![a-z0-9])', 'i');
   }
 
   function swapHeroInName(prev, next) {
-    if (!prev || !next || S.update) return false;
+    if (!next || S.update) return false;
     const cur = nameInput.value;
-    const i = cur.toLowerCase().indexOf(prev.toLowerCase());
-    if (i < 0 || prev.toLowerCase() === next.toLowerCase()) return false;
-    const swapped = (cur.slice(0, i) + next + cur.slice(i + prev.length)).replace(/\s+/g, ' ').trim();
-    if (swapped.length > getMaxNameLength(next)) return false;
-    setNameValue(swapped);
-    return true;
+    const candidates = [prev, ...S.allHeroes.filter(h => h !== prev).sort((a, b) => b.length - a.length)].filter(Boolean);
+    for (const hero of candidates) {
+      const re = heroNameRegex(hero);
+      if (!re || !re.test(cur)) continue;
+      const replacement = cleanNameValue(next, 999).kept;
+      const swapped = cur.replace(re, () => replacement).replace(/\s+/g, ' ').trim();
+      setNameValue(swapped);
+      return true;
+    }
+    return false;
   }
 
   function selectHero(hero, { silent = false } = {}) {
     const prev = S.lastHero;
-    heroHidden.value = hero;
-    heroSearch.value = hero;
-    heroList.classList.remove('open');
+    setSelectValue(heroSelect, hero);
     syncNameField();
     if (!silent && !swapHeroInName(prev, hero)) ensureHeroInName(hero);
     S.lastHero = hero;
@@ -771,7 +802,7 @@
     list.textContent = '';
     const q = nameInput.value.trim().toLowerCase();
     if (!cat || document.activeElement !== nameInput || q.length < 4) { list.classList.remove('open'); return; }
-    const hero = heroHidden.value.toLowerCase();
+    const hero = heroSelect.value.toLowerCase();
     const matches = listCategoryMods(cat)
       .filter(x => x.mod && String(x.mod.name).toLowerCase().includes(q) && (!hero || !HERO_AWARE_CATEGORIES.includes(cat) || String(x.mod.name).toLowerCase().includes(hero)))
       .slice(0, 8);
@@ -826,9 +857,12 @@
       } else {
         $('upBlockedBannerText').textContent = blockedMessage(found.mod);
       }
-      if (HERO_AWARE_CATEGORIES.includes(category) && found.group && S.allHeroes.includes(found.group) && heroHidden.value !== found.group) {
-        heroHidden.value = found.group;
-        heroSearch.value = found.group;
+      if (hasSubcategories(category)) {
+        const g = listSubcategories(category).find(x => x.name === found.group);
+        if (g) setSelectValue(subcatSelect, g.id);
+      }
+      if (HERO_AWARE_CATEGORIES.includes(category) && found.group && S.allHeroes.includes(found.group) && heroSelect.value !== found.group) {
+        setSelectValue(heroSelect, found.group);
         S.lastHero = found.group;
       }
     }
@@ -890,6 +924,7 @@
   function applyUpdateModeUi() {
     const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
     const authorGroup = $('upAuthorExisting').closest('.up-field-group');
+    if (subcatSelect) { subcatSelect.disabled = !!upd; refreshSelect(subcatSelect); }
     show($('upAuthorLocked'), !!upd);
     show(authorGroup, !upd);
 
@@ -967,12 +1002,13 @@
     const r = form.querySelector(`input[name="${name}"][value="${value}"]`);
     if (r) r.checked = true;
   }
+  const ALPHA = new Intl.Collator('en', { sensitivity: 'base', numeric: true });
   function fillSelect(select, values, placeholder) {
     select.textContent = '';
     const ph = el('option', '', placeholder);
     ph.value = '';
     select.appendChild(ph);
-    for (const v of values) { const o = el('option', '', v); o.value = v; select.appendChild(o); }
+    for (const v of [...values].sort(ALPHA.compare)) { const o = el('option', '', v); o.value = v; select.appendChild(o); }
     refreshSelect(select);
   }
 
@@ -1182,10 +1218,15 @@
       if (BLACKLISTED_CATEGORIES.includes(category) || !(window.categories || []).some(c => c.id === category)) {
         return 'This category is temporarily unavailable for new submissions.';
       }
-      const hero = heroHidden.value.trim();
+      const hero = heroSelect.value.trim();
       if (HERO_AWARE_CATEGORIES.includes(category)) {
         if (!hero) return 'Select a hero for this category.';
         if (!(window.HEROES_LIST || []).includes(hero)) return 'Invalid hero.';
+      }
+      if (hasSubcategories(category) && !(S.update && modIsReplaceable(S.update.mod))) {
+        const sub = subcatSelect.value;
+        if (!sub) return 'Select a subcategory for this category.';
+        if (!listSubcategories(category).some(g => g.id === sub)) return 'Invalid subcategory.';
       }
       const name = nameInput.value.trim();
       if (!name) return 'Enter a mod name.';
@@ -1319,7 +1360,7 @@
     if (S.step === 1) {
       if (S.update && modIsReplaceable(S.update.mod)) setNameValue(S.update.mod.name);
       else setNameValue(titleCaseWords(nameInput.value));
-      ensureHeroInName(heroHidden.value);
+      ensureHeroInName(heroSelect.value);
       detectUpdate();
     }
     const err = validateStep(S.step);
@@ -1343,7 +1384,11 @@
     row(dl, 'Action', upd ? 'Update an existing mod (replaces its files)' : (S.styled ? `New mod with ${styleCount()} styles` : 'New mod'));
     row(dl, 'Name', upd ? upd.mod.name : nameInput.value.trim());
     row(dl, 'Category', categorySelect.selectedOptions[0] ? categorySelect.selectedOptions[0].textContent : category);
-    if (HERO_AWARE_CATEGORIES.includes(category)) row(dl, 'Hero', heroHidden.value || '—');
+    if (HERO_AWARE_CATEGORIES.includes(category)) row(dl, 'Hero', heroSelect.value || '—');
+    if (hasSubcategories(category)) {
+      const g = listSubcategories(category).find(x => x.id === subcatSelect.value);
+      row(dl, 'Subcategory', g ? g.name : '—');
+    }
     if (S.styled) {
       for (let i = 0; i < styleCount(); i++) {
         const st = slotState(i);
@@ -1493,7 +1538,8 @@
     if (upd) fd.set('existingName', upd.mod.name);
     fd.set('name', name);
     fd.set('category', category);
-    fd.set('hero', HERO_AWARE_CATEGORIES.includes(category) ? (heroHidden.value || '') : '');
+    fd.set('hero', HERO_AWARE_CATEGORIES.includes(category) ? (heroSelect.value || '') : '');
+    fd.set('subcategory', hasSubcategories(category) && !upd ? (subcatSelect.value || '') : '');
     fd.set('tags', JSON.stringify(selectedTags()));
 
     if (!upd) {
@@ -1698,10 +1744,10 @@
     S.autoFilledName = '';
     S.step = 0;
     S.maxStep = 0;
-    heroHidden.value = '';
-    heroSearch.value = '';
+    setSelectValue(heroSelect, '');
     S.lastHero = '';
     show(heroGroup, false);
+    resetSubcategory();
     show($('upVideoGroup'), false);
     renderTags('');
     show($('upUpdateBanner'), false);
@@ -1796,11 +1842,14 @@
       $('upStyleColorB' + i).addEventListener('input', refreshAll);
     }
 
+    subcatSelect.addEventListener('change', refreshAll);
+
     categorySelect.addEventListener('change', () => {
       const cat = categorySelect.value;
       const heroAware = HERO_AWARE_CATEGORIES.includes(cat);
       show(heroGroup, heroAware);
-      if (!heroAware) { heroHidden.value = ''; heroSearch.value = ''; S.lastHero = ''; }
+      if (!heroAware) { setSelectValue(heroSelect, ''); S.lastHero = ''; }
+      syncSubcategoryUi(cat);
       const showsVideo = getPreviewVideoCategories().includes(cat);
       show($('upVideoGroup'), showsVideo);
       if (!showsVideo) $('upVideo').value = '';
@@ -1810,22 +1859,10 @@
       onNameOrHeroChanged();
     });
 
-    heroSearch.addEventListener('focus', () => { buildHeroList(heroSearch.value); heroList.classList.add('open'); });
-    heroSearch.addEventListener('input', () => {
-      heroHidden.value = '';
-      buildHeroList(heroSearch.value);
-      heroList.classList.add('open');
-      syncNameField();
-      onNameOrHeroChanged();
-    });
-    heroSearch.addEventListener('blur', () => {
-      setTimeout(() => {
-        heroList.classList.remove('open');
-        const typed = heroSearch.value.trim();
-        const match = S.allHeroes.find(h => h.toLowerCase() === typed.toLowerCase());
-        if (match) selectHero(match);
-        else if (!heroHidden.value) heroSearch.value = '';
-      }, 150);
+    heroSelect.addEventListener('change', () => {
+      const v = heroSelect.value;
+      if (v) selectHero(v);
+      else { syncNameField(); onNameOrHeroChanged(); }
     });
 
     nameInput.addEventListener('input', () => { syncNameField(); renderNameSuggestions(); onNameOrHeroChanged(); });
@@ -1835,11 +1872,11 @@
       if (S.update && modIsReplaceable(S.update.mod)) return;
       const titled = titleCaseWords(nameInput.value);
       if (titled !== nameInput.value) setNameValue(titled);
-      if (HERO_AWARE_CATEGORIES.includes(categorySelect.value)) ensureHeroInName(heroHidden.value);
+      if (HERO_AWARE_CATEGORIES.includes(categorySelect.value)) ensureHeroInName(heroSelect.value);
       onNameOrHeroChanged();
     });
     document.addEventListener('click', e => {
-      if (!e.target.closest('.up-combo')) { heroList.classList.remove('open'); nameSuggest.classList.remove('open'); }
+      if (!e.target.closest('.up-combo')) { nameSuggest.classList.remove('open'); }
     });
 
     $('upVideo').addEventListener('input', () => {
@@ -1891,18 +1928,18 @@
     form = $('upForm');
     categorySelect = $('upCategory');
     heroGroup = $('upHeroGroup');
-    heroSearch = $('upHeroSearch');
-    heroHidden = $('upHero');
-    heroList = $('upHeroList');
+    subcatGroup = $('upSubcatGroup');
+    subcatSelect = $('upSubcat');
+    heroSelect = $('upHero');
     nameInput = $('upName');
     nameSuggest = $('upNameSuggest');
     slotTagsWrap = $('upSlotTags');
     effectsTagsWrap = $('upEffectsTags');
     genericTagsWrap = $('upGenericTags');
 
-    S.allHeroes = (window.HEROES_LIST || []).slice().sort((a, b) => a.localeCompare(b));
+    S.allHeroes = (window.HEROES_LIST || []).slice().sort(ALPHA.compare);
     renderCategorySelect();
-    buildHeroList('');
+    fillHeroSelect();
     fillSelect($('upAuthorExisting'), Object.keys(window.MOD_AUTHOR || {}).sort(), 'Select author…');
     syncNameField();
     syncAuthorUi();

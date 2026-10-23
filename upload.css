@@ -1236,11 +1236,12 @@ a.up-history-item:hover {
   grid-column: 1 / -1;
 }
 
-.up-step[data-step="1"]:has(#upHeroGroup:not([hidden]))>.up-field-group:has(#upCategory) {
+.up-step[data-step="1"]:is(:has(#upHeroGroup:not([hidden])), :has(#upSubcatGroup:not([hidden])))>.up-field-group:has(#upCategory) {
   grid-column: 1;
 }
 
-.up-step[data-step="1"]:has(#upHeroGroup:not([hidden]))>#upHeroGroup {
+.up-step[data-step="1"]>#upHeroGroup,
+.up-step[data-step="1"]>#upSubcatGroup {
   grid-column: 2;
 }
 
