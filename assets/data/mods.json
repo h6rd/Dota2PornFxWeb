@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Blue Archive Ako",
+      "category": "backgrounds"
+    },
+    {
+      "name": "City Ruins",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Blue Archive Atsuko",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Majo No Tabitabi",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Shadow Fiend Taunt Xvii",
+      "category": "hero-sounds"
+    },
+    {
       "name": "TikTok Overlay",
       "category": "parts"
     },
@@ -25622,6 +25642,78 @@
           "date": 1792668576,
           "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
         }
+      },
+      {
+        "name": "Majo No Tabitabi",
+        "preview": "Majo No Tabitabi.webp",
+        "file": "Majo No Tabitabi.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792795311,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Blue Archive Atsuko",
+        "preview": "Blue Archive Atsuko.webp",
+        "file": "Blue Archive Atsuko.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792795311,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "City Ruins",
+        "preview": "City Ruins.webp",
+        "file": "City Ruins.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792795311,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Blue Archive Ako",
+        "preview": "Blue Archive Ako.webp",
+        "file": "Blue Archive Ako.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1792795311,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -29725,6 +29817,25 @@
         "meta": {
           "date": 1792764215,
           "commit-sha": "03a0e2ad5e216fb920d92f5e38c6cf48677d6047"
+        }
+      },
+      {
+        "name": "Shadow Fiend Taunt Xvii",
+        "preview": "Shadow Fiend Taunt Xvii.webp",
+        "file": "Shadow Fiend Taunt Xvii.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/vLPXcqgYOQE"
+          }
+        ],
+        "meta": {
+          "date": 1792795311,
+          "commit-sha": ""
         }
       }
     ],
