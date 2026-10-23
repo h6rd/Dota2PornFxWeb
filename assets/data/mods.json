@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dark Carnival",
+      "category": "music"
+    },
+    {
       "name": "Shadow Fiend Ult Xvii",
       "category": "hero-sounds"
     },
@@ -27823,6 +27827,17 @@
           "date": 1792609094,
           "commit-sha": "5971b5e82af7411a0da9b8499ed63a32b33b4163"
         }
+      },
+      {
+        "name": "Dark Carnival",
+        "preview": "Dark Carnival.webp",
+        "file": "Dark Carnival.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ]
       }
     ],
     "cursors": [
