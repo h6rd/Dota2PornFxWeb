@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Ult Xvii",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "No Unnecessary Map Effects",
+      "category": "optimization"
+    },
+    {
+      "name": "Magnus Collapse Rp",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Xvii Search Bar",
+      "category": "parts"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -22844,6 +22860,21 @@
           "date": 1792712707,
           "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
         }
+      },
+      {
+        "name": "Xvii Search Bar",
+        "preview": "Xvii Search Bar.webp",
+        "file": "Xvii Search Bar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          }
+        ],
+        "meta": {
+          "date": 1792764215,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -25755,6 +25786,21 @@
         "meta": {
           "date": 1773596942,
           "commit-sha": "658cbd4682de3e590894dc622a6cc90f49224de5"
+        }
+      },
+      {
+        "name": "No Unnecessary Map Effects",
+        "preview": "No Unnecessary Map Effects.webp",
+        "file": "No Unnecessary Map Effects.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1792764215,
+          "commit-sha": ""
         }
       }
     ],
@@ -29601,6 +29647,40 @@
         "meta": {
           "date": 1792685250,
           "commit-sha": "4936fb4a1334c1a889fe880aa0e0c342b96ec32a"
+        }
+      },
+      {
+        "name": "Magnus Collapse Rp",
+        "preview": "Magnus Collapse Rp.webp",
+        "file": "Magnus Collapse Rp.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Danulaguts"
+          }
+        ],
+        "meta": {
+          "date": 1792764215,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Fiend Ult Xvii",
+        "preview": "Shadow Fiend Ult Xvii.webp",
+        "file": "Shadow Fiend Ult Xvii.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/2ism8l-pLME"
+          }
+        ],
+        "meta": {
+          "date": 1792764215,
+          "commit-sha": ""
         }
       }
     ],
