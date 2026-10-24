@@ -13,7 +13,7 @@
       "category": "backgrounds"
     },
     {
-      "name": "Wraith King  I Live Forever",
+      "name": "Wraith King I Live Forever",
       "category": "hero-sounds"
     },
     {
@@ -23448,6 +23448,10 @@
         "file": "High Five Cat Paw.zip",
         "links": [
           {
+            "type": "preview",
+            "url": "assets/previews/high-five/High Five Cat Paw.mp4"
+          },
+          {
             "type": "author",
             "url": "4d4mf"
           }
@@ -29993,9 +29997,9 @@
         }
       },
       {
-        "name": "Wraith King  I Live Forever",
-        "preview": "Wraith King  I Live Forever.webp",
-        "file": "Wraith King  I Live Forever.zip",
+        "name": "Wraith King I Live Forever",
+        "preview": "Wraith King I Live Forever.webp",
+        "file": "Wraith King I Live Forever.zip",
         "links": [
           {
             "type": "author",
