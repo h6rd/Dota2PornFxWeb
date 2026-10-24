@@ -29,7 +29,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Generate activity.svg
-        run: python3 scripts/make_activity.py --out .github/activity.svg
+        run: python3 scripts/make_activity.py --out .github/assets/activity.svg
 
       - name: Commit and push to main
         run: |
