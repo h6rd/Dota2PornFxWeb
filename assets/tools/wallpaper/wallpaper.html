@@ -1,0 +1,361 @@
+<div id="wallpaperOverlay" class="info-overlay"></div>
+<div id="wallpaperModal" class="info-modal upload-mod-modal wp-modal">
+  <button class="tools-back" data-tools-back aria-label="Back to tools" title="Back to tools">
+    <span class="material-symbols-rounded">arrow_back</span>
+  </button>
+  <button class="info-modal-close" id="closeWallpaperModal" aria-label="Close">
+    <span class="material-symbols-rounded">close</span>
+  </button>
+  <div class="upload-modal-body wp-body">
+
+    <div class="upload-form-panel">
+      <div class="upload-form-panel-inner wp-form">
+        <h2 class="info-modal-title upload-form-title">
+          Wallpaper Creator <span class="wp-beta">BETA</span>
+        </h2>
+
+        <div class="upload-form-group">
+          <label for="wpFile">Image or video</label>
+          <div class="md3-file-field">
+            <input type="file" id="wpFile" accept="image/*,.gif,video/*,.webm,.mp4,.mov,.mkv">
+            <label for="wpFile" class="md3-file-field-btn">
+              <span class="material-symbols-rounded">upload_file</span>
+              <span id="wpFileLabel">Choose file…</span>
+            </label>
+          </div>
+          <p class="upload-form-hint">PNG / JPG / WebP image, GIF or WebM / MP4 video. Everything is processed in your
+            browser.</p>
+        </div>
+
+        <div class="wp-aspect-zoom">
+          <div class="upload-form-group wp-aspect-group">
+            <label>Aspect ratio</label>
+            <div class="wp-seg" id="wpAspect">
+              <button type="button" data-aspect="16:9" class="active">16:9</button>
+              <button type="button" data-aspect="16:10">16:10</button>
+              <button type="button" data-aspect="21:9">21:9</button>
+              <button type="button" data-aspect="4:3">4:3</button>
+              <button type="button" data-aspect="custom">Custom</button>
+            </div>
+            <div class="wp-custom-aspect" id="wpCustomAspect" style="display:none;">
+              <input type="number" id="wpCustomW" class="md3-field" min="1" max="100" value="16">
+              <span>:</span>
+              <input type="number" id="wpCustomH" class="md3-field" min="1" max="100" value="9">
+            </div>
+          </div>
+
+          <div class="upload-form-group wp-zoom">
+            <label for="wpZoom">Zoom <span class="wp-val" id="wpZoomVal">100%</span></label>
+            <div class="wp-zoom-row">
+              <input type="range" id="wpZoom" min="50" max="500" value="100" step="1">
+              <button type="button" class="settings-action-btn wp-mini-btn" id="wpReset" title="Reset crop">
+                <span class="material-symbols-rounded">restart_alt</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="upload-form-hint wp-aspect-hint">Drag the preview to move the image, scroll or pinch to zoom.</p>
+
+        <div class="upload-form-group wp-video-only">
+          <label>Trim <span class="wp-val" id="wpTrimLabel"></span></label>
+          <div class="wp-trim-box">
+            <div class="wp-timeline-wrap">
+              <div class="wp-timeline" id="wpTimeline">
+                <canvas class="wp-film" id="wpFilm" width="720" height="56"></canvas>
+                <div class="wp-tl-dim wp-tl-dim-l" id="wpTlDimL"></div>
+                <div class="wp-tl-dim wp-tl-dim-r" id="wpTlDimR"></div>
+                <div class="wp-tl-range" id="wpTlRange"></div>
+                <div class="wp-tl-handle start" id="wpTlStart" role="slider" tabindex="0" aria-label="Trim start"></div>
+                <div class="wp-tl-handle end" id="wpTlEnd" role="slider" tabindex="0" aria-label="Trim end"></div>
+                <div class="wp-tl-playhead" id="wpTlPlayhead"></div>
+              </div>
+            </div>
+            <div class="wp-trim-controls">
+              <button type="button" class="settings-action-btn wp-mini-btn" id="wpPlay" title="Play / pause">
+                <span class="material-symbols-rounded" id="wpPlayIcon">pause</span>
+              </button>
+              <span class="wp-playtime" id="wpPlayTime">0:00.0</span>
+              <span class="wp-spacer"></span>
+              <button type="button" class="settings-action-btn wp-chip-btn" id="wpSetIn"
+                title="Set the start to the current position">
+                <span class="material-symbols-rounded">first_page</span> Set start
+              </button>
+              <button type="button" class="settings-action-btn wp-chip-btn" id="wpSetOut"
+                title="Set the end to the current position">
+                Set end <span class="material-symbols-rounded">last_page</span>
+              </button>
+            </div>
+            <div class="wp-trim-stats">
+              <div><span>Start</span><strong id="wpTrimStartTxt">0:00.0</strong></div>
+              <div><span>Length</span><strong id="wpTrimLenTxt">0.0s</strong></div>
+              <div><span>End</span><strong id="wpTrimEndTxt">0:00.0</strong></div>
+            </div>
+          </div>
+          <p class="upload-form-hint">Drag the edge handles to choose the part to keep, click the timeline to jump to a
+            moment. Arrow keys fine-tune a focused handle. Short clips (10–30s) keep the VPK small.</p>
+        </div>
+
+        <div class="upload-form-group wp-fx is-collapsed" id="wpFx">
+          <div class="wp-fx-header">
+            <button type="button" class="wp-fx-toggle" id="wpFxToggle" aria-expanded="false" aria-controls="wpFxBody">
+              <span class="wp-fx-toggle-label">Effects</span>
+              <span class="wp-fx-badge" id="wpFxBadge" hidden>0</span>
+              <span class="material-symbols-rounded wp-fx-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <button type="button" class="wp-fx-reset" id="wpFxReset" title="Reset effects">
+              <span class="material-symbols-rounded">restart_alt</span> Reset
+            </button>
+          </div>
+          <div class="wp-fx-body" id="wpFxBody">
+            <div class="wp-fx-body-inner">
+              <div class="wp-fx-block is-off" data-block="blur">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Blur</span>
+                  <input type="range" id="wpBlur" data-fx="blur" min="0" max="40" step="1" value="0" aria-label="Blur">
+                  <span class="wp-val" id="wpBlurVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="wave">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Wavy Glass</span>
+                  <input type="range" id="wpWave" data-fx="wave" min="0" max="100" step="1" value="0"
+                    aria-label="Wavy glass">
+                  <span class="wp-val" id="wpWaveVal">Off</span>
+                </div>
+                <div class="wp-fx-row wp-fx-sub">
+                  <span class="wp-fx-sublabel">Waves</span>
+                  <input type="range" id="wpWaveCount" data-fx="waveCount" min="4" max="150" step="1" value="16"
+                    aria-label="Waves">
+                  <span class="wp-val" id="wpWaveCountVal">16</span>
+                </div>
+                <div class="wp-fx-row wp-fx-sub">
+                  <span class="wp-fx-sublabel">Direction</span>
+                  <select id="wpWaveDir" class="settings-select" data-fx="waveDir">
+                    <option value="vertical" selected>Vertical</option>
+                    <option value="horizontal">Horizontal</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="grain">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Grain</span>
+                  <input type="range" id="wpGrain" data-fx="grain" min="0" max="100" step="1" value="0"
+                    aria-label="Grain">
+                  <span class="wp-val" id="wpGrainVal">Off</span>
+                </div>
+                <div class="wp-fx-row wp-fx-sub">
+                  <span class="wp-fx-sublabel">Grain size</span>
+                  <input type="range" id="wpGrainSize" data-fx="grainSize" min="1" max="4" step="0.5" value="1"
+                    aria-label="Grain size">
+                  <span class="wp-val" id="wpGrainSizeVal">1×</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="vignette">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Vignette</span>
+                  <input type="range" id="wpVignette" data-fx="vignette" min="0" max="100" step="1" value="0"
+                    aria-label="Vignette">
+                  <span class="wp-val" id="wpVignetteVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="chroma">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Chromatic Aberration</span>
+                  <input type="range" id="wpChroma" data-fx="chroma" min="-100" max="100" step="1" value="0"
+                    aria-label="Chromatic aberration">
+                  <span class="wp-val" id="wpChromaVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="bloom">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Bloom</span>
+                  <input type="range" id="wpBloom" data-fx="bloom" min="0" max="100" step="1" value="0"
+                    aria-label="Bloom">
+                  <span class="wp-val" id="wpBloomVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="radial">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Radial Blur</span>
+                  <input type="range" id="wpRadial" data-fx="radial" min="0" max="100" step="1" value="0"
+                    aria-label="Radial blur">
+                  <span class="wp-val" id="wpRadialVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="crt">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">CRT</span>
+                  <input type="range" id="wpCrt" data-fx="crt" min="0" max="100" step="1" value="0" aria-label="CRT">
+                  <span class="wp-val" id="wpCrtVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="pixelate">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Pixelate</span>
+                  <input type="range" id="wpPixelate" data-fx="pixelate" min="0" max="64" step="1" value="0"
+                    aria-label="Pixelate">
+                  <span class="wp-val" id="wpPixelateVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="sharpen">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Sharpen</span>
+                  <input type="range" id="wpSharpen" data-fx="sharpen" min="0" max="100" step="1" value="0"
+                    aria-label="Sharpen">
+                  <span class="wp-val" id="wpSharpenVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block is-off" data-block="edges">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Edges</span>
+                  <input type="range" id="wpEdges" data-fx="edges" min="0" max="100" step="1" value="0"
+                    aria-label="Edges">
+                  <span class="wp-val" id="wpEdgesVal">Off</span>
+                </div>
+              </div>
+
+              <div class="wp-fx-block" data-block="color">
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Brightness</span>
+                  <input type="range" id="wpBrightness" data-fx="brightness" min="-100" max="100" step="1" value="0"
+                    aria-label="Brightness">
+                  <span class="wp-val" id="wpBrightnessVal">0</span>
+                </div>
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Contrast</span>
+                  <input type="range" id="wpContrast" data-fx="contrast" min="-100" max="100" step="1" value="0"
+                    aria-label="Contrast">
+                  <span class="wp-val" id="wpContrastVal">0</span>
+                </div>
+                <div class="wp-fx-row">
+                  <span class="wp-fx-title">Saturation</span>
+                  <input type="range" id="wpSaturation" data-fx="saturation" min="-100" max="100" step="1" value="0"
+                    aria-label="Saturation">
+                  <span class="wp-val" id="wpSaturationVal">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-grid-2">
+          <div class="upload-form-group">
+            <label for="wpHeightTrigger">Resolution</label>
+            <select id="wpHeight" class="settings-select">
+              <option value="720">720p</option>
+              <option value="1080" selected>1080p</option>
+              <option value="1440">1440p</option>
+              <option value="2160">2160p (4K)</option>
+            </select>
+          </div>
+          <div class="upload-form-group">
+            <label for="wpQualityTrigger">Quality</label>
+            <select id="wpQuality" class="settings-select">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high" selected>High</option>
+            </select>
+          </div>
+          <div class="upload-form-group wp-video-only">
+            <label for="wpFpsTrigger">Frame rate</label>
+            <select id="wpFps" class="settings-select">
+              <option value="24">24 fps</option>
+              <option value="30" selected>30 fps</option>
+              <option value="60">60 fps (not recommended)</option>
+            </select>
+          </div>
+          <div class="upload-form-group">
+            <label for="wpCodecTrigger">Codec</label>
+            <select id="wpCodec" class="settings-select">
+              <option value="vp8">VP8 (most compatible)</option>
+              <option value="vp9" selected>VP9</option>
+            </select>
+          </div>
+          <div class="upload-form-group">
+            <label for="wpPakTrigger">VPK number</label>
+            <select id="wpPak" class="settings-select">
+              <option value="02" selected>02</option>
+            </select>
+          </div>
+        </div>
+        <p class="upload-form-hint" style="margin-top:-6px;">Output file: <code>pakNN_dir.vpk</code>. Pick a number that
+          doesn't clash with your other mods.</p>
+
+        <div class="upload-submit-row">
+          <button type="button" class="upload-submit-btn" id="wpGenerate" disabled>
+            <span class="upload-submit-icon material-symbols-rounded" id="wpGenIcon">movie_edit</span>
+            <span class="upload-submit-text" id="wpGenText">Generate VPK</span>
+          </button>
+          <div class="upload-progress-wrap" id="wpProgressWrap" style="display:none;">
+            <m3e-linear-progress-indicator id="wpProgressBar" variant="wavy" value="0"
+              max="100"></m3e-linear-progress-indicator>
+            <span class="upload-progress-pct" id="wpProgressPct">0%</span>
+          </div>
+        </div>
+        <div id="wpStatus" class="upload-status wp-status"></div>
+      </div>
+    </div>
+
+    <div class="upload-preview-panel">
+      <div class="upload-preview-inner">
+        <h2 class="info-modal-title upload-preview-title">Preview</h2>
+        <div class="wp-workspace" id="wpWorkspace">
+          <div class="wp-drop" id="wpDrop">
+            <span class="material-symbols-rounded">add_photo_alternate</span>
+            <p>Drop an image, GIF or video here</p>
+            <p class="wp-drop-sub">or use the file picker on the left</p>
+          </div>
+          <div class="wp-stage-wrap">
+            <div class="wp-stage" id="wpStage">
+              <canvas id="wpCanvas" width="960" height="540"></canvas>
+              <img class="wp-ui-overlay" id="wpUiOverlay" src="assets/tools/wallpaper/preview-ui.png" alt=""
+                draggable="false">
+              <div class="wp-grid-overlay"></div>
+            </div>
+            <div class="wp-info-row">
+              <div class="wp-info" id="wpInfo"></div>
+              <button type="button" class="wp-ui-toggle" id="wpRealToggle"
+                title="Open a fullscreen preview at the real output resolution with approximate video compression">
+                <span class="material-symbols-rounded">high_quality</span> Real quality
+              </button>
+              <button type="button" class="wp-ui-toggle active" id="wpUiToggle"
+                title="Show / hide game interface preview">
+                <span class="material-symbols-rounded">dashboard</span> Game UI
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-result" id="wpResult" style="display:none;">
+          <span class="material-symbols-rounded">check_circle</span>
+          <div class="wp-result-text">
+            <strong id="wpResultText"></strong>
+            <p id="wpInstallHint"></p>
+          </div>
+          <button type="button" class="upload-submit-btn" id="wpDownload" style="display:none;">
+            <span class="upload-submit-icon material-symbols-rounded">download</span>
+            <span class="upload-submit-text">Download</span>
+          </button>
+        </div>
+
+        <div class="upload-preview-log" id="wpLog" aria-live="polite" aria-relevant="additions">
+          <div class="upload-preview-log-header">
+            <span class="material-symbols-rounded upload-preview-log-icon">terminal</span>
+            <span class="upload-preview-log-title">Activity</span>
+          </div>
+          <div class="upload-preview-log-body" id="wpLogBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
