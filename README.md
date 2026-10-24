@@ -34,50 +34,64 @@
 </div>
 
 > [!WARNING]
-> **Paid for access to Dota2PornFx? You may have been scammed.** The catalog is free to browse and download. We do not sell subscriptions or charge for access. Get the catalog only from the official sources (the [website](https://h6rd.github.io/Dota2PornFxWeb) and its mirrors, the [GitHub repository](https://github.com/h6rd/Dota2PornFxWeb), [Hugging Face](https://huggingface.co/datasets/hrdq/Dota2PornFx)) or through the approved projects, [Minify](https://github.com/Egezenn/dota2-minify) and [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager).
+> **Paid for access to Dota2PornFx? You may have been scammed.** The catalog is free to browse and download. We do not sell subscriptions or charge for access. Get the catalog only from the official sources (the [website](https://h6rd.github.io/Dota2PornFxWeb) and its mirror) or through the approved projects: [Minify](https://github.com/Egezenn/dota2-minify) and [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager).
 
-## What is Dota2PornFx?
+<h3><a name="what-is-dota2pornfx"></a><img src=".github/assets/h-what-is.svg" alt="What is Dota2PornFx?" width="100%"></h3>
 
 **Dota2PornFx** is a comprehensive mod repository for Dota 2, giving players full control over the visual experience of their game. Browse and download custom hero skins, terrains, announcers, shaders, music, cursors, and much more.
 
-## Features
+<h3><a name="features"></a><img src=".github/assets/h-features.svg" alt="Features" width="100%"></h3>
 
 <p align="center">
   <img src=".github/assets/features.svg" alt="30+ categories: heroes, terrains, shaders, announcers, music, cursors, and more. Regular updates: new content and community contributions added frequently. Tools: VPK extraction, merging, and compilation utilities." width="100%">
 </p>
 
-## Screenshots
+<h3><a name="screenshots"></a><img src=".github/assets/h-screenshots.svg" alt="Screenshots" width="100%"></h3>
 
-| Main page | Heroes | Cart | Tools |
-|:---:|:---:|:---:|:---:|
-| <img src=".github/assets/home.png" alt="Main page" width="100%"> | <img src=".github/assets/heroes.png" alt="Heroes" width="100%"> | <img src=".github/assets/cart.png" alt="Cart" width="100%"> | <img src=".github/assets/tools.png" alt="Tools" width="100%"> |
+<p align="center">
+  <img src=".github/screenshots/home.png" alt="Main page" width="24%">
+  <img src=".github/screenshots/heroes.png" alt="Heroes" width="24%">
+  <img src=".github/screenshots/cart.png" alt="Cart" width="24%">
+  <img src=".github/screenshots/tools.png" alt="Tools" width="24%">
+  <br>
+  <img src=".github/assets/shot-main-page.svg" alt="Main page" width="24%">
+  <img src=".github/assets/shot-heroes.svg" alt="Heroes" width="24%">
+  <img src=".github/assets/shot-cart.svg" alt="Cart" width="24%">
+  <img src=".github/assets/shot-tools.svg" alt="Tools" width="24%">
+</p>
 
-| Wallpaper Creator | Cursor Creator | Localization Editor | Font Changer |
-|:---:|:---:|:---:|:---:|
-| <img src=".github/assets/wp-creator.png" alt="Wallpaper Creator" width="100%"> | <img src=".github/assets/cs-creator.png" alt="Cursor Creator" width="100%"> | <img src=".github/assets/lc-editor.png" alt="Localization Editor" width="100%"> | <img src=".github/assets/font-changer.png" alt="Font Changer" width="100%"> |
+<p align="center">
+  <img src=".github/screenshots/wp-creator.png" alt="Wallpaper Creator" width="24%">
+  <img src=".github/screenshots/cs-creator.png" alt="Cursor Creator" width="24%">
+  <img src=".github/screenshots/lc-editor.png" alt="Localization Editor" width="24%">
+  <img src=".github/screenshots/font-changer.png" alt="Font Changer" width="24%">
+  <br>
+  <img src=".github/assets/shot-wp-creator.svg" alt="Wallpaper Creator" width="24%">
+  <img src=".github/assets/shot-cs-creator.svg" alt="Cursor Creator" width="24%">
+  <img src=".github/assets/shot-lc-editor.svg" alt="Localization Editor" width="24%">
+  <img src=".github/assets/shot-font-changer.svg" alt="Font Changer" width="24%">
+</p>
 
-## Project activity
+<h3><a name="project-activity"></a><img src=".github/assets/h-activity.svg" alt="Project activity" width="100%"></h3>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main/.github/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
 </p>
 
-## Installation
+<h3><a name="installation"></a><img src=".github/assets/h-installation.svg" alt="Installation" width="100%"></h3>
 
 <p align="center">
   <a href="https://d2pfxwiki.pages.dev/en/install.html"><img src=".github/assets/btn-install.svg" alt="Installation guide" height="48"></a>
   <a href="https://d2pfxwiki.pages.dev/en/troubleshoot.html"><img src=".github/assets/btn-troubleshoot.svg" alt="Troubleshooting" height="48"></a>
 </p>
 
-## Special Thanks
+<h3><a name="special-thanks"></a><img src=".github/assets/h-thanks.svg" alt="Special Thanks" width="100%"></h3>
 
-| Contributor | Contribution |
-|-------------|--------------|
-| [Egezenn](https://github.com/Egezenn) | Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py) |
-| [Fleece](https://github.com/TheFleece) | Creation of the [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager) |
-| [ibcsz](https://github.com/ibcsz12) | Added Santa hat to the logo for winter theme |
+- **[Egezenn](https://github.com/Egezenn)** — Integration with [Minify](https://github.com/Egezenn/dota2-minify) and the [metadata generation script](https://github.com/h6rd/Dota2PornFxWeb/blob/main/scripts/add_meta.py)
+- **[Fleece](https://github.com/TheFleece)** — Creation of the [Dota 2 Mod Manager](https://github.com/TheFleece/dota2-mod-manager)
+- **[ibcsz](https://github.com/ibcsz12)** — Added Santa hat to the logo for winter theme
 
-## Credits
+<h3><a name="credits"></a><img src=".github/assets/h-credits.svg" alt="Credits" width="100%"></h3>
 
 Content is sourced from the Dota 2 modding community. Original sources include:
 
@@ -93,71 +107,65 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 
 </details>
 
-## Shoutouts
+<h3><a name="shoutouts"></a><img src=".github/assets/h-shoutouts.svg" alt="Shoutouts" width="100%"></h3>
 
 <details>
 <summary><b>Streamers & guide creators</b></summary>
 
 <br>
 
-| Creator | Platform |
-|---------|----------|
-| Lenz | [YouTube](https://www.youtube.com/@Lenz13377) |
-| romantic | [Twitch](https://www.twitch.tv/romantic991) / [TikTok](https://www.tiktok.com/@romantic_9991) |
-| hanta | [YouTube](https://www.youtube.com/@hqnta) |
-| dricsy66 | [YouTube](https://www.youtube.com/@dricsy66) |
-| Jez4 | [YouTube](https://www.youtube.com/@Jez4444) |
-| SNOW SUCKER | [YouTube](https://www.youtube.com/@AYE22814) |
-| hypothermia | [TikTok](https://www.tiktok.com/@methedonetherapy) |
-| 0cyzdau | [TikTok](https://www.tiktok.com/@0cyzdau) |
-| nedavovchik | [TikTok](https://www.tiktok.com/@nedavovchik) |
-| pr1me | [TikTok](https://www.tiktok.com/@pr1meee_999) |
+- **Lenz** — [YouTube](https://www.youtube.com/@Lenz13377)
+- **romantic** — [Twitch](https://www.twitch.tv/romantic991) / [TikTok](https://www.tiktok.com/@romantic_9991)
+- **hanta** — [YouTube](https://www.youtube.com/@hqnta)
+- **dricsy66** — [YouTube](https://www.youtube.com/@dricsy66)
+- **Jez4** — [YouTube](https://www.youtube.com/@Jez4444)
+- **SNOW SUCKER** — [YouTube](https://www.youtube.com/@AYE22814)
+- **hypothermia** — [TikTok](https://www.tiktok.com/@methedonetherapy)
+- **0cyzdau** — [TikTok](https://www.tiktok.com/@0cyzdau)
+- **nedavovchik** — [TikTok](https://www.tiktok.com/@nedavovchik)
+- **pr1me** — [TikTok](https://www.tiktok.com/@pr1meee_999)
 
 </details>
 
-## Libraries & Resources
+<h3><a name="libraries--resources"></a><img src=".github/assets/h-libraries.svg" alt="Libraries & Resources" width="100%"></h3>
 
-| Name | Purpose |
-|------|---------|
-| [zip.js](https://github.com/gildas-lormeau/zip.js/) | ZIP read/write in the browser |
-| [lz-string](https://github.com/pieroxy/lz-string) | LZ-based string compression |
-| [m3e](https://github.com/matraic/m3e) | Material 3 Expressive UI components |
-| [mediabunny](https://github.com/Vanilagy/mediabunny) | Working with videos for Wallpaper Creator |
-| [GridStudio](https://github.com/linsisss/dota2-grid-toolkit) | Inspiration for the Wallpaper Creator |
-| [DOTA 2 VPK Updates](https://github.com/spirit-bear-productions/dota_vpk_updates) | Game localization files for the Localization Editor |
+- **[zip.js](https://github.com/gildas-lormeau/zip.js/)** — ZIP read/write in the browser
+- **[lz-string](https://github.com/pieroxy/lz-string)** — LZ-based string compression
+- **[m3e](https://github.com/matraic/m3e)** — Material 3 Expressive UI components
+- **[mediabunny](https://github.com/Vanilagy/mediabunny)** — Working with videos for Wallpaper Creator
+- **[GridStudio](https://github.com/linsisss/dota2-grid-toolkit)** — Inspiration for the Wallpaper Creator
+- **[DOTA 2 VPK Updates](https://github.com/spirit-bear-productions/dota_vpk_updates)** — Game localization files for the Localization Editor
 
-## License
+<h3><a name="license"></a><img src=".github/assets/h-license.svg" alt="License" width="100%"></h3>
 
-| What | Terms |
-|---|---|
-| Website and tool code | [GPL-3.0](LICENSE) |
-| **Content**: mods marked `author: hrdq`, mods submitted through the website with the author's confirmation, and the catalog | [LICENSE-CONTENT.md](LICENSE-CONTENT.md) |
-| Other mods, without either mark | Their authors' rights. **Not licensed by this project** |
-| Valve assets inside mods | Valve's rights |
+- **Website and tool code** — [GPL-3.0](LICENSE)
+- **Content**: mods marked `author: hrdq`, mods submitted through the website with the author's confirmation, and the catalog — [LICENSE-CONTENT.md](LICENSE-CONTENT.md)
+- **Other mods**, without either mark — Their authors' rights. **Not licensed by this project**
+- **Valve assets** inside mods — Valve's rights
 
 Commits up to and including `00f52750112435bb183633a4f982ea335b8ed84a` were released under GPL-3.0 and stay under it for those who received them. From the next commit on, the Content is under the Content License, including files that existed before. Details: [ATTRIBUTION.md](ATTRIBUTION.md).
 
-## Attribution & Reuse
+<h3><a name="attribution--reuse"></a><img src=".github/assets/h-attribution.svg" alt="Attribution & Reuse" width="100%"></h3>
 
 **Other authors' mods.** This project does not license them; their authors' rights apply. To republish another author's mod you need **that author's** permission, and mine does not replace it. Authors can ask for removal at any time (Discord `.hrdq`, email `hrdq@proton.me` or an issue naming the mod); it is removed within 7 days after authorship is confirmed.
 
 **For the Content** (mods marked `author: hrdq`, mods submitted through the website with the author's confirmation, and the catalog). Authors who submit a mod through the website confirm that it is licensed under the Content License, allow it to be distributed to the approved projects below, and can ask to change or remove it at any time:
 
-| | Allowed without permission |
-|:-:|---|
-| 🎮 | **Personal use.** Download, install and modify for your own game. |
-| 🎥 | **Streams, videos, guides, reviews**, including monetized channels. A link is appreciated. |
-| 🔗 | **Link** to the website, the repository and the official mirrors. |
-| 🤝 | **Approved projects** (listed below). |
+<img src=".github/assets/perm-allowed.svg" alt="Allowed without permission" height="34">
+
+- 🎮 **Personal use.** Download, install and modify for your own game.
+- 🎥 **Streams, videos, guides, reviews**, including monetized channels. A link is appreciated.
+- 🔗 **Link** to the website, the repository and the official mirrors.
+- 🤝 **Approved projects** (listed below).
 
 > [!CAUTION]
 > **Selling is prohibited completely.** Selling the Content, charging for access or earning from its distribution (subscriptions, premium features, paywalls, ads around downloads, paid bundles) is not allowed, and permission is not given to anyone. Voluntary donations that unlock nothing are fine.
 
-| | Requires written permission from h6rd |
-|:-:|---|
-| 🪞 | **Mirrors and re-uploads** of the catalog or a substantial part of it, other than the official ones. |
-| 🤖 | **Sites, apps or bots** that connect to the catalog (API, hot-linking, scraping) or republish and redistribute the Content. |
-| 🚫 | **Presenting the Content as your own or as official**, or removing author tags and watermarks. |
+<img src=".github/assets/perm-written.svg" alt="Requires written permission from h6rd" height="34">
+
+- 🪞 **Mirrors and re-uploads** of the catalog or a substantial part of it, other than the official ones.
+- 🤖 **Sites, apps or bots** that connect to the catalog (API, hot-linking, scraping) or republish and redistribute the Content.
+- 🚫 **Presenting the Content as your own or as official**, or removing author tags and watermarks.
 
 **Official sources:** [website](https://h6rd.github.io/Dota2PornFxWeb) · mirrors: [Vercel](https://d2pfx.vercel.app/), [Netlify](https://d2pfx.netlify.app/), [Render](https://d2pfx.onrender.com/) · [GitHub](https://github.com/h6rd/Dota2PornFxWeb) · [Hugging Face](https://huggingface.co/datasets/hrdq/Dota2PornFx)
 
