@@ -853,3 +853,398 @@
 .wp-fs:hover .wp-fs-note {
   opacity: 1;
 }
+
+.wp-modal {
+  max-width: 1200px;
+}
+
+.wp-form {
+  gap: 20px;
+}
+
+.wp-beta {
+  padding: 3px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-tertiary-container, var(--md-sys-color-secondary-container));
+  color: var(--md-sys-color-on-tertiary-container, var(--md-sys-color-on-secondary-container));
+}
+
+.wp-val {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 10px;
+  border-radius: 100px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.wp-val:empty {
+  display: none;
+}
+
+/* Connected button group */
+.wp-seg {
+  gap: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.wp-seg button {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring),
+    transform 0.25s var(--tl-spring);
+}
+
+.wp-seg button:first-child {
+  border-radius: 24px 8px 8px 24px;
+}
+
+.wp-seg button:last-child {
+  border-radius: 8px 24px 24px 8px;
+}
+
+.wp-seg button:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, var(--md-sys-color-secondary-container));
+}
+
+.wp-seg button:active {
+  transform: scale(0.96);
+}
+
+.wp-seg button.active,
+.wp-seg button.active:hover {
+  border-radius: 24px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.wp-mini-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.wp-zoom-row .wp-mini-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.wp-chip-btn {
+  height: 44px;
+  padding: 0 18px !important;
+  border-radius: 18px !important;
+}
+
+.wp-custom-aspect input {
+  min-height: 48px;
+}
+
+/* Drop zone */
+.wp-drop {
+  gap: 6px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--tl-card);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--md-sys-color-outline) 55%, transparent);
+  transition: background-color 0.2s var(--tl-ease), box-shadow 0.2s var(--tl-ease), border-radius 0.5s var(--tl-spring);
+}
+
+.wp-drop:hover {
+  border-radius: 40px 28px 40px 28px;
+}
+
+.wp-drop.over {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 14%, var(--tl-card));
+  box-shadow: inset 0 0 0 3px var(--md-sys-color-primary);
+}
+
+.wp-drop .material-symbols-rounded {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+  border-radius: 28px 20px 28px 20px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 40px;
+  opacity: 1;
+}
+
+.wp-drop p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.wp-drop .wp-drop-sub {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 1;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.wp-stage {
+  border-radius: 24px;
+  box-shadow: none;
+}
+
+.wp-info-row {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.wp-info {
+  font-size: 13px;
+}
+
+.wp-ui-toggle {
+  height: 36px;
+  gap: 6px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring),
+    transform 0.25s var(--tl-spring);
+}
+
+.wp-ui-toggle:hover {
+  border-radius: 18px;
+}
+
+.wp-ui-toggle:active {
+  transform: scale(0.95);
+}
+
+.wp-ui-toggle .material-symbols-rounded {
+  font-size: 18px;
+}
+
+.wp-ui-toggle.active {
+  border-radius: 18px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.wp-result {
+  gap: 14px;
+  margin-top: 12px;
+  padding: 16px 18px;
+  border-radius: 28px;
+}
+
+.wp-result>.material-symbols-rounded {
+  font-size: 32px;
+}
+
+.wp-result-text {
+  font-size: 14px;
+}
+
+.wp-result .upload-submit-btn {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+#wpLog {
+  margin-top: 12px;
+}
+
+.upload-submit-btn.is-cancel {
+  background: var(--md-sys-color-error-container, color-mix(in srgb, var(--md-sys-color-error) 22%, transparent));
+  color: var(--md-sys-color-on-error-container, var(--md-sys-color-error));
+}
+
+/* Trim */
+.wp-trim-box {
+  gap: 12px;
+  padding: 16px;
+  border-radius: 28px;
+  background: var(--tl-card);
+}
+
+.wp-timeline-wrap {
+  padding: 8px 16px;
+}
+
+.wp-timeline {
+  height: 60px;
+  border-radius: 16px;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.wp-film,
+.wp-tl-dim-l,
+.wp-tl-dim-r {
+  border-radius: 16px;
+}
+
+.wp-tl-dim-l {
+  border-radius: 16px 0 0 16px;
+}
+
+.wp-tl-dim-r {
+  border-radius: 0 16px 16px 0;
+}
+
+.wp-tl-handle {
+  width: 16px;
+}
+
+.wp-tl-handle.start {
+  border-radius: 16px 0 0 16px;
+}
+
+.wp-tl-handle.end {
+  border-radius: 0 16px 16px 0;
+}
+
+.wp-playtime {
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+  font-weight: 600;
+}
+
+.wp-trim-stats {
+  gap: 8px;
+}
+
+.wp-trim-stats>div {
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.wp-trim-stats span {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.wp-trim-stats strong {
+  font-size: 16px;
+}
+
+/* Effects */
+.wp-fx-header {
+  padding: 0 4px;
+}
+
+.wp-fx-toggle {
+  gap: 10px;
+  min-height: 44px;
+  padding: 4px 6px 4px 4px;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+}
+
+.wp-fx-badge {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 12px;
+  line-height: 24px;
+}
+
+.wp-fx-reset {
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 13px;
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring);
+}
+
+.wp-fx-reset:hover {
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, var(--md-sys-color-secondary-container));
+}
+
+.wp-fx-body {
+  margin-top: 10px;
+}
+
+.wp-fx-body-inner {
+  gap: 8px;
+}
+
+.wp-fx-block {
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  background: var(--tl-card);
+}
+
+.wp-fx-row {
+  grid-template-columns: 1fr 160px 52px;
+  min-height: 40px;
+}
+
+.wp-fx-title {
+  font-size: 14px;
+}
+
+.wp-fx-sublabel {
+  font-size: 13px;
+}
+
+.wp-fx-row .wp-val {
+  margin: 0;
+  padding: 2px 0;
+  text-align: center;
+}
+
+.wp-fx-block.is-off .wp-val {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.wp-fx-row .md3-select-trigger {
+  min-height: 40px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .wp-fx-row {
+    grid-template-columns: 1fr 110px 48px;
+  }
+
+  .wp-trim-box {
+    padding: 12px;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .wp-aspect-group {
+    flex: 1 1 100%;
+  }
+
+  .wp-seg {
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .wp-seg button {
+    flex: 1 1 auto;
+    padding: 0 10px;
+  }
+}

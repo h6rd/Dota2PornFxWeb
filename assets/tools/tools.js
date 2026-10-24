@@ -200,6 +200,15 @@
 
     modal.querySelectorAll('[data-tool]').forEach(card => {
       card.addEventListener('click', () => pick(card.dataset.tool, card));
+
+      const shape = card.querySelector('m3e-shape[data-shape-hover]');
+      if (shape) {
+        const morph = (on) => shape.setAttribute('name', on ? shape.dataset.shapeHover : shape.dataset.shape);
+        card.addEventListener('pointerenter', () => morph(true));
+        card.addEventListener('pointerleave', () => morph(false));
+        card.addEventListener('focus', () => morph(true));
+        card.addEventListener('blur', () => morph(false));
+      }
     });
 
     document.addEventListener('click', (e) => {
@@ -213,6 +222,23 @@
         open();
       }, 220);
     });
+
+    const syncRange = (r) => {
+      const min = parseFloat(r.min) || 0;
+      const max = isNaN(parseFloat(r.max)) ? 100 : parseFloat(r.max);
+      const pct = max > min ? ((parseFloat(r.value) - min) / (max - min)) * 100 : 0;
+      const v = Math.min(100, Math.max(0, pct)) + '%';
+      if (r.style.getPropertyValue('--tl-pct') !== v) r.style.setProperty('--tl-pct', v);
+    };
+    const syncRanges = () => {
+      document.querySelectorAll('.info-modal.active input[type="range"]').forEach(syncRange);
+    };
+    document.addEventListener('input', (e) => {
+      if (e.target && e.target.matches && e.target.matches('input[type="range"]')) syncRange(e.target);
+    }, true);
+    setInterval(() => {
+      if (document.querySelector('.info-modal.active input[type="range"]')) syncRanges();
+    }, 200);
 
     window.openToolsModal = open;
   }

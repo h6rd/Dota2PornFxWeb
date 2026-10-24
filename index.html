@@ -389,44 +389,61 @@
 
   <!-- tools -->
   <div id="toolsOverlay" class="info-overlay"></div>
-  <div id="toolsModal" class="info-modal tools-modal">
+  <div id="toolsModal" class="info-modal tools-modal" role="dialog" aria-modal="true" aria-labelledby="toolsTitle">
     <button class="info-modal-close" id="closeToolsModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
-    <h2 class="info-modal-title">Tools</h2>
-    <div class="tools-list">
+    <header class="tools-header">
+      <h2 class="tools-title" id="toolsTitle">Tools</h2>
+      <p class="tools-sub">Create your own backgrounds, cursors, texts and fonts</p>
+    </header>
+    <div class="tools-pane">
+      <div class="tools-list">
       <button type="button" class="tools-card" data-tool="wallpaper">
-        <span class="tools-card-icon"><span class="material-symbols-rounded">wallpaper</span></span>
+        <span class="tools-card-icon">
+          <m3e-shape name="4-sided-cookie" data-shape="4-sided-cookie" data-shape-hover="9-sided-cookie" aria-hidden="true"></m3e-shape>
+          <span class="material-symbols-rounded">wallpaper</span>
+        </span>
         <span class="tools-card-text">
           <span class="tools-card-title">Wallpaper Creator <span class="tools-card-badge">BETA</span></span>
-          <p class="tools-card-desc">Turn an image, GIF or video into an main menu background.</p>
+          <span class="tools-card-desc">Turn an image, GIF or video into a main menu background.</span>
         </span>
-        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+        <span class="material-symbols-rounded tools-card-arrow">arrow_forward</span>
       </button>
       <button type="button" class="tools-card" data-tool="cursors">
-        <span class="tools-card-icon"><span class="material-symbols-rounded">mouse</span></span>
+        <span class="tools-card-icon">
+          <m3e-shape name="arrow" data-shape="arrow" data-shape-hover="circle" aria-hidden="true"></m3e-shape>
+          <span class="material-symbols-rounded">mouse</span>
+        </span>
         <span class="tools-card-text">
           <span class="tools-card-title">Cursor Creator</span>
-          <p class="tools-card-desc">Make your own cursor set from images.</p>
+          <span class="tools-card-desc">Make your own cursor set from images.</span>
         </span>
-        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+        <span class="material-symbols-rounded tools-card-arrow">arrow_forward</span>
       </button>
       <button type="button" class="tools-card" data-tool="localization">
-        <span class="tools-card-icon"><span class="material-symbols-rounded">translate</span></span>
+        <span class="tools-card-icon">
+          <m3e-shape name="puffy" data-shape="puffy" data-shape-hover="4-leaf-clover" aria-hidden="true"></m3e-shape>
+          <span class="material-symbols-rounded">translate</span>
+        </span>
         <span class="tools-card-text">
           <span class="tools-card-title">Localization Editor</span>
-          <p class="tools-card-desc">Edit any game text. Your changes can be updated when the game files change.</p>
+          <span class="tools-card-desc">Edit any game text. Your changes can be updated when the game files change.</span>
         </span>
-        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+        <span class="material-symbols-rounded tools-card-arrow">arrow_forward</span>
       </button>
       <button type="button" class="tools-card" data-tool="fonts">
-        <span class="tools-card-icon"><span class="material-symbols-rounded">text_fields</span></span>
+        <span class="tools-card-icon">
+          <m3e-shape name="bun" data-shape="bun" data-shape-hover="pill" aria-hidden="true"></m3e-shape>
+          <span class="material-symbols-rounded">text_fields</span>
+        </span>
         <span class="tools-card-text">
           <span class="tools-card-title">Font Changer <span class="tools-card-badge">BETA</span></span>
-          <p class="tools-card-desc">Replace the interface and title fonts.</p>
+          <span class="tools-card-desc">Replace the interface and title fonts.</span>
         </span>
-        <span class="material-symbols-rounded tools-card-arrow">chevron_right</span>
+        <span class="material-symbols-rounded tools-card-arrow">arrow_forward</span>
       </button>
+      </div>
     </div>
   </div>
 
@@ -586,14 +603,16 @@
 
   <!-- Notes Modal -->
   <div id="notesOverlay" class="info-overlay"></div>
-  <div id="notesModal" class="info-modal notes-modal">
+  <div id="notesModal" class="info-modal notes-modal" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
     <button class="info-modal-close" id="closeNotesModal" aria-label="Close">
       <span class="material-symbols-rounded">close</span>
     </button>
-    <div class="info-modal-content">
-      <h2 class="info-modal-title">News</h2>
-      <div class="notes-content" id="notesContent">
-      </div>
+    <header class="nw-header">
+      <h2 class="nw-title" id="notesTitle">News</h2>
+      <p class="nw-sub" id="notesSub"></p>
+    </header>
+    <div class="nw-pane">
+      <div class="notes-content" id="notesContent"></div>
     </div>
   </div>
 

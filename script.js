@@ -104,16 +104,16 @@ function _preventScrollKey(e) {
 
 function openModal() {
     document.body.classList.add('modal-open');
-    document.addEventListener('wheel', _preventScrollWheel, { passive: false });
+    document.addEventListener('wheel',     _preventScrollWheel, { passive: false });
     document.addEventListener('touchmove', _preventScrollWheel, { passive: false });
-    document.addEventListener('keydown', _preventScrollKey);
+    document.addEventListener('keydown',   _preventScrollKey);
 }
 
 function closeModal() {
     document.body.classList.remove('modal-open');
-    document.removeEventListener('wheel', _preventScrollWheel);
+    document.removeEventListener('wheel',     _preventScrollWheel);
     document.removeEventListener('touchmove', _preventScrollWheel);
-    document.removeEventListener('keydown', _preventScrollKey);
+    document.removeEventListener('keydown',   _preventScrollKey);
 }
 
 const state = {
@@ -1030,6 +1030,12 @@ const ANNOUNCEMENT_TYPE_ICONS = {
     info: 'campaign'
 };
 
+const ANNOUNCEMENT_TOAST_SHAPES = {
+    update: 'sunny',
+    warning: 'burst',
+    info: '9-sided-cookie'
+};
+
 const ANNOUNCEMENT_SEEN_KEY = 'lastSeenAnnouncementTime';
 const ANNOUNCEMENT_VIEWED_KEY = 'lastViewedAnnouncementTime';
 
@@ -1107,18 +1113,24 @@ function showAnnouncementToast(onViewAll) {
     const type = latest.type || 'info';
     const toast = document.createElement('div');
     toast.className = `announcement-toast ${type}`;
+    const typeLabel = { update: 'Update', warning: 'Important', info: 'Info' }[type] || 'Info';
+    toast.setAttribute('role', 'status');
     toast.innerHTML = `
-        <div class="announcement-toast-icon">
-            <span class="material-symbols-rounded">${getAnnouncementIcon(type)}</span>
+        <div class="announcement-toast-head">
+            <div class="announcement-toast-icon">
+                <m3e-shape name="${ANNOUNCEMENT_TOAST_SHAPES[type] || ANNOUNCEMENT_TOAST_SHAPES.info}"></m3e-shape>
+                <span class="material-symbols-rounded">${getAnnouncementIcon(type)}</span>
+            </div>
+            <span class="announcement-toast-label">${typeLabel}</span>
+            <button class="announcement-toast-close" type="button" aria-label="Dismiss">
+                <span class="material-symbols-rounded">close</span>
+            </button>
         </div>
         <div class="announcement-toast-body">
             <p class="announcement-toast-text">${latest.text || ''}</p>
             ${renderAnnouncementLinks(latest.urls)}
             <button class="announcement-toast-viewall" type="button">See all updates</button>
         </div>
-        <button class="announcement-toast-close" type="button" aria-label="Dismiss">
-            <span class="material-symbols-rounded">close</span>
-        </button>
     `;
 
     document.body.appendChild(toast);
@@ -1140,7 +1152,7 @@ function showAnnouncementToast(onViewAll) {
     });
 }
 
-// Notes Modal
+// News Modal
 function setupNotesModal() {
     const notesButton = document.getElementById('notesButton');
     const notesModal = document.getElementById('notesModal');
@@ -1162,32 +1174,47 @@ function setupNotesModal() {
         mobileNotesBadge?.classList.toggle('show', hasUnread);
     };
 
+    const notesSub = document.getElementById('notesSub');
+    const NOTE_TYPE_LABELS = { update: 'Update', warning: 'Important', info: 'Info' };
+
     const renderNotesList = () => {
         const announcements = getSortedAnnouncements();
+        const lastViewed = parseInt(localStorage.getItem(ANNOUNCEMENT_VIEWED_KEY) || '0', 10);
         notesContent.innerHTML = '';
+
+        if (notesSub) {
+            notesSub.textContent = announcements.length
+                ? `${announcements.length} ${announcements.length === 1 ? 'post' : 'posts'}`
+                : '';
+        }
 
         if (announcements.length === 0) {
             notesContent.innerHTML = `
                 <div class="notes-empty">
-                    <span class="material-symbols-rounded">description</span>
+                    <div class="notes-empty-icon"><span class="material-symbols-rounded">notifications_off</span></div>
+                    <h3 class="notes-empty-title">All caught up</h3>
                     <p>Nothing new at the moment.<br>Check back later for updates!</p>
                 </div>
             `;
             return;
         }
 
-        announcements.forEach(note => {
+        announcements.forEach((note, index) => {
             const type = note.type || 'info';
-            const noteItem = document.createElement('div');
+            const isNew = parseAnnouncementTime(note.time) > lastViewed;
+            const noteItem = document.createElement('article');
             noteItem.className = `note-item ${type}`;
+            noteItem.style.setProperty('--i', Math.min(index, 8));
             noteItem.innerHTML = `
                 <div class="note-header">
                     <div class="note-icon">
                         <span class="material-symbols-rounded">${getAnnouncementIcon(type)}</span>
                     </div>
                     <div class="note-meta">
+                        <span class="note-type">${NOTE_TYPE_LABELS[type] || NOTE_TYPE_LABELS.info}</span>
                         <span class="note-date">${formatAnnouncementDate(note.time)}</span>
                     </div>
+                    ${isNew ? '<span class="note-new">New</span>' : ''}
                 </div>
                 <p class="note-text">${note.text || ''}</p>
                 ${renderAnnouncementVersions(note.versions)}
@@ -1211,7 +1238,7 @@ function setupNotesModal() {
         updateBadge();
 
         setTimeout(() => {
-            const modalContent = notesModal.querySelector('.info-modal-content');
+            const modalContent = notesContent;
             if (modalContent) modalContent.scrollTop = 0;
         }, 100);
     };
@@ -1222,7 +1249,7 @@ function setupNotesModal() {
         closeModal();
 
         setTimeout(() => {
-            const modalContent = notesModal.querySelector('.info-modal-content');
+            const modalContent = notesContent;
             if (modalContent) modalContent.scrollTop = 0;
         }, 300);
     };

@@ -574,3 +574,326 @@ code.lc-key {
     padding: 0 16px;
   }
 }
+
+.lc-inner {
+  padding: 26px 10px 10px;
+  gap: 10px;
+}
+
+.lc-head {
+  padding: 0 120px 6px 22px;
+  min-height: 48px;
+}
+
+.lc-head .info-modal-title {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.lc-beta {
+  padding: 3px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-tertiary-container, var(--md-sys-color-secondary-container));
+  color: var(--md-sys-color-on-tertiary-container, var(--md-sys-color-on-secondary-container));
+}
+
+.lc-status {
+  padding: 6px 14px;
+  background: var(--tl-card);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.lc-status[data-kind="ok"] {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.lc-status[data-kind="error"] {
+  background: color-mix(in srgb, var(--md-sys-color-error) 16%, transparent);
+}
+
+/* Toolbar pane */
+.lc-bar {
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 28px;
+  background: var(--tl-pane);
+}
+
+.lc-field {
+  gap: 6px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--md-sys-color-primary);
+}
+
+.lc-field>span {
+  margin-left: 4px;
+}
+
+.lc-field .md3-select-trigger,
+.lc-field .settings-select {
+  height: 52px;
+  border-radius: 20px;
+}
+
+.info-modal.lc-modal .lc-inner .lc-search {
+  height: 52px;
+  padding: 0 20px 0 50px;
+  background-position: 18px center;
+}
+
+.lc-check {
+  gap: 10px;
+  height: 52px;
+  padding: 0 20px 0 16px;
+  border-radius: 20px;
+  background: var(--tl-card);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring);
+}
+
+.lc-check:hover {
+  background: var(--tl-hover);
+  border-radius: 26px;
+}
+
+.lc-check input {
+  width: 18px;
+  height: 18px;
+}
+
+.lc-saved {
+  padding: 0 16px;
+}
+
+.lc-chip {
+  padding: 6px 14px;
+  border: 0;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-weight: 600;
+  transition: background-color 0.2s var(--tl-ease), transform 0.25s var(--tl-spring);
+}
+
+.lc-chip:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, var(--md-sys-color-secondary-container));
+}
+
+.lc-chip:active {
+  transform: scale(0.95);
+}
+
+.lc-banner {
+  padding: 12px 12px 12px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+}
+
+/* List pane */
+.lc-list {
+  gap: 8px;
+  padding: 10px;
+  border-radius: 28px;
+  background: var(--tl-pane);
+}
+
+.lc-empty {
+  padding: 72px 0;
+  font-size: 15px;
+}
+
+.lc-row {
+  gap: 8px 20px;
+  padding: 14px 16px 14px 20px;
+  border-radius: 24px;
+  background: var(--tl-card);
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring);
+}
+
+.lc-row::before {
+  display: none;
+}
+
+.lc-row:hover {
+  background: var(--tl-hover);
+}
+
+.lc-row:focus-within {
+  box-shadow: none;
+}
+
+.lc-row.mod {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 14%, var(--tl-card));
+  border-radius: 24px 36px 36px 24px;
+}
+
+.lc-row.mod:hover {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 20%, var(--tl-card));
+}
+
+code.lc-key {
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.lc-badge {
+  padding: 2px 10px;
+}
+
+.lc-badge.warn {
+  border: 0;
+}
+
+.lc-revert {
+  width: 36px;
+  height: 36px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  transition: background-color 0.2s var(--tl-ease), transform 0.3s var(--tl-spring);
+}
+
+.lc-revert:hover {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: rotate(-90deg);
+}
+
+.lc-orig {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.info-modal.lc-modal .lc-inner .lc-ta {
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background-color: var(--md-sys-color-surface-container-low);
+  line-height: 1.45;
+}
+
+.info-modal.lc-modal .lc-inner .lc-ta:hover {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.info-modal.lc-modal .lc-inner .lc-ta:focus {
+  border-radius: 16px;
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.info-modal.lc-modal .lc-row.mod .lc-ta {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--md-sys-color-primary) 55%, transparent);
+}
+
+.info-modal.lc-modal .lc-row.mod .lc-ta:focus {
+  box-shadow: inset 0 0 0 2px var(--md-sys-color-primary);
+}
+
+/* Footer pane */
+.lc-footer {
+  gap: 10px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--tl-pane);
+}
+
+.lc-count {
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--tl-card);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.lc-count:empty {
+  display: none;
+}
+
+.lc-footer label {
+  gap: 10px;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+}
+
+.info-modal.lc-modal .lc-inner .lc-pak {
+  width: 72px;
+  min-height: 48px;
+  height: 48px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.lc-btn {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 18px;
+  font-size: 14px;
+  transition: background-color 0.2s var(--tl-ease), border-radius 0.4s var(--tl-spring),
+    transform 0.25s var(--tl-spring), opacity 0.2s ease;
+}
+
+.lc-btn:hover:not(:disabled) {
+  transform: none;
+  filter: none;
+  box-shadow: none;
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, var(--md-sys-color-primary));
+}
+
+.lc-btn.tonal:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, var(--md-sys-color-secondary-container));
+}
+
+.lc-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.lc-btn:disabled {
+  opacity: 1;
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+@media (max-width: 760px) {
+  .lc-modal {
+    border-radius: 0;
+  }
+
+  .lc-inner {
+    padding: 14px 8px 8px;
+  }
+
+  .lc-head {
+    padding: 0 96px 4px 14px;
+  }
+
+  .lc-head .info-modal-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .lc-bar,
+  .lc-list,
+  .lc-footer {
+    border-radius: 24px;
+  }
+
+  .lc-bar {
+    padding: 10px;
+  }
+
+  .lc-row {
+    padding: 12px 14px;
+  }
+
+  .lc-row.mod {
+    border-radius: 24px;
+  }
+}

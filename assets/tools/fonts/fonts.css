@@ -358,3 +358,126 @@
   line-height: 1.3;
   color: var(--md-sys-color-on-surface-variant);
 }
+
+.fc-modal {
+  border-radius: 36px;
+}
+
+.fc-body {
+  gap: 10px;
+  padding: 10px;
+}
+
+.fc-form,
+.fc-side {
+  border-radius: 28px;
+  background: var(--tl-pane);
+  scrollbar-color: var(--md-sys-color-outline) transparent;
+}
+
+.fc-form {
+  padding: 28px 28px 28px;
+  gap: 20px;
+}
+
+.fc-side {
+  padding: 28px 20px 24px;
+  gap: 12px;
+}
+
+.fc-form .info-modal-title {
+  margin: 0 0 4px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.fc-beta {
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  background: var(--md-sys-color-tertiary-container, var(--md-sys-color-secondary-container));
+  color: var(--md-sys-color-on-tertiary-container, var(--md-sys-color-on-secondary-container));
+}
+
+.fc-meta {
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: var(--tl-card);
+}
+
+.fc-chip {
+  padding: 3px 12px;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.fc-chip.warn {
+  box-shadow: none;
+}
+
+.fc-pv {
+  gap: 8px;
+  padding: 16px 20px;
+  border-radius: 24px;
+  background: var(--tl-card);
+}
+
+.fc-pv-title {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--md-sys-color-primary);
+}
+
+.fc-btn-row {
+  gap: 10px;
+}
+
+.fc-download-btn {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.fc-btn-row .upload-submit-btn {
+  padding: 0 24px;
+}
+
+.fc-btn-row .fc-result {
+  font-size: 13px;
+}
+
+.fc-status.error {
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--md-sys-color-error) 14%, transparent);
+}
+
+.fc-row {
+  gap: 16px;
+}
+
+@media (max-width: 860px) {
+  .fc-modal {
+    border-radius: 28px;
+  }
+
+  .fc-body {
+    padding: 8px;
+  }
+
+  .fc-form {
+    border-radius: 24px;
+    padding: 22px 18px 20px;
+  }
+
+  .fc-side {
+    border-radius: 24px;
+  }
+
+  .fc-form .info-modal-title {
+    padding-right: 96px;
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
