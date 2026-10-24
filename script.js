@@ -83,8 +83,37 @@ window.addEventListener('DOMContentLoaded', () => {
     }).observe(document.body, { childList: true, subtree: true });
 });
 
+function _preventScrollWheel(e) {
+    let el = e.target;
+    while (el && el !== document.documentElement) {
+        const oy = window.getComputedStyle(el).overflowY;
+        if ((oy === 'scroll' || oy === 'auto') && el.scrollHeight > el.clientHeight) {
+            return;
+        }
+        el = el.parentElement;
+    }
+    e.preventDefault();
+}
+
+const _scrollLockKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
+function _preventScrollKey(e) {
+    const tag = e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+    if (_scrollLockKeys.has(e.key)) e.preventDefault();
+}
+
 function openModal() {
     document.body.classList.add('modal-open');
+    document.addEventListener('wheel', _preventScrollWheel, { passive: false });
+    document.addEventListener('touchmove', _preventScrollWheel, { passive: false });
+    document.addEventListener('keydown', _preventScrollKey);
+}
+
+function closeModal() {
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('wheel', _preventScrollWheel);
+    document.removeEventListener('touchmove', _preventScrollWheel);
+    document.removeEventListener('keydown', _preventScrollKey);
 }
 
 const state = {
@@ -1225,6 +1254,9 @@ function setupGifSwitcher() {
     if (savedIndex !== null) {
         currentIndex = parseInt(savedIndex, 10);
         gifElement.src = GIF_CONFIG.gifs[currentIndex];
+        try {
+            localStorage.setItem('gifSrc', GIF_CONFIG.gifs[currentIndex]);
+        } catch (e) { }
     }
 
     const syncGifIndex = () => {
@@ -1253,6 +1285,9 @@ function setupGifSwitcher() {
             gifElement.src = GIF_CONFIG.gifs[currentIndex];
             html.setAttribute('data-gif-theme', newTheme);
             localStorage.setItem('gifIndex', currentIndex.toString());
+            try {
+                localStorage.setItem('gifSrc', GIF_CONFIG.gifs[currentIndex]);
+            } catch (e) { }
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     html.classList.remove('no-transition');
@@ -4106,6 +4141,8 @@ function applySettings(s) {
 
     const seasonalToggle = document.getElementById('seasonalThemes');
     if (seasonalToggle) seasonalToggle.checked = s.seasonalThemes !== false;
+
+    if (window.applyWallpaper) window.applyWallpaper(s.wallpaper);
 }
 
 async function exportSettings() {
@@ -4129,6 +4166,7 @@ async function exportSettings() {
         hideAnimeMods: !!s.hideAnimeMods,
         hideAdultMods: !!s.hideAdultMods,
         seasonalThemes: s.seasonalThemes !== false,
+        wallpaper: s.wallpaper || null,
         exported: new Date().toISOString(),
         styles: styleIndices,
         assemblies: assemblies,
@@ -4177,6 +4215,9 @@ function importSettings(file) {
             if (obj.gifIndex !== undefined) {
                 localStorage.setItem('gifIndex', String(obj.gifIndex));
                 const idx = parseInt(obj.gifIndex);
+                try {
+                    if (GIF_CONFIG.gifs[idx]) localStorage.setItem('gifSrc', GIF_CONFIG.gifs[idx]);
+                } catch (e) { }
                 document.documentElement.classList.add('no-transition');
                 document.documentElement.setAttribute('data-gif-theme', GIF_CONFIG.themes[idx] || 'ursa');
                 const gifEl = document.getElementById('clickable-gif');
@@ -4195,6 +4236,7 @@ function importSettings(file) {
             patch.hideAnimeMods = !!obj.hideAnimeMods;
             patch.hideAdultMods = !!obj.hideAdultMods;
             patch.seasonalThemes = obj.seasonalThemes !== false;
+            if (obj.wallpaper) patch.wallpaper = obj.wallpaper;
             saveSettings(patch);
             applySettings(patch);
             if (window.setSeasonalThemes) window.setSeasonalThemes(patch.seasonalThemes);
@@ -4290,11 +4332,69 @@ function setupSettingsModal() {
 
     applySettings(loadSettings());
 
+    const stTabs = Array.from(modal.querySelectorAll('.st-tab'));
+    const stPanels = Array.from(modal.querySelectorAll('.st-panel'));
+    const stScroll = modal.querySelector('.st-scroll');
+    const wpRange = document.getElementById('wpShapes');
+    const wpVal = document.getElementById('wpShapesVal');
+
+    function selectSettingsTab(id, { focus = false } = {}) {
+        if (!stTabs.some(t => t.dataset.stTab === id)) id = stTabs[0]?.dataset.stTab;
+        stTabs.forEach(t => {
+            const on = t.dataset.stTab === id;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-selected', String(on));
+            t.tabIndex = on ? 0 : -1;
+            if (on && focus) t.focus();
+        });
+        stPanels.forEach(p => p.classList.toggle('active', p.dataset.stPanel === id));
+        if (stScroll) stScroll.scrollTop = 0;
+        try { localStorage.setItem('settingsTab', id); } catch (e) { }
+    }
+
+    stTabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+            selectSettingsTab(tab.dataset.stTab);
+            vibrate(10);
+        });
+        tab.addEventListener('keydown', (e) => {
+            const keys = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'];
+            if (!keys.includes(e.key)) return;
+            e.preventDefault();
+            let next = i;
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % stTabs.length;
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + stTabs.length) % stTabs.length;
+            else if (e.key === 'Home') next = 0;
+            else next = stTabs.length - 1;
+            selectSettingsTab(stTabs[next].dataset.stTab, { focus: true });
+        });
+    });
+
+    function syncWpRange() {
+        if (!wpRange) return;
+        const min = parseFloat(wpRange.min) || 0;
+        const max = parseFloat(wpRange.max) || 100;
+        const pct = ((parseFloat(wpRange.value) - min) / (max - min)) * 100;
+        wpRange.style.setProperty('--st-pct', `${Math.min(100, Math.max(0, pct))}%`);
+    }
+
+    wpRange?.addEventListener('input', syncWpRange);
+    if (wpVal) {
+        new MutationObserver(syncWpRange).observe(wpVal, { childList: true, characterData: true, subtree: true });
+    }
+
+    let savedTab = null;
+    try { savedTab = localStorage.getItem('settingsTab'); } catch (e) { }
+    if (savedTab) selectSettingsTab(savedTab);
+    syncWpRange();
+
     function openSettings() {
         applySettings(loadSettings());
         overlay.classList.add('active');
         modal.classList.add('active');
         openModal();
+        if (stScroll) stScroll.scrollTop = 0;
+        requestAnimationFrame(syncWpRange);
         vibrate(10);
     }
 

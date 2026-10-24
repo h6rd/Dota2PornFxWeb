@@ -39,6 +39,7 @@
   <script type="module" src="assets/m3e/theme.bundle.js"></script>
   <script src="assets/m3e/select.js"></script>
   <script src="assets/theme.js"></script>
+  <script src="assets/wallpaper.js" defer></script>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/tools/tools.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/events.css" />
@@ -168,7 +169,16 @@
           <nav aria-label="Mod categories"><ul><li><a href="category-shaders.html">Dota 2 Shaders mods</a></li><li><a href="category-ti-bp-effects.html">Dota 2 Effect Packs</a></li><li><a href="category-heroes.html">Dota 2 Heroes mods</a></li><li><a href="category-terrains.html">Dota 2 Terrains mods</a></li><li><a href="category-trees.html">Dota 2 Trees mods</a></li><li><a href="category-creeps.html">Dota 2 Creeps mods</a></li><li><a href="category-creep-deny.html">Dota 2 Creep Deny mods</a></li><li><a href="category-emblems.html">Dota 2 Emblems mods</a></li><li><a href="category-backgrounds.html">Dota 2 Backgrounds mods</a></li><li><a href="category-hero-items.html">Dota 2 Hero Items mods</a></li><li><a href="category-herofx.html">Dota 2 Hero Spells mods</a></li><li><a href="category-hero-sounds.html">Dota 2 Hero Sounds mods</a></li><li><a href="category-sounds.html">Dota 2 Sounds mods</a></li><li><a href="category-wards.html">Dota 2 Wards mods</a></li><li><a href="category-couriers.html">Dota 2 Couriers mods</a></li><li><a href="category-river.html">Dota 2 River mods</a></li><li><a href="category-item-effects.html">Dota 2 Item Effects mods</a></li><li><a href="category-ranged-attack.html">Dota 2 Ranged Attack mods</a></li><li><a href="category-pings.html">Dota 2 Pings mods</a></li><li><a href="category-parts.html">Dota 2 Parts mods</a></li><li><a href="category-huds.html">Dota 2 Huds mods</a></li><li><a href="category-packs.html">Dota 2 Packs</a></li><li><a href="category-versus-screens.html">Dota 2 Versus Screens mods</a></li><li><a href="category-mega-kill.html">Dota 2 Mega-Kill mods</a></li><li><a href="category-announcers.html">Dota 2 Announcers mods</a></li><li><a href="category-music.html">Dota 2 Music mods</a></li><li><a href="category-roshan.html">Dota 2 Roshan mods</a></li><li><a href="category-ancient.html">Dota 2 Ancient mods</a></li><li><a href="category-tormentor.html">Dota 2 Tormentor mods</a></li><li><a href="category-towers.html">Dota 2 Towers mods</a></li><li><a href="category-pedestal.html">Dota 2 Pedestal mods</a></li><li><a href="category-high-five.html">Dota 2 High Five mods</a></li><li><a href="category-item-icons.html">Dota 2 Item Icons mods</a></li><li><a href="category-hero-icons.html">Dota 2 Hero Icons mods</a></li><li><a href="category-ranks.html">Dota 2 Rank Icons mods</a></li><li><a href="category-cursors.html">Dota 2 Cursors mods</a></li><li><a href="category-fonts.html">Dota 2 Fonts mods</a></li><li><a href="category-other.html">Dota 2 Other mods</a></li><li><a href="category-optimization.html">Dota 2 Optimization mods</a></li><li><a href="category-tools.html">Dota 2 Tools</a></li><li><a href="category-guides.html">Dota 2 Guides</a></li><li><a href="category-sites.html">Dota 2 Websites</a></li></ul></nav>
         </noscript>
         <div id="homePage">
-          <h2 class="page-title">Dota2 Mods<img src="assets/previews/hueta/ursa.gif" class="hueta" id="clickable-gif" alt="">
+          <h2 class="page-title">Dota2 Mods<img class="hueta" id="clickable-gif" alt="">
+          <script>
+            (function () {
+              var img = document.getElementById('clickable-gif'), src = 'assets/previews/hueta/ursa.gif';
+              try {
+                src = localStorage.getItem('gifSrc') || src;
+              } catch (e) { }
+              img.src = src;
+            })();
+          </script>
           </h2>
           <p class="page-description">Discover and download free mods for Dota 2</p>
   
@@ -731,111 +741,239 @@
       <span class="material-symbols-rounded">close</span>
     </button>
 
-    <div class="st-header">
+    <nav class="st-nav" aria-label="Settings sections">
       <h2 class="st-title" id="settingsTitle">Settings</h2>
-    </div>
+      <div class="st-tabs" role="tablist" aria-orientation="vertical">
+        <button type="button" class="st-tab active" role="tab" id="stTab-appearance" data-st-tab="appearance"
+          aria-selected="true" aria-controls="stPanel-appearance">
+          <span class="material-symbols-rounded">palette</span>
+          <span>Appearance</span>
+        </button>
+        <button type="button" class="st-tab" role="tab" id="stTab-interface" data-st-tab="interface"
+          aria-selected="false" aria-controls="stPanel-interface" tabindex="-1">
+          <span class="material-symbols-rounded">dashboard_customize</span>
+          <span>Interface</span>
+        </button>
+        <button type="button" class="st-tab" role="tab" id="stTab-system" data-st-tab="system"
+          aria-selected="false" aria-controls="stPanel-system" tabindex="-1">
+          <span class="material-symbols-rounded">computer</span>
+          <span>System</span>
+        </button>
+      </div>
+    </nav>
 
-    <div class="st-scroll">
-      <div class="st-grid">
+    <div class="st-content">
+      <div class="st-scroll">
 
-        <div class="st-col">
-          <section class="st-section">
-            <h3 class="st-section-title">Appearance</h3>
+        <!-- Appearance -->
+        <section class="st-panel active" role="tabpanel" id="stPanel-appearance" data-st-panel="appearance"
+          aria-labelledby="stTab-appearance">
+          <header class="st-panel-head">
+            <h3 class="st-panel-title">Appearance</h3>
+            <p class="st-panel-sub">Theme, colors and background</p>
+          </header>
 
-            <div class="st-field">
-              <div class="st-label">Theme</div>
-              <div class="st-seg">
-                <button class="st-opt" data-theme="auto">
-                  <span class="material-symbols-rounded">brightness_auto</span> Auto
-                </button>
-                <button class="st-opt" data-theme="dark">
-                  <span class="material-symbols-rounded">dark_mode</span> Dark
-                </button>
-                <button class="st-opt" data-theme="light">
-                  <span class="material-symbols-rounded">light_mode</span> Light
-                </button>
-              </div>
-            </div>
-
-            <div class="st-field">
-              <div class="st-label">Color variant</div>
-              <div class="st-seg st-seg--variant">
-                <button class="st-opt" data-variant="tonal-spot">Tonal Spot</button>
-                <button class="st-opt" data-variant="fidelity">Fidelity</button>
-                <button class="st-opt" data-variant="expressive">Expressive</button>
-                <button class="st-opt" data-variant="vibrant">Vibrant</button>
-                <button class="st-opt" data-variant="rainbow">Rainbow</button>
-                <button class="st-opt" data-variant="neutral">Neutral</button>
-              </div>
-            </div>
-
-            <div class="st-field">
-              <div class="st-label">Contrast</div>
-              <div class="st-seg">
-                <button class="st-opt" data-contrast="standard">Standard</button>
-                <button class="st-opt" data-contrast="medium">Medium</button>
-                <button class="st-opt" data-contrast="high">High</button>
-              </div>
-            </div>
-          </section>
-
-          <section class="st-section st-section--end">
-            <h3 class="st-section-title">Interface</h3>
-            <div class="st-list">
-              <label class="st-switch">
-                <span>Compact View</span>
-                <input type="checkbox" id="compactCategoryView" class="settings-toggle-input">
-                <span class="settings-toggle-track"></span>
-              </label>
-              <label class="st-switch">
-                <span>Seasonal Themes</span>
-                <input type="checkbox" id="seasonalThemes" class="settings-toggle-input" checked>
-                <span class="settings-toggle-track"></span>
-              </label>
-            </div>
-          </section>
-        </div>
-
-        <div class="st-col">
-          <section class="st-section">
-            <h3 class="st-section-title">System</h3>
-            <div class="st-seg st-seg--os">
-              <button class="st-opt" data-os="default">Default</button>
-              <button class="st-opt" data-os="windows"><i class="bi bi-windows"></i> Windows</button>
-              <button class="st-opt" data-os="linux"><i class="bi bi-tux"></i> Linux</button>
-              <button class="st-opt" data-os="macos"><i class="bi bi-apple"></i> macOS</button>
-            </div>
-          </section>
-
-          <section class="st-section">
-            <h3 class="st-section-title">Content filter</h3>
-            <div class="st-list">
-              <label class="st-switch">
-                <span>Hide Anime mods</span>
-                <input type="checkbox" id="hideAnimeMods" class="settings-toggle-input">
-                <span class="settings-toggle-track"></span>
-              </label>
-              <label class="st-switch">
-                <span>Hide Adult (18+) mods</span>
-                <input type="checkbox" id="hideAdultMods" class="settings-toggle-input">
-                <span class="settings-toggle-track"></span>
-              </label>
-            </div>
-          </section>
-
-          <section class="st-section st-section--end">
-            <h3 class="st-section-title">Backup</h3>
-            <div class="st-seg">
-              <button class="st-btn" id="exportSettingsBtn">
-                <span class="material-symbols-rounded">upload_file</span> Export
+          <div class="st-block">
+            <h4 class="st-block-title">Theme</h4>
+            <div class="st-tiles">
+              <button type="button" class="st-opt st-tile" data-theme="auto">
+                <span class="st-preview st-preview--auto" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="st-tile-label"><span class="material-symbols-rounded">brightness_auto</span>Auto</span>
               </button>
-              <button class="st-btn" id="importSettingsBtn">
-                <span class="material-symbols-rounded">download</span> Import
+              <button type="button" class="st-opt st-tile" data-theme="dark">
+                <span class="st-preview st-preview--dark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="st-tile-label"><span class="material-symbols-rounded">dark_mode</span>Dark</span>
+              </button>
+              <button type="button" class="st-opt st-tile" data-theme="light">
+                <span class="st-preview st-preview--light" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="st-tile-label"><span class="material-symbols-rounded">light_mode</span>Light</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Color variant</h4>
+            <div class="st-tiles">
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="tonal-spot">
+                <span class="material-symbols-rounded st-tile-icon">lens_blur</span>
+                <span class="st-tile-label">Tonal Spot</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="fidelity">
+                <span class="material-symbols-rounded st-tile-icon">target</span>
+                <span class="st-tile-label">Fidelity</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="expressive">
+                <span class="material-symbols-rounded st-tile-icon">auto_awesome</span>
+                <span class="st-tile-label">Expressive</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="vibrant">
+                <span class="material-symbols-rounded st-tile-icon">water_drop</span>
+                <span class="st-tile-label">Vibrant</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="rainbow">
+                <span class="material-symbols-rounded st-tile-icon">looks</span>
+                <span class="st-tile-label">Rainbow</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-variant="neutral">
+                <span class="material-symbols-rounded st-tile-icon">invert_colors_off</span>
+                <span class="st-tile-label">Neutral</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Contrast</h4>
+            <div class="st-seg" role="group" aria-label="Contrast">
+              <button type="button" class="st-opt" data-contrast="standard">Standard</button>
+              <button type="button" class="st-opt" data-contrast="medium">Medium</button>
+              <button type="button" class="st-opt" data-contrast="high">High</button>
+            </div>
+          </div>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Wallpaper</h4>
+            <div class="st-group">
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">wallpaper</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Custom wallpaper</span>
+                  <span class="st-row-desc">Animated shapes behind the interface</span>
+                </span>
+                <input type="checkbox" id="wpEnabled" class="st-switch-input">
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+              <div class="st-collapse open" id="wpCollapse">
+                <div class="st-collapse-inner">
+                  <div class="st-wp-body disabled" id="wpBody">
+                    <div class="st-range-row">
+                      <div class="st-range-head"><span>Shapes</span><span class="st-range-val" id="wpShapesVal"></span></div>
+                      <input type="range" class="st-range" id="wpShapes" min="2" max="8" step="1" aria-label="Number of shapes">
+                    </div>
+                    <div class="st-btn-row">
+                      <button class="st-btn st-btn--primary" id="wpShuffle" type="button">
+                        <span class="material-symbols-rounded">casino</span> Shuffle
+                      </button>
+                      <button class="st-btn" id="wpReset" type="button">
+                        <span class="material-symbols-rounded">restart_alt</span> Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interface -->
+        <section class="st-panel" role="tabpanel" id="stPanel-interface" data-st-panel="interface"
+          aria-labelledby="stTab-interface">
+          <header class="st-panel-head">
+            <h3 class="st-panel-title">Interface</h3>
+            <p class="st-panel-sub">How the catalogue looks and what it shows</p>
+          </header>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Layout</h4>
+            <div class="st-group">
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">view_agenda</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Compact view</span>
+                  <span class="st-row-desc">Smaller cards for categories and updates</span>
+                </span>
+                <input type="checkbox" id="compactCategoryView" class="st-switch-input">
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">ac_unit</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Seasonal themes</span>
+                  <span class="st-row-desc">Festive decorations around the holidays</span>
+                </span>
+                <input type="checkbox" id="seasonalThemes" class="st-switch-input" checked>
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Content filter</h4>
+            <div class="st-group">
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">animation</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Hide Anime mods</span>
+                  <span class="st-row-desc">Remove anime-themed mods from lists</span>
+                </span>
+                <input type="checkbox" id="hideAnimeMods" class="st-switch-input">
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">no_adult_content</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Hide Adult (18+) mods</span>
+                  <span class="st-row-desc">Remove mods marked 18+ and blur their previews</span>
+                </span>
+                <input type="checkbox" id="hideAdultMods" class="st-switch-input">
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- System -->
+        <section class="st-panel" role="tabpanel" id="stPanel-system" data-st-panel="system"
+          aria-labelledby="stTab-system">
+          <header class="st-panel-head">
+            <h3 class="st-panel-title">System</h3>
+            <p class="st-panel-sub">Platform and backup</p>
+          </header>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Platform</h4>
+            <div class="st-tiles st-tiles--4">
+              <button type="button" class="st-opt st-tile st-tile--sm" data-os="default">
+                <span class="material-symbols-rounded st-tile-icon">devices</span>
+                <span class="st-tile-label">Default</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-os="windows">
+                <i class="bi bi-windows st-tile-icon"></i>
+                <span class="st-tile-label">Windows</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-os="linux">
+                <i class="bi bi-tux st-tile-icon"></i>
+                <span class="st-tile-label">Linux</span>
+              </button>
+              <button type="button" class="st-opt st-tile st-tile--sm" data-os="macos">
+                <i class="bi bi-apple st-tile-icon"></i>
+                <span class="st-tile-label">macOS</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="st-block">
+            <h4 class="st-block-title">Backup</h4>
+            <div class="st-group">
+              <button type="button" class="st-row st-row--action" id="exportSettingsBtn">
+                <span class="st-row-icon"><span class="material-symbols-rounded">upload_file</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Export settings</span>
+                  <span class="st-row-desc">Save theme, cart, packs and edits to a file</span>
+                </span>
+                <span class="material-symbols-rounded st-row-chevron">chevron_right</span>
+              </button>
+              <button type="button" class="st-row st-row--action" id="importSettingsBtn">
+                <span class="st-row-icon"><span class="material-symbols-rounded">download</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Import settings</span>
+                  <span class="st-row-desc">Restore everything from a saved file</span>
+                </span>
+                <span class="material-symbols-rounded st-row-chevron">chevron_right</span>
               </button>
               <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
       </div>
     </div>
