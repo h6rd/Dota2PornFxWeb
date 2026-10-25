@@ -72,9 +72,8 @@
   <img src=".github/assets/shot-font-changer.svg" alt="Font Changer" width="24%">
 </p>
 
-<h3><a name="project-activity"></a><img src=".github/assets/h-activity.svg" alt="Project activity" width="100%"></h3>
-
 <p align="center">
+  <a name="project-activity"></a>
   <img src="https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main/.github/assets/activity.svg" alt="Project activity: commits per day over the last 60 days, split into manual and CI commits" width="100%">
 </p>
 

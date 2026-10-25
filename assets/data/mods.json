@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Legion Commander Sorla Khan",
+      "category": "heroes"
+    },
+    {
       "name": "Girl Resting Under Tree",
       "category": "backgrounds"
     },
@@ -479,922 +483,6 @@
     {
       "name": "Divine Essencefrost Mighty Bo",
       "category": "couriers"
-    },
-    {
-      "name": "Tcoaal Wallpaper V1",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Emerald Ectoplasmgrass Osky",
-      "category": "couriers"
-    },
-    {
-      "name": "Terrorblade Foulfell Demon",
-      "category": "hero-items"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
-    },
-    {
-      "name": "Shadow Fiend Arcana Fixv1",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Axe Immortal Rampage",
-      "category": "heroes"
-    },
-    {
-      "name": "Arc Warden Gray Monster",
-      "category": "heroes"
-    },
-    {
-      "name": "Champions Aura 2014 Nightmare",
-      "category": "wards"
-    },
-    {
-      "name": "Felicitys Blessing Class Zero",
-      "category": "wards"
-    },
-    {
-      "name": "Frostivus Frost Trailgazer",
-      "category": "wards"
-    },
-    {
-      "name": "Phantom Assasssin Mogg",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Marsarenasematary",
-      "category": "sounds"
-    },
-    {
-      "name": "Elder Titan Creation Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Cupsize Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Nyx Assassin Mesmer Eye",
-      "category": "heroes"
-    },
-    {
-      "name": "Trail Of Burning Doom Frozen",
-      "category": "wards"
-    },
-    {
-      "name": "Ogre Arcana Egg Sound Fix",
-      "category": "other"
-    },
-    {
-      "name": "Derpy Hooves Donkey",
-      "category": "couriers"
-    },
-    {
-      "name": "Pug",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Techies Chance Allahu Akbar",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Arc Warden Xvii",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Shadow Fiend Zxcursed Icon",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Terrorblade Emerald Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Artifact Voices",
-      "category": "sounds"
-    },
-    {
-      "name": "Terrorblade Skadi Blossom Red",
-      "category": "heroes"
-    },
-    {
-      "name": "Grey Play Button",
-      "category": "parts"
-    },
-    {
-      "name": "Hud Forgotten Distortion",
-      "category": "huds"
-    },
-    {
-      "name": "Black Background",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Ogre Magi Mogg",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Greevil Vetmo",
-      "category": "couriers"
-    },
-    {
-      "name": "Invoker Mogg",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Marci Mogg",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Old Shadow Fiend Secret Shop",
-      "category": "other"
-    },
-    {
-      "name": "Invoker Pack 1",
-      "category": "heroes"
-    },
-    {
-      "name": "Queen Of Pain Arcane Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Arc Warden Frosty Toy",
-      "category": "heroes"
-    },
-    {
-      "name": "Sound To Battle! From Wot",
-      "category": "sounds"
-    },
-    {
-      "name": "Pink Play Button",
-      "category": "parts"
-    },
-    {
-      "name": "Purple Minimap",
-      "category": "parts"
-    },
-    {
-      "name": "4Erep Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Invoker Jack Daniels",
-      "category": "heroes"
-    },
-    {
-      "name": "Ancient Apparition Sanity",
-      "category": "heroes"
-    },
-    {
-      "name": "Onda Andar 2016 Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Slark Fernando",
-      "category": "heroes"
-    },
-    {
-      "name": "Slardar Fernando",
-      "category": "heroes"
-    },
-    {
-      "name": "Naga Siren Cute Icon",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Objective Timers",
-      "category": "other"
-    },
-    {
-      "name": "Ancient Apparition Wight",
-      "category": "heroes"
-    },
-    {
-      "name": "30 Tier Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Rose Chinese Medals",
-      "category": "ranks"
-    },
-    {
-      "name": "Phantom Assassin Altuxa",
-      "category": "heroes"
-    },
-    {
-      "name": "Bluelock Scoreboard And Shop",
-      "category": "parts"
-    },
-    {
-      "name": "Rose Overcast Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Noir Rose Top Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Arcana Vengeful Spirit Pedest",
-      "category": "pedestal"
-    },
-    {
-      "name": "Pedestal V1",
-      "category": "pedestal"
-    },
-    {
-      "name": "Wraith King Crimson Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Rose Lycoris Mode Cards",
-      "category": "parts"
-    },
-    {
-      "name": "Noir Rose Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Earthshaker Arcana Planetfall",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Blades",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Legacy Green",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Skadi",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Arcana Manta",
-      "category": "heroes"
-    },
-    {
-      "name": "Weaver Ult Net Idi Nahui",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Dazzle Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Tidehunter Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Krutoi Gyrocopter",
-      "category": "heroes"
-    },
-    {
-      "name": "Crystal Maiden Narwolf Nebula",
-      "category": "heroes"
-    },
-    {
-      "name": "Io Verity",
-      "category": "heroes"
-    },
-    {
-      "name": "Shroomy",
-      "category": "couriers"
-    },
-    {
-      "name": "Fluttershy Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Terrorblade Really Black",
-      "category": "heroes"
-    },
-    {
-      "name": "Pandora The Packwyrm",
-      "category": "couriers"
-    },
-    {
-      "name": "Chess Ranks",
-      "category": "ranks"
-    },
-    {
-      "name": "Templar Assassin Black",
-      "category": "heroes"
-    },
-    {
-      "name": "Spectre Phantom Ascension V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Diretide Shimmer",
-      "category": "heroes"
-    },
-    {
-      "name": "Vodolaska Marci",
-      "category": "heroes"
-    },
-    {
-      "name": "Pink Spell Radius",
-      "category": "other"
-    },
-    {
-      "name": "Terrorblade Load Out Rubiline",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Cosmic Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Cosmic Arcana V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Dattebayo Puck",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Batrider Napapiri",
-      "category": "heroes"
-    },
-    {
-      "name": "Morphling Crimson",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Black White",
-      "category": "heroes"
-    },
-    {
-      "name": "Snapfire Blue Icon",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Phantom Lancer Black",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Bismilyah",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Windranger Reflections Of Gale",
-      "category": "heroes"
-    },
-    {
-      "name": "Windranger Compass Rising Gale",
-      "category": "heroes"
-    },
-    {
-      "name": "Razor Voidstorm Asylum",
-      "category": "heroes"
-    },
-    {
-      "name": "Razor Stormlord",
-      "category": "heroes"
-    },
-    {
-      "name": "Wraith King Papich Pamparam",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Night Stalker Dark Oath V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Kunkka Frostbloom Sword",
-      "category": "hero-items"
-    },
-    {
-      "name": "Kez Chicken Gun Napapiri",
-      "category": "heroes"
-    },
-    {
-      "name": "Wraith King Papich",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Doom Sematary Sound",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Slark Collector Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Spectre Phantom Advent V1",
-      "category": "heroes"
-    },
-    {
-      "name": "Tidehunter Vetmo",
-      "category": "heroes"
-    },
-    {
-      "name": "Wraith King Papich",
-      "category": "heroes"
-    },
-    {
-      "name": "Dark Seer Oloxicams Glass",
-      "category": "heroes"
-    },
-    {
-      "name": "Spirit Breaker Bash Kachal",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Tusk Immortal Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Tinker Laser Contra Whistle",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Tcoaal Search Bar",
-      "category": "parts"
-    },
-    {
-      "name": "Terrorblade Yellow Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Broodmother Gray Immortals",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Arima",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Purple Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Winlose Music Suffocation Kit",
-      "category": "sounds"
-    },
-    {
-      "name": "Faceless Void Arcana 2 Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Faceless Void Arcana Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Pink Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Gotic",
-      "category": "parts"
-    },
-    {
-      "name": "Terrorblade Blue Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Terrorblade Black Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Terrorblade Orange Spell",
-      "category": "hero-icons"
-    },
-    {
-      "name": "Shadow Fiend Arcana Desolator",
-      "category": "heroes"
-    },
-    {
-      "name": "Kaneki Mach V1.2",
-      "category": "parts"
-    },
-    {
-      "name": "Monkey King Kapitan",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Rictus Blood",
-      "category": "heroes"
-    },
-    {
-      "name": "Claszian Apostasy Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Kaneki Mach",
-      "category": "parts"
-    },
-    {
-      "name": "Drow Ranger Crimson Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Tidehunter Deny",
-      "category": "creep-deny"
-    },
-    {
-      "name": "Treant Protector Wraithwood",
-      "category": "heroes"
-    },
-    {
-      "name": "Unlock Hidden Profile Animations",
-      "category": "other"
-    },
-    {
-      "name": "Default Lite Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Larger Timer",
-      "category": "parts"
-    },
-    {
-      "name": "Larger Minimap",
-      "category": "parts"
-    },
-    {
-      "name": "Shadow Shaman Wyrmbender",
-      "category": "heroes"
-    },
-    {
-      "name": "Legion Commander Hell Origin",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Lineage Kantusa",
-      "category": "heroes"
-    },
-    {
-      "name": "10000Weeping Choirs Mega-Kill",
-      "category": "mega-kill"
-    },
-    {
-      "name": "Luna Golden Immortal Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Phantom Assassin Arcana V1",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Bladeform Origins",
-      "category": "heroes"
-    },
-    {
-      "name": "Tiny Stoneback Sovereign",
-      "category": "heroes"
-    },
-    {
-      "name": "Broodmother Anathema Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Juggernaut Bladeform Legacy",
-      "category": "heroes"
-    },
-    {
-      "name": "Treant Protector Calabash V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Primal Beast Strongbox Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Marci Patchwork Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Anime",
-      "category": "backgrounds"
-    },
-    {
-      "name": "Better Source2Viewer Guide",
-      "category": "guides"
-    },
-    {
-      "name": "Drow Ranger Madness Stealth",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Madness Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Sepulchral Stealth",
-      "category": "heroes"
-    },
-    {
-      "name": "Drow Ranger Sepulchral Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Oracle Clairvoyant",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Rictus Blade",
-      "category": "heroes"
-    },
-    {
-      "name": "Endless Storm Chaos Knight",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Rictus Manta",
-      "category": "heroes"
-    },
-    {
-      "name": "Terrorblade Rictus Skadi",
-      "category": "heroes"
-    },
-    {
-      "name": "Anti-Mage Daemon Hunter",
-      "category": "heroes"
-    },
-    {
-      "name": "Death Prophet Silken Sibyl",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Greasepaint Gutbuster",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Blood Moon",
-      "category": "heroes"
-    },
-    {
-      "name": "Undying Desecration Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Meepo Mafia",
-      "category": "heroes"
-    },
-    {
-      "name": "Slobbering Strong Boxhound",
-      "category": "couriers"
-    },
-    {
-      "name": "Slobbering Strongbox",
-      "category": "wards"
-    },
-    {
-      "name": "Baby Roshan The Eternal",
-      "category": "couriers"
-    },
-    {
-      "name": "Megalodon Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Sepulchral Stalker Cursor",
-      "category": "cursors"
-    },
-    {
-      "name": "Anti-Mage Mod Rotten",
-      "category": "heroes"
-    },
-    {
-      "name": "Crimson Immortal Riki",
-      "category": "heroes"
-    },
-    {
-      "name": "Undying Direstone Desecration",
-      "category": "heroes"
-    },
-    {
-      "name": "Marci Patchwork",
-      "category": "heroes"
-    },
-    {
-      "name": "Broodmother Anathema",
-      "category": "heroes"
-    },
-    {
-      "name": "Hoodwink Spring Tide Raider",
-      "category": "heroes"
-    },
-    {
-      "name": "Lifestealer Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Fire",
-      "category": "heroes"
-    },
-    {
-      "name": "Lycan Vakir Min Silvath",
-      "category": "heroes"
-    },
-    {
-      "name": "Zeleniy Techies",
-      "category": "hero-items"
-    },
-    {
-      "name": "Wraith King Papich Attacks",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Greasepaint Gutbuster Pudge",
-      "category": "heroes"
-    },
-    {
-      "name": "Treant Protector Calabash",
-      "category": "heroes"
-    },
-    {
-      "name": "Rictus Ripper Terrorblade",
-      "category": "heroes"
-    },
-    {
-      "name": "Marci Silent Comedy",
-      "category": "heroes"
-    },
-    {
-      "name": "Primal Beast Strongbox",
-      "category": "heroes"
-    },
-    {
-      "name": "Eternal Roshan",
-      "category": "roshan"
-    },
-    {
-      "name": "Naga Siren Coral Cultist Frost",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Midnight Stalker",
-      "category": "heroes"
-    },
-    {
-      "name": "Pangolier Barkfart",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Tidehunter Arcana Pedestal",
-      "category": "pedestal"
-    },
-    {
-      "name": "Smaller Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Earthshaker Aura Derevni",
-      "category": "heroes"
-    },
-    {
-      "name": "Naga Siren Immortal",
-      "category": "heroes"
-    },
-    {
-      "name": "Dragon Ball Blink",
-      "category": "sounds"
-    },
-    {
-      "name": "Obscene Eye Tormentor",
-      "category": "tormentor"
-    },
-    {
-      "name": "Drow Ranger Japan Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Outworld Destroyer Exile",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Toy Inc Boss",
-      "category": "heroes"
-    },
-    {
-      "name": "Windranger Papizi V2",
-      "category": "heroes"
-    },
-    {
-      "name": "Naga Siren Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Pudge Arcana Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Aberrant Observer Pudge",
-      "category": "heroes"
-    },
-    {
-      "name": "Wyrdwing Exaltation Invoker",
-      "category": "heroes"
-    },
-    {
-      "name": "One Piece Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Arc Warden Magician",
-      "category": "heroes"
-    },
-    {
-      "name": "Earthshaker Tectonic",
-      "category": "heroes"
-    },
-    {
-      "name": "Twisted Maelstrom Enigma",
-      "category": "heroes"
-    },
-    {
-      "name": "Vodolaska Marci",
-      "category": "heroes"
-    },
-    {
-      "name": "Treant Protector Aura",
-      "category": "heroes"
-    },
-    {
-      "name": "Zeus Immortal Arcana",
-      "category": "heroes"
-    },
-    {
-      "name": "Kunkka Leviathan",
-      "category": "heroes"
-    },
-    {
-      "name": "Shadow Fiend Ult Miura Xm Aura",
-      "category": "hero-sounds"
-    },
-    {
-      "name": "Tidehunter Golden Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Luna Cosmic",
-      "category": "heroes"
-    },
-    {
-      "name": "Immortal Love Undying",
-      "category": "heroes"
-    },
-    {
-      "name": "Tiny Frostivus",
-      "category": "heroes"
-    },
-    {
-      "name": "Tiny Cherepashka",
-      "category": "heroes"
-    },
-    {
-      "name": "Broodmother Shaker Spiderlings",
-      "category": "hero-items"
-    },
-    {
-      "name": "Default Lite Hud",
-      "category": "huds"
-    },
-    {
-      "name": "Morphling Yatoro Burning",
-      "category": "heroes"
-    },
-    {
-      "name": "Invoker Wyrdwing Exort",
-      "category": "heroes"
-    },
-    {
-      "name": "Arc Warden The Last Survivor",
-      "category": "heroes"
-    },
-    {
-      "name": "Legion Commander Diretide",
-      "category": "heroes"
-    },
-    {
-      "name": "Lycan Collector 2021",
-      "category": "heroes"
-    },
-    {
-      "name": "Slardar Diretide Shimmer",
-      "category": "heroes"
-    },
-    {
-      "name": "Timbersaw Claw Frostbloom",
-      "category": "hero-items"
-    },
-    {
-      "name": "Oracle Automaton Reborn",
-      "category": "heroes"
-    },
-    {
-      "name": "Chaos Knight Celestial Sentine",
-      "category": "heroes"
-    },
-    {
-      "name": "Enchantress Diretide Shimmer",
-      "category": "heroes"
     }
   ],
   "modsData": {
@@ -15653,6 +14741,21 @@
           "date": 1792894433,
           "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
         }
+      },
+      {
+        "name": "Legion Commander Sorla Khan",
+        "preview": "Legion Commander Sorla Khan.webp",
+        "file": "https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/assets/files/heroes/Legion%20Commander%20Sorla%20Khan.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -22307,791 +21410,853 @@
         }
       }
     ],
-    "parts": [
-      {
-        "name": "Black Top Bar",
-        "preview": "Black Top Bar.webp",
-        "file": "Black Top Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Kaneki Search Bar",
-        "preview": "Kaneki Search Bar.webp",
-        "file": "Kaneki Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Scolopendra Search Bar",
-        "preview": "Scolopendra Search Bar.webp",
-        "file": "Scolopendra Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Sematary Search Bar",
-        "preview": "Sematary Search Bar.webp",
-        "file": "Sematary Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Hypergamy Search Bar",
-        "preview": "Hypergamy Search Bar.webp",
-        "file": "Hypergamy Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "драг"
-          }
-        ],
-        "meta": {
-          "date": 1790375737,
-          "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
-        }
-      },
-      {
-        "name": "Windows Xp Top Bar",
-        "preview": "Windows Xp Top Bar.webp",
-        "file": "Windows Xp Top Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "драг"
-          }
-        ],
-        "meta": {
-          "date": 1790528664,
-          "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
-        }
-      },
-      {
-        "name": "Larger Minimap",
-        "preview": "Larger Minimap.webp",
-        "file": "Larger Minimap.zip",
-        "guideId": "parts-info",
-        "guideType": "info",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1791607322,
-          "commit-sha": "090ed338f274e86b02a399661229f7d4b41657f5"
-        }
-      },
-      {
-        "name": "Larger Timer",
-        "preview": "Larger Timer.webp",
-        "file": "Larger Timer.zip",
-        "guideId": "parts-info",
-        "guideType": "info",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1790818573,
-          "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
-        }
-      },
-      {
-        "name": "Grey Search Bar",
-        "preview": "Grey Search Bar.webp",
-        "file": "Grey Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1790818573,
-          "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
-        }
-      },
-      {
-        "name": "Grey Minimap",
-        "preview": "Grey Minimap.webp",
-        "file": "Grey Minimap.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1790825298,
-          "commit-sha": "3478dcb2ccb61f10aaa00ce7a7ec7a902306a0d5"
-        }
-      },
-      {
-        "name": "Kaneki Mach",
-        "preview": "Kaneki Mach.webp",
-        "file": "Kaneki Mach.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Kaneki Mach V1.2",
-        "preview": "Kaneki Mach V1.2.webp",
-        "file": "Kaneki Mach V1.2.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Gotic",
-        "preview": "Gotic.webp",
-        "file": "Gotic.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Tcoaal Search Bar",
-        "preview": "Tcoaal Search Bar.webp",
-        "file": "Tcoaal Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1791908483,
-          "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
-        }
-      },
-      {
-        "name": "Rose Lycoris Mode Cards",
-        "preview": "Rose Lycoris Mode Cards.webp",
-        "file": "Rose Lycoris Mode Cards.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "chineseg0d"
-          }
-        ],
-        "meta": {
-          "date": 1791964895,
-          "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
-        }
-      },
-      {
-        "name": "Noir Rose Top Bar",
-        "preview": "Noir Rose Top Bar.webp",
-        "file": "Noir Rose Top Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "chineseg0d"
-          }
-        ],
-        "meta": {
-          "date": 1791964895,
-          "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
-        }
-      },
-      {
-        "name": "Rose Overcast Search Bar",
-        "preview": "Rose Overcast Search Bar.webp",
-        "file": "Rose Overcast Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "chineseg0d"
-          }
-        ],
-        "meta": {
-          "date": 1791974606,
-          "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
-        }
-      },
-      {
-        "name": "Bluelock Scoreboard And Shop",
-        "preview": "Bluelock Scoreboard And Shop.webp",
-        "file": "Bluelock Scoreboard And Shop.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "chineseg0d"
-          }
-        ],
-        "meta": {
-          "date": 1791974606,
-          "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
-        }
-      },
-      {
-        "name": "Purple Minimap",
-        "preview": "Purple Minimap.webp",
-        "file": "Purple Minimap.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1792011470,
-          "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
-        }
-      },
-      {
-        "name": "Pink Play Button",
-        "preview": "Pink Play Button.webp",
-        "file": "Pink Play Button.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1792011470,
-          "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
-        }
-      },
-      {
-        "name": "Grey Play Button",
-        "preview": "Grey Play Button.webp",
-        "file": "Grey Play Button.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1792095190,
-          "commit-sha": "7e2ea116d4b1c3f5383f2e848d4b27a05aaa753c"
-        }
-      },
-      {
-        "name": "Cupsize Search Bar",
-        "preview": "Cupsize Search Bar.webp",
-        "file": "Cupsize Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Tom4ik"
-          }
-        ],
-        "meta": {
-          "date": 1792235759,
-          "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
-        }
-      },
-      {
-        "name": "Play Pinkv2",
-        "preview": "Play Pinkv2.webp",
-        "file": "Play Pinkv2.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792330154,
-          "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
-        }
-      },
-      {
-        "name": "Topbar Pink",
-        "preview": "Topbar Pink.webp",
-        "file": "Topbar Pink.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792330154,
-          "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
-        }
-      },
-      {
-        "name": "Play Black",
-        "preview": "Play Black.webp",
-        "file": "Play Black.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792412054,
-          "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
-        }
-      },
-      {
-        "name": "Remove Innate Icon",
-        "preview": "Remove Innate Icon.webp",
-        "file": "Remove Innate Icon.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1792412054,
-          "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
-        }
-      },
-      {
-        "name": "Dean Norris Match",
-        "styles": [
-          {
-            "label": "Style I",
-            "color": "#ddd4ff",
-            "preview": "Dean Norris Match.webp",
-            "file": "Dean Norris Match.zip"
-          },
-          {
-            "label": "Style II",
-            "color": "#ff8f8f",
-            "preview": "Dean Norris Match Style II.webp",
-            "file": "Dean Norris Match Style II.zip"
-          }
-        ],
-        "links": [
-          {
-            "type": "author",
-            "url": "Swin-РукаBlood"
-          }
-        ],
-        "meta": {
-          "date": 1792412054,
-          "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
-        }
-      },
-      {
-        "name": "Play White",
-        "preview": "Play White.webp",
-        "file": "Play White.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792412054,
-          "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
-        }
-      },
-      {
-        "name": "Anime Search Bar",
-        "preview": "Anime Search Bar.webp",
-        "file": "Anime Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Defendor"
-          }
-        ],
-        "meta": {
-          "date": 1792412054,
-          "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
-        }
-      },
-      {
-        "name": "Tcoaal Mach v1",
-        "preview": "Tcoaal Mach v1.webp",
-        "file": "Tcoaal Mach v1.zip",
-        "tags": {
-          "adult": true
+    "parts": {
+      "groups": [
+        {
+          "id": "top-bar",
+          "name": "Top Bar",
+          "mods": [
+            {
+              "name": "Black Top Bar",
+              "preview": "Black Top Bar.webp",
+              "file": "Black Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Windows Xp Top Bar",
+              "preview": "Windows Xp Top Bar.webp",
+              "file": "Windows Xp Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "драг"
+                }
+              ],
+              "meta": {
+                "date": 1790528664,
+                "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
+              }
+            },
+            {
+              "name": "Noir Rose Top Bar",
+              "preview": "Noir Rose Top Bar.webp",
+              "file": "Noir Rose Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "chineseg0d"
+                }
+              ],
+              "meta": {
+                "date": 1791964895,
+                "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
+              }
+            },
+            {
+              "name": "Topbar Pink",
+              "preview": "Topbar Pink.webp",
+              "file": "Topbar Pink.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792330154,
+                "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
+              }
+            },
+            {
+              "name": "Red Topbar",
+              "preview": "Red Topbar.webp",
+              "file": "Red Topbar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            }
+          ]
         },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792448425,
-          "commit-sha": "3c125b6ae64393af9f3336e9e544e8d78a6eaa1f"
-        }
-      },
-      {
-        "name": "Tcoaal Mach v2",
-        "preview": "Tcoaal Mach v2.webp",
-        "file": "Tcoaal Mach v2.zip",
-        "tags": {
-          "adult": true
+        {
+          "id": "search-bar",
+          "name": "Search Bar",
+          "mods": [
+            {
+              "name": "Kaneki Search Bar",
+              "preview": "Kaneki Search Bar.webp",
+              "file": "Kaneki Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Scolopendra Search Bar",
+              "preview": "Scolopendra Search Bar.webp",
+              "file": "Scolopendra Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Sematary Search Bar",
+              "preview": "Sematary Search Bar.webp",
+              "file": "Sematary Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Hypergamy Search Bar",
+              "preview": "Hypergamy Search Bar.webp",
+              "file": "Hypergamy Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "драг"
+                }
+              ],
+              "meta": {
+                "date": 1790375737,
+                "commit-sha": "38fcb0fe7dfab7a9a2d8bf5dcd4a34c18f67624a"
+              }
+            },
+            {
+              "name": "Grey Search Bar",
+              "preview": "Grey Search Bar.webp",
+              "file": "Grey Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1790818573,
+                "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
+              }
+            },
+            {
+              "name": "Tcoaal Search Bar",
+              "preview": "Tcoaal Search Bar.webp",
+              "file": "Tcoaal Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Rose Overcast Search Bar",
+              "preview": "Rose Overcast Search Bar.webp",
+              "file": "Rose Overcast Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "chineseg0d"
+                }
+              ],
+              "meta": {
+                "date": 1791974606,
+                "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
+              }
+            },
+            {
+              "name": "Cupsize Search Bar",
+              "preview": "Cupsize Search Bar.webp",
+              "file": "Cupsize Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Tom4ik"
+                }
+              ],
+              "meta": {
+                "date": 1792235759,
+                "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
+              }
+            },
+            {
+              "name": "Anime Search Bar",
+              "preview": "Anime Search Bar.webp",
+              "file": "Anime Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Defendor"
+                }
+              ],
+              "meta": {
+                "date": 1792412054,
+                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+              }
+            },
+            {
+              "name": "Xvii Search Bar",
+              "preview": "Xvii Search Bar.webp",
+              "file": "Xvii Search Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "xvii"
+                }
+              ],
+              "meta": {
+                "date": 1792764215,
+                "commit-sha": "03a0e2ad5e216fb920d92f5e38c6cf48677d6047"
+              }
+            },
+            {
+              "name": "Gotic",
+              "preview": "Gotic.webp",
+              "file": "Gotic.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            }
+          ]
         },
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792448425,
-          "commit-sha": "3c125b6ae64393af9f3336e9e544e8d78a6eaa1f"
+        {
+          "id": "game-mode",
+          "name": "Game Mode",
+          "mods": [
+            {
+              "name": "Kaneki Mach",
+              "preview": "Kaneki Mach.webp",
+              "file": "Kaneki Mach.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Kaneki Mach V1.2",
+              "preview": "Kaneki Mach V1.2.webp",
+              "file": "Kaneki Mach V1.2.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1791908483,
+                "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
+              }
+            },
+            {
+              "name": "Rose Lycoris Mode Cards",
+              "preview": "Rose Lycoris Mode Cards.webp",
+              "file": "Rose Lycoris Mode Cards.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "chineseg0d"
+                }
+              ],
+              "meta": {
+                "date": 1791964895,
+                "commit-sha": "2702b8b99fbd0795c2eaeb6ade264df4e698c842"
+              }
+            },
+            {
+              "name": "Dean Norris Match",
+              "styles": [
+                {
+                  "label": "Style I",
+                  "color": "#ddd4ff",
+                  "preview": "Dean Norris Match.webp",
+                  "file": "Dean Norris Match.zip"
+                },
+                {
+                  "label": "Style II",
+                  "color": "#ff8f8f",
+                  "preview": "Dean Norris Match Style II.webp",
+                  "file": "Dean Norris Match Style II.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Swin-РукаBlood"
+                }
+              ],
+              "meta": {
+                "date": 1792412054,
+                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+              }
+            },
+            {
+              "name": "Tcoaal Mach v1",
+              "preview": "Tcoaal Mach v1.webp",
+              "file": "Tcoaal Mach v1.zip",
+              "tags": {
+                "adult": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792448425,
+                "commit-sha": "3c125b6ae64393af9f3336e9e544e8d78a6eaa1f"
+              }
+            },
+            {
+              "name": "Tcoaal Mach v2",
+              "preview": "Tcoaal Mach v2.webp",
+              "file": "Tcoaal Mach v2.zip",
+              "tags": {
+                "adult": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792448425,
+                "commit-sha": "3c125b6ae64393af9f3336e9e544e8d78a6eaa1f"
+              }
+            }
+          ]
+        },
+        {
+          "id": "minimap",
+          "name": "Minimap",
+          "mods": [
+            {
+              "name": "Larger Minimap",
+              "preview": "Larger Minimap.webp",
+              "file": "Larger Minimap.zip",
+              "guideId": "parts-info",
+              "guideType": "info",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1791607322,
+                "commit-sha": "090ed338f274e86b02a399661229f7d4b41657f5"
+              }
+            },
+            {
+              "name": "Grey Minimap",
+              "preview": "Grey Minimap.webp",
+              "file": "Grey Minimap.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1790825298,
+                "commit-sha": "3478dcb2ccb61f10aaa00ce7a7ec7a902306a0d5"
+              }
+            },
+            {
+              "name": "Purple Minimap",
+              "preview": "Purple Minimap.webp",
+              "file": "Purple Minimap.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792011470,
+                "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+              }
+            }
+          ]
+        },
+        {
+          "id": "scoreboard",
+          "name": "Scoreboard",
+          "mods": [
+            {
+              "name": "Bluelock Scoreboard And Shop",
+              "preview": "Bluelock Scoreboard And Shop.webp",
+              "file": "Bluelock Scoreboard And Shop.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "chineseg0d"
+                }
+              ],
+              "meta": {
+                "date": 1791974606,
+                "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
+              }
+            }
+          ]
+        },
+        {
+          "id": "play-button",
+          "name": "Play Button",
+          "mods": [
+            {
+              "name": "Pink Play Button",
+              "preview": "Pink Play Button.webp",
+              "file": "Pink Play Button.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792011470,
+                "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+              }
+            },
+            {
+              "name": "Grey Play Button",
+              "preview": "Grey Play Button.webp",
+              "file": "Grey Play Button.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792095190,
+                "commit-sha": "7e2ea116d4b1c3f5383f2e848d4b27a05aaa753c"
+              }
+            },
+            {
+              "name": "Play Pinkv2",
+              "preview": "Play Pinkv2.webp",
+              "file": "Play Pinkv2.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792330154,
+                "commit-sha": "c44599205b70fe44b5f70cf268b825a2d584ccb2"
+              }
+            },
+            {
+              "name": "Play Black",
+              "preview": "Play Black.webp",
+              "file": "Play Black.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792412054,
+                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+              }
+            },
+            {
+              "name": "Play White",
+              "preview": "Play White.webp",
+              "file": "Play White.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792412054,
+                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+              }
+            },
+            {
+              "name": "Play Red",
+              "preview": "Play Red.webp",
+              "file": "Play Red.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792591892,
+                "commit-sha": "20e3d803ba96c4197ac029e13a6b5179df422c2e"
+              }
+            },
+            {
+              "name": "Purple Play Button",
+              "preview": "Purple Play Button.webp",
+              "file": "Purple Play Button.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792712707,
+                "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
+              }
+            }
+          ]
+        },
+        {
+          "id": "vs",
+          "name": "VS",
+          "mods": [
+            {
+              "name": "Vs Creen",
+              "styles": [
+                {
+                  "label": "Style black",
+                  "color": "#000000",
+                  "preview": "Vs Creen Black.webp",
+                  "file": "Vs Creen Black.zip"
+                },
+                {
+                  "label": "Style white",
+                  "color": "#ffffff",
+                  "preview": "Vs Creen white.webp",
+                  "file": "Vs Creen white.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            },
+            {
+              "name": "Vs Creen Lycoris Colors V1",
+              "styles": [
+                {
+                  "label": "Style I",
+                  "color": "#7c0101",
+                  "preview": "Vs Creen Lycoris Colors Pack1.webp",
+                  "file": "Vs Creen Lycoris Colors Pack1.zip"
+                },
+                {
+                  "label": "Style II",
+                  "color": "#bcf8fc",
+                  "preview": "Vs Creen Lycoris Colors Pack1 Style II.webp",
+                  "file": "Vs Creen Lycoris Colors Pack1 Style II.zip"
+                },
+                {
+                  "label": "Style III",
+                  "color": "#9820a2",
+                  "preview": "Vs Creen Lycoris Colors Pack1 Style III.webp",
+                  "file": "Vs Creen Lycoris Colors Pack1 Style III.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            },
+            {
+              "name": "Vs Creen Lycoris Colors V2",
+              "styles": [
+                {
+                  "label": "Style I",
+                  "color": "linear-gradient(135deg, #000000 50%, #3e3e3e 50%)",
+                  "preview": "Vs Creen Lycoris Colors Pack2.webp",
+                  "file": "Vs Creen Lycoris Colors Pack2.zip"
+                },
+                {
+                  "label": "Style II",
+                  "color": "linear-gradient(135deg, #000000 50%, #d53747 50%)",
+                  "preview": "Vs Creen Lycoris Colors Pack2 Style II.webp",
+                  "file": "Vs Creen Lycoris Colors Pack2 Style II.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            }
+          ]
+        },
+        {
+          "id": "netgraph",
+          "name": "Netgraph",
+          "mods": [
+            {
+              "name": "Netgraph Purple",
+              "preview": "Netgraph Purple.webp",
+              "file": "Netgraph Purple.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            },
+            {
+              "name": "Netgraph Black",
+              "preview": "Netgraph Black.webp",
+              "file": "Netgraph Black.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792668576,
+                "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
+              }
+            },
+            {
+              "name": "Netgraph Red",
+              "preview": "Netgraph Red.webp",
+              "file": "Netgraph Red.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                },
+                {
+                  "type": "author",
+                  "url": "fujitaki"
+                }
+              ],
+              "meta": {
+                "date": 1792894433,
+                "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "kda",
+          "name": "KDA",
+          "mods": [
+            {
+              "name": "Kda Purple",
+              "preview": "Kda Purple.webp",
+              "file": "Kda Purple.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792583758,
+                "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
+              }
+            },
+            {
+              "name": "Kda Black",
+              "preview": "Kda Black.webp",
+              "file": "Kda Black.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1792668576,
+                "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
+              }
+            },
+            {
+              "name": "Kda Red",
+              "preview": "Kda Red.webp",
+              "file": "Kda Red.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                },
+                {
+                  "type": "author",
+                  "url": "fujitaki"
+                }
+              ],
+              "meta": {
+                "date": 1792894433,
+                "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
+              }
+            }
+          ]
+        },
+        {
+          "id": "misc",
+          "name": "Misc",
+          "mods": [
+            {
+              "name": "Larger Timer",
+              "preview": "Larger Timer.webp",
+              "file": "Larger Timer.zip",
+              "guideId": "parts-info",
+              "guideType": "info",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1790818573,
+                "commit-sha": "47054deb747d23b2ef090905c454a3dcb1267a5c"
+              }
+            },
+            {
+              "name": "Remove Innate Icon",
+              "preview": "Remove Innate Icon.webp",
+              "file": "Remove Innate Icon.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1792412054,
+                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+              }
+            },
+            {
+              "name": "Material You Interface 0.1",
+              "preview": "Material You Interface 0.1.webp",
+              "file": "Material You Interface 0.1.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Swin-РукаBlood"
+                }
+              ],
+              "meta": {
+                "date": 1792518355,
+                "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+              }
+            },
+            {
+              "name": "Doom Widged 0.1",
+              "preview": "Doom Widged 0.1.webp",
+              "file": "Doom Widged 0.1.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Swin-РукаBlood"
+                }
+              ],
+              "meta": {
+                "date": 1792518355,
+                "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+              }
+            },
+            {
+              "name": "TikTok Overlay",
+              "preview": "TikTok Overlay.webp",
+              "file": "TikTok Overlay.zip",
+              "guideId": "overlay",
+              "guideType": "not-safe",
+              "links": [
+                {
+                  "type": "source-code",
+                  "url": "https://github.com/BasteArima/dota2-tiktok-overlay"
+                },
+                {
+                  "type": "author",
+                  "url": "Baste"
+                }
+              ],
+              "meta": {
+                "date": 1792782705,
+                "commit-sha": "81d495393936fc3ffb006fae81b9e9aef6349ccf"
+              }
+            }
+          ]
         }
-      },
-      {
-        "name": "Material You Interface 0.1",
-        "preview": "Material You Interface 0.1.webp",
-        "file": "Material You Interface 0.1.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Swin-РукаBlood"
-          }
-        ],
-        "meta": {
-          "date": 1792518355,
-          "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
-        }
-      },
-      {
-        "name": "Doom Widged 0.1",
-        "preview": "Doom Widged 0.1.webp",
-        "file": "Doom Widged 0.1.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Swin-РукаBlood"
-          }
-        ],
-        "meta": {
-          "date": 1792518355,
-          "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
-        }
-      },
-      {
-        "name": "Vs Creen,Black-White",
-        "styles": [
-          {
-            "label": "Style black",
-            "color": "#000000",
-            "preview": "Vs Creen,Black-White.webp",
-            "file": "Vs Creen,Black-White.zip"
-          },
-          {
-            "label": "Style white",
-            "color": "#ffffff",
-            "preview": "Vs Creen,Black-White Style white.webp",
-            "file": "Vs Creen,Black-White Style white.zip"
-          }
-        ],
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Vs Creen Lycoris Colors Pack1",
-        "styles": [
-          {
-            "label": "Style I",
-            "color": "#7c0101",
-            "preview": "Vs Creen Lycoris Colors Pack1.webp",
-            "file": "Vs Creen Lycoris Colors Pack1.zip"
-          },
-          {
-            "label": "Style II",
-            "color": "#bcf8fc",
-            "preview": "Vs Creen Lycoris Colors Pack1 Style II.webp",
-            "file": "Vs Creen Lycoris Colors Pack1 Style II.zip"
-          },
-          {
-            "label": "Style III",
-            "color": "#9820a2",
-            "preview": "Vs Creen Lycoris Colors Pack1 Style III.webp",
-            "file": "Vs Creen Lycoris Colors Pack1 Style III.zip"
-          }
-        ],
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Kda Purple",
-        "preview": "Kda Purple.webp",
-        "file": "Kda Purple.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Netgraph Purple",
-        "preview": "Netgraph Purple.webp",
-        "file": "Netgraph Purple.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Vs Creen Lycoris Colors Pack2",
-        "styles": [
-          {
-            "label": "Style I",
-            "color": "linear-gradient(135deg, #000000 50%, #3e3e3e 50%)",
-            "preview": "Vs Creen Lycoris Colors Pack2.webp",
-            "file": "Vs Creen Lycoris Colors Pack2.zip"
-          },
-          {
-            "label": "Style II",
-            "color": "linear-gradient(135deg, #000000 50%, #d53747 50%)",
-            "preview": "Vs Creen Lycoris Colors Pack2 Style II.webp",
-            "file": "Vs Creen Lycoris Colors Pack2 Style II.zip"
-          }
-        ],
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Red Topbar",
-        "preview": "Red Topbar.webp",
-        "file": "Red Topbar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792583758,
-          "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
-        }
-      },
-      {
-        "name": "Play Red",
-        "preview": "Play Red.webp",
-        "file": "Play Red.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792591892,
-          "commit-sha": "20e3d803ba96c4197ac029e13a6b5179df422c2e"
-        }
-      },
-      {
-        "name": "Kda Black",
-        "preview": "Kda Black.webp",
-        "file": "Kda Black.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792668576,
-          "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
-        }
-      },
-      {
-        "name": "Hetgraph Black",
-        "preview": "Hetgraph Black.webp",
-        "file": "Hetgraph Black.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          }
-        ],
-        "meta": {
-          "date": 1792668576,
-          "commit-sha": "5425504508f37447af66f8b332ac19ff3c41f058"
-        }
-      },
-      {
-        "name": "Purple Play Button",
-        "preview": "Purple Play Button.webp",
-        "file": "Purple Play Button.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "YZT"
-          }
-        ],
-        "meta": {
-          "date": 1792712707,
-          "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
-        }
-      },
-      {
-        "name": "Xvii Search Bar",
-        "preview": "Xvii Search Bar.webp",
-        "file": "Xvii Search Bar.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "xvii"
-          }
-        ],
-        "meta": {
-          "date": 1792764215,
-          "commit-sha": "03a0e2ad5e216fb920d92f5e38c6cf48677d6047"
-        }
-      },
-      {
-        "name": "TikTok Overlay",
-        "preview": "TikTok Overlay.webp",
-        "file": "TikTok Overlay.zip",
-        "guideId": "overlay",
-        "guideType": "not-safe",
-        "links": [
-          {
-            "type": "source-code",
-            "url": "https://github.com/BasteArima/dota2-tiktok-overlay"
-          },
-          {
-            "type": "author",
-            "url": "Baste"
-          }
-        ],
-        "meta": {
-          "date": 1792782705,
-          "commit-sha": "81d495393936fc3ffb006fae81b9e9aef6349ccf"
-        }
-      },
-      {
-        "name": "Kda Red",
-        "preview": "Kda Red.webp",
-        "file": "Kda Red.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          },
-          {
-            "type": "author",
-            "url": "fujitaki"
-          }
-        ],
-        "meta": {
-          "date": 1792894433,
-          "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
-        }
-      },
-      {
-        "name": "Hetgraph Red",
-        "preview": "Hetgraph Red.webp",
-        "file": "Hetgraph Red.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "XIIIpsiblade"
-          },
-          {
-            "type": "author",
-            "url": "fujitaki"
-          }
-        ],
-        "meta": {
-          "date": 1792894433,
-          "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
-        }
-      }
-    ],
+      ]
+    },
     "huds": [
       {
         "name": "Black Hud",

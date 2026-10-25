@@ -36,7 +36,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .github/activity.svg
+          git add .github/assets/activity.svg
           if git diff --cached --quiet; then
             echo "Activity unchanged"
             exit 0

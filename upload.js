@@ -28,8 +28,8 @@
   const NAME_LENGTH_EXCEPTIONS = { 'keeper of the light': 39, 'natures prophet': 39 };
   const MAX_URL_LENGTH = 2048;
 
-  const NAME_CHAR_RE = /[a-zA-Z0-9 \-_.,!]/;
-  const MOD_NAME_RE = /^[a-zA-Z0-9 \-_'.,!]+$/;
+  const NAME_CHAR_RE = /[a-zA-Z0-9 ]/;
+  const MOD_NAME_RE = /^[a-zA-Z0-9]+(?: [a-zA-Z0-9]+)*$/;
   const MISPLACED_HYPHEN_RE = /(^|[^a-zA-Z0-9])-|-([^a-zA-Z0-9]|$)/;
   const NICK_RE = /^[\p{L}\p{N} _.\-!,()\[\]#@+]+$/u;
   const SAFE_TEXT_RE = /^[^<>"`\\\u0000-\u001f\u007f]+$/;
@@ -66,6 +66,10 @@
   }
   function tr(key, fallback) { return (window.translations && window.translations[key]) || fallback || key; }
   function normalizeModName(name) { return String(name || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+  function flatKey(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function heroAsName(hero) {
+    return String(hero || '').replace(/['\u2019]/g, '').replace(/[^a-zA-Z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  }
   function toTitleCase(str) {
     return String(str || '').replace(/[_\-.]+/g, ' ').replace(/\s+/g, ' ').trim().split(' ')
       .map(w => (w ? w[0].toUpperCase() + w.slice(1).toLowerCase() : w)).join(' ');
@@ -78,13 +82,14 @@
   }
   function stripExt(fileName) { return String(fileName || '').replace(/\.[^./\\]+$/, ''); }
   function cleanNameValue(raw, max) {
-    let kept = '', badChars = '', overflow = '';
+    let kept = '', badChars = '', overflow = '', spaces = '';
     for (const ch of String(raw || '')) {
       if (!NAME_CHAR_RE.test(ch)) badChars += ch;
+      else if (ch === ' ' && (!kept || kept.endsWith(' '))) spaces += ch;
       else if (kept.length >= max) overflow += ch;
       else kept += ch;
     }
-    return { kept, badChars, overflow };
+    return { kept, badChars, overflow, spaces };
   }
   function isWebpBytes(b) {
     return b instanceof Uint8Array && b.length > 12 &&
@@ -297,9 +302,9 @@
     fillSubcategorySelect(category);
   }
   function findExistingMod(category, name) {
-    const key = normalizeModName(name);
+    const key = flatKey(name);
     if (!key || !category) return null;
-    return listCategoryMods(category).find(x => x.mod && normalizeModName(x.mod.name) === key) || null;
+    return listCategoryMods(category).find(x => x.mod && flatKey(x.mod.name) === key) || null;
   }
   function modIsReplaceable(mod) {
     return !S.styled && typeof mod.file === 'string' && /^[^\\/]+\.zip$/i.test(mod.file);
@@ -694,14 +699,14 @@
     const hero = findHeroInText(raw);
     if (!hero || hero === toTitleCase(hero)) return titled;
     const mangled = toTitleCase(hero);
-    return titled.includes(mangled) ? titled.split(mangled).join(hero) : titled;
+    return titled.includes(mangled) ? titled.split(mangled).join(heroAsName(hero)) : titled;
   }
 
   function currentMaxNameLength() { return getMaxNameLength(heroSelect.value); }
 
-  function showNameTrim(badChars, overflow, max) {
+  function showNameTrim(badChars, overflow, max, spaces) {
     const box = $('upNameTrim');
-    if (!badChars && !overflow) return;
+    if (!badChars && !overflow && !spaces) return;
     box.textContent = '';
     const add = (label, chars) => {
       if (!chars) return;
@@ -711,6 +716,7 @@
       box.appendChild(wrap);
     };
     add('Removed (not allowed):', badChars);
+    if (spaces) box.appendChild(el('span', '', 'Removed extra spaces (only one space between words). '));
     add(`Removed (over ${max} characters):`, overflow);
     box.hidden = false;
     clearTimeout(showNameTrim.timer);
@@ -724,7 +730,7 @@
     const max = currentMaxNameLength();
     const raw = nameInput.value;
     const caret = nameInput.selectionStart == null ? raw.length : nameInput.selectionStart;
-    const { kept: keptRaw, badChars, overflow } = cleanNameValue(raw, max);
+    const { kept: keptRaw, badChars, overflow, spaces } = cleanNameValue(raw, max);
     const kept = trimEdges ? keptRaw.trim() : keptRaw;
     if (kept !== raw) {
       nameInput.value = kept;
@@ -735,7 +741,7 @@
     }
     $('upNameCount').textContent = String(kept.length);
     $('upNameMax').textContent = String(max);
-    showNameTrim(badChars, overflow, max);
+    showNameTrim(badChars, overflow, max, spaces);
     return kept;
   }
   function setNameValue(v) { nameInput.value = v; return syncNameField({ trimEdges: true }); }
@@ -743,9 +749,10 @@
   function ensureHeroInName(hero) {
     if (!hero || S.update) return;
     const current = nameInput.value.trim();
-    if (!current) { S.autoFilledName = setNameValue(hero); return; }
-    if (current.toLowerCase().includes(hero.toLowerCase())) return;
-    const combined = `${hero} ${current}`;
+    const label = heroAsName(hero);
+    if (!current) { S.autoFilledName = setNameValue(label); return; }
+    if (flatKey(current).includes(flatKey(hero))) return;
+    const combined = `${label} ${current}`;
     if (combined.length <= getMaxNameLength(hero)) setNameValue(combined);
   }
 
@@ -766,7 +773,7 @@
     for (const hero of candidates) {
       const re = heroNameRegex(hero);
       if (!re || !re.test(cur)) continue;
-      const replacement = cleanNameValue(next, 999).kept;
+      const replacement = heroAsName(next);
       const swapped = cur.replace(re, () => replacement).replace(/\s+/g, ' ').trim();
       setNameValue(swapped);
       return true;
@@ -1233,13 +1240,12 @@
       if (S.update && !modIsReplaceable(S.update.mod)) return blockedMessage(S.update.mod);
       if (!upd) {
         const max = getMaxNameLength(hero);
-        if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters, English letters/numbers only).`;
-        if (MISPLACED_HYPHEN_RE.test(name)) return 'A hyphen is allowed only inside a word (e.g. "big-cat"), not with spaces around it ("big - cat").';
+        if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters, English letters and numbers only, no punctuation or symbols).`;
         if (HERO_AWARE_CATEGORIES.includes(category) && hero) {
-          const lower = name.toLowerCase();
-          if (!lower.includes(hero.toLowerCase())) return `The mod name must include the hero name "${hero}".`;
-          const rest = lower.split(hero.toLowerCase()).join(' ').replace(/[^a-z0-9]/g, '');
-          if (!rest) return `Add a title after the hero name (e.g. "${hero} Origin"). The name can't be just "${hero}".`;
+          const flatName = flatKey(name), flatHero = flatKey(hero);
+          if (!flatName.includes(flatHero)) return `The mod name must include the hero name "${heroAsName(hero)}".`;
+          const rest = flatName.split(flatHero).join('');
+          if (!rest) return `Add a title after the hero name (e.g. "${heroAsName(hero)} Origin"). The name can't be just "${heroAsName(hero)}".`;
         }
       }
     }
