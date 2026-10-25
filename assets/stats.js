@@ -91,10 +91,12 @@
                     counts = data;
                     window.downloadCounts = counts;
                     refreshDownloadBadges();
+                    window.dispatchEvent(new CustomEvent('d2pfx:counts-loaded'));
                     return;
                 }
             } catch (_) { }
         }
+        window.dispatchEvent(new CustomEvent('d2pfx:counts-loaded'));
     }
 
     document.addEventListener('visibilitychange', () => {
@@ -105,6 +107,7 @@
     function setDownloadCounts(obj) {
         counts = obj && typeof obj === 'object' ? obj : {};
         refreshDownloadBadges();
+        window.dispatchEvent(new CustomEvent('d2pfx:counts-loaded'));
     }
 
     Object.assign(window, {

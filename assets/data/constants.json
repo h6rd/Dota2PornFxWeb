@@ -441,6 +441,11 @@
       "icon": "sort"
     },
     {
+      "key": "popular",
+      "label": "Popular",
+      "icon": "local_fire_department"
+    },
+    {
       "key": "name",
       "label": "Name",
       "icon": "sort_by_alpha"

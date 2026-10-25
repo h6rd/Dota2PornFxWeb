@@ -743,9 +743,28 @@ document.addEventListener('click', (e) => {
 });
 
 // Sorting
-function sortMods(mods, mode) {
+function getModTotalDownloads(categoryId, groupId, mod) {
+    if (!categoryId || !mod) return 0;
+    if (typeof getDownloadCount !== 'function' || typeof modStatKey !== 'function') return 0;
+
+    if (mod.styles && mod.styles.length > 1) {
+        let total = 0;
+        for (let i = 0; i < mod.styles.length; i++) {
+            total += getDownloadCount(modStatKey(categoryId, groupId, mod, i));
+        }
+        return total;
+    }
+    return getDownloadCount(modStatKey(categoryId, groupId, mod, 0));
+}
+
+function sortMods(mods, mode, categoryId = null, groupId = null) {
     const sortedMods = [...mods];
     switch (mode) {
+        case 'popular':
+            return sortedMods.sort((a, b) =>
+                getModTotalDownloads(categoryId, groupId, b) -
+                getModTotalDownloads(categoryId, groupId, a)
+            );
         case 'name':
             if (state.currentCategory === 'heroes') {
                 return sortedMods.sort((a, b) => {
@@ -2264,6 +2283,12 @@ function setupEventListeners() {
             showHomePage();
         }
     });
+
+    window.addEventListener('d2pfx:counts-loaded', () => {
+        if (state.sortMode === 'popular' && state.currentCategory) {
+            renderMods(state.currentCategory);
+        }
+    });
 }
 
 function setupSearch() {
@@ -2602,7 +2627,7 @@ function renderMods(categoryId) {
         if (hideAnimeMods) mods = mods.filter(mod => !mod.tags?.anime);
         if (hideAdultMods) mods = mods.filter(mod => !mod.tags?.adult);
 
-        mods = sortMods(mods, state.sortMode);
+        mods = sortMods(mods, state.sortMode, categoryId, null);
 
         if (state.searchQuery) {
             mods = mods
@@ -2664,7 +2689,7 @@ function renderGroupedMods(categoryId, groups) {
         groupContainer.className = 'mod-group-container';
         groupContainer.setAttribute('data-group-id', group.id);
 
-        let sortedMods = sortMods(filteredMods, state.sortMode);
+        let sortedMods = sortMods(filteredMods, state.sortMode, categoryId, group.id);
 
         if (state.searchQuery) {
             sortedMods = sortedMods
@@ -2763,6 +2788,11 @@ function renderAllModsSearch() {
         allResults.sort((a, b) => a.mod.name.localeCompare(b.mod.name));
     } else if (state.sortMode === 'date') {
         allResults.reverse();
+    } else if (state.sortMode === 'popular') {
+        allResults.sort((a, b) =>
+            getModTotalDownloads(b.category.id, b.groupId, b.mod) -
+            getModTotalDownloads(a.category.id, a.groupId, a.mod)
+        );
     }
 
     if (state.searchQuery) {
@@ -3053,7 +3083,13 @@ function createModCard(mod, categoryId, groupId = null) {
     const hasStyles = mod.styles && mod.styles.length > 1;
     let activeStyleIndex = 0;
     if (hasStyles) {
-        activeStyleIndex = getStyleIndex(mod.name);
+        const saved = getStyleIndex(mod.name);
+        if (!Number.isInteger(saved) || saved < 0 || saved >= mod.styles.length) {
+            activeStyleIndex = 0;
+            saveStyleIndex(mod.name, 0);
+        } else {
+            activeStyleIndex = saved;
+        }
         mod._styleIndex = activeStyleIndex;
     }
     const activeMod = hasStyles ? { ...mod, ...mod.styles[activeStyleIndex] } : mod;
@@ -3163,11 +3199,13 @@ function loadPackToCart(pack) {
                     const mod = group.mods.find(m => m.name === modName);
                     if (mod) {
                         const styleIndex = (() => {
-                            if (forcedStyle && mod.styles) {
+                            if (!mod.styles || mod.styles.length <= 1) return 0;
+                            if (forcedStyle) {
                                 const idx = mod.styles.findIndex(s => s.label === forcedStyle);
-                                return idx !== -1 ? idx : getStyleIndex(mod.name);
+                                if (idx !== -1) return idx;
                             }
-                            return getStyleIndex(mod.name);
+                            const saved = getStyleIndex(mod.name);
+                            return (Number.isInteger(saved) && saved >= 0 && saved < mod.styles.length) ? saved : 0;
                         })();
                         const activeStyle = mod.styles ? mod.styles[styleIndex] : null;
                         const activeFile = activeStyle ? activeStyle.file : mod.file;
@@ -3192,11 +3230,13 @@ function loadPackToCart(pack) {
                 const mod = categoryData.find(m => m.name === modName);
                 if (mod) {
                     const styleIndex = (() => {
-                        if (forcedStyle && mod.styles) {
+                        if (!mod.styles || mod.styles.length <= 1) return 0;
+                        if (forcedStyle) {
                             const idx = mod.styles.findIndex(s => s.label === forcedStyle);
-                            return idx !== -1 ? idx : getStyleIndex(mod.name);
+                            if (idx !== -1) return idx;
                         }
-                        return getStyleIndex(mod.name);
+                        const saved = getStyleIndex(mod.name);
+                        return (Number.isInteger(saved) && saved >= 0 && saved < mod.styles.length) ? saved : 0;
                     })();
                     const activeStyle = mod.styles ? mod.styles[styleIndex] : null;
                     const activeFile = activeStyle ? activeStyle.file : mod.file;

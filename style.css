@@ -566,10 +566,6 @@ m3e-nav-item .material-symbols-rounded {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sort-toggle:hover .material-symbols-rounded {
-  transform: rotate(180deg);
-}
-
 .back-button {
   display: none;
   align-items: center;
