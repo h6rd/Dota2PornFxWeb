@@ -1879,6 +1879,8 @@ function setupRecentlyAdded() {
                     const row = document.createElement('div');
                     row.style.cssText = 'display:flex; align-items:center; gap:6px; margin-top:auto; flex-wrap:wrap;';
                     if (linkButtons) row.appendChild(linkButtons);
+                    const statBadgeEl = styleCirclesEl?.querySelector('.dl-count');
+                    if (statBadgeEl) newCard.querySelector('.card-media')?.appendChild(statBadgeEl);
                     if (styleCirclesEl) row.appendChild(styleCirclesEl);
                     if (cartBtn) row.appendChild(cartBtn);
                     cardContent.appendChild(row);
@@ -2998,6 +3000,41 @@ function renderAuthorSearch(nickname) {
     }
 }
 
+let _statIndex = null;
+function getStatIndex() {
+    if (_statIndex) return _statIndex;
+    const idx = new Map();
+    const add = (cat, gid, m) => {
+        if (!m || m.type === 'guide' || m.type === 'pack') return;
+        const key = statKey(cat, gid, m.name);
+        const files = new Set([m.file, ...(m.styles || []).map(s => s.file)].filter(Boolean));
+        for (const f of files) {
+            const k = `${cat}|${f}`;
+            if (!idx.has(k)) idx.set(k, []);
+            idx.get(k).push({ key, name: m.name });
+        }
+    };
+    for (const [cat, data] of Object.entries(modsData || {})) {
+        if (data?.groups) data.groups.forEach(g => g.mods.forEach(m => add(cat, g.id, m)));
+        else if (Array.isArray(data)) data.forEach(m => add(cat, null, m));
+    }
+    return (_statIndex = idx);
+}
+
+function statKeyForCartItem(item) {
+    if (typeof statKey !== 'function' || !item) return null;
+    const list = getStatIndex().get(`${item.categoryId || item.category}|${item.file}`);
+    if (!list) return null;
+    if (list.length === 1) return list[0].key;
+    const hit = list.find(e => e.name === item.name) || list.find(e => item.name.startsWith(e.name + ' '));
+    return (hit || list[0]).key;
+}
+
+function trackCartDownloads(items) {
+    if (typeof trackDownloads !== 'function') return;
+    try { trackDownloads((items || []).map(statKeyForCartItem).filter(Boolean)); } catch (_) { }
+}
+
 function createModCard(mod, categoryId, groupId = null) {
     const card = document.createElement('div');
     card.className = 'card fade-in';
@@ -3030,6 +3067,9 @@ function createModCard(mod, categoryId, groupId = null) {
         : null;
     const subtitleText = mod.type === 'guide' ? 'Open' : (metaDate || translations['download']);
     const hideAddToCart = shouldHideAddToCart(mod, categoryId);
+    const statBadge = (mod.type !== 'guide' && mod.type !== 'pack' && (mod.file || mod.styles) && !mod.multiPlatform && typeof statBadgeHtml === 'function')
+        ? statBadgeHtml(statKey(categoryId, groupId, mod.name))
+        : '';
 
     card.innerHTML = `
         <div class="card-media">
@@ -3039,8 +3079,10 @@ function createModCard(mod, categoryId, groupId = null) {
             : `<span style="font-size: 48px; opacity: 0.5;">🧩</span>`
         }
             ${tagsHtml}
+            ${hasStyles ? '' : statBadge}
             ${hasStyles ? `
                 <div class="style-circles">
+                    ${statBadge}
                     ${mod.styles.map((s, i) => `
                         <span class="style-circle ${i === activeStyleIndex ? 'active' : ''}"
                               data-style-index="${i}"
@@ -3396,6 +3438,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             }
         } else {
             const activestyle = mod.styles ? mod.styles[mod._styleIndex || 0] : mod;
+            if (typeof trackDownloads === 'function') trackDownloads([statKey(categoryId, groupId, mod.name)]);
             downloadMod({ ...mod, ...activestyle }, categoryId);
         }
     });

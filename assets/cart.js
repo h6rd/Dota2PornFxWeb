@@ -2624,6 +2624,13 @@ Uninstallation
         link.click();
         URL.revokeObjectURL(url);
 
+        try {
+            const okItems = cart
+                .filter(i => !fileErrors.includes(i.name))
+                .map(i => ({ ...i, file: resolveItemFiles(i).file || i.file }));
+            if (typeof trackCartDownloads === 'function') trackCartDownloads(okItems);
+        } catch (_) { }
+
         showToast('Thanks for downloading, have fun!');
         addLog('Pack downloaded successfully!', 'download');
 
