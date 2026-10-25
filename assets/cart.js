@@ -347,7 +347,10 @@ function handleCartStyleSwitch(circle) {
         card.querySelectorAll('.style-circle').forEach(c => {
             c.classList.toggle('active', +c.dataset.styleIndex === idx);
         });
+        const badge = card.querySelector('.dl-count');
+        if (badge) badge.dataset.stat = modStatKey(item.categoryId, item.groupId, mod, idx);
     });
+    if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
 
     updateCartButtons();
     renderAssembliesList();
@@ -786,9 +789,12 @@ function loadAssembly(assemblyId) {
                     card.querySelectorAll('.style-circle').forEach(c => {
                         c.classList.toggle('active', +c.dataset.styleIndex === idx);
                     });
+                    const badge = card.querySelector('.dl-count');
+                    if (badge) badge.dataset.stat = modStatKey(item.categoryId, item.groupId, mod, idx);
                     const img = card.querySelector('.card-media img, .card-media video');
                     if (img) img.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
                 });
+                if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
             }
         }
     });

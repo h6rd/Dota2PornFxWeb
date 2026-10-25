@@ -1962,7 +1962,11 @@ function setupRecentlyAdded() {
                         otherCard.querySelectorAll('.style-circle').forEach(c => {
                             c.classList.toggle('active', +c.dataset.styleIndex === idx);
                         });
+
+                        const otherBadge = otherCard.querySelector('.dl-count');
+                        if (otherBadge) otherBadge.dataset.stat = modStatKey(recentMod.category, groupId, mod, idx);
                     });
+                    if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
 
                     for (let si = 0; si < mod.styles.length; si++) {
                         const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
@@ -3006,13 +3010,17 @@ function getStatIndex() {
     const idx = new Map();
     const add = (cat, gid, m) => {
         if (!m || m.type === 'guide' || m.type === 'pack') return;
-        const key = statKey(cat, gid, m.name);
-        const files = new Set([m.file, ...(m.styles || []).map(s => s.file)].filter(Boolean));
-        for (const f of files) {
+        const push = (f, key) => {
+            if (!f) return;
             const k = `${cat}|${f}`;
             if (!idx.has(k)) idx.set(k, []);
             idx.get(k).push({ key, name: m.name });
-        }
+        };
+        const baseKey = statKey(cat, gid, m.name);
+        push(m.file, baseKey);
+        (m.styles || []).forEach(s => {
+            push(s.file, m.styles.length > 1 ? statKey(cat, gid, m.name, styleStatName(s)) : baseKey);
+        });
     };
     for (const [cat, data] of Object.entries(modsData || {})) {
         if (data?.groups) data.groups.forEach(g => g.mods.forEach(m => add(cat, g.id, m)));
@@ -3068,7 +3076,7 @@ function createModCard(mod, categoryId, groupId = null) {
     const subtitleText = mod.type === 'guide' ? 'Open' : (metaDate || translations['download']);
     const hideAddToCart = shouldHideAddToCart(mod, categoryId);
     const statBadge = (mod.type !== 'guide' && mod.type !== 'pack' && (mod.file || mod.styles) && !mod.multiPlatform && typeof statBadgeHtml === 'function')
-        ? statBadgeHtml(statKey(categoryId, groupId, mod.name))
+        ? statBadgeHtml(modStatKey(categoryId, groupId, mod, activeStyleIndex))
         : '';
 
     card.innerHTML = `
@@ -3438,7 +3446,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
             }
         } else {
             const activestyle = mod.styles ? mod.styles[mod._styleIndex || 0] : mod;
-            if (typeof trackDownloads === 'function') trackDownloads([statKey(categoryId, groupId, mod.name)]);
+            if (typeof trackDownloads === 'function') trackDownloads([modStatKey(categoryId, groupId, mod, mod._styleIndex || 0)]);
             downloadMod({ ...mod, ...activestyle }, categoryId);
         }
     });
@@ -3505,7 +3513,11 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
                 otherCard.querySelectorAll('.style-circle').forEach(c => {
                     c.classList.toggle('active', +c.dataset.styleIndex === idx);
                 });
+
+                const otherBadge = otherCard.querySelector('.dl-count');
+                if (otherBadge) otherBadge.dataset.stat = modStatKey(categoryId, groupId, mod, idx);
             });
+            if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
 
             for (let si = 0; si < mod.styles.length; si++) {
                 const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');

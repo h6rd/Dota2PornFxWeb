@@ -10,8 +10,19 @@
 
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    function statKey(categoryId, groupId, modName) {
-        return [categoryId, groupId, modName].filter(Boolean).join('/');
+    function statKey(categoryId, groupId, modName, styleName) {
+        return [categoryId, groupId, modName, styleName].filter(Boolean).join('/');
+    }
+
+    function styleStatName(style) {
+        return String(style?.label ?? '').replace('Style ', '').trim() || 'Default';
+    }
+
+    function modStatKey(categoryId, groupId, mod, styleIndex = 0) {
+        if (mod.styles && mod.styles.length > 1) {
+            return statKey(categoryId, groupId, mod.name, styleStatName(mod.styles[styleIndex]));
+        }
+        return statKey(categoryId, groupId, mod.name);
     }
 
     function getDownloadCount(key) {
@@ -98,7 +109,7 @@
 
     Object.assign(window, {
         setDownloadCounts,
-        statKey, getDownloadCount, statBadgeHtml,
+        statKey, styleStatName, modStatKey, getDownloadCount, statBadgeHtml,
         refreshDownloadBadges, trackDownloads, flushDownloads, formatCount
     });
 
