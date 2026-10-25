@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Hetgraph Red",
+      "category": "parts"
+    },
+    {
+      "name": "Japanese Background",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Kda Red",
+      "category": "parts"
+    },
+    {
+      "name": "Invoker Lelouch",
+      "category": "heroes"
+    },
+    {
+      "name": "Mortal Strike Nyaaa!!! Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tcoaal Heart Ping Love 3",
+      "category": "pings"
+    },
+    {
+      "name": "Kruc Fungi Imp Shadow Demon",
+      "category": "heroes"
+    },
+    {
       "name": "Centaur Immortal Emerald",
       "category": "heroes"
     },
@@ -515,10 +543,6 @@
     {
       "name": "Ogre Arcana Egg Sound Fix",
       "category": "other"
-    },
-    {
-      "name": "Kruc Fungi Imp Shadow Demon",
-      "category": "heroes"
     },
     {
       "name": "Derpy Hooves Donkey",
@@ -15157,8 +15181,8 @@
           }
         ],
         "meta": {
-          "date": 1792163562,
-          "commit-sha": "30eb722c703702846f6c1b0556864a46bd14f2ec"
+          "date": 1792894432,
+          "commit-sha": ""
         }
       },
       {
@@ -15609,6 +15633,21 @@
         "meta": {
           "date": 1792860890,
           "commit-sha": "1d674f50ae26267f9dc9889b1dad4c7eb19dfe38"
+        }
+      },
+      {
+        "name": "Invoker Lelouch",
+        "preview": "Invoker Lelouch.webp",
+        "file": "Invoker Lelouch.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Anonymous"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
         }
       }
     ],
@@ -23009,6 +23048,44 @@
           "date": 1792782705,
           "commit-sha": "81d495393936fc3ffb006fae81b9e9aef6349ccf"
         }
+      },
+      {
+        "name": "Kda Red",
+        "preview": "Kda Red.webp",
+        "file": "Kda Red.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "author",
+            "url": "fujitaki"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Hetgraph Red",
+        "preview": "Hetgraph Red.webp",
+        "file": "Hetgraph Red.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "author",
+            "url": "fujitaki"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
+        }
       }
     ],
     "huds": [
@@ -25871,6 +25948,24 @@
         "meta": {
           "date": 1792860890,
           "commit-sha": "1d674f50ae26267f9dc9889b1dad4c7eb19dfe38"
+        }
+      },
+      {
+        "name": "Japanese Background",
+        "preview": "Japanese Background.webp",
+        "file": "Japanese Background.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
         }
       }
     ],
@@ -28843,6 +28938,21 @@
           "date": 1791908483,
           "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
         }
+      },
+      {
+        "name": "Tcoaal Heart Ping Love 3",
+        "preview": "Tcoaal Heart Ping Love 3.webp",
+        "file": "Tcoaal Heart Ping Love 3.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
+        }
       }
     ],
     "herofx": [
@@ -30013,6 +30123,21 @@
         "meta": {
           "date": 1792868093,
           "commit-sha": "e61dfbed529f5692f0701ed3dcbbed049175d9e2"
+        }
+      },
+      {
+        "name": "Mortal Strike Nyaaa!!! Sound",
+        "preview": "Mortal Strike Nyaaa!!! Sound.webp",
+        "file": "Mortal Strike Nyaaa!!! Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ],
+        "meta": {
+          "date": 1792894432,
+          "commit-sha": ""
         }
       }
     ],
