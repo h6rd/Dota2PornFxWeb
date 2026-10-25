@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Girl Resting Under Tree",
+      "category": "backgrounds"
+    },
+    {
       "name": "Hetgraph Red",
       "category": "parts"
     },
@@ -25966,6 +25970,24 @@
         "meta": {
           "date": 1792894433,
           "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
+        }
+      },
+      {
+        "name": "Girl Resting Under Tree",
+        "preview": "Girl Resting Under Tree.webp",
+        "file": "Girl Resting Under Tree.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1792914979,
+          "commit-sha": ""
         }
       }
     ],
