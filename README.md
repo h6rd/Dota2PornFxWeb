@@ -61,6 +61,18 @@
 </p>
 
 <p align="center">
+  <img src=".github/screenshots/compact-mode.png" alt="Compact Mode" width="24%">
+  <img src=".github/screenshots/m3e-color-variants.png" alt="M3E Color Variants" width="24%">
+  <img src=".github/screenshots/navigation-rail.png" alt="Navigation Rail" width="24%">
+  <img src=".github/screenshots/bg-site-editor.png" alt="Background Site Editor" width="24%">
+  <br>
+  <img src=".github/assets/shot-compact-mode.svg" alt="Compact Mode" width="24%">
+  <img src=".github/assets/shot-m3e-color-variants.svg" alt="M3E Color Variants" width="24%">
+  <img src=".github/assets/shot-navigation-rail.svg" alt="Navigation Rail" width="24%">
+  <img src=".github/assets/shot-bg-site-editor.svg" alt="Background Site Editor" width="24%">
+</p>
+
+<p align="center">
   <img src=".github/screenshots/wp-creator.png" alt="Wallpaper Creator" width="24%">
   <img src=".github/screenshots/cs-creator.png" alt="Cursor Creator" width="24%">
   <img src=".github/screenshots/lc-editor.png" alt="Localization Editor" width="24%">

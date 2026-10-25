@@ -862,11 +862,19 @@
                 <input type="checkbox" id="wpEnabled" class="st-switch-input">
                 <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
               </label>
+              <button type="button" class="st-row st-row--action" id="wpEdit">
+                <span class="st-row-icon"><span class="material-symbols-rounded">edit</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Edit wallpaper</span>
+                  <span class="st-row-desc">Add, move and recolor shapes yourself</span>
+                </span>
+                <span class="material-symbols-rounded st-row-chevron">chevron_right</span>
+              </button>
               <div class="st-collapse open" id="wpCollapse">
                 <div class="st-collapse-inner">
                   <div class="st-wp-body disabled" id="wpBody">
                     <div class="st-range-row">
-                      <div class="st-range-head"><span>Shapes</span><span class="st-range-val" id="wpShapesVal"></span></div>
+                      <div class="st-range-head"><span id="wpShapesLabel">Shapes</span><span class="st-range-val" id="wpShapesVal"></span></div>
                       <input type="range" class="st-range" id="wpShapes" min="2" max="8" step="1" aria-label="Number of shapes">
                     </div>
                     <div class="st-btn-row">
