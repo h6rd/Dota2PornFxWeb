@@ -1052,3 +1052,8 @@ html.hw-fading .hw-hat-svg {
         width: 42px;
     }
 }
+
+html.winter-revealed .header,
+html.hw-on .header {
+    background-color: var(--md-header-blur);
+}

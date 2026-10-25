@@ -203,7 +203,7 @@ html.theme-switching *::after {
 }
 
 html body {
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: "Google Sans Flex", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
@@ -368,8 +368,8 @@ img {
 /* Category navigation rail */
 .nav-rail-wrapper {
   position: sticky;
-  top: 72px;
-  height: calc(100vh - 72px);
+  top: var(--header-h, 72px);
+  height: calc(100vh - var(--header-h, 72px));
   flex-shrink: 0;
   z-index: 10;
   display: flex;
@@ -391,6 +391,38 @@ img {
   height: 100px;
   background-color: var(--md-sys-color-background);
   pointer-events: none;
+}
+
+.nav-rail-wrapper:not(.collapsed)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 100% 100%,
+      transparent 27.5px,
+      var(--md-sys-color-background) 28.5px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: var(--rail-w, 0px);
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 100% 0,
+      transparent 27.5px,
+      var(--md-sys-color-background) 28.5px);
+  pointer-events: none;
+  display: none;
+}
+
+html.rail-open .footer::before {
+  display: block;
 }
 
 #categoryNavRail {
@@ -467,8 +499,10 @@ m3e-nav-item .material-symbols-rounded {
   padding: 32px 0;
 }
 
-.nav-rail-wrapper:not(.collapsed)~.main-content-area .container {
-  padding-left: 0px;
+@media (min-width: 769px) {
+  .nav-rail-wrapper:not(.collapsed)~.main-content-area .container {
+    padding-left: 0px;
+  }
 }
 
 /* Page header */
@@ -1772,7 +1806,7 @@ fcode {
   margin: 0;
 }
 
-body.compact-category-view .carousel-track .card {
+body .carousel-track--compact .card {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -1781,7 +1815,7 @@ body.compact-category-view .carousel-track .card {
   overflow: hidden;
 }
 
-body.compact-category-view .carousel-track .card-media {
+body .carousel-track--compact .card-media {
   width: 120px;
   min-width: 120px;
   height: 120px;
@@ -1790,15 +1824,15 @@ body.compact-category-view .carousel-track .card-media {
   position: relative;
 }
 
-body.compact-category-view .carousel-track .card-media img,
-body.compact-category-view .carousel-track .card-media video {
+body .carousel-track--compact .card-media img,
+body .carousel-track--compact .card-media video {
   border-radius: 16px;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-body.compact-category-view .carousel-track .card-content {
+body .carousel-track--compact .card-content {
   padding: 10px 8px;
   display: flex;
   flex-direction: column;
@@ -1808,7 +1842,7 @@ body.compact-category-view .carousel-track .card-content {
   gap: 4px;
 }
 
-body.compact-category-view .carousel-track .card-title {
+body .carousel-track--compact .card-title {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 0;
@@ -1817,7 +1851,7 @@ body.compact-category-view .carousel-track .card-title {
   text-overflow: ellipsis;
 }
 
-body.compact-category-view .carousel-track .card-subtitle {
+body .carousel-track--compact .card-subtitle {
   font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
@@ -1825,7 +1859,7 @@ body.compact-category-view .carousel-track .card-subtitle {
   flex: 1;
 }
 
-body.compact-category-view .carousel-track .card-subtitle-wrapper {
+body .carousel-track--compact .card-subtitle-wrapper {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1833,38 +1867,38 @@ body.compact-category-view .carousel-track .card-subtitle-wrapper {
   overflow: hidden;
 }
 
-body.compact-category-view .carousel-track .card .mod-tags {
+body .carousel-track--compact .card .mod-tags {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card .download-icon {
+body .carousel-track--compact .card .download-icon {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card .link-button {
+body .carousel-track--compact .card .link-button {
   display: flex;
   flex-wrap: wrap;
   opacity: 1;
   gap: 4px;
 }
 
-body.compact-category-view .carousel-track .card .copy-link-btn {
+body .carousel-track--compact .card .copy-link-btn {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card .style-circles {
+body .carousel-track--compact .card .style-circles {
   position: static;
   display: flex;
   gap: 4px;
   flex-shrink: 0;
 }
 
-body.compact-category-view .carousel-track .card .style-circle {
+body .carousel-track--compact .card .style-circle {
   width: 14px;
   height: 14px;
 }
 
-body.compact-category-view .carousel-track .card .add-to-cart-btn {
+body .carousel-track--compact .card .add-to-cart-btn {
   position: static;
   width: 21px;
   height: 21px;
@@ -1876,23 +1910,23 @@ body.compact-category-view .carousel-track .card .add-to-cart-btn {
   justify-content: center;
 }
 
-body.compact-category-view .carousel-track .card .add-to-cart-btn .material-symbols-rounded {
+body .carousel-track--compact .card .add-to-cart-btn .material-symbols-rounded {
   font-size: 16px;
 }
 
-body.compact-category-view .carousel-track .card-media .add-to-cart-btn {
+body .carousel-track--compact .card-media .add-to-cart-btn {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card-media .style-circles {
+body .carousel-track--compact .card-media .style-circles {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card .add-to-cart-btn .cart-btn-text {
+body .carousel-track--compact .card .add-to-cart-btn .cart-btn-text {
   display: none;
 }
 
-body.compact-category-view .carousel-track .card .add-to-cart-btn span:not(.material-symbols-rounded) {
+body .carousel-track--compact .card .add-to-cart-btn span:not(.material-symbols-rounded) {
   display: none;
 }
 
@@ -3200,7 +3234,6 @@ body.modal-open {
 .note-link-chip .bi::before {
   display: block;
   line-height: 1;
-  vertical-align: 0;
 }
 
 .note-link-chip>span:not(.material-symbols-rounded) {
@@ -4461,7 +4494,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Google Sans Flex", "Roboto Mono", monospace;
   font-size: 12px;
   color: var(--md-sys-color-on-surface);
   cursor: pointer;
@@ -8428,5 +8461,112 @@ html.has-wallpaper #wallpaper {
   .st-panel.active,
   .st-tile.active::after {
     animation: none;
+  }
+}
+
+.carousel-container {
+  --m3e-spatial: cubic-bezier(0.38, 1.21, 0.22, 1);
+  --m3e-effects: cubic-bezier(0.34, 0.8, 0.34, 1);
+  --edge: 24px;
+
+  overflow: hidden;
+  padding: 8px var(--edge) 12px;
+  margin: -8px calc(var(--edge) * -1) -12px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--edge), #000 calc(100% - var(--edge)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--edge), #000 calc(100% - var(--edge)), transparent 100%);
+}
+
+.carousel-track {
+  transition: transform 0.6s var(--m3e-spatial);
+  will-change: transform;
+}
+
+.carousel-track .card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    scale 0.6s var(--m3e-spatial) var(--stagger, 0ms),
+    opacity 0.4s var(--m3e-effects) var(--stagger, 0ms);
+  scale: 1;
+  opacity: 1;
+}
+
+.carousel-track .card.is-offscreen {
+  scale: 0.86;
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .carousel-track,
+  .carousel-track .card {
+    transition-duration: 0.01s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+.carousel-track .card {
+  will-change: scale, opacity;
+  backface-visibility: hidden;
+}
+
+.carousel-track .card:hover {
+  will-change: scale, opacity, transform;
+}
+
+body.compact-category-view .cat-full,
+body.compact-category-view #carouselTrack,
+body:not(.compact-category-view) .cat-compact,
+body:not(.compact-category-view) #carouselTrackCompact {
+  display: none !important;
+}
+
+.carousel-container {
+  --m3e-spatial-dur: 725ms;
+  --m3e-spatial: linear(0, 0.0213, 0.0756, 0.1506, 0.2372, 0.3283, 0.4189, 0.5055, 0.5859, 0.6586, 0.7231, 0.7793, 0.8273, 0.8678, 0.9014, 0.9288, 0.9508, 0.9681, 0.9815, 0.9916, 0.999, 1.0041, 1.0076, 1.0097, 1.0108, 1.0111, 1.0109, 1.0103, 1.0095, 1.0085, 1.0075, 1.0065, 1.0055, 1.0046, 1.0038, 1.0031, 1.0025, 1.0019, 1.0015, 1.0011, 1);
+  --m3e-effects-dur: 263ms;
+  --m3e-effects: linear(0, 0.0616, 0.1912, 0.3374, 0.4751, 0.594, 0.6916, 0.7689, 0.8288, 0.8743, 0.9084, 0.9337, 0.9523, 0.9658, 0.9756, 0.9826, 0.9877, 0.9913, 0.9939, 0.9957, 0.997, 0.9979, 0.9985, 0.999, 1);
+}
+
+.carousel-track {
+  transition: transform var(--m3e-spatial-dur) var(--m3e-spatial);
+}
+
+.carousel-track .card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    scale var(--m3e-spatial-dur) var(--m3e-spatial) var(--stagger, 0ms),
+    opacity var(--m3e-effects-dur) var(--m3e-effects) var(--stagger, 0ms),
+    visibility 0s linear 0s;
+  scale: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel-track .card.is-offscreen {
+  scale: 0.88;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    scale var(--m3e-spatial-dur) var(--m3e-spatial),
+    opacity 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 450ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .carousel-track,
+  .carousel-track .card {
+    transition-duration: 0.01s !important;
+    transition-delay: 0s !important;
   }
 }

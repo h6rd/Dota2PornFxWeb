@@ -200,7 +200,7 @@
   flex: 1;
   padding: 10px 12px 12px;
   overflow-y: auto;
-  font-family: "Roboto Mono", "Roboto", monospace;
+  font-family: "Google Sans Flex", "Roboto Mono", "Roboto", monospace;
   font-size: 12.5px;
   line-height: 1.55;
   scrollbar-width: thin;

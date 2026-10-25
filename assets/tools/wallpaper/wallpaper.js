@@ -1145,8 +1145,11 @@
       el.pak.appendChild(o);
     }
     el.pak.value = pad2(DEFAULT_PAK);
-    if (window.MD3Select) window.MD3Select.enhance(el.pak);
-    else el.pak.classList.add('md3-field');
+    if (window.MD3Select) {
+      el.modal.querySelectorAll('select.settings-select').forEach((s) => window.MD3Select.enhance(s));
+    } else {
+      el.modal.querySelectorAll('select.settings-select').forEach((s) => s.classList.add('md3-field'));
+    }
   }
 
   function checkSupport() {
@@ -1395,7 +1398,7 @@
       info: $('wpInfo'),
       aspectBtns: [...document.querySelectorAll('#wpAspect [data-aspect]')],
       customAspect: $('wpCustomAspect'), customW: $('wpCustomW'), customH: $('wpCustomH'),
-      zoom: $('wpZoom'), zoomVal: $('wpZoomVal'), resetBtn: $('wpReset'),
+      zoom: $('wpZoom'), zoomVal: $('wpZoomVal'), resetBtn: $('wpCropReset'),
       height: $('wpHeight'), fps: $('wpFps'), quality: $('wpQuality'), codec: $('wpCodec'), pak: $('wpPak'),
       timeline: $('wpTimeline'), film: $('wpFilm'),
       tlStart: $('wpTlStart'), tlEnd: $('wpTlEnd'), tlRange: $('wpTlRange'),

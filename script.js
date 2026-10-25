@@ -1551,38 +1551,61 @@ function calculateItemsPerPage() {
     return 3;
 }
 
+let carouselBound = false;
+
+function getActiveTrack() {
+    const compact = document.body.classList.contains('compact-category-view');
+    return document.getElementById(compact ? 'carouselTrackCompact' : 'carouselTrack');
+}
+
 function updateCarouselButtons() {
     const prevBtn = document.getElementById('carouselPrev');
     const nextBtn = document.getElementById('carouselNext');
     const controls = document.querySelector('.carousel-controls');
+    const track = getActiveTrack();
 
-    if (!prevBtn || !nextBtn || !recentlyAddedMods) return;
+    if (!prevBtn || !nextBtn || !track) return;
 
-    const totalMods = recentlyAddedMods.length;
+    const total = track.children.length;
     prevBtn.disabled = state.carouselPosition === 0;
-    nextBtn.disabled = state.carouselPosition + state.itemsPerPage >= totalMods;
+    nextBtn.disabled = state.carouselPosition + state.itemsPerPage >= total;
 
     if (controls) {
-        controls.style.display = totalMods <= state.itemsPerPage ? 'none' : 'flex';
+        controls.style.display = total <= state.itemsPerPage ? 'none' : 'flex';
     }
 }
 
+function applyCarouselState(direction = 1) {
+    const track = getActiveTrack();
+    if (!track || !track.children.length) return;
+
+    const cards = Array.from(track.children);
+    const pos = Math.min(state.carouselPosition, cards.length - 1);
+    const per = state.itemsPerPage;
+
+    const offset = cards[pos].offsetLeft - cards[0].offsetLeft;
+    track.style.transform = `translateX(${-offset}px)`;
+
+    cards.forEach((card, i) => {
+        const inView = i >= pos && i < pos + per;
+        const rel = inView ? i - pos : 0;
+        const order = direction >= 0 ? rel : per - 1 - rel;
+        card.style.setProperty('--stagger', `${order * 45}ms`);
+        card.classList.toggle('is-offscreen', !inView);
+    });
+}
+
 function moveCarousel(direction) {
-    const track = document.getElementById('carouselTrack');
-    const container = document.getElementById('carouselContainer');
+    const track = getActiveTrack();
+    if (!track) return;
 
-    if (!track || !container || !recentlyAddedMods) return;
+    const total = track.children.length;
+    const maxPos = Math.max(0, total - state.itemsPerPage);
+    const next = Math.max(0, Math.min(state.carouselPosition + direction * state.itemsPerPage, maxPos));
+    if (next === state.carouselPosition) return;
 
-    const totalMods = recentlyAddedMods.length;
-    state.carouselPosition += direction * state.itemsPerPage;
-    state.carouselPosition = Math.max(0, Math.min(state.carouselPosition, totalMods - state.itemsPerPage));
-
-    const containerWidth = container.offsetWidth;
-    const gap = window.innerWidth < 768 ? 16 : 24;
-    const cardWidth = (containerWidth - (gap * (state.itemsPerPage - 1))) / state.itemsPerPage;
-    const offset = state.carouselPosition * (cardWidth + gap);
-
-    track.style.transform = `translateX(-${offset}px)`;
+    state.carouselPosition = next;
+    applyCarouselState(direction);
     updateCarouselButtons();
     vibrate(10);
 }
@@ -1591,7 +1614,7 @@ function toggleRecentlyAdded() {
     const wrapper = document.querySelector('.carousel-wrapper');
     const collapseBtn = document.getElementById('collapseBtn');
     const categoriesTitle = document.getElementById('categoriesTitle');
-    const track = document.getElementById('carouselTrack');
+    const track = getActiveTrack();
     const header = document.querySelector('.recently-added-header');
     const controls = document.querySelector('.carousel-controls');
 
@@ -1747,6 +1770,15 @@ function setupRecentlyAdded() {
     section?.classList.remove('hidden');
     if (track) track.innerHTML = '';
 
+    let trackC = document.getElementById('carouselTrackCompact');
+    if (!trackC && track) {
+        trackC = document.createElement('div');
+        trackC.id = 'carouselTrackCompact';
+        trackC.className = 'carousel-track carousel-track--compact';
+        track.after(trackC);
+    }
+    if (trackC) trackC.innerHTML = '';
+
     const savedCollapsed = localStorage.getItem('recentlyAddedCollapsed') !== null
         ? localStorage.getItem('recentlyAddedCollapsed') === 'true'
         : window.innerWidth <= 768;
@@ -1765,7 +1797,7 @@ function setupRecentlyAdded() {
         document.querySelector('.carousel-controls')?.classList.remove('collapsed');
     }
 
-    recentlyAddedMods.forEach(recentMod => {
+    const buildTrack = (track, compact) => { recentlyAddedMods.forEach(recentMod => {
         if (recentMod.category === 'news') {
             const newsItem = (modsData['news'] || []).find(n => n.name === recentMod.name);
             if (newsItem && track) {
@@ -1838,7 +1870,7 @@ function setupRecentlyAdded() {
             newCard.querySelector('.copy-link-btn')?.remove();
 
             // compact
-            if (loadSettings().compactCategoryView) {
+            if (compact) {
                 const cardContent = newCard.querySelector('.card-content');
                 const cartBtn = newCard.querySelector('.add-to-cart-btn');
                 const styleCirclesEl = newCard.querySelector('.style-circles');
@@ -1965,30 +1997,54 @@ function setupRecentlyAdded() {
 
             track.appendChild(newCard);
         }
-    });
+    }); };
+
+    if (track) buildTrack(track, false);
+    if (trackC) buildTrack(trackC, true);
 
     state.itemsPerPage = calculateItemsPerPage();
     state.carouselPosition = 0;
+    if (track) track.style.transform = 'translateX(0)';
+    if (trackC) trackC.style.transform = 'translateX(0)';
+    applyCarouselState(1);
     updateCarouselButtons();
+
+    if (carouselBound) return;
+    carouselBound = true;
+
+    const carouselContainer = document.getElementById('carouselContainer');
+    if (window.ResizeObserver && carouselContainer) {
+        let lastW = carouselContainer.clientWidth;
+        new ResizeObserver(() => {
+            const w = carouselContainer.clientWidth;
+            if (!w || w === lastW) return;
+            lastW = w;
+            const t = getActiveTrack();
+            if (!t) return;
+            t.style.transition = 'none';
+            applyCarouselState(1);
+            t.offsetWidth;
+            t.style.transition = '';
+        }).observe(carouselContainer);
+    }
 
     prevBtn?.addEventListener('click', () => moveCarousel(-1));
     nextBtn?.addEventListener('click', () => moveCarousel(1));
     collapseBtn?.addEventListener('click', toggleRecentlyAdded);
 
-    const handleResize = debounce(() => {
-        const newItemsPerPage = calculateItemsPerPage();
-        if (newItemsPerPage !== state.itemsPerPage) {
-            state.itemsPerPage = newItemsPerPage;
+    window.addEventListener('resize', debounce(() => {
+        const perPage = calculateItemsPerPage();
+        if (perPage !== state.itemsPerPage) {
+            state.itemsPerPage = perPage;
             state.carouselPosition = 0;
-            if (track) track.style.transform = 'translateX(0)';
-            updateCarouselButtons();
         }
-    }, 250);
-
-    window.addEventListener('resize', handleResize);
+        applyCarouselState(1);
+        updateCarouselButtons();
+    }, 250));
 }
 
 function init() {
+    document.body.classList.toggle('compact-category-view', !!loadSettings().compactCategoryView);
     elements.homePage.classList.remove('hidden');
     elements.categoryPage.classList.add('hidden');
     elements.backButton.style.display = 'none';
@@ -2094,6 +2150,26 @@ function setupCategoryNavRail() {
     updateToggleIcon();
 
     const header = document.querySelector('.header');
+
+    function syncHeaderHeight() {
+        if (!header) return;
+        document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    }
+    syncHeaderHeight();
+    window.addEventListener('resize', syncHeaderHeight);
+    document.fonts?.ready.then(syncHeaderHeight);
+    if (window.ResizeObserver && header) new ResizeObserver(syncHeaderHeight).observe(header);
+
+    function syncRailWidth() {
+        const w = wrapper ? wrapper.offsetWidth : 0;
+        const open = w > 0 && !wrapper.classList.contains('collapsed');
+        document.documentElement.style.setProperty('--rail-w', `${w}px`);
+        document.documentElement.classList.toggle('rail-open', open);
+    }
+    syncRailWidth();
+    window.addEventListener('resize', syncRailWidth);
+    if (window.ResizeObserver && wrapper) new ResizeObserver(syncRailWidth).observe(wrapper);
+    wrapper?.addEventListener('transitionend', syncRailWidth);
 
     function updateHeaderClass() {
         const isCollapsed = wrapper?.classList.contains('collapsed');
@@ -2285,10 +2361,16 @@ function renderCategories() {
         return;
     }
 
+    const frag = document.createDocumentFragment();
     filteredCategories.forEach(category => {
-        const card = createCategoryCard(category);
-        elements.categoriesGrid.appendChild(card);
+        const full = createCategoryCard(category, false);
+        full.classList.add('cat-full');
+        const compact = createCategoryCard(category, true);
+        compact.classList.add('cat-compact');
+        frag.appendChild(full);
+        frag.appendChild(compact);
     });
+    elements.categoriesGrid.appendChild(frag);
 }
 
 function getFirstModPreview(categoryId) {
@@ -2310,9 +2392,8 @@ function getFirstModPreview(categoryId) {
     };
 }
 
-function createCategoryCard(category) {
+function createCategoryCard(category, isCompact = false) {
     const card = document.createElement('div');
-    const isCompact = !!loadSettings().compactCategoryView;
 
     if (isCompact) {
         card.className = 'card fade-in card--compact';
@@ -2325,7 +2406,7 @@ function createCategoryCard(category) {
             const media = document.createElement(preview.isVideo ? 'video' : 'img');
             media.src = preview.src;
             media.className = 'compact-thumb-media';
-            if (preview.isVideo) { media.muted = true; media.loop = true; media.playsInline = true; }
+            if (preview.isVideo) { media.muted = true; media.loop = true; media.playsInline = true; media.preload = 'metadata'; }
             media.onerror = () => { thumb.innerHTML = `<span class="compact-thumb-emoji">${category.emoji}</span>`; };
             thumb.appendChild(media);
             if (preview.isVideo) {
@@ -2359,7 +2440,7 @@ function createCategoryCard(category) {
         if (category.preview) {
             const isVideo = category.preview.endsWith('.mp4');
             const mediaElement = isVideo ? 'video' : 'img';
-            const mediaAttrs = isVideo ? 'autoplay muted loop playsinline' : '';
+            const mediaAttrs = isVideo ? 'data-autoplay muted loop playsinline preload="metadata"' : '';
             mediaContent = `<${mediaElement} src="assets/previews/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
         } else {
             mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
@@ -2377,6 +2458,9 @@ function createCategoryCard(category) {
                 </div>
             </div>
         `;
+
+        const catVideo = card.querySelector('video[data-autoplay]');
+        if (catVideo) getCardVideoObserver().observe(catVideo);
 
         const copyBtn = card.querySelector('.copy-category-link-btn');
         if (copyBtn) {
@@ -4349,6 +4433,20 @@ function setupWelcomeModal() {
     }
 }
 
+function applyCompactView() {
+    const html = document.documentElement;
+    html.classList.add('no-transition');
+    document.body.classList.toggle('compact-category-view', !!loadSettings().compactCategoryView);
+
+    state.carouselPosition = 0;
+    const t = getActiveTrack();
+    if (t) t.style.transform = 'translateX(0)';
+    applyCarouselState(1);
+    updateCarouselButtons();
+
+    requestAnimationFrame(() => requestAnimationFrame(() => html.classList.remove('no-transition')));
+}
+
 function setupSettingsModal() {
     const btn = document.getElementById('settingsButton');
     const overlay = document.getElementById('settingsOverlay');
@@ -4535,13 +4633,7 @@ function setupSettingsModal() {
 
     document.getElementById('compactCategoryView')?.addEventListener('change', function () {
         saveSettings({ compactCategoryView: this.checked });
-        applySettings(loadSettings());
-        if (!state.currentCategory) renderCategories();
-        const track = document.getElementById('carouselTrack');
-        if (track) {
-            track.innerHTML = '';
-            setupRecentlyAdded();
-        }
+        applyCompactView();
         vibrate(10);
     });
 }
