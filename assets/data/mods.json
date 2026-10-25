@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Axe Immortal Demon",
+      "category": "heroes"
+    },
+    {
+      "name": "Viper Glist",
+      "category": "heroes"
+    },
+    {
+      "name": "Templar Assassin Black",
+      "category": "heroes"
+    },
+    {
+      "name": "Spirit Breaker Bmw Vip 228",
+      "category": "heroes"
+    },
+    {
+      "name": "Clockwerk Rocketbunny",
+      "category": "heroes"
+    },
+    {
       "name": "Terrorblade Arcana Music",
       "category": "music"
     },
@@ -13932,8 +13952,8 @@
           }
         ],
         "meta": {
-          "date": 1791861641,
-          "commit-sha": "9e06053152ee6c6accb350e4781bbddfbc59e17b"
+          "date": 1792965566,
+          "commit-sha": ""
         }
       },
       {
@@ -14768,6 +14788,77 @@
             "url": "Fr0dech"
           }
         ]
+      },
+      {
+        "name": "Clockwerk Rocketbunny",
+        "preview": "Clockwerk Rocketbunny.webp",
+        "file": "Clockwerk Rocketbunny.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1792965566,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Spirit Breaker Bmw Vip 228",
+        "preview": "Spirit Breaker Bmw Vip 228.webp",
+        "file": "Spirit Breaker Bmw Vip 228.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ],
+        "meta": {
+          "date": 1792965566,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Viper Glist",
+        "preview": "Viper Glist.webp",
+        "file": "Viper Glist.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "keeper"
+          }
+        ],
+        "meta": {
+          "date": 1792965566,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Axe Immortal Demon",
+        "preview": "Axe Immortal Demon.webp",
+        "file": "Axe Immortal Demon.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1792965566,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
