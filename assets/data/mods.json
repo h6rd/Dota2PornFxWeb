@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Terrorblade Arcana Music",
+      "category": "music"
+    },
+    {
+      "name": "Mecha Boots Of Travel Mk Ill",
+      "category": "item-effects"
+    },
+    {
+      "name": "Invoker Infernus Forge",
+      "category": "hero-items"
+    },
+    {
+      "name": "All Grandmasters",
+      "category": "other"
+    },
+    {
       "name": "Legion Commander Sorla Khan",
       "category": "heroes"
     },
@@ -319,10 +335,6 @@
     {
       "name": "Doom Widged 0.1",
       "category": "parts"
-    },
-    {
-      "name": "All Grandmasters",
-      "category": "other"
     },
     {
       "name": "White Spell Radius",
@@ -17841,6 +17853,24 @@
                 "date": 1791908483,
                 "commit-sha": "16c77ccd66fac0402db607f8078cf8bb758b286b"
               }
+            },
+            {
+              "name": "Invoker Infernus Forge",
+              "preview": "Invoker Infernus Forge.webp",
+              "file": "Invoker Infernus Forge.zip",
+              "tags": {
+                "forge": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1792947904,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -22929,11 +22959,15 @@
           {
             "type": "author",
             "url": "XIIIpsiblade"
+          },
+          {
+            "type": "modded",
+            "url": "Harlord"
           }
         ],
         "meta": {
-          "date": 1792518355,
-          "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+          "date": 1792947904,
+          "commit-sha": ""
         }
       },
       {
@@ -27398,6 +27432,25 @@
         "meta": {
           "date": 1792778089,
           "commit-sha": "161f2bbab43a444babbdadf689a273980b709bfc"
+        }
+      },
+      {
+        "name": "Terrorblade Arcana Music",
+        "preview": "Terrorblade Arcana Music.webp",
+        "file": "Terrorblade Arcana Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "4d4mf"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=AvhN6PGDwH4"
+          }
+        ],
+        "meta": {
+          "date": 1792947904,
+          "commit-sha": ""
         }
       }
     ],
@@ -32000,6 +32053,21 @@
               "meta": {
                 "date": 1789310506,
                 "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
+              }
+            },
+            {
+              "name": "Mecha Boots Of Travel Mk Ill",
+              "preview": "Mecha Boots Of Travel Mk Ill.webp",
+              "file": "Mecha Boots Of Travel Mk Ill.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1792947904,
+                "commit-sha": ""
               }
             }
           ]
