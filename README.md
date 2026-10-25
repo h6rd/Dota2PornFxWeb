@@ -123,6 +123,7 @@ Content is sourced from the Dota 2 modding community. Original sources include:
 - **0cyzdau** — [TikTok](https://www.tiktok.com/@0cyzdau)
 - **nedavovchik** — [TikTok](https://www.tiktok.com/@nedavovchik)
 - **pr1me** — [TikTok](https://www.tiktok.com/@pr1meee_999)
+- **ynnea** — [YouTube](https://www.youtube.com/@ynnea_too)
 
 </details>
 

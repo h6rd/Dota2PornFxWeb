@@ -947,6 +947,16 @@
         "youtube": "",
         "tiktok": "https://www.tiktok.com/@pr1meee_999"
       }
+    },
+    {
+      "name": "ynnea",
+      "avatar": "assets/previews/hueta/creators/ynnea.webp",
+      "shape": "square",
+      "links": {
+        "twitch": "",
+        "youtube": "https://www.youtube.com/@ynnea_too",
+        "tiktok": ""
+      }
     }
   ]
 }
