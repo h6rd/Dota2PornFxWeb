@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Troll Warlord Steel Warrior",
+      "category": "heroes"
+    },
+    {
+      "name": "Ember Spirit Archive",
+      "category": "heroes"
+    },
+    {
+      "name": "Slark As If It Were Real",
+      "category": "heroes"
+    },
+    {
+      "name": "Hud Fernando",
+      "category": "huds"
+    },
+    {
       "name": "Axe Immortal Demon",
       "category": "heroes"
     },
@@ -14859,6 +14875,55 @@
           "date": 1792965567,
           "commit-sha": "f89a395affd4f2c63fe7e575237c492b3c2dcd15"
         }
+      },
+      {
+        "name": "Slark As If It Were Real",
+        "preview": "Slark As If It Were Real.webp",
+        "file": "Slark As If It Were Real.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1792993494,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ember Spirit Archive",
+        "preview": "Ember Spirit Archive.webp",
+        "file": "Ember Spirit Archive.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1792993494,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Troll Warlord Steel Warrior",
+        "preview": "Troll Warlord Steel Warrior.webp",
+        "file": "Troll Warlord Steel Warrior.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1792993494,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22760,6 +22825,33 @@
         "meta": {
           "date": 1792860890,
           "commit-sha": "1d674f50ae26267f9dc9889b1dad4c7eb19dfe38"
+        }
+      },
+      {
+        "name": "Hud Fernando",
+        "styles": [
+          {
+            "label": "clear",
+            "color": "linear-gradient(135deg, #42523a 50%, #626f30 50%)",
+            "preview": "Hud Fernando.webp",
+            "file": "Hud Fernando.zip"
+          },
+          {
+            "label": "gray",
+            "color": "linear-gradient(135deg, #374430 50%, #7e8286 50%)",
+            "preview": "Hud Fernando gray.webp",
+            "file": "Hud Fernando gray.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1792993494,
+          "commit-sha": ""
         }
       }
     ],
