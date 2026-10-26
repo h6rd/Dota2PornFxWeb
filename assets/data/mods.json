@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Troll Warlord Steel Warrior",
       "category": "heroes"
     },
@@ -167,10 +175,6 @@
     {
       "name": "Xvii Search Bar",
       "category": "parts"
-    },
-    {
-      "name": "Better Source2Viewer",
-      "category": "tools"
     },
     {
       "name": "Lone Tree Meadow",
@@ -391,10 +395,6 @@
     {
       "name": "Material You Interface 0.1",
       "category": "parts"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Frostbloom Serac",
