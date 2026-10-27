@@ -37,7 +37,7 @@
   const YOUTUBE_HOST_RE = /^(m\.|www\.|music\.)?youtube\.com$|^youtu\.be$/i;
 
   const HERO_AWARE_CATEGORIES = ['heroes', 'hero-items', 'herofx', 'hero-sounds'];
-  const SUBCATEGORY_CATEGORIES = ['item-effects', 'creep-deny'];
+  const SUBCATEGORY_CATEGORIES = ['item-effects', 'creep-deny', 'parts'];
   const BLACKLISTED_CATEGORIES = ['packs', 'cursors', 'tools', 'news', 'guides', 'sites', 'fonts', 'creeps'];
   const UPLOAD_HIDDEN_TAGS = { herofx: ['sounds'], 'hero-items': ['sounds'] };
   const NON_SLOT_TAGS = ['effects', 'icons', 'sounds'];
