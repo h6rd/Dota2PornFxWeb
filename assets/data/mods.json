@@ -1,6 +1,42 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Yellow Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Tcoaal Dagon",
+      "category": "sounds"
+    },
+    {
+      "name": "Blue Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Purple Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Green Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Black Top Bar 2",
+      "category": "parts"
+    },
+    {
+      "name": "White Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Orange Top Bar",
+      "category": "parts"
+    },
+    {
+      "name": "Light Blue Top Bar",
+      "category": "parts"
+    },
+    {
       "name": "No Unnecessary Map Effects",
       "category": "optimization"
     },
@@ -21771,6 +21807,126 @@
                 "date": 1792583758,
                 "commit-sha": "b6bedf2273599898a5b184f671912e39d71d992a"
               }
+            },
+            {
+              "name": "Light Blue Top Bar",
+              "preview": "Light Blue Top Bar.webp",
+              "file": "Light Blue Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Orange Top Bar",
+              "preview": "Orange Top Bar.webp",
+              "file": "Orange Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "White Top Bar",
+              "preview": "White Top Bar.webp",
+              "file": "White Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Black Top Bar 2",
+              "preview": "Black Top Bar 2.webp",
+              "file": "Black Top Bar 2.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Green Top Bar",
+              "preview": "Green Top Bar.webp",
+              "file": "Green Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Purple Top Bar",
+              "preview": "Purple Top Bar.webp",
+              "file": "Purple Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Blue Top Bar",
+              "preview": "Blue Top Bar.webp",
+              "file": "Blue Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Yellow Top Bar",
+              "preview": "Yellow Top Bar.webp",
+              "file": "Yellow Top Bar.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "XIIIpsiblade"
+                }
+              ],
+              "meta": {
+                "date": 1793139106,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -30119,6 +30275,25 @@
         "meta": {
           "date": 1792591892,
           "commit-sha": "20e3d803ba96c4197ac029e13a6b5179df422c2e"
+        }
+      },
+      {
+        "name": "Tcoaal Dagon",
+        "preview": "Tcoaal Dagon.webp",
+        "file": "Tcoaal Dagon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/gt7-MA4zcww"
+          }
+        ],
+        "meta": {
+          "date": 1793139106,
+          "commit-sha": ""
         }
       }
     ],
