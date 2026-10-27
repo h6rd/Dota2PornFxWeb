@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "No Unnecessary Map Effects",
+      "category": "optimization"
+    },
+    {
+      "name": "Crystal Interface",
+      "category": "parts"
+    },
+    {
       "name": "Question Marks",
       "category": "pings"
     },
@@ -35,10 +43,6 @@
     {
       "name": "Last Match Vidget",
       "category": "backgrounds"
-    },
-    {
-      "name": "Crystal Interface",
-      "category": "parts"
     },
     {
       "name": "Dota 2 Mod Manager",
@@ -205,10 +209,6 @@
       "category": "hero-sounds"
     },
     {
-      "name": "No Unnecessary Map Effects",
-      "category": "optimization"
-    },
-    {
       "name": "Magnus Collapse Rp",
       "category": "hero-sounds"
     },
@@ -349,7 +349,7 @@
       "category": "hero-sounds"
     },
     {
-      "name": "Red Topbar",
+      "name": "Red Top Bar",
       "category": "parts"
     },
     {
@@ -509,7 +509,7 @@
       "category": "wards"
     },
     {
-      "name": "Topbar Pink",
+      "name": "Top Bar Pink",
       "category": "parts"
     },
     {
@@ -21743,7 +21743,7 @@
               }
             },
             {
-              "name": "Topbar Pink",
+              "name": "Top Bar Pink",
               "preview": "Topbar Pink.webp",
               "file": "Topbar Pink.zip",
               "links": [
@@ -21758,7 +21758,7 @@
               }
             },
             {
-              "name": "Red Topbar",
+              "name": "Red Top Bar",
               "preview": "Red Topbar.webp",
               "file": "Red Topbar.zip",
               "links": [
