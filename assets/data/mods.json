@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Keeper Of The Light Kotl Taunt Xvi",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Break The Drum Mega Kill",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Kotl Obeisance Of The Keeper",
+      "category": "hero-items"
+    },
+    {
+      "name": "Last Match Vidget",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Crystal Interface",
+      "category": "parts"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -367,10 +387,6 @@
     {
       "name": "Cyrpress Alley Tree",
       "category": "trees"
-    },
-    {
-      "name": "Last Match Vidget",
-      "category": "backgrounds"
     },
     {
       "name": "Doom Widged 0.1",
@@ -18213,6 +18229,24 @@
                 "date": 1790528261,
                 "commit-sha": "243ceefd7834ff795683f742f10796ed5115717f"
               }
+            },
+            {
+              "name": "Kotl Obeisance Of The Keeper",
+              "preview": "Kotl Obeisance Of The Keeper.webp",
+              "file": "Kotl Obeisance Of The Keeper.zip",
+              "tags": {
+                "base": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "keeper"
+                }
+              ],
+              "meta": {
+                "date": 1793062290,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -21248,6 +21282,21 @@
           "date": 1792718488,
           "commit-sha": "0e1ffbb02f0edfa0642181b7c6d49b99b7b14375"
         }
+      },
+      {
+        "name": "Break The Drum Mega Kill",
+        "preview": "Break The Drum Mega Kill.webp",
+        "file": "Break The Drum Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793062290,
+          "commit-sha": ""
+        }
       }
     ],
     "announcers": [
@@ -22437,6 +22486,21 @@
               "meta": {
                 "date": 1792782705,
                 "commit-sha": "81d495393936fc3ffb006fae81b9e9aef6349ccf"
+              }
+            },
+            {
+              "name": "Crystal Interface",
+              "preview": "Crystal Interface.webp",
+              "file": "Crystal Interface.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1793062290,
+                "commit-sha": ""
               }
             }
           ]
@@ -25083,8 +25147,8 @@
           }
         ],
         "meta": {
-          "date": 1792518355,
-          "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+          "date": 1793062290,
+          "commit-sha": ""
         }
       },
       {
@@ -29565,6 +29629,25 @@
         "meta": {
           "date": 1792894433,
           "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
+        }
+      },
+      {
+        "name": "Keeper Of The Light Kotl Taunt Xvi",
+        "preview": "Keeper Of The Light Kotl Taunt Xvi.webp",
+        "file": "Keeper Of The Light Kotl Taunt Xvi.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/_Wah4RdQMXs"
+          }
+        ],
+        "meta": {
+          "date": 1793062290,
+          "commit-sha": ""
         }
       }
     ],
