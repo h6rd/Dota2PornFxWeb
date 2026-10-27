@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Shaman Desert Eagle",
+      "category": "heroes"
+    },
+    {
       "name": "Keeper Of The Light Kotl Taunt Xvi",
       "category": "hero-sounds"
     },
@@ -14939,6 +14943,21 @@
         "meta": {
           "date": 1792993494,
           "commit-sha": "605e4192cb6ee53d9d62c3a9bc510f4757e7b35b"
+        }
+      },
+      {
+        "name": "Shadow Shaman Desert Eagle",
+        "preview": "Shadow Shaman Desert Eagle.webp",
+        "file": "Shadow Shaman Desert Eagle.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1793075978,
+          "commit-sha": ""
         }
       }
     ],
