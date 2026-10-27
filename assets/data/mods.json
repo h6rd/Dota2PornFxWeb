@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Question Marks",
+      "category": "pings"
+    },
+    {
+      "name": "Arc Warden Verity Warden",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker Taunt 92",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Material You Interface 0.1",
+      "category": "parts"
+    },
+    {
       "name": "Shadow Shaman Desert Eagle",
       "category": "heroes"
     },
@@ -411,10 +427,6 @@
     {
       "name": "Money Tree",
       "category": "trees"
-    },
-    {
-      "name": "Material You Interface 0.1",
-      "category": "parts"
     },
     {
       "name": "Frostbloom Serac",
@@ -14959,6 +14971,21 @@
           "date": 1793075978,
           "commit-sha": "644cd4265b838877af16095597c98f6f23256690"
         }
+      },
+      {
+        "name": "Arc Warden Verity Warden",
+        "preview": "Arc Warden Verity Warden.webp",
+        "file": "Arc Warden Verity Warden.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1793129685,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22467,8 +22494,8 @@
                 }
               ],
               "meta": {
-                "date": 1792518355,
-                "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+                "date": 1793129685,
+                "commit-sha": ""
               }
             },
             {
@@ -28463,6 +28490,21 @@
           "date": 1792894433,
           "commit-sha": "cb6312949649d70f5216d6cda7ac400c229ed4c3"
         }
+      },
+      {
+        "name": "Question Marks",
+        "preview": "Question Marks.webp",
+        "file": "Question Marks.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1793129685,
+          "commit-sha": ""
+        }
       }
     ],
     "herofx": [
@@ -29667,6 +29709,25 @@
         "meta": {
           "date": 1793062291,
           "commit-sha": "4f388a72e7380a105f41d588fad404c8bdd0e513"
+        }
+      },
+      {
+        "name": "Tinker Taunt 92",
+        "preview": "Tinker Taunt 92.webp",
+        "file": "Tinker Taunt 92.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/uqs2VATGBR4"
+          }
+        ],
+        "meta": {
+          "date": 1793129685,
+          "commit-sha": ""
         }
       }
     ],
