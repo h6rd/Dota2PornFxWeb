@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Better Source2Viewer",
+      "category": "tools"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -122,10 +126,6 @@
     },
     {
       "name": "Dota 2 Mod Manager",
-      "category": "tools"
-    },
-    {
-      "name": "Better Source2Viewer",
       "category": "tools"
     },
     {
