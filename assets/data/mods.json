@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Purple Play Button",
       "category": "parts"
     },
@@ -455,10 +459,6 @@
     {
       "name": "Vs Creen,Black-White",
       "category": "parts"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Rubiline Sheen War Dog",
