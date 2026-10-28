@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Pink Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Keeper Of The Light Invisible Horse",
+      "category": "heroes"
+    },
+    {
+      "name": "Sky Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "12C3M8Jydwfodsjlo Mega Kill",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Grey Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Cursed Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Lain Hud",
+      "category": "huds"
+    },
+    {
       "name": "Hero Auto Pick",
       "category": "parts"
     },
@@ -259,10 +291,6 @@
     {
       "name": "Lone Tree Meadow",
       "category": "backgrounds"
-    },
-    {
-      "name": "Purple Play Button",
-      "category": "parts"
     },
     {
       "name": "Pink Meteor Hammer",
@@ -15026,6 +15054,24 @@
           "date": 1793129686,
           "commit-sha": "9233af8dcc48725bf6da8b8dfcc456ec26fb84a2"
         }
+      },
+      {
+        "name": "Keeper Of The Light Invisible Horse",
+        "preview": "Keeper Of The Light Invisible Horse.webp",
+        "file": "Keeper Of The Light Invisible Horse.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "tapich"
+          }
+        ],
+        "meta": {
+          "date": 1793178545,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21383,6 +21429,21 @@
           "date": 1793062291,
           "commit-sha": "4f388a72e7380a105f41d588fad404c8bdd0e513"
         }
+      },
+      {
+        "name": "12C3M8Jydwfodsjlo Mega Kill",
+        "preview": "12C3M8Jydwfodsjlo Mega Kill.webp",
+        "file": "12C3M8Jydwfodsjlo Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793178545,
+          "commit-sha": ""
+        }
       }
     ],
     "announcers": [
@@ -22320,8 +22381,8 @@
                 }
               ],
               "meta": {
-                "date": 1792011470,
-                "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+                "date": 1793178545,
+                "commit-sha": ""
               }
             },
             {
@@ -22338,8 +22399,8 @@
                 }
               ],
               "meta": {
-                "date": 1792095190,
-                "commit-sha": "7e2ea116d4b1c3f5383f2e848d4b27a05aaa753c"
+                "date": 1793178545,
+                "commit-sha": ""
               }
             },
             {
@@ -22428,8 +22489,44 @@
                 }
               ],
               "meta": {
-                "date": 1792712707,
-                "commit-sha": "3903265a07cdda9d28f025e9099bb5760d25d1cc"
+                "date": 1793178545,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Cursed Play Button",
+              "preview": "Cursed Play Button.webp",
+              "file": "Cursed Play Button.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1793178545,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Sky Play Button",
+              "preview": "Sky Play Button.webp",
+              "file": "Sky Play Button.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1793178545,
+                "commit-sha": ""
               }
             }
           ]
@@ -23208,6 +23305,25 @@
         "meta": {
           "date": 1792993494,
           "commit-sha": "605e4192cb6ee53d9d62c3a9bc510f4757e7b35b"
+        }
+      },
+      {
+        "name": "Lain Hud",
+        "preview": "Lain Hud.webp",
+        "file": "Lain Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/ToMoG3eVCw4"
+          }
+        ],
+        "meta": {
+          "date": 1793178545,
+          "commit-sha": ""
         }
       }
     ],
