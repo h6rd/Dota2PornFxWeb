@@ -838,6 +838,35 @@
       ]
     }
   },
+  "autopick": {
+    "title": "Important Safety Warning",
+    "content": {
+      "en": [
+        {
+          "title": "Warning",
+          "icon": "warning",
+          "steps": [
+            {
+              "icon": "exclamation",
+              "text": "This is a standard VPK that modifies the Play menu, but its safety is unconfirmed. During the hero pick phase it automatically and repeatedly sends hero selection commands, which Valve may treat as automation, so use it at your own risk."
+            }
+          ]
+        }
+      ],
+      "ru": [
+        {
+          "title": "Предупреждение",
+          "icon": "warning",
+          "steps": [
+            {
+              "icon": "exclamation",
+              "text": "Это обычный VPK, который изменяет меню Играть, но безопасность не подтверждена. Во время выбора героя он автоматически и многократно отправляет команды выбора героя, и Valve может расценить это как автоматизацию, поэтому используйте на свой страх и риск."
+            }
+          ]
+        }
+      ]
+    }
+  },
   "couriers-info": {
     "title": "Courier Info",
     "content": {

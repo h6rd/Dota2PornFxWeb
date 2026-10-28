@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Hero Auto Pick",
+      "category": "parts"
+    },
+    {
       "name": "Yellow Top Bar",
       "category": "parts"
     },
@@ -22770,6 +22774,22 @@
                 "date": 1793137750,
                 "commit-sha": "f0a8a534ae04e5f0d3e4489895fb0782795f5008"
               }
+            },
+            {
+              "name": "Hero Auto Pick",
+              "preview": "Hero Auto Pick.webp",
+              "file": "Hero Auto Pick.zip",
+              "guideId": "autopick",
+              "guideType": "not-safe",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "hrdq"
+                }
+              ] 
             }
           ]
         }
