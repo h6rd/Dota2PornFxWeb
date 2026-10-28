@@ -1,6 +1,54 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Baby Roshan Diretide",
+      "category": "couriers"
+    },
+    {
+      "name": "Broodmother Venomancer",
+      "category": "heroes"
+    },
+    {
+      "name": "Aura 2012 Neokin Faierie",
+      "category": "wards"
+    },
+    {
+      "name": "Main Menu Reborn Beta",
+      "category": "backgrounds"
+    },
+    {
+      "name": "No Unnecessary Models",
+      "category": "optimization"
+    },
+    {
+      "name": "Zero Two",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Clinkz Restless Shikaree",
+      "category": "heroes"
+    },
+    {
+      "name": "Orbital Octopus",
+      "category": "couriers"
+    },
+    {
+      "name": "Huskar Darkclaw Berserker",
+      "category": "heroes"
+    },
+    {
+      "name": "Minions",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Main Menu 7 00 Style",
+      "category": "background"
+    },
+    {
+      "name": "Stylish Cat",
+      "category": "backgrounds"
+    },
+    {
       "name": "Better Source2Viewer",
       "category": "tools"
     },
@@ -15072,6 +15120,51 @@
           "date": 1793178545,
           "commit-sha": "6b57bfcd6931f586f2ed99b4c148d6ff848716bd"
         }
+      },
+      {
+        "name": "Huskar Darkclaw Berserker",
+        "preview": "Huskar Darkclaw Berserker.webp",
+        "file": "Huskar Darkclaw Berserker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Clinkz Restless Shikaree",
+        "preview": "Clinkz Restless Shikaree.webp",
+        "file": "Clinkz Restless Shikaree.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Broodmother Venomancer",
+        "preview": "Broodmother Venomancer.webp",
+        "file": "Broodmother Venomancer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -25843,6 +25936,75 @@
           "date": 1792914979,
           "commit-sha": "d8146919a025fa9364d28f440c36b42757904842"
         }
+      },
+      {
+        "name": "Stylish Cat",
+        "preview": "Stylish Cat.webp",
+        "file": "Stylish Cat.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Minions",
+        "preview": "Minions.webp",
+        "file": "Minions.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Zero Two",
+        "preview": "Zero Two.webp",
+        "file": "Zero Two.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Main Menu Reborn Beta",
+        "preview": "Main Menu Reborn Beta.webp",
+        "file": "Main Menu Reborn Beta.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -26051,6 +26213,21 @@
         "meta": {
           "date": 1793137750,
           "commit-sha": "f0a8a534ae04e5f0d3e4489895fb0782795f5008"
+        }
+      },
+      {
+        "name": "No Unnecessary Models",
+        "preview": "No Unnecessary Models.webp",
+        "file": "No Unnecessary Models.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "depex"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
         }
       }
     ],
@@ -27054,6 +27231,21 @@
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
         }
+      },
+      {
+        "name": "Aura 2012 Neokin Faierie",
+        "preview": "Aura 2012 Neokin Faierie.webp",
+        "file": "Aura 2012 Neokin Faierie.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
       }
     ],
     "couriers": [
@@ -27740,6 +27932,36 @@
         "meta": {
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
+        }
+      },
+      {
+        "name": "Orbital Octopus",
+        "preview": "Orbital Octopus.webp",
+        "file": "Orbital Octopus.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Baby Roshan Diretide",
+        "preview": "Baby Roshan Diretide.webp",
+        "file": "Baby Roshan Diretide.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "socialbottommm"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
         }
       }
     ],
@@ -33202,6 +33424,23 @@
         ],
         "meta": {
           "imageMissing": true
+        }
+      }
+    ],
+    "background": [
+      {
+        "name": "Main Menu 7 00 Style",
+        "preview": "Main Menu 7 00 Style.webp",
+        "file": "Main Menu 7 00 Style.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793227820,
+          "commit-sha": ""
         }
       }
     ]
