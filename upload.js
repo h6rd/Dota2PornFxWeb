@@ -44,7 +44,7 @@
   const FALLBACK_SLOT_TAGS = ['base', 'totem', 'weapon', 'tail', 'legs', 'forge', 'spiderling', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', 'shield', 'hair', 'neck', 'rocket'];
   const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
   const UPLOAD_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
-  const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS' };
+  const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS', css: 'CONTAINS CSS, JS OR XML FILES' };
   const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
   const CONSENT_KEY = 'd2pfx_upload_consent';
   const CONSENT_VERSION = '1';

@@ -555,6 +555,12 @@
         "sounds": "Sounds"
       }
     },
+    "parts": {
+      "allowForGuides": false,
+      "map": {
+        "css": "CSS"
+      }
+    },
     "tools": {
       "allowForGuides": false,
       "map": {

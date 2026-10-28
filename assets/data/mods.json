@@ -21998,6 +21998,9 @@
               "name": "Grey Search Bar",
               "preview": "Grey Search Bar.webp",
               "file": "Grey Search Bar.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22225,6 +22228,9 @@
               "file": "Larger Minimap.zip",
               "guideId": "parts-info",
               "guideType": "info",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22276,6 +22282,9 @@
               "name": "Bluelock Scoreboard And Shop",
               "preview": "Bluelock Scoreboard And Shop.webp",
               "file": "Bluelock Scoreboard And Shop.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22297,6 +22306,9 @@
               "name": "Pink Play Button",
               "preview": "Pink Play Button.webp",
               "file": "Pink Play Button.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22312,6 +22324,9 @@
               "name": "Grey Play Button",
               "preview": "Grey Play Button.webp",
               "file": "Grey Play Button.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22327,6 +22342,9 @@
               "name": "Play Pinkv2",
               "preview": "Play Pinkv2.webp",
               "file": "Play Pinkv2.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22342,6 +22360,9 @@
               "name": "Play Black",
               "preview": "Play Black.webp",
               "file": "Play Black.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22357,6 +22378,9 @@
               "name": "Play White",
               "preview": "Play White.webp",
               "file": "Play White.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22372,6 +22396,9 @@
               "name": "Play Red",
               "preview": "Play Red.webp",
               "file": "Play Red.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22387,6 +22414,9 @@
               "name": "Purple Play Button",
               "preview": "Purple Play Button.webp",
               "file": "Purple Play Button.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22501,6 +22531,9 @@
               "name": "Netgraph Purple",
               "preview": "Netgraph Purple.webp",
               "file": "Netgraph Purple.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22516,6 +22549,9 @@
               "name": "Netgraph Black",
               "preview": "Netgraph Black.webp",
               "file": "Netgraph Black.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22531,6 +22567,9 @@
               "name": "Netgraph Red",
               "preview": "Netgraph Red.webp",
               "file": "Netgraph Red.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22556,6 +22595,9 @@
               "name": "Kda Purple",
               "preview": "Kda Purple.webp",
               "file": "Kda Purple.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22571,6 +22613,9 @@
               "name": "Kda Black",
               "preview": "Kda Black.webp",
               "file": "Kda Black.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22586,6 +22631,9 @@
               "name": "Kda Red",
               "preview": "Kda Red.webp",
               "file": "Kda Red.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22613,6 +22661,9 @@
               "file": "Larger Timer.zip",
               "guideId": "parts-info",
               "guideType": "info",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22628,6 +22679,9 @@
               "name": "Remove Innate Icon",
               "preview": "Remove Innate Icon.webp",
               "file": "Remove Innate Icon.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22643,6 +22697,9 @@
               "name": "Material You Interface 0.1",
               "preview": "Material You Interface 0.1.webp",
               "file": "Material You Interface 0.1.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22658,6 +22715,9 @@
               "name": "Doom Widged 0.1",
               "preview": "Doom Widged 0.1.webp",
               "file": "Doom Widged 0.1.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
@@ -22675,6 +22735,9 @@
               "file": "TikTok Overlay.zip",
               "guideId": "overlay",
               "guideType": "not-safe",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "source-code",
@@ -22694,6 +22757,9 @@
               "name": "Crystal Interface",
               "preview": "Crystal Interface.webp",
               "file": "Crystal Interface.zip",
+              "tags": {
+                "css": true
+              },
               "links": [
                 {
                   "type": "author",
