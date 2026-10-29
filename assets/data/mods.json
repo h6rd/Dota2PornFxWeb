@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Meepo Jungle Babysitter",
+      "category": "heroes"
+    },
+    {
+      "name": "Kunkka Viking",
+      "category": "heroes"
+    },
+    {
+      "name": "Old Ping",
+      "category": "pings"
+    },
+    {
+      "name": "Gyrocopter Airbone Machete",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -15145,6 +15161,51 @@
           "date": 1793227820,
           "commit-sha": "62b8507f726a7e6f726d1bafd373a03ca4d13290"
         }
+      },
+      {
+        "name": "Gyrocopter Airbone Machete",
+        "preview": "Gyrocopter Airbone Machete.webp",
+        "file": "Gyrocopter Airbone Machete.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793264883,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Kunkka Viking",
+        "preview": "Kunkka Viking.webp",
+        "file": "Kunkka Viking.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793264883,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Meepo Jungle Babysitter",
+        "preview": "Meepo Jungle Babysitter.webp",
+        "file": "Meepo Jungle Babysitter.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793264883,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -29083,6 +29144,33 @@
         "meta": {
           "date": 1793129686,
           "commit-sha": "9233af8dcc48725bf6da8b8dfcc456ec26fb84a2"
+        }
+      },
+      {
+        "name": "Old Ping",
+        "styles": [
+          {
+            "label": "Old Icons",
+            "color": "#8d8d8d",
+            "preview": "Old Ping.webp",
+            "file": "Old Ping.zip"
+          },
+          {
+            "label": "New Icons",
+            "color": "#8eff97",
+            "preview": "Old Ping New Icons.webp",
+            "file": "Old Ping New Icons.zip"
+          }
+        ],
+        "links": [
+          {
+            "type": "author",
+            "url": "4d4mf"
+          }
+        ],
+        "meta": {
+          "date": 1793264883,
+          "commit-sha": ""
         }
       }
     ],
