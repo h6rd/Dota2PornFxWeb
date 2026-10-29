@@ -67,7 +67,7 @@
         </button>
         <h1 class="logo">
           <a href="#"
-            onclick="event.preventDefault(); showHomePage(); setTimeout(() => window.scrollTo({top:0, behavior:'smooth'}), 50);">
+            onclick="event.preventDefault(); showHomePage().then(() => setTimeout(() => window.scrollTo({top:0, behavior:'smooth'}), 50));">
             <span class="santa-container">
               <svg class="santa-hat-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M 38 68 C 28 68, 18 58, 20 48 C 22 40, 32 35, 45 35 C 38 48, 30 58, 38 68 Z" fill="#990000" />

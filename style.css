@@ -1,4 +1,23 @@
 :root {
+  --md-sys-motion-spring-fast-spatial: linear(0, 0.0338, 0.1199, 0.2381, 0.3719, 0.5083, 0.6378, 0.7541, 0.8534, 0.9342, 0.9965, 1.0416, 1.0713, 1.0881, 1.0945, 1.0931, 1.0861, 1.0756, 1.0632, 1.0502, 1.0377, 1.0263, 1.0164, 1.0082, 1.0018, 0.9971, 0.9939, 0.992, 0.9911, 0.9911, 0.9916, 0.9925, 0.9937, 0.9949, 0.9961, 0.9972, 1);
+  --md-sys-motion-spring-fast-spatial-duration: 290ms;
+  --md-sys-motion-spring-default-spatial: linear(0, 0.0229, 0.081, 0.161, 0.2529, 0.349, 0.4439, 0.5338, 0.6164, 0.6904, 0.7552, 0.8108, 0.8576, 0.8963, 0.9276, 0.9526, 0.9719, 0.9866, 0.9974, 1.005, 1.01, 1.0131, 1.0147, 1.0152, 1.0148, 1.014, 1.0128, 1.0114, 1.0099, 1.0085, 1.0071, 1.0058, 1.0047, 1.0037, 1.0029, 1.0022, 1);
+  --md-sys-motion-spring-default-spatial-duration: 340ms;
+  --md-sys-motion-spring-slow-spatial: linear(0, 0.0222, 0.0788, 0.157, 0.247, 0.3415, 0.4352, 0.5244, 0.6067, 0.6807, 0.7458, 0.802, 0.8496, 0.8891, 0.9214, 0.9473, 0.9676, 0.9831, 0.9947, 1.003, 1.0087, 1.0123, 1.0143, 1.0151, 1.015, 1.0143, 1.0133, 1.012, 1.0105, 1.0091, 1.0077, 1.0064, 1.0053, 1.0042, 1.0033, 1.0025, 1);
+  --md-sys-motion-spring-slow-spatial-duration: 570ms;
+  --md-sys-motion-spring-fast-effects: linear(0, 0.0595, 0.1857, 0.329, 0.465, 0.5834, 0.6813, 0.7596, 0.8206, 0.8673, 0.9026, 0.929, 0.9485, 0.9628, 0.9733, 0.9808, 0.9863, 0.9903, 0.9931, 0.9951, 0.9965, 0.9976, 1);
+  --md-sys-motion-spring-fast-effects-duration: 120ms;
+  --md-sys-motion-spring-default-effects: linear(0, 0.0616, 0.1912, 0.3374, 0.4751, 0.594, 0.6916, 0.7689, 0.8288, 0.8743, 0.9084, 0.9337, 0.9523, 0.9658, 0.9756, 0.9826, 0.9877, 0.9913, 0.9939, 0.9957, 0.997, 0.9979, 1);
+  --md-sys-motion-spring-default-effects-duration: 180ms;
+  --md-sys-motion-spring-slow-effects: linear(0, 0.0578, 0.181, 0.3218, 0.4564, 0.5743, 0.6724, 0.7513, 0.8133, 0.861, 0.8974, 0.9247, 0.945, 0.96, 0.9711, 0.9792, 0.985, 0.9893, 0.9923, 0.9945, 0.9961, 0.9972, 1);
+  --md-sys-motion-spring-slow-effects-duration: 300ms;
+  --m3-axis-shift: 32px;
+  --m3-enter-y: 24px;
+  --m3-enter-scale: 0.92;
+  --m3-stagger-step: 30ms;
+}
+
+:root {
   --md-sys-color-shit: var(--md-sys-color-primary);
   --md-sys-color-shit-light: color-mix(in srgb, var(--md-sys-color-primary) 88%, white);
   --md-sys-color-on-surface-light: var(--md-sys-color-on-surface);
@@ -2148,6 +2167,20 @@ body .carousel-track--compact .card .add-to-cart-btn span:not(.material-symbols-
   content-visibility: visible;
 }
 
+#modsGrid .card-stub {
+  height: var(--stub-h, 330px);
+  cursor: default;
+}
+
+#modsGrid .card-stub:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: var(--md-sys-color-surface-container);
+}
+
+#modsGrid.cv-off .card {
+  content-visibility: visible;
+}
 .card.highlighted {
   animation: highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1;
   scroll-margin-top: 120px;
@@ -2155,7 +2188,10 @@ body .carousel-track--compact .card .add-to-cart-btn span:not(.material-symbols-
 }
 
 .card.highlighted.fade-in {
-  animation: fadeIn 0.3s ease-in, highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s 1;
+  animation:
+    m3-enter-spatial var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial) backwards,
+    m3-enter-effects var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards,
+    highlight-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s 1;
 }
 
 .card.highlighted::before {
@@ -6589,6 +6625,7 @@ body.modal-open {
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 5px 0;
   -webkit-mask-image: linear-gradient(to right,
       transparent 0,
       black 64px,
@@ -6604,7 +6641,7 @@ body.modal-open {
 .creators-ticker-track {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   width: max-content;
   animation: creators-ticker-scroll var(--ticker-duration, 30s) linear infinite;
   animation-direction: reverse;
@@ -6618,45 +6655,67 @@ body.modal-open {
 }
 
 .creator-chip {
+  --chip-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --chip-ease: cubic-bezier(0.2, 0, 0, 1);
+
   display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
-  padding: 3px 16px 3px 3px;
-  background: var(--md-sys-color-surface-container);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: 100px;
-  cursor: pointer;
+  height: 40px;
+  padding: 4px 14px 4px 4px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
   font: inherit;
-  color: var(--md-sys-color-on-surface);
-  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transition: background-color 0.2s var(--chip-ease),
+    color 0.2s var(--chip-ease),
+    border-radius 0.45s var(--chip-spring),
+    transform 0.35s var(--chip-spring);
 }
 
 .creator-chip:hover {
-  background: var(--md-sys-color-surface-container-high);
-  border-color: var(--md-sys-color-primary);
+  border-radius: 13px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: translateY(-2px);
 }
 
 .creator-chip:active {
-  transform: scale(0.97);
+  border-radius: 16px;
+  transform: scale(0.95);
+}
+
+.creator-chip:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 3px;
 }
 
 .creator-chip-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
+  --m3e-shape-size: 32px;
+  display: block;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
-  background: var(--md-sys-color-surface-container-highest);
+  background: transparent;
+}
+
+.creator-chip-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .creator-chip-name {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.1px;
   white-space: nowrap;
-  color: var(--md-sys-color-on-surface);
+  color: inherit;
 }
 
 .creator-modal {
@@ -7426,8 +7485,172 @@ m3e-loading-indicator {
   display: none !important;
 }
 
+@keyframes m3-enter-spatial {
+  from {
+    translate: 0 var(--m3-enter-y);
+    scale: var(--m3-enter-scale);
+  }
+
+  to {
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes m3-enter-effects {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .fade-in {
-  animation: fadeIn 0.3s ease-in;
+  --m3-enter-delay: calc(var(--m3-i, 0) * var(--m3-stagger-step));
+  animation:
+    m3-enter-spatial var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial) var(--m3-enter-delay) backwards,
+    m3-enter-effects var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) var(--m3-enter-delay) backwards;
+}
+
+.fade-in[data-m3-late] {
+  animation: none;
+}
+
+.carousel-track .card.fade-in {
+  animation: m3-enter-effects var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards;
+}
+
+@keyframes m3-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes m3-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes m3-axis-out-forward {
+  to {
+    translate: calc(var(--m3-axis-shift) * -1) 0;
+  }
+}
+
+@keyframes m3-axis-out-backward {
+  to {
+    translate: var(--m3-axis-shift) 0;
+  }
+}
+
+@keyframes m3-axis-in-forward {
+  from {
+    translate: var(--m3-axis-shift) 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes m3-axis-in-backward {
+  from {
+    translate: calc(var(--m3-axis-shift) * -1) 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+.main-content-area.m3-navigating {
+  overflow-x: clip;
+}
+
+.m3-page-exit-forward,
+.m3-page-exit-backward,
+.m3-page-exit-fade {
+  pointer-events: none;
+}
+
+.m3-page-exit-forward {
+  animation:
+    m3-axis-out-forward var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial) forwards,
+    m3-fade-out var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) forwards;
+}
+
+.m3-page-exit-backward {
+  animation:
+    m3-axis-out-backward var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial) forwards,
+    m3-fade-out var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) forwards;
+}
+
+.m3-page-exit-fade {
+  animation: m3-fade-out var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) forwards;
+}
+
+.m3-page-enter-forward {
+  animation:
+    m3-axis-in-forward var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial) backwards,
+    m3-fade-in var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards;
+}
+
+.m3-page-enter-backward {
+  animation:
+    m3-axis-in-backward var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial) backwards,
+    m3-fade-in var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards;
+}
+
+.m3-page-enter-fade {
+  animation: m3-fade-in var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards;
+}
+
+@keyframes m3-back-button-in {
+  from {
+    opacity: 0;
+    translate: -12px 0;
+    scale: 0.85;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+.back-button {
+  animation:
+    m3-back-button-in var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial) backwards,
+    m3-fade-in var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) backwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: m3-enter-effects var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) backwards;
+  }
+
+  .back-button {
+    animation: m3-fade-in var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) backwards;
+  }
+
+  .m3-page-exit-forward,
+  .m3-page-exit-backward {
+    animation: m3-fade-out var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects) forwards;
+  }
+
+  .m3-page-enter-forward,
+  .m3-page-enter-backward {
+    animation: m3-fade-in var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects) backwards;
+  }
 }
 
 /* Hover / pointer / reduced motion */
@@ -7505,18 +7728,17 @@ m3e-loading-indicator {
     padding: 14px 0;
   }
 
-  .creators-ticker-track {
-    gap: 14px;
-  }
-
   .creator-chip {
-    padding: 4px 12px 4px 4px;
-    gap: 6px;
+    height: 36px;
+    padding: 3px 12px 3px 3px;
+    gap: 7px;
+    border-radius: 18px;
   }
 
   .creator-chip-avatar {
-    width: 24px;
-    height: 24px;
+    --m3e-shape-size: 30px;
+    width: 30px;
+    height: 30px;
   }
 
   .creator-chip-name {
@@ -9076,7 +9298,7 @@ html.wp-editing .announcement-toast {
   height: 28px;
   padding: 0 12px 0 8px;
   border-radius: 14px;
-  background-color: var(--md-sys-color-secondary-container);
+  background-color: var(--md-sys-color-on-secondary);
   color: var(--md-sys-color-on-secondary-container);
   font-size: 13px;
   font-weight: 600;

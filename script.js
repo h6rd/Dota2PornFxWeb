@@ -140,6 +140,140 @@ const elements = {
     searchClear: document.getElementById('searchClear')
 };
 
+function replayHomeCards() {
+    const vh = window.innerHeight;
+    const cards = [...elements.categoriesGrid.querySelectorAll('.card')]
+        .filter(c => {
+            if (c.offsetParent === null) return false;
+            const r = c.getBoundingClientRect();
+            return r.bottom > 0 && r.top < vh;
+        })
+        .slice(0, 24);
+    cards.forEach((card, i) => {
+        card.style.setProperty('--m3-enter-y', '-24px');
+        card.style.setProperty('--m3-i', Math.min(i, 8));
+        card.style.setProperty('--m3-stagger-step', '18ms');
+        card.classList.remove('fade-in');
+    });
+    void elements.categoriesGrid.offsetWidth;
+    cards.forEach(card => card.classList.add('fade-in'));
+}
+
+const M3Nav = (() => {
+    const area = () => document.querySelector('.main-content-area');
+    const pages = () => [elements.homePage, elements.categoryPage];
+    const CLASS_RE = /^m3-page-(exit|enter)-/;
+
+    let enabled = false;
+    let token = 0;
+    let hinted = null;
+
+    const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function currentPage() {
+        return pages().find(p => !p.classList.contains('hidden')) || null;
+    }
+
+    function resetPages() {
+        pages().forEach(p => {
+            [...p.classList].filter(c => CLASS_RE.test(c)).forEach(c => p.classList.remove(c));
+        });
+        const a = area();
+        if (a) {
+            a.classList.remove('m3-navigating');
+            delete a.dataset.m3Dir;
+        }
+    }
+
+    const animationNamed = (el, name) =>
+        el.getAnimations().find(a => a.animationName === name);
+
+    async function go({ to }, swap) {
+        const hint = hinted;
+        hinted = null;
+        const myToken = ++token;
+
+        const target = to === 'home' ? elements.homePage : elements.categoryPage;
+        const outgoing = currentPage();
+        resetPages();
+
+        const sameHome = outgoing === target && to === 'home';
+        if (!enabled || !outgoing || document.hidden || sameHome) {
+            swap();
+            return;
+        }
+
+        const pattern = (hint === 'top-level' || outgoing === target || reducedMotion())
+            ? 'fade'
+            : (to === 'home' ? 'backward' : 'forward');
+
+        const a = area();
+        a.classList.add('m3-navigating');
+        a.dataset.m3Dir = pattern;
+
+        const exitClass = `m3-page-exit-${pattern}`;
+        outgoing.classList.add(exitClass);
+        const fadeOut = animationNamed(outgoing, 'm3-fade-out');
+        if (fadeOut) {
+            try { await fadeOut.finished; } catch (_) { return; }
+        }
+        if (myToken !== token) return;
+
+        try {
+            swap();
+        } finally {
+            outgoing.classList.remove(exitClass);
+        }
+
+        if (pattern === 'backward' && to === 'home') replayHomeCards();
+        const enterClass = `m3-page-enter-${pattern}`;
+        target.classList.add(enterClass);
+        const running = target.getAnimations().filter(an => an.animationName && an.animationName.startsWith('m3-'));
+        await Promise.allSettled(running.map(an => an.finished));
+        if (myToken !== token) return;
+
+        target.classList.remove(enterClass);
+        a.classList.remove('m3-navigating');
+        delete a.dataset.m3Dir;
+    }
+
+    return {
+        go,
+        enable() { enabled = true; },
+        hint(pattern) { hinted = pattern; }
+    };
+})();
+
+document.addEventListener('animationend', (e) => {
+    const el = e.target;
+    if (!el.classList || !el.classList.contains('fade-in')) return;
+    if (!e.animationName || !e.animationName.startsWith('m3-enter')) return;
+    const pending = el.getAnimations().some(a =>
+        a.playState === 'running' && a.animationName && a.animationName.startsWith('m3-enter'));
+    if (!pending) el.classList.remove('fade-in');
+});
+
+(function setupCardEnterStagger() {
+    const grid = elements.modsGrid;
+    if (!grid) return;
+    const MAX_STEPS = 10;
+    const LAST_ANIMATED = 30;
+
+    new MutationObserver(mutations => {
+        if (!mutations.some(m => [...m.addedNodes].some(n => !(n.dataset && n.dataset.hydrated)))) return;
+        const anchor = grid.dataset.m3Anchor !== undefined ? parseInt(grid.dataset.m3Anchor, 10) : null;
+        delete grid.dataset.m3Anchor;
+        grid.querySelectorAll('.card').forEach((card, i) => {
+            if (anchor !== null && anchor >= 0) {
+                if (i >= anchor - 4 && i <= anchor + 12) {
+                    card.style.setProperty('--m3-i', Math.min(Math.abs(i - anchor), MAX_STEPS));
+                } else card.setAttribute('data-m3-late', '');
+            } else if (i < LAST_ANIMATED) card.style.setProperty('--m3-i', Math.min(i, MAX_STEPS));
+            else card.setAttribute('data-m3-late', '');
+        });
+    }).observe(grid, { childList: true });
+})();
+
 const styleIndexMap = (() => {
     try { return JSON.parse(localStorage.getItem('styleIndexMap') || '{}'); }
     catch { return {}; }
@@ -260,27 +394,40 @@ const matchesSearchQuery = (text, query) => {
     return getSearchMatchRank(text, query) !== SEARCH_RANK_NONE;
 };
 
+const _heroRegexCache = new Map();
+const _heroMatchCache = new Map();
+
+const getHeroRegex = (hero) => {
+    let rx = _heroRegexCache.get(hero);
+    if (!rx) {
+        rx = HERO_NAME_EXCEPTIONS.includes(hero)
+            ? new RegExp(hero, 'i')
+            : new RegExp(`\\b${hero}\\b`, 'i');
+        _heroRegexCache.set(hero, rx);
+    }
+    return rx;
+};
+
 const findHeroMatch = (text) => {
     if (!text) return null;
+    if (_heroMatchCache.has(text)) return _heroMatchCache.get(text);
 
     let firstMatch = null;
     let firstMatchIndex = text.length;
     let firstMatchHero = null;
 
-    HEROES_LIST.forEach(hero => {
-        const regex = HERO_NAME_EXCEPTIONS.includes(hero)
-            ? new RegExp(hero, 'i')
-            : new RegExp(`\\b${hero}\\b`, 'i');
-        const match = text.match(regex);
+    for (const hero of HEROES_LIST) {
+        const match = text.match(getHeroRegex(hero));
         if (match && match.index < firstMatchIndex) {
             firstMatchIndex = match.index;
             firstMatch = match[0];
             firstMatchHero = hero;
         }
-    });
+    }
 
-    if (!firstMatch) return null;
-    return { match: firstMatch, hero: firstMatchHero };
+    const result = firstMatch ? { match: firstMatch, hero: firstMatchHero } : null;
+    _heroMatchCache.set(text, result);
+    return result;
 };
 
 const applyHeroDisplayName = (text) => {
@@ -292,26 +439,25 @@ const applyHeroDisplayName = (text) => {
     const displayName = getHeroDisplayName(found.hero);
     if (displayName === found.match) return text;
 
-    const regex = HERO_NAME_EXCEPTIONS.includes(found.hero)
-        ? new RegExp(found.hero, 'i')
-        : new RegExp(`\\b${found.hero}\\b`, 'i');
-    return text.replace(regex, displayName);
+    return text.replace(getHeroRegex(found.hero), displayName);
 };
+
+const _heroHighlightCache = new Map();
 
 const highlightHeroNames = (text) => {
     if (!text) return text;
+    const cached = _heroHighlightCache.get(text);
+    if (cached !== undefined) return cached;
 
+    let out = text;
     const found = findHeroMatch(text);
-    if (!found) return text;
-
-    const displayName = getHeroDisplayName(found.hero);
-    const regex = HERO_NAME_EXCEPTIONS.includes(found.hero)
-        ? new RegExp(found.hero, 'i')
-        : new RegExp(`\\b${found.hero}\\b`, 'i');
-
-    return text.replace(regex, () => {
-        return `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${displayName}</span>`;
-    });
+    if (found) {
+        const displayName = getHeroDisplayName(found.hero);
+        out = text.replace(getHeroRegex(found.hero), () =>
+            `<span style="color: var(--md-sys-color-primary); font-weight: bold;">${displayName}</span>`);
+    }
+    _heroHighlightCache.set(text, out);
+    return out;
 };
 
 // FAB Menu
@@ -1702,59 +1848,35 @@ function openCategoryAndHighlightMod(categoryId, modName) {
     elements.categoryPage.classList.remove('hidden');
     elements.backButton.style.display = 'flex';
 
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    elements.modsGrid.classList.add('cv-off');
 
-    requestAnimationFrame(() => {
-        const targetCard = elements.modsGrid.querySelector(
-            `[data-mod-name="${CSS.escape(modName)}"][data-category-id="${CSS.escape(categoryId)}"]`
-        );
-        if (!targetCard) return;
+    let targetCard = elements.modsGrid.querySelector(
+        `[data-mod-name="${CSS.escape(modName)}"][data-category-id="${CSS.escape(categoryId)}"]`
+    );
+    if (!targetCard) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return null;
+    }
 
-        const rect = targetCard.getBoundingClientRect();
-        const targetY = rect.top + window.pageYOffset - (window.innerHeight - rect.height) / 2;
-        const distance = targetY - window.pageYOffset;
-        if (Math.abs(distance) > HIGHLIGHT_JUMP_THRESHOLD) {
-            window.scrollTo({
-                top: targetY - Math.sign(distance) * HIGHLIGHT_SMOOTH_TAIL,
-                behavior: 'instant'
-            });
-        }
+    const allCards = [...elements.modsGrid.querySelectorAll('.card')];
+    const anchorIdx = allCards.indexOf(targetCard);
+    for (let i = Math.max(0, anchorIdx - 4); i <= Math.min(allCards.length - 1, anchorIdx + 12); i++) {
+        if (stubData.has(allCards[i])) hydrateStub(allCards[i], true);
+    }
+    syncStubHeight();
+    elements.modsGrid.dataset.m3Anchor = String(anchorIdx);
 
-        requestAnimationFrame(() => {
-            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-            whenScrollSettled(() => {
-                targetCard.classList.add('cv-pinned');
-                requestAnimationFrame(() => targetCard.classList.add('highlighted'));
-                vibrate([50, 100, 50]);
-                setTimeout(() => {
-                    requestAnimationFrame(() => targetCard.classList.remove('highlighted'));
-                }, 1500);
-            });
-        });
+    targetCard = elements.modsGrid.querySelector(
+        `[data-mod-name="${CSS.escape(modName)}"][data-category-id="${CSS.escape(categoryId)}"]`
+    );
+
+    let y = 0;
+    for (let el = targetCard; el; el = el.offsetParent) y += el.offsetTop;
+    window.scrollTo({
+        top: Math.max(0, y - (window.innerHeight - targetCard.offsetHeight) / 2),
+        behavior: 'instant'
     });
-}
-
-const HIGHLIGHT_JUMP_THRESHOLD = 1500;
-const HIGHLIGHT_SMOOTH_TAIL = 1000;
-
-function whenScrollSettled(cb, maxWait = 1500) {
-    let finished = false;
-    let quietTimer;
-    const finish = () => {
-        if (finished) return;
-        finished = true;
-        clearTimeout(quietTimer);
-        clearTimeout(maxTimer);
-        window.removeEventListener('scroll', onScroll);
-        cb();
-    };
-    const onScroll = () => {
-        clearTimeout(quietTimer);
-        quietTimer = setTimeout(finish, 120);
-    };
-    const maxTimer = setTimeout(finish, maxWait);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    quietTimer = setTimeout(finish, 400); // scroll never started (card already centered)
+    return targetCard;
 }
 
 let cardVideoObserver = null;
@@ -2240,6 +2362,7 @@ function setupCategoryNavRail() {
         if (!item) return;
 
         const categoryId = item.dataset.categoryId;
+        M3Nav.hint('top-level');
         if (!categoryId) {
             showHomePage();
         } else {
@@ -2265,14 +2388,56 @@ function setNavRailSelection(categoryId) {
 
 const _origShowHomePage = showHomePage;
 showHomePage = function () {
-    _origShowHomePage.apply(this, arguments);
+    const args = arguments;
     setNavRailSelection(null);
+    return M3Nav.go({ to: 'home' }, () => _origShowHomePage.apply(this, args));
 };
 
 const _origShowCategoryPage = showCategoryPage;
 showCategoryPage = function (categoryId) {
-    _origShowCategoryPage.apply(this, arguments);
+    const args = arguments;
     setNavRailSelection(categoryId);
+    return M3Nav.go({ to: 'category' }, () => _origShowCategoryPage.apply(this, args));
+};
+
+const _origOpenCategoryAndHighlightMod = openCategoryAndHighlightMod;
+function pinCardInView(card, duration = 1500) {
+    let active = true;
+    const events = ['wheel', 'touchstart', 'keydown', 'mousedown'];
+    const stop = () => { active = false; };
+    events.forEach(ev => window.addEventListener(ev, stop, { once: true, passive: true }));
+    const t0 = performance.now();
+
+    (function tick() {
+        if (!active || !card.isConnected || performance.now() - t0 > duration) {
+            events.forEach(ev => window.removeEventListener(ev, stop));
+            return;
+        }
+        let y = 0;
+        for (let el = card; el; el = el.offsetParent) y += el.offsetTop;
+        const want = Math.max(0, y - (window.innerHeight - card.offsetHeight) / 2);
+        if (Math.abs(window.scrollY - want) > 2) window.scrollTo({ top: want, behavior: 'instant' });
+        requestAnimationFrame(tick);
+    })();
+}
+
+openCategoryAndHighlightMod = async function (categoryId, modName) {
+    let card = null;
+    await M3Nav.go({ to: 'category' }, () => {
+        card = _origOpenCategoryAndHighlightMod(categoryId, modName);
+        if (card) pinCardInView(card);
+    });
+    if (!card) return;
+
+    card.classList.add('cv-pinned');
+    requestAnimationFrame(() => {
+        card.classList.add('highlighted');
+        vibrate([50, 100, 50]);
+        setTimeout(() => {
+            card.classList.remove('highlighted');
+            elements.modsGrid.classList.remove('cv-off');
+        }, 1500);
+    });
 };
 
 function setupEventListeners() {
@@ -2601,11 +2766,73 @@ function showCategoryPage(categoryId) {
     elements.categoryPage.classList.remove('hidden');
     elements.backButton.style.display = 'flex';
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// Lazy cards
+const LAZY_EAGER_COUNT = 18;
+const stubData = new WeakMap();
+let lazyBuilt = 0;
+let cardHydrator = null;
+
+function resetLazyCards() {
+    lazyBuilt = 0;
+    if (cardHydrator) cardHydrator.disconnect();
+}
+
+function hydrateStub(stub, animate = false) {
+    const d = stubData.get(stub);
+    if (!d || !stub.isConnected) return null;
+    stubData.delete(stub);
+    if (cardHydrator) cardHydrator.unobserve(stub);
+
+    const card = createModCard(d.mod, d.categoryId, d.groupId);
+    if (d.onCreate) d.onCreate(card);
+    card.dataset.hydrated = '1';
+    if (!animate) card.classList.remove('fade-in');
+    stub.replaceWith(card);
+    return card;
+}
+
+function getCardHydrator() {
+    if (!cardHydrator) {
+        cardHydrator = new IntersectionObserver(entries => {
+            let any = false;
+            entries.forEach(({ target, isIntersecting }) => {
+                if (isIntersecting && hydrateStub(target)) any = true;
+            });
+            if (any && typeof updateCartButtons === 'function') updateCartButtons();
+        }, { rootMargin: '1200px 0px' });
+    }
+    return cardHydrator;
+}
+
+function createLazyCard(mod, categoryId, groupId = null, onCreate = null) {
+    if (lazyBuilt++ < LAZY_EAGER_COUNT) {
+        const card = createModCard(mod, categoryId, groupId);
+        if (onCreate) onCreate(card);
+        return card;
+    }
+    const stub = document.createElement('div');
+    stub.className = 'card card-stub';
+    stub.setAttribute('data-mod-name', mod.name);
+    stub.setAttribute('data-category-id', categoryId);
+    if (groupId) stub.setAttribute('data-group-id', groupId);
+    stubData.set(stub, { mod, categoryId, groupId, onCreate });
+    getCardHydrator().observe(stub);
+    return stub;
+}
+
+function syncStubHeight() {
+    const real = elements.modsGrid.querySelector('.card:not(.card-stub)');
+    const h = real && real.offsetHeight;
+    if (h) elements.modsGrid.style.setProperty('--stub-h', h + 'px');
 }
 
 function renderMods(categoryId) {
+    elements.modsGrid.classList.remove('cv-off');
     if (cardVideoObserver) cardVideoObserver.disconnect();
+    resetLazyCards();
     elements.modsGrid.innerHTML = '';
     elements.modsGrid.style.display = '';
     let mods = modsData[categoryId] || [];
@@ -2650,8 +2877,9 @@ function renderMods(categoryId) {
         }
 
         const frag = document.createDocumentFragment();
-        mods.forEach(mod => frag.appendChild(createModCard(mod, categoryId)));
+        mods.forEach(mod => frag.appendChild(createLazyCard(mod, categoryId)));
         elements.modsGrid.appendChild(frag);
+        syncStubHeight();
     }
 
     if (typeof updateCartButtons === 'function') {
@@ -2706,15 +2934,16 @@ function renderGroupedMods(categoryId, groups) {
         }
 
         sortedMods.forEach(mod => {
-            const card = createModCard(mod, categoryId, group.id);
-            groupContainer.appendChild(card);
+            groupContainer.appendChild(createLazyCard(mod, categoryId, group.id));
         });
 
         elements.modsGrid.appendChild(groupContainer);
     });
+    syncStubHeight();
 }
 
 function renderAllModsSearch() {
+    resetLazyCards();
     elements.modsGrid.innerHTML = '';
     elements.modsGrid.style.display = '';
     elements.homePage.classList.add('hidden');
@@ -2806,15 +3035,14 @@ function renderAllModsSearch() {
     elements.categoryDescription.textContent = `Found ${allResults.length} mods`;
 
     allResults.forEach(({ mod, category, groupId }) => {
-        const card = createModCard(mod, category.id, groupId);
-
-        const subtitleElement = card.querySelector('.card-subtitle');
-        if (subtitleElement && mod.type !== 'guide') {
-            subtitleElement.textContent = translations[category.key];
-        }
-
-        elements.modsGrid.appendChild(card);
+        elements.modsGrid.appendChild(createLazyCard(mod, category.id, groupId, card => {
+            const subtitleElement = card.querySelector('.card-subtitle');
+            if (subtitleElement && mod.type !== 'guide') {
+                subtitleElement.textContent = translations[category.key];
+            }
+        }));
     });
+    syncStubHeight();
 
     if (typeof updateCartButtons === 'function') {
         updateCartButtons();
@@ -2822,6 +3050,7 @@ function renderAllModsSearch() {
 }
 
 function renderFileSearch(filename) {
+    resetLazyCards();
     elements.modsGrid.innerHTML = '';
     elements.modsGrid.style.display = '';
     elements.homePage.classList.add('hidden');
@@ -2925,6 +3154,7 @@ function renderFileSearch(filename) {
 }
 
 function renderAuthorSearch(nickname) {
+    resetLazyCards();
     elements.modsGrid.innerHTML = "";
     elements.modsGrid.style.display = "";
     elements.homePage.classList.add("hidden");
@@ -3742,7 +3972,7 @@ function showHomePage() {
     if (sortToggle) sortToggle.style.display = 'none';
 
     resetSort();
-    renderCategories();
+    if (!elements.categoriesGrid.querySelector('.card')) renderCategories();
     resetSeoMeta();
 
     const baseUrl = window.location.origin + window.location.pathname;
@@ -3753,6 +3983,8 @@ function showHomePage() {
 
     const rail = document.getElementById('categoryNavRail');
     if (rail) rail.scrollTop = 0;
+
+    window.scrollTo({ top: scrollTo, behavior: 'instant' });
 
     requestAnimationFrame(() => {
         window.scrollTo(0, scrollTo);
@@ -3840,6 +4072,7 @@ async function loadData() {
         window.toolVersions = data.toolVersions || {};
 
         init();
+        M3Nav.enable();
     } catch (e) {
         clearTimeout(slowWarningTimer);
         console.error("Failed to load application data:", e);
@@ -4238,9 +4471,19 @@ function setupCreatorsTicker() {
         const chip = document.createElement('button');
         chip.type = 'button';
         chip.className = 'creator-chip';
+        const restShape = 'circle';
+        const hoverShape = creator.shape && creator.shape !== 'circle' ? creator.shape : 'sunny';
         chip.innerHTML = `
-            <img class="creator-chip-avatar" src="${creator.avatar || ''}" alt="" loading="lazy">
+            <m3e-shape name="${restShape}" class="creator-chip-avatar">
+                <img src="${creator.avatar || ''}" alt="" loading="lazy" draggable="false">
+            </m3e-shape>
             <span class="creator-chip-name">${creator.name}</span>`;
+        const shape = chip.querySelector('m3e-shape');
+        const morph = (name) => shape.setAttribute('name', name);
+        chip.addEventListener('mouseenter', () => morph(hoverShape));
+        chip.addEventListener('mouseleave', () => morph(restShape));
+        chip.addEventListener('focus', () => morph(hoverShape));
+        chip.addEventListener('blur', () => morph(restShape));
         chip.addEventListener('click', () => openCreatorModal(creator));
         return chip;
     };
