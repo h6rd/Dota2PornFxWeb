@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kaneki Shadow Fiend",
+      "category": "heroes"
+    },
+    {
+      "name": "Scarry Respawn Bayback",
+      "category": "sounds"
+    },
+    {
+      "name": "Blindzone",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Invoker Ronaldo",
+      "category": "hero-items"
+    },
+    {
+      "name": "Pudge Rot Ponos Sound",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Alpha Lvlup Sound",
+      "category": "sounds"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -15206,6 +15230,25 @@
           "date": 1793264883,
           "commit-sha": "b93e9198757777f0aeec144c00a87cb082d58a66"
         }
+      },
+      {
+        "name": "Kaneki Shadow Fiend",
+        "preview": "Kaneki Shadow Fiend.webp",
+        "file": "Kaneki Shadow Fiend.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1793329448,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -18308,6 +18351,24 @@
               "meta": {
                 "date": 1792947904,
                 "commit-sha": "6eb0c7c6706fe9251cf51e53a466b82a5897ebd8"
+              }
+            },
+            {
+              "name": "Invoker Ronaldo",
+              "preview": "Invoker Ronaldo.webp",
+              "file": "Invoker Ronaldo.zip",
+              "tags": {
+                "head": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "qizlik"
+                }
+              ],
+              "meta": {
+                "date": 1793329448,
+                "commit-sha": ""
               }
             }
           ]
@@ -21577,6 +21638,25 @@
         "meta": {
           "date": 1793178545,
           "commit-sha": "6b57bfcd6931f586f2ed99b4c148d6ff848716bd"
+        }
+      },
+      {
+        "name": "Blindzone",
+        "preview": "Blindzone.webp",
+        "file": "Blindzone.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "4d4mf"
+          },
+          {
+            "type": "author",
+            "url": "ataraxxxd"
+          }
+        ],
+        "meta": {
+          "date": 1793329448,
+          "commit-sha": ""
         }
       }
     ],
@@ -30400,6 +30480,21 @@
           "date": 1793129686,
           "commit-sha": "9233af8dcc48725bf6da8b8dfcc456ec26fb84a2"
         }
+      },
+      {
+        "name": "Pudge Rot Ponos Sound",
+        "preview": "Pudge Rot Ponos Sound.webp",
+        "file": "Pudge Rot Ponos Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793329448,
+          "commit-sha": ""
+        }
       }
     ],
     "sounds": [
@@ -30809,6 +30904,44 @@
         "meta": {
           "date": 1793139107,
           "commit-sha": "6345d8de44dff4e7ba6bb50cf467887b7d7186eb"
+        }
+      },
+      {
+        "name": "Alpha Lvlup Sound",
+        "preview": "Alpha Lvlup Sound.webp",
+        "file": "Alpha Lvlup Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793329448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Scarry Respawn Bayback",
+        "preview": "Scarry Respawn Bayback.webp",
+        "file": "Scarry Respawn Bayback.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "tapich"
+          },
+          {
+            "type": "author",
+            "url": "waitureally"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtube.com/shorts/4NRt5U3aG8A"
+          }
+        ],
+        "meta": {
+          "date": 1793329448,
+          "commit-sha": ""
         }
       }
     ],
