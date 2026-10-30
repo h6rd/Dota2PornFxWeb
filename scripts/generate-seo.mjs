@@ -167,11 +167,11 @@ function renderCategoryPage(cat, mods, allCats) {
   <meta property="og:title" content="${esc(pageTitle)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="${SITE}assets/banner.png">
+  <meta property="og:image" content="${SITE}assets/og-banner.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${SITE}assets/banner.png">
+  <meta name="twitter:image" content="${SITE}assets/og-banner.png">
   <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>
   <style>
     :root{--bg:#fff;--fg:#1d1b20;--muted:#625b71;--card:#f3edf7;--accent:#7b00ff}
