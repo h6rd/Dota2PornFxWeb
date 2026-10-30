@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Hex Is Fucking Sick",
+      "category": "item-effects"
+    },
+    {
+      "name": "Pudge Waitureally",
+      "category": "heroes"
+    },
+    {
       "name": "Kaneki Shadow Fiend",
       "category": "heroes"
     },
@@ -15248,6 +15256,25 @@
         "meta": {
           "date": 1793329448,
           "commit-sha": "97d506e71e3b8caffa716dcd2018b0dd99e64c66"
+        }
+      },
+      {
+        "name": "Pudge Waitureally",
+        "preview": "Pudge Waitureally.webp",
+        "file": "Pudge Waitureally.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793361682,
+          "commit-sha": ""
         }
       }
     ],
@@ -31656,6 +31683,21 @@
               "meta": {
                 "date": 1766555595,
                 "commit-sha": "7d8a161ce3f87ed5b2fed7201533fd03512a5dfd"
+              }
+            },
+            {
+              "name": "Hex Is Fucking Sick",
+              "preview": "Hex Is Fucking Sick.webp",
+              "file": "Hex Is Fucking Sick.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "hrdq"
+                }
+              ],
+              "meta": {
+                "date": 1793361682,
+                "commit-sha": ""
               }
             }
           ]
