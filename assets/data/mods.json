@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Hex Is Fucking Sick",
       "category": "item-effects"
     },
@@ -31,10 +35,6 @@
     {
       "name": "Alpha Lvlup Sound",
       "category": "sounds"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "No Unnecessary Models",
