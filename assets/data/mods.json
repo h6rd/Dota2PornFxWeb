@@ -21718,7 +21718,11 @@
             "type": "preview",
             "url": "https://t.me/waitureally/3522"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793424595,
+          "commit-sha": "271d3c035dc5684f9ec6a8071e4a812b08e2ba16"
+        }
       }
     ],
     "announcers": [
@@ -26427,8 +26431,8 @@
           }
         ],
         "meta": {
-          "date": 1793272140,
-          "commit-sha": "0470a2b4d5a345babffbf7234e444137cded4804"
+          "date": 1793424595,
+          "commit-sha": "271d3c035dc5684f9ec6a8071e4a812b08e2ba16"
         }
       }
     ],
