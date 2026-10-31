@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Hikikomori Startup",
+      "category": "sounds"
+    },
+    {
+      "name": "Shadow Fiend Red Ruby",
+      "category": "heroes"
+    },
+    {
+      "name": "Arc Warden Destruction Sounds",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Ruby Hoodwink",
       "category": "heroes"
     },
@@ -15372,6 +15384,24 @@
           "date": 1793426257,
           "commit-sha": "40c72c85ee9deb65aa2c84730a5ee1567e5804a3"
         }
+      },
+      {
+        "name": "Shadow Fiend Red Ruby",
+        "preview": "Shadow Fiend Red Ruby.webp",
+        "file": "Shadow Fiend Red Ruby.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1793451373,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -30671,6 +30701,25 @@
           "date": 1793426257,
           "commit-sha": "40c72c85ee9deb65aa2c84730a5ee1567e5804a3"
         }
+      },
+      {
+        "name": "Arc Warden Destruction Sounds",
+        "preview": "Arc Warden Destruction Sounds.webp",
+        "file": "Arc Warden Destruction Sounds.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/HDxo2JfNXQo"
+          }
+        ],
+        "meta": {
+          "date": 1793451373,
+          "commit-sha": ""
+        }
       }
     ],
     "sounds": [
@@ -31095,6 +31144,21 @@
         "meta": {
           "date": 1793329448,
           "commit-sha": "97d506e71e3b8caffa716dcd2018b0dd99e64c66"
+        }
+      },
+      {
+        "name": "Hikikomori Startup",
+        "preview": "Hikikomori Startup.webp",
+        "file": "Hikikomori Startup.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1793451373,
+          "commit-sha": ""
         }
       }
     ],
