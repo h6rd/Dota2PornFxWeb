@@ -1,0 +1,75 @@
+{
+  "Egezenn/dota2-minify": {
+    "version": "Minify-v2rc9",
+    "hashes": {
+      "Minify-Portable-v2rc9.exe": "2979c9e16a77970229de7f6f4eda002419f70760f79188f3e9b0e45331f01907",
+      "Minify-Setup-v2rc9.exe": "fc3ebb77a1d50a5289e30888753c5c7904e844bf506857486f1b598965dfdde8",
+      "Minify-v2rc9-linux.zip": "2471d00a4f9ce2d08510567ce72afcd73c39f1269997ecbfd21c38cfd67011ec"
+    }
+  },
+  "TheFleece/dota2-mod-manager": {
+    "version": "v2.20.0",
+    "hashes": {
+      "beta-linux.yml": "ad14ead6b27c71d0080d8c34b469aa73447e06411b8966a752e273b429ad9801",
+      "beta.yml": "34fd71abebab8fefdaf43be446b5c70fa9d8aeaa5f8daf56887db7e75a8236a5",
+      "Dota-2-Mod-Manager-Portable.exe": "fa62350e47184f4509f1e1a855c4e30c82b0385523cb2f01fd583cf094568ba3",
+      "Dota-2-Mod-Manager-Setup.exe": "90bf3005533a7adab2e5e60370d23c7a1f53f3c6d37491ffb3a09a5a6edce46a",
+      "Dota-2-Mod-Manager-Setup.exe.blockmap": "4b0e8066f85bc91036d5af46548d3881539fa4094ae8e8bb4cd169ceced8acd8",
+      "Dota-2-Mod-Manager.AppImage": "a262f290ac144073d00d08a52e3e9068d59eaed2cecaddb0dc6d2f3ad540543e",
+      "dota2-mod-manager.cdx.json": "a044920f8a65e8c1a279b48a553ca08cd9f6b829a2f3f74fb7d07cf08d51223d",
+      "latest-linux.yml": "ad14ead6b27c71d0080d8c34b469aa73447e06411b8966a752e273b429ad9801",
+      "latest.yml": "34fd71abebab8fefdaf43be446b5c70fa9d8aeaa5f8daf56887db7e75a8236a5",
+      "portable.yml": "7ac4899ea7bff0f662b81d7a66ab2a86de68aa09e195e5cde18b4b7907118015",
+      "SHA256SUMS": "56d7fe1a2db0342b2c840a4b4b6d422658f09a803bc9577e891531f3dea157b9",
+      "SHA256SUMS.intoto.jsonl": "039ba49ed0f853c3a2c153ba83373f6249782cfe402d9b6561f675d8cae103b6"
+    }
+  },
+  "h6rd/VPKTool": {
+    "version": "v3.5",
+    "hashes": {
+      "VPKTool-Linux.zip": "eecfb56276293149294eeb169a6776390f9fa861f89a5676de70d930c6ba878c",
+      "VPKTool-Win.zip": "5ab50fdf0ded9e1e93263f9813704f2e48392f885caffa0d0bfd2e962353ddd2"
+    }
+  },
+  "h6rd/VPKMerge": {
+    "version": "v2.3",
+    "hashes": {
+      "VPKMerge-Linux.zip": "cdc0cc8ee65716e28b4a8617045ae10327a710f609e5152ca9b5cb854d268cf2",
+      "VPKMerge-Win.zip": "fefe641543fbe5f4cb0cc2aa8234350ee01d6796c86183f08ef6e11086146066"
+    }
+  },
+  "h6rd/Compiler": {
+    "version": "v1.5",
+    "hashes": {
+      "Compiler-Linux.zip": "b3e5feeca02a4a28dcbc42de678a1d0a952bf94d7ac6b2e3dff1edcf9b4a2489",
+      "Compiler-Win.zip": "f445aa3f635bf2a8d560f586511eb3ee99915245fe6a8b76752ac7a88179d0bb"
+    }
+  },
+  "h6rd/VPCF-Editor": {
+    "version": "v2.0",
+    "hashes": {
+      "VPCF-Editor-Linux.zip": "3ec0f2684e075ef7d647c38cace2d741bb3fae3538592a2b3d852751eee9b12c",
+      "VPCF-Editor-Win.zip": "79ed35cd6a40e9b880377075a283132710c8694b2449c674c30e4d52d996f405"
+    }
+  },
+  "h6rd/Patcher": {
+    "version": "v1.3",
+    "hashes": {
+      "Patcher-Linux.zip": "8c177fb54743a03923dcc25109da7a7c1bda816f200715c7505edbddb2213ad5",
+      "Patcher-Win.zip": "b6db5ca213ca8aec7ac40bccb66326cf8f8e44652e2efb6688eddaca9573f9ef"
+    }
+  },
+  "J0nathan550/BetterSource2Viewer": {
+    "version": "build-44",
+    "hashes": {
+      "cli-linux-x64.zip": "969c2a66e67d92a86abf2e617b25aa8e4ab34dfb167e530e82f34fd886092eaf",
+      "cli-windows-x64.zip": "3302d6eb3d028646905e310a59d1d2fa86a43b728dae245b73f35349e724366f",
+      "gui-avalonia-windows-x64.zip": "739f34158c9b4278e1f4d24f66c2c0629461c704f1644d9bd254cfdcf3a49c45",
+      "gui-windows-x64.zip": "6702d64d6d74af085ed0d7d5a8bb4267ad95be00468a0e1a3c20d81240a5696f",
+      "latest.json": "8e46c7072947d1473cfc0e7885c54f97b67c9fda1f23c8b74536352995698e57",
+      "Source2Viewer-x86_64.AppImage": "38bd031d8ac6292d5e62cebbd67e1cb974c2029b5998e9a5071b30bd587e0619",
+      "Source2Viewer.Avalonia.exe": "c9743a3fee1ec6fa6725ca757f9c2e6e121c905c0c387f69a7e8f3f528dbf033",
+      "Source2Viewer.exe": "8d1e5a5e91696bd687b28dbb1c1b4b43d03973203a28a2dda9487959e1397aea"
+    }
+  }
+}
