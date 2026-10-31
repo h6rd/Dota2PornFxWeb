@@ -430,7 +430,8 @@
       "optimization": [
         "Default Wards",
         "Tinker Lite Machines",
-        "No Unnecessary Map Effects"
+        "No Unnecessary Map Effects",
+        "No Unnecessary Models"
       ]
     }
   },

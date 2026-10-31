@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dawnbreaker Adam Smasher",
+      "category": "heroes"
+    },
+    {
+      "name": "No Unnecessary Models",
+      "category": "optimization"
+    },
+    {
+      "name": "Waitureally Mega-Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17,10 +29,6 @@
       "category": "heroes"
     },
     {
-      "name": "Scarry Respawn Bayback",
-      "category": "sounds"
-    },
-    {
       "name": "Blindzone",
       "category": "mega-kill"
     },
@@ -35,10 +43,6 @@
     {
       "name": "Alpha Lvlup Sound",
       "category": "sounds"
-    },
-    {
-      "name": "No Unnecessary Models",
-      "category": "optimization"
     },
     {
       "name": "Crystal Interface",
@@ -15276,6 +15280,21 @@
           "date": 1793361682,
           "commit-sha": "8548f37c03bb9b395c48bbda52c89c7df0413dfc"
         }
+      },
+      {
+        "name": "Dawnbreaker Adam Smasher",
+        "preview": "Dawnbreaker Adam Smasher.webp",
+        "file": "https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/assets/files/heroes/Dawnbreaker%20Adam%20Smasher.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -21685,6 +21704,21 @@
           "date": 1793329448,
           "commit-sha": "97d506e71e3b8caffa716dcd2018b0dd99e64c66"
         }
+      },
+      {
+        "name": "Waitureally Mega-Kill",
+        "preview": "Waitureally Mega-Kill.webp",
+        "file": "Waitureally Mega-Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "waitureally"
+          },
+          {
+            "type": "preview",
+            "url": "https://t.me/waitureally/3522"
+          }
+        ]
       }
     ],
     "announcers": [
@@ -30941,29 +30975,6 @@
           {
             "type": "author",
             "url": "Swin-РукаBlood"
-          }
-        ],
-        "meta": {
-          "date": 1793329448,
-          "commit-sha": "97d506e71e3b8caffa716dcd2018b0dd99e64c66"
-        }
-      },
-      {
-        "name": "Scarry Respawn Bayback",
-        "preview": "Scarry Respawn Bayback.webp",
-        "file": "Scarry Respawn Bayback.zip",
-        "links": [
-          {
-            "type": "modded",
-            "url": "tapich"
-          },
-          {
-            "type": "author",
-            "url": "waitureally"
-          },
-          {
-            "type": "preview",
-            "url": "https://youtube.com/shorts/4NRt5U3aG8A"
           }
         ],
         "meta": {
