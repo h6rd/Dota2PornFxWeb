@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Hikikomori Startup",
       "category": "sounds"
     },
@@ -43,10 +47,6 @@
     {
       "name": "Waitureally Mega-Kill",
       "category": "mega-kill"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Hex Is Fucking Sick",
