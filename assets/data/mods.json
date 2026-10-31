@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ruby Hoodwink",
+      "category": "heroes"
+    },
+    {
+      "name": "Visage Bloodking",
+      "category": "heroes"
+    },
+    {
+      "name": "Anti Mage Taunt Tt",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Winter",
+      "category": "shaders"
+    },
+    {
+      "name": "Venomancer Alien",
+      "category": "heroes"
+    },
+    {
       "name": "Dawnbreaker Adam Smasher",
       "category": "heroes"
     },
@@ -15295,6 +15315,63 @@
             "url": "Mirik522"
           }
         ]
+      },
+      {
+        "name": "Venomancer Alien",
+        "preview": "Venomancer Alien.webp",
+        "file": "Venomancer Alien.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "твавт"
+          }
+        ],
+        "meta": {
+          "date": 1793426257,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Visage Bloodking",
+        "preview": "Visage Bloodking.webp",
+        "file": "Visage Bloodking.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1793426257,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ruby Hoodwink",
+        "preview": "Ruby Hoodwink.webp",
+        "file": "Ruby Hoodwink.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Alowyy1"
+          }
+        ],
+        "meta": {
+          "date": 1793426257,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -15731,6 +15808,21 @@
         "meta": {
           "date": 1772737722,
           "commit-sha": "1641fffa9bcf88285b51cb77bf9f1229c2d1352d"
+        }
+      },
+      {
+        "name": "Winter",
+        "preview": "Winter.webp",
+        "file": "Winter.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1793426257,
+          "commit-sha": ""
         }
       }
     ],
@@ -30559,6 +30651,25 @@
         "meta": {
           "date": 1793329448,
           "commit-sha": "97d506e71e3b8caffa716dcd2018b0dd99e64c66"
+        }
+      },
+      {
+        "name": "Anti Mage Taunt Tt",
+        "preview": "Anti Mage Taunt Tt.webp",
+        "file": "Anti Mage Taunt Tt.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/zHDcSMUDxHI"
+          }
+        ],
+        "meta": {
+          "date": 1793426257,
+          "commit-sha": ""
         }
       }
     ],
