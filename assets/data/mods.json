@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "White Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Black Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Morphling White",
+      "category": "heroes"
+    },
+    {
+      "name": "Emblem Of The Diretide White",
+      "category": "emblems"
+    },
+    {
+      "name": "Emblem Of The Diretide Black",
+      "category": "emblems"
+    },
+    {
       "name": "Purple Radius Texture",
       "category": "other"
     },
@@ -15528,6 +15548,25 @@
           "date": 1793525913,
           "commit-sha": "05440c1b1ac24506ded741d5911d749a73ad7819"
         }
+      },
+      {
+        "name": "Morphling White",
+        "preview": "Morphling White.webp",
+        "file": "Morphling White.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793530595,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -16767,6 +16806,36 @@
         "meta": {
           "date": 1775819130,
           "commit-sha": "71befb4266ee0c5aa9161b8f63235cd04111079b"
+        }
+      },
+      {
+        "name": "Emblem Of The Diretide Black",
+        "preview": "Emblem Of The Diretide Black.webp",
+        "file": "Emblem Of The Diretide Black.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793530595,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Emblem Of The Diretide White",
+        "preview": "Emblem Of The Diretide White.webp",
+        "file": "Emblem Of The Diretide White.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793530595,
+          "commit-sha": ""
         }
       }
     ],
@@ -21310,6 +21379,44 @@
         "meta": {
           "date": 1764003644,
           "commit-sha": "4d57ea2aa8f1391fb3e6053c1d5761f9cfa314e9"
+        }
+      },
+      {
+        "name": "Black Diretide Ranged Attack",
+        "preview": "Black Diretide Ranged Attack.webp",
+        "file": "Black Diretide Ranged Attack.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "cursedseizures"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ],
+        "meta": {
+          "date": 1793530595,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "White Diretide Ranged Attack",
+        "preview": "White Diretide Ranged Attack.webp",
+        "file": "White Diretide Ranged Attack.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "cursedseizures"
+          },
+          {
+            "type": "author",
+            "url": "Kisilev"
+          }
+        ],
+        "meta": {
+          "date": 1793530595,
+          "commit-sha": ""
         }
       }
     ],
