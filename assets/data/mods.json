@@ -1,6 +1,54 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Purple Radius Texture",
+      "category": "other"
+    },
+    {
+      "name": "Abaddon Anointed Armor",
+      "category": "heroes"
+    },
+    {
+      "name": "Alchemist Taur Rider",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Shotgun Chicken Gun",
+      "category": "heroes"
+    },
+    {
+      "name": "White Radius Texture",
+      "category": "other"
+    },
+    {
+      "name": "Red Radius Texture",
+      "category": "other"
+    },
+    {
+      "name": "Doom Sematary Ult",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Juggernaut Arima",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Requiem Of Poop",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Dark Radius Texture",
+      "category": "other"
+    },
+    {
+      "name": "Terrorblade True Zxc",
+      "category": "heroes"
+    },
+    {
+      "name": "Techies Pudge And Sniper",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -13801,8 +13849,8 @@
           }
         ],
         "meta": {
-          "date": 1791699101,
-          "commit-sha": "f3c53c071abcda29cbff1abe9c22a60fa694e8c2"
+          "date": 1793525911,
+          "commit-sha": ""
         }
       },
       {
@@ -15401,6 +15449,84 @@
         "meta": {
           "date": 1793451373,
           "commit-sha": "a14fa485bf83f4a3bf17640ae3c189771b1ba3ba"
+        }
+      },
+      {
+        "name": "Techies Pudge And Sniper",
+        "preview": "Techies Pudge And Sniper.webp",
+        "file": "Techies Pudge And Sniper.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "kot705"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Terrorblade True Zxc",
+        "preview": "Terrorblade True Zxc.webp",
+        "file": "Terrorblade True Zxc.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Shotgun Chicken Gun",
+        "preview": "Morphling Shotgun Chicken Gun.webp",
+        "file": "Morphling Shotgun Chicken Gun.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Alchemist Taur Rider",
+        "preview": "Alchemist Taur Rider.webp",
+        "file": "Alchemist Taur Rider.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Abaddon Anointed Armor",
+        "preview": "Abaddon Anointed Armor.webp",
+        "file": "Abaddon Anointed Armor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "J0nathan550"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
         }
       }
     ],
@@ -24131,6 +24257,66 @@
           "date": 1792518355,
           "commit-sha": "1b1ed8978da06451e53dc2932d313999abbe30b1"
         }
+      },
+      {
+        "name": "Dark Radius Texture",
+        "preview": "Dark Radius Texture.webp",
+        "file": "Dark Radius Texture.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "SenkuXVII"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Red Radius Texture",
+        "preview": "Red Radius Texture.webp",
+        "file": "Red Radius Texture.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "SenkuXVII"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "White Radius Texture",
+        "preview": "White Radius Texture.webp",
+        "file": "White Radius Texture.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "SenkuXVII"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Purple Radius Texture",
+        "preview": "Purple Radius Texture.webp",
+        "file": "Purple Radius Texture.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "SenkuXVII"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
       }
     ],
     "river": [
@@ -30719,6 +30905,44 @@
         "meta": {
           "date": 1793451373,
           "commit-sha": "a14fa485bf83f4a3bf17640ae3c189771b1ba3ba"
+        }
+      },
+      {
+        "name": "Shadow Fiend Requiem Of Poop",
+        "preview": "Shadow Fiend Requiem Of Poop.webp",
+        "file": "Shadow Fiend Requiem Of Poop.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/tQpfMFYf_NE"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Doom Sematary Ult",
+        "preview": "Doom Sematary Ult.webp",
+        "file": "Doom Sematary Ult.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/T80Zq0CevF0"
+          }
+        ],
+        "meta": {
+          "date": 1793525911,
+          "commit-sha": ""
         }
       }
     ],
