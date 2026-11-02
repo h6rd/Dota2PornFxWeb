@@ -1059,9 +1059,15 @@ function addToCart(mod, categoryId) {
     }
 
     const MULTI_ITEM_GROUPS = ['runes'];
+
+    const MULTI_SELECT_GROUPS = {
+        parts: ['misc']
+    };
+    const isMultiSelectGroup = MULTI_ITEM_GROUPS.includes(groupId) ||
+        (MULTI_SELECT_GROUPS[categoryId] || []).includes(groupId);
     const SLOT_TAGS_GROUP_CHECK = ['base', 'totem', 'weapon', 'spiderling', 'tail', 'forge', 'legs', 'bear', 'off-hand', 'cart', 'mount', 'head', 'arm', 'arms', 'armor', 'shoulders', 'back', "shield", 'hair', 'neck', 'rocket', 'demon'];
 
-    if (groupId && !MULTI_ITEM_GROUPS.includes(groupId)) {
+    if (groupId && !isMultiSelectGroup) {
         if (categoryId === 'hero-items') {
             const heroItemsCategoryData = modsData['hero-items'];
             const heroItemsData = heroItemsCategoryData?.groups
