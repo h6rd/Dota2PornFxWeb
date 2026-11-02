@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Broodmother Sharp Rose",
+      "category": "heroes"
+    },
+    {
+      "name": "Light Blue Radius Texture",
+      "category": "other"
+    },
+    {
+      "name": "Grimstroke The Chained Scribe",
+      "category": "heroes"
+    },
+    {
+      "name": "Invoker True Form",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Yatoro",
+      "category": "heroes"
+    },
+    {
+      "name": "Black Minimap",
+      "category": "parts"
+    },
+    {
+      "name": "Dark Grey Minimap",
+      "category": "parts"
+    },
+    {
       "name": "White Diretide Ranged Attack",
       "category": "ranged-attack"
     },
@@ -15359,6 +15387,74 @@
           "date": 1793530595,
           "commit-sha": "0a393949ec16f921dd27626d6e2eb3592e61dcdc"
         }
+      },
+      {
+        "name": "Phantom Lancer Yatoro",
+        "preview": "Phantom Lancer Yatoro.webp",
+        "file": "Phantom Lancer Yatoro.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793620367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker True Form",
+        "preview": "Invoker True Form.webp",
+        "file": "Invoker True Form.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793620367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Grimstroke The Chained Scribe",
+        "preview": "Grimstroke The Chained Scribe.webp",
+        "file": "Grimstroke The Chained Scribe.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793620367,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Broodmother Sharp Rose",
+        "preview": "Broodmother Sharp Rose.webp",
+        "file": "Broodmother Sharp Rose.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1793620367,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -22762,6 +22858,36 @@
                 "date": 1792011470,
                 "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
               }
+            },
+            {
+              "name": "Dark Grey Minimap",
+              "preview": "Dark Grey Minimap.webp",
+              "file": "Dark Grey Minimap.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1793620367,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Black Minimap",
+              "preview": "Black Minimap.webp",
+              "file": "Black Minimap.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "YZT"
+                }
+              ],
+              "meta": {
+                "date": 1793620367,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -24215,6 +24341,21 @@
         "meta": {
           "date": 1793525913,
           "commit-sha": "05440c1b1ac24506ded741d5911d749a73ad7819"
+        }
+      },
+      {
+        "name": "Light Blue Radius Texture",
+        "preview": "Light Blue Radius Texture.webp",
+        "file": "Light Blue Radius Texture.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "SenkuXVII"
+          }
+        ],
+        "meta": {
+          "date": 1793620367,
+          "commit-sha": ""
         }
       }
     ],
