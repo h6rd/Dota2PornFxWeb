@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Acid Desolator",
+      "category": "item-effects"
+    },
+    {
       "name": "Broodmother Sharp Rose",
       "category": "heroes"
     },
@@ -32309,6 +32313,23 @@
                 "date": 1789310506,
                 "commit-sha": "51618b0584d9460d3d20462a070d6697b826d319"
               }
+            }
+          ]
+        },
+        {
+          "id": "desolator",
+          "name": "Desolator",
+          "mods": [
+            {
+              "name": "Acid Desolator",
+              "preview": "Acid Desolator.webp",
+              "file": "Acid Desolator.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ]
             }
           ]
         },
