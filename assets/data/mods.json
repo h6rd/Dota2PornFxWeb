@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Largo Background",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Black Dagon",
+      "category": "item-effects"
+    },
+    {
+      "name": "Ringmaster Background",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Invoker Blood",
+      "category": "heroes"
+    },
+    {
+      "name": "Cj Anti Mage",
+      "category": "heroes"
+    },
+    {
+      "name": "Immortal Ranks Ii",
+      "category": "ranks"
+    },
+    {
       "name": "Acid Desolator",
       "category": "item-effects"
     },
@@ -15459,6 +15483,52 @@
           "date": 1793620367,
           "commit-sha": "8eed2edc12453184eeb55e326c73b76fd7e126c3"
         }
+      },
+      {
+        "name": "Cj Anti Mage",
+        "preview": "Cj Anti Mage.webp",
+        "file": "Cj Anti Mage.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793701130,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Blood",
+        "styles": [
+          {
+            "label": "Style I",
+            "color": "#fe0101",
+            "preview": "Invoker Blood.webp",
+            "file": "Invoker Blood.zip"
+          },
+          {
+            "label": "Style II",
+            "color": "#fffafa",
+            "preview": "Invoker Blood Style II.webp",
+            "file": "Invoker Blood Style II.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1793701130,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -26568,6 +26638,42 @@
           "date": 1793238383,
           "commit-sha": "3dda02007c91cbd10808fad27af8b368f789b279"
         }
+      },
+      {
+        "name": "Ringmaster Background",
+        "preview": "Ringmaster Background.webp",
+        "file": "Ringmaster Background.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793701130,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Largo Background",
+        "preview": "Largo Background.webp",
+        "file": "Largo Background.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1793701130,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -27157,6 +27263,21 @@
         "meta": {
           "date": 1791974606,
           "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
+        }
+      },
+      {
+        "name": "Immortal Ranks Ii",
+        "preview": "Immortal Ranks Ii.webp",
+        "file": "Immortal Ranks Ii.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1793701130,
+          "commit-sha": ""
         }
       }
     ],
@@ -32033,6 +32154,21 @@
               "meta": {
                 "date": 1756459282,
                 "commit-sha": "cfa3191eab1bd9143d84e6158832713ed0e84572"
+              }
+            },
+            {
+              "name": "Black Dagon",
+              "preview": "Black Dagon.webp",
+              "file": "Black Dagon.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ],
+              "meta": {
+                "date": 1793701130,
+                "commit-sha": ""
               }
             }
           ]
