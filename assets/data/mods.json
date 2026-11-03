@@ -32329,7 +32329,11 @@
                   "type": "author",
                   "url": "depex"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1793687896,
+                "commit-sha": "22e439307fd81890a4d2f198dcc983f71e83368f"
+              }
             }
           ]
         },
