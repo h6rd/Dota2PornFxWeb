@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Arc Warden Black Knight",
+      "category": "heroes"
+    },
+    {
       "name": "Largo Background",
       "category": "backgrounds"
     },
@@ -15529,6 +15533,21 @@
           "date": 1793701131,
           "commit-sha": "87fa86229c72449fc86d9a62fc85d137f30abee0"
         }
+      },
+      {
+        "name": "Arc Warden Black Knight",
+        "preview": "Arc Warden Black Knight.webp",
+        "file": "Arc Warden Black Knight.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ]
       }
     ],
     "shaders": [
