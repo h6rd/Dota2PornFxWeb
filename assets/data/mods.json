@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Cj Anti Mage",
+      "category": "heroes"
+    },
+    {
+      "name": "Lunar Tears Flowers",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Anime Scoreboard",
+      "category": "parts"
+    },
+    {
+      "name": "Gridstudio Hero Meta",
+      "category": "parts"
+    },
+    {
+      "name": "Warcraft 3 Allstars Voices Ru",
+      "category": "sounds"
+    },
+    {
+      "name": "Witchblvde Purple Naga Siren",
+      "category": "heroes"
+    },
+    {
+      "name": "Hero Loadout 7 00 Style",
+      "category": "backgrounds"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -10,10 +38,6 @@
     },
     {
       "name": "Pudge Big Smoke",
-      "category": "heroes"
-    },
-    {
-      "name": "Cj Anti Mage",
       "category": "heroes"
     },
     {
@@ -15515,8 +15539,8 @@
           }
         ],
         "meta": {
-          "date": 1793771850,
-          "commit-sha": "5655a174bd2a0b685fc689c5f69807e76f395c83"
+          "date": 1793862464,
+          "commit-sha": ""
         }
       },
       {
@@ -15582,6 +15606,29 @@
         "meta": {
           "date": 1793771850,
           "commit-sha": "5655a174bd2a0b685fc689c5f69807e76f395c83"
+        }
+      },
+      {
+        "name": "Witchblvde Purple Naga Siren",
+        "preview": "Witchblvde Purple Naga Siren.webp",
+        "file": "Witchblvde Purple Naga Siren.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "blvdness"
+          },
+          {
+            "type": "author",
+            "url": "sabzeek"
+          }
+        ],
+        "meta": {
+          "date": 1793862464,
+          "commit-sha": ""
         }
       }
     ],
@@ -23070,6 +23117,24 @@
                 "date": 1791974606,
                 "commit-sha": "54f2337f73c4af413e06f4808a02dde2305ed14d"
               }
+            },
+            {
+              "name": "Anime Scoreboard",
+              "preview": "Anime Scoreboard.webp",
+              "file": "Anime Scoreboard.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "KoH4atb_H3T"
+                }
+              ],
+              "meta": {
+                "date": 1793862464,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -23610,6 +23675,24 @@
               "meta": {
                 "date": 1793169329,
                 "commit-sha": "858c5c019998b6fff8724c3f7f91be4080ac845e"
+              }
+            },
+            {
+              "name": "Gridstudio Hero Meta",
+              "preview": "Gridstudio Hero Meta.webp",
+              "file": "Gridstudio Hero Meta.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "GridStudio"
+                }
+              ],
+              "meta": {
+                "date": 1793862464,
+                "commit-sha": ""
               }
             }
           ]
@@ -26757,6 +26840,39 @@
         "meta": {
           "date": 1793701131,
           "commit-sha": "87fa86229c72449fc86d9a62fc85d137f30abee0"
+        }
+      },
+      {
+        "name": "Hero Loadout 7 00 Style",
+        "preview": "Hero Loadout 7 00 Style.webp",
+        "file": "Hero Loadout 7 00 Style.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1793862464,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Lunar Tears Flowers",
+        "preview": "Lunar Tears Flowers.webp",
+        "file": "Lunar Tears Flowers.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1793862464,
+          "commit-sha": ""
         }
       }
     ],
@@ -31653,6 +31769,21 @@
         "meta": {
           "date": 1793771850,
           "commit-sha": "5655a174bd2a0b685fc689c5f69807e76f395c83"
+        }
+      },
+      {
+        "name": "Warcraft 3 Allstars Voices Ru",
+        "preview": "Warcraft 3 Allstars Voices Ru.webp",
+        "file": "Warcraft 3 Allstars Voices Ru.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1793862464,
+          "commit-sha": ""
         }
       }
     ],
