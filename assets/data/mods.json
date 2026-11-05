@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Warcraft III Towers",
       "category": "towers"
     },
@@ -67,10 +71,6 @@
     {
       "name": "Hero Loadout 7 00 Style",
       "category": "backgrounds"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Road Cone Trees",
