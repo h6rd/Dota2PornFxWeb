@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Road Cone Trees",
       "category": "trees"
     },
@@ -143,10 +147,6 @@
     {
       "name": "Techies Pudge And Sniper",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Hikikomori Startup",
