@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft III Towers",
+      "category": "towers"
+    },
+    {
+      "name": "Warcraft III Dire",
+      "category": "creeps"
+    },
+    {
+      "name": "Warcraft III Radiant",
+      "category": "creeps"
+    },
+    {
+      "name": "Warcraft III Neutrals",
+      "category": "neutral-creeps"
+    },
+    {
+      "name": "Warcraft III Ancient & Builds",
+      "category": "ancient"
+    },
+    {
+      "name": "Warcraft III Ancient",
+      "category": "ancient"
+    },
+    {
+      "name": "Warcraft III Roshan",
+      "category": "roshan"
+    },
+    {
+      "name": "Warcraft III Tormentor",
+      "category": "tormentor"
+    },
+    {
+      "name": "Warcraft III",
+      "category": "terrains"
+    },
+    {
+      "name": "Warcraft III Music",
+      "category": "music"
+    },
+    {
       "name": "Cj Anti Mage",
       "category": "heroes"
     },
@@ -17329,6 +17369,17 @@
           "date": 1791343344,
           "commit-sha": "6b6104a347a932f3b3629de83cffa189c613064b"
         }
+      },
+      {
+        "name": "Warcraft III",
+        "preview": "Warcraft III.webp",
+        "file": "Warcraft III.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "trees": [
@@ -21257,6 +21308,17 @@
           "date": 1791372524,
           "commit-sha": "4ec6ef53ea875ccfa7c5447e0a7d2c4518f9be84"
         }
+      },
+      {
+        "name": "Warcraft III Roshan",
+        "preview": "Warcraft III Roshan.webp",
+        "file": "Warcraft III Roshan.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "ancient": [
@@ -21289,6 +21351,28 @@
           "date": 1784792710,
           "commit-sha": "f1947a618d214ee857fa6529214507b29d41becb"
         }
+      },
+      {
+        "name": "Warcraft III Ancient",
+        "preview": "Warcraft III Ancient.webp",
+        "file": "Warcraft III Ancient.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft III Ancient & Builds",
+        "preview": "Warcraft III Ancient & Builds.webp",
+        "file": "Warcraft III Ancient & Builds.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "tormentor": [
@@ -21336,6 +21420,17 @@
           "date": 1791342818,
           "commit-sha": "79a9a1f564d4895caacac2c8420abe3699ea4a75"
         }
+      },
+      {
+        "name": "Warcraft III Tormentor",
+        "preview": "Warcraft III Tormentor.webp",
+        "file": "Warcraft III Tormentor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "ranged-attack": [
@@ -29213,6 +29308,17 @@
           "date": 1792947904,
           "commit-sha": "6eb0c7c6706fe9251cf51e53a466b82a5897ebd8"
         }
+      },
+      {
+        "name": "Warcraft III Music",
+        "preview": "Warcraft III Music.webp",
+        "file": "Warcraft III Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "cursors": [
@@ -31398,21 +31504,6 @@
         }
       },
       {
-        "name": "Warcraft III / AllStars Voices",
-        "preview": "Warcraft III AllStars Voices.webp",
-        "file": "https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/assets/files/sounds/Warcraft%20III%20AllStars%20Voices.zip",
-        "links": [
-          {
-            "type": "preview",
-            "url": "assets/previews/sounds/Warcraft III AllStars Voices.mp4"
-          },
-          {
-            "type": "author",
-            "url": "Fr0dech"
-          }
-        ]
-      },
-      {
         "name": "Dark Carnival Serega Pirat",
         "preview": "Dark Carnival Serega Pirat.webp",
         "file": "Dark Carnival Serega Pirat.zip",
@@ -32007,8 +32098,8 @@
               "file": "pak26_dir.vpk",
               "links": [
                 {
-                  "type": "author",
-                  "url": "hrdq"
+                  "type": "source",
+                  "url": "https://dota2changer.com"
                 }
               ],
               "meta": {
@@ -32022,8 +32113,8 @@
               "file": "pak28_dir.vpk",
               "links": [
                 {
-                  "type": "author",
-                  "url": "hrdq"
+                  "type": "source",
+                  "url": "https://dota2changer.com"
                 }
               ],
               "meta": {
@@ -32045,6 +32136,17 @@
                 "date": 1782468853,
                 "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
               }
+            },
+            {
+              "name": "Warcraft III Radiant",
+              "preview": "Warcraft III Radiant.webp",
+              "file": "Warcraft III Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Fr0dech"
+                }
+              ]
             }
           ]
         },
@@ -32145,8 +32247,8 @@
               "file": "pak27_dir.vpk",
               "links": [
                 {
-                  "type": "author",
-                  "url": "hrdq"
+                  "type": "source",
+                  "url": "https://dota2changer.com"
                 }
               ],
               "meta": {
@@ -32168,6 +32270,17 @@
                 "date": 1782468853,
                 "commit-sha": "fda1e89f22ebd920a8f3b2652ece690fa5bf58e7"
               }
+            },
+            {
+              "name": "Warcraft III Dire",
+              "preview": "Warcraft III Dire.webp",
+              "file": "Warcraft III Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Fr0dech"
+                }
+              ]
             }
           ]
         },
@@ -32275,36 +32388,47 @@
         }
       ]
     },
-    "towers": {
-      "groups": [
-        {
-          "id": "radiant-tower",
-          "name": "Radiant Tower",
-          "mods": [
-            {
-              "name": "Holiday Radiant Tower",
-              "preview": "Holiday Radiant Tower.webp",
-              "file": "pak10_dir.vpk",
-              "links": [
-                {
-                  "type": "source",
-                  "url": "https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/"
-                }
-              ],
-              "meta": {
-                "date": 1766624100,
-                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
-              }
-            }
-          ]
-        },
-        {
-          "id": "dire-tower",
-          "name": "Dire Tower",
-          "mods": []
+    "neutral-creeps": [
+      {
+        "name": "Warcraft III Neutrals",
+        "preview": "Warcraft III Neutrals.webp",
+        "file": "Warcraft III Neutrals.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      }
+    ],
+    "towers": [
+      {
+        "name": "Holiday Radiant Tower",
+        "preview": "Holiday Radiant Tower.webp",
+        "file": "pak10_dir.vpk",
+        "links": [
+          {
+            "type": "source",
+            "url": "https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/"
+          }
+        ],
+        "meta": {
+          "date": 1766624100,
+          "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
         }
-      ]
-    },
+      },
+      {
+        "name": "Warcraft III Towers",
+        "preview": "Warcraft III Towers.webp",
+        "file": "Warcraft III Towers.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      }
+    ],
     "item-effects": {
       "groups": [
         {

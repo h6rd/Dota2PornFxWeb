@@ -22,6 +22,8 @@
     "roshan-desc": "Custom Roshan models and skins",
     "creeps": "Creeps",
     "creeps-desc": "Custom creeps",
+    "neutral-creeps": "Neutral Creeps",
+    "neutral-creeps-desc": "Custom neutral creeps",
     "ancient": "Ancient",
     "ancient-desc": "Ancient mods",
     "tormentor": "Tormentor",
@@ -147,6 +149,13 @@
       "emoji": "🕷",
       "key": "creeps",
       "preview": "creeps.webp",
+      "guideId": "install"
+    },
+    {
+      "id": "neutral-creeps",
+      "emoji": "🕷",
+      "key": "neutral-creeps",
+      "preview": "neutral-creeps.webp",
       "guideId": "install"
     },
     {
@@ -836,7 +845,7 @@
     "Swin-РукаBlood": "https://discord.gg/SCnUSB4j6S",
     "socialbottommm": "https://t.me/+BhuRMghhq81hZDhi",
     "Defendor": "",
-    "4d4mf": "https://t.me/vpk4d4mmf",
+    "4d4mf": "https://discordapp.com/users/694961381354504285/",
     "ittem": "https://discord.com/users/1292235606184689735",
     "Danulaguts": "",
     "Baste": "https://projects.baste.ru/",

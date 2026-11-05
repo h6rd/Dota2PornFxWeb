@@ -1028,7 +1028,7 @@ function resolveItemFiles(item) {
 
 function addToCart(mod, categoryId) {
     const FORBIDDEN_CATEGORIES = ['guides', 'tools'];
-    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts', 'huds'];
+    const SINGLE_ITEM_CATEGORIES = ['terrains', 'shaders', 'ti-bp-effects', 'emblems', 'versus-screens', 'trees', 'roshan', 'ancient', 'tormentor', 'ranged-attack', 'mega-kill', 'pedestal', 'high-five', 'backgrounds', 'river', 'ranks', 'wards', 'couriers', 'announcers', 'music', 'cursors', 'pings', 'fonts', 'huds', 'towers'];
 
     if (FORBIDDEN_CATEGORIES.includes(categoryId)) {
         showToast('Cannot add mods from this category.');
