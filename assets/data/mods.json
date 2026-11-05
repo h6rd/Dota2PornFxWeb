@@ -17379,7 +17379,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "trees": [
@@ -21318,7 +21322,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "ancient": [
@@ -21361,7 +21369,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       },
       {
         "name": "Warcraft III Ancient & Builds",
@@ -21372,7 +21384,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "tormentor": [
@@ -21430,7 +21446,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "ranged-attack": [
@@ -29318,7 +29338,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "cursors": [
@@ -32146,7 +32170,11 @@
                   "type": "author",
                   "url": "Fr0dech"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1793866697,
+                "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+              }
             }
           ]
         },
@@ -32280,7 +32308,11 @@
                   "type": "author",
                   "url": "Fr0dech"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1793866697,
+                "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+              }
             }
           ]
         },
@@ -32398,7 +32430,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "towers": [
@@ -32426,7 +32462,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1793866697,
+          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+        }
       }
     ],
     "item-effects": {
