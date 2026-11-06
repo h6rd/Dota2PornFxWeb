@@ -32650,7 +32650,7 @@
         }
       }
     ],
-        "towers": {
+    "towers": {
       "groups": [
         {
           "id": "radiant-tower",
@@ -32680,7 +32680,11 @@
                   "type": "author",
                   "url": "Fr0dech"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Declaration of the Divine Light",
@@ -32691,7 +32695,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Grasp of the Elder Gods Radiant",
@@ -32702,7 +32710,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Guardians of the Lost Path Radiant",
@@ -32713,7 +32725,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Stoneclaw Scavengers Radiant",
@@ -32724,7 +32740,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Crownfall Radiant",
@@ -32735,7 +32755,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             }
           ]
         },
@@ -32752,7 +32776,11 @@
                   "type": "author",
                   "url": "Fr0dech"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Declaration of the Divine Shadow",
@@ -32763,7 +32791,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Grasp of the Elder Gods Dire",
@@ -32774,7 +32806,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Guardians of the Lost Path Dire",
@@ -32785,7 +32821,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Stoneclaw Scavengers Dire",
@@ -32796,7 +32836,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             },
             {
               "name": "Crownfall Dire",
@@ -32807,7 +32851,11 @@
                   "type": "author",
                   "url": "ZerdacK"
                 }
-              ]
+              ],
+              "meta": {
+                "date": 1794001215,
+                "commit-sha": "7176a22d7a997333cb951b188466e7cf2113654f"
+              }
             }
           ]
         }
