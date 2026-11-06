@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "White Ti13 Teleport",
+      "category": "item-effects"
+    },
+    {
+      "name": "Meteor White",
+      "category": "item-effects"
+    },
+    {
+      "name": "Emblem Of The Diretide Pink",
+      "category": "emblems"
+    },
+    {
+      "name": "Morphling Pink",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge With A Penis",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -15670,6 +15690,45 @@
           "date": 1793862465,
           "commit-sha": "035f9691b4fd45d2346c453427864657b8d0ea6b"
         }
+      },
+      {
+        "name": "Pudge With A Penis",
+        "preview": "Pudge With A Penis.webp",
+        "file": "Pudge With A Penis.zip",
+        "tags": {
+          "effects": true,
+          "icons": true,
+          "adult": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1793949505,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Morphling Pink",
+        "preview": "Morphling Pink.webp",
+        "file": "Morphling Pink.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793949505,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -16939,6 +16998,21 @@
         "meta": {
           "date": 1793530595,
           "commit-sha": "0a393949ec16f921dd27626d6e2eb3592e61dcdc"
+        }
+      },
+      {
+        "name": "Emblem Of The Diretide Pink",
+        "preview": "Emblem Of The Diretide Pink.webp",
+        "file": "Emblem Of The Diretide Pink.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793949505,
+          "commit-sha": ""
         }
       }
     ],
@@ -32621,6 +32695,21 @@
                 "date": 1792718488,
                 "commit-sha": "0e1ffbb02f0edfa0642181b7c6d49b99b7b14375"
               }
+            },
+            {
+              "name": "Meteor White",
+              "preview": "Meteor White.webp",
+              "file": "Meteor White.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "cursedseizures"
+                }
+              ],
+              "meta": {
+                "date": 1793949505,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -34294,6 +34383,21 @@
               "meta": {
                 "date": 1792947904,
                 "commit-sha": "6eb0c7c6706fe9251cf51e53a466b82a5897ebd8"
+              }
+            },
+            {
+              "name": "White Ti13 Teleport",
+              "preview": "White Ti13 Teleport.webp",
+              "file": "White Ti13 Teleport.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "depex"
+                }
+              ],
+              "meta": {
+                "date": 1793949506,
+                "commit-sha": ""
               }
             }
           ]
