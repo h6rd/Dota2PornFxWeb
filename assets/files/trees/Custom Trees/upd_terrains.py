@@ -68,9 +68,7 @@ class VPK:
                             break
                         e = Entry()
                         e.ext, e.dir, e.name = ext, d, name
-                        e.crc, pre, e.arch, e.offset, e.length, term = struct.unpack(
-                            "<IHHIIH", f.read(18)
-                        )
+                        e.crc, pre, e.arch, e.offset, e.length, term = struct.unpack("<IHHIIH", f.read(18))
                         e.preload = f.read(pre)
                         self.entries.append(e)
 
@@ -100,7 +98,6 @@ class VPK:
 
 def write_vpk(out_path, files):
     tree = {}
-    offset = 0
     for path, data in sorted(files.items()):
         path = path.replace("\\", "/")
         d, _, fname = path.rpartition("/")
@@ -108,37 +105,40 @@ def write_vpk(out_path, files):
         if not dot:
             name, ext = fname, " "
         d = d or " "
-        tree.setdefault(ext, {}).setdefault(d, []).append((name, data, offset))
-        offset += len(data)
-    data_size = offset
+        tree.setdefault(ext, {}).setdefault(d, []).append((name, data))
 
     tb = bytearray()
+    blobs = []
+    offset = 0
     for ext, dirs in tree.items():
         tb += ext.encode() + b"\0"
         for d, items in dirs.items():
             tb += d.encode() + b"\0"
-            for name, data, off in items:
+            for name, data in items:
                 tb += name.encode() + b"\0"
-                tb += struct.pack(
-                    "<IHHIIH",
-                    zlib.crc32(data) & 0xFFFFFFFF,
-                    0,
-                    EMBEDDED,
-                    off,
-                    len(data),
-                    0xFFFF,
-                )
+                tb += struct.pack("<IHHIIH", zlib.crc32(data) & 0xFFFFFFFF, 0, EMBEDDED, offset, len(data), 0xFFFF)
+                blobs.append(data)
+                offset += len(data)
             tb += b"\0"
         tb += b"\0"
     tb += b"\0"
 
     with open(out_path, "wb") as f:
-        f.write(struct.pack("<7I", VPK_SIG, 2, len(tb), data_size, 0, 0, 0))
+        f.write(struct.pack("<7I", VPK_SIG, 2, len(tb), offset, 0, 0, 0))
         f.write(tb)
-        for ext, dirs in tree.items():
-            for d, items in dirs.items():
-                for _, data, _ in items:
-                    f.write(data)
+        for data in blobs:
+            f.write(data)
+
+
+def verify_vpk(path, expected):
+    vpk = VPK(path)
+    found = {e.path: e for e in vpk.entries}
+    if set(found) != set(expected):
+        raise ValueError("file list mismatch after writing")
+    for p, e in found.items():
+        data = vpk.read(e)
+        if data != expected[p] or (zlib.crc32(data) & 0xFFFFFFFF) != e.crc:
+            raise ValueError(f"data mismatch for {p}")
 
 
 def load_names(txt):
@@ -181,6 +181,12 @@ def process_vpk(vpk_path, names, template):
 
     tmp = vpk_path + ".tmp"
     write_vpk(tmp, files)
+    try:
+        verify_vpk(tmp, files)
+    except Exception as ex:
+        os.remove(tmp)
+        print(f"  [error] verification failed, original left untouched: {ex}")
+        return False
 
     shutil.copy2(vpk_path, vpk_path + ".bak")
     os.replace(tmp, vpk_path)
@@ -232,21 +238,9 @@ def main():
     ap = argparse.ArgumentParser(
         description="Add copies of a .vmdl_c template to VPK/ZIP archives under the paths listed in names.txt."
     )
-    ap.add_argument(
-        "archives",
-        nargs="*",
-        help="vpk / zip files (default: all in the script folder)",
-    )
-    ap.add_argument(
-        "-n",
-        "--names",
-        help="txt file with paths (default: names.txt next to the script)",
-    )
-    ap.add_argument(
-        "-t",
-        "--template",
-        help=f".vmdl_c name or path inside the vpk (default: {DEFAULT_TEMPLATE})",
-    )
+    ap.add_argument("archives", nargs="*", help="vpk / zip files (default: all in the script folder)")
+    ap.add_argument("-n", "--names", help="txt file with paths (default: names.txt next to the script)")
+    ap.add_argument("-t", "--template", help=f".vmdl_c name or path inside the vpk (default: {DEFAULT_TEMPLATE})")
     args = ap.parse_args()
 
     here = os.path.dirname(os.path.abspath(__file__))
