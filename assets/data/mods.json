@@ -1,6 +1,54 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Crownfall Radiant",
+      "category": "towers"
+    },
+    {
+      "name": "Crownfall Dire",
+      "category": "towers"
+    },
+    {
+      "name": "Declaration of the Divine Light",
+      "category": "towers"
+    },
+    {
+      "name": "Declaration of the Divine Shadow",
+      "category": "towers"
+    },
+    {
+      "name": "Grasp of the Elder Gods Radiant",
+      "category": "towers"
+    },
+    {
+      "name": "Grasp of the Elder Gods Dire",
+      "category": "towers"
+    },
+    {
+      "name": "Guardians of the Lost Path Radiant",
+      "category": "towers"
+    },
+    {
+      "name": "Guardians of the Lost Path Dire",
+      "category": "towers"
+    },
+    {
+      "name": "Stoneclaw Scavengers Radiant",
+      "category": "towers"
+    },
+    {
+      "name": "Stoneclaw Scavengers Dire",
+      "category": "towers"
+    },
+    {
+      "name": "Warcraft III Radiant",
+      "category": "towers"
+    },
+    {
+      "name": "Warcraft III Dire",
+      "category": "towers"
+    },
+    {
       "name": "Emblem Of The Diretide Pink",
       "category": "emblems"
     },
@@ -32602,38 +32650,169 @@
         }
       }
     ],
-    "towers": [
-      {
-        "name": "Holiday Radiant Tower",
-        "preview": "Holiday Radiant Tower.webp",
-        "file": "pak10_dir.vpk",
-        "links": [
-          {
-            "type": "source",
-            "url": "https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/"
-          }
-        ],
-        "meta": {
-          "date": 1766624100,
-          "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+        "towers": {
+      "groups": [
+        {
+          "id": "radiant-tower",
+          "name": "Radiant Tower",
+          "mods": [
+            {
+              "name": "Holiday Radiant Tower",
+              "preview": "Holiday Radiant Tower.webp",
+              "file": "pak10_dir.vpk",
+              "links": [
+                {
+                  "type": "source",
+                  "url": "https://dota2changer.com/skins_dota_2_mods-holiday_radiant_tower/"
+                }
+              ],
+              "meta": {
+                "date": 1766624100,
+                "commit-sha": "8e30624cd126891da7551eb77f16af691cf0ee8e"
+              }
+            },
+            {
+              "name": "Warcraft III Radiant",
+              "preview": "Warcraft III Radiant.webp",
+              "file": "Warcraft III Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Fr0dech"
+                }
+              ]
+            },
+            {
+              "name": "Declaration of the Divine Light",
+              "preview": "Declaration of the Divine Light.webp",
+              "file": "Declaration of the Divine Light.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Grasp of the Elder Gods Radiant",
+              "preview": "Grasp of the Elder Gods Radiant.webp",
+              "file": "Grasp of the Elder Gods Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Guardians of the Lost Path Radiant",
+              "preview": "Guardians of the Lost Path Radiant.webp",
+              "file": "Guardians of the Lost Path Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Stoneclaw Scavengers Radiant",
+              "preview": "Stoneclaw Scavengers Radiant.webp",
+              "file": "Stoneclaw Scavengers Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Crownfall Radiant",
+              "preview": "Crownfall Radiant.webp",
+              "file": "Crownfall Radiant.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dire-tower",
+          "name": "Dire Tower",
+          "mods": [
+            {
+              "name": "Warcraft III Dire",
+              "preview": "Warcraft III Dire.webp",
+              "file": "Warcraft III Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Fr0dech"
+                }
+              ]
+            },
+            {
+              "name": "Declaration of the Divine Shadow",
+              "preview": "Declaration of the Divine Shadow.webp",
+              "file": "Declaration of the Divine Shadow.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Grasp of the Elder Gods Dire",
+              "preview": "Grasp of the Elder Gods Dire.webp",
+              "file": "Grasp of the Elder Gods Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Guardians of the Lost Path Dire",
+              "preview": "Guardians of the Lost Path Dire.webp",
+              "file": "Guardians of the Lost Path Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Stoneclaw Scavengers Dire",
+              "preview": "Stoneclaw Scavengers Dire.webp",
+              "file": "Stoneclaw Scavengers Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            },
+            {
+              "name": "Crownfall Dire",
+              "preview": "Crownfall Dire.webp",
+              "file": "Crownfall Dire.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
+            }
+          ]
         }
-      },
-      {
-        "name": "Warcraft III Towers",
-        "preview": "Warcraft III Towers.webp",
-        "file": "Warcraft III Towers.zip",
-        "links": [
-          {
-            "type": "author",
-            "url": "Fr0dech"
-          }
-        ],
-        "meta": {
-          "date": 1793866697,
-          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
-        }
-      }
-    ],
+      ]
+    },
     "item-effects": {
       "groups": [
         {
