@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Emblem Of The Diretide Pink",
+      "category": "emblems"
+    },
+    {
+      "name": "Emblem Of The Diretide White",
+      "category": "emblems"
+    },
+    {
+      "name": "Shadow Fiend Taunt 2021",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Everyone Got Banned",
+      "category": "backgrounds"
+    },
+    {
       "name": "Nemestice Teleport",
       "category": "item-effects"
     },
@@ -31,10 +47,6 @@
     {
       "name": "Meteor White",
       "category": "item-effects"
-    },
-    {
-      "name": "Emblem Of The Diretide Pink",
-      "category": "emblems"
     },
     {
       "name": "Morphling Pink",
@@ -191,10 +203,6 @@
     {
       "name": "Morphling White",
       "category": "heroes"
-    },
-    {
-      "name": "Emblem Of The Diretide White",
-      "category": "emblems"
     },
     {
       "name": "Emblem Of The Diretide Black",
@@ -17034,8 +17042,8 @@
           }
         ],
         "meta": {
-          "date": 1793530595,
-          "commit-sha": "0a393949ec16f921dd27626d6e2eb3592e61dcdc"
+          "date": 1793998477,
+          "commit-sha": ""
         }
       },
       {
@@ -17049,8 +17057,8 @@
           }
         ],
         "meta": {
-          "date": 1793949506,
-          "commit-sha": "ad7586b627d76f021c21d2f25ec70aca33edc5af"
+          "date": 1793998477,
+          "commit-sha": ""
         }
       }
     ],
@@ -27090,6 +27098,24 @@
           "date": 1793862465,
           "commit-sha": "035f9691b4fd45d2346c453427864657b8d0ea6b"
         }
+      },
+      {
+        "name": "Everyone Got Banned",
+        "preview": "Everyone Got Banned.webp",
+        "file": "Everyone Got Banned.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "hrdq"
+          }
+        ],
+        "meta": {
+          "date": 1793998477,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -31545,6 +31571,25 @@
         "meta": {
           "date": 1793525913,
           "commit-sha": "05440c1b1ac24506ded741d5911d749a73ad7819"
+        }
+      },
+      {
+        "name": "Shadow Fiend Taunt 2021",
+        "preview": "Shadow Fiend Taunt 2021.webp",
+        "file": "Shadow Fiend Taunt 2021.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/_FGAaTNPEz4"
+          }
+        ],
+        "meta": {
+          "date": 1793998477,
+          "commit-sha": ""
         }
       }
     ],
