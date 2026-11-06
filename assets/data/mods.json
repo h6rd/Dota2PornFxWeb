@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Nemestice Teleport",
+      "category": "item-effects"
+    },
+    {
+      "name": "Pink Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Ti12 Teleport",
+      "category": "item-effects"
+    },
+    {
+      "name": "Ti13 Teleport",
+      "category": "item-effects"
+    },
+    {
       "name": "White Diretide Ranged Attack",
       "category": "ranged-attack"
     },
@@ -21718,6 +21734,21 @@
           "date": 1793953543,
           "commit-sha": "8f83bcdb4c669c485add4ff822caffdaff2551da"
         }
+      },
+      {
+        "name": "Pink Diretide Ranged Attack",
+        "preview": "Pink Diretide Ranged Attack.webp",
+        "file": "Pink Diretide Ranged Attack.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1793959752,
+          "commit-sha": ""
+        }
       }
     ],
     "mega-kill": [
@@ -34435,6 +34466,105 @@
               "meta": {
                 "date": 1793949506,
                 "commit-sha": "ad7586b627d76f021c21d2f25ec70aca33edc5af"
+              }
+            },
+            {
+              "name": "Ti13 Teleport",
+              "styles": [
+                {
+                  "label": "lvl I",
+                  "color": "#ddd4ff",
+                  "preview": "Ti13 Teleport.webp",
+                  "file": "Ti13 Teleport.zip"
+                },
+                {
+                  "label": "lvl Il",
+                  "color": "#ff8f8f",
+                  "preview": "Ti13 Teleport lvl Il.webp",
+                  "file": "Ti13 Teleport lvl Il.zip"
+                },
+                {
+                  "label": "lvl Ill",
+                  "color": "#8fd3ff",
+                  "preview": "Ti13 Teleport lvl Ill.webp",
+                  "file": "Ti13 Teleport lvl Ill.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1793959752,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Ti12 Teleport",
+              "styles": [
+                {
+                  "label": "Style I",
+                  "color": "#ddd4ff",
+                  "preview": "Ti12 Teleport.webp",
+                  "file": "Ti12 Teleport.zip"
+                },
+                {
+                  "label": "Style II",
+                  "color": "#ff8f8f",
+                  "preview": "Ti12 Teleport Style II.webp",
+                  "file": "Ti12 Teleport Style II.zip"
+                },
+                {
+                  "label": "Style III",
+                  "color": "#8fd3ff",
+                  "preview": "Ti12 Teleport Style III.webp",
+                  "file": "Ti12 Teleport Style III.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1793959752,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Nemestice Teleport",
+              "styles": [
+                {
+                  "label": "lvl I",
+                  "color": "#ddd4ff",
+                  "preview": "Nemestice Teleport.webp",
+                  "file": "Nemestice Teleport.zip"
+                },
+                {
+                  "label": "lvl Il",
+                  "color": "#ff8f8f",
+                  "preview": "Nemestice Teleport lvl Il.webp",
+                  "file": "Nemestice Teleport lvl Il.zip"
+                },
+                {
+                  "label": "lvl Ill",
+                  "color": "#8fd3ff",
+                  "preview": "Nemestice Teleport lvl Ill.webp",
+                  "file": "Nemestice Teleport lvl Ill.zip"
+                }
+              ],
+              "links": [
+                {
+                  "type": "author",
+                  "url": "4d4mf"
+                }
+              ],
+              "meta": {
+                "date": 1793959752,
+                "commit-sha": ""
               }
             }
           ]
