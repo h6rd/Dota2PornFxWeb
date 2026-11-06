@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "White Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Black Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
       "name": "White Ti13 Teleport",
       "category": "item-effects"
     },
@@ -167,14 +175,6 @@
     {
       "name": "Dark Grey Minimap",
       "category": "parts"
-    },
-    {
-      "name": "White Diretide Ranged Attack",
-      "category": "ranged-attack"
-    },
-    {
-      "name": "Black Diretide Ranged Attack",
-      "category": "ranged-attack"
     },
     {
       "name": "Morphling White",
@@ -16203,9 +16203,11 @@
         "name": "TI 2019 Battle Pass",
         "preview": "bp_ti9.webp",
         "file": "pak10_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16220,9 +16222,11 @@
         "name": "TI 2018 Battle Pass",
         "preview": "bp_ti8.webp",
         "file": "pak11_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16237,9 +16241,11 @@
         "name": "TI 2017 Battle Pass",
         "preview": "bp_ti7.webp",
         "file": "pak12_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16254,9 +16260,11 @@
         "name": "Winter 2016 Battle Pass",
         "preview": "bp_winter_2016.webp",
         "file": "pak13_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16271,9 +16279,11 @@
         "name": "TI 2016 Battle Pass",
         "preview": "bp_ti6.webp",
         "file": "pak14_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16288,9 +16298,11 @@
         "name": "TI 2010 Battle Pass",
         "preview": "bp_ti10.webp",
         "file": "pak15_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16305,9 +16317,11 @@
         "name": "Nemestice 2021 Battle Pass",
         "preview": "bp_nemestice2021.webp",
         "file": "pak16_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16322,9 +16336,11 @@
         "name": "Aghanims Labyrinth Battle Pass",
         "preview": "bp_aghanim.webp",
         "file": "pak17_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16339,9 +16355,11 @@
         "name": "Quarteros Curios",
         "preview": "Quarteros Curios.webp",
         "file": "pak18_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16356,9 +16374,11 @@
         "name": "Purple Quarteros Curios",
         "preview": "Purple Quarteros Curios.webp",
         "file": "pak19_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16375,12 +16395,12 @@
         "file": "pak21_dir.vpk",
         "links": [
           {
-            "type": "author",
-            "url": "hrdq"
-          },
-          {
             "type": "preview",
             "url": "assets/previews/ti-bp-effects/Winter_Quarteros_Curios.mp4"
+          },
+          {
+            "type": "author",
+            "url": "hrdq"
           }
         ],
         "meta": {
@@ -16392,9 +16412,11 @@
         "name": "Spring Quarteros Curios",
         "preview": "Spring Quarteros Curios.webp",
         "file": "pak23_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Spring_Quarteros_Curios.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16409,9 +16431,11 @@
         "name": "Summer Quarteros Curios",
         "preview": "Summer Quarteros Curios.webp",
         "file": "pak24_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Summer_Quarteros_Curios.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Summer_Quarteros_Curios.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -16426,9 +16450,11 @@
         "name": "Battle Pass 2022",
         "preview": "Battle Pass 2022.webp",
         "file": "pak25_dir.vpk",
-        "linkType": "preview",
-        "linkUrl": "assets/previews/ti-bp-effects/Battle Pass 2022.mp4",
         "links": [
+          {
+            "type": "preview",
+            "url": "assets/previews/ti-bp-effects/Battle Pass 2022.mp4"
+          },
           {
             "type": "author",
             "url": "hrdq"
@@ -21669,12 +21695,8 @@
         "file": "Black Diretide Ranged Attack.zip",
         "links": [
           {
-            "type": "modded",
-            "url": "cursedseizures"
-          },
-          {
             "type": "author",
-            "url": "Kisilev"
+            "url": "cursedseizures"
           }
         ],
         "meta": {
@@ -21688,12 +21710,8 @@
         "file": "White Diretide Ranged Attack.zip",
         "links": [
           {
-            "type": "modded",
-            "url": "cursedseizures"
-          },
-          {
             "type": "author",
-            "url": "Kisilev"
+            "url": "cursedseizures"
           }
         ],
         "meta": {
@@ -30083,7 +30101,7 @@
         }
       },
       {
-        "name": "Warcraft III",
+        "name": "Warcraft III Font",
         "preview": "Warcraft III.webp",
         "file": "Warcraft III Font.zip",
         "links": [
@@ -32093,7 +32111,26 @@
           "LowPoly Shrub Trees",
           "Stars",
           "Default Wards",
-          "Tinker Lite Machines"
+          "Tinker Lite Machines",
+          "No Unnecessary Models",
+          "No Unnecessary Map Effects"
+        ]
+      },
+      {
+        "name": "Warcraft III Pack",
+        "preview": "Warcraft III.webp",
+        "type": "pack",
+        "mods": [
+          "Warcraft III",
+          "Warcraft III Font",
+          "Warcraft III Radiant",
+          "Warcraft III Dire",
+          "Warcraft III Neutrals",
+          "Warcraft III Music",
+          "Warcraft III Roshan",
+          "Warcraft III Ancient & Builds",
+          "Warcraft III Tormentor",
+          "Warcraft III Towers"
         ]
       }
     ],
