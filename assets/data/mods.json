@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "White Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Pink Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Ghoulsss Full Red Hud",
+      "category": "huds"
+    },
+    {
       "name": "The Nuclear Arc Warden",
       "category": "heroes"
     },
@@ -81,20 +93,12 @@
       "category": "item-effects"
     },
     {
-      "name": "Pink Diretide Ranged Attack",
-      "category": "ranged-attack"
-    },
-    {
       "name": "Ti12 Teleport",
       "category": "item-effects"
     },
     {
       "name": "Ti13 Teleport",
       "category": "item-effects"
-    },
-    {
-      "name": "White Diretide Ranged Attack",
-      "category": "ranged-attack"
     },
     {
       "name": "Black Diretide Ranged Attack",
@@ -21806,8 +21810,8 @@
           }
         ],
         "meta": {
-          "date": 1793953543,
-          "commit-sha": "8f83bcdb4c669c485add4ff822caffdaff2551da"
+          "date": 1794043573,
+          "commit-sha": ""
         }
       },
       {
@@ -21821,8 +21825,8 @@
           }
         ],
         "meta": {
-          "date": 1793959752,
-          "commit-sha": "33c14fb185b90cbad93164d64b90efd4b838847e"
+          "date": 1794043573,
+          "commit-sha": ""
         }
       }
     ],
@@ -24422,6 +24426,25 @@
         "meta": {
           "date": 1793178545,
           "commit-sha": "6b57bfcd6931f586f2ed99b4c148d6ff848716bd"
+        }
+      },
+      {
+        "name": "Ghoulsss Full Red Hud",
+        "preview": "Ghoulsss Full Red Hud.webp",
+        "file": "Ghoulsss Full Red Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/KAU42uRU7C0?si=u424XeoA6ATOcI3g"
+          }
+        ],
+        "meta": {
+          "date": 1794043573,
+          "commit-sha": ""
         }
       }
     ],
