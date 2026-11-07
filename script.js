@@ -1192,13 +1192,15 @@ function setupVideoModal() {
 const ANNOUNCEMENT_TYPE_ICONS = {
     update: 'release_alert',
     warning: 'warning',
-    info: 'campaign'
+    info: 'campaign',
+    star: 'kid_star'
 };
 
 const ANNOUNCEMENT_TOAST_SHAPES = {
     update: 'sunny',
     warning: 'burst',
-    info: '9-sided-cookie'
+    info: '9-sided-cookie',
+    star: '4-sided-cookie'
 };
 
 const ANNOUNCEMENT_SEEN_KEY = 'lastSeenAnnouncementTime';
@@ -1278,7 +1280,12 @@ function showAnnouncementToast(onViewAll) {
     const type = latest.type || 'info';
     const toast = document.createElement('div');
     toast.className = `announcement-toast ${type}`;
-    const typeLabel = { update: 'Update', warning: 'Important', info: 'Info' }[type] || 'Info';
+    const typeLabel = {
+        update: 'Update',
+        warning: 'Important',
+        info: 'Info',
+        star: 'star'
+    }[type] || 'Info';
     toast.setAttribute('role', 'status');
     toast.innerHTML = `
         <div class="announcement-toast-head">
@@ -1340,7 +1347,12 @@ function setupNotesModal() {
     };
 
     const notesSub = document.getElementById('notesSub');
-    const NOTE_TYPE_LABELS = { update: 'Update', warning: 'Important', info: 'Info' };
+    const NOTE_TYPE_LABELS = {
+        update: 'Update',
+        warning: 'Important',
+        info: 'Info',
+        star: 'star'
+    };
 
     const renderNotesList = () => {
         const announcements = getSortedAnnouncements();
@@ -4975,3 +4987,101 @@ function setupSettingsModal() {
         vibrate(10);
     });
 }
+
+/* GitHub stars */
+(function setupGithubStarButton() {
+    const REPO = 'h6rd/Dota2PornFxWeb';
+    const CACHE_KEY = 'ghStarCount';
+    const CACHE_TIME_KEY = 'ghStarCountTime';
+    const CACHE_TTL = 60 * 60 * 1000;
+
+    const init = () => {
+        const countEl = document.getElementById('ghStarCountNum');
+        const chip = countEl?.closest('.gh-star-count');
+        if (!countEl) return;
+
+        const formatCount = (n) => {
+            if (!Number.isFinite(n) || n < 0) return null;
+            if (n >= 1000) {
+                const k = n / 1000;
+                return (k % 1 === 0 ? k.toFixed(0) : k.toFixed(1)) + 'k';
+            }
+            return String(n);
+        };
+
+        const paint = (n) => {
+            const text = formatCount(n);
+            if (!text) return false;
+            countEl.textContent = text;
+            chip?.classList.remove('is-empty');
+            return true;
+        };
+
+        let cached = null;
+        try {
+            const raw = localStorage.getItem(CACHE_KEY);
+            if (raw !== null) {
+                const n = parseInt(raw, 10);
+                if (Number.isFinite(n)) {
+                    cached = n;
+                    requestAnimationFrame(() => paint(n));
+                }
+            }
+        } catch (_) { }
+
+        const cacheTime = parseInt(localStorage.getItem(CACHE_TIME_KEY) || '0', 10);
+        if (cached !== null && Date.now() - cacheTime < CACHE_TTL) return;
+
+        const getJson = (url, ms) => {
+            const c = new AbortController();
+            const timer = setTimeout(() => c.abort(), ms);
+            return fetch(url, {
+                signal: c.signal,
+                headers: { 'Accept': 'application/vnd.github+json' },
+                cache: 'no-store'
+            })
+                .then(r => {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.json();
+                })
+                .finally(() => clearTimeout(timer));
+        };
+
+        const apiPath = `https://api.github.com/repos/${REPO}`;
+        const sources = [
+            { name: 'direct', url: apiPath, ms: 5000 },
+            { name: 'allorigins', url: `https://api.allorigins.win/raw?url=${encodeURIComponent(apiPath)}`, ms: 8000 },
+            { name: 'corsproxy', url: `https://corsproxy.io/?${encodeURIComponent(apiPath)}`, ms: 8000 },
+        ];
+
+        const attempt = (i) => {
+            if (i >= sources.length) {
+                console.warn('[gh-stars] all sources failed; leaving chip hidden.');
+                return;
+            }
+            const s = sources[i];
+            getJson(s.url, s.ms)
+                .then(d => {
+                    const n = d && d.stargazers_count;
+                    if (typeof n !== 'number' || n < 0) throw new Error('bad payload');
+                    paint(n);
+                    try {
+                        localStorage.setItem(CACHE_KEY, String(n));
+                        localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
+                    } catch (_) { }
+                    console.info(`[gh-stars] loaded from ${s.name}: ${n}`);
+                })
+                .catch(err => {
+                    console.warn(`[gh-stars] ${s.name} failed:`, err.message);
+                    attempt(i + 1);
+                });
+        };
+        attempt(0);
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+    } else {
+        init();
+    }
+})();

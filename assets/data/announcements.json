@@ -44,5 +44,13 @@
     "time": 1793953622,
     "type": "update",
     "text": "Most trees now work on all four Dota seasonal maps: Winter, Summer, Autumn, and Spring"
+  },
+  {
+    "time": "",
+    "type": "star",
+    "text": "Please star the project on GitHub. Thank you!",
+    "urls": [
+      "https://github.com/h6rd/Dota2PornFxWeb"
+    ]
   }
 ]
