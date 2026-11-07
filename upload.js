@@ -45,6 +45,7 @@
   const FALLBACK_PREVIEW_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
   const UPLOAD_VIDEO_CATEGORIES = ['sounds', 'hero-sounds', 'huds', 'ti-bp-effects'];
   const TAG_DESCRIPTIONS = { effects: 'ONLY ABILITY EFFECTS, NO VISUAL EFFECTS', icons: 'ONLY ABILITY ICONS', css: 'CONTAINS CSS, JS OR XML FILES' };
+  const ANON_NAME = 'Anonymous';
   const AUTHOR_PREF_KEY = 'd2pfx_upload_author';
   const CONSENT_KEY = 'd2pfx_upload_consent';
   const CONSENT_VERSION = '1';
@@ -1092,6 +1093,51 @@
     } else if (mode === 'skip') saveAuthorPref({ mode });
   }
 
+  // Resolves what will actually be sent as the author. Nothing chosen -> Anonymous.
+  function resolveAuthor() {
+    const mode = getRadio('authorMode');
+    let name = '', url = '';
+    if (mode === 'existing') name = $('upAuthorExisting').value || '';
+    else if (mode === 'new') { name = $('upAuthorName').value.trim(); url = $('upAuthorUrl').value.trim(); }
+    if (!name) {
+      const known = Object.keys(window.MOD_AUTHOR || {}).find(a => normalizeModName(a) === normalizeModName(ANON_NAME));
+      return known ? { mode: 'existing', name: known, url: '', anonymous: true } : { mode: 'new', name: ANON_NAME, url: '', anonymous: true };
+    }
+    return { mode: mode === 'new' ? 'new' : 'existing', name, url, anonymous: false };
+  }
+  function lockedAuthorNames(mod) {
+    return lockedAuthorLinks(mod).map(l => (l.type === 'sender' && l.name ? l.name : l.url))
+      .flatMap(n => String(n).split(/\s*,\s*/)).filter(Boolean);
+  }
+  function currentAuthorKeys() {
+    const upd = S.update && modIsReplaceable(S.update.mod) ? S.update : null;
+    const names = upd ? lockedAuthorNames(upd.mod) : [resolveAuthor().name];
+    return new Set(names.map(normalizeModName).filter(Boolean));
+  }
+  function currentExtraValue() {
+    if (!getRadio('extraMode') || getRadio('extraMode') === 'none') return '';
+    return getRadio('extraOriginMode') === 'existing' ? $('upExtraExisting').value : $('upExtraName').value.trim();
+  }
+  function extraConflictsWithAuthor() {
+    const v = normalizeModName(currentExtraValue());
+    return !!v && currentAuthorKeys().has(v);
+  }
+  function syncCreditExclusions() {
+    const upd = S.update && modIsReplaceable(S.update.mod);
+    const extraSel = $('upExtraExisting'), authorSel = $('upAuthorExisting');
+    const authorKeys = currentAuthorKeys();
+    const extraKey = normalizeModName(currentExtraValue());
+    let changed = false;
+    Array.from(extraSel.options).forEach(o => { if (o.value) o.disabled = authorKeys.has(normalizeModName(o.value)); });
+    if (extraSel.value && authorKeys.has(normalizeModName(extraSel.value))) { extraSel.value = ''; changed = true; }
+    Array.from(authorSel.options).forEach(o => { if (o.value) o.disabled = !upd && !!extraKey && normalizeModName(o.value) === extraKey; });
+    if (!upd && authorSel.value && extraKey && normalizeModName(authorSel.value) === extraKey) { authorSel.value = ''; changed = true; }
+    const sig = Array.from(extraSel.options).concat(Array.from(authorSel.options)).map(o => (o.disabled ? 1 : 0)).join('');
+    if (changed || sig !== syncCreditExclusions.sig) { refreshSelect(extraSel); refreshSelect(authorSel); }
+    syncCreditExclusions.sig = sig;
+    return changed;
+  }
+
   function previewLinkButton(type, text) {
     const b = el('span', 'link-button');
     if (type !== 'author') b.setAttribute('data-custom-name', 'false');
@@ -1108,10 +1154,8 @@
         .flatMap(n => String(n).split(/\s*,\s*/)).filter(Boolean);
       out.author = out.authors.join(', ') || null;
     } else {
-      const mode = getRadio('authorMode');
-      if (mode === 'existing') out.author = $('upAuthorExisting').value || null;
-      else if (mode === 'new') out.author = $('upAuthorName').value.trim() || null;
-      if (out.author) out.authors = [out.author];
+      out.author = resolveAuthor().name;
+      out.authors = [out.author];
     }
     const extraMode = getRadio('extraMode');
     if (extraMode && extraMode !== 'none') {
@@ -1264,15 +1308,13 @@
         const mode = getRadio('authorMode');
         if (mode === 'existing') {
           const v = $('upAuthorExisting').value;
-          if (!v) return 'Select an author, or choose "New" / "None".';
-          if (!SAFE_TEXT_RE.test(v)) return `Author name: ${NICK_HINT}.`;
+          if (v && !SAFE_TEXT_RE.test(v)) return `Author name: ${NICK_HINT}.`;
         } else if (mode === 'new') {
           const nick = $('upAuthorName').value.trim();
-          if (!nick) return 'Enter the author nickname.';
-          if (nick.length > 150 || !NICK_RE.test(nick)) return `Author name: ${NICK_HINT}.`;
+          if (nick && (nick.length > 150 || !NICK_RE.test(nick))) return `Author name: ${NICK_HINT}.`;
           const url = $('upAuthorUrl').value.trim();
-          if (url && !isAllowedHttpUrl(url)) return 'Author profile link is invalid.';
-          if (checkAuthorDuplicate()) return 'That author already exists — choose "Existing" instead.';
+          if (nick && url && !isAllowedHttpUrl(url)) return 'Author profile link is invalid.';
+          if (nick && checkAuthorDuplicate()) return 'That author already exists — choose "Existing" instead.';
         }
       }
       const extraMode = getRadio('extraMode');
@@ -1290,6 +1332,7 @@
           if (url && !isAllowedHttpUrl(url)) return 'Additional link URL is invalid.';
           if (checkExtraDuplicate()) return 'That name already exists — choose "Existing" instead.';
         }
+        if (extraConflictsWithAuthor()) return `The ${label} can't be the same person as the author (${currentExtraValue()}). Choose a different name.`;
       }
     }
     return null;
@@ -1303,6 +1346,7 @@
   }
 
   function refreshAll() {
+    syncCreditExclusions();
     if (!$('upStepError').hidden && !S.busy && S.step < STEP_COUNT - 1) showStepError(validateStep(S.step) || '');
     updatePreviewCard();
     updateNav();
@@ -1408,7 +1452,7 @@
       row(dl, 'Archive', S.archiveFile ? `${S.archiveFile.name} (${formatBytes(S.archiveFile.size)})` : '—');
     }
     row(dl, 'Tags', tags.length ? tags.join(', ') : '—');
-    row(dl, upd ? 'Author (locked)' : 'Author', credits.author || '—');
+    row(dl, upd ? 'Author (locked)' : 'Author', credits.author || ANON_NAME);
     if (credits.extra) row(dl, { source: 'Source', modded: 'Modded by', author: 'Co-author' }[credits.extra.type] || 'Link', credits.extra.value);
     if (credits.video) row(dl, 'Preview video', credits.video);
 
@@ -1549,13 +1593,10 @@
     fd.set('tags', JSON.stringify(selectedTags()));
 
     if (!upd) {
-      const authorMode = getRadio('authorMode');
-      fd.set('authorMode', authorMode);
-      if (authorMode === 'existing') fd.set('authorName', $('upAuthorExisting').value);
-      else if (authorMode === 'new') {
-        fd.set('authorName', $('upAuthorName').value.trim());
-        fd.set('authorUrl', $('upAuthorUrl').value.trim());
-      }
+      const author = resolveAuthor();
+      fd.set('authorMode', author.mode);
+      fd.set('authorName', author.name);
+      if (author.mode === 'new') fd.set('authorUrl', author.url);
     }
     const extraMode = getRadio('extraMode') || 'none';
     fd.set('extraMode', extraMode);
