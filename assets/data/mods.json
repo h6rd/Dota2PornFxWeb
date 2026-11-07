@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "White Diretide Ranged Attack",
       "category": "ranged-attack"
     },
@@ -19,10 +23,6 @@
     {
       "name": "Morphling Sakura",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Crownfall Radiant",
