@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "The Nuclear Arc Warden",
+      "category": "heroes"
+    },
+    {
+      "name": "Morphling Sakura",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -99,10 +107,6 @@
     {
       "name": "Meteor White",
       "category": "item-effects"
-    },
-    {
-      "name": "Morphling Pink",
-      "category": "heroes"
     },
     {
       "name": "Pudge With A Penis",
@@ -15780,9 +15784,9 @@
         }
       },
       {
-        "name": "Morphling Pink",
-        "preview": "Morphling Pink.webp",
-        "file": "Morphling Pink.zip",
+        "name": "Morphling Sakura",
+        "preview": "Morphling Sakura.webp",
+        "file": "Morphling Sakura.zip",
         "tags": {
           "effects": true,
           "icons": true
@@ -15797,6 +15801,21 @@
           "date": 1793949506,
           "commit-sha": "ad7586b627d76f021c21d2f25ec70aca33edc5af"
         }
+      },
+      {
+        "name": "The Nuclear Arc Warden",
+        "preview": "The Nuclear Arc Warden.webp",
+        "file": "The Nuclear Arc Warden.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Schizo"
+          }
+        ]
       }
     ],
     "shaders": [
