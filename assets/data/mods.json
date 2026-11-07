@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Crownfall Radiant",
       "category": "towers"
     },
@@ -106,10 +110,6 @@
     },
     {
       "name": "Minify",
-      "category": "tools"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
     {
