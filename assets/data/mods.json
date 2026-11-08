@@ -121,10 +121,6 @@
       "category": "tools"
     },
     {
-      "name": "Warcraft III Towers",
-      "category": "towers"
-    },
-    {
       "name": "Warcraft III Dire",
       "category": "creeps"
     },
@@ -32277,8 +32273,7 @@
           "Warcraft III Music",
           "Warcraft III Roshan",
           "Warcraft III Ancient & Builds",
-          "Warcraft III Tormentor",
-          "Warcraft III Towers"
+          "Warcraft III Tormentor"
         ]
       }
     ],
