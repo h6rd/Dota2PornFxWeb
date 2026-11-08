@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "InvokerGame",
+      "category": "sites"
+    },
+    {
+      "name": "Set Builder",
+      "category": "sites"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -27537,6 +27545,12 @@
             "url": "Harlord"
           }
         ]
+      },
+      {
+        "name": "InvokerGame",
+        "preview": "InvokerGame.webp",
+        "file": "https://invokergame.org/",
+        "type": "guide"
       }
     ],
     "guides": [
