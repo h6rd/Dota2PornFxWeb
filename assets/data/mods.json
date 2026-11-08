@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Last Match Vidget",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Rainy Day",
+      "category": "backgrounds"
+    },
+    {
+      "name": "6 86 Arc Warden Background",
+      "category": "backgrounds"
+    },
+    {
+      "name": "7 40 Largo",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Elaina Blade",
+      "category": "backgrounds"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -575,10 +595,6 @@
     {
       "name": "Kotl Obeisance Of The Keeper",
       "category": "hero-items"
-    },
-    {
-      "name": "Last Match Vidget",
-      "category": "backgrounds"
     },
     {
       "name": "Troll Warlord Steel Warrior",
@@ -26755,8 +26771,8 @@
           }
         ],
         "meta": {
-          "date": 1793062291,
-          "commit-sha": "4f388a72e7380a105f41d588fad404c8bdd0e513"
+          "date": 1794177574,
+          "commit-sha": ""
         }
       },
       {
@@ -27231,6 +27247,72 @@
         "meta": {
           "date": 1794145496,
           "commit-sha": "8a25eff9eb44641f0ee4cc8a0c564060b1b14966"
+        }
+      },
+      {
+        "name": "Elaina Blade",
+        "preview": "Elaina Blade.webp",
+        "file": "Elaina Blade.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1794177574,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "7 40 Largo",
+        "preview": "7 40 Largo.webp",
+        "file": "7 40 Largo.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1794177574,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "6 86 Arc Warden Background",
+        "preview": "6 86 Arc Warden Background.webp",
+        "file": "6 86 Arc Warden Background.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1794177574,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Rainy Day",
+        "preview": "Rainy Day.webp",
+        "file": "Rainy Day.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1794177574,
+          "commit-sha": ""
         }
       }
     ],
