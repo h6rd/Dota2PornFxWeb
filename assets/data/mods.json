@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pink Diretide Ranged Attack",
+      "category": "ranged-attack"
+    },
+    {
+      "name": "Frozen Throne",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Meepo Chicken Gun",
+      "category": "heroes"
+    },
+    {
       "name": "InvokerGame",
       "category": "sites"
     },
@@ -14,10 +26,6 @@
     },
     {
       "name": "White Diretide Ranged Attack",
-      "category": "ranged-attack"
-    },
-    {
-      "name": "Pink Diretide Ranged Attack",
       "category": "ranged-attack"
     },
     {
@@ -15805,6 +15813,21 @@
           "date": 1794039333,
           "commit-sha": "c3cf5336c1ff7ea3863a5ab4bba7de3944e3ac96"
         }
+      },
+      {
+        "name": "Meepo Chicken Gun",
+        "preview": "Meepo Chicken Gun.webp",
+        "file": "Meepo Chicken Gun.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1794145495,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21806,8 +21829,8 @@
           }
         ],
         "meta": {
-          "date": 1794043573,
-          "commit-sha": "69bf48a92151f7ff4d1c2fd3f30bd72410dd9451"
+          "date": 1794145495,
+          "commit-sha": ""
         }
       }
     ],
@@ -27190,6 +27213,24 @@
         "meta": {
           "date": 1793998477,
           "commit-sha": "dce8441db20f42ac17d1cbc5eab5de8d2fce538b"
+        }
+      },
+      {
+        "name": "Frozen Throne",
+        "preview": "Frozen Throne.webp",
+        "file": "Frozen Throne.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "samoredoto"
+          }
+        ],
+        "meta": {
+          "date": 1794145495,
+          "commit-sha": ""
         }
       }
     ],
