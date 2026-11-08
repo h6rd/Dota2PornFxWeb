@@ -15834,7 +15834,7 @@
       {
         "name": "Aghanim Labyrinth",
         "preview": "aghanim_shader.webp",
-        "file": "pak07_dir.vpk",
+        "file": "Aghanim Labyrinth.zip",
         "links": [
           {
             "type": "author",
@@ -15849,7 +15849,7 @@
       {
         "name": "Aghanim Purple",
         "preview": "Aghanim Purple Shader.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Aghanim Purple.zip",
         "links": [
           {
             "type": "author",
@@ -15864,7 +15864,7 @@
       {
         "name": "Aghanim Peach",
         "preview": "Aghanim Peach Shader.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Aghanim Peach.zip",
         "links": [
           {
             "type": "author",
@@ -15879,7 +15879,7 @@
       {
         "name": "Aghanim White",
         "preview": "Aghanim White Shader.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Aghanim White.zip",
         "links": [
           {
             "type": "author",
@@ -15894,7 +15894,7 @@
       {
         "name": "Aghanim Green",
         "preview": "Aghanim Green Shader.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Aghanim Green.zip",
         "links": [
           {
             "type": "author",
@@ -15909,7 +15909,7 @@
       {
         "name": "Aghanim Red",
         "preview": "Aghanim Red Shader.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Aghanim Red.zip",
         "links": [
           {
             "type": "author",
@@ -15924,7 +15924,7 @@
       {
         "name": "Wave Purple",
         "preview": "Wave Purple Shader.webp",
-        "file": "pak20_dir.vpk",
+        "file": "Wave Purple.zip",
         "links": [
           {
             "type": "author",
@@ -15939,7 +15939,7 @@
       {
         "name": "Wave Peach",
         "preview": "Wave Peach Shader.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Wave Peach.zip",
         "links": [
           {
             "type": "author",
@@ -15954,7 +15954,7 @@
       {
         "name": "Wave White",
         "preview": "Wave White Shader.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Wave White.zip",
         "links": [
           {
             "type": "author",
@@ -15969,7 +15969,7 @@
       {
         "name": "Wave Green",
         "preview": "Wave Green Shader.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Wave Green.zip",
         "links": [
           {
             "type": "author",
@@ -15984,7 +15984,7 @@
       {
         "name": "Wave Red",
         "preview": "Wave Red Shader.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Wave Red.zip",
         "links": [
           {
             "type": "author",
@@ -15999,7 +15999,7 @@
       {
         "name": "Diretide (outline)",
         "preview": "diretide_shader.webp",
-        "file": "pak08_dir.vpk",
+        "file": "Diretide (outline).zip",
         "links": [
           {
             "type": "author",
@@ -16014,7 +16014,7 @@
       {
         "name": "Purple Outline",
         "preview": "Purple Outline Shader.webp",
-        "file": "pak09_dir.vpk",
+        "file": "Purple Outline.zip",
         "links": [
           {
             "type": "author",
@@ -16029,7 +16029,7 @@
       {
         "name": "Wave Lite Blue",
         "preview": "Wave Lite Blue.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Wave Lite Blue.zip",
         "links": [
           {
             "type": "author",
@@ -16044,7 +16044,7 @@
       {
         "name": "Wave Lite Aqua",
         "preview": "Wave Lite Aqua.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Wave Lite Aqua.zip",
         "links": [
           {
             "type": "author",
@@ -16059,7 +16059,7 @@
       {
         "name": "Wave Lite Pink",
         "preview": "Wave Lite Pink.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Wave Lite Pink.zip",
         "links": [
           {
             "type": "author",
@@ -16074,7 +16074,7 @@
       {
         "name": "Wave Lite Purple",
         "preview": "Wave Lite Purple.webp",
-        "file": "pak26_dir.vpk",
+        "file": "Wave Lite Purple.zip",
         "links": [
           {
             "type": "author",
@@ -16089,7 +16089,7 @@
       {
         "name": "Wave Lite Peach",
         "preview": "Wave Lite Peach.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Wave Lite Peach.zip",
         "links": [
           {
             "type": "author",
@@ -16104,7 +16104,7 @@
       {
         "name": "Wave Lite Green",
         "preview": "Wave Lite Green.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Wave Lite Green.zip",
         "links": [
           {
             "type": "author",
@@ -16119,7 +16119,7 @@
       {
         "name": "Wave Lite Red",
         "preview": "Wave Lite Red.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Wave Lite Red.zip",
         "links": [
           {
             "type": "author",
@@ -16134,7 +16134,7 @@
       {
         "name": "Wave Lite White",
         "preview": "Wave Lite White.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Wave Lite White.zip",
         "links": [
           {
             "type": "author",
@@ -16149,7 +16149,7 @@
       {
         "name": "Wave Lite Yellow",
         "preview": "Wave Lite Yellow.webp",
-        "file": "pak31_dir.vpk",
+        "file": "Wave Lite Yellow.zip",
         "links": [
           {
             "type": "author",
@@ -16164,7 +16164,7 @@
       {
         "name": "Aghanim Green Lite",
         "preview": "Aghanim Green Lite.webp",
-        "file": "pak32_dir.vpk",
+        "file": "Aghanim Green Lite.zip",
         "links": [
           {
             "type": "author",
@@ -16179,7 +16179,7 @@
       {
         "name": "Aghanim Purple Lite",
         "preview": "Aghanim Purple Lite.webp",
-        "file": "pak33_dir.vpk",
+        "file": "Aghanim Purple Lite.zip",
         "links": [
           {
             "type": "author",
@@ -16194,7 +16194,7 @@
       {
         "name": "Aghanim White Lite",
         "preview": "Aghanim White Lite.webp",
-        "file": "pak34_dir.vpk",
+        "file": "Aghanim White Lite.zip",
         "links": [
           {
             "type": "author",
@@ -16209,7 +16209,7 @@
       {
         "name": "Aghanim Yellow Lite",
         "preview": "Aghanim Yellow Lite.webp",
-        "file": "pak35_dir.vpk",
+        "file": "Aghanim Yellow Lite.zip",
         "links": [
           {
             "type": "author",
@@ -16224,7 +16224,7 @@
       {
         "name": "Aghanim Red Lite",
         "preview": "Aghanim Red Lite.webp",
-        "file": "pak36_dir.vpk",
+        "file": "Aghanim Red Lite.zip",
         "links": [
           {
             "type": "author",
@@ -16239,7 +16239,7 @@
       {
         "name": "Cartoon Shader",
         "preview": "Cartoon Shader.webp",
-        "file": "pak37_dir.vpk",
+        "file": "Cartoon Shader.zip",
         "links": [
           {
             "type": "author",
@@ -16254,7 +16254,7 @@
       {
         "name": "Simple Minify Shader",
         "preview": "Simple Minify Shader.webp",
-        "file": "pak38_dir.vpk",
+        "file": "Simple Minify Shader.zip",
         "links": [
           {
             "type": "source",
@@ -16286,7 +16286,7 @@
       {
         "name": "Remove Seasonal Effects",
         "preview": "Remove Seasonal Effects.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Remove Seasonal Effects.zip",
         "links": [
           {
             "type": "author",
@@ -16301,7 +16301,7 @@
       {
         "name": "TI 2019 Battle Pass",
         "preview": "bp_ti9.webp",
-        "file": "pak10_dir.vpk",
+        "file": "TI 2019 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16320,7 +16320,7 @@
       {
         "name": "TI 2018 Battle Pass",
         "preview": "bp_ti8.webp",
-        "file": "pak11_dir.vpk",
+        "file": "TI 2018 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16339,7 +16339,7 @@
       {
         "name": "TI 2017 Battle Pass",
         "preview": "bp_ti7.webp",
-        "file": "pak12_dir.vpk",
+        "file": "TI 2017 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16358,7 +16358,7 @@
       {
         "name": "Winter 2016 Battle Pass",
         "preview": "bp_winter_2016.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Winter 2016 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16377,7 +16377,7 @@
       {
         "name": "TI 2016 Battle Pass",
         "preview": "bp_ti6.webp",
-        "file": "pak14_dir.vpk",
+        "file": "TI 2016 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16396,7 +16396,7 @@
       {
         "name": "TI 2010 Battle Pass",
         "preview": "bp_ti10.webp",
-        "file": "pak15_dir.vpk",
+        "file": "TI 2010 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16415,7 +16415,7 @@
       {
         "name": "Nemestice 2021 Battle Pass",
         "preview": "bp_nemestice2021.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Nemestice 2021 Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16434,7 +16434,7 @@
       {
         "name": "Aghanims Labyrinth Battle Pass",
         "preview": "bp_aghanim.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Aghanims Labyrinth Battle Pass.zip",
         "links": [
           {
             "type": "preview",
@@ -16453,7 +16453,7 @@
       {
         "name": "Quarteros Curios",
         "preview": "Quarteros Curios.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Quarteros Curios.zip",
         "links": [
           {
             "type": "preview",
@@ -16472,7 +16472,7 @@
       {
         "name": "Purple Quarteros Curios",
         "preview": "Purple Quarteros Curios.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Purple Quarteros Curios.zip",
         "links": [
           {
             "type": "preview",
@@ -16491,7 +16491,7 @@
       {
         "name": "Winter Quarteros Curios",
         "preview": "Winter Quarteros Curios.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Winter Quarteros Curios.zip",
         "links": [
           {
             "type": "preview",
@@ -16510,7 +16510,7 @@
       {
         "name": "Spring Quarteros Curios",
         "preview": "Spring Quarteros Curios.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Spring Quarteros Curios.zip",
         "links": [
           {
             "type": "preview",
@@ -16529,7 +16529,7 @@
       {
         "name": "Summer Quarteros Curios",
         "preview": "Summer Quarteros Curios.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Summer Quarteros Curios.zip",
         "links": [
           {
             "type": "preview",
@@ -16548,7 +16548,7 @@
       {
         "name": "Battle Pass 2022",
         "preview": "Battle Pass 2022.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Battle Pass 2022.zip",
         "links": [
           {
             "type": "preview",
@@ -16574,7 +16574,7 @@
             {
               "name": "Huh Deny",
               "preview": "Huh Deny.webp",
-              "file": "pak08_dir.vpk",
+              "file": "Huh Deny.zip",
               "links": [
                 {
                   "type": "source",
@@ -16589,7 +16589,7 @@
             {
               "name": "Soul Deny",
               "preview": "Soul Deny.webp",
-              "file": "pak11_dir.vpk",
+              "file": "Soul Deny.zip",
               "links": [
                 {
                   "type": "author",
@@ -16604,7 +16604,7 @@
             {
               "name": "Fuck Deny",
               "preview": "Fuck Deny.webp",
-              "file": "pak12_dir.vpk",
+              "file": "Fuck Deny.zip",
               "links": [
                 {
                   "type": "source",
@@ -16619,7 +16619,7 @@
             {
               "name": "Deny Fall 2022",
               "preview": "Fall 2022 Deny.webp",
-              "file": "pak21_dir.vpk",
+              "file": "Deny Fall 2022.zip",
               "links": [
                 {
                   "type": "author",
@@ -16634,7 +16634,7 @@
             {
               "name": "Deny Spring",
               "preview": "Spring Deny.webp",
-              "file": "pak22_dir.vpk",
+              "file": "Deny Spring.zip",
               "links": [
                 {
                   "type": "author",
@@ -16649,7 +16649,7 @@
             {
               "name": "Deny Fall 2021",
               "preview": "Fall 2021 Deny.webp",
-              "file": "pak23_dir.vpk",
+              "file": "Deny Fall 2021.zip",
               "links": [
                 {
                   "type": "author",
@@ -16664,7 +16664,7 @@
             {
               "name": "Serega Pirat Deny",
               "preview": "Serega Pirat Deny.webp",
-              "file": "pak24_dir.vpk",
+              "file": "Serega Pirat Deny.zip",
               "links": [
                 {
                   "type": "author",
@@ -16868,7 +16868,7 @@
             {
               "name": "lasthit Golden Shards",
               "preview": "Lasthit Golden Shards.webp",
-              "file": "pak35_dir.vpk",
+              "file": "lasthit Golden Shards.zip",
               "links": [
                 {
                   "type": "author",
@@ -16888,7 +16888,7 @@
       {
         "name": "Emblem of the Diretide Green",
         "preview": "Emblem of the Diretide Green.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Emblem of the Diretide Green.zip",
         "links": [
           {
             "type": "author",
@@ -16903,7 +16903,7 @@
       {
         "name": "Emblem of the Diretide Blue",
         "preview": "Emblem of the Diretide Blue.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Emblem of the Diretide Blue.zip",
         "links": [
           {
             "type": "author",
@@ -16918,7 +16918,7 @@
       {
         "name": "Emblem of the Diretide Yellow",
         "preview": "Emblem of the Diretide Yellow.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Emblem of the Diretide Yellow.zip",
         "links": [
           {
             "type": "author",
@@ -16933,7 +16933,7 @@
       {
         "name": "Emblem of the Diretide Red",
         "preview": "Emblem of the Diretide Red.webp",
-        "file": "pak31_dir.vpk",
+        "file": "Emblem of the Diretide Red.zip",
         "links": [
           {
             "type": "author",
@@ -16948,7 +16948,7 @@
       {
         "name": "Battle Pass 2022 Emblem",
         "preview": "Battle Pass 2022 Emblem.webp",
-        "file": "pak32_dir.vpk",
+        "file": "Battle Pass 2022 Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -16963,7 +16963,7 @@
       {
         "name": "Emblem of the Crystal Echelon",
         "preview": "Emblem of the Crystal Echelon.webp",
-        "file": "pak33_dir.vpk",
+        "file": "Emblem of the Crystal Echelon.zip",
         "links": [
           {
             "type": "author",
@@ -16978,7 +16978,7 @@
       {
         "name": "Emblem of Divinity",
         "preview": "Emblem of Divinity.webp",
-        "file": "pak34_dir.vpk",
+        "file": "Emblem of Divinity.zip",
         "links": [
           {
             "type": "author",
@@ -16993,7 +16993,7 @@
       {
         "name": "Nemestice Emblem",
         "preview": "Nemestice Emblem.webp",
-        "file": "pak35_dir.vpk",
+        "file": "Nemestice Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17008,7 +17008,7 @@
       {
         "name": "Overgrown Emblem",
         "preview": "Overgrown Emblem.webp",
-        "file": "pak36_dir.vpk",
+        "file": "Overgrown Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17023,7 +17023,7 @@
       {
         "name": "Aghanims Emblem",
         "preview": "Aghanims Emblem.webp",
-        "file": "pak37_dir.vpk",
+        "file": "Aghanims Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17038,7 +17038,7 @@
       {
         "name": "Sunken Emblem",
         "preview": "Sunken Emblem.webp",
-        "file": "pak38_dir.vpk",
+        "file": "Sunken Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17053,7 +17053,7 @@
       {
         "name": "Bard Frog Emblem",
         "preview": "Bard Frog Emblem.webp",
-        "file": "pak39_dir.vpk",
+        "file": "Bard Frog Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17068,7 +17068,7 @@
       {
         "name": "Bard Frog Emblem v2",
         "preview": "Bard Frog Emblem v2.webp",
-        "file": "pak40_dir.vpk",
+        "file": "Bard Frog Emblem v2.zip",
         "links": [
           {
             "type": "author",
@@ -17083,7 +17083,7 @@
       {
         "name": "Crimson Chains Emblem",
         "preview": "Crimson Chains Emblem.webp",
-        "file": "pak41_dir.vpk",
+        "file": "Crimson Chains Emblem.zip",
         "links": [
           {
             "type": "author",
@@ -17145,7 +17145,7 @@
       {
         "name": "Winter Versus Screen",
         "preview": "Winter Versus Screen.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Winter Versus Screen.zip",
         "links": [
           {
             "type": "author",
@@ -17160,7 +17160,7 @@
       {
         "name": "TI9 Versus Screen I",
         "preview": "TI9 Versus Screen I.webp",
-        "file": "pak11_dir.vpk",
+        "file": "TI9 Versus Screen I.zip",
         "links": [
           {
             "type": "author",
@@ -17175,7 +17175,7 @@
       {
         "name": "TI9 Versus Screen II",
         "preview": "TI9 Versus Screen II.webp",
-        "file": "pak12_dir.vpk",
+        "file": "TI9 Versus Screen II.zip",
         "links": [
           {
             "type": "author",
@@ -17190,7 +17190,7 @@
       {
         "name": "Nemestice Versus Screen",
         "preview": "Nemestice Versus Screen.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Nemestice Versus Screen.zip",
         "links": [
           {
             "type": "author",
@@ -17205,7 +17205,7 @@
       {
         "name": "TI 2024 Versus Screen",
         "preview": "TI 2024 Versus Screen.webp",
-        "file": "pak14_dir.vpk",
+        "file": "TI 2024 Versus Screen.zip",
         "links": [
           {
             "type": "author",
@@ -17220,7 +17220,7 @@
       {
         "name": "Muerta Versus Screen",
         "preview": "Muerta Radiant Versus Screen.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Muerta Versus Screen.zip",
         "links": [
           {
             "type": "author",
@@ -17235,7 +17235,7 @@
       {
         "name": "Diretide Versus Screen",
         "preview": "Diretide Radiant Versus Screen.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Diretide Versus Screen.zip",
         "links": [
           {
             "type": "author",
@@ -17252,7 +17252,7 @@
       {
         "name": "DarkPoly & Trees",
         "preview": "DarkPoly+Trees.webp",
-        "file": "pak10_dir.vpk",
+        "file": "DarkPoly & Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17267,7 +17267,7 @@
       {
         "name": "DarkPoly",
         "preview": "DarkPoly.webp",
-        "file": "pak11_dir.vpk",
+        "file": "DarkPoly.zip",
         "links": [
           {
             "type": "author",
@@ -17282,7 +17282,7 @@
       {
         "name": "Mossy Cobblestone",
         "preview": "Mossy Cobblestone.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Mossy Cobblestone.zip",
         "links": [
           {
             "type": "author",
@@ -17297,7 +17297,7 @@
       {
         "name": "Bedrock",
         "preview": "Bedrock.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Bedrock.zip",
         "links": [
           {
             "type": "author",
@@ -17312,7 +17312,7 @@
       {
         "name": "Dark Terrain Minify",
         "preview": "Dark Terrain.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Dark Terrain Minify.zip",
         "links": [
           {
             "type": "author",
@@ -17335,13 +17335,13 @@
             "label": "",
             "color": "#42322f",
             "preview": "Flat Dark Terrain.mp4",
-            "file": "pak15_dir.vpk"
+            "file": "Simple Dark Terrain Minify.zip"
           },
           {
             "label": "Green",
             "color": "#8ee487",
             "preview": "Flat Green Terrain.mp4",
-            "file": "pak16_dir.vpk"
+            "file": "Simple Dark Terrain Minify - Green.zip"
           }
         ],
         "links": [
@@ -17362,7 +17362,7 @@
       {
         "name": "LowPoly & Trees",
         "preview": "LowPoly+Trees.webp",
-        "file": "pak17_dir.vpk",
+        "file": "LowPoly & Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17377,7 +17377,7 @@
       {
         "name": "LowPoly",
         "preview": "LowPoly.webp",
-        "file": "pak18_dir.vpk",
+        "file": "LowPoly.zip",
         "links": [
           {
             "type": "author",
@@ -17589,7 +17589,7 @@
       {
         "name": "Pumpkin Trees",
         "preview": "Pumpkin Trees.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Pumpkin Trees.zip",
         "links": [
           {
             "type": "source",
@@ -17604,7 +17604,7 @@
       {
         "name": "Small Trees Minify",
         "preview": "Small Trees.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Small Trees Minify.zip",
         "links": [
           {
             "type": "author",
@@ -17623,7 +17623,7 @@
       {
         "name": "Crystals Trees",
         "preview": "Crystals Trees.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Crystals Trees.zip",
         "links": [
           {
             "type": "source",
@@ -17638,7 +17638,7 @@
       {
         "name": "Wooden Trees",
         "preview": "Wooden Trees.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Wooden Trees.zip",
         "links": [
           {
             "type": "source",
@@ -17653,7 +17653,7 @@
       {
         "name": "Stone Trees",
         "preview": "Stone Trees.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Stone Trees.zip",
         "links": [
           {
             "type": "source",
@@ -17668,7 +17668,7 @@
       {
         "name": "LowPoly Trees v1",
         "preview": "LowPoly Trees v1.webp",
-        "file": "pak15_dir.vpk",
+        "file": "LowPoly Trees v1.zip",
         "links": [
           {
             "type": "author",
@@ -17683,7 +17683,7 @@
       {
         "name": "Cartoon Trees",
         "preview": "Cartoon Trees.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Cartoon Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17698,7 +17698,7 @@
       {
         "name": "Pine Cone Trees",
         "preview": "Pine Cone Trees.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Pine Cone Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17713,7 +17713,7 @@
       {
         "name": "Cone Trees",
         "preview": "Cone Trees.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Cone Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17728,7 +17728,7 @@
       {
         "name": "LowPoly Shrub Trees",
         "preview": "LowPoly Shrub Trees.webp",
-        "file": "pak19_dir.vpk",
+        "file": "LowPoly Shrub Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17743,7 +17743,7 @@
       {
         "name": "LowPoly Trees",
         "preview": "LowPoly Trees.webp",
-        "file": "pak20_dir.vpk",
+        "file": "LowPoly Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17758,7 +17758,7 @@
       {
         "name": "LowPoly Barrel Trees",
         "preview": "LowPoly Barrel Trees.webp",
-        "file": "pak21_dir.vpk",
+        "file": "LowPoly Barrel Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17773,7 +17773,7 @@
       {
         "name": "Catbuns Trees",
         "preview": "Catbuns Trees.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Catbuns Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17788,7 +17788,7 @@
       {
         "name": "Logs Trees",
         "preview": "Logs Trees.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Logs Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17803,7 +17803,7 @@
       {
         "name": "LowPoly Stumps Trees",
         "preview": "LowPoly Stumps Trees.webp",
-        "file": "pak24_dir.vpk",
+        "file": "LowPoly Stumps Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17818,7 +17818,7 @@
       {
         "name": "Gravestones Trees",
         "preview": "Gravestones Trees.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Gravestones Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17833,7 +17833,7 @@
       {
         "name": "LowPoly Skull Trees",
         "preview": "LowPoly Skull Trees.webp",
-        "file": "pak26_dir.vpk",
+        "file": "LowPoly Skull Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17848,7 +17848,7 @@
       {
         "name": "Metal Barrel Trees",
         "preview": "Metal Barrel Trees.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Metal Barrel Trees.zip",
         "links": [
           {
             "type": "author",
@@ -17863,7 +17863,7 @@
       {
         "name": "Deathrun Eggs",
         "preview": "Deathrun Eggs.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Deathrun Eggs.zip",
         "links": [
           {
             "type": "author",
@@ -17878,7 +17878,7 @@
       {
         "name": "Virus Trees",
         "preview": "Virus Trees.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Virus Trees.zip",
         "links": [
           {
             "type": "author",
@@ -21350,7 +21350,7 @@
       {
         "name": "Aghanims Roshan",
         "preview": "Aghanims Roshan.webp",
-        "file": "pak52_dir.vpk",
+        "file": "Aghanims Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21365,7 +21365,7 @@
       {
         "name": "Greevil Grief Roshan",
         "preview": "Greevil Grief Roshan.webp",
-        "file": "pak58_dir.vpk",
+        "file": "Greevil Grief Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21380,7 +21380,7 @@
       {
         "name": "Winter Roshan",
         "preview": "Winter Roshan.webp",
-        "file": "pak59_dir.vpk",
+        "file": "Winter Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21395,7 +21395,7 @@
       {
         "name": "Desert Roshan",
         "preview": "Desert Roshan.webp",
-        "file": "pak60_dir.vpk",
+        "file": "Desert Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21410,7 +21410,7 @@
       {
         "name": "Gardens Roshan",
         "preview": "Gardens Roshan.webp",
-        "file": "pak61_dir.vpk",
+        "file": "Gardens Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21425,7 +21425,7 @@
       {
         "name": "Golden Roshan",
         "preview": "Golden Roshan.webp",
-        "file": "pak62_dir.vpk",
+        "file": "Golden Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21440,7 +21440,7 @@
       {
         "name": "Journey Roshan",
         "preview": "Journey Roshan.webp",
-        "file": "pak63_dir.vpk",
+        "file": "Journey Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21455,7 +21455,7 @@
       {
         "name": "Reef Roshan",
         "preview": "Reef Roshan.webp",
-        "file": "pak64_dir.vpk",
+        "file": "Reef Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21470,7 +21470,7 @@
       {
         "name": "Santa Hat Roshan",
         "preview": "Santa Hat Roshan.webp",
-        "file": "pak65_dir.vpk",
+        "file": "Santa Hat Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21485,7 +21485,7 @@
       {
         "name": "Cosmic Roshan",
         "preview": "Cosmic Roshan.webp",
-        "file": "pak66_dir.vpk",
+        "file": "Cosmic Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -21656,7 +21656,7 @@
       {
         "name": "Nemestice Ranged Attack",
         "preview": "Nemestice Ranged Attack.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Nemestice Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21671,7 +21671,7 @@
       {
         "name": "Aghanim Ranged Attack",
         "preview": "Aghanim Ranged Attack.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Aghanim Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21686,7 +21686,7 @@
       {
         "name": "Green Diretide Ranged Attack",
         "preview": "Green Diretide Ranged Attack.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Green Diretide Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21701,7 +21701,7 @@
       {
         "name": "Blue Diretide Ranged Attack",
         "preview": "Diretide Blue.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Blue Diretide Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21716,7 +21716,7 @@
       {
         "name": "Red Diretide Ranged Attack",
         "preview": "Diretide Red.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Red Diretide Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21731,7 +21731,7 @@
       {
         "name": "Yellow Diretide Ranged Attack",
         "preview": "Diretide Yellow.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Yellow Diretide Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21746,7 +21746,7 @@
       {
         "name": "TI12 Ranged Attack",
         "preview": "ti12.webp",
-        "file": "pak19_dir.vpk",
+        "file": "TI12 Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21761,7 +21761,7 @@
       {
         "name": "TI10 Ranged Attack",
         "preview": "ti10.webp",
-        "file": "pak20_dir.vpk",
+        "file": "TI10 Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21776,7 +21776,7 @@
       {
         "name": "TI9 Ranged Attack",
         "preview": "ti9.webp",
-        "file": "pak21_dir.vpk",
+        "file": "TI9 Ranged Attack.zip",
         "links": [
           {
             "type": "source",
@@ -21838,7 +21838,7 @@
       {
         "name": "Nedotrax Mega-Kill",
         "preview": "Nedotrax Mega-Kill.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Nedotrax Mega-Kill.zip",
         "links": [
           {
             "type": "preview",
@@ -21857,7 +21857,7 @@
       {
         "name": "Siega Mega-Kill",
         "preview": "Siega Mega-Kill.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Siega Mega-Kill.zip",
         "links": [
           {
             "type": "preview",
@@ -21876,7 +21876,7 @@
       {
         "name": "Stray228 Mega-Kill",
         "preview": "Stray228 Mega-Kill.webp",
-        "file": "pak41_dir.vpk",
+        "file": "Stray228 Mega-Kill.zip",
         "links": [
           {
             "type": "preview",
@@ -21895,7 +21895,7 @@
       {
         "name": "Kunkka & Tidehunter",
         "preview": "kunkatide.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Kunkka & Tidehunter.zip",
         "links": [
           {
             "type": "author",
@@ -21910,7 +21910,7 @@
       {
         "name": "Rick & Morty",
         "preview": "rickmorty.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Rick & Morty.zip",
         "links": [
           {
             "type": "author",
@@ -21925,7 +21925,7 @@
       {
         "name": "Axe",
         "preview": "axe.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Axe.zip",
         "links": [
           {
             "type": "author",
@@ -21940,7 +21940,7 @@
       {
         "name": "Bristleback",
         "preview": "bristleback.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Bristleback.zip",
         "links": [
           {
             "type": "author",
@@ -21955,7 +21955,7 @@
       {
         "name": "Clockwerk",
         "preview": "clockwerk.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Clockwerk.zip",
         "links": [
           {
             "type": "author",
@@ -21970,7 +21970,7 @@
       {
         "name": "Crystal Maiden",
         "preview": "cm.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Crystal Maiden.zip",
         "links": [
           {
             "type": "author",
@@ -21985,7 +21985,7 @@
       {
         "name": "Dark Willow",
         "preview": "darkwillow.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Dark Willow.zip",
         "links": [
           {
             "type": "author",
@@ -22000,7 +22000,7 @@
       {
         "name": "Meepo",
         "preview": "meepo.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Meepo.zip",
         "links": [
           {
             "type": "author",
@@ -22015,7 +22015,7 @@
       {
         "name": "Monkey King",
         "preview": "mk.webp",
-        "file": "pak20_dir.vpk",
+        "file": "Monkey King.zip",
         "links": [
           {
             "type": "author",
@@ -22030,7 +22030,7 @@
       {
         "name": "Natures Prophet",
         "preview": "fura.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Natures Prophet.zip",
         "links": [
           {
             "type": "author",
@@ -22045,7 +22045,7 @@
       {
         "name": "Juggernaut",
         "preview": "jugger.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Juggernaut.zip",
         "links": [
           {
             "type": "author",
@@ -22060,7 +22060,7 @@
       {
         "name": "Lina",
         "preview": "lina.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Lina.zip",
         "links": [
           {
             "type": "author",
@@ -22075,7 +22075,7 @@
       {
         "name": "Techies",
         "preview": "techies.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Techies.zip",
         "links": [
           {
             "type": "author",
@@ -22090,7 +22090,7 @@
       {
         "name": "Storm Spirit",
         "preview": "storm.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Storm Spirit.zip",
         "links": [
           {
             "type": "author",
@@ -22105,7 +22105,7 @@
       {
         "name": "GLaDOS",
         "preview": "portal.webp",
-        "file": "pak26_dir.vpk",
+        "file": "GLaDOS.zip",
         "links": [
           {
             "type": "author",
@@ -22120,7 +22120,7 @@
       {
         "name": "Gabe Newell",
         "preview": "gabe.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Gabe Newell.zip",
         "links": [
           {
             "type": "author",
@@ -22135,7 +22135,7 @@
       {
         "name": "Pirate Cap",
         "preview": "pirate.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Pirate Cap.zip",
         "links": [
           {
             "type": "author",
@@ -22150,7 +22150,7 @@
       {
         "name": "Fallout 4",
         "preview": "Fallout4.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Fallout 4.zip",
         "links": [
           {
             "type": "author",
@@ -22165,7 +22165,7 @@
       {
         "name": "Voice of The International",
         "preview": "VoiceOfTheInternational.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Voice of The International.zip",
         "links": [
           {
             "type": "author",
@@ -22180,7 +22180,7 @@
       {
         "name": "Deus Ex",
         "preview": "deusex.webp",
-        "file": "pak31_dir.vpk",
+        "file": "Deus Ex.zip",
         "links": [
           {
             "type": "author",
@@ -22195,7 +22195,7 @@
       {
         "name": "Diretide",
         "preview": "diretide.webp",
-        "file": "pak32_dir.vpk",
+        "file": "Diretide.zip",
         "links": [
           {
             "type": "author",
@@ -22210,7 +22210,7 @@
       {
         "name": "Defense Grid",
         "preview": "DefenseGrid.webp",
-        "file": "pak33_dir.vpk",
+        "file": "Defense Grid.zip",
         "links": [
           {
             "type": "author",
@@ -22225,7 +22225,7 @@
       {
         "name": "Darkest Dungeon",
         "preview": "DurkestDungeon.webp",
-        "file": "pak34_dir.vpk",
+        "file": "Darkest Dungeon.zip",
         "links": [
           {
             "type": "author",
@@ -22240,7 +22240,7 @@
       {
         "name": "Pyrion Flax",
         "preview": "PyrionFlax.webp",
-        "file": "pak35_dir.vpk",
+        "file": "Pyrion Flax.zip",
         "links": [
           {
             "type": "author",
@@ -22255,7 +22255,7 @@
       {
         "name": "Stanley Parable",
         "preview": "TheStanleyParable.webp",
-        "file": "pak36_dir.vpk",
+        "file": "Stanley Parable.zip",
         "links": [
           {
             "type": "author",
@@ -22270,7 +22270,7 @@
       {
         "name": "Trine",
         "preview": "Trine.webp",
-        "file": "pak37_dir.vpk",
+        "file": "Trine.zip",
         "links": [
           {
             "type": "author",
@@ -22285,7 +22285,7 @@
       {
         "name": "Chitoge Kirisaki",
         "preview": "Chitoge Kirisaki.webp",
-        "file": "pak38_dir.vpk",
+        "file": "Chitoge Kirisaki.zip",
         "links": [
           {
             "type": "source",
@@ -22300,7 +22300,7 @@
       {
         "name": "Iroha Isshiki",
         "preview": "Iroha Isshiki.webp",
-        "file": "pak39_dir.vpk",
+        "file": "Iroha Isshiki.zip",
         "links": [
           {
             "type": "source",
@@ -22315,7 +22315,7 @@
       {
         "name": "Hestia",
         "preview": "Hestia.webp",
-        "file": "pak40_dir.vpk",
+        "file": "Hestia.zip",
         "links": [
           {
             "type": "source",
@@ -22330,7 +22330,7 @@
       {
         "name": "Umbrella Mega-Kill",
         "preview": "Umbrella Mega-Kill.webp",
-        "file": "pak42_dir.vpk",
+        "file": "Umbrella Mega-Kill.zip",
         "links": [
           {
             "type": "preview",
@@ -22349,7 +22349,7 @@
       {
         "name": "Ru GLaDOS",
         "preview": "portal.webp",
-        "file": "pak26_dir.vpk",
+        "file": "GLaDOS.zip",
         "links": [
           {
             "type": "author",
@@ -22498,7 +22498,7 @@
       {
         "name": "Kunkka & Tidehunter",
         "preview": "Kunkka & Tidehunter.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Kunkka & Tidehunter.zip",
         "links": [
           {
             "type": "author",
@@ -22513,7 +22513,7 @@
       {
         "name": "Meepo",
         "preview": "Meepo.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Meepo.zip",
         "links": [
           {
             "type": "author",
@@ -22528,7 +22528,7 @@
       {
         "name": "Lina",
         "preview": "Lina.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Lina.zip",
         "links": [
           {
             "type": "author",
@@ -22543,7 +22543,7 @@
       {
         "name": "Dark Willow",
         "preview": "Dark Willow.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Dark Willow.zip",
         "links": [
           {
             "type": "author",
@@ -22558,7 +22558,7 @@
       {
         "name": "Darkest Dungeon",
         "preview": "Darkest Dungeon.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Darkest Dungeon.zip",
         "links": [
           {
             "type": "author",
@@ -22573,7 +22573,7 @@
       {
         "name": "Voice of The International",
         "preview": "Voice of The International.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Voice of The International.zip",
         "links": [
           {
             "type": "author",
@@ -22588,7 +22588,7 @@
       {
         "name": "Tusk",
         "preview": "Tusk.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Tusk.zip",
         "links": [
           {
             "type": "author",
@@ -24006,7 +24006,7 @@
       {
         "name": "Black Hud",
         "preview": "Black Hud.webp",
-        "file": "pak02_dir.vpk",
+        "file": "Black Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24025,7 +24025,7 @@
       {
         "name": "Blue Web Hud",
         "preview": "Blue Web Hud.webp",
-        "file": "pak03_dir.vpk",
+        "file": "Blue Web Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24044,7 +24044,7 @@
       {
         "name": "Green Hud",
         "preview": "Green Hud.webp",
-        "file": "pak04_dir.vpk",
+        "file": "Green Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24063,7 +24063,7 @@
       {
         "name": "White Sora Hud",
         "preview": "White Sora Hud.webp",
-        "file": "pak05_dir.vpk",
+        "file": "White Sora Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24082,7 +24082,7 @@
       {
         "name": "Purple Hud",
         "preview": "Purple Hud.webp",
-        "file": "pak06_dir.vpk",
+        "file": "Purple Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24101,7 +24101,7 @@
       {
         "name": "Twilight Hud",
         "preview": "Twilight Hud.webp",
-        "file": "pak07_dir.vpk",
+        "file": "Twilight Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24120,7 +24120,7 @@
       {
         "name": "Crimson Hud",
         "preview": "Crimson Hud.webp",
-        "file": "pak08_dir.vpk",
+        "file": "Crimson Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24139,7 +24139,7 @@
       {
         "name": "Kawaii Hud",
         "preview": "Kawaii Hud.webp",
-        "file": "pak09_dir.vpk",
+        "file": "Kawaii Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24158,7 +24158,7 @@
       {
         "name": "Anime Hud",
         "preview": "Anime Hud.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Anime Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24177,7 +24177,7 @@
       {
         "name": "Ken Kaneki Hud",
         "preview": "Ken Kaneki Hud.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Ken Kaneki Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24196,7 +24196,7 @@
       {
         "name": "Total Black Hud",
         "preview": "Total Black Hud.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Total Black Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24219,7 +24219,7 @@
       {
         "name": "Void Hud",
         "preview": "Void Hud.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Void Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24238,7 +24238,7 @@
       {
         "name": "Gotohouse Hud",
         "preview": "Gotohouse Hud.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Gotohouse Hud.zip",
         "links": [
           {
             "type": "preview",
@@ -24456,7 +24456,7 @@
       {
         "name": "High Five Aghanim Puppet",
         "preview": "High Five Aghanim Puppet.webp",
-        "file": "pak10_dir.vpk",
+        "file": "High Five Aghanim Puppet.zip",
         "links": [
           {
             "type": "author",
@@ -24471,7 +24471,7 @@
       {
         "name": "High Five Crownfall",
         "preview": "High Five Crownfall.webp",
-        "file": "pak11_dir.vpk",
+        "file": "High Five Crownfall.zip",
         "links": [
           {
             "type": "author",
@@ -24522,7 +24522,7 @@
       {
         "name": "Profile Graffiti & Phrases",
         "preview": "Profile Graffiti & Phrases.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Profile Graffiti & Phrases.zip",
         "links": [
           {
             "type": "author",
@@ -24537,7 +24537,7 @@
       {
         "name": "Showcase Rotation",
         "preview": "Showcase Rotation.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Showcase Rotation.zip",
         "links": [
           {
             "type": "author",
@@ -24552,7 +24552,7 @@
       {
         "name": "Rage Voice Icon",
         "preview": "Rage Voice Icon.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Rage Voice Icon.zip",
         "links": [
           {
             "type": "author",
@@ -24567,7 +24567,7 @@
       {
         "name": "Gabe Shopkeeper",
         "preview": "Gabe Shopkeeper.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Gabe Shopkeeper.zip",
         "links": [
           {
             "type": "source",
@@ -24582,7 +24582,7 @@
       {
         "name": "Techies Mine Radius",
         "preview": "Techies Mine Radius.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Techies Mine Radius.zip",
         "links": [
           {
             "type": "source",
@@ -24597,7 +24597,7 @@
       {
         "name": "Tower re-aggro Radius",
         "preview": "Tower re-aggro Radius.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Tower re-aggro Radius.zip",
         "links": [
           {
             "type": "author",
@@ -24612,7 +24612,7 @@
       {
         "name": "Purple Click",
         "preview": "Purple Click.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Purple Click.zip",
         "links": [
           {
             "type": "author",
@@ -24627,7 +24627,7 @@
       {
         "name": "Unlock Hidden Profile Animations",
         "preview": "Unlock Hidden Animations.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Unlock Hidden Profile Animations.zip",
         "links": [
           {
             "type": "author",
@@ -24642,7 +24642,7 @@
       {
         "name": "Dummy In Profile",
         "preview": "Dummy In Profile.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Dummy In Profile.zip",
         "guideId": "dummy-info",
         "guideType": "info",
         "links": [
@@ -24659,7 +24659,7 @@
       {
         "name": "Blue Click",
         "preview": "Blue Click.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Blue Click.zip",
         "links": [
           {
             "type": "author",
@@ -24674,7 +24674,7 @@
       {
         "name": "White Click",
         "preview": "White Click.webp",
-        "file": "pak20_dir.vpk",
+        "file": "White Click.zip",
         "links": [
           {
             "type": "author",
@@ -24689,7 +24689,7 @@
       {
         "name": "Light Brown Click",
         "preview": "Light Brown Click.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Light Brown Click.zip",
         "links": [
           {
             "type": "author",
@@ -24704,7 +24704,7 @@
       {
         "name": "Sapphire Click",
         "preview": "Sapphire Click.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Sapphire Click.zip",
         "links": [
           {
             "type": "author",
@@ -24719,7 +24719,7 @@
       {
         "name": "Black Click",
         "preview": "Black Click.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Black Click.zip",
         "links": [
           {
             "type": "author",
@@ -24932,7 +24932,7 @@
       {
         "name": "Black River",
         "preview": "Black.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Black River.zip",
         "links": [
           {
             "type": "author",
@@ -24947,7 +24947,7 @@
       {
         "name": "Blood River",
         "preview": "Blood.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Blood River.zip",
         "links": [
           {
             "type": "author",
@@ -24962,7 +24962,7 @@
       {
         "name": "Blue River",
         "preview": "Blue.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Blue River.zip",
         "links": [
           {
             "type": "author",
@@ -24977,7 +24977,7 @@
       {
         "name": "Boiling Blood River",
         "preview": "Boiling Blood.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Boiling Blood River.zip",
         "links": [
           {
             "type": "author",
@@ -24992,7 +24992,7 @@
       {
         "name": "Boiling River",
         "preview": "Boiling.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Boiling River.zip",
         "links": [
           {
             "type": "author",
@@ -25007,7 +25007,7 @@
       {
         "name": "Chrome River",
         "preview": "Chrome.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Chrome River.zip",
         "links": [
           {
             "type": "author",
@@ -25022,7 +25022,7 @@
       {
         "name": "Cola River",
         "preview": "Cola.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Cola River.zip",
         "links": [
           {
             "type": "author",
@@ -25037,7 +25037,7 @@
       {
         "name": "Dry River",
         "preview": "Dry.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Dry River.zip",
         "links": [
           {
             "type": "author",
@@ -25052,7 +25052,7 @@
       {
         "name": "Electric River",
         "preview": "Electric.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Electric River.zip",
         "links": [
           {
             "type": "author",
@@ -25067,7 +25067,7 @@
       {
         "name": "Frozen River",
         "preview": "Frozen.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Frozen River.zip",
         "links": [
           {
             "type": "author",
@@ -25082,7 +25082,7 @@
       {
         "name": "Gold River",
         "preview": "Gold.webp",
-        "file": "pak20_dir.vpk",
+        "file": "Gold River.zip",
         "links": [
           {
             "type": "author",
@@ -25097,7 +25097,7 @@
       {
         "name": "Green River",
         "preview": "Green.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Green River.zip",
         "links": [
           {
             "type": "author",
@@ -25112,7 +25112,7 @@
       {
         "name": "Oil River",
         "preview": "Oil.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Oil River.zip",
         "links": [
           {
             "type": "author",
@@ -25127,7 +25127,7 @@
       {
         "name": "Orange River",
         "preview": "Orange.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Orange River.zip",
         "links": [
           {
             "type": "author",
@@ -25142,7 +25142,7 @@
       {
         "name": "Pink River",
         "preview": "Pink.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Pink River.zip",
         "links": [
           {
             "type": "author",
@@ -25157,7 +25157,7 @@
       {
         "name": "Potion River",
         "preview": "Potion.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Potion River.zip",
         "links": [
           {
             "type": "author",
@@ -25172,7 +25172,7 @@
       {
         "name": "Purple River",
         "preview": "Purple.webp",
-        "file": "pak26_dir.vpk",
+        "file": "Purple River.zip",
         "links": [
           {
             "type": "author",
@@ -25187,7 +25187,7 @@
       {
         "name": "Red River",
         "preview": "Red.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Red River.zip",
         "links": [
           {
             "type": "author",
@@ -25202,7 +25202,7 @@
       {
         "name": "Slime River",
         "preview": "Slime.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Slime River.zip",
         "links": [
           {
             "type": "author",
@@ -25217,7 +25217,7 @@
       {
         "name": "Yellow River",
         "preview": "Yellow.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Yellow River.zip",
         "links": [
           {
             "type": "author",
@@ -25264,7 +25264,7 @@
       {
         "name": "Last Match",
         "preview": "Last Match.webp",
-        "file": "pak09_dir.vpk",
+        "file": "Last Match.zip",
         "links": [
           {
             "type": "author",
@@ -25279,7 +25279,7 @@
       {
         "name": "Ulquiorra Purple",
         "preview": "Ulquiorra Purple.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Ulquiorra Purple.zip",
         "tags": {
           "image": true,
           "video": false
@@ -25298,7 +25298,7 @@
       {
         "name": "Brewmaster",
         "preview": "Brewmaster.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Brewmaster.zip",
         "tags": {
           "image": true,
           "video": false
@@ -25317,7 +25317,7 @@
       {
         "name": "Moonflower Field",
         "preview": "Moonflower Field.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Moonflower Field.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25336,7 +25336,7 @@
       {
         "name": "Forgotten Sword",
         "preview": "Forgotten Sword.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Forgotten Sword.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25355,7 +25355,7 @@
       {
         "name": "Depressed SpongeBob",
         "preview": "Depressed SpongeBob.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Depressed SpongeBob.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25374,7 +25374,7 @@
       {
         "name": "Lonely Quay",
         "preview": "Lonely Quay.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Lonely Quay.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25393,7 +25393,7 @@
       {
         "name": "Code Geass",
         "preview": "Code Geass.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Code Geass.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25412,7 +25412,7 @@
       {
         "name": "Winter Solitude",
         "preview": "Winter.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Winter Solitude.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25431,7 +25431,7 @@
       {
         "name": "Cloudy Tree",
         "preview": "Tree.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Cloudy Tree.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25450,7 +25450,7 @@
       {
         "name": "Zenitsu White",
         "preview": "Zenitsu White.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Zenitsu White.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25469,7 +25469,7 @@
       {
         "name": "Nier Automata",
         "preview": "Nier Automata.webp",
-        "file": "pak20_dir.vpk",
+        "file": "Nier Automata.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25488,7 +25488,7 @@
       {
         "name": "Kurumi Tokisaki",
         "preview": "Kurumi Tokisaki.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Kurumi Tokisaki.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25507,7 +25507,7 @@
       {
         "name": "Sad Maomao",
         "preview": "Sad Maomao.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Sad Maomao.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25526,7 +25526,7 @@
       {
         "name": "Dead Eyes",
         "preview": "Dead Eyes.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Dead Eyes.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25545,7 +25545,7 @@
       {
         "name": "Katana In Forest",
         "preview": "Katana In Forest.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Katana In Forest.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25564,7 +25564,7 @@
       {
         "name": "Field Grass",
         "preview": "Field Grass.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Field Grass.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25583,7 +25583,7 @@
       {
         "name": "Snowfall In Forest",
         "preview": "Snowfall In Forest.webp",
-        "file": "pak26_dir.vpk",
+        "file": "Snowfall In Forest.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25602,7 +25602,7 @@
       {
         "name": "Cyrene Song",
         "preview": "Cyrene Song.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Cyrene Song.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25621,7 +25621,7 @@
       {
         "name": "Blossom Rem",
         "preview": "Blossom Rem.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Blossom Rem.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25640,7 +25640,7 @@
       {
         "name": "Kakehashi Subaru",
         "preview": "Kakehashi Subaru.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Kakehashi Subaru.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25659,7 +25659,7 @@
       {
         "name": "Ichigo",
         "preview": "Ichigo.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Ichigo.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25678,7 +25678,7 @@
       {
         "name": "Liberalio Nikke",
         "preview": "Liberalio Nikke.webp",
-        "file": "pak31_dir.vpk",
+        "file": "Liberalio Nikke.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25697,7 +25697,7 @@
       {
         "name": "Rainy Girl",
         "preview": "Rainy Girl.webp",
-        "file": "pak32_dir.vpk",
+        "file": "Rainy Girl.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25716,7 +25716,7 @@
       {
         "name": "Rei Ayanami",
         "preview": "Rei Ayanami.webp",
-        "file": "pak33_dir.vpk",
+        "file": "Rei Ayanami.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25735,7 +25735,7 @@
       {
         "name": "Ulquiorra",
         "preview": "Ulquiorra.webp",
-        "file": "pak34_dir.vpk",
+        "file": "Ulquiorra.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25754,7 +25754,7 @@
       {
         "name": "Yuno Gasai",
         "preview": "Yuno Gasai.webp",
-        "file": "pak35_dir.vpk",
+        "file": "Yuno Gasai.zip",
         "tags": {
           "image": true,
           "video": false
@@ -25773,7 +25773,7 @@
       {
         "name": "Sajin Komamura",
         "preview": "Sajin Komamura.webp",
-        "file": "pak36_dir.vpk",
+        "file": "Sajin Komamura.zip",
         "tags": {
           "image": true,
           "video": false
@@ -25792,7 +25792,7 @@
       {
         "name": "Shadow Wreck",
         "preview": "Shadow Wreck.webp",
-        "file": "pak37_dir.vpk",
+        "file": "Shadow Wreck.zip",
         "tags": {
           "image": true,
           "video": false
@@ -25811,7 +25811,7 @@
       {
         "name": "Lelouch Lamperouge",
         "preview": "Lelouch Lamperouge.webp",
-        "file": "pak38_dir.vpk",
+        "file": "Lelouch Lamperouge.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25830,7 +25830,7 @@
       {
         "name": "Kira and Ryuk",
         "preview": "Kira and Ryuk.webp",
-        "file": "pak39_dir.vpk",
+        "file": "Kira and Ryuk.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25849,7 +25849,7 @@
       {
         "name": "Garden of Quiet Days",
         "preview": "Garden of Quiet Days.webp",
-        "file": "pak40_dir.vpk",
+        "file": "Garden of Quiet Days.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25868,7 +25868,7 @@
       {
         "name": "Floating Dog",
         "preview": "Floating Dog.webp",
-        "file": "pak41_dir.vpk",
+        "file": "Floating Dog.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25887,7 +25887,7 @@
       {
         "name": "Corgi Sleeping",
         "preview": "Corgi Sleeping.webp",
-        "file": "pak42_dir.vpk",
+        "file": "Corgi Sleeping.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25906,7 +25906,7 @@
       {
         "name": "Cat Under Rain",
         "preview": "Cat Under Rain.webp",
-        "file": "pak43_dir.vpk",
+        "file": "Cat Under Rain.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25925,7 +25925,7 @@
       {
         "name": "Fallen Paladin",
         "preview": "Fallen Paladin.webp",
-        "file": "pak44_dir.vpk",
+        "file": "Fallen Paladin.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25944,7 +25944,7 @@
       {
         "name": "Nikaido Hiro",
         "preview": "Nikaido Hiro.webp",
-        "file": "pak45_dir.vpk",
+        "file": "Nikaido Hiro.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25963,7 +25963,7 @@
       {
         "name": "Winter Forest",
         "preview": "Winter Forest.webp",
-        "file": "pak46_dir.vpk",
+        "file": "Winter Forest.zip",
         "tags": {
           "image": false,
           "video": true
@@ -25982,7 +25982,7 @@
       {
         "name": "Knight Artorias",
         "preview": "Knight Artorias.webp",
-        "file": "pak47_dir.vpk",
+        "file": "Knight Artorias.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26001,7 +26001,7 @@
       {
         "name": "Guts",
         "preview": "Guts.webp",
-        "file": "pak48_dir.vpk",
+        "file": "Guts.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26020,7 +26020,7 @@
       {
         "name": "Minecraft Rain",
         "preview": "Minecraft Rain.webp",
-        "file": "pak49_dir.vpk",
+        "file": "Minecraft Rain.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26039,7 +26039,7 @@
       {
         "name": "Old Bus Stop",
         "preview": "Old Bus Stop.webp",
-        "file": "pak50_dir.vpk",
+        "file": "Old Bus Stop.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26058,7 +26058,7 @@
       {
         "name": "Pine Forest",
         "preview": "Pine Forest.webp",
-        "file": "pak51_dir.vpk",
+        "file": "Pine Forest.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26077,7 +26077,7 @@
       {
         "name": "Sakura",
         "preview": "Sakura.webp",
-        "file": "pak52_dir.vpk",
+        "file": "Sakura.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26096,7 +26096,7 @@
       {
         "name": "Station",
         "preview": "Station.webp",
-        "file": "pak53_dir.vpk",
+        "file": "Station.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26115,7 +26115,7 @@
       {
         "name": "Nemestice",
         "preview": "Nemestice.webp",
-        "file": "pak54_dir.vpk",
+        "file": "Nemestice.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26134,7 +26134,7 @@
       {
         "name": "Grave of the Fireflies",
         "preview": "Grave of the Fireflies.webp",
-        "file": "pak55_dir.vpk",
+        "file": "Grave of the Fireflies.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26153,7 +26153,7 @@
       {
         "name": "Stars",
         "preview": "Stars.webp",
-        "file": "pak56_dir.vpk",
+        "file": "Stars.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26172,7 +26172,7 @@
       {
         "name": "Sky Trees",
         "preview": "Sky Trees.webp",
-        "file": "pak57_dir.vpk",
+        "file": "Sky Trees.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26191,7 +26191,7 @@
       {
         "name": "River Vials",
         "preview": "River Vials.webp",
-        "file": "pak58_dir.vpk",
+        "file": "River Vials.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26210,7 +26210,7 @@
       {
         "name": "Shadow Fiend",
         "preview": "Shadow Fiend.webp",
-        "file": "pak59_dir.vpk",
+        "file": "Shadow Fiend.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26229,7 +26229,7 @@
       {
         "name": "Windranger",
         "preview": "Windranger.webp",
-        "file": "pak60_dir.vpk",
+        "file": "Windranger.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26248,7 +26248,7 @@
       {
         "name": "Light Yagami",
         "preview": "Light Yagami.webp",
-        "file": "pak61_dir.vpk",
+        "file": "Light Yagami.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26267,7 +26267,7 @@
       {
         "name": "Experiments Lain",
         "preview": "Experiments Lain.webp",
-        "file": "pak62_dir.vpk",
+        "file": "Experiments Lain.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26286,7 +26286,7 @@
       {
         "name": "Froglings",
         "preview": "Froglings.webp",
-        "file": "pak63_dir.vpk",
+        "file": "Froglings.zip",
         "tags": {
           "image": true,
           "video": false
@@ -26305,7 +26305,7 @@
       {
         "name": "Sea Of Flowers",
         "preview": "Sea Of Flowers.webp",
-        "file": "pak64_dir.vpk",
+        "file": "Sea Of Flowers.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26324,7 +26324,7 @@
       {
         "name": "Ken Kaneki",
         "preview": "Ken Kaneki.webp",
-        "file": "pak65_dir.vpk",
+        "file": "Ken Kaneki.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26343,7 +26343,7 @@
       {
         "name": "Watermelons",
         "preview": "Watermelons.webp",
-        "file": "pak66_dir.vpk",
+        "file": "Watermelons.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26362,7 +26362,7 @@
       {
         "name": "Sora",
         "preview": "Sora.webp",
-        "file": "pak67_dir.vpk",
+        "file": "Sora.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26381,7 +26381,7 @@
       {
         "name": "Malenia",
         "preview": "Malenia.webp",
-        "file": "pak68_dir.vpk",
+        "file": "Malenia.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26400,7 +26400,7 @@
       {
         "name": "Beneath the Seventh",
         "preview": "Beneath the Seventh.webp",
-        "file": "pak69_dir.vpk",
+        "file": "Beneath the Seventh.zip",
         "tags": {
           "image": false,
           "video": true
@@ -26419,7 +26419,7 @@
       {
         "name": "Illidan Stormrage",
         "preview": "Illidan Stormrage.webp",
-        "file": "pak70_dir.vpk",
+        "file": "Illidan Stormrage.zip",
         "tags": {
           "image": false,
           "video": true
@@ -27400,7 +27400,7 @@
       {
         "name": "Default Wards",
         "preview": "Default Wards.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Default Wards.zip",
         "links": [
           {
             "type": "source",
@@ -27415,7 +27415,7 @@
       {
         "name": "Tinker Lite Machines",
         "preview": "Tinker Lite Machines.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Tinker Lite Machines.zip",
         "links": [
           {
             "type": "author",
@@ -27652,7 +27652,7 @@
       {
         "name": "Imperial Medals",
         "preview": "Imperial Medals.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Imperial Medals.zip",
         "links": [
           {
             "type": "author",
@@ -27667,7 +27667,7 @@
       {
         "name": "Flaming Medals",
         "preview": "Flaming Medals.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Flaming Medals.zip",
         "links": [
           {
             "type": "author",
@@ -27682,7 +27682,7 @@
       {
         "name": "Void Medals",
         "preview": "Void Medals.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Void Medals.zip",
         "links": [
           {
             "type": "author",
@@ -27697,7 +27697,7 @@
       {
         "name": "Bear Medals",
         "preview": "Bear Medals.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Bear Medals.zip",
         "links": [
           {
             "type": "author",
@@ -27712,7 +27712,7 @@
       {
         "name": "Azur Lane Medals",
         "preview": "Azur Lane Medals.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Azur Lane Medals.zip",
         "links": [
           {
             "type": "source",
@@ -27727,7 +27727,7 @@
       {
         "name": "Slates of the Damned",
         "preview": "Slates of the Damned.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Slates of the Damned.zip",
         "links": [
           {
             "type": "author",
@@ -27742,7 +27742,7 @@
       {
         "name": "Umbrella Medals",
         "preview": "Umbrella Medals.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Umbrella Medals.zip",
         "links": [
           {
             "type": "author",
@@ -27757,7 +27757,7 @@
       {
         "name": "Normis Rank Icons",
         "preview": "Normis Rank Icons.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Normis Rank Icons.zip",
         "links": [
           {
             "type": "author",
@@ -27849,7 +27849,7 @@
       {
         "name": "Beer Bottle",
         "preview": "Beer Bottle.webp",
-        "file": "pak26_dir.vpk",
+        "file": "Beer Bottle.zip",
         "links": [
           {
             "type": "author",
@@ -27864,7 +27864,7 @@
       {
         "name": "Arcanas Items",
         "preview": "Arcanas Items.webp",
-        "file": "pak83_dir.vpk",
+        "file": "Arcanas Items.zip",
         "links": [
           {
             "type": "author",
@@ -27879,7 +27879,7 @@
       {
         "name": "Nyash Items",
         "preview": "Nyash Items.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Nyash Items.zip",
         "links": [
           {
             "type": "source",
@@ -27894,7 +27894,7 @@
       {
         "name": "Allstars Items",
         "preview": "Allstars Items.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Allstars Items.zip",
         "links": [
           {
             "type": "source",
@@ -27909,7 +27909,7 @@
       {
         "name": "Dark Items",
         "preview": "Dark Items.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Dark Items.zip",
         "links": [
           {
             "type": "author",
@@ -27924,7 +27924,7 @@
       {
         "name": "Meme Media Items",
         "preview": "Meme Media Items.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Meme Media Items.zip",
         "links": [
           {
             "type": "author",
@@ -27939,7 +27939,7 @@
       {
         "name": "White Items",
         "preview": "White Items.webp",
-        "file": "pak84_dir.vpk",
+        "file": "White Items.zip",
         "links": [
           {
             "type": "author",
@@ -27954,7 +27954,7 @@
       {
         "name": "Purple Icons",
         "preview": "Purple Icons.webp",
-        "file": "pak85_dir.vpk",
+        "file": "Purple Icons.zip",
         "links": [
           {
             "type": "author",
@@ -28273,7 +28273,7 @@
       {
         "name": "Curious Snaptrap",
         "preview": "Curious Snaptrap.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Curious Snaptrap.zip",
         "links": [
           {
             "type": "author",
@@ -28288,7 +28288,7 @@
       {
         "name": "Floes Tower",
         "preview": "Floes Tower.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Floes Tower.zip",
         "links": [
           {
             "type": "author",
@@ -28303,7 +28303,7 @@
       {
         "name": "Trailgazer",
         "preview": "Trailgazer.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Trailgazer.zip",
         "links": [
           {
             "type": "author",
@@ -28318,7 +28318,7 @@
       {
         "name": "Monty",
         "preview": "Monty.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Monty.zip",
         "links": [
           {
             "type": "author",
@@ -28333,7 +28333,7 @@
       {
         "name": "Portal",
         "preview": "Portal.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Portal.zip",
         "links": [
           {
             "type": "author",
@@ -28500,7 +28500,7 @@
       {
         "name": "Waldi the Faithful",
         "preview": "Waldi the Faithful.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Waldi the Faithful.zip",
         "links": [
           {
             "type": "author",
@@ -28515,7 +28515,7 @@
       {
         "name": "Baby Roshan Crownfall",
         "preview": "BabyRoshan Crownfall.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Baby Roshan Crownfall.zip",
         "links": [
           {
             "type": "author",
@@ -28530,7 +28530,7 @@
       {
         "name": "Billy Bounceback",
         "preview": "Billy Bounceback.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Billy Bounceback.zip",
         "links": [
           {
             "type": "author",
@@ -28545,7 +28545,7 @@
       {
         "name": "Palico Odogaron",
         "preview": "Palico Odogaron.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Palico Odogaron.zip",
         "links": [
           {
             "type": "author",
@@ -28560,7 +28560,7 @@
       {
         "name": "Ice Baby Roshan",
         "preview": "Ice Baby Roshan.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Ice Baby Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -28575,7 +28575,7 @@
       {
         "name": "Baby Roshan",
         "preview": "Baby Roshan.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Baby Roshan.zip",
         "links": [
           {
             "type": "author",
@@ -28590,7 +28590,7 @@
       {
         "name": "Dark Moon Baby Roshan",
         "preview": "Dark Moon Baby Roshan.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Dark Moon Baby Roshan.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28607,7 +28607,7 @@
       {
         "name": "Gingerbread Baby Roshan",
         "preview": "Gingerbread Baby Roshan.webp",
-        "file": "pak17_dir.vpk",
+        "file": "Gingerbread Baby Roshan.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28624,7 +28624,7 @@
       {
         "name": "Baby Roshan 2018",
         "preview": "Baby Roshan 2018.webp",
-        "file": "pak18_dir.vpk",
+        "file": "Baby Roshan 2018.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28641,7 +28641,7 @@
       {
         "name": "Jade Baby Roshan",
         "preview": "Jade Baby Roshan.webp",
-        "file": "pak19_dir.vpk",
+        "file": "Jade Baby Roshan.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28658,7 +28658,7 @@
       {
         "name": "Aghanim Baby Roshan Radiant",
         "preview": "Aghanims Baby Roshan Radiant.webp",
-        "file": "pak20_dir.vpk",
+        "file": "Aghanim Baby Roshan Radiant.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28675,7 +28675,7 @@
       {
         "name": "Aghanim Baby Roshan Dire",
         "preview": "Aghanims Baby Roshan Dire.webp",
-        "file": "pak21_dir.vpk",
+        "file": "Aghanim Baby Roshan Dire.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28692,7 +28692,7 @@
       {
         "name": "Baby Roshan 2017",
         "preview": "Baby Roshan 2017.webp",
-        "file": "pak22_dir.vpk",
+        "file": "Baby Roshan 2017.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28709,7 +28709,7 @@
       {
         "name": "Desert Sands Baby Roshan",
         "preview": "Desert Sands Baby Roshan.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Desert Sands Baby Roshan.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28726,7 +28726,7 @@
       {
         "name": "Golden Doomling",
         "preview": "Golden Doomling.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Golden Doomling.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28743,7 +28743,7 @@
       {
         "name": "Golden Seekling",
         "preview": "Golden Seekling.webp",
-        "file": "pak25_dir.vpk",
+        "file": "Golden Seekling.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28760,7 +28760,7 @@
       {
         "name": "Golden Venoling",
         "preview": "Golden Venoling.webp",
-        "file": "pak26_dir.vpk",
+        "file": "Golden Venoling.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28777,7 +28777,7 @@
       {
         "name": "Golden Huntling",
         "preview": "Golden Huntling.webp",
-        "file": "pak27_dir.vpk",
+        "file": "Golden Huntling.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28794,7 +28794,7 @@
       {
         "name": "Golden Flopjaw the Boxhound",
         "preview": "Golden Flopjaw the Boxhound.webp",
-        "file": "pak28_dir.vpk",
+        "file": "Golden Flopjaw the Boxhound.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28811,7 +28811,7 @@
       {
         "name": "Jadehoof",
         "preview": "Jadehoof.webp",
-        "file": "pak29_dir.vpk",
+        "file": "Jadehoof.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28828,7 +28828,7 @@
       {
         "name": "Strongback the Swift",
         "preview": "Strongback the Swift.webp",
-        "file": "pak30_dir.vpk",
+        "file": "Strongback the Swift.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28845,7 +28845,7 @@
       {
         "name": "Nian Courier",
         "preview": "Nian Courier.webp",
-        "file": "pak31_dir.vpk",
+        "file": "Nian Courier.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28866,13 +28866,13 @@
             "label": "Style I",
             "color": "#afafaf",
             "preview": "Pudgling.webp",
-            "file": "pak32_dir.vpk"
+            "file": "Pudgling - Style I.zip"
           },
           {
             "label": "Style II",
             "color": "#ffc87a",
             "preview": "Pudgling lvl 2.webp",
-            "file": "pak33_dir.vpk"
+            "file": "Pudgling - Style II.zip"
           }
         ],
         "tags": {
@@ -28895,7 +28895,7 @@
       {
         "name": "Honey Heist Baby Roshan",
         "preview": "Honey Heist Baby Roshan.webp",
-        "file": "pak34_dir.vpk",
+        "file": "Honey Heist Baby Roshan.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -28912,7 +28912,7 @@
       {
         "name": "Onibi",
         "preview": "Onibi.webp",
-        "file": "pak35_dir.vpk",
+        "file": "Onibi.zip",
         "guideId": "couriers-info",
         "guideType": "info",
         "links": [
@@ -29217,7 +29217,7 @@
       {
         "name": "TheFatRat Warrior",
         "preview": "TheFatRat Warrior.webp",
-        "file": "pak10_dir.vpk",
+        "file": "TheFatRat Warrior.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack",
         "links": [
@@ -29234,7 +29234,7 @@
       {
         "name": "JJ Lin Timekeeper",
         "preview": "JJ Lin Timekeeper.webp",
-        "file": "pak11_dir.vpk",
+        "file": "JJ Lin Timekeeper.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/JJ_Lin%27s_Timekeeper_Music_Pack",
         "links": [
@@ -29251,7 +29251,7 @@
       {
         "name": "deadmau5 dieback",
         "preview": "deadmau5 dieback.webp",
-        "file": "pak12_dir.vpk",
+        "file": "deadmau5 dieback.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/Deadmau5_dieback_music_pack",
         "links": [
@@ -29268,7 +29268,7 @@
       {
         "name": "Elemental Fury",
         "preview": "Elemental Fury.webp",
-        "file": "pak13_dir.vpk",
+        "file": "Elemental Fury.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/Elemental_Fury_Music_Pack",
         "links": [
@@ -29285,7 +29285,7 @@
       {
         "name": "Heroes Within",
         "preview": "Heroes Within.webp",
-        "file": "pak14_dir.vpk",
+        "file": "Heroes Within.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/Heroes_Within_Music_Pack",
         "links": [
@@ -29302,7 +29302,7 @@
       {
         "name": "Humanity Last Breath",
         "preview": "Humanity Last Breath.webp",
-        "file": "pak15_dir.vpk",
+        "file": "Humanity Last Breath.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/Humanity%27s_Last_Breath:_Void_Music_Pack",
         "links": [
@@ -29319,7 +29319,7 @@
       {
         "name": "Dire Shred",
         "preview": "Dire Shred.webp",
-        "file": "pak16_dir.vpk",
+        "file": "Dire Shred.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/Dire_Shred_Cover_Pack",
         "links": [
@@ -29336,7 +29336,7 @@
       {
         "name": "The International 2019",
         "preview": "The International 2019.webp",
-        "file": "pak17_dir.vpk",
+        "file": "The International 2019.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/The_International_2019_Music_Pack",
         "links": [
@@ -29353,7 +29353,7 @@
       {
         "name": "The International 2014",
         "preview": "The International 2014.webp",
-        "file": "pak18_dir.vpk",
+        "file": "The International 2014.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/The_International_2014_Music_Pack",
         "links": [
@@ -29370,7 +29370,7 @@
       {
         "name": "The International 2015",
         "preview": "The International 2015.webp",
-        "file": "pak19_dir.vpk",
+        "file": "The International 2015.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/The_International_2015_Music_Pack",
         "links": [
@@ -29387,7 +29387,7 @@
       {
         "name": "The International 2016",
         "preview": "The International 2016.webp",
-        "file": "pak20_dir.vpk",
+        "file": "The International 2016.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/The_International_2016_Music_Pack",
         "links": [
@@ -29404,7 +29404,7 @@
       {
         "name": "The International 2017",
         "preview": "The International 2017.webp",
-        "file": "pak21_dir.vpk",
+        "file": "The International 2017.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/The_International_2017_Music_Pack",
         "links": [
@@ -29421,7 +29421,7 @@
       {
         "name": "The International 10",
         "preview": "The International 10.webp",
-        "file": "pak22_dir.vpk",
+        "file": "The International 10.zip",
         "links": [
           {
             "type": "preview",
@@ -29440,7 +29440,7 @@
       {
         "name": "Northern Winds",
         "preview": "Northern Winds.webp",
-        "file": "pak23_dir.vpk",
+        "file": "Northern Winds.zip",
         "links": [
           {
             "type": "author",
@@ -29459,7 +29459,7 @@
       {
         "name": "Magic Sticks of Dynamite",
         "preview": "Magic Sticks of Dynamite.webp",
-        "file": "pak24_dir.vpk",
+        "file": "Magic Sticks of Dynamite.zip",
         "linkType": "preview",
         "linkUrl": "https://dota2.fandom.com/wiki/AWOLNATION_-_Magic_Sticks_of_Dynamite_Music_Pack",
         "links": [
@@ -30385,7 +30385,7 @@
       {
         "name": "Sniper Ardalan Interdictor",
         "preview": "Sniper Ardalan Interdictor.webp",
-        "file": "pak10_dir.vpk",
+        "file": "Sniper Ardalan Interdictor.zip",
         "tags": {
           "effects": true,
           "icons": true,
@@ -30405,7 +30405,7 @@
       {
         "name": "Enigma World Chasm Artifact",
         "preview": "Enigma World Chasm Artifact.webp",
-        "file": "pak11_dir.vpk",
+        "file": "Enigma World Chasm Artifact.zip",
         "tags": {
           "effects": true,
           "icons": true,
@@ -30425,7 +30425,7 @@
       {
         "name": "Huskar White Screen Effect",
         "preview": "Huskar White Screen Effect.webp",
-        "file": "pak12_dir.vpk",
+        "file": "Huskar White Screen Effect.zip",
         "tags": {
           "effects": true,
           "icons": false
@@ -32318,7 +32318,7 @@
             {
               "name": "Nemestice Radiant Creeps",
               "preview": "Nemestice Radiant.webp",
-              "file": "pak14_dir.vpk",
+              "file": "Nemestice Radiant Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32333,7 +32333,7 @@
             {
               "name": "Woodland Radiant Creeps",
               "preview": "Woodland Radiant.webp",
-              "file": "pak10_dir.vpk",
+              "file": "Woodland Radiant Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32352,13 +32352,13 @@
                   "label": "Style I",
                   "color": "#67cd3f",
                   "preview": "Reptilian Radiant.webp",
-                  "file": "pak16_dir.vpk"
+                  "file": "Reptilian Radiant Creeps - Style I.zip"
                 },
                 {
                   "label": "Style II",
                   "color": "#4aaed9",
                   "preview": "Blue Reptilian Radiant.webp",
-                  "file": "pak25_dir.vpk"
+                  "file": "Reptilian Radiant Creeps - Style II.zip"
                 }
               ],
               "links": [
@@ -32375,7 +32375,7 @@
             {
               "name": "Crownfall Radiant Creeps",
               "preview": "Crownfall Radiant.webp",
-              "file": "pak18_dir.vpk",
+              "file": "Crownfall Radiant Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32390,7 +32390,7 @@
             {
               "name": "Diretide Radiant Creeps",
               "preview": "Diretide Radiant.webp",
-              "file": "pak22_dir.vpk",
+              "file": "Diretide Radiant Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32405,7 +32405,7 @@
             {
               "name": "Pine Radiant Creeps",
               "preview": "Pine Radiant Creeps.webp",
-              "file": "pak26_dir.vpk",
+              "file": "Pine Radiant Creeps.zip",
               "links": [
                 {
                   "type": "source",
@@ -32420,7 +32420,7 @@
             {
               "name": "USSR Radiant Creeps",
               "preview": "USSR Radiant Creeps.webp",
-              "file": "pak28_dir.vpk",
+              "file": "USSR Radiant Creeps.zip",
               "links": [
                 {
                   "type": "source",
@@ -32435,7 +32435,7 @@
             {
               "name": "Dark Carnival Radiant Creeps",
               "preview": "Dark Carnival Radiant Creeps.webp",
-              "file": "pak29_dir.vpk",
+              "file": "Dark Carnival Radiant Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32471,7 +32471,7 @@
             {
               "name": "Nemestice Dire Creeps",
               "preview": "Nemestice Dire.webp",
-              "file": "pak15_dir.vpk",
+              "file": "Nemestice Dire Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32486,7 +32486,7 @@
             {
               "name": "Woodland Dire Creeps",
               "preview": "Woodland Dire.webp",
-              "file": "pak11_dir.vpk",
+              "file": "Woodland Dire Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32505,13 +32505,13 @@
                   "label": "Style I",
                   "color": "#6a4133",
                   "preview": "Reptilian Dire.webp",
-                  "file": "pak17_dir.vpk"
+                  "file": "Reptilian Dire Creeps - Style I.zip"
                 },
                 {
                   "label": "Style II",
                   "color": "#7f4ec5",
                   "preview": "Purple Reptilian Dire.webp",
-                  "file": "pak24_dir.vpk"
+                  "file": "Reptilian Dire Creeps - Style II.zip"
                 }
               ],
               "links": [
@@ -32528,7 +32528,7 @@
             {
               "name": "Crownfall Dire Creeps",
               "preview": "Crownfall Dire.webp",
-              "file": "pak19_dir.vpk",
+              "file": "Crownfall Dire Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32543,7 +32543,7 @@
             {
               "name": "Diretide Dire Creeps",
               "preview": "Diretide Dire.webp",
-              "file": "pak23_dir.vpk",
+              "file": "Diretide Dire Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32558,7 +32558,7 @@
             {
               "name": "Pine Dire Creeps",
               "preview": "Pine Dire Creeps.webp",
-              "file": "pak27_dir.vpk",
+              "file": "Pine Dire Creeps.zip",
               "links": [
                 {
                   "type": "source",
@@ -32573,7 +32573,7 @@
             {
               "name": "Dark Carnival Dire Creeps",
               "preview": "Dark Carnival Dire Creeps.webp",
-              "file": "pak30_dir.vpk",
+              "file": "Dark Carnival Dire Creeps.zip",
               "links": [
                 {
                   "type": "author",
@@ -32609,7 +32609,7 @@
             {
               "name": "Woodland Radiant Siege",
               "preview": "Woodland Radiant Siege.webp",
-              "file": "pak12_dir.vpk",
+              "file": "Woodland Radiant Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32624,7 +32624,7 @@
             {
               "name": "Crownfall Radiant Siege",
               "preview": "Crownfall Radiant Siege.webp",
-              "file": "pak20_dir.vpk",
+              "file": "Crownfall Radiant Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32639,7 +32639,7 @@
             {
               "name": "Dark Carnival Radiant Siege",
               "preview": "Dark Carnival Radiant Siege.webp",
-              "file": "pak31_dir.vpk",
+              "file": "Dark Carnival Radiant Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32660,7 +32660,7 @@
             {
               "name": "Woodland Dire Siege",
               "preview": "Woodland Dire Siege.webp",
-              "file": "pak13_dir.vpk",
+              "file": "Woodland Dire Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32675,7 +32675,7 @@
             {
               "name": "Crownfall Dire Siege",
               "preview": "Crownfall Dire Siege.webp",
-              "file": "pak21_dir.vpk",
+              "file": "Crownfall Dire Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32690,7 +32690,7 @@
             {
               "name": "Dark Carnival Dire Siege",
               "preview": "Dark Carnival Dire Siege.webp",
-              "file": "pak32_dir.vpk",
+              "file": "Dark Carnival Dire Siege.zip",
               "links": [
                 {
                   "type": "author",
@@ -32732,7 +32732,7 @@
             {
               "name": "Holiday Radiant Tower",
               "preview": "Holiday Radiant Tower.webp",
-              "file": "pak10_dir.vpk",
+              "file": "Holiday Radiant Tower.zip",
               "links": [
                 {
                   "type": "source",
@@ -32943,7 +32943,7 @@
             {
               "name": "Purple Dagon",
               "preview": "Purple Dagon.webp",
-              "file": "pak41_dir.vpk",
+              "file": "Purple Dagon.zip",
               "links": [
                 {
                   "type": "source",
@@ -32958,7 +32958,7 @@
             {
               "name": "Blue Dagon",
               "preview": "Blue Dagon.webp",
-              "file": "pak42_dir.vpk",
+              "file": "Blue Dagon.zip",
               "links": [
                 {
                   "type": "source",
@@ -32973,7 +32973,7 @@
             {
               "name": "Snow Dagon",
               "preview": "Winter Dagon.webp",
-              "file": "pak43_dir.vpk",
+              "file": "Snow Dagon.zip",
               "links": [
                 {
                   "type": "source",
@@ -32988,7 +32988,7 @@
             {
               "name": "Green Dagon",
               "preview": "Green Dagon.webp",
-              "file": "pak12_dir.vpk",
+              "file": "Green Dagon.zip",
               "links": [
                 {
                   "type": "source",
@@ -33003,7 +33003,7 @@
             {
               "name": "White Dagon",
               "preview": "White Dagon.webp",
-              "file": "pak21_dir.vpk",
+              "file": "White Dagon.zip",
               "links": [
                 {
                   "type": "source",
@@ -33039,7 +33039,7 @@
             {
               "name": "GG Iron Branch",
               "preview": "gg_branch.webp",
-              "file": "pak20_dir.vpk",
+              "file": "GG Iron Branch.zip",
               "links": [
                 {
                   "type": "source",
@@ -33054,7 +33054,7 @@
             {
               "name": "Christmas Iron Branch",
               "preview": "Christmas Branch.webp",
-              "file": "pak68_dir.vpk",
+              "file": "Christmas Iron Branch.zip",
               "links": [
                 {
                   "type": "source",
@@ -33111,7 +33111,7 @@
             {
               "name": "White Ethereal",
               "preview": "White Ethereal.webp",
-              "file": "pak49_dir.vpk",
+              "file": "White Ethereal.zip",
               "links": [
                 {
                   "type": "source",
@@ -33132,7 +33132,7 @@
             {
               "name": "Purple Hex",
               "preview": "Purple Hex.webp",
-              "file": "pak70_dir.vpk",
+              "file": "Purple Hex.zip",
               "links": [
                 {
                   "type": "author",
@@ -33147,7 +33147,7 @@
             {
               "name": "Winter Hex",
               "preview": "Winter Hex.webp",
-              "file": "pak71_dir.vpk",
+              "file": "Winter Hex.zip",
               "links": [
                 {
                   "type": "author",
@@ -33183,7 +33183,7 @@
             {
               "name": "Aegis Hearts",
               "preview": "Aegis Hearts.webp",
-              "file": "pak34_dir.vpk",
+              "file": "Aegis Hearts.zip",
               "links": [
                 {
                   "type": "source",
@@ -33204,7 +33204,7 @@
             {
               "name": "Dark Bounty Rune",
               "preview": "Dark Bounty.webp",
-              "file": "pak10_dir.vpk",
+              "file": "Dark Bounty Rune.zip",
               "links": [
                 {
                   "type": "author",
