@@ -7422,29 +7422,6 @@
         }
       },
       {
-        "name": "Purple Kez",
-        "preview": "Purple Kez.webp",
-        "file": "Purple Kez.zip",
-        "tags": {
-          "effects": true,
-          "icons": true
-        },
-        "links": [
-          {
-            "type": "modded",
-            "url": "NahuiToSay"
-          },
-          {
-            "type": "author",
-            "url": "Darkness"
-          }
-        ],
-        "meta": {
-          "date": 1781266231,
-          "commit-sha": "44649f8ccae5c792a302b29db9d29051fed51afc"
-        }
-      },
-      {
         "name": "Immortal Necrophos",
         "preview": "Immortal Necrophos.webp",
         "file": "Immortal Necrophos.zip",
