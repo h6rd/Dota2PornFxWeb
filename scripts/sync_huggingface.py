@@ -28,7 +28,9 @@ BASE_SHA = os.environ.get("BASE_SHA", "").strip()
 MAX_BATCH_FILES = 500
 MAX_BATCH_BYTES = 2 * 1024**3
 
-PRUNE = os.environ.get("HF_PRUNE", "true").strip().lower() != "false"
+# Deleting files on HF is OFF by default: it is enabled ONLY by an explicit HF_PRUNE=true.
+# (an empty variable, a typo or a missing variable all mean no deletions)
+PRUNE = os.environ.get("HF_PRUNE", "").strip().lower() == "true"
 KEEP_PATTERNS = [
     p.strip()
     for p in (os.environ.get("HF_KEEP") or "").replace("\n", ",").split(",")
@@ -151,6 +153,8 @@ def main():
         to_delete = [p for p in deleted if p in remote]
 
     if not PRUNE:
+        if to_delete:
+            print(f"Prune is OFF (HF_PRUNE!=true): keeping {len(to_delete)} file(s) on HF that are not in git")
         to_delete = []
     kept = [p for p in to_delete if is_kept(p)]
     if kept:

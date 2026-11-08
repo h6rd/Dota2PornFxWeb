@@ -1,0 +1,67 @@
+name: Mirror mods to releases
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror-releases
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !assets/files
+          sparse-checkout-cone-mode: false
+
+      - name: Checkout releases repository
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ vars.RELEASES_REPO || 'h6rd/Dota2PornFx' }}
+          token: ${{ secrets.RELEASES_PAT }}
+          path: releases
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Mirror changed mods to releases
+        id: mirror
+        env:
+          GH_TOKEN: ${{ secrets.RELEASES_PAT }}
+          RELEASES_REPO: ${{ vars.RELEASES_REPO || 'h6rd/Dota2PornFx' }}
+          RELEASES_MAX_FILES: ${{ vars.RELEASES_MAX_FILES }}
+          RELEASES_MAX_MB: ${{ vars.RELEASES_MAX_MB }}
+          RELEASES_MAX_DELETE: ${{ vars.RELEASES_MAX_DELETE }}
+          RELEASES_PRUNE: ${{ vars.RELEASES_PRUNE }}
+          RELEASES_MAX_PER_RELEASE: ${{ vars.RELEASES_MAX_PER_RELEASE }}
+        run: python scripts/mirror_releases.py --releases-dir releases
+
+      - name: Commit manifest to releases repository
+        if: always() && steps.mirror.conclusion != 'skipped'
+        working-directory: releases
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          if git diff --cached --quiet; then
+            echo "Manifest unchanged"
+          else
+            git commit -m "chore: update manifest [skip ci]"
+            git pull --rebase
+            git push
+          fi

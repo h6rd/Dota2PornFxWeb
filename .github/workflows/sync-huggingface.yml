@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       full_sync:
-        description: "Upload every file and prune extras on HF instead of diffing a commit range"
+        description: "Upload every file instead of diffing a commit range (extras on HF are deleted only if the HF_PRUNE variable is true)"
         type: boolean
         default: false
       base_sha:
@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       full_sync:
-        description: "Full sync (upload everything, delete extras on HF)"
+        description: "Full sync (upload everything; extras on HF are deleted only if the HF_PRUNE variable is true)"
         type: boolean
         default: true
 

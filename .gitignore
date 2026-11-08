@@ -1,1 +1,4 @@
 compressed
+.migrate-staging/
+rename-report.tsv
+manifest.dry-run.json
