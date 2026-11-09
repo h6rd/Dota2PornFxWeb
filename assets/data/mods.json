@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Deny Pupue Sound",
       "category": "sounds"
     },
@@ -15,10 +19,6 @@
     {
       "name": "Huskar Bloodbath",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Last Match Vidget",
