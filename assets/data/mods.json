@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Deny Pupue Sound",
+      "category": "sounds"
+    },
+    {
+      "name": "Templar Assassin Headress",
+      "category": "heroes"
+    },
+    {
+      "name": "7 28 Hoodwink",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Huskar Bloodbath",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -15844,6 +15860,47 @@
           "date": 1794145496,
           "commit-sha": "8a25eff9eb44641f0ee4cc8a0c564060b1b14966"
         }
+      },
+      {
+        "name": "Huskar Bloodbath",
+        "preview": "Huskar Bloodbath.webp",
+        "file": "Huskar Bloodbath.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Something Awful"
+          }
+        ],
+        "meta": {
+          "date": 1794250919,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Templar Assassin Headress",
+        "preview": "Templar Assassin Headress.webp",
+        "file": "Templar Assassin Headress.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "AngelNeverSleep"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794250919,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -27314,6 +27371,21 @@
           "date": 1794177576,
           "commit-sha": "91501e497bc348aa699dedc3a633cc50d0295db4"
         }
+      },
+      {
+        "name": "7 28 Hoodwink",
+        "preview": "7 28 Hoodwink.webp",
+        "file": "7 28 Hoodwink.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1794250919,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -32249,6 +32321,21 @@
         "meta": {
           "date": 1793862465,
           "commit-sha": "035f9691b4fd45d2346c453427864657b8d0ea6b"
+        }
+      },
+      {
+        "name": "Deny Pupue Sound",
+        "preview": "Deny Pupue Sound.webp",
+        "file": "Deny Pupue Sound.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1794250919,
+          "commit-sha": ""
         }
       }
     ],
