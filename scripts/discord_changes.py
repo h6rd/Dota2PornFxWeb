@@ -10,7 +10,35 @@ MODS_PATH = "assets/data/mods.json"
 ANN_PATH = "assets/data/announcements.json"
 FILES_PREFIX = "assets/files/"
 SITE_URL = "https://h6rd.github.io/Dota2PornFxWeb/"
-MAX_DESC = 3800
+MINIFY_URL = "https://egezenn.github.io/dota2-minify/"
+MOD_MANAGER_URL = "https://dota2modmanager.com/"
+MAX_DESC = 3400
+IS_COMPONENTS_V2 = 1 << 15
+
+EMOJI = {
+    "site":        {"name": "site",    "id": "1569706674296717322", "animated": True, "fallback": "🌐"},
+    "added":       {"name": "added",   "id": "1569716374551396392", "animated": True, "fallback": "➕"},
+    "updated":     {"name": "updated", "id": "1569716342418964593", "animated": True, "fallback": "🔄"},
+    "removed":     {"name": "removed", "id": "1569716405807349883", "animated": True, "fallback": "🗑️"},
+    "ann":         {"name": "ann",     "id": "1569716311397761164", "animated": True, "fallback": "📢"},
+    "mirror":      {"name": "mirror", "id": "1569716522199285894", "animated": True, "fallback": "🔗"},
+    "tools":       {"name": "tools",  "id": "1569716486610755728", "animated": True, "fallback": "📦"},
+}
+
+
+def emoji_text(key):
+    e = EMOJI[key]
+    if not e["id"]:
+        return e["fallback"]
+    return f"<{'a' if e['animated'] else ''}:{e['name']}:{e['id']}>"
+
+
+def emoji_button(key):
+    e = EMOJI[key]
+    if not e["id"]:
+        return {"name": e["fallback"]}
+    return {"name": e["name"], "id": e["id"], "animated": e["animated"]}
+
 
 if sys.stdout.encoding != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
@@ -106,6 +134,75 @@ def fmt(key):
     return f"• **{name}** — {cat}"
 
 
+def build_description(sections, limit):
+    total = sum(len(items) for _, items in sections)
+    lines, shown = [], 0
+    for title, items in sections:
+        block = [title]
+        for item in items:
+            if len("\n".join(lines + block + [item])) > limit:
+                lines += block
+                lines.append(f"…and {total - shown} more")
+                return "\n".join(lines).strip()
+            block.append(item)
+            shown += 1
+        lines += block + [""]
+    return "\n".join(lines).strip()
+
+
+def link_button(label, url, emoji=None):
+    btn = {"type": 2, "style": 5, "label": label, "url": url}
+    if emoji:
+        btn["emoji"] = emoji
+    return btn
+
+
+def action_row(*buttons):
+    return {"type": 1, "components": list(buttons)}
+
+
+def build_payload(description, gif, avatar):
+    changes_children = [
+        {"type": 10, "content": f"## Changes\n{description}"},
+    ]
+    if gif:
+        changes_children.append({"type": 12, "items": [{"media": {"url": gif}}]})
+    changes_children.append(action_row(link_button("Open Site", SITE_URL, emoji_button("site"))))
+
+    mirrors_children = [
+        {
+            "type": 10,
+            "content": "### Mirrors\n"
+            "If the main site is unavailable, you can use one of the mirrors below",
+        },
+        {"type": 10, "content": "-# Due to high load, some mirrors may be unavailable"},
+        action_row(
+            link_button("Netlify", "https://d2pfx.netlify.app/", emoji_button("mirror")),
+            link_button("Vercel", "https://d2pfx.vercel.app/", emoji_button("mirror")),
+            link_button("Onrender", "https://d2pfx.onrender.com/", emoji_button("mirror")),
+        ),
+        {"type": 14, "divider": True, "spacing": 1},
+        {"type": 10, "content": "You can also download mods via:"},
+        action_row(
+            link_button("Mod Manager", MOD_MANAGER_URL, emoji_button("tools")),
+            link_button("Minify", MINIFY_URL, emoji_button("tools")),
+        ),
+    ]
+
+    payload = {
+        "flags": IS_COMPONENTS_V2,
+        "username": "Github",
+        "avatar_url": avatar,
+        "components": [
+            {"type": 17, "accent_color": 8585067, "components": changes_children},
+            {"type": 17, "accent_color": 10054655, "components": mirrors_children},
+        ],
+    }
+    if not avatar:
+        del payload["avatar_url"]
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="discord_payload.json")
@@ -149,65 +246,20 @@ def main():
 
     sections = []
     if added:
-        sections.append(("**Added**", [fmt(k) for k in added]))
+        sections.append((f"### {emoji_text('added')} **Added**", [fmt(k) for k in added]))
     if updated:
-        sections.append(("**Updated**", [fmt(k) for k in updated]))
+        sections.append((f"### {emoji_text('updated')} **Updated**", [fmt(k) for k in updated]))
     if removed:
-        sections.append(("**Removed**", [fmt(k) for k in removed]))
+        sections.append((f"### {emoji_text('removed')} **Removed**", [fmt(k) for k in removed]))
     if new_ann:
-        sections.append(("**Announcements**", [f"• {clean_html(t)[:200]}" for t in new_ann if t]))
+        sections.append((f"### {emoji_text('ann')} **Announcements**", [f"• {clean_html(t)[:200]}" for t in new_ann if t]))
 
     if not sections:
         print("No mod or announcement changes, skipping notification.")
         return finish(False)
 
-    # Build description, truncating if too long
-    lines, total = [], sum(len(items) for _, items in sections)
-    shown = 0
-    for title, items in sections:
-        block = [title]
-        for item in items:
-            if len("\n".join(lines + block + [item])) > MAX_DESC:
-                lines += block
-                lines.append(f"…and {total - shown} more")
-                break
-            block.append(item)
-            shown += 1
-        else:
-            lines += block + [""]
-            continue
-        break
-    description = "\n".join(lines).strip()
-    description += f"\n\n[🌐 **Open Site**]({SITE_URL})"
-
-    payload = {
-        "content": None,
-        "embeds": [
-            {
-                "title": "Changes",
-                "description": description,
-                "color": 8585067,
-                "image": {"url": gif},
-            },
-            {
-                "title": "Website Mirrors",
-                "description": (
-                    "If the main site is unavailable, you can use one of the mirrors below\n\n"
-                    "[**Netlify**](https://d2pfx.netlify.app/) ✦ "
-                    "[**Vercel**](https://d2pfx.vercel.app/) ✦ "
-                    "[**Onrender**](https://d2pfx.onrender.com/)"
-                ),
-                "color": 10054655,
-                "footer": {"text": "⚠️ Due to high load, some mirrors may be unavailable"},
-            },
-        ],
-        "username": "Github",
-        "avatar_url": avatar,
-    }
-    if not gif:
-        del payload["embeds"][0]["image"]
-    if not avatar:
-        del payload["avatar_url"]
+    description = build_description(sections, MAX_DESC)
+    payload = build_payload(description, gif, avatar)
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False)
