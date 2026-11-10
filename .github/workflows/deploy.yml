@@ -51,12 +51,6 @@ jobs:
           npm install --no-audit --no-fund esbuild html-minifier-terser
           node scripts/minify-dist.mjs dist
 
-      - name: Show build summary
-        run: |
-          echo "===== BUILD SUMMARY ====="
-          du -sh dist/
-          echo "========================="
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -79,6 +73,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000
 
       - name: Publish dist to mirror branch
         continue-on-error: true
