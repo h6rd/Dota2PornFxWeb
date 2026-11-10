@@ -1,3 +1,20 @@
+const PREVIEWS_CDN = 'https://cdn.jsdelivr.net/gh/h6rd/Dota2PornFxWeb@mirror/assets/previews';
+const PREVIEWS_FALLBACK = 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/mirror/assets/previews';
+
+const PREVIEWS_BASE = (window.location.hostname.endsWith('github.io') ||
+    new URLSearchParams(location.search).get('previews') === 'cdn')
+    ? PREVIEWS_CDN : 'assets/previews';
+
+document.addEventListener('error', e => {
+    const el = e.target;
+    if (!el || (el.tagName !== 'IMG' && el.tagName !== 'VIDEO')) return;
+    const src = el.getAttribute('src') || '';
+    if (!src.startsWith(PREVIEWS_CDN + '/') || el.dataset.cdnRetried) return;
+    el.dataset.cdnRetried = '1';
+    e.stopImmediatePropagation();
+    el.src = PREVIEWS_FALLBACK + src.slice(PREVIEWS_CDN.length);
+}, true);
+
 const SOURCE_URLS = {
     github: 'https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/main',
     hf: 'https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main',
@@ -246,12 +263,11 @@ const M3Nav = (() => {
 
 document.addEventListener('animationend', (e) => {
     const el = e.target;
-    if (!el.classList || !el.classList.contains('fade-in')) return;
-    if (!e.animationName || !e.animationName.startsWith('m3-enter')) return;
-    const pending = el.getAnimations().some(a =>
-        a.playState === 'running' && a.animationName && a.animationName.startsWith('m3-enter'));
-    if (!pending) el.classList.remove('fade-in');
-});
+    if (!el.classList?.contains('fade-in')) return;
+    if (!e.animationName?.startsWith('m3-enter')) return;
+    el.classList.remove('fade-in');
+    el.style.removeProperty('will-change');
+}, { passive: true });
 
 (function setupCardEnterStagger() {
     const grid = elements.modsGrid;
@@ -2101,7 +2117,7 @@ function setupRecentlyAdded() {
 
                     document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
                         const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                        if (otherImg) otherImg.src = `assets/previews/${recentMod.category}/${mod.styles[idx].preview}`;
+                        if (otherImg) otherImg.src = `${PREVIEWS_BASE}/${recentMod.category}/${mod.styles[idx].preview}`;
 
                         const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
                         if (otherCartBtn) {
@@ -2569,15 +2585,21 @@ function renderCategories() {
         return;
     }
 
+    const isCompact = document.body.classList.contains('compact-category-view');
     const frag = document.createDocumentFragment();
-    filteredCategories.forEach(category => {
-        const full = createCategoryCard(category, false);
-        full.classList.add('cat-full');
-        const compact = createCategoryCard(category, true);
-        compact.classList.add('cat-compact');
-        frag.appendChild(full);
-        frag.appendChild(compact);
+
+    filteredCategories.forEach((category, index) => {
+        const card = createCategoryCard(category, isCompact);
+        card.classList.add(isCompact ? 'cat-compact' : 'cat-full');
+        if (index < 12) {
+            card.style.setProperty('--m3-i', Math.min(index, 8));
+        } else {
+            card.setAttribute('data-m3-late', '');
+        }
+
+        frag.appendChild(card);
     });
+
     elements.categoriesGrid.appendChild(frag);
 }
 
@@ -2595,7 +2617,7 @@ function getFirstModPreview(categoryId) {
     if (!mod || !mod.preview) return null;
     const p = mod.preview;
     return {
-        src: p.startsWith('http') ? p : `assets/previews/${categoryId}/${p}`,
+        src: p.startsWith('http') ? p : `${PREVIEWS_BASE}/${categoryId}/${p}`,
         isVideo: p.endsWith('.mp4')
     };
 }
@@ -2612,6 +2634,7 @@ function createCategoryCard(category, isCompact = false) {
 
         if (preview) {
             const media = document.createElement(preview.isVideo ? 'video' : 'img');
+            media.crossOrigin = 'anonymous';
             media.src = preview.src;
             media.className = 'compact-thumb-media';
             if (preview.isVideo) { media.muted = true; media.loop = true; media.playsInline = true; media.preload = 'metadata'; }
@@ -2648,8 +2671,8 @@ function createCategoryCard(category, isCompact = false) {
         if (category.preview) {
             const isVideo = category.preview.endsWith('.mp4');
             const mediaElement = isVideo ? 'video' : 'img';
-            const mediaAttrs = isVideo ? 'data-autoplay muted loop playsinline preload="metadata"' : '';
-            mediaContent = `<${mediaElement} src="assets/previews/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
+            const mediaAttrs = isVideo ? 'data-autoplay muted loop playsinline preload="metadata" crossorigin="anonymous"' : 'crossorigin="anonymous"';
+            mediaContent = `<${mediaElement} src="${PREVIEWS_BASE}/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
         } else {
             mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
         }
@@ -3341,9 +3364,9 @@ function createModCard(mod, categoryId, groupId = null) {
     const mediaElement = isVideo ? 'video' : 'img';
     const mediaAttrs = isVideo
         ? (categoryId !== 'backgrounds'
-            ? 'data-autoplay muted loop playsinline preload="metadata"'
-            : 'muted loop playsinline preload="metadata"')
-        : 'loading="lazy" decoding="async"';
+            ? 'data-autoplay muted loop playsinline preload="metadata" crossorigin="anonymous"'
+            : 'muted loop playsinline preload="metadata" crossorigin="anonymous"')
+        : 'loading="lazy" decoding="async" crossorigin="anonymous"';
 
     const tagsHtml = generateTagsHtml(mod, categoryId);
     const linkButtonsHtml = generateLinkButtonsHtml(mod, categoryId);
@@ -3360,7 +3383,7 @@ function createModCard(mod, categoryId, groupId = null) {
     card.innerHTML = `
         <div class="card-media">
             ${preview
-            ? `<${mediaElement} src="assets/previews/${categoryId}/${preview}" ${mediaAttrs} 
+            ? `<${mediaElement} src="${PREVIEWS_BASE}/${categoryId}/${preview}" ${mediaAttrs} 
                      onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🧩</span>'"></${mediaElement}>`
             : `<span style="font-size: 48px; opacity: 0.5;">🧩</span>`
         }
@@ -3781,7 +3804,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
 
             document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
                 const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                if (otherImg) otherImg.src = `assets/previews/${categoryId}/${mod.styles[idx].preview}`;
+                if (otherImg) otherImg.src = `${PREVIEWS_BASE}/${categoryId}/${mod.styles[idx].preview}`;
 
                 const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
                 if (otherCartBtn) {
@@ -4786,7 +4809,13 @@ function setupWelcomeModal() {
 function applyCompactView() {
     const html = document.documentElement;
     html.classList.add('no-transition');
-    document.body.classList.toggle('compact-category-view', !!loadSettings().compactCategoryView);
+
+    const isCompact = !!loadSettings().compactCategoryView;
+    document.body.classList.toggle('compact-category-view', isCompact);
+
+    if (typeof renderCategories === 'function') {
+        renderCategories();
+    }
 
     state.carouselPosition = 0;
     const t = getActiveTrack();
@@ -4794,7 +4823,11 @@ function applyCompactView() {
     applyCarouselState(1);
     updateCarouselButtons();
 
-    requestAnimationFrame(() => requestAnimationFrame(() => html.classList.remove('no-transition')));
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            html.classList.remove('no-transition');
+        });
+    });
 }
 
 function setupSettingsModal() {

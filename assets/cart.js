@@ -612,6 +612,9 @@ function setupCartModal() {
 
     const closeCart = () => {
         if (!isCartOpen()) return;
+        if (!window._packingInProgress) {
+            FaviconStatus.clear();
+        }
         modal.classList.remove('active', 'expanded');
         overlay.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
@@ -1976,6 +1979,7 @@ async function packAndDownload() {
 
     packBtn.disabled = true;
     window._packingInProgress = true;
+    FaviconStatus.setWorking();
     packBtn.innerHTML = `
         <div class="spinner small"></div>
         Packing...
@@ -2667,6 +2671,17 @@ Uninstallation
         setPackProgress(100);
         packSuccess = true;
 
+        const failed = fileErrors.length;
+        const total = cart.length;
+
+        if (failed === 0) {
+            FaviconStatus.setReady();
+        } else if (failed >= total * 0.5) {
+            FaviconStatus.setError();
+        } else {
+            FaviconStatus.setWarning();
+        }
+
     } catch (error) {
         console.error('Pack error:', error);
         if (!zipWriterClosed) {
@@ -2695,6 +2710,7 @@ Uninstallation
         `;
 
         packSuccess = false;
+        FaviconStatus.setError();
     } finally {
         window._packingInProgress = false;
         packBtn.disabled = false;
@@ -3336,3 +3352,116 @@ function importModsTxt(file) {
     };
     reader.readAsText(file);
 }
+
+/* favicon status */
+const FaviconStatus = (() => {
+    const SIZE = 32;
+    const DOT_R = 7;
+
+    let originalHref = null;
+    let linkEl = null;
+    let icons = {};
+    let prepared = false;
+
+    function ensureLink() {
+        if (linkEl) return;
+        linkEl = document.querySelector("link[rel*='icon']");
+        if (!linkEl) {
+            linkEl = document.createElement('link');
+            linkEl.rel = 'icon';
+            document.head.appendChild(linkEl);
+        }
+        if (!originalHref) originalHref = linkEl.href || 'assets/favicon.ico';
+    }
+
+    function loadImage(src) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => resolve(img);
+            img.onerror = () => resolve(null);
+            img.src = src;
+        });
+    }
+
+    function drawDot(ctx, color) {
+        const x = SIZE - DOT_R - 2;
+        const y = SIZE - DOT_R - 2;
+
+        ctx.beginPath();
+        ctx.arc(x, y, DOT_R + 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,0,0,0.55)';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    async function prepare() {
+        if (prepared) return;
+        ensureLink();
+
+        const img = await loadImage(originalHref);
+        const canvas = document.createElement('canvas');
+        canvas.width = SIZE;
+        canvas.height = SIZE;
+        const ctx = canvas.getContext('2d');
+
+        const paintBase = () => {
+            ctx.clearRect(0, 0, SIZE, SIZE);
+            if (img) {
+                ctx.drawImage(img, 0, 0, SIZE, SIZE);
+            } else {
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillRect(0, 0, SIZE, SIZE);
+            }
+        };
+
+        const outline = getComputedStyle(document.documentElement)
+            .getPropertyValue('--md-sys-color-outline')
+            .trim() || '#9aa0a6';
+
+        const accent = getComputedStyle(document.documentElement)
+            .getPropertyValue('--md-sys-color-primary')
+            .trim() || '#7b00ff';
+
+        const error = getComputedStyle(document.documentElement)
+            .getPropertyValue('--md-sys-color-error')
+            .trim() || '#e21313';
+
+        const colors = {
+            working: outline,
+            ready: accent,
+            warning: '#db9c15',
+            error: error
+        };
+
+        for (const [key, color] of Object.entries(colors)) {
+            paintBase();
+            drawDot(ctx, color);
+            icons[key] = canvas.toDataURL('image/png');
+        }
+
+        prepared = true;
+    }
+
+    async function set(status) {
+        await prepare();
+        if (icons[status]) linkEl.href = icons[status];
+    }
+
+    function clear() {
+        ensureLink();
+        if (originalHref) linkEl.href = originalHref;
+    }
+
+    return {
+        setWorking: () => set('working'),
+        setReady: () => set('ready'),
+        setWarning: () => set('warning'),
+        setError: () => set('error'),
+        clear
+    };
+})();
