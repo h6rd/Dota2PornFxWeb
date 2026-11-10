@@ -2188,22 +2188,35 @@ async function packAndDownload() {
                             const zipReader = new zip.ZipReader(new zip.BlobReader(blob));
                             const entries = await zipReader.getEntries();
 
+                            const mapsIndexOf = p => p.split('/').findIndex(s => s.toLowerCase() === 'maps');
+                            const isMapsTerrain = item.categoryId === 'terrains' && entries.some(e => {
+                                if (e.directory) return false;
+                                const p = e.filename.replace(/\\/g, '/');
+                                return mapsIndexOf(p) !== -1 && !p.toLowerCase().includes('!guide');
+                            });
+
                             for (const entry of entries) {
                                 if (entry.directory) continue;
 
-                                const entryBlob = await entry.getData(new zip.BlobWriter());
-                                const relativePath = entry.filename;
+                                const relativePath = entry.filename.replace(/\\/g, '/');
 
-                                if (item.categoryId === 'terrains') {
-                                    if (relativePath.includes('maps/') && !relativePath.includes('!guide')) {
-                                        const pathParts = relativePath.split('/');
-                                        const mapsIndex = pathParts.indexOf('maps');
-                                        if (mapsIndex !== -1) {
-                                            const mapsPath = pathParts.slice(mapsIndex).join('/');
-                                            await addToRoot(`${archiveName}/mods/${mapsPath}`, entryBlob);
-                                        }
-                                    }
-                                } else if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
+                                if (isMapsTerrain) {
+                                    const parts = relativePath.split('/');
+                                    const mi = mapsIndexOf(relativePath);
+                                    if (mi === -1 || relativePath.toLowerCase().includes('!guide')) continue;
+
+                                    const mapsBlob = await entry.getData(new zip.BlobWriter());
+                                    const mapsPath = ['maps', ...parts.slice(mi + 1)].join('/');
+                                    await addToRoot(`${archiveName}/mods/${mapsPath}`, mapsBlob);
+
+                                    if (!modFileNames[item.name]) modFileNames[item.name] = [];
+                                    modFileNames[item.name].push(mapsPath);
+                                    continue;
+                                }
+
+                                const entryBlob = await entry.getData(new zip.BlobWriter());
+
+                                if (item.categoryId === 'cursors' || item.categoryId === 'fonts') {
                                     await addToRoot(`${archiveName}/${relativePath}`, entryBlob);
                                 } else {
                                     let fileName = relativePath.split('/').pop();
