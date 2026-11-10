@@ -60,6 +60,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Inspect dist
+        run: |
+          echo "===== DIST SIZE ====="
+          du -sh dist/
+
+          echo "===== FILE COUNT ====="
+          find dist -type f | wc -l
+
+          echo "===== TOP DIRECTORIES ====="
+          du -h -d 2 dist/ | sort -h | tail -30
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
