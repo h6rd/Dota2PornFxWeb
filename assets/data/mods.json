@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Crownfall Radiant",
       "category": "towers"
     },
@@ -39,10 +43,6 @@
     {
       "name": "Stoneclaw Scavengers Dire",
       "category": "towers"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Deny Pupue Sound",
