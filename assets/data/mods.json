@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kaban Roshan Wow",
+      "category": "roshan"
+    },
+    {
+      "name": "Qwop Arcana",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Puck Avice",
+      "category": "heroes"
+    },
+    {
+      "name": "Barboskiny X Naruto",
+      "category": "mega-kill"
+    },
+    {
       "name": "Declaration of the Divine Cyan",
       "category": "towers"
     },
@@ -15905,6 +15921,25 @@
           "date": 1794250919,
           "commit-sha": "84bcbdbd9506d10c9e84dc0c79e31d9942deba2d"
         }
+      },
+      {
+        "name": "Puck Avice",
+        "preview": "Puck Avice.webp",
+        "file": "Puck Avice.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "cursedseizures"
+          }
+        ],
+        "meta": {
+          "date": 1794347188,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21603,6 +21638,25 @@
           "date": 1793866697,
           "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
         }
+      },
+      {
+        "name": "Kaban Roshan Wow",
+        "preview": "Kaban Roshan Wow.webp",
+        "file": "Kaban Roshan Wow.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          },
+          {
+            "type": "source",
+            "url": "WoWTools"
+          }
+        ],
+        "meta": {
+          "date": 1794347188,
+          "commit-sha": ""
+        }
       }
     ],
     "ancient": [
@@ -22568,6 +22622,21 @@
         "meta": {
           "date": 1793424595,
           "commit-sha": "271d3c035dc5684f9ec6a8071e4a812b08e2ba16"
+        }
+      },
+      {
+        "name": "Barboskiny X Naruto",
+        "preview": "Barboskiny X Naruto.webp",
+        "file": "Barboskiny X Naruto.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "samoredoto"
+          }
+        ],
+        "meta": {
+          "date": 1794347188,
+          "commit-sha": ""
         }
       }
     ],
@@ -27389,6 +27458,21 @@
         "meta": {
           "date": 1794250919,
           "commit-sha": "84bcbdbd9506d10c9e84dc0c79e31d9942deba2d"
+        }
+      },
+      {
+        "name": "Qwop Arcana",
+        "preview": "Qwop Arcana.webp",
+        "file": "Qwop Arcana.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Swin-РукаBlood"
+          }
+        ],
+        "meta": {
+          "date": 1794347188,
+          "commit-sha": ""
         }
       }
     ],
