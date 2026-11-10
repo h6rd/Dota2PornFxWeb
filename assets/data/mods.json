@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Declaration of the Divine Cyan",
+      "category": "towers"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -33098,6 +33102,17 @@
                 "date": 1794310353,
                 "commit-sha": "8da2a95bf6400caabd9b292b1852b38134bf1212"
               }
+            },
+            {
+              "name": "Declaration of the Divine Cyan",
+              "preview": "Declaration of the Divine Cyan.webp",
+              "file": "Declaration of the Divine Cyan.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "ZerdacK"
+                }
+              ]
             }
           ]
         }
