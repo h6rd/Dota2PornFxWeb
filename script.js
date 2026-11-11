@@ -5,10 +5,6 @@ const PREVIEWS_BASE = (window.location.hostname.endsWith('github.io') ||
     new URLSearchParams(location.search).get('previews') === 'cdn')
     ? PREVIEWS_CDN : 'assets/previews';
 
-/** Resolve a preview path.
- *  - hueta/* stays local (kept in the Pages artifact)
- *  - everything else uses PREVIEWS_BASE (CDN on github.io, local elsewhere)
- */
 function resolvePreviewUrl(path) {
     if (!path || typeof path !== 'string') return path;
     if (/^https?:\/\//i.test(path)) return path;
@@ -22,7 +18,6 @@ function resolvePreviewUrl(path) {
     return `${PREVIEWS_BASE}/${encoded}`;
 }
 
-// Normalize common relative preview paths that may appear in data
 function rewritePreviewPathsInData() {
     if (window.GIF_CONFIG?.gifs) {
         window.GIF_CONFIG.gifs = window.GIF_CONFIG.gifs.map(resolvePreviewUrl);
@@ -34,14 +29,36 @@ function rewritePreviewPathsInData() {
     }
 }
 
+function resolveMediaLinkUrl(url) {
+    if (!url || typeof url !== 'string') return url;
+    if (/^https?:\/\//i.test(url)) return url;
+    if (url.startsWith('assets/previews/') || url.startsWith('/assets/previews/')) {
+        return resolvePreviewUrl(url);
+    }
+    if (/\.(mp4|webm|webp|gif|png|jpg|jpeg)$/i.test(url) && !url.includes('://')) {
+        return resolvePreviewUrl(url.replace(/^\/+/, ''));
+    }
+    return url;
+}
+
 document.addEventListener('error', e => {
     const el = e.target;
     if (!el || (el.tagName !== 'IMG' && el.tagName !== 'VIDEO')) return;
-    const src = el.getAttribute('src') || '';
-    if (!src.startsWith(PREVIEWS_CDN + '/') || el.dataset.cdnRetried) return;
-    el.dataset.cdnRetried = '1';
-    e.stopImmediatePropagation();
-    el.src = PREVIEWS_FALLBACK + src.slice(PREVIEWS_CDN.length);
+    const src = el.getAttribute('src') || el.getAttribute('data-src') || '';
+    if (!src || el.dataset.cdnRetried) return;
+
+    if (!/^https?:\/\//i.test(src) && (src.includes('assets/previews/') || src.startsWith('assets/previews'))) {
+        el.dataset.cdnRetried = '1';
+        e.stopImmediatePropagation();
+        el.src = resolvePreviewUrl(src);
+        return;
+    }
+
+    if (src.startsWith(PREVIEWS_CDN + '/')) {
+        el.dataset.cdnRetried = '1';
+        e.stopImmediatePropagation();
+        el.src = PREVIEWS_FALLBACK + src.slice(PREVIEWS_CDN.length);
+    }
 }, true);
 
 const SOURCE_URLS = {
@@ -3608,7 +3625,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
                         ? resolveNickname(link.url, MOD_SENDER)
                         : link.type === "modded"
                             ? resolveNickname(link.url, MOD_AUTHOR)
-                            : link.url;
+                            : resolveMediaLinkUrl(link.url);
 
             const icon = LINK_ICONS[link.type] || "link";
             const isNotSafe = link.type === "not-safe";
@@ -3649,7 +3666,7 @@ function generateLinkButtonsHtml(mod, categoryId) {
                     ? resolveNickname(mod.linkUrl, MOD_SENDER)
                     : mod.linkType === "modded"
                         ? resolveNickname(mod.linkUrl, MOD_AUTHOR)
-                        : mod.linkUrl;
+                        : resolveMediaLinkUrl(mod.linkUrl);
         const icon = LINK_ICONS[mod.linkType] || "link";
         const isNotSafe = mod.linkType === "not-safe";
 
