@@ -171,9 +171,15 @@
           <h2 class="page-title">Dota2 Mods<img class="hueta" id="clickable-gif" alt="">
           <script>
             (function () {
-              var img = document.getElementById('clickable-gif'), src = 'assets/previews/hueta/ursa.gif';
+              var img = document.getElementById('clickable-gif');
+              var src = 'assets/previews/hueta/ursa.gif';
               try {
-                src = localStorage.getItem('gifSrc') || src;
+                var saved = localStorage.getItem('gifSrc');
+                if (saved) {
+                  if (/^https?:/.test(saved)) src = saved;
+                  else if (saved.indexOf('assets/previews/') === 0) src = saved;
+                  else src = 'assets/previews/' + saved.replace(/^\/+/, '');
+                }
               } catch (e) { }
               img.src = src;
             })();

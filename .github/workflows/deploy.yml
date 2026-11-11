@@ -70,14 +70,17 @@ jobs:
           user_email: ${{ vars.MIRROR_COMMIT_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
           commit_message: "mirror: ${{ github.sha }}"
 
-      - name: Remove previews from the Pages artifact
-        run: rm -rf dist/assets/previews
-
-      - name: Show build summary
+      - name: Trim previews for Pages artifact
         run: |
-          echo "===== BUILD SUMMARY ====="
-          du -sh dist/
-          echo "========================="
+          if [ -d dist/assets/previews ]; then
+            find dist/assets/previews -mindepth 1 -maxdepth 1 \
+              ! -name 'hueta' \
+              ! -name 'categories' \
+              -exec rm -rf {} +
+            echo "Kept in Pages:"
+            find dist/assets/previews -maxdepth 2 -type d | sort
+            du -sh dist/assets/previews/* 2>/dev/null | sort -h || true
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

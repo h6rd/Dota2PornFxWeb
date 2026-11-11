@@ -5,6 +5,35 @@ const PREVIEWS_BASE = (window.location.hostname.endsWith('github.io') ||
     new URLSearchParams(location.search).get('previews') === 'cdn')
     ? PREVIEWS_CDN : 'assets/previews';
 
+/** Resolve a preview path.
+ *  - hueta/* stays local (kept in the Pages artifact)
+ *  - everything else uses PREVIEWS_BASE (CDN on github.io, local elsewhere)
+ */
+function resolvePreviewUrl(path) {
+    if (!path || typeof path !== 'string') return path;
+    if (/^https?:\/\//i.test(path)) return path;
+    let rel = path.replace(/^\/+/, '');
+    if (rel.startsWith('assets/previews/')) rel = rel.slice('assets/previews/'.length);
+    const encoded = rel.split('/').map(seg => encodeURIComponent(seg)).join('/');
+    // hueta is shipped with the site — always prefer local
+    if (rel === 'hueta' || rel.startsWith('hueta/')) {
+        return `assets/previews/${encoded}`;
+    }
+    return `${PREVIEWS_BASE}/${encoded}`;
+}
+
+// Normalize common relative preview paths that may appear in data
+function rewritePreviewPathsInData() {
+    if (window.GIF_CONFIG?.gifs) {
+        window.GIF_CONFIG.gifs = window.GIF_CONFIG.gifs.map(resolvePreviewUrl);
+    }
+    if (Array.isArray(window.CONTENT_CREATORS)) {
+        window.CONTENT_CREATORS.forEach(c => {
+            if (c && c.avatar) c.avatar = resolvePreviewUrl(c.avatar);
+        });
+    }
+}
+
 document.addEventListener('error', e => {
     const el = e.target;
     if (!el || (el.tagName !== 'IMG' && el.tagName !== 'VIDEO')) return;
@@ -2117,7 +2146,7 @@ function setupRecentlyAdded() {
 
                     document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
                         const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                        if (otherImg) otherImg.src = `${PREVIEWS_BASE}/${recentMod.category}/${mod.styles[idx].preview}`;
+                        if (otherImg) otherImg.src = resolvePreviewUrl(`${recentMod.category}/${mod.styles[idx].preview}`);
 
                         const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
                         if (otherCartBtn) {
@@ -2617,7 +2646,7 @@ function getFirstModPreview(categoryId) {
     if (!mod || !mod.preview) return null;
     const p = mod.preview;
     return {
-        src: p.startsWith('http') ? p : `${PREVIEWS_BASE}/${categoryId}/${p}`,
+        src: p.startsWith('http') ? p : resolvePreviewUrl(`${categoryId}/${p}`),
         isVideo: p.endsWith('.mp4')
     };
 }
@@ -2672,7 +2701,7 @@ function createCategoryCard(category, isCompact = false) {
             const isVideo = category.preview.endsWith('.mp4');
             const mediaElement = isVideo ? 'video' : 'img';
             const mediaAttrs = isVideo ? 'data-autoplay muted loop playsinline preload="metadata" crossorigin="anonymous"' : 'crossorigin="anonymous"';
-            mediaContent = `<${mediaElement} src="${PREVIEWS_BASE}/categories/${category.preview}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
+            mediaContent = `<${mediaElement} src="${resolvePreviewUrl('categories/' + category.preview)}" ${mediaAttrs} onerror="this.parentElement.innerHTML='<span style=\\'font-size: 64px; opacity: 0.7;\\'>${category.emoji}</span>'"></${mediaElement}>`;
         } else {
             mediaContent = `<span style="font-size: 64px;">${category.emoji}</span>`;
         }
@@ -3383,7 +3412,7 @@ function createModCard(mod, categoryId, groupId = null) {
     card.innerHTML = `
         <div class="card-media">
             ${preview
-            ? `<${mediaElement} src="${PREVIEWS_BASE}/${categoryId}/${preview}" ${mediaAttrs} 
+            ? `<${mediaElement} src="${resolvePreviewUrl(categoryId + '/' + preview)}" ${mediaAttrs} 
                      onerror="this.parentElement.innerHTML='<span style=\\'font-size: 48px; opacity: 0.5;\\'>🧩</span>'"></${mediaElement}>`
             : `<span style="font-size: 48px; opacity: 0.5;">🧩</span>`
         }
@@ -3804,7 +3833,7 @@ function attachCardEventListeners(card, mod, categoryId, groupId = null) {
 
             document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
                 const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                if (otherImg) otherImg.src = `${PREVIEWS_BASE}/${categoryId}/${mod.styles[idx].preview}`;
+                if (otherImg) otherImg.src = resolvePreviewUrl(`${categoryId}/${mod.styles[idx].preview}`);
 
                 const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
                 if (otherCartBtn) {
@@ -4093,6 +4122,7 @@ async function loadData() {
         window.guidesData = data.guides;
 
         Object.assign(window, data.constants);
+        rewritePreviewPathsInData();
 
         window.ANNOUNCEMENTS_DATA = [];
         if (data.announcements) {

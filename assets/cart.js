@@ -120,12 +120,25 @@ function cartNameHtml(item) {
     return isHeroCategory && typeof highlightHeroNames === 'function' ? highlightHeroNames(safe) : safe;
 }
 
+function cartPreviewSrc(categoryId, preview) {
+    if (!preview) return '';
+    if (/^https?:\/\//i.test(preview)) return preview;
+    const path = `${categoryId}/${preview}`;
+    if (typeof resolvePreviewUrl === 'function') return resolvePreviewUrl(path);
+    const base = (typeof PREVIEWS_BASE !== 'undefined')
+        ? PREVIEWS_BASE
+        : ((location.hostname.endsWith('github.io') || new URLSearchParams(location.search).get('previews') === 'cdn')
+            ? 'https://cdn.jsdelivr.net/gh/h6rd/Dota2PornFxWeb@mirror/assets/previews'
+            : 'assets/previews');
+    return `${base}/${path.split('/').map(encodeURIComponent).join('/')}`;
+}
+
 function cartPreviewHtml(item) {
     const { preview } = resolveItemFiles(item);
     if (!preview) {
         return `<div class="cart-item-image cart-item-image--empty" aria-hidden="true"><span class="material-symbols-rounded">image</span></div>`;
     }
-    const src = `assets/previews/${item.categoryId}/${preview}`;
+    const src = cartPreviewSrc(item.categoryId, preview);
     if (preview.endsWith('.mp4')) {
         return `<video class="cart-item-image" data-src="${escapeHtml(src)}" muted loop playsinline preload="none" width="64" height="64" aria-hidden="true"></video>`;
     }
@@ -334,7 +347,7 @@ function handleCartStyleSwitch(circle) {
 
     document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(card => {
         const media = card.querySelector('.card-media img, .card-media video');
-        if (media) media.src = `assets/previews/${item.categoryId}/${style.preview}`;
+        if (media) media.src = cartPreviewSrc(item.categoryId, style.preview);
 
         const btn = card.querySelector('.add-to-cart-btn');
         if (btn) {
@@ -795,7 +808,7 @@ function loadAssembly(assemblyId) {
                     const badge = card.querySelector('.dl-count');
                     if (badge) badge.dataset.stat = modStatKey(item.categoryId, item.groupId, mod, idx);
                     const img = card.querySelector('.card-media img, .card-media video');
-                    if (img) img.src = `assets/previews/${item.categoryId}/${mod.styles[idx].preview}`;
+                    if (img) img.src = cartPreviewSrc(item.categoryId, mod.styles[idx].preview);
                 });
                 if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
             }
@@ -2739,7 +2752,7 @@ function showReplaceModal(existingItem, newItem) {
     function getPreviewHtml(item, label) {
         const { preview } = resolveItemFiles(item);
         if (!preview) return `<div class="replace-preview-slot replace-preview-slot--empty"><span class="material-symbols-rounded">hide_image</span><span class="replace-preview-name">${escapeHtml(item.name)}</span></div>`;
-        const src = `assets/previews/${item.categoryId}/${preview}`;
+        const src = cartPreviewSrc(item.categoryId, preview);
         const isVideo = preview.endsWith('.mp4');
         const media = isVideo
             ? `<video src="${src}" class="replace-preview-img" autoplay muted loop playsinline onerror="this.style.display='none'"></video>`
@@ -2817,8 +2830,13 @@ function initSnakeGame() {
     const GRID = 13;
 
     const USE_CUSTOM_ASSETS = true;
-    const HEAD_ICON_SRC = 'assets/previews/hueta/am.png';
-    const FOOD_ICON_SRC = 'assets/previews/hueta/radiance.gif';
+    const _prevBase = (typeof PREVIEWS_BASE !== 'undefined')
+        ? PREVIEWS_BASE
+        : ((location.hostname.endsWith('github.io') || new URLSearchParams(location.search).get('previews') === 'cdn')
+            ? 'https://cdn.jsdelivr.net/gh/h6rd/Dota2PornFxWeb@mirror/assets/previews'
+            : 'assets/previews');
+    const HEAD_ICON_SRC = _prevBase + '/hueta/am.png';
+    const FOOD_ICON_SRC = _prevBase + '/hueta/radiance.gif';
 
     const boardEl = document.getElementById('snakeBoard');
     const overlayEl = document.getElementById('snakeOverlay');

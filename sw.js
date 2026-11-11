@@ -1,4 +1,4 @@
-const CACHE_VERSION = 3;
+const CACHE_VERSION = 4;
 const CACHE_NAME = `d2pfx-previews-v${CACHE_VERSION}`;
 const BASE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, '');
 

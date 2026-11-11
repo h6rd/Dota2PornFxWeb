@@ -4,6 +4,7 @@ import path from "node:path";
 const SITE = "https://h6rd.github.io/Dota2PornFxWeb/";
 const BRAND = "Dota2PornFx";
 const ALIAS = "D2PFX";
+const PREVIEWS_CDN = "https://cdn.jsdelivr.net/gh/h6rd/Dota2PornFxWeb@mirror/assets/previews";
 const DATA_DIR = path.join("assets", "data");
 const OUT_DIR = ".";
 const SITEMAP_PATH = "sitemap.xml";
@@ -103,12 +104,12 @@ function renderCategoryPage(cat, mods, allCats) {
     .map((m, i) => {
       const preview = typeof m.preview === "string" ? m.preview : "";
       const isImage = preview && !/\.(mp4|webm)$/i.test(preview) && !/^https?:/i.test(preview);
-      const previewPath = preview.startsWith("assets/previews/")
-        ? preview
-        : `assets/previews/${cat.id}/${preview}`;
+      let previewRel = preview;
+      if (previewRel.startsWith("assets/previews/")) previewRel = previewRel.slice("assets/previews/".length);
+      else if (previewRel && !previewRel.includes("/")) previewRel = `${cat.id}/${previewRel}`;
       const img =
         isImage && i < MAX_IMAGES
-          ? `<img src="${esc(encodePath(previewPath))}" alt="${esc(m.name)} – Dota 2 ${esc(catName)} mod" loading="lazy" decoding="async" width="320" height="180">`
+          ? `<img src="${esc(PREVIEWS_CDN + "/" + encodePath(previewRel))}" alt="${esc(m.name)} – Dota 2 ${esc(catName)} mod" loading="lazy" decoding="async" width="320" height="180">`
           : "";
       return `<li><a href="${modLink(cat.id, m.name)}">${img}<span>${esc(m.name)}</span></a></li>`;
     })
