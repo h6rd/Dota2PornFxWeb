@@ -1,16 +1,28 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Grimstroke Old Effects",
+      "category": "herofx"
+    },
+    {
+      "name": "Puck Avice",
+      "category": "heroes"
+    },
+    {
+      "name": "Grimstroke Update Sovietmedci",
+      "category": "heroes"
+    },
+    {
+      "name": "Leshrac Do 5300 Ne Podbrosite",
+      "category": "heroes"
+    },
+    {
       "name": "Kaban Roshan Wow",
       "category": "roshan"
     },
     {
       "name": "Qwop Arcana",
       "category": "backgrounds"
-    },
-    {
-      "name": "Puck Avice",
-      "category": "heroes"
     },
     {
       "name": "Barboskiny X Naruto",
@@ -15937,8 +15949,50 @@
           }
         ],
         "meta": {
-          "date": 1794347188,
-          "commit-sha": "e7fb5a6367295602ea901c681230b66a875d4da5"
+          "date": 1794430681,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Leshrac Do 5300 Ne Podbrosite",
+        "preview": "Leshrac Do 5300 Ne Podbrosite.webp",
+        "file": "Leshrac Do 5300 Ne Podbrosite.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ],
+        "meta": {
+          "date": 1794430681,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Grimstroke Update Sovietmedci",
+        "preview": "Grimstroke Update Sovietmedci.webp",
+        "file": "Grimstroke Update Sovietmedci.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          },
+          {
+            "type": "modded",
+            "url": "NahuiToSay"
+          }
+        ],
+        "meta": {
+          "date": 1794430681,
+          "commit-sha": ""
         }
       }
     ],
@@ -30738,6 +30792,24 @@
         "meta": {
           "date": 1790113207,
           "commit-sha": "5e9e3c3941694345c6e497ba39607a0eb9935c7c"
+        }
+      },
+      {
+        "name": "Grimstroke Old Effects",
+        "preview": "Grimstroke Old Effects.webp",
+        "file": "Grimstroke Old Effects.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "александр"
+          }
+        ],
+        "meta": {
+          "date": 1794430681,
+          "commit-sha": ""
         }
       }
     ],
