@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Radiant Creeps Kabanchiki Wow",
       "category": "creeps"
     },
@@ -43,10 +47,6 @@
     {
       "name": "Declaration of the Divine Cyan",
       "category": "towers"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Crownfall Radiant",
