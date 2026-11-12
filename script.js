@@ -4674,16 +4674,46 @@ function applySettings(s) {
     if (seasonalToggle) seasonalToggle.checked = s.seasonalThemes !== false;
 
     if (window.applyWallpaper) window.applyWallpaper(s.wallpaper);
+
+    const showAccountNick = s.showAccountNick !== false;   // default: on
+    const hideAccountButton = !!s.hideAccountButton;       // default: off
+    document.body.classList.toggle('hide-account-nick', !showAccountNick);
+    document.body.classList.toggle('hide-account-button', hideAccountButton);
+
+    const nickToggle = document.getElementById('showAccountNick');
+    if (nickToggle) nickToggle.checked = showAccountNick;
+    const hideBtnToggle = document.getElementById('hideAccountButton');
+    if (hideBtnToggle) hideBtnToggle.checked = hideAccountButton;
 }
 
-async function exportSettings() {
+/* ------------------------------------------------------------------ *
+ * Settings snapshot (shared by TXT export/import and cloud sync)      *
+ * ------------------------------------------------------------------ */
+const SETTINGS_FORMAT_VERSION = 1;
+
+/** Validates the shape/version of a settings object and upgrades older versions. */
+function migrateSettingsObject(obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) throw new Error('Invalid settings data');
+    const v = Number(obj.version);
+    if (!Number.isInteger(v) || v < 1) throw new Error('Unknown format');
+    if (v > SETTINGS_FORMAT_VERSION) throw new Error('Settings were saved by a newer version of the site');
+    // v1 is the current format. Future versions: add `if (v === 1) { ...; obj.version = 2; }` steps here.
+    return obj;
+}
+
+/** Builds the full settings object from localStorage (+ localization edits). */
+async function buildSettingsObject() {
     const s = loadSettings();
-    const cartData = JSON.parse(localStorage.getItem('modCart') || '[]');
-    const assemblies = JSON.parse(localStorage.getItem('savedAssemblies') || '[]');
-    const styleIndices = JSON.parse(localStorage.getItem('styleIndexMap') || '{}');
+    const readJson = (key, fallback) => {
+        try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); }
+        catch { return fallback; }
+    };
+    const cartData = readJson('modCart', []);
+    const assemblies = readJson('savedAssemblies', []);
+    const styleIndices = readJson('styleIndexMap', {});
 
     const obj = {
-        version: 1,
+        version: SETTINGS_FORMAT_VERSION,
         theme: s.theme || 'dark',
         gifTheme: localStorage.getItem('gifIndex') !== null
             ? GIF_CONFIG.themes[parseInt(localStorage.getItem('gifIndex'))]
@@ -4697,6 +4727,7 @@ async function exportSettings() {
         hideAnimeMods: !!s.hideAnimeMods,
         hideAdultMods: !!s.hideAdultMods,
         seasonalThemes: s.seasonalThemes !== false,
+        compactCategoryView: !!s.compactCategoryView,
         wallpaper: s.wallpaper || null,
         exported: new Date().toISOString(),
         styles: styleIndices,
@@ -4713,6 +4744,88 @@ async function exportSettings() {
     } catch (err) {
         console.error('Failed to export localization edits:', err);
     }
+    return obj;
+}
+
+async function applySettingsObject(rawObj, opts = {}) {
+    const obj = migrateSettingsObject(rawObj);
+
+    if (obj.cart) localStorage.setItem('modCart', JSON.stringify(obj.cart));
+    if (obj.styles) {
+        localStorage.setItem('styleIndexMap', JSON.stringify(obj.styles));
+        Object.keys(styleIndexMap).forEach(k => delete styleIndexMap[k]);
+        Object.assign(styleIndexMap, obj.styles);
+    }
+    if (obj.assemblies) localStorage.setItem('savedAssemblies', JSON.stringify(obj.assemblies));
+    if (Array.isArray(obj.localization) && obj.localization.length && window.ToolsLoader && !window.LocalizationStore) {
+        await window.ToolsLoader.load('localization');
+    }
+    if (Array.isArray(obj.localization) && window.LocalizationStore) {
+        await window.LocalizationStore.importAll(obj.localization);
+    }
+
+    const patch = {};
+    if (obj.theme) patch.theme = obj.theme;
+    if (obj.gifIndex !== undefined) {
+        localStorage.setItem('gifIndex', String(obj.gifIndex));
+        const idx = parseInt(obj.gifIndex);
+        try {
+            if (GIF_CONFIG.gifs[idx]) localStorage.setItem('gifSrc', GIF_CONFIG.gifs[idx]);
+        } catch (e) { }
+        document.documentElement.classList.add('no-transition');
+        document.documentElement.setAttribute('data-gif-theme', GIF_CONFIG.themes[idx] || 'ursa');
+        const gifEl = document.getElementById('clickable-gif');
+        if (gifEl) gifEl.src = GIF_CONFIG.gifs[idx] || GIF_CONFIG.gifs[0];
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.documentElement.classList.remove('no-transition');
+            });
+        });
+    }
+    patch.variant = obj.variant || 'tonal-spot';
+    patch.contrast = obj.contrast || 'standard';
+    if (obj.gameLang) patch.gameLang = obj.gameLang;
+    if (!opts.cloud) {
+        if (obj.os) patch.os = obj.os;
+        if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
+    }
+    patch.hideAnimeMods = !!obj.hideAnimeMods;
+    patch.hideAdultMods = !!obj.hideAdultMods;
+    patch.seasonalThemes = obj.seasonalThemes !== false;
+    const compactChanged = obj.compactCategoryView !== undefined &&
+        !!obj.compactCategoryView !== !!loadSettings().compactCategoryView;
+    if (obj.compactCategoryView !== undefined) patch.compactCategoryView = !!obj.compactCategoryView;
+    if (obj.wallpaper) patch.wallpaper = obj.wallpaper;
+    else if (opts.cloud && 'wallpaper' in obj) patch.wallpaper = null;
+    saveSettings(patch);
+    applySettings(loadSettings());
+    if (window.setSeasonalThemes) window.setSeasonalThemes(patch.seasonalThemes);
+    if (compactChanged && typeof applyCompactView === 'function') applyCompactView();
+
+    if (typeof loadCart === 'function') {
+        loadCart();
+        updateCartBadge();
+        renderCartItems();
+        updateCartButtons();
+    }
+    if (typeof loadAssemblies === 'function') {
+        loadAssemblies();
+        renderAssembliesList();
+    }
+    if (state.currentCategory && typeof renderMods === 'function') {
+        try { renderMods(state.currentCategory); } catch (e) { }
+    }
+}
+
+window.D2PFXSettings = {
+    FORMAT_VERSION: SETTINGS_FORMAT_VERSION,
+    build: buildSettingsObject,
+    apply: applySettingsObject,
+    migrate: migrateSettingsObject,
+};
+
+async function exportSettings() {
+    const obj = await buildSettingsObject();
 
     const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -4729,60 +4842,7 @@ function importSettings(file) {
     reader.onload = async e => {
         try {
             const obj = JSON.parse(e.target.result);
-            if (obj.version !== 1) throw new Error('Unknown format');
-
-            if (obj.cart) localStorage.setItem('modCart', JSON.stringify(obj.cart));
-            if (obj.styles) localStorage.setItem('styleIndexMap', JSON.stringify(obj.styles));
-            if (obj.assemblies) localStorage.setItem('savedAssemblies', JSON.stringify(obj.assemblies));
-            if (Array.isArray(obj.localization) && obj.localization.length && window.ToolsLoader && !window.LocalizationStore) {
-                await window.ToolsLoader.load('localization');
-            }
-            if (Array.isArray(obj.localization) && window.LocalizationStore) {
-                await window.LocalizationStore.importAll(obj.localization);
-            }
-
-            const patch = {};
-            if (obj.theme) patch.theme = obj.theme;
-            if (obj.gifIndex !== undefined) {
-                localStorage.setItem('gifIndex', String(obj.gifIndex));
-                const idx = parseInt(obj.gifIndex);
-                try {
-                    if (GIF_CONFIG.gifs[idx]) localStorage.setItem('gifSrc', GIF_CONFIG.gifs[idx]);
-                } catch (e) { }
-                document.documentElement.classList.add('no-transition');
-                document.documentElement.setAttribute('data-gif-theme', GIF_CONFIG.themes[idx] || 'ursa');
-                const gifEl = document.getElementById('clickable-gif');
-                if (gifEl) gifEl.src = GIF_CONFIG.gifs[idx] || GIF_CONFIG.gifs[0];
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        document.documentElement.classList.remove('no-transition');
-                    });
-                });
-            }
-            patch.variant = obj.variant || 'tonal-spot';
-            patch.contrast = obj.contrast || 'standard';
-            if (obj.gameLang) patch.gameLang = obj.gameLang;
-            if (obj.os) patch.os = obj.os;
-            if (obj.dotaPath !== undefined) patch.dotaPath = obj.dotaPath;
-            patch.hideAnimeMods = !!obj.hideAnimeMods;
-            patch.hideAdultMods = !!obj.hideAdultMods;
-            patch.seasonalThemes = obj.seasonalThemes !== false;
-            if (obj.wallpaper) patch.wallpaper = obj.wallpaper;
-            saveSettings(patch);
-            applySettings(patch);
-            if (window.setSeasonalThemes) window.setSeasonalThemes(patch.seasonalThemes);
-
-            if (typeof loadCart === 'function') {
-                loadCart();
-                updateCartBadge();
-                renderCartItems();
-                updateCartButtons();
-            }
-            if (typeof loadAssemblies === 'function') {
-                loadAssemblies();
-                renderAssembliesList();
-            }
-
+            await applySettingsObject(obj);
             showToast('Settings imported from <span style="color: var(--md-sys-color-primary); font-weight: 600;">d2pfx-settings.txt</span>');
         } catch (err) {
             showToast('Import error: invalid <span style="color: var(--md-sys-color-primary); font-weight: 600;">d2pfx-settings.txt</span>');
@@ -5064,6 +5124,18 @@ function setupSettingsModal() {
     document.getElementById('compactCategoryView')?.addEventListener('change', function () {
         saveSettings({ compactCategoryView: this.checked });
         applyCompactView();
+        vibrate(10);
+    });
+
+    document.getElementById('showAccountNick')?.addEventListener('change', function () {
+        saveSettings({ showAccountNick: this.checked });
+        applySettings(loadSettings());
+        vibrate(10);
+    });
+
+    document.getElementById('hideAccountButton')?.addEventListener('change', function () {
+        saveSettings({ hideAccountButton: this.checked });
+        applySettings(loadSettings());
         vibrate(10);
     });
 }
