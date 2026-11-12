@@ -140,7 +140,7 @@
 
     function readSessionToken() {
         try {
-            const token = sessionStorage.getItem(SESSION_TOKEN_KEY) || '';
+            const token = localStorage.getItem(SESSION_TOKEN_KEY) || '';
             return /^[A-Za-z0-9_-]{40,64}$/.test(token) ? token : '';
         } catch (_) {
             return '';
@@ -148,7 +148,7 @@
     }
 
     function clearSessionToken() {
-        try { sessionStorage.removeItem(SESSION_TOKEN_KEY); } catch (_) { }
+        try { localStorage.removeItem(SESSION_TOKEN_KEY); } catch (_) { }
     }
 
     async function api(path, { method = 'GET', body, keepalive = false } = {}) {
@@ -218,7 +218,7 @@
         let tokenAccepted = false;
         if (token && /^[A-Za-z0-9_-]{40,64}$/.test(token)) {
             try {
-                sessionStorage.setItem(SESSION_TOKEN_KEY, token);
+                localStorage.setItem(SESSION_TOKEN_KEY, token);
                 tokenAccepted = true;
             } catch (_) { }
         }
