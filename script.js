@@ -4676,7 +4676,7 @@ function applySettings(s) {
     if (window.applyWallpaper) window.applyWallpaper(s.wallpaper);
 
     const showAccountNick = s.showAccountNick !== false;   // default: on
-    const hideAccountButton = !!s.hideAccountButton;       // default: off
+    const hideAccountButton = s.hideAccountButton !== false;       // default: off
     document.body.classList.toggle('hide-account-nick', !showAccountNick);
     document.body.classList.toggle('hide-account-button', hideAccountButton);
 

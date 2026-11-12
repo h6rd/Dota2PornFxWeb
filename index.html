@@ -109,6 +109,10 @@
           <button class="notes-button" id="toolsButton" aria-label="Tools" title="Tools">
             <span class="material-symbols-rounded">construction</span>
           </button>
+          <button class="settings-button account-button" id="accountButton" aria-label="Sign in with Discord"
+            title="Account">
+            <span class="account-button-icon" data-account-icon><span class="material-symbols-rounded">account_circle</span></span>
+          </button>
           <button class="settings-button" id="settingsButton" aria-label="Settings">
             <span class="material-symbols-rounded">settings</span>
           </button>
@@ -133,6 +137,10 @@
             <span class="material-symbols-rounded">edit_note</span>
             <span>Notes</span>
             <span class="notes-badge" id="mobileNotesBadge"></span>
+          </button>
+          <button class="mobile-menu-item" id="mobileAccountButton" aria-label="Sign in with Discord">
+            <span class="account-button-icon" data-account-icon><span class="material-symbols-rounded">account_circle</span></span>
+            <span data-account-label>Sign in</span>
           </button>
           <button class="mobile-menu-item" id="mobileSettingsButton" aria-label="Settings">
             <span class="material-symbols-rounded">settings</span>
@@ -783,6 +791,11 @@
           <span class="material-symbols-rounded">computer</span>
           <span>System</span>
         </button>
+        <button type="button" class="st-tab" role="tab" id="stTab-account" data-st-tab="account"
+          aria-selected="false" aria-controls="stPanel-account" tabindex="-1">
+          <span class="material-symbols-rounded">account_circle</span>
+          <span>Account</span>
+        </button>
       </div>
     </nav>
 
@@ -925,6 +938,24 @@
                 <input type="checkbox" id="seasonalThemes" class="st-switch-input" checked>
                 <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
               </label>
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">badge</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Show nickname in header</span>
+                  <span class="st-row-desc">Display your name next to the avatar</span>
+                </span>
+                <input type="checkbox" id="showAccountNick" class="st-switch-input" checked>
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
+              <label class="st-row">
+                <span class="st-row-icon"><span class="material-symbols-rounded">visibility_off</span></span>
+                <span class="st-row-text">
+                  <span class="st-row-title">Hide account button</span>
+                  <span class="st-row-desc">Remove the account button from the header</span>
+                </span>
+                <input type="checkbox" id="hideAccountButton" class="st-switch-input" checked>
+                <span class="st-switch-track"><span class="st-switch-thumb"><span class="material-symbols-rounded">check</span></span></span>
+              </label>
             </div>
           </div>
 
@@ -1004,6 +1035,18 @@
               </button>
               <input type="file" id="importSettingsFile" accept=".txt" style="display:none">
             </div>
+          </div>
+        </section>
+
+        <!-- Account -->
+        <section class="st-panel" role="tabpanel" id="stPanel-account" data-st-panel="account"
+          aria-labelledby="stTab-account">
+          <header class="st-panel-head">
+            <h3 class="st-panel-title">Account</h3>
+            <p class="st-panel-sub">Discord sign-in and cloud sync</p>
+          </header>
+          <div class="st-block">
+            <div id="accountPanelBody" class="d2-account"></div>
           </div>
         </section>
 
@@ -1308,6 +1351,8 @@
   <script src="assets/zip.min.js"></script>
   <script src="assets/lz-string.min.js"></script>
   <script src="script.js"></script>
+  <script>window.D2PFX_API_BASE = 'https://d2pfx-api.hrdq.workers.dev';</script>
+  <script src="assets/cloud.js"></script>
   <script src="assets/tools/tools.js"></script>
   </body>
   

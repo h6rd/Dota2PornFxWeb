@@ -1,7 +1,8 @@
 (function () {
     'use strict';
 
-    const API_BASE = (window.D2PFX_API_BASE || 'd2pfx-api.hrdq.workers.dev').replace(/\/+$/, '');
+    const API_BASE = (window.D2PFX_API_BASE || 'https://d2pfx-api.hrdq.workers.dev').replace(/\/+$/, '');
+    const SESSION_TOKEN_KEY = 'd2pfx_session_token';
     const SCHEMA_VERSION = 1;
     const SAVE_DEBOUNCE_MS = 2500;
     const PULL_MIN_INTERVAL_MS = 60 * 1000;
@@ -137,19 +138,34 @@
         constructor(status, code, body) { super(code || ('http_' + status)); this.status = status; this.code = code; this.body = body; }
     }
 
+    function readSessionToken() {
+        try {
+            const token = sessionStorage.getItem(SESSION_TOKEN_KEY) || '';
+            return /^[A-Za-z0-9_-]{40,64}$/.test(token) ? token : '';
+        } catch (_) {
+            return '';
+        }
+    }
+
+    function clearSessionToken() {
+        try { sessionStorage.removeItem(SESSION_TOKEN_KEY); } catch (_) { }
+    }
+
     async function api(path, { method = 'GET', body, keepalive = false } = {}) {
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
         let res;
         try {
+            const token = readSessionToken();
             res = await fetch(API_BASE + path, {
                 method,
-                credentials: 'include',
+                credentials: 'omit',
                 cache: 'no-store',
                 keepalive,
                 signal: ctrl.signal,
                 headers: {
                     'X-D2PFX-Client': '1',
+                    ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
                     ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
                 },
                 body: body !== undefined ? JSON.stringify(body) : undefined,
@@ -181,6 +197,7 @@
     async function logout() {
         cancelTimers();
         try { await api('/auth/logout', { method: 'POST' }); } catch (_) { }
+        clearSessionToken();
         try { localStorage.removeItem(USER_KEY); } catch (_) { }
         st.user = null;
         st.readOnly = false;
@@ -192,11 +209,26 @@
     function consumeAuthResult() {
         const u = new URL(window.location.href);
         const result = u.searchParams.get('d2pfx_auth');
-        if (!result) return null;
         const err = u.searchParams.get('d2pfx_err');
+        const fragment = new URLSearchParams(u.hash.replace(/^#/, ''));
+        const token = fragment.get('d2pfx_token');
+
+        if (!result && !token) return null;
+
+        let tokenAccepted = false;
+        if (token && /^[A-Za-z0-9_-]{40,64}$/.test(token)) {
+            try {
+                sessionStorage.setItem(SESSION_TOKEN_KEY, token);
+                tokenAccepted = true;
+            } catch (_) { }
+        }
+
         ['d2pfx_auth', 'd2pfx_err'].forEach((k) => u.searchParams.delete(k));
+        if (token !== null) u.hash = '';
         try { history.replaceState(null, '', u.toString()); } catch (_) { }
-        return { ok: result === 'ok', err };
+
+        if (token !== null && !tokenAccepted) return { ok: false, err: 'token' };
+        return { ok: tokenAccepted || result === 'ok', err };
     }
 
     async function init() {
@@ -235,11 +267,12 @@
             me = await api('/api/me');
         } catch (e) {
             if (e.status === 401) {
+                clearSessionToken();
                 clearCachedUser();
                 st.user = null;
                 setStatus('guest');
                 if (justLoggedIn) {
-                    toast('Signed in, but your browser blocked the login cookie. See the Account tab for a fix.');
+                    toast('Discord sign-in completed, but the session could not be verified. Please sign in again.');
                     st.sync = 'error';
                     render();
                 }
@@ -451,6 +484,7 @@
     function handleSyncError(e) {
         console.warn('[cloud] sync failed:', e && e.code ? e.code : e);
         if (e.status === 401) {
+            clearSessionToken();
             st.user = null;
             clearCachedUser();
             setStatus('guest');
@@ -604,8 +638,7 @@
             if (st.sync === 'error') {
                 const warn = document.createElement('p');
                 warn.className = 'd2-account-warn';
-                warn.textContent = 'Your browser seems to block third-party cookies, so the login could not be completed. ' +
-                    'Allow cookies for the sync service or use a browser without strict cross-site tracking protection.';
+                warn.textContent = 'The Discord session could not be verified. Please try signing in again.';
                 panel.appendChild(warn);
             }
             return;
