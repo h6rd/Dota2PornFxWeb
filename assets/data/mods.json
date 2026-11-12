@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Radiant Creeps Kabanchiki Wow",
+      "category": "creeps"
+    },
+    {
+      "name": "Cloud Vs Sephiroth By Siriusz",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Dire Creeps Kabanchiki Wow",
+      "category": "creeps"
+    },
+    {
       "name": "Grimstroke Old Effects",
       "category": "herofx"
     },
@@ -27528,6 +27540,24 @@
           "date": 1794347188,
           "commit-sha": "e7fb5a6367295602ea901c681230b66a875d4da5"
         }
+      },
+      {
+        "name": "Cloud Vs Sephiroth By Siriusz",
+        "preview": "Cloud Vs Sephiroth By Siriusz.webp",
+        "file": "Cloud Vs Sephiroth By Siriusz.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Siriusz"
+          }
+        ],
+        "meta": {
+          "date": 1794493637,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -33029,6 +33059,42 @@
               "meta": {
                 "date": 1794152898,
                 "commit-sha": "4293b801d30542157c78c4566f586b6ddbe3600a"
+              }
+            }
+          ]
+        },
+        {
+          "id": "misc",
+          "name": "Misc",
+          "mods": [
+            {
+              "name": "Dire Creeps Kabanchiki Wow",
+              "preview": "Dire Creeps Kabanchiki Wow.webp",
+              "file": "Dire Creeps Kabanchiki Wow.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "NahuiToSay"
+                }
+              ],
+              "meta": {
+                "date": 1794493637,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "Radiant Creeps Kabanchiki Wow",
+              "preview": "Radiant Creeps Kabanchiki Wow.webp",
+              "file": "Radiant Creeps Kabanchiki Wow.zip",
+              "links": [
+                {
+                  "type": "author",
+                  "url": "NahuiToSay"
+                }
+              ],
+              "meta": {
+                "date": 1794493637,
+                "commit-sha": ""
               }
             }
           ]
