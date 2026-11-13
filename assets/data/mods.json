@@ -1,6 +1,90 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Invoker ZXC",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Death Prophet",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Dazzle",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Dawnbreaker",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Dark Willow",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Dark Seer",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Crystal Maiden",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Clockwerk",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Clinkz",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Chen",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Chaos Knight",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Centaur",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Broodmother",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Bristleback",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Brewmaster",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Bounty Hunter",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Bloodseeker",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Beastmaster",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Batrider",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Bane",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Axe",
+      "category": "heroes"
+    },
+    {
       "name": "Tinker Warcraft",
       "category": "heroes"
     },
@@ -16086,6 +16170,241 @@
           "date": 1794596240,
           "commit-sha": "e58c48d6d9a20bde030958db1c8dc84392d963f8"
         }
+      },
+      {
+        "name": "Invoker ZXC",
+        "preview": "Invoker ZXC.webp",
+        "file": "https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/assets/files/heroes/Invoker%20ZXC.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Axe",
+        "preview": "Warcraft 3 Axe.webp",
+        "file": "Warcraft 3 Axe.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Bane",
+        "preview": "Warcraft 3 Bane.webp",
+        "file": "Warcraft 3 Bane.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Batrider",
+        "preview": "Warcraft 3 Batrider.webp",
+        "file": "Warcraft 3 Batrider.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Beastmaster",
+        "preview": "Warcraft 3 Beastmaster.webp",
+        "file": "Warcraft 3 Beastmaster.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Bloodseeker",
+        "preview": "Warcraft 3 Bloodseeker.webp",
+        "file": "Warcraft 3 Bloodseeker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Bounty Hunter",
+        "preview": "Warcraft 3 Bounty Hunter.webp",
+        "file": "Warcraft 3 Bounty Hunter.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Brewmaster",
+        "preview": "Warcraft 3 Brewmaster.webp",
+        "file": "Warcraft 3 Brewmaster.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Bristleback",
+        "preview": "Warcraft 3 Bristleback.webp",
+        "file": "Warcraft 3 Bristleback.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Broodmother",
+        "preview": "Warcraft 3 Broodmother.webp",
+        "file": "Warcraft 3 Broodmother.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Centaur",
+        "preview": "Warcraft 3 Centaur.webp",
+        "file": "Warcraft 3 Centaur.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Chaos Knight",
+        "preview": "Warcraft 3 Chaos Knight.webp",
+        "file": "Warcraft 3 Chaos Knight.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Chen",
+        "preview": "Warcraft 3 Chen.webp",
+        "file": "Warcraft 3 Chen.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Clinkz",
+        "preview": "Warcraft 3 Clinkz.webp",
+        "file": "Warcraft 3 Clinkz.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Clockwerk",
+        "preview": "Warcraft 3 Clockwerk.webp",
+        "file": "Warcraft 3 Clockwerk.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Crystal Maiden",
+        "preview": "Warcraft 3 Crystal Maiden.webp",
+        "file": "Warcraft 3 Crystal Maiden.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Dark Seer",
+        "preview": "Warcraft 3 Dark Seer.webp",
+        "file": "Warcraft 3 Dark Seer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Dark Willow",
+        "preview": "Warcraft 3 Dark Willow.webp",
+        "file": "Warcraft 3 Dark Willow.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Dawnbreaker",
+        "preview": "Warcraft 3 Dawnbreaker.webp",
+        "file": "Warcraft 3 Dawnbreaker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Dazzle",
+        "preview": "Warcraft 3 Dazzle.webp",
+        "file": "Warcraft 3 Dazzle.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Death Prophet",
+        "preview": "Warcraft 3 Death Prophet.webp",
+        "file": "Warcraft 3 Death Prophet.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "shaders": [
