@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Tinker Warcraft",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Abaddon",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Ancient Apparition",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Alchemist",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -16005,6 +16021,70 @@
         "meta": {
           "date": 1794430681,
           "commit-sha": "550254c9e039f57f6f96631b815297fb7c0d981e"
+        }
+      },
+      {
+        "name": "Warcraft 3 Alchemist",
+        "preview": "Warcraft 3 Alchemist.webp",
+        "file": "Warcraft 3 Alchemist.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794596240,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Ancient Apparition",
+        "preview": "Warcraft 3 Ancient Apparition.webp",
+        "file": "Warcraft 3 Ancient Apparition.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794596240,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Abaddon",
+        "preview": "Warcraft 3 Abaddon.webp",
+        "file": "Warcraft 3 Abaddon.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794596240,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tinker Warcraft",
+        "preview": "Tinker Warcraft.webp",
+        "file": "Tinker Warcraft.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "4d4mf"
+          }
+        ],
+        "meta": {
+          "date": 1794596240,
+          "commit-sha": ""
         }
       }
     ],
