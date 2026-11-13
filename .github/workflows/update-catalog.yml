@@ -46,6 +46,9 @@ jobs:
           node-version: ${{ vars.NODE_VERSION || '24' }}
 
       - name: Generate Metadata
+        env:
+          FILES_MANIFEST: ${{ vars.FILES_MANIFEST }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/add_meta.py
 
       - name: Stamp announcements
@@ -53,6 +56,8 @@ jobs:
 
       - name: Generate hashes
         env:
+          FILES_MANIFEST: ${{ vars.FILES_MANIFEST }}
+          GITHUB_TOKEN: ${{ github.token }}
           FULL_REHASH: ${{ inputs.full_rehash }}
           BASE_SHA: ${{ inputs.base_sha }}
           HEAD_SHA: ${{ inputs.head_sha }}

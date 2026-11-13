@@ -124,7 +124,7 @@ def main():
                 with dst.open("wb") as fh:
                     subprocess.run(["git", "cat-file", "blob", f"HEAD:{FILES_PREFIX}/{key}"],
                                    stdout=fh, check=True)
-            rc = subprocess.run(base_cmd + ["--source", str(stage), "--rehash"]).returncode
+            rc = subprocess.run(base_cmd + ["--source", str(stage), "--rehash", "--dates-from-git"]).returncode
         finally:
             shutil.rmtree(stage, ignore_errors=True)
         if rc != 0:

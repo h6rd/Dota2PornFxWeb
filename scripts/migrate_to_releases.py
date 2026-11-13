@@ -10,7 +10,15 @@ Restore releases from a backup (same tags and URLs, taken from manifest.json):
     python3 migrate_to_releases.py --source /path/to/backup/assets/files --manifest ...
 
 Restore, but refuse to upload files that differ from the manifest:
-    --source /path/to/backup --restore
+    ... --source /path/to/backup --restore
+
+Dates. Every manifest entry has "date" (unix time, UTC) and, when known, "commit":
+  * new/changed files get the upload time, or - with --dates-from-git (run from the website
+    repository root, full history) - the date of the last git commit that added/modified
+    assets/files/<category>/<name>, exactly what add_meta.py uses today;
+  * unchanged files keep the date they already have;
+  * one-off: fill the dates of entries that have none (the first 2000+ files) from git:
+        python3 migrate_to_releases.py --manifest ../Dota2PornFx/manifest.json --backfill-dates [--dry-run]
 
 Remove a mod (for example, at the author's request):
     python3 migrate_to_releases.py --manifest ... --remove "heroes/Some Mod.zip"
@@ -43,7 +51,6 @@ HOMOGLYPHS = {
 }
 
 # Names
-
 def safe_name(name: str) -> str:
     """Safe asset name. Already safe names (pak10_dir.vpk) are left unchanged."""
     stem, ext = os.path.splitext(name)
@@ -91,7 +98,6 @@ def sha256(path) -> str:
 
 
 # Manifest (state)
-
 def load_manifest(path: Path):
     """-> {(category, name): item}. A missing file means an empty state."""
     if not path.exists():
@@ -124,7 +130,7 @@ def write_manifest(items: dict, repo: str, path: Path):
 
 class Plan:
     def __init__(self):
-        self.releases = []          # dict: tag, title, category, files
+        self.releases = []
         self.warnings = []
         self.errors = []
 
@@ -195,6 +201,7 @@ def collect(src: Path, only, max_per_release: int, existing: dict) -> Plan:
             p = prev.get(e["name"])
             if p:                                   # already in the manifest: name and tag are fixed
                 e.update(asset=p["asset"], tag=p["tag"], prev_sha=p.get("sha256"),
+                         prev_date=p.get("date"), prev_commit=p.get("commit"),
                          status="changed" if p["size"] != e["size"] else "same", renamed=False)
             else:
                 name = safe_name(e["base"])
@@ -394,6 +401,74 @@ def stage(files, stage_dir: Path):
 
 
 
+# Dates
+def git_is_shallow() -> bool:
+    r = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], capture_output=True, text=True)
+    return r.returncode == 0 and r.stdout.strip() == "true"
+
+
+def git_file_date(key: str, prefix: str):
+    r = subprocess.run(["git", "log", "-1", "--diff-filter=AMR", "--pretty=format:%H,%at", "--",
+                        f"{prefix}/{key}"], capture_output=True, text=True)
+    if r.returncode != 0 or "," not in r.stdout:
+        return None
+    sha, ts = r.stdout.strip().split(",", 1)
+    try:
+        return int(ts), sha
+    except ValueError:
+        return None
+
+
+def set_date(e, a, now):
+    got = git_file_date(f"{e['category']}/{e['name']}", a.git_prefix) if a.dates_from_git else None
+    e["date"], e["commit"] = (got if got else (now, None))
+
+
+def assign_dates(plan: Plan, a):
+    now = int(time.time())
+    from_git = fallback = 0
+    for rel in plan.releases:
+        for e in rel["files"]:
+            if e["status"] in ("new", "changed"):
+                set_date(e, a, now)
+                if a.dates_from_git:
+                    from_git += e["commit"] is not None
+                    fallback += e["commit"] is None
+            elif a.dates_from_git and not e.get("prev_date"):
+                got = git_file_date(f"{e['category']}/{e['name']}", a.git_prefix)
+                e["date"], e["commit"] = got if got else (None, None)
+            else:
+                e["date"], e["commit"] = e.get("prev_date"), e.get("prev_commit")
+    if a.dates_from_git:
+        print(f"Dates from git: {from_git} files; no git history found (upload time used): {fallback}")
+
+def do_backfill(a, existing: dict):
+    if git_is_shallow():
+        sys.exit("This is a shallow git clone - history is incomplete. Run from a full clone "
+                 "(git fetch --unshallow) of the website repository.")
+    todo = sorted(k for k, it in existing.items() if not it.get("date"))
+    print(f"Entries without a date: {len(todo)} of {len(existing)}")
+    if not todo:
+        return
+    found, missing = 0, []
+    for i, key in enumerate(todo, 1):
+        got = git_file_date(f"{key[0]}/{key[1]}", a.git_prefix)
+        if got:
+            existing[key]["date"], existing[key]["commit"] = got
+            found += 1
+        else:
+            missing.append(f"{key[0]}/{key[1]}")
+        if i % 200 == 0:
+            print(f"   {i}/{len(todo)}")
+    print(f"Dates found in git: {found}; not found: {len(missing)}")
+    for m in missing[:10]:
+        print(f"  ! no add/modify commit for {a.git_prefix}/{m}")
+    if a.dry_run:
+        print("\nDRY-RUN: manifest not changed.")
+        return
+    write_manifest(existing, a.repo, Path(a.manifest))
+    print("Commit manifest.json to the releases repository.")
+
 # Commands
 
 def run_upload(plan: Plan, a):
@@ -401,7 +476,13 @@ def run_upload(plan: Plan, a):
     base = f"https://github.com/{a.repo}"
     failed = []
     stage_root = Path(a.staging)
+    try:
+        return _upload_releases(plan, a, base, failed, stage_root)
+    finally:
+        shutil.rmtree(stage_root, ignore_errors=True)
 
+
+def _upload_releases(plan, a, base, failed, stage_root):
     for rel in plan.releases:
         tag = rel["tag"]
         print(f"\n== {tag}: {len(rel['files'])} files in the plan")
@@ -416,6 +497,7 @@ def run_upload(plan: Plan, a):
                     e["sha256"] = sha256(e["path"])
                     if e["status"] == "same" and e.get("prev_sha") and e["sha256"] != e["prev_sha"]:
                         e["status"] = "changed"
+                        set_date(e, a, int(time.time()))
                 if a.restore and e["status"] == "changed":
                     raise RuntimeError(f"--restore: file '{e['name']}' in the backup differs from the manifest "
                                        f"(size/sha256) - is the backup older? Nothing was uploaded to {tag}.")
@@ -449,20 +531,23 @@ def run_upload(plan: Plan, a):
         except Exception as ex:                             # noqa: BLE001
             print(f"   ERROR: {ex}")
             failed.append(tag)
-    shutil.rmtree(stage_root, ignore_errors=True)
     return failed
 
 
 def merge_manifest(existing: dict, plan: Plan, failed=()):
     items = dict(existing)
+    known_cats = {k[0] for k in existing}
+    skip_cats = {rel["category"] for rel in plan.releases
+                 if rel["tag"] in failed and rel["category"] not in known_cats}
     for rel in plan.releases:
-        if rel["tag"] in failed:
+        if rel["tag"] in failed or rel["category"] in skip_cats:
             continue
         for e in rel["files"]:
             items[(e["category"], e["name"])] = {
                 "category": e["category"], "name": e["name"], "asset": e["asset"],
                 "tag": e["tag"], "size": e["size"], "sha256": e.get("sha256") or
                 (e.get("prev_sha") if e["status"] == "same" else None),
+                "date": e.get("date"), "commit": e.get("commit"),
             }
     return items
 
@@ -534,6 +619,13 @@ def main():
     ap.add_argument("--restore", action="store_true",
                     help="restore mode: verifies sha256 and refuses to upload files "
                          "that differ from the manifest")
+    ap.add_argument("--dates-from-git", action="store_true",
+                    help="date new/changed files by their last add/modify git commit (run from the "
+                         "website repository root with full history) instead of the upload time")
+    ap.add_argument("--backfill-dates", action="store_true",
+                    help="one-off: fill missing dates of manifest entries from git history, upload nothing")
+    ap.add_argument("--git-prefix", default="assets/files",
+                    help="path of the mods inside the git repository (default: assets/files)")
     ap.add_argument("--no-sha256", action="store_true", help="do not compute sha256 (not recommended)")
     ap.add_argument("--batch", type=int, default=20, help="files per gh upload call")
     ap.add_argument("--sleep", type=float, default=1.0, help="pause between batches, seconds")
@@ -558,6 +650,11 @@ def main():
             do_check(a, existing)
         except RuntimeError as ex:
             sys.exit(f"ERROR: {ex}")
+    if a.backfill_dates:
+        if not existing:
+            sys.exit("The manifest is empty - nothing to fill.")
+        do_backfill(a, existing)
+        return
     if a.remove:
         try:
             do_remove(a, existing)
@@ -573,13 +670,21 @@ def main():
         sys.exit("\nFix the errors above - nothing was uploaded.")
     if not plan.releases:
         sys.exit("Nothing to upload.")
+    if a.dates_from_git and git_is_shallow():
+        print("WARNING: shallow git clone - dates from git may be missing (upload time is used instead).")
+    assign_dates(plan, a)
 
     if a.dry_run:
         write_manifest(merge_manifest(existing, plan), a.repo, Path("manifest.dry-run.json"))
         print("\nDRY-RUN: nothing uploaded, gh was not called, your manifest.json is untouched.")
         return
 
-    failed = run_upload(plan, a)
+    try:
+        failed = run_upload(plan, a)
+    except KeyboardInterrupt:
+        print("\n\nInterrupted (Ctrl+C). Everything already uploaded stays on GitHub. "
+              "Run the same command again to continue - it uploads only what is missing.")
+        sys.exit(130)
     write_manifest(merge_manifest(existing, plan, failed), a.repo, mpath)
     if failed:
         print(f"\nUnfinished releases: {', '.join(failed)}. Run the script again - "
