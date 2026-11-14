@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft III Neutrals",
+      "category": "neutral-creeps"
+    },
+    {
+      "name": "Warcraft 3 Arc Warden",
+      "category": "heroes"
+    },
+    {
       "name": "Invoker ZXC",
       "category": "heroes"
     },
@@ -323,10 +331,6 @@
     {
       "name": "Warcraft III Radiant",
       "category": "creeps"
-    },
-    {
-      "name": "Warcraft III Neutrals",
-      "category": "neutral-creeps"
     },
     {
       "name": "Warcraft III Ancient & Builds",
@@ -16484,6 +16488,21 @@
         "meta": {
           "date": 1794600940,
           "commit-sha": "7b4baf9d23aa6be235742225174e4701370dd326"
+        }
+      },
+      {
+        "name": "Warcraft 3 Arc Warden",
+        "preview": "Warcraft 3 Arc Warden.webp",
+        "file": "Warcraft 3 Arc Warden.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794649158,
+          "commit-sha": ""
         }
       }
     ],
@@ -33596,8 +33615,8 @@
           }
         ],
         "meta": {
-          "date": 1793866697,
-          "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
+          "date": 1794649158,
+          "commit-sha": ""
         }
       }
     ],
