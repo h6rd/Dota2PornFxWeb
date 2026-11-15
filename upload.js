@@ -28,8 +28,8 @@
   const NAME_LENGTH_EXCEPTIONS = { 'keeper of the light': 39, 'natures prophet': 39 };
   const MAX_URL_LENGTH = 2048;
 
-  const NAME_CHAR_RE = /[a-zA-Z0-9 ]/;
-  const MOD_NAME_RE = /^[a-zA-Z0-9]+(?: [a-zA-Z0-9]+)*$/;
+  const NAME_CHAR_RE = /[a-zA-Z0-9 -]/;
+  const MOD_NAME_RE = /^[a-zA-Z0-9]+(?:(?: |-)[a-zA-Z0-9]+)*$/;
   const MISPLACED_HYPHEN_RE = /(^|[^a-zA-Z0-9])-|-([^a-zA-Z0-9]|$)/;
   const NICK_RE = /^[\p{L}\p{N} _.\-!,()\[\]#@+]+$/u;
   const SAFE_TEXT_RE = /^[^<>"`\\\u0000-\u001f\u007f]+$/;
@@ -1284,7 +1284,7 @@
       if (S.update && !modIsReplaceable(S.update.mod)) return blockedMessage(S.update.mod);
       if (!upd) {
         const max = getMaxNameLength(hero);
-        if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters, English letters and numbers only, no punctuation or symbols).`;
+        if (name.length > max || !MOD_NAME_RE.test(name) || MISPLACED_HYPHEN_RE.test(name)) return `Invalid mod name (max ${max} characters; use English letters, numbers, spaces and hyphens between words only).`;
         if (HERO_AWARE_CATEGORIES.includes(category) && hero) {
           const flatName = flatKey(name), flatHero = flatKey(hero);
           if (!flatName.includes(flatHero)) return `The mod name must include the hero name "${heroAsName(hero)}".`;
