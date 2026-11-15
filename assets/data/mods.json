@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Inbossik Invoker",
+      "category": "heroes"
+    },
+    {
+      "name": "Jakiro Layn Dlya Krutix",
+      "category": "heroes"
+    },
+    {
+      "name": "Phantom Lancer Arima",
+      "category": "heroes"
+    },
+    {
+      "name": "Selfie Kafka Dc",
+      "category": "backgrounds"
+    },
+    {
       "name": "Warcraft III Neutrals",
       "category": "neutral-creeps"
     },
@@ -16504,6 +16520,67 @@
           "date": 1794649159,
           "commit-sha": "84fc7129cbd1069fcb37f06d1f132c19ec2b5ff7"
         }
+      },
+      {
+        "name": "Phantom Lancer Arima",
+        "preview": "Phantom Lancer Arima.webp",
+        "file": "Phantom Lancer Arima.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1794708398,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Jakiro Layn Dlya Krutix",
+        "preview": "Jakiro Layn Dlya Krutix.webp",
+        "file": "Jakiro Layn Dlya Krutix.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1794708398,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Inbossik Invoker",
+        "preview": "Inbossik Invoker.webp",
+        "file": "Inbossik Invoker.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "cvrsxd4425"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794708398,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -28059,6 +28136,24 @@
         "meta": {
           "date": 1794493637,
           "commit-sha": "1fa10f19be5ef3915f7cd1e0eb56181d10e96404"
+        }
+      },
+      {
+        "name": "Selfie Kafka Dc",
+        "preview": "Selfie Kafka Dc.webp",
+        "file": "Selfie Kafka Dc.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1794708398,
+          "commit-sha": ""
         }
       }
     ],
