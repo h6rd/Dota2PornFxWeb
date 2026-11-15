@@ -145,6 +145,7 @@ jobs:
     if: |
       always() &&
       vars.RELEASES_MIRROR == 'true' &&
+      vars.MODS_STORAGE != 'releases' &&
       needs.changes.result == 'success' &&
       needs.changes.outputs.mods == 'true' &&
       needs.catalog.result != 'failure' &&

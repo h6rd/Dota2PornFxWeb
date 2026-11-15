@@ -58,6 +58,7 @@ jobs:
         env:
           FILES_MANIFEST: ${{ vars.FILES_MANIFEST }}
           GITHUB_TOKEN: ${{ github.token }}
+          MODS_STORAGE: ${{ vars.MODS_STORAGE || 'git' }}
           FULL_REHASH: ${{ inputs.full_rehash }}
           BASE_SHA: ${{ inputs.base_sha }}
           HEAD_SHA: ${{ inputs.head_sha }}

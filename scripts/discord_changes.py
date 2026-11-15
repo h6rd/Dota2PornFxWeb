@@ -9,6 +9,7 @@ from urllib.parse import unquote
 MODS_PATH = "assets/data/mods.json"
 ANN_PATH = "assets/data/announcements.json"
 FILES_PREFIX = "assets/files/"
+MODS_STORAGE = (os.environ.get("MODS_STORAGE") or "git").strip().lower()
 SITE_URL = "https://h6rd.github.io/Dota2PornFxWeb/"
 MINIFY_URL = "https://egezenn.github.io/dota2-minify/"
 MOD_MANAGER_URL = "https://dota2modmanager.com/"
@@ -103,6 +104,13 @@ def flatten(data):
     for key in mods:
         mods[key].sort(key=lambda x: json.dumps(x, sort_keys=True, ensure_ascii=False))
     return mods, files
+
+
+def meta_dates(data):
+    out = {}
+    for cat, m in iter_mods(data):
+        out.setdefault((cat, mod_name(m)), []).append((m.get("meta") or {}).get("date"))
+    return {k: sorted(v, key=str) for k, v in out.items()}
 
 
 def changed_files(base, head):
@@ -223,18 +231,26 @@ def main():
         print("No BASE_SHA, nothing to compare.")
         return finish(False)
 
-    old_mods, _ = flatten(load_at(base, MODS_PATH, {}))
-    new_mods, new_files = flatten(load_at(head, MODS_PATH, {}))
+    old_data = load_at(base, MODS_PATH, {})
+    new_data = load_at(head, MODS_PATH, {})
+    old_mods, _ = flatten(old_data)
+    new_mods, new_files = flatten(new_data)
 
     added = sorted(k for k in new_mods if k not in old_mods)
     removed = sorted(k for k in old_mods if k not in new_mods)
     updated = {k for k in new_mods if k in old_mods and new_mods[k] != old_mods[k]}
 
     # Mods whose files were replaced without touching mods.json
-    for rel in changed_files(base, head):
-        key = new_files.get(rel)
-        if key and key not in added:
-            updated.add(key)
+    if MODS_STORAGE == "releases":
+        old_dates, new_dates = meta_dates(old_data), meta_dates(new_data)
+        for key in new_mods:
+            if key in old_mods and key not in added and old_dates.get(key) != new_dates.get(key):
+                updated.add(key)
+    else:
+        for rel in changed_files(base, head):
+            key = new_files.get(rel)
+            if key and key not in added:
+                updated.add(key)
     updated = sorted(updated)
 
     old_ann = {ann_text(a) for a in load_at(base, ANN_PATH, []) if isinstance(a, (dict, str))}

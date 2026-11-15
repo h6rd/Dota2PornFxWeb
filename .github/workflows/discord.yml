@@ -51,6 +51,7 @@ jobs:
           HEAD_SHA: ${{ inputs.head_sha }}
           GIF_URL: ${{ steps.gif.outputs.url }}
           AVATAR_URL: ${{ steps.gif.outputs.avatar }}
+          MODS_STORAGE: ${{ vars.MODS_STORAGE || 'git' }}
         run: python3 scripts/discord_changes.py --out discord_payload.json
 
       - name: Send discord notification

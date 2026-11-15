@@ -5,6 +5,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+try:
+    import files_manifest
+except ImportError:
+    files_manifest = None
+
+# MODS_STORAGE=git (default): hashes are computed from assets/files in git (the old behaviour).
+# MODS_STORAGE=releases: hashes are taken from the sha256 values of the releases manifest.
+MODS_STORAGE = (os.environ.get("MODS_STORAGE") or "git").strip().lower()
+
 FILES_DIR = Path("assets/files")
 OUTPUT_FILE = Path("assets/data/mod-hashes.json")
 
@@ -189,7 +198,50 @@ def diff_rehash(base_sha, head_sha):
     return hashes
 
 
+def main_releases():
+    if files_manifest is None or not files_manifest.source():
+        sys.exit("::error::FILES_MANIFEST is not set - in MODS_STORAGE=releases mode mod-hashes.json is built from the releases manifest")
+
+    data = files_manifest.load()
+
+    hashes, missing = {}, []
+    for f in data["files"]:
+        key = f"{f['category']}/{f['name']}"
+        if os.path.basename(key).startswith("."):
+            continue
+        if not f.get("sha256"):
+            missing.append(key)
+            continue
+        hashes[key] = f["sha256"]
+
+    if missing:
+        print(f"::error::{len(missing)} manifest entries have no sha256, e.g. {missing[:5]}", file=sys.stderr)
+        sys.exit(1)
+
+    existing = load_existing_hashes()
+    if not hashes and existing:
+        print(f"::error::manifest produced 0 hashes but {OUTPUT_FILE} has {len(existing)}. Refusing to overwrite.",
+              file=sys.stderr)
+        sys.exit(1)
+
+    save_hashes(hashes)
+    print(f"mod-hashes.json: {len(hashes)} entries from the releases manifest")
+
+
 def main():
+    if MODS_STORAGE == "releases":
+        return main_releases()
+    if MODS_STORAGE != "git":
+        sys.exit(f'::error::MODS_STORAGE must be "git" or "releases", got "{MODS_STORAGE}"')
+
+    probe = subprocess.run(
+        ["git", "ls-tree", "--name-only", os.environ.get("HEAD_SHA") or "HEAD", "--", FILES_DIR.as_posix()],
+        capture_output=True, text=True,
+    )
+    if probe.returncode == 0 and not probe.stdout.strip():
+        sys.exit("::error::assets/files is not in git, but MODS_STORAGE is not 'releases'. "
+                 "Set the MODS_STORAGE repository variable to 'releases'.")
+
     is_full_rehash = os.environ.get("FULL_REHASH", "false").lower() == "true"
     head_sha = os.environ.get("HEAD_SHA") or "HEAD"
 

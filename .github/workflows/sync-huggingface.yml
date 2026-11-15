@@ -57,4 +57,7 @@ jobs:
           HF_HUB_DISABLE_PROGRESS_BARS: "1"
           FULL_SYNC: ${{ inputs.full_sync }}
           BASE_SHA: ${{ inputs.base_sha }}
+          MODS_STORAGE: ${{ vars.MODS_STORAGE || 'git' }}
+          FILES_MANIFEST: ${{ vars.FILES_MANIFEST }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/sync_huggingface.py
