@@ -1284,7 +1284,7 @@
       if (S.update && !modIsReplaceable(S.update.mod)) return blockedMessage(S.update.mod);
       if (!upd) {
         const max = getMaxNameLength(hero);
-        if (name.length > max || !MOD_NAME_RE.test(name) || MISPLACED_HYPHEN_RE.test(name)) return `Invalid mod name (max ${max} characters; use English letters, numbers, spaces and hyphens between words only).`;
+        if (name.length > max || !MOD_NAME_RE.test(name)) return `Invalid mod name (max ${max} characters; use English letters, numbers, spaces and hyphens between words only).`;
         if (HERO_AWARE_CATEGORIES.includes(category) && hero) {
           const flatName = flatKey(name), flatHero = flatKey(hero);
           if (!flatName.includes(flatHero)) return `The mod name must include the hero name "${heroAsName(hero)}".`;
