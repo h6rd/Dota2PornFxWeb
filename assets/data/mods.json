@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft 3 Anti-Mage",
+      "category": "heroes"
+    },
+    {
       "name": "Join Discord Server",
       "category": "news"
     },
@@ -17072,6 +17076,21 @@
         "meta": {
           "date": 1794779021,
           "commit-sha": "61bf51d40054aa2649bcf08715ee399e0615ec11"
+        }
+      },
+      {
+        "name": "Warcraft 3 Anti-Mage",
+        "preview": "Warcraft 3 Anti-Mage.webp",
+        "file": "Warcraft 3 Anti-Mage.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794782047,
+          "commit-sha": ""
         }
       }
     ],
