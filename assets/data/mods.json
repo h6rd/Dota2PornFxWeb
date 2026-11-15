@@ -1,6 +1,90 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Join Discord Server",
+      "category": "news"
+    },
+    {
+      "name": "Warcraft 3 Keeper of the Light",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Juggernaut",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Jakiro",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 IO",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Invoker",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Huskar",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Hoodwink",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Gyrocopter",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Grimstroke",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Faceless Void",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Enigma",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Enchantress",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Ember Spirit",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Elder Titan",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Earthshaker",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Earth Spirit",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Drow Ranger",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Dragon Knight",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Doom",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Disruptor",
+      "category": "heroes"
+    },
+    {
       "name": "Severance Mega Kill",
       "category": "sounds"
     },
@@ -16689,6 +16773,226 @@
           "date": 1794775254,
           "commit-sha": "bbb0cb11d4e43d3f04380b3cb5d979c6fa380c18"
         }
+      },
+      {
+        "name": "Warcraft 3 Disruptor",
+        "preview": "Warcraft 3 Disruptor.webp",
+        "file": "Warcraft 3 Disruptor.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Doom",
+        "preview": "Warcraft 3 Doom.webp",
+        "file": "Warcraft 3 Doom.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Dragon Knight",
+        "preview": "Warcraft 3 Dragon Knight.webp",
+        "file": "Warcraft 3 Dragon Knight.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Drow Ranger",
+        "preview": "Warcraft 3 Drow Ranger.webp",
+        "file": "Warcraft 3 Drow Ranger.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Earthshaker",
+        "preview": "Warcraft 3 Earthshaker.webp",
+        "file": "Warcraft 3 Earthshaker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Earth Spirit",
+        "preview": "Warcraft 3 Earth Spirit.webp",
+        "file": "Warcraft 3 Earth Spirit.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Elder Titan",
+        "preview": "Warcraft 3 Elder Titan.webp",
+        "file": "Warcraft 3 Elder Titan.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Ember Spirit",
+        "preview": "Warcraft 3 Ember Spirit.webp",
+        "file": "Warcraft 3 Ember Spirit.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Enchantress",
+        "preview": "Warcraft 3 Enchantress.webp",
+        "file": "Warcraft 3 Enchantress.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Enigma",
+        "preview": "Warcraft 3 Enigma.webp",
+        "file": "Warcraft 3 Enigma.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Faceless Void",
+        "preview": "Warcraft 3 Faceless Void.webp",
+        "file": "Warcraft 3 Faceless Void.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Grimstroke",
+        "preview": "Warcraft 3 Grimstroke.webp",
+        "file": "Warcraft 3 Grimstroke.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Gyrocopter",
+        "preview": "Warcraft 3 Gyrocopter.webp",
+        "file": "Warcraft 3 Gyrocopter.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Hoodwink",
+        "preview": "Warcraft 3 Hoodwink.webp",
+        "file": "Warcraft 3 Hoodwink.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Huskar",
+        "preview": "Warcraft 3 Huskar.webp",
+        "file": "Warcraft 3 Huskar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Invoker",
+        "preview": "Warcraft 3 Invoker.webp",
+        "file": "Warcraft 3 Invoker.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 IO",
+        "preview": "Warcraft 3 IO.webp",
+        "file": "Warcraft 3 IO.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Jakiro",
+        "preview": "Warcraft 3 Jakiro.webp",
+        "file": "Warcraft 3 Jakiro.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Juggernaut",
+        "preview": "Warcraft 3 Juggernaut.webp",
+        "file": "Warcraft 3 Juggernaut.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Keeper of the Light",
+        "preview": "Warcraft 3 Keeper of the Light.webp",
+        "file": "Warcraft 3 Keeper of the Light.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -36567,14 +36871,8 @@
       {
         "name": "Join Discord Server",
         "url": "https://discord.gg/PBvG8D9MxT",
-        "description": "Chat & get support",
+        "description": "Stay informed about website issues",
         "preview": "assets/previews/news/Discord.webp",
-        "links": [
-          {
-            "type": "author",
-            "url": "hrdq"
-          }
-        ],
         "meta": {
           "imageMissing": true
         }
@@ -36584,12 +36882,6 @@
         "url": "https://d2pfxwiki.pages.dev/",
         "description": "Wiki & Guides",
         "preview": "assets/previews/news/Dota2PornFxWiki.webp",
-        "links": [
-          {
-            "type": "author",
-            "url": "hrdq"
-          }
-        ],
         "meta": {
           "imageMissing": true
         }
