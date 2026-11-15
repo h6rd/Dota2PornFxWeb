@@ -1,6 +1,58 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Severance Mega Kill",
+      "category": "sounds"
+    },
+    {
+      "name": "Largo Ult Kekht Arakh Sorrow",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Silent Blue Music",
+      "category": "music"
+    },
+    {
+      "name": "Windranger Kotobuki Tsumugi",
+      "category": "heroes"
+    },
+    {
+      "name": "White Match Finding",
+      "category": "parts"
+    },
+    {
+      "name": "Lifestealer Automaton Ai",
+      "category": "heroes"
+    },
+    {
+      "name": "Tsumugi Powershot",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Juuzou Suzuya Bg",
+      "category": "backgrounds"
+    },
+    {
+      "name": "The Final Doom By Armair",
+      "category": "heroes"
+    },
+    {
+      "name": "White Play Button",
+      "category": "parts"
+    },
+    {
+      "name": "Keeper Of The Light Taunt 10000 Weeping",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Noise Veil Sounds",
+      "category": "sounds"
+    },
+    {
+      "name": "White Match Accept Popup",
+      "category": "parts"
+    },
+    {
       "name": "Inbossik Invoker",
       "category": "heroes"
     },
@@ -16581,6 +16633,62 @@
           "date": 1794708399,
           "commit-sha": "ff6bd9f90d1e74fd2936cc0120659a7376c37e3d"
         }
+      },
+      {
+        "name": "The Final Doom By Armair",
+        "preview": "The Final Doom By Armair.webp",
+        "file": "The Final Doom By Armair.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Lifestealer Automaton Ai",
+        "preview": "Lifestealer Automaton Ai.webp",
+        "file": "Lifestealer Automaton Ai.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "dupe busters community"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Windranger Kotobuki Tsumugi",
+        "preview": "Windranger Kotobuki Tsumugi.webp",
+        "file": "Windranger Kotobuki Tsumugi.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "mrcorkie"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -24415,6 +24523,24 @@
                 "date": 1793178545,
                 "commit-sha": "6b57bfcd6931f586f2ed99b4c148d6ff848716bd"
               }
+            },
+            {
+              "name": "White Play Button",
+              "preview": "White Play Button.webp",
+              "file": "White Play Button.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "cursedseizures"
+                }
+              ],
+              "meta": {
+                "date": 1794775251,
+                "commit-sha": ""
+              }
             }
           ]
         },
@@ -24787,6 +24913,42 @@
               "meta": {
                 "date": 1793169329,
                 "commit-sha": "858c5c019998b6fff8724c3f7f91be4080ac845e"
+              }
+            },
+            {
+              "name": "White Match Accept Popup",
+              "preview": "White Match Accept Popup.webp",
+              "file": "White Match Accept Popup.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "cursedseizures"
+                }
+              ],
+              "meta": {
+                "date": 1794775251,
+                "commit-sha": ""
+              }
+            },
+            {
+              "name": "White Match Finding",
+              "preview": "White Match Finding.webp",
+              "file": "White Match Finding.zip",
+              "tags": {
+                "css": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "cursedseizures"
+                }
+              ],
+              "meta": {
+                "date": 1794775251,
+                "commit-sha": ""
               }
             }
           ]
@@ -28155,6 +28317,24 @@
           "date": 1794708399,
           "commit-sha": "ff6bd9f90d1e74fd2936cc0120659a7376c37e3d"
         }
+      },
+      {
+        "name": "Juuzou Suzuya Bg",
+        "preview": "Juuzou Suzuya Bg.webp",
+        "file": "Juuzou Suzuya Bg.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "vkzzenill"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -30515,6 +30695,21 @@
           "date": 1793866697,
           "commit-sha": "f1b462a5b2fca0169d7339829941287b65071296"
         }
+      },
+      {
+        "name": "Silent Blue Music",
+        "preview": "Silent Blue Music.webp",
+        "file": "Silent Blue Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
       }
     ],
     "cursors": [
@@ -32654,6 +32849,63 @@
           "date": 1793998477,
           "commit-sha": "dce8441db20f42ac17d1cbc5eab5de8d2fce538b"
         }
+      },
+      {
+        "name": "Keeper Of The Light Taunt 10000 Weeping",
+        "preview": "Keeper Of The Light Taunt 10000 Weeping.webp",
+        "file": "Keeper Of The Light Taunt 10000 Weeping.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=xN-3ed0ooYc"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Tsumugi Powershot",
+        "preview": "Tsumugi Powershot.webp",
+        "file": "Tsumugi Powershot.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "mrcorkie"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/swlOLy8pR-o"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Largo Ult Kekht Arakh Sorrow",
+        "preview": "Largo Ult Kekht Arakh Sorrow.webp",
+        "file": "Largo Ult Kekht Arakh Sorrow.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/NfV-meORCHc"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
       }
     ],
     "sounds": [
@@ -33123,6 +33375,44 @@
         "meta": {
           "date": 1794250919,
           "commit-sha": "84bcbdbd9506d10c9e84dc0c79e31d9942deba2d"
+        }
+      },
+      {
+        "name": "Noise Veil Sounds",
+        "preview": "Noise Veil Sounds.webp",
+        "file": "Noise Veil Sounds.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=qD5Z8I1CfE8"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Severance Mega Kill",
+        "preview": "Severance Mega Kill.webp",
+        "file": "Severance Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "драг"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/oKuwIFH9gHs"
+          }
+        ],
+        "meta": {
+          "date": 1794775251,
+          "commit-sha": ""
         }
       }
     ],
