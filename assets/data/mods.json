@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Data.VPK",
       "category": "sites"
     },
@@ -279,10 +283,6 @@
     {
       "name": "Warcraft 3 Alchemist",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Radiant Creeps Kabanchiki Wow",
