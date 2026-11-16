@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "The Final Mars",
+      "category": "heroes"
+    },
+    {
+      "name": "The True Sand King",
+      "category": "heroes"
+    },
+    {
+      "name": "Prime Lycan",
+      "category": "heroes"
+    },
+    {
       "name": "Warcraft 3 Anti-Mage",
       "category": "heroes"
     },
@@ -17091,6 +17103,75 @@
         "meta": {
           "date": 1794782048,
           "commit-sha": "f97f2cfeeae2ca478bd011d1423c03978b0b765e"
+        }
+      },
+      {
+        "name": "Prime Lycan",
+        "preview": "Prime Lycan.webp",
+        "file": "Prime Lycan.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794861784,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "The True Sand King",
+        "preview": "The True Sand King.webp",
+        "file": "The True Sand King.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794861784,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "The Final Mars",
+        "preview": "The Final Mars.webp",
+        "file": "The Final Mars.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794861784,
+          "commit-sha": ""
         }
       }
     ],
