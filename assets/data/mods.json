@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Data.VPK",
+      "category": "sites"
+    },
+    {
       "name": "The Final Mars",
       "category": "heroes"
     },
@@ -29178,6 +29182,12 @@
         "name": "InvokerGame",
         "preview": "InvokerGame.webp",
         "file": "https://invokergame.org/",
+        "type": "guide"
+      },
+      {
+        "name": "Data.VPK",
+        "preview": "Data.VPK.webp",
+        "file": "https://datavpk.com/",
         "type": "guide"
       }
     ],
