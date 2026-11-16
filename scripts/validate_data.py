@@ -19,6 +19,9 @@ ANNOUNCEMENTS_JSON = f"{DATA_DIR}/announcements.json"
 
 REPO_HOSTS = {"h6rd.github.io", "raw.githubusercontent.com"}
 
+MODS_STORAGE = (os.environ.get("MODS_STORAGE") or "git").strip().lower()
+DEFAULT_MANIFEST = "https://api.github.com/repos/h6rd/Dota2PornFx/contents/manifest.json?ref=main"
+
 REF = os.environ.get("VALIDATE_REF", "").strip() or "HEAD"
 STRICT_PREVIEWS = os.environ.get("STRICT_PREVIEWS", "false").strip().lower() == "true"
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -63,6 +66,14 @@ def tree_paths(prefix):
         check=True,
     ).stdout
     return {p for p in out.decode("utf-8").split("\0") if p}
+
+
+def manifest_paths():
+    """assets/files/<category>/<name> for every file in the releases manifest."""
+    import files_manifest
+
+    src = files_manifest.source() or DEFAULT_MANIFEST
+    return {FILES_PREFIX + p for p in files_manifest.paths(files_manifest.load(src))}
 
 
 def load_json(path):
@@ -363,12 +374,26 @@ def main():
     else:
         mods_data = mods_json["modsData"]
         try:
-            files_index = PathIndex(tree_paths(FILES_PREFIX))
+            git_files = tree_paths(FILES_PREFIX)
             previews_index = PathIndex(tree_paths(PREVIEWS_PREFIX))
         except (subprocess.CalledProcessError, FileNotFoundError) as e:
             detail = getattr(e, "stderr", b"") or b""
             print(f"::error::cannot read the git tree at {REF}: {e} {detail.decode(errors='replace')}", file=sys.stderr)
             return 1
+
+        if MODS_STORAGE not in ("git", "releases"):
+            print(f'::error::MODS_STORAGE must be "git" or "releases", got "{MODS_STORAGE}"', file=sys.stderr)
+            return 1
+        all_files = set(git_files)
+        if MODS_STORAGE == "releases" or not git_files:
+            try:
+                all_files |= manifest_paths()
+            except Exception as e:  # noqa: BLE001
+                if not git_files:
+                    print(f"::error::assets/files is not in git and the releases manifest cannot be read: {e}", file=sys.stderr)
+                    return 1
+                warn(MODS_JSON, f"cannot read the releases manifest ({e}); checked against git only")
+        files_index = PathIndex(all_files)
 
         validator = Validator(files_index, previews_index, guides)
         for category, content in mods_data.items():
