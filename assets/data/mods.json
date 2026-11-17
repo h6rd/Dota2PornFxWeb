@@ -1,6 +1,34 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft 3 Voices Spanish",
+      "category": "sounds"
+    },
+    {
+      "name": "Warcraft 3 Voices French",
+      "category": "sounds"
+    },
+    {
+      "name": "Warcraft 3 Voices Spanish La",
+      "category": "sounds"
+    },
+    {
+      "name": "Simple Tower Re-Aggro Radius",
+      "category": "other"
+    },
+    {
+      "name": "Bloody Dragon Knight",
+      "category": "heroes"
+    },
+    {
+      "name": "White Clicks",
+      "category": "other"
+    },
+    {
+      "name": "Warcraft 3 Voices Italian",
+      "category": "sounds"
+    },
+    {
       "name": "Malrine Type Primal Beast",
       "category": "heroes"
     },
@@ -17204,6 +17232,28 @@
           "date": 1794914486,
           "commit-sha": "c3df9cb9e54766becce7a3edf3fd6d6b99165e92"
         }
+      },
+      {
+        "name": "Bloody Dragon Knight",
+        "preview": "Bloody Dragon Knight.webp",
+        "file": "Bloody Dragon Knight.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -26394,6 +26444,36 @@
           "date": 1793620367,
           "commit-sha": "8eed2edc12453184eeb55e326c73b76fd7e126c3"
         }
+      },
+      {
+        "name": "White Clicks",
+        "preview": "White Clicks.webp",
+        "file": "White Clicks.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Simple Tower Re-Aggro Radius",
+        "preview": "Simple Tower Re-Aggro Radius.webp",
+        "file": "Simple Tower Re-Aggro Radius.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "YZT"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
       }
     ],
     "river": [
@@ -33934,6 +34014,66 @@
         "meta": {
           "date": 1794775254,
           "commit-sha": "bbb0cb11d4e43d3f04380b3cb5d979c6fa380c18"
+        }
+      },
+      {
+        "name": "Warcraft 3 Voices Italian",
+        "preview": "Warcraft 3 Voices Italian.webp",
+        "file": "Warcraft 3 Voices Italian.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Voices Spanish La",
+        "preview": "Warcraft 3 Voices Spanish La.webp",
+        "file": "Warcraft 3 Voices Spanish La.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Voices French",
+        "preview": "Warcraft 3 Voices French.webp",
+        "file": "Warcraft 3 Voices French.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794953053,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Voices Spanish",
+        "preview": "Warcraft 3 Voices Spanish.webp",
+        "file": "Warcraft 3 Voices Spanish.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1794953054,
+          "commit-sha": ""
         }
       }
     ],
