@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Malrine Type Primal Beast",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17176,6 +17180,29 @@
         "meta": {
           "date": 1794861785,
           "commit-sha": "248f9226bc523d41795728c0cbc5e9c9d7c9aa98"
+        }
+      },
+      {
+        "name": "Malrine Type Primal Beast",
+        "preview": "Malrine Type Primal Beast.webp",
+        "file": "Malrine Type Primal Beast.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "modded",
+            "url": "armair"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1794914486,
+          "commit-sha": ""
         }
       }
     ],
