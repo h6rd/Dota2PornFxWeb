@@ -67,7 +67,15 @@ const SOURCE_URLS = {
     local: ''
 };
 
-const FILE_SOURCES = (() => {
+const RELEASES = 'releases';
+const DOWNLOAD_PROXY = 'https://release-proxy.law4lus88.workers.dev';
+const RELEASES_MANIFEST_URLS = [
+    'https://raw.githubusercontent.com/h6rd/Dota2PornFx/main/manifest.json',
+    'https://huggingface.co/datasets/hrdq/Dota2PornFx/resolve/main/manifest.json',
+    'https://cdn.jsdelivr.net/gh/h6rd/Dota2PornFx@main/manifest.json'
+];
+
+const DATA_SOURCES = (() => {
     const host = window.location.hostname;
     const matches = list => list.some(h => host === h || host.endsWith('.' + h));
     const { github, hf, local } = SOURCE_URLS;
@@ -78,16 +86,142 @@ const FILE_SOURCES = (() => {
     return [github, hf];
 })();
 
+const FILE_SOURCES = (() => {
+    const host = window.location.hostname;
+    const matches = list => list.some(h => host === h || host.endsWith('.' + h));
+    const { github, hf, local } = SOURCE_URLS;
+
+    if (matches(['d2pfx.onrender.com', 'd2pfx.netlify.app', 'd2pfx.vercel.app'])) return [RELEASES, hf, local, github];
+    if (matches(['127.0.0.1'])) return [local, RELEASES, hf, github];
+    return [RELEASES, hf, github];
+})();
+
 const FILES_BASE_URL = FILE_SOURCES[0];
 
 function buildSourceUrl(base, path) {
     return base ? `${base}/${path}` : path;
 }
 
-function getFileUrls(categoryId, filename) {
+const releaseIndex = new Map();
+const releaseUrls = new Set();
+let manifestPromise = null;
+
+function manifestKey(s) {
+    let v = String(s || '').replace(/\\/g, '/').replace(/^\/+/, '');
+    try { v = decodeURIComponent(v); } catch (_) { }
+    return v.toLowerCase().replace(/\s+/g, '.');
+}
+
+function registerReleaseFile(path, url) {
+    if (!path || typeof url !== 'string' || !/^https?:\/\//i.test(url)) return;
+    const segs = manifestKey(path).split('/').filter(Boolean);
+    if (!segs.length) return;
+    releaseUrls.add(url);
+    for (let i = 0; i < segs.length; i++) {
+        const key = segs.slice(i).join('/');
+        if (i === 0 || !releaseIndex.has(key)) releaseIndex.set(key, url);
+    }
+}
+
+const MANIFEST_URL_FIELDS = ['url', 'download_url', 'browser_download_url', 'downloadUrl', 'href', 'link'];
+const MANIFEST_NAME_FIELDS = ['path', 'file', 'filename', 'fileName', 'name'];
+
+function indexManifest(node, trail = [], baseUrl = '') {
+    if (node == null) return;
+
+    if (Array.isArray(node)) {
+        node.forEach(n => indexManifest(n, trail, baseUrl));
+        return;
+    }
+
+    if (typeof node === 'string') {
+        if (!trail.length) return;
+        const url = /^https?:\/\//i.test(node) ? node : (baseUrl ? `${baseUrl.replace(/\/+$/, '')}/${node.replace(/^\/+/, '')}` : '');
+        if (url) registerReleaseFile(trail.join('/'), url);
+        return;
+    }
+
+    if (typeof node !== 'object') return;
+
+    const urlField = MANIFEST_URL_FIELDS.find(f => typeof node[f] === 'string');
+    if (urlField) {
+        const nameField = MANIFEST_NAME_FIELDS.find(f => typeof node[f] === 'string');
+        const category = typeof node.category === 'string' ? node.category : (typeof node.categoryId === 'string' ? node.categoryId : '');
+        const nameFromUrl = node[urlField].split('?')[0].split('/').pop();
+        const name = nameField ? node[nameField] : (trail.length ? trail.join('/') : nameFromUrl);
+        const full = category && !String(name).includes('/') ? `${category}/${name}` : name;
+        const url = /^https?:\/\//i.test(node[urlField]) ? node[urlField]
+            : (baseUrl ? `${baseUrl.replace(/\/+$/, '')}/${node[urlField].replace(/^\/+/, '')}` : '');
+        if (url) {
+            registerReleaseFile(full, url);
+            if (typeof node.asset === 'string') {
+                registerReleaseFile(category ? `${category}/${node.asset}` : node.asset, url);
+            }
+            if (!nameField && trail.length) registerReleaseFile(trail.join('/'), url);
+        }
+        return;
+    }
+
+    for (const [key, value] of Object.entries(node)) {
+        if (['version', 'generated', 'updated', 'tag', 'base_url', 'baseUrl', 'base'].includes(key) && typeof value !== 'object') continue;
+        indexManifest(value, [...trail, key], baseUrl);
+    }
+}
+
+function loadReleaseManifest() {
+    if (manifestPromise) return manifestPromise;
+    manifestPromise = (async () => {
+        for (const url of RELEASES_MANIFEST_URLS) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 8000);
+            try {
+                const r = await fetch(url, { signal: controller.signal, cache: 'no-cache' });
+                if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                const raw = await r.json();
+                const baseUrl = [raw.base_url, raw.baseUrl, raw.base].find(v => typeof v === 'string') || '';
+                const root = raw.files ?? raw.assets ?? raw.mods ?? raw;
+                indexManifest(root, [], baseUrl);
+                console.info(`[Manifest] Loaded ${releaseIndex.size} keys from ${url}`);
+                return true;
+            } catch (err) {
+                console.warn(`[Manifest] ${url} failed (${err.message})`);
+            } finally {
+                clearTimeout(timer);
+            }
+        }
+        console.warn('[Manifest] Releases unavailable, using fallback sources');
+        return false;
+    })();
+    return manifestPromise;
+}
+
+function getReleaseUrl(categoryId, filename) {
+    return releaseIndex.get(manifestKey(`${categoryId}/${filename}`))
+        || releaseIndex.get(manifestKey(filename))
+        || null;
+}
+
+function isReleaseUrl(url) {
+    return releaseUrls.has(url);
+}
+
+function proxifyReleaseUrl(url) {
+    return DOWNLOAD_PROXY ? `${DOWNLOAD_PROXY}/?url=${encodeURIComponent(url)}` : url;
+}
+
+function getFileUrls(categoryId, filename, forFetch = false) {
     if (filename.startsWith('http')) return [filename];
     const path = `assets/files/${categoryId}/${encodeURIComponent(filename)}`;
-    return FILE_SOURCES.map(base => buildSourceUrl(base, path));
+    const urls = [];
+    for (const base of FILE_SOURCES) {
+        if (base === RELEASES) {
+            const url = getReleaseUrl(categoryId, filename);
+            if (url) urls.push(forFetch ? proxifyReleaseUrl(url) : url);
+        } else {
+            urls.push(buildSourceUrl(base, path));
+        }
+    }
+    return urls;
 }
 
 function getFileUrl(categoryId, filename) {
@@ -96,13 +230,16 @@ function getFileUrl(categoryId, filename) {
 
 function getSourceLabel(url) {
     if (!url || !/^https?:/.test(url)) return 'this site';
+    if (DOWNLOAD_PROXY && url.startsWith(DOWNLOAD_PROXY)) return 'GitHub Releases';
     if (url.includes('huggingface.co')) return 'Hugging Face';
+    if (isReleaseUrl(url) || /github\.com\/[^/]+\/[^/]+\/releases\//.test(url) || url.includes('objects.githubusercontent.com')) return 'GitHub Releases';
     if (url.includes('githubusercontent.com') || url.includes('github.com')) return 'GitHub';
     return new URL(url).hostname;
 }
 
 async function pickWorkingUrl(urls, timeoutMs = 2500) {
     if (urls.length < 2) return urls[0];
+    if (isReleaseUrl(urls[0])) return urls[0];
     for (const url of urls) {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -167,16 +304,16 @@ function _preventScrollKey(e) {
 
 function openModal() {
     document.body.classList.add('modal-open');
-    document.addEventListener('wheel',     _preventScrollWheel, { passive: false });
+    document.addEventListener('wheel', _preventScrollWheel, { passive: false });
     document.addEventListener('touchmove', _preventScrollWheel, { passive: false });
-    document.addEventListener('keydown',   _preventScrollKey);
+    document.addEventListener('keydown', _preventScrollKey);
 }
 
 function closeModal() {
     document.body.classList.remove('modal-open');
-    document.removeEventListener('wheel',     _preventScrollWheel);
+    document.removeEventListener('wheel', _preventScrollWheel);
     document.removeEventListener('touchmove', _preventScrollWheel);
-    document.removeEventListener('keydown',   _preventScrollKey);
+    document.removeEventListener('keydown', _preventScrollKey);
 }
 
 const state = {
@@ -2012,14 +2149,15 @@ function setupRecentlyAdded() {
         document.querySelector('.carousel-controls')?.classList.remove('collapsed');
     }
 
-    const buildTrack = (track, compact) => { recentlyAddedMods.forEach(recentMod => {
-        if (recentMod.category === 'news') {
-            const newsItem = (modsData['news'] || []).find(n => n.name === recentMod.name);
-            if (newsItem && track) {
-                const card = document.createElement('div');
-                card.className = 'card fade-in';
-                card.style.cursor = 'pointer';
-                card.innerHTML = `
+    const buildTrack = (track, compact) => {
+        recentlyAddedMods.forEach(recentMod => {
+            if (recentMod.category === 'news') {
+                const newsItem = (modsData['news'] || []).find(n => n.name === recentMod.name);
+                if (newsItem && track) {
+                    const card = document.createElement('div');
+                    card.className = 'card fade-in';
+                    card.style.cursor = 'pointer';
+                    card.innerHTML = `
                 <div class="card-media">
                     <img src="${newsItem.preview}" alt="${newsItem.name}" style="width:100%; height:100%; object-fit:cover;">
                 </div>
@@ -2030,195 +2168,196 @@ function setupRecentlyAdded() {
                     </div>
                 </div>
             `;
-                card.addEventListener('click', () => window.open(newsItem.url, '_blank'));
-                track.appendChild(card);
-            }
-            return;
-        }
-
-        const category = categories.find(cat => cat.id === recentMod.category);
-        if (!category) return;
-
-        const categoryData = modsData[recentMod.category];
-        let mod = null;
-        let groupId = null;
-
-        if (categoryData?.groups && Array.isArray(categoryData.groups)) {
-            for (const group of categoryData.groups) {
-                mod = group.mods.find(m => m.name === recentMod.name);
-                if (mod) {
-                    groupId = group.id;
-                    break;
+                    card.addEventListener('click', () => window.open(newsItem.url, '_blank'));
+                    track.appendChild(card);
                 }
-            }
-        } else {
-            const mods = categoryData || [];
-            mod = mods.find(m => m.name === recentMod.name);
-        }
-
-        if (mod && track) {
-            const card = createModCard(mod, recentMod.category, groupId);
-            const newCard = card.cloneNode(true);
-            if (mod.tags?.adult && loadSettings().hideAdultMods) {
-                const media = newCard.querySelector('.card-media img, .card-media video');
-                if (media) media.style.filter = 'blur(10px)';
+                return;
             }
 
-            const subtitleElement = newCard.querySelector('.card-subtitle');
-            if (subtitleElement && mod.type !== 'guide') {
-                subtitleElement.textContent = translations[category.key];
-            }
+            const category = categories.find(cat => cat.id === recentMod.category);
+            if (!category) return;
 
-            if (recentMod.category === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
-                const video = newCard.querySelector('video');
-                if (video) {
-                    newCard.addEventListener('mouseenter', () => {
-                        video.play().catch(err => console.log('Play failed:', err));
-                    });
-                    newCard.addEventListener('mouseleave', () => {
-                        video.pause();
-                        video.currentTime = 0;
-                    });
-                }
-            }
+            const categoryData = modsData[recentMod.category];
+            let mod = null;
+            let groupId = null;
 
-            newCard.querySelector('.copy-link-btn')?.remove();
-
-            // compact
-            if (compact) {
-                const cardContent = newCard.querySelector('.card-content');
-                const cartBtn = newCard.querySelector('.add-to-cart-btn');
-                const styleCirclesEl = newCard.querySelector('.style-circles');
-                const linkButtons = newCard.querySelector('.link-buttons');
-                if (cardContent) {
-                    const row = document.createElement('div');
-                    row.style.cssText = 'display:flex; align-items:center; gap:6px; margin-top:auto; flex-wrap:wrap;';
-                    if (linkButtons) row.appendChild(linkButtons);
-                    const statBadgeEl = styleCirclesEl?.querySelector('.dl-count');
-                    if (statBadgeEl) newCard.querySelector('.card-media')?.appendChild(statBadgeEl);
-                    if (styleCirclesEl) row.appendChild(styleCirclesEl);
-                    if (cartBtn) row.appendChild(cartBtn);
-                    cardContent.appendChild(row);
-                }
-            }
-
-            const linkButtonElements = newCard.querySelectorAll('.link-button');
-            linkButtonElements.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-
-                    const guideId = button.getAttribute('data-guide-id');
-                    if (guideId) {
-                        openGuideForMod({ guideId });
-                        return;
+            if (categoryData?.groups && Array.isArray(categoryData.groups)) {
+                for (const group of categoryData.groups) {
+                    mod = group.mods.find(m => m.name === recentMod.name);
+                    if (mod) {
+                        groupId = group.id;
+                        break;
                     }
-                    const url = button.getAttribute('data-url');
-                    if (!url) {
-                        goTo404();
-                        return;
-                    }
-                    const isVideo = button.getAttribute('data-video') === 'true';
-                    if (isVideo) {
-                        window.openVideoModal(url);
-                    } else {
-                        openLinkWithAuthorNotice(url, button.getAttribute('data-author'));
-                    }
-                });
-            });
-
-            const copyLinkBtn = newCard.querySelector('.copy-link-btn');
-            if (copyLinkBtn) {
-                copyLinkBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const link = generateModLink(recentMod.category, recentMod.name, groupId);
-                    copyToClipboard(link, 'Mod link copied!');
-                });
+                }
+            } else {
+                const mods = categoryData || [];
+                mod = mods.find(m => m.name === recentMod.name);
             }
 
-            newCard.addEventListener('click', (e) => {
-                if (e.target.classList.contains('link-button') ||
-                    e.target.closest('.link-button') ||
-                    e.target.classList.contains('copy-link-btn') ||
-                    e.target.closest('.copy-link-btn') ||
-                    e.target.classList.contains('style-circle') ||
-                    e.target.closest('.style-circle') ||
-                    e.target.classList.contains('add-to-cart-btn') ||
-                    e.target.closest('.add-to-cart-btn')) {
-                    return;
+            if (mod && track) {
+                const card = createModCard(mod, recentMod.category, groupId);
+                const newCard = card.cloneNode(true);
+                if (mod.tags?.adult && loadSettings().hideAdultMods) {
+                    const media = newCard.querySelector('.card-media img, .card-media video');
+                    if (media) media.style.filter = 'blur(10px)';
                 }
-                openCategoryAndHighlightMod(recentMod.category, recentMod.name);
-                vibrate(10);
-            });
 
-            const styleCircles = newCard.querySelectorAll('.style-circle');
-            styleCircles.forEach(circle => {
-                circle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const idx = +circle.dataset.styleIndex;
-                    mod._styleIndex = idx;
-                    saveStyleIndex(mod.name, idx);
+                const subtitleElement = newCard.querySelector('.card-subtitle');
+                if (subtitleElement && mod.type !== 'guide') {
+                    subtitleElement.textContent = translations[category.key];
+                }
 
-                    const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
-                    const newId = groupId ? `${recentMod.category}-${groupId}-${newName}` : `${recentMod.category}-${newName}`;
-
-                    document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
-                        const otherImg = otherCard.querySelector('.card-media img, .card-media video');
-                        if (otherImg) otherImg.src = resolvePreviewUrl(`${recentMod.category}/${mod.styles[idx].preview}`);
-
-                        const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
-                        if (otherCartBtn) {
-                            otherCartBtn.setAttribute('data-mod', JSON.stringify({
-                                name: newName,
-                                file: mod.styles[idx].file,
-                                preview: mod.styles[idx].preview
-                            }));
-                        }
-
-                        otherCard.querySelectorAll('.style-circle').forEach(c => {
-                            c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                if (recentMod.category === 'backgrounds' && mod.preview && mod.preview.endsWith('.mp4')) {
+                    const video = newCard.querySelector('video');
+                    if (video) {
+                        newCard.addEventListener('mouseenter', () => {
+                            video.play().catch(err => console.log('Play failed:', err));
                         });
-
-                        const otherBadge = otherCard.querySelector('.dl-count');
-                        if (otherBadge) otherBadge.dataset.stat = modStatKey(recentMod.category, groupId, mod, idx);
-                    });
-                    if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
-
-                    for (let si = 0; si < mod.styles.length; si++) {
-                        const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
-                        const sId = groupId ? `${recentMod.category}-${groupId}-${sName}` : `${recentMod.category}-${sName}`;
-                        const existingIdx = cart.findIndex(item => item.id === sId);
-                        if (existingIdx !== -1) {
-                            cart[existingIdx] = {
-                                ...cart[existingIdx],
-                                id: newId,
-                                name: newName,
-                                file: mod.styles[idx].file,
-                                preview: mod.styles[idx].preview
-                            };
-                            saveCart();
-                            updateCartBadge();
-                            renderCartItems();
-                            updateCartButtons();
-                            break;
-                        }
+                        newCard.addEventListener('mouseleave', () => {
+                            video.pause();
+                            video.currentTime = 0;
+                        });
                     }
-                });
-            });
+                }
 
-            const addToCartBtn = newCard.querySelector('.add-to-cart-btn');
-            if (addToCartBtn) {
-                addToCartBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const modData = JSON.parse(addToCartBtn.getAttribute('data-mod'));
-                    const category = addToCartBtn.getAttribute('data-category');
-                    addToCart(modData, category);
-                    updateCartButtons();
+                newCard.querySelector('.copy-link-btn')?.remove();
+
+                // compact
+                if (compact) {
+                    const cardContent = newCard.querySelector('.card-content');
+                    const cartBtn = newCard.querySelector('.add-to-cart-btn');
+                    const styleCirclesEl = newCard.querySelector('.style-circles');
+                    const linkButtons = newCard.querySelector('.link-buttons');
+                    if (cardContent) {
+                        const row = document.createElement('div');
+                        row.style.cssText = 'display:flex; align-items:center; gap:6px; margin-top:auto; flex-wrap:wrap;';
+                        if (linkButtons) row.appendChild(linkButtons);
+                        const statBadgeEl = styleCirclesEl?.querySelector('.dl-count');
+                        if (statBadgeEl) newCard.querySelector('.card-media')?.appendChild(statBadgeEl);
+                        if (styleCirclesEl) row.appendChild(styleCirclesEl);
+                        if (cartBtn) row.appendChild(cartBtn);
+                        cardContent.appendChild(row);
+                    }
+                }
+
+                const linkButtonElements = newCard.querySelectorAll('.link-button');
+                linkButtonElements.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+
+                        const guideId = button.getAttribute('data-guide-id');
+                        if (guideId) {
+                            openGuideForMod({ guideId });
+                            return;
+                        }
+                        const url = button.getAttribute('data-url');
+                        if (!url) {
+                            goTo404();
+                            return;
+                        }
+                        const isVideo = button.getAttribute('data-video') === 'true';
+                        if (isVideo) {
+                            window.openVideoModal(url);
+                        } else {
+                            openLinkWithAuthorNotice(url, button.getAttribute('data-author'));
+                        }
+                    });
                 });
+
+                const copyLinkBtn = newCard.querySelector('.copy-link-btn');
+                if (copyLinkBtn) {
+                    copyLinkBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const link = generateModLink(recentMod.category, recentMod.name, groupId);
+                        copyToClipboard(link, 'Mod link copied!');
+                    });
+                }
+
+                newCard.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('link-button') ||
+                        e.target.closest('.link-button') ||
+                        e.target.classList.contains('copy-link-btn') ||
+                        e.target.closest('.copy-link-btn') ||
+                        e.target.classList.contains('style-circle') ||
+                        e.target.closest('.style-circle') ||
+                        e.target.classList.contains('add-to-cart-btn') ||
+                        e.target.closest('.add-to-cart-btn')) {
+                        return;
+                    }
+                    openCategoryAndHighlightMod(recentMod.category, recentMod.name);
+                    vibrate(10);
+                });
+
+                const styleCircles = newCard.querySelectorAll('.style-circle');
+                styleCircles.forEach(circle => {
+                    circle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const idx = +circle.dataset.styleIndex;
+                        mod._styleIndex = idx;
+                        saveStyleIndex(mod.name, idx);
+
+                        const newName = mod.name + ' ' + mod.styles[idx].label.replace('Style ', '');
+                        const newId = groupId ? `${recentMod.category}-${groupId}-${newName}` : `${recentMod.category}-${newName}`;
+
+                        document.querySelectorAll(`.card[data-mod-name="${CSS.escape(mod.name)}"]`).forEach(otherCard => {
+                            const otherImg = otherCard.querySelector('.card-media img, .card-media video');
+                            if (otherImg) otherImg.src = resolvePreviewUrl(`${recentMod.category}/${mod.styles[idx].preview}`);
+
+                            const otherCartBtn = otherCard.querySelector('.add-to-cart-btn');
+                            if (otherCartBtn) {
+                                otherCartBtn.setAttribute('data-mod', JSON.stringify({
+                                    name: newName,
+                                    file: mod.styles[idx].file,
+                                    preview: mod.styles[idx].preview
+                                }));
+                            }
+
+                            otherCard.querySelectorAll('.style-circle').forEach(c => {
+                                c.classList.toggle('active', +c.dataset.styleIndex === idx);
+                            });
+
+                            const otherBadge = otherCard.querySelector('.dl-count');
+                            if (otherBadge) otherBadge.dataset.stat = modStatKey(recentMod.category, groupId, mod, idx);
+                        });
+                        if (typeof refreshDownloadBadges === 'function') refreshDownloadBadges();
+
+                        for (let si = 0; si < mod.styles.length; si++) {
+                            const sName = mod.name + ' ' + mod.styles[si].label.replace('Style ', '');
+                            const sId = groupId ? `${recentMod.category}-${groupId}-${sName}` : `${recentMod.category}-${sName}`;
+                            const existingIdx = cart.findIndex(item => item.id === sId);
+                            if (existingIdx !== -1) {
+                                cart[existingIdx] = {
+                                    ...cart[existingIdx],
+                                    id: newId,
+                                    name: newName,
+                                    file: mod.styles[idx].file,
+                                    preview: mod.styles[idx].preview
+                                };
+                                saveCart();
+                                updateCartBadge();
+                                renderCartItems();
+                                updateCartButtons();
+                                break;
+                            }
+                        }
+                    });
+                });
+
+                const addToCartBtn = newCard.querySelector('.add-to-cart-btn');
+                if (addToCartBtn) {
+                    addToCartBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const modData = JSON.parse(addToCartBtn.getAttribute('data-mod'));
+                        const category = addToCartBtn.getAttribute('data-category');
+                        addToCart(modData, category);
+                        updateCartButtons();
+                    });
+                }
+
+                track.appendChild(newCard);
             }
-
-            track.appendChild(newCard);
-        }
-    }); };
+        });
+    };
 
     if (track) buildTrack(track, false);
     if (trackC) buildTrack(trackC, true);
@@ -3941,6 +4080,7 @@ function shortenHash(hash) {
 }
 
 async function downloadMod(mod, categoryId) {
+    await loadReleaseManifest();
     let url = await pickWorkingUrl(getFileUrls(categoryId, mod.file));
     if (url.includes('huggingface.co')) url += '?download=true';
     const link = document.createElement('a');
@@ -4077,7 +4217,8 @@ function showHomePage() {
 async function loadData() {
     const PRIMARY_TIMEOUT = 15000;
     const FALLBACK_TIMEOUT = 10000;
-    const dataBases = FILE_SOURCES.map(base => buildSourceUrl(base, 'assets/data'));
+    const dataBases = DATA_SOURCES.map(base => buildSourceUrl(base, 'assets/data'));
+    loadReleaseManifest();
 
     async function fetchDataBundle(base, timeoutMs) {
         const controller = new AbortController();

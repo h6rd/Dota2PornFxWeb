@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "HUD Studio",
+      "category": "sites"
+    },
+    {
       "name": "Warcraft 3 Voices Spanish",
       "category": "sounds"
     },
@@ -29296,6 +29300,22 @@
         "preview": "Data.VPK.webp",
         "file": "https://datavpk.com/",
         "type": "guide"
+      },
+      {
+        "name": "HUD Studio",
+        "preview": "HUD Studio.webp",
+        "file": "https://vpkgod.github.io/dota-hud-studio/",
+        "type": "guide",
+        "links": [
+          {
+            "type": "source-code",
+            "url": "https://github.com/vpkgod/dota-hud-studio"
+          },
+          {
+            "type": "author",
+            "url": "VPKDota"
+          }
+        ]
       }
     ],
     "guides": [

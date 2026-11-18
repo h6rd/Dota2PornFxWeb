@@ -1964,6 +1964,7 @@ async function getVPKMergeBlob(platform, addLog, onProgress = null) {
         return await fetchBinaryWithProgress(VPKMERGE_GITHUB_URLS[platform], { onProgress });
     } catch (err) {
         addLog(`GitHub download failed (${err.message}), using local file...`, 'warning');
+        await loadReleaseManifest();
         const localResponse = await fetchWithRetry(getFileUrls('VPKMerge', targetFileName), 3, onProgress);
         return await localResponse.blob();
     }
@@ -2098,6 +2099,9 @@ async function packAndDownload() {
     try {
         addLog('Starting pack creation...', 'start');
 
+        const manifestOk = await loadReleaseManifest();
+        if (!manifestOk) addLog('Releases manifest unavailable, using fallback sources', 'warning');
+
         if (typeof zip === 'undefined') {
             throw new Error('zip.js library not loaded');
         }
@@ -2155,7 +2159,7 @@ async function packAndDownload() {
 
         await asyncPool(8, cart, async (item) => {
             const { file: liveFile } = resolveItemFiles(item);
-            const filePath = liveFile ? getFileUrls(item.categoryId, liveFile) : null;
+            const filePath = liveFile ? getFileUrls(item.categoryId, liveFile, true) : null;
             try {
                 if (!liveFile) throw new Error('Mod no longer exists');
 
