@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "HUD Studio",
       "category": "sites"
     },
@@ -35,10 +39,6 @@
     {
       "name": "Malrine Type Primal Beast",
       "category": "heroes"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Data.VPK",
