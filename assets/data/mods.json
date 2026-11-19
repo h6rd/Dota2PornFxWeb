@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Saya No Uta Cloud",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Saya No Uta Hair",
+      "category": "backgrounds"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -29039,6 +29047,42 @@
         "meta": {
           "date": 1795046713,
           "commit-sha": "9252391ca24d9974bab94fe5b10ad82204d53ddd"
+        }
+      },
+      {
+        "name": "Saya No Uta Hair",
+        "preview": "Saya No Uta Hair.webp",
+        "file": "Saya No Uta Hair.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "roolato"
+          }
+        ],
+        "meta": {
+          "date": 1795085800,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Saya No Uta Cloud",
+        "preview": "Saya No Uta Cloud.webp",
+        "file": "Saya No Uta Cloud.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "roolato"
+          }
+        ],
+        "meta": {
+          "date": 1795085800,
+          "commit-sha": ""
         }
       }
     ],
