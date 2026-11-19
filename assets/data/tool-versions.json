@@ -8,23 +8,23 @@
     }
   },
   "TheFleece/dota2-mod-manager": {
-    "version": "v4.3.0",
+    "version": "v4.4.0",
     "hashes": {
-      "beta-linux.yml": "f908402eb5e0e42b9df5368d8b66a7dea0253978ce4ea252beb8e56090b5cd54",
-      "beta.json": "7d14bbea67b90c9fdc18682a854efd0caf9041ba35060b0d60c552f2f8234b6f",
-      "beta.yml": "4b9b219951bfc0e3d72b8b4034d08560f0d90353b82d95f1d069249ad667ce6b",
-      "Dota-2-Mod-Manager-Portable.exe": "3498a18c80e8a4cc4e4e5c4d0e287c0b427b5d5a875700b2e149fbcc9a896941",
-      "Dota-2-Mod-Manager-Setup.exe": "f2c08d89abebbcb4a530bbf1cc0ef395d9c72866448d22dd542ecfb30f1a6a4d",
-      "Dota-2-Mod-Manager-Setup.exe.sig": "e55809686f7d3f7a5ec7bd71b5d08da272016f93aa0baf99ef8c34fc5b6bff45",
-      "Dota-2-Mod-Manager.AppImage": "6c1515207a4f1f13582ba95a69690f40bdb4b24733ee0e320c7ba57136f52194",
-      "Dota-2-Mod-Manager.AppImage.sig": "2340ab256af2fa515ee31b5d590e0dfe49d58570844517ae52c4bd53814cd0d8",
-      "dota2-mod-manager.cdx.json": "2d79e192c824fc57b494c1620cee2c4acfd03b4b66ec075da32d6aaa3d9ce30d",
-      "latest-linux.yml": "f908402eb5e0e42b9df5368d8b66a7dea0253978ce4ea252beb8e56090b5cd54",
-      "latest.json": "7d14bbea67b90c9fdc18682a854efd0caf9041ba35060b0d60c552f2f8234b6f",
-      "latest.yml": "4b9b219951bfc0e3d72b8b4034d08560f0d90353b82d95f1d069249ad667ce6b",
-      "portable.yml": "fcaeb16e3999e5a9c32b99187a9fdc7a9adb0df589ab0df799ae9f16f3b7c9e0",
-      "SHA256SUMS": "b0b153840bc004af9a0755e16742c5fa12df0b1f40880a9979f462c4f22806d2",
-      "SHA256SUMS.intoto.jsonl": "9ad305f6b2aa88c0956478ba15fb37baf22ec90ce0a1e6a277338035e7191118"
+      "beta-linux.yml": "10b0160a861ea41be10eb6c7e8dc8e1a99dc2d6e70119942b01a5d3296e0a47b",
+      "beta.json": "ca3fffec04d771e03a4983b8adce0f8ce73a83df21547dfbae180b4c126f4c83",
+      "beta.yml": "25795f3cc191324f8ebcf4f92405bb0b3b51ac6e329269fd4dc90f631d1314be",
+      "Dota-2-Mod-Manager-Portable.exe": "c43bfb1f5caa71027df27b7bb83503cfe452427e83891ded99670d0db6b743dd",
+      "Dota-2-Mod-Manager-Setup.exe": "5c761494ea121f4fc8585bc909d603aeafd74711fb8c8960247154fa67e05f2a",
+      "Dota-2-Mod-Manager-Setup.exe.sig": "3732abbd2bf2a00cbb9844eaedd2540b840e74c5d9046aa3076ef2e89e6e5d7d",
+      "Dota-2-Mod-Manager.AppImage": "91aa01ab7ddbec7968642808db476a5af93b2ca87a681512263c31db0ffd8069",
+      "Dota-2-Mod-Manager.AppImage.sig": "b9ae8cac25cf23b91c058e646653478692899406a22bd91a76d890dba89b2bd7",
+      "dota2-mod-manager.cdx.json": "e1cfe05ac1cd5559c71a625545efcf59efb1fc5f794f22413755751c8df468c6",
+      "latest-linux.yml": "10b0160a861ea41be10eb6c7e8dc8e1a99dc2d6e70119942b01a5d3296e0a47b",
+      "latest.json": "ca3fffec04d771e03a4983b8adce0f8ce73a83df21547dfbae180b4c126f4c83",
+      "latest.yml": "25795f3cc191324f8ebcf4f92405bb0b3b51ac6e329269fd4dc90f631d1314be",
+      "portable.yml": "ccf46789faab5b9b6f4bfe13aa5f4baf96a15cf90a58ffa89600e9664aa47a99",
+      "SHA256SUMS": "71819e18e13fd0b37968e5003bf7456c266190c1214ad12479f02b2c878e4174",
+      "SHA256SUMS.intoto.jsonl": "329370cd5725c6a3860333ee432c9649f59c987e819841a64936d83dd1946c26"
     }
   },
   "h6rd/VPKTool": {
