@@ -1,6 +1,14 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Gray Trees",
       "category": "trees"
     },
@@ -23,10 +31,6 @@
     {
       "name": "Viperr Mega Kill",
       "category": "mega-kill"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "HUD Studio",
@@ -551,10 +555,6 @@
     {
       "name": "Pudge With A Penis",
       "category": "heroes"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Warcraft III Dire",
