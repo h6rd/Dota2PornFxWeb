@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Gray Trees",
+      "category": "trees"
+    },
+    {
+      "name": "Warcraft 3 Voices Korean",
+      "category": "sounds"
+    },
+    {
+      "name": "Natures Prophet Treant Swap",
+      "category": "heroes"
+    },
+    {
+      "name": "Sewerslvt",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Ambient Mega Kill",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Viperr Mega Kill",
+      "category": "mega-kill"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17258,6 +17282,21 @@
           "date": 1794953058,
           "commit-sha": "e13d07a0ffa7608859dd3df3b9c06a78e8440e0f"
         }
+      },
+      {
+        "name": "Natures Prophet Treant Swap",
+        "preview": "Natures Prophet Treant Swap.webp",
+        "file": "Natures Prophet Treant Swap.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fleece"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -19408,6 +19447,25 @@
         "meta": {
           "date": 1794777219,
           "commit-sha": "d081d2500fb24c0ad20e5578f5352e2ba924d876"
+        }
+      },
+      {
+        "name": "Gray Trees",
+        "preview": "Gray Trees.webp",
+        "file": "Gray Trees.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "Dezy"
+          },
+          {
+            "type": "author",
+            "url": "Robbyz"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
         }
       }
     ],
@@ -23959,6 +24017,36 @@
         "meta": {
           "date": 1794347188,
           "commit-sha": "e7fb5a6367295602ea901c681230b66a875d4da5"
+        }
+      },
+      {
+        "name": "Viperr Mega Kill",
+        "preview": "Viperr Mega Kill.webp",
+        "file": "Viperr Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "samoredoto"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ambient Mega Kill",
+        "preview": "Ambient Mega Kill.webp",
+        "file": "Ambient Mega Kill.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "hahatun"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
         }
       }
     ],
@@ -28933,6 +29021,24 @@
         "meta": {
           "date": 1794775254,
           "commit-sha": "bbb0cb11d4e43d3f04380b3cb5d979c6fa380c18"
+        }
+      },
+      {
+        "name": "Sewerslvt",
+        "preview": "Sewerslvt.webp",
+        "file": "Sewerslvt.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "darkblad3s"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
         }
       }
     ],
@@ -34094,6 +34200,21 @@
         "meta": {
           "date": 1794953058,
           "commit-sha": "e13d07a0ffa7608859dd3df3b9c06a78e8440e0f"
+        }
+      },
+      {
+        "name": "Warcraft 3 Voices Korean",
+        "preview": "Warcraft 3 Voices Korean.webp",
+        "file": "Warcraft 3 Voices Korean.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795046712,
+          "commit-sha": ""
         }
       }
     ],
