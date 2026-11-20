@@ -17375,7 +17375,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Kunkka",
@@ -17386,7 +17390,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Largo",
@@ -17397,7 +17405,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Legion Commander",
@@ -17408,7 +17420,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Leshrac",
@@ -17419,7 +17435,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Lich",
@@ -17430,7 +17450,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Lifestealer",
@@ -17441,7 +17465,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Lina",
@@ -17452,7 +17480,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Warcraft 3 Lion",
@@ -17463,7 +17495,11 @@
             "type": "author",
             "url": "Fr0dech"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       }
     ],
     "shaders": [
@@ -29256,7 +29292,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Phantom Lancer",
@@ -29270,7 +29310,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Morphling",
@@ -29284,7 +29328,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       },
       {
         "name": "Invoker",
@@ -29298,7 +29346,11 @@
             "type": "author",
             "url": "XIIIpsiblade"
           }
-        ]
+        ],
+        "meta": {
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
+        }
       }
     ],
     "tools": [
@@ -30328,8 +30380,8 @@
           }
         ],
         "meta": {
-          "date": 1792235759,
-          "commit-sha": "d31458ad4e3eec5e05880f9de01b871de973420e"
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
         }
       },
       {
@@ -30343,8 +30395,8 @@
           }
         ],
         "meta": {
-          "date": 1792275718,
-          "commit-sha": "d06194602246139701f48f3b345468ea89ebff92"
+          "date": 1795161448,
+          "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
         }
       }
     ],
