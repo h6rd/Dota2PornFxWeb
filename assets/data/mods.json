@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Spirit Breaker Lada 2107",
       "category": "heroes"
     },
@@ -131,10 +135,6 @@
     {
       "name": "Shadow Fiend Arcana Fixv2",
       "category": "hero-icons"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Saya No Uta Cloud",
