@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft 3 Lone Druid",
+      "category": "heroes"
+    },
+    {
       "name": "Dark Willow Dota 2",
       "category": "backgrounds"
     },
@@ -17578,6 +17582,21 @@
         "meta": {
           "date": 1795162294,
           "commit-sha": "e385522091c89de83aff557764e5f5868900ba3c"
+        }
+      },
+      {
+        "name": "Warcraft 3 Lone Druid",
+        "preview": "Warcraft 3 Lone Druid.webp",
+        "file": "Warcraft 3 Lone Druid.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795163501,
+          "commit-sha": ""
         }
       }
     ],
