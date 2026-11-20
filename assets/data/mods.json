@@ -1,6 +1,66 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Phantom Lancer",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Invoker",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Morphling",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Shadow Fiend Arcana",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Warcraft 3 Lion",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Lina",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Lifestealer",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Lich",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Leshrac",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Legion Commander",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Largo",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Kunkka",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Kez",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Arcana Fixv2",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Shadow Fiend Arcana Fixv2",
+      "category": "hero-icons"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17305,6 +17365,105 @@
           "date": 1795046713,
           "commit-sha": "9252391ca24d9974bab94fe5b10ad82204d53ddd"
         }
+      },
+      {
+        "name": "Warcraft 3 Kez",
+        "preview": "Warcraft 3 Kez.webp",
+        "file": "Warcraft 3 Kez.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Kunkka",
+        "preview": "Warcraft 3 Kunkka.webp",
+        "file": "Warcraft 3 Kunkka.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Largo",
+        "preview": "Warcraft 3 Largo.webp",
+        "file": "Warcraft 3 Largo.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Legion Commander",
+        "preview": "Warcraft 3 Legion Commander.webp",
+        "file": "Warcraft 3 Legion Commander.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Leshrac",
+        "preview": "Warcraft 3 Leshrac.webp",
+        "file": "Warcraft 3 Leshrac.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Lich",
+        "preview": "Warcraft 3 Lich.webp",
+        "file": "Warcraft 3 Lich.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Lifestealer",
+        "preview": "Warcraft 3 Lifestealer.webp",
+        "file": "Warcraft 3 Lifestealer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Lina",
+        "preview": "Warcraft 3 Lina.webp",
+        "file": "Warcraft 3 Lina.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
+      },
+      {
+        "name": "Warcraft 3 Lion",
+        "preview": "Warcraft 3 Lion.webp",
+        "file": "Warcraft 3 Lion.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ]
       }
     ],
     "shaders": [
@@ -29084,6 +29243,62 @@
           "date": 1795085800,
           "commit-sha": "e8f0c2662b257176e6601f5d898581ec87a09912"
         }
+      },
+      {
+        "name": "Shadow Fiend Arcana",
+        "preview": "Shadow Fiend Arcana.webp",
+        "file": "Shadow Fiend Arcana.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Phantom Lancer",
+        "preview": "Phantom Lancer.webp",
+        "file": "Phantom Lancer.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Morphling",
+        "preview": "Morphling.webp",
+        "file": "Morphling.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
+      },
+      {
+        "name": "Invoker",
+        "preview": "Invoker.webp",
+        "file": "Invoker.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ]
       }
     ],
     "tools": [
@@ -29118,16 +29333,6 @@
         "guideId": "vpk-merge",
         "linkType": "source-code",
         "linkUrl": "https://github.com/h6rd/VPKMerge"
-      },
-      {
-        "name": "ItemsFix - Fix items_game structure",
-        "preview": "itemsfix.webp",
-        "file": "ItemsFix.zip",
-        "guideId": "items-fix",
-        "meta": {
-          "date": 1764281231,
-          "commit-sha": "a5c1f8733bec47f9d2f5a9fc76de36ee42758dbe"
-        }
       },
       {
         "name": "Patcher - Weather & More",
