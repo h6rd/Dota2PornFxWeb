@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Spirit Breaker Lada 2107",
+      "category": "heroes"
+    },
+    {
       "name": "Warcraft 3 Lone Druid",
       "category": "heroes"
     },
@@ -17596,6 +17600,21 @@
         ],
         "meta": {
           "date": 1795163501
+        }
+      },
+      {
+        "name": "Spirit Breaker Lada 2107",
+        "preview": "Spirit Breaker Lada 2107.webp",
+        "file": "Spirit Breaker Lada 2107.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "laskotdota"
+          }
+        ],
+        "meta": {
+          "date": 1795168005,
+          "commit-sha": ""
         }
       }
     ],
