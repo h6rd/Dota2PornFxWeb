@@ -1,6 +1,70 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dark Willow Dota 2",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Stariy Bog Io",
+      "category": "heroes"
+    },
+    {
+      "name": "Grey Minimap",
+      "category": "parts"
+    },
+    {
+      "name": "Drow Ranger Arcana Dota 2",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Earthshaker Ukrainian Voice",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Armlet Fix",
+      "category": "item-icons"
+    },
+    {
+      "name": "Onda Andar",
+      "category": "mega-kill"
+    },
+    {
+      "name": "Purple Minimap",
+      "category": "parts"
+    },
+    {
+      "name": "Remove Innate Icon",
+      "category": "parts"
+    },
+    {
+      "name": "Source 1 Huge Damage Display",
+      "category": "other"
+    },
+    {
+      "name": "Castle Dimitrescu In The Fog",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Arc Wardenv2 Dota 2",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Arc Warden Dota 2",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Ahegao",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Lily Grace Sunlit",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Better Damage Numbers",
+      "category": "other"
+    },
+    {
       "name": "Phantom Lancer",
       "category": "backgrounds"
     },
@@ -882,10 +946,6 @@
     },
     {
       "name": "Crystal Interface",
-      "category": "parts"
-    },
-    {
-      "name": "Remove Innate Icon",
       "category": "parts"
     },
     {
@@ -17500,6 +17560,25 @@
           "date": 1795161448,
           "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
         }
+      },
+      {
+        "name": "Stariy Bog Io",
+        "preview": "Stariy Bog Io.webp",
+        "file": "Stariy Bog Io.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qizlik"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -24251,6 +24330,21 @@
           "date": 1795046713,
           "commit-sha": "9252391ca24d9974bab94fe5b10ad82204d53ddd"
         }
+      },
+      {
+        "name": "Onda Andar",
+        "preview": "Onda Andar.webp",
+        "file": "Onda Andar.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Hirikavaa"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
       }
     ],
     "announcers": [
@@ -25125,8 +25219,8 @@
                 }
               ],
               "meta": {
-                "date": 1790825298,
-                "commit-sha": "3478dcb2ccb61f10aaa00ce7a7ec7a902306a0d5"
+                "date": 1795162291,
+                "commit-sha": ""
               }
             },
             {
@@ -25140,8 +25234,8 @@
                 }
               ],
               "meta": {
-                "date": 1792011470,
-                "commit-sha": "a43d0b4a646c936a946b114cf735db6ea0bca83d"
+                "date": 1795162291,
+                "commit-sha": ""
               }
             },
             {
@@ -25727,8 +25821,8 @@
                 }
               ],
               "meta": {
-                "date": 1792412054,
-                "commit-sha": "506a00fec3b0ed9867c85b91783db85bb8237447"
+                "date": 1795162291,
+                "commit-sha": ""
               }
             },
             {
@@ -26768,6 +26862,36 @@
         "meta": {
           "date": 1794953058,
           "commit-sha": "e13d07a0ffa7608859dd3df3b9c06a78e8440e0f"
+        }
+      },
+      {
+        "name": "Better Damage Numbers",
+        "preview": "Better Damage Numbers.webp",
+        "file": "Better Damage Numbers.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Source 1 Huge Damage Display",
+        "preview": "Source 1 Huge Damage Display.webp",
+        "file": "Source 1 Huge Damage Display.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
         }
       }
     ],
@@ -29351,6 +29475,129 @@
           "date": 1795161448,
           "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
         }
+      },
+      {
+        "name": "Lily Grace Sunlit",
+        "preview": "Lily Grace Sunlit.webp",
+        "file": "Lily Grace Sunlit.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Ahegao",
+        "preview": "Ahegao.webp",
+        "file": "Ahegao.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Anonymous"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arc Warden Dota 2",
+        "preview": "Arc Warden Dota 2.webp",
+        "file": "Arc Warden Dota 2.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Arc Wardenv2 Dota 2",
+        "preview": "Arc Wardenv2 Dota 2.webp",
+        "file": "Arc Wardenv2 Dota 2.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Castle Dimitrescu In The Fog",
+        "preview": "Castle Dimitrescu In The Fog.webp",
+        "file": "Castle Dimitrescu In The Fog.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "qoofix"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Drow Ranger Arcana Dota 2",
+        "preview": "Drow Ranger Arcana Dota 2.webp",
+        "file": "Drow Ranger Arcana Dota 2.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Dark Willow Dota 2",
+        "preview": "Dark Willow Dota 2.webp",
+        "file": "Dark Willow Dota 2.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "XIIIpsiblade"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
+        }
       }
     ],
     "tools": [
@@ -30140,6 +30387,21 @@
         "meta": {
           "date": 1790528664,
           "commit-sha": "dfa509ee1b96c5e1ab062f60fea4b8893cc210c3"
+        }
+      },
+      {
+        "name": "Armlet Fix",
+        "preview": "Armlet Fix.webp",
+        "file": "Armlet Fix.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "c0nf1"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
         }
       }
     ],
@@ -33933,6 +34195,21 @@
         "meta": {
           "date": 1794775254,
           "commit-sha": "bbb0cb11d4e43d3f04380b3cb5d979c6fa380c18"
+        }
+      },
+      {
+        "name": "Earthshaker Ukrainian Voice",
+        "preview": "Earthshaker Ukrainian Voice.webp",
+        "file": "Earthshaker Ukrainian Voice.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "owly007"
+          }
+        ],
+        "meta": {
+          "date": 1795162291,
+          "commit-sha": ""
         }
       }
     ],
