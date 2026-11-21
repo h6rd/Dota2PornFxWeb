@@ -993,16 +993,18 @@
 .globe-tooltip {
   position: absolute;
   transform: translate(-50%, -100%);
-  padding: 6px 12px;
-  border-radius: 12px;
+  padding: 7px 14px;
+  border-radius: 14px;
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
   pointer-events: none;
-  background: var(--md-sys-color-inverse-surface, #222);
-  color: var(--md-sys-color-inverse-on-surface, #fff);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
   opacity: 0;
   transition: opacity 0.15s;
+  z-index: 2;
 }
 
 .globe-tooltip.visible {

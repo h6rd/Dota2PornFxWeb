@@ -821,8 +821,11 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
   const hot = countries.map((c) => ({ ...c, p: pre(c.lat, c.lon), sx: 0, sy: 0, r: 0, z: -1 }));
   const maxCount = countries[0]?.count || 1;
 
-  let w = 0, h = 0, cx = 0, cy = 0, R = 0, dpr = 1;
+  let w = 0, h = 0, cx = 0, cy = 0, R = 0, baseR = 0, dpr = 1;
   let rotLon = 40, tilt = 22;
+  let zoom = 1; // 1..2.8
+  const ZOOM_MIN = 1;
+  const ZOOM_MAX = 2.8;
   let dragging = false, lastX = 0, lastY = 0;
   let lastInteract = -1e9, focus = null, hoverIdx = -1;
   let visible = true, raf = 0, lastT = 0, colorStamp = -1e9;
@@ -846,7 +849,8 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     cx = w / 2; cy = h / 2;
-    R = Math.max(40, Math.min(w, h) / 2 - 14);
+    baseR = Math.max(40, Math.min(w, h) / 2 - 14);
+    R = baseR * zoom;
   }
 
   const wrap = (d) => ((d + 540) % 360) - 180;
@@ -950,8 +954,10 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
     if (dragging) {
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
-      rotLon = wrap(rotLon - dx * 0.4);
-      if (e.pointerType !== 'touch') tilt = clamp(tilt + dy * 0.3, -60, 70);
+      // slightly slower rotation when zoomed in
+      const sens = 0.4 / Math.sqrt(zoom);
+      rotLon = wrap(rotLon - dx * sens);
+      if (e.pointerType !== 'touch') tilt = clamp(tilt + dy * sens * 0.75, -60, 70);
       lastInteract = performance.now();
       tooltip.classList.remove('visible');
       hoverIdx = -1;
@@ -969,6 +975,18 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
   canvas.addEventListener('pointerup', endDrag);
   canvas.addEventListener('pointercancel', endDrag);
   canvas.addEventListener('pointerleave', () => { hoverIdx = -1; tooltip.classList.remove('visible'); });
+
+  canvas.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = -e.deltaY;
+    const factor = delta > 0 ? 1.08 : 1 / 1.08;
+    zoom = clamp(zoom * factor, ZOOM_MIN, ZOOM_MAX);
+    R = baseR * zoom;
+    lastInteract = performance.now();
+    tooltip.classList.remove('visible');
+    hoverIdx = -1;
+    kick();
+  }, { passive: false });
 
   function updateHover(e) {
     const rect = canvas.getBoundingClientRect();
@@ -998,8 +1016,9 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
   kick();
 
   return {
-    focusCountry(id) {
-      const o = hot.find((x) => x.id === id);
+    focusCountry(code) {
+      // Prefer pure country residual (id === code), else any place with that code
+      const o = hot.find((x) => x.id === code) || hot.find((x) => x.code === code);
       if (!o) return;
       focus = { lon: o.lon, tilt: clamp(o.lat * 0.6, -30, 50) };
       stage.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -1022,7 +1041,7 @@ function renderGeoList(geo, globe) {
   const top = geo.countries.slice(0, LIMIT);
   const max = top[0].count || 1;
   list.innerHTML = top.map((c) => `
-    <div class="leaderboard-item" data-id="${escapeHtml(c.id)}">
+    <div class="leaderboard-item" data-id="${escapeHtml(c.code)}">
       <div class="globe-cc">${escapeHtml(c.code)}</div>
       <div class="leaderboard-body">
         <div class="leaderboard-name">${escapeHtml(c.name)}</div>
@@ -1052,22 +1071,25 @@ async function setupGlobe() {
     fetchGeoData(),
     fetchCitiesData(),
   ]);
-  const view = { ...geo, countries: buildPlaces(geo.countries, cities) };
+
+  // Globe dots: cities + country residuals (more precise). Side list: countries only.
+  const places = buildPlaces(geo.countries, cities);
+  const listView = { ...geo, countries: geo.countries };
 
   if (!landRes.ok) {
     console.error('Globe failed:', landRes.e);
     note.hidden = false;
     note.textContent = 'Could not load the globe map. Please refresh later.';
-    renderGeoList(view, null);
+    renderGeoList(listView, null);
     return;
   }
 
   const globe = createGlobe({
     canvas, stage, tooltip,
     landLatLon: buildLandDots(landRes.v),
-    countries: view.countries,
+    countries: places,
   });
-  renderGeoList(view, globe);
+  renderGeoList(listView, globe);
 
   if (!geo.countries.length) {
     note.hidden = false;
