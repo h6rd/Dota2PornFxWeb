@@ -2,3 +2,4 @@ compressed
 .migrate-staging/
 rename-report.tsv
 manifest.dry-run.json
+scripts/__pycache__

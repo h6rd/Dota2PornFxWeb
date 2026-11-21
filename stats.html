@@ -86,6 +86,53 @@
         <section class="stats-section">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">trending_up</span>
+              Most Popular Mods
+            </h3>
+            <span class="stats-section-sub" id="popularSub"></span>
+          </div>
+          <div class="leaderboard-card popular-card">
+            <div id="popularList"></div>
+            <div id="popularToggleWrap"></div>
+          </div>
+        </section>
+
+        <section class="stats-section" id="globeSection">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">public</span>
+              Downloads Around the World
+            </h3>
+            <span class="stats-section-sub">Drag to rotate, tap a location to focus</span>
+          </div>
+          <div class="globe-grid">
+            <div class="globe-stage" id="globeStage">
+              <canvas id="globeCanvas" aria-label="3D dotted globe showing downloads by country" role="img"></canvas>
+              <div class="globe-tooltip" id="globeTooltip"></div>
+              <div class="globe-note" id="globeNote" hidden></div>
+            </div>
+            <div class="leaderboard-card globe-side">
+              <div class="leaderboard-card-head">
+                <div class="leaderboard-card-title">
+                  <span class="material-symbols-rounded">flag</span>
+                  Top Locations
+                </div>
+                <span class="leaderboard-card-count" id="globeCountriesCount">0</span>
+              </div>
+              <div class="globe-total">
+                <span class="globe-total-num" id="globeTotal">0</span>
+                <span class="globe-total-label">downloads with known location</span>
+              </div>
+              <div id="globeCountries">
+                <div class="popular-skeleton stat-skeleton"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
               <span class="material-symbols-rounded">category</span>
               Mods by Category
             </h3>
