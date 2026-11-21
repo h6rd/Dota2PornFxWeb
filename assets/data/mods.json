@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Armlet Fix",
+      "category": "item-icons"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -31,10 +35,6 @@
     {
       "name": "Earthshaker Ukrainian Voice",
       "category": "hero-sounds"
-    },
-    {
-      "name": "Armlet Fix",
-      "category": "item-icons"
     },
     {
       "name": "Onda Andar",
@@ -30436,8 +30436,8 @@
           }
         ],
         "meta": {
-          "date": 1795162294,
-          "commit-sha": "e385522091c89de83aff557764e5f5868900ba3c"
+          "date": 1795225737,
+          "commit-sha": ""
         }
       }
     ],
