@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Dota 2 Mod Manager",
+      "category": "tools"
+    },
+    {
       "name": "Arc Warden Ultimatetaunt 2016",
       "category": "hero-sounds"
     },
@@ -39,10 +43,6 @@
     {
       "name": "Armlet Fix",
       "category": "item-icons"
-    },
-    {
-      "name": "Dota 2 Mod Manager",
-      "category": "tools"
     },
     {
       "name": "Spirit Breaker Lada 2107",
