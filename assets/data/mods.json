@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Kez Bersexer",
+      "category": "heroes"
+    },
+    {
       "name": "Sven Berserk",
       "category": "heroes"
     },
@@ -7289,8 +7293,8 @@
           }
         ],
         "meta": {
-          "date": 1777911854,
-          "commit-sha": "bc714569bc4571d7ef890bc9d41da3dce16d258f"
+          "date": 1795256907,
+          "commit-sha": ""
         }
       },
       {
