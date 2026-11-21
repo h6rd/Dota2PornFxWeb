@@ -62,13 +62,16 @@ TOOLS = [
         "name": "Better Source2Viewer",
         "category": "tools",
         "exclude_pattern": None,
-    }
+    },
 ]
 
 REPO_ROOT = os.environ.get("GITHUB_WORKSPACE", os.getcwd())
 MODS_JSON_PATH = os.path.join(REPO_ROOT, "assets", "data", "mods.json")
 STATE_JSON_PATH = os.path.join(REPO_ROOT, "assets", "data", "tool-versions.json")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+
+DOWNLOADS_URL = "https://d2pfx-counter.hrdqfck.workers.dev/downloads.json"
+DOWNLOADS_JSON_PATH = os.path.join(REPO_ROOT, "assets", "data", "downloads.json")
 
 
 def api_get(url):
@@ -81,7 +84,10 @@ def api_get(url):
         with urllib.request.urlopen(req, timeout=30) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        print(f"HTTP error {e.code} fetching {url}: {e.read().decode('utf-8', 'ignore')}", file=sys.stderr)
+        print(
+            f"HTTP error {e.code} fetching {url}: {e.read().decode('utf-8', 'ignore')}",
+            file=sys.stderr,
+        )
         raise
 
 
@@ -127,7 +133,74 @@ def save_json(path, data):
         f.write("\n")
 
 
+def fetch_json(url):
+    req = urllib.request.Request(
+        url,
+        headers={"Accept": "application/json", "User-Agent": "d2pfx-downloads-sync"},
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def sum_numbers(node):
+    if isinstance(node, bool):
+        return 0
+    if isinstance(node, (int, float)):
+        return node
+    if isinstance(node, dict):
+        return sum(sum_numbers(v) for v in node.values())
+    if isinstance(node, list):
+        return sum(sum_numbers(v) for v in node)
+    return 0
+
+
+def update_downloads():
+    try:
+        new = fetch_json(DOWNLOADS_URL)
+    except Exception as exc:
+        print(f"[WARN] Failed to fetch downloads.json: {exc}", file=sys.stderr)
+        return False
+
+    if not isinstance(new, (dict, list)) or not new:
+        print(
+            "[WARN] downloads.json: empty or invalid response, keeping old file",
+            file=sys.stderr,
+        )
+        return False
+
+    new_total = sum_numbers(new)
+    if new_total <= 0:
+        print(
+            "[WARN] downloads.json: all counters are zero, keeping old file",
+            file=sys.stderr,
+        )
+        return False
+
+    try:
+        old = load_json(DOWNLOADS_JSON_PATH, None)
+    except Exception:
+        old = None
+
+    if old is not None:
+        if old == new:
+            print("[OK] downloads.json: no change")
+            return False
+        old_total = sum_numbers(old)
+        if old_total > new_total:
+            print(
+                f"[WARN] downloads.json: total decreased ({old_total} -> {new_total}), keeping old file",
+                file=sys.stderr,
+            )
+            return False
+
+    save_json(DOWNLOADS_JSON_PATH, new)
+    print(f"[UPDATE] downloads.json updated (total {new_total})")
+    return True
+
+
 def main():
+    update_downloads()
+
     state = load_json(STATE_JSON_PATH, {})
     mods_data = load_json(MODS_JSON_PATH, {"recentlyAddedMods": []})
 
@@ -157,7 +230,9 @@ def main():
         hashes = extract_asset_hashes(release)
 
         prev_entry = state.get(key)
-        previous_tag = prev_entry.get("version") if isinstance(prev_entry, dict) else prev_entry
+        previous_tag = (
+            prev_entry.get("version") if isinstance(prev_entry, dict) else prev_entry
+        )
 
         state[key] = {"version": latest_tag, "hashes": hashes}
 

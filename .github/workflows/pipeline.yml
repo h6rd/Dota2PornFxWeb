@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'assets/data/downloads.json'
 
   workflow_dispatch:
 
@@ -85,7 +87,7 @@ jobs:
             echo "mods=false" >> "$GITHUB_OUTPUT"
           fi
 
-          if echo "$CHANGED" | grep -q '^assets/data/.*\.json$'; then
+          if echo "$CHANGED" | grep -v -x -F 'assets/data/downloads.json' | grep -q '^assets/data/.*\.json$'; then
             echo "data=true" >> "$GITHUB_OUTPUT"
           else
             echo "data=false" >> "$GITHUB_OUTPUT"

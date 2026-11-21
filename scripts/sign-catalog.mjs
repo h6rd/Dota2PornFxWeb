@@ -5,6 +5,8 @@ import path from "node:path";
 const DATA_DIR = "assets/data";
 const SIG_DIR = "assets/signatures";
 
+const UNSIGNED = new Set(["downloads.json"]);
+
 function main() {
   const privateKeyPem = process.env.CATALOG_PRIVATE_KEY;
   if (!privateKeyPem) {
@@ -19,6 +21,7 @@ function main() {
   // sign every file
   for (const name of fs.readdirSync(DATA_DIR)) {
     if (!name.endsWith(".json")) continue;
+    if (UNSIGNED.has(name)) continue;
 
     const file = path.join(DATA_DIR, name);
     const sigFile = path.join(SIG_DIR, `${name}.sig`);
@@ -36,7 +39,7 @@ function main() {
     const dataName = sigName.slice(0, -".sig".length);
     const sigPath = path.join(SIG_DIR, sigName);
 
-    if (!fs.existsSync(path.join(DATA_DIR, dataName))) {
+    if (UNSIGNED.has(dataName) || !fs.existsSync(path.join(DATA_DIR, dataName))) {
       console.log(`Removing obsolete signature: ${sigPath}`);
       fs.unlinkSync(sigPath);
     }

@@ -80,5 +80,6 @@ jobs:
             echo "No changes"
           else
             git commit -m "chore: update catalog data and signatures [skip ci]"
+            git pull --rebase
             git push
           fi
