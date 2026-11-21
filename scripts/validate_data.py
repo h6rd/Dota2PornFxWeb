@@ -19,7 +19,7 @@ ANNOUNCEMENTS_JSON = f"{DATA_DIR}/announcements.json"
 
 REPO_HOSTS = {"h6rd.github.io", "raw.githubusercontent.com"}
 
-MODS_STORAGE = (os.environ.get("MODS_STORAGE") or "git").strip().lower()
+MODS_STORAGE = (os.environ.get("MODS_STORAGE") or "releases").strip().lower()
 DEFAULT_MANIFEST = "https://api.github.com/repos/h6rd/Dota2PornFx/contents/manifest.json?ref=main"
 
 REF = os.environ.get("VALIDATE_REF", "").strip() or "HEAD"

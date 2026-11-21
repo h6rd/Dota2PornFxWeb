@@ -60,6 +60,6 @@ jobs:
       - name: Validate assets/data
         env:
           STRICT_PREVIEWS: ${{ inputs.strict_previews || 'false' }}
-          MODS_STORAGE: ${{ vars.MODS_STORAGE || 'git' }}
+          MODS_STORAGE: ${{ vars.MODS_STORAGE || 'releases' }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/validate_data.py
