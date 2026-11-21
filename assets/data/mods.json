@@ -1,6 +1,22 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Sven Berserk",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Hook",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Viperr Announcer",
+      "category": "announcers"
+    },
+    {
+      "name": "Nyash Items Revived",
+      "category": "item-icons"
+    },
+    {
       "name": "Armlet Fix",
       "category": "item-icons"
     },
@@ -17615,6 +17631,25 @@
         "meta": {
           "date": 1795168005
         }
+      },
+      {
+        "name": "Sven Berserk",
+        "preview": "Sven Berserk.webp",
+        "file": "Sven Berserk.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "laskotdota"
+          }
+        ],
+        "meta": {
+          "date": 1795226491,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -24488,6 +24523,21 @@
           "date": 1794152898,
           "commit-sha": "4293b801d30542157c78c4566f586b6ddbe3600a"
         }
+      },
+      {
+        "name": "Viperr Announcer",
+        "preview": "Viperr Announcer.webp",
+        "file": "Viperr Announcer.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "samoredoto"
+          }
+        ],
+        "meta": {
+          "date": 1795226491,
+          "commit-sha": ""
+        }
       }
     ],
     "pedestal": [
@@ -30438,6 +30488,21 @@
         "meta": {
           "date": 1795225728
         }
+      },
+      {
+        "name": "Nyash Items Revived",
+        "preview": "Nyash Items Revived.webp",
+        "file": "Nyash Items Revived.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "c0nf1"
+          }
+        ],
+        "meta": {
+          "date": 1795226491,
+          "commit-sha": ""
+        }
       }
     ],
     "hero-icons": [
@@ -34245,6 +34310,21 @@
         "meta": {
           "date": 1795162294,
           "commit-sha": "e385522091c89de83aff557764e5f5868900ba3c"
+        }
+      },
+      {
+        "name": "Pudge Hook",
+        "preview": "Pudge Hook.webp",
+        "file": "Pudge Hook.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "XDremonioXD"
+          }
+        ],
+        "meta": {
+          "date": 1795226491,
+          "commit-sha": ""
         }
       }
     ],
