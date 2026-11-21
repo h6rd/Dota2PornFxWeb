@@ -721,6 +721,15 @@ def api_state(_q):
                         "file": refs[0][1] if refs else "",
                         "files": len(refs),
                         "styles": len(m.get("styles") or []),
+                        "preview": next(
+                            (
+                                v
+                                for _t, v in preview_refs(m)
+                                if ".." not in v
+                                and not v.startswith(("http://", "https://"))
+                            ),
+                            "",
+                        ),
                         "date": (m.get("meta") or {}).get("date")
                         if isinstance(m.get("meta"), dict)
                         else None,
@@ -941,7 +950,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
-        self.send_header("Cache-Control", "no-store")
+        if "Cache-Control" not in (extra or {}):
+            self.send_header("Cache-Control", "no-store")
         for k, v in (extra or {}).items():
             self.send_header(k, v)
         self.end_headers()
@@ -978,7 +988,12 @@ class Handler(BaseHTTPRequestHandler):
                     or not f.is_file()
                 ):
                     raise FileNotFoundError
-                return self._send(200, f.read_bytes(), IMG_TYPES[f.suffix.lower()])
+                return self._send(
+                    200,
+                    f.read_bytes(),
+                    IMG_TYPES[f.suffix.lower()],
+                    {"Cache-Control": "private, max-age=3600"},
+                )
             except Exception:  # noqa: BLE001
                 return self._send(404, {"error": "not found"})
         fn = GET_ROUTES.get(u.path)
@@ -1028,136 +1043,294 @@ class Handler(BaseHTTPRequestHandler):
 PAGE = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>D2PFX admin</title>
+<meta name="theme-color" content="#141218">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@1..144,1..1000&display=swap">
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--text:#1b1f24;--muted:#6b7280;--line:#e2e5ea;--accent:#6d4aff;--accent-t:#fff;--danger:#d92d20;--ok:#12805c;--warn:#b54708;--code:#f0f2f5}
-@media (prefers-color-scheme:dark){:root{--bg:#12141a;--panel:#1a1d25;--text:#e8eaf0;--muted:#9aa3b2;--line:#2b303c;--accent:#8b72ff;--accent-t:#0f1017;--danger:#ff6b61;--ok:#4fd1a1;--warn:#f5a54a;--code:#222632}}
-*{box-sizing:border-box}body{margin:0;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;z-index:5;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
-header h1{font-size:16px;margin:0 8px 0 0}
-button,.btn{font:inherit;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer}
-button:hover{border-color:var(--accent)}button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-t)}
-button.danger{color:var(--danger)}button:disabled{opacity:.5;cursor:default}
-.chip{padding:2px 8px;border-radius:99px;background:var(--code);color:var(--muted);font-size:12px}.chip.warn{color:var(--warn)}.chip.dry{color:var(--accent)}
-main{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:16px;padding:16px;max-width:1500px;margin:0 auto}
-@media(max-width:900px){main{grid-template-columns:1fr}}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
-input[type=text],input[type=search],select,textarea{font:inherit;width:100%;padding:7px 9px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text)}
-textarea{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;min-height:220px}
-label{display:block;font-size:12px;color:var(--muted);margin:10px 0 3px}
+/* tokens: same names and roles as the site (seed #7b00ff, tonal-spot) */
+:root{color-scheme:dark;
+--primary:#d3bbff;--on-primary:#3f008d;--primary-container:#5a00c6;--on-primary-container:#ebddff;
+--secondary-container:#4b4358;--on-secondary-container:#e9ddf9;
+--surface:#141218;--on-surface:#e6e0e9;--on-surface-variant:#cbc4d0;--outline:#948e9a;--outline-variant:#49454e;
+--sc-low:#1d1b20;--sc:#211f24;--sc-high:#2b292f;--sc-highest:#36343a;
+--error:#ffb4ab;--on-error:#690005;--ok:#7fdcb0;--warn:#f5b968;
+--ease:cubic-bezier(.2,.8,.2,1)}
+@media(prefers-color-scheme:light){:root{color-scheme:light;
+--primary:#6c1fe0;--on-primary:#fff;--primary-container:#ebddff;--on-primary-container:#23005c;
+--secondary-container:#e9ddf9;--on-secondary-container:#20182b;
+--surface:#fef7ff;--on-surface:#1d1b20;--on-surface-variant:#4a454e;--outline:#7b757f;--outline-variant:#cbc4cf;
+--sc-low:#f7f2fa;--sc:#f3edf7;--sc-high:#ece6f0;--sc-highest:#e6e0e9;
+--error:#ba1a1a;--on-error:#fff;--ok:#0b6b49;--warn:#8a5100}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scrollbar-color:var(--outline-variant) transparent}
+body{margin:0;font:14px/1.5 "Google Sans Flex",Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--surface);color:var(--on-surface)}
+body.noscroll{overflow:hidden}
+.ms{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:20px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;font-feature-settings:"liga";-webkit-font-feature-settings:"liga";user-select:none;flex:none}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+html:not(.icons) .ms,html:not(.icons) .media.nopv::before{display:none}
+
+/* app bar */
+header{position:sticky;top:0;z-index:10;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 20px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+header h1{font-size:22px;font-weight:500;margin:0 10px 0 0;letter-spacing:-.01em}
+.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:99px;background:var(--sc-high);color:var(--on-surface-variant);font-size:12.5px;white-space:nowrap}
+.chip .ms{font-size:16px}.chip.warn{color:var(--warn)}.chip.dry{background:var(--primary-container);color:var(--on-primary-container)}
+.spacer{flex:1}
+
+/* buttons */
+button,.btn{font:inherit;font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 20px;border:0;border-radius:99px;background:transparent;color:var(--primary);cursor:pointer;transition:background .2s var(--ease),box-shadow .2s var(--ease)}
+button:hover,.btn:hover{background:color-mix(in srgb,var(--primary) 10%,transparent)}
+.tonal{background:var(--secondary-container);color:var(--on-secondary-container)}
+.tonal:hover{background:color-mix(in srgb,var(--on-secondary-container) 10%,var(--secondary-container))}
+.filled{background:var(--primary);color:var(--on-primary)}
+.filled:hover{background:color-mix(in srgb,var(--on-primary) 10%,var(--primary));box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.outlined{box-shadow:inset 0 0 0 1px var(--outline)}
+.danger{color:var(--error);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--error) 45%,transparent)}
+.danger:hover{background:color-mix(in srgb,var(--error) 12%,transparent)}
+.sm{height:34px;padding:0 14px;font-size:13px}
+.icon-btn{width:40px;padding:0;color:var(--on-surface-variant)}
+button:disabled{opacity:.4;cursor:default;pointer-events:none}
+
+/* layout */
+#shell{display:grid;grid-template-columns:1fr;gap:20px;padding:8px 20px 40px;max-width:1760px;margin:0 auto;align-items:start}
+#shell.has-panel{grid-template-columns:minmax(0,1fr) minmax(400px,540px)}
+.toolbar{position:sticky;top:var(--hh,64px);z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0 14px;background:linear-gradient(var(--surface) 80%,transparent)}
+.field{position:relative;display:flex;align-items:center;flex:1 1 260px;min-width:200px;height:48px;border-radius:99px;background:var(--sc-high);transition:box-shadow .2s}
+.field:focus-within{box-shadow:inset 0 0 0 2px var(--primary)}
+.field .ms{position:absolute;left:16px;color:var(--on-surface-variant);pointer-events:none}
+.field input{width:100%;height:100%;padding:0 18px 0 46px;border:0;outline:0;background:none;color:inherit;font:inherit}
+.field input::placeholder{color:var(--on-surface-variant)}
+select{font:inherit;color:var(--on-surface);height:48px;padding:0 16px;border-radius:99px;border:0;background:var(--sc-high);max-width:220px;cursor:pointer}
+.seg{display:flex;border-radius:99px;box-shadow:inset 0 0 0 1px var(--outline-variant);overflow:hidden}
+.seg button{border-radius:0;height:46px;width:48px;padding:0;color:var(--on-surface-variant)}
+.seg button[aria-pressed=true]{background:var(--secondary-container);color:var(--on-secondary-container)}
+#count{color:var(--on-surface-variant);font-size:13px;padding:0 6px}
+
+/* mod cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:10px}
+.mcard{display:flex;flex-direction:column;border-radius:24px;background:var(--sc);overflow:hidden;cursor:pointer;content-visibility:auto;contain-intrinsic-size:auto 260px;transition:background .2s var(--ease),transform .2s var(--ease)}
+.mcard:hover{background:color-mix(in srgb,var(--primary) 8%,var(--surface));transform:translateY(-2px)}
+.mcard.sel{background:color-mix(in srgb,var(--primary-container) 45%,var(--surface));box-shadow:inset 0 0 0 2px var(--primary)}
+.media{position:relative;aspect-ratio:16/10;background:var(--sc-high);overflow:hidden}
+.media img{display:block;width:100%;height:100%;object-fit:cover}
+.media.nopv::before{content:"image";font-family:"Material Symbols Rounded";font-size:40px;color:var(--outline);position:absolute;inset:0;display:grid;place-items:center;font-feature-settings:"liga"}
+.badge{position:absolute;left:10px;bottom:10px;padding:2px 10px;border-radius:99px;background:rgba(20,18,24,.72);color:#fff;font-size:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.mcard .body{padding:12px 16px 16px;min-width:0}
+.mcard .t{font-size:16px;font-weight:500;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mcard .s{font-size:13px;color:var(--on-surface-variant);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rows .mcard{flex-direction:row;align-items:center;border-radius:20px;gap:6px;padding:6px}
+.rows .media{width:136px;flex:none;border-radius:14px}
+.rows .mcard .body{padding:4px 10px}
+.rows .mcard:hover{transform:none}
+.empty{grid-column:1/-1;text-align:center;color:var(--on-surface-variant);padding:64px 0}
+.empty .ms{font-size:40px;display:block;margin:0 auto 8px}
+
+/* side panel */
+#panel{position:sticky;top:calc(var(--hh,64px) + 8px);max-height:calc(100vh - var(--hh,64px) - 24px);overflow:auto;border-radius:28px;background:var(--sc-low);padding:0 0 20px}
+#panelBar{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;align-items:flex-start;height:0;padding:0;pointer-events:none}
+#panelBar button{pointer-events:auto;background:rgba(20,18,24,.6);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin:10px 10px 0 0}
+.hero{aspect-ratio:16/9;background:var(--sc-high)}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .ph{height:100%;display:grid;place-items:center;color:var(--outline)}.hero .ph .ms{font-size:44px}
+.head{padding:16px 20px 4px}.head h2{margin:0 0 8px;font-size:24px;font-weight:500;line-height:1.25}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.sect{margin:14px 14px 0;padding:14px 16px 16px;border-radius:20px;background:var(--sc)}
+.sect h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px;font-weight:500}
+.sect h3 .ms{color:var(--primary);font-size:20px}
+.ref{display:flex;gap:12px;align-items:center;padding:8px 0}
+.ref+.ref{border-top:1px solid var(--outline-variant)}
+.ref .grow{flex:1;min-width:0;word-break:break-all}
+.ref .grow small{display:block;color:var(--on-surface-variant)}
+.thumb{width:112px;height:64px;flex:none;object-fit:cover;border-radius:12px;background:var(--sc-high)}
+div.thumb{display:grid;place-items:center;color:var(--outline)}
+.muted{color:var(--on-surface-variant)}.ok{color:var(--ok)}.bad{color:var(--error)}
+.loading{padding:48px;text-align:center;color:var(--on-surface-variant)}
+.danger-zone{background:color-mix(in srgb,var(--error) 8%,var(--sc))}.danger-zone h3 .ms{color:var(--error)}
+
+/* forms */
+label{display:block;font-size:13px;color:var(--on-surface-variant);margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;color:var(--on-surface);margin:12px 0 4px;cursor:pointer}
+input[type=checkbox]{accent-color:var(--primary);width:18px;height:18px;margin:1px 0 0;flex:none}
+input[type=text]{font:inherit;width:100%;height:46px;padding:0 16px;border-radius:14px;border:0;background:var(--sc-high);color:inherit;outline:0}
+textarea{font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;width:100%;min-height:240px;padding:12px 14px;border-radius:14px;border:0;background:var(--sc-high);color:inherit;outline:0;resize:vertical}
+input[type=text]:focus,textarea:focus,select:focus{box-shadow:inset 0 0 0 2px var(--primary)}
+input[type=color]{width:56px;height:46px;padding:4px;border:0;border-radius:14px;background:var(--sc-high);cursor:pointer}
+input[type=file]{font:inherit;color:var(--on-surface-variant);max-width:100%}
+input[type=file]::file-selector-button{font:inherit;font-weight:500;height:34px;padding:0 14px;margin-right:12px;border:0;border-radius:99px;background:var(--secondary-container);color:var(--on-secondary-container);cursor:pointer}
 .row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.row>.fit{flex:none}
-#list{max-height:calc(100vh - 230px);overflow:auto;margin-top:8px}
-.item{padding:8px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent}.item:hover{background:var(--code)}.item.sel{border-color:var(--accent);background:var(--code)}
-.item small{color:var(--muted)}.tabs{display:flex;gap:6px;margin-bottom:12px}.tabs button.on{background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
-.thumb{width:120px;height:68px;object-fit:cover;border-radius:6px;background:var(--code);border:1px solid var(--line)}
-.ref{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.ref:last-child{border:0}.ref .grow{flex:1;min-width:0;word-break:break-all}
-.muted{color:var(--muted)}.ok{color:var(--ok)}.bad{color:var(--danger)}h3{margin:16px 0 6px;font-size:14px}h2{margin:0 0 6px;font-size:17px}
-#log{position:fixed;left:0;right:0;bottom:0;max-height:45vh;background:#0e1016;color:#d7dae2;border-top:2px solid var(--accent);display:none;z-index:9}
-#log pre{margin:0;padding:10px 16px;overflow:auto;max-height:calc(45vh - 40px);font:12.5px/1.4 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
-#log .bar{display:flex;justify-content:space-between;padding:6px 16px;background:#161922;font-size:12px}
-.style-row{border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin-top:8px}
-dialog{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);max-width:560px;width:92%}
-dialog::backdrop{background:rgba(0,0,0,.5)}.note{background:var(--code);padding:8px 10px;border-radius:8px;margin:8px 0;font-size:13px}
+.style-row{border-radius:16px;padding:4px 14px 14px;margin-top:10px;background:var(--sc-high)}
+.style-row input[type=text],.style-row input[type=color]{background:var(--sc)}
+.pvthumb{display:block;width:100%;max-width:260px;aspect-ratio:16/10;object-fit:cover;border-radius:14px;margin-top:8px}
+.note{display:flex;gap:10px;background:var(--sc-high);padding:12px 14px;border-radius:14px;margin:12px 0;font-size:13px;color:var(--on-surface-variant)}
+.note .ms{color:var(--primary)}
+.addhead{padding:20px 20px 0}.addhead h2{margin:0;font-size:24px;font-weight:500}
+#add .sect{margin-top:12px}
+
+/* log sheet, dialog, snackbar */
+#log{position:fixed;left:0;right:0;bottom:0;max-height:45vh;background:var(--sc-highest);color:var(--on-surface);border-radius:28px 28px 0 0;display:none;z-index:30;box-shadow:0 -4px 24px rgba(0,0,0,.35)}
+#log pre{margin:0;padding:4px 24px 20px;overflow:auto;max-height:calc(45vh - 56px);font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
+#log .bar{display:flex;justify-content:space-between;align-items:center;padding:10px 12px 6px 24px;font-weight:500}
+dialog{border:0;border-radius:28px;background:var(--sc-high);color:var(--on-surface);max-width:560px;width:92%;padding:24px}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog h2{margin:0 0 12px;font-size:24px;font-weight:500}
+dialog a{color:var(--primary)}
+#snacks{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);display:grid;gap:8px;z-index:40;width:min(92vw,520px)}
+.snack{background:var(--on-surface);color:var(--surface);padding:12px 18px;border-radius:14px;white-space:pre-line;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+
+@media(max-width:900px){
+ header,.toolbar{position:static}
+ #shell.has-panel{grid-template-columns:1fr}
+ #panel{position:fixed;inset:0;max-height:none;border-radius:0;z-index:20}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+ .rows{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header>
-  <h1>D2PFX admin</h1><span class="chip" id="branch"></span><span class="chip dry" id="dry" hidden>DRY-RUN: GitHub is not touched</span>
+  <h1>D2PFX admin</h1>
+  <span class="chip" id="branch"></span><span class="chip dry" id="dry" hidden>DRY-RUN: GitHub is not touched</span>
   <span class="chip" id="changes"></span><span class="chip warn" id="pending" hidden></span>
-  <span style="flex:1"></span>
-  <button id="bSync">Sync</button><button id="bValidate">Validate</button><button id="bUndo">Undo</button>
-  <button class="primary" id="bPublish">Publish…</button>
+  <span class="spacer"></span>
+  <button class="tonal" id="bSync"><span class="ms">sync</span>Sync</button>
+  <button class="tonal" id="bValidate"><span class="ms">task_alt</span>Validate</button>
+  <button class="tonal" id="bUndo"><span class="ms">undo</span>Undo</button>
+  <button class="filled" id="bPublish"><span class="ms">cloud_upload</span>Publish…</button>
 </header>
-<main>
-  <section class="card">
-    <div class="row"><input type="search" id="q" placeholder="Search mods…"><select id="cat" class="fit" style="width:auto"></select></div>
-    <div id="list"></div>
+<main id="shell">
+  <section id="browse">
+    <div class="toolbar">
+      <label class="field" aria-label="Search mods"><span class="ms">search</span><input type="search" id="q" placeholder="Search mods…" autocomplete="off"></label>
+      <select id="cat" aria-label="Category"></select>
+      <div class="seg" role="group" aria-label="View">
+        <button id="vGrid" aria-label="Grid view" aria-pressed="true"><span class="ms">grid_view</span></button>
+        <button id="vRows" aria-label="List view" aria-pressed="false"><span class="ms">view_list</span></button>
+      </div>
+      <span id="count"></span>
+      <span class="spacer"></span>
+      <button class="filled" id="tAdd"><span class="ms">add</span>Add mod</button>
+    </div>
+    <div id="list" class="grid"></div>
   </section>
-  <section class="card">
-    <div class="tabs"><button id="tEdit" class="on">Edit</button><button id="tAdd">Add new mod</button></div>
-    <div id="edit"><p class="muted">Select a mod on the left.</p></div>
+  <aside id="panel" hidden>
+    <div id="panelBar"><span></span><button class="icon-btn" id="pClose" aria-label="Close"><span class="ms">close</span></button></div>
+    <div id="edit"></div>
     <div id="add" hidden></div>
-  </section>
+  </aside>
 </main>
-<div id="log"><div class="bar"><span id="logTitle">Log</span><button onclick="hideLog()">Close</button></div><pre id="logPre"></pre></div>
+<div id="log"><div class="bar"><span id="logTitle">Log</span><button class="icon-btn" onclick="hideLog()" aria-label="Close log"><span class="ms">close</span></button></div><pre id="logPre"></pre></div>
 <dialog id="dlg"></dialog>
+<div id="snacks" role="status" aria-live="polite"></div>
 <script>
-const TOKEN="__TOKEN__";let S={mods:[],categories:[]},SEL=null;
+const TOKEN="__TOKEN__";let S={mods:[],categories:[]},SEL=null,BUST=Date.now(),VIEW='grid';
+try{VIEW=localStorage.getItem('d2pfx_admin_view')==='rows'?'rows':'grid'}catch(e){}
 const $=s=>document.querySelector(s);
+document.fonts.load('20px "Material Symbols Rounded"').then(f=>{if(f.length)document.documentElement.classList.add('icons')},()=>{});
+{const h=document.querySelector('header'),set=()=>document.documentElement.style.setProperty('--hh',h.offsetHeight+'px');new ResizeObserver(set).observe(h);set()}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ic=n=>`<span class="ms">${n}</span>`;
+const pv=(c,n)=>`/preview?cat=${encodeURIComponent(c)}&name=${encodeURIComponent(n)}&t=${TOKEN}&v=${BUST}`;
 async function api(path,body){const o={headers:{'X-Admin-Token':TOKEN}};if(body!==undefined){o.method='POST';o.headers['Content-Type']='application/json';o.body=JSON.stringify(body)}
  const r=await fetch(path,o);const j=await r.json().catch(()=>({error:'bad response'}));if(!r.ok)throw new Error(j.error||r.statusText);return j}
 async function upload(file){const r=await fetch('/api/upload?name='+encodeURIComponent(file.name),{method:'POST',headers:{'X-Admin-Token':TOKEN},body:file});const j=await r.json();if(!r.ok)throw new Error(j.error);return j.id}
+function toast(m,ms=5000){const t=document.createElement('div');t.className='snack';t.textContent=m;$('#snacks').appendChild(t);setTimeout(()=>t.remove(),ms)}
 function hideLog(){$('#log').style.display='none'}
 async function runJob(p,title){$('#log').style.display='block';$('#logTitle').textContent=title;const pre=$('#logPre');pre.textContent='';
  let id;try{id=(await p).job}catch(e){pre.textContent='ERROR: '+e.message;return false}
  let from=0;for(;;){const j=await api('/api/job?id='+id+'&from='+from);if(j.lines.length){pre.textContent+=j.lines.join('\n')+'\n';pre.scrollTop=pre.scrollHeight}from=j.next;
-  if(j.status!=='running'){$('#logTitle').textContent=title+(j.status==='ok'?' — done':' — FAILED');await refresh();return j.status==='ok'}await new Promise(r=>setTimeout(r,700))}}
-async function refresh(){S=await api('/api/state');$('#branch').textContent='branch: '+S.branch;$('#dry').hidden=!S.dry;
- $('#changes').textContent=S.changes.length?S.changes.length+' local change(s)':'no local changes';$('#changes').className='chip'+(S.changes.length?' warn':'');
+  if(j.status!=='running'){$('#logTitle').textContent=title+(j.status==='ok'?' — done':' — FAILED');BUST=Date.now();await refresh();return j.status==='ok'}await new Promise(r=>setTimeout(r,700))}}
+async function refresh(){S=await api('/api/state');$('#branch').innerHTML=ic('call_split')+esc(S.branch);$('#dry').hidden=!S.dry;
+ $('#changes').innerHTML=ic(S.changes.length?'edit_note':'check')+(S.changes.length?S.changes.length+' local change(s)':'no local changes');$('#changes').className='chip'+(S.changes.length?' warn':'');
  $('#pending').hidden=!S.pendingRemove.length;$('#pending').textContent=S.pendingRemove.length+' file(s) to remove from releases on Publish';
  $('#bUndo').disabled=!S.undo;const sel=$('#cat'),cur=sel.value;sel.innerHTML='<option value="">All categories</option>'+S.categories.map(c=>`<option>${esc(c.id)}</option>`).join('');sel.value=cur;renderList();
  if(!S.releasesOk)toast('Releases repo clone not found: uploads will fail. Use --releases-dir.')}
-function toast(m){console.warn(m)}
-function renderList(){const q=$('#q').value.toLowerCase(),c=$('#cat').value;const items=S.mods.filter(m=>(!c||m.category===c)&&(!q||(m.name||'').toLowerCase().includes(q)||(m.file||'').toLowerCase().includes(q)));
- $('#list').innerHTML=items.map(m=>`<div class="item${SEL&&SEL.c===m.category&&SEL.n===m.name?' sel':''}" data-c="${esc(m.category)}" data-n="${esc(m.name)}"><b>${esc(m.name)}</b> <small>${esc(m.category)}${m.group?' / '+esc(m.group):''}${m.styles>1?' · '+m.styles+' styles':''}</small></div>`).join('')||'<p class="muted">Nothing found.</p>';
- document.querySelectorAll('.item').forEach(e=>e.onclick=()=>openMod(e.dataset.c,e.dataset.n))}
+
+/* list with previews */
+function markSel(){document.querySelectorAll('.mcard').forEach(e=>e.classList.toggle('sel',!!SEL&&e.dataset.c===SEL.c&&e.dataset.n===SEL.n))}
+function renderList(){const q=$('#q').value.toLowerCase(),c=$('#cat').value;
+ const items=S.mods.filter(m=>(!c||m.category===c)&&(!q||(m.name||'').toLowerCase().includes(q)||(m.file||'').toLowerCase().includes(q)));
+ const L=$('#list');L.className=VIEW==='rows'?'rows':'grid';
+ $('#count').textContent=items.length===S.mods.length?items.length+' mods':items.length+' of '+S.mods.length;
+ L.innerHTML=items.map(m=>{const media=m.preview?`<img loading="lazy" decoding="async" alt="" src="${pv(m.category,m.preview)}" onerror="this.parentNode.classList.add('nopv');this.remove()">`:'';
+  return `<article class="mcard" tabindex="0" role="button" aria-label="${esc(m.name)}" data-c="${esc(m.category)}" data-n="${esc(m.name)}"><div class="media${m.preview?'':' nopv'}">${media}${m.styles>1?`<span class="badge">${m.styles} styles</span>`:''}</div><div class="body"><div class="t" title="${esc(m.name)}">${esc(m.name)}</div><div class="s">${esc(m.category)}${m.group?' / '+esc(m.group):''}</div></div></article>`}).join('')
+  ||`<div class="empty">${ic('search_off')}<div>Nothing found. Try another name or category.</div></div>`;
+ L.querySelectorAll('.mcard').forEach(e=>{const go=()=>openMod(e.dataset.c,e.dataset.n);e.onclick=go;e.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();go()}}});markSel()}
+function setView(v){VIEW=v;try{localStorage.setItem('d2pfx_admin_view',v)}catch(e){}$('#vGrid').setAttribute('aria-pressed',v==='grid');$('#vRows').setAttribute('aria-pressed',v==='rows');renderList()}
+$('#vGrid').onclick=()=>setView('grid');$('#vRows').onclick=()=>setView('rows');setView(VIEW);
 $('#q').oninput=renderList;$('#cat').onchange=renderList;
-function tab(t){$('#edit').hidden=t!=='edit';$('#add').hidden=t!=='add';$('#tEdit').className=t==='edit'?'on':'';$('#tAdd').className=t==='add'?'on':''}
-$('#tEdit').onclick=()=>tab('edit');$('#tAdd').onclick=()=>{renderAdd();tab('add')};
-async function openMod(c,n){SEL={c,n};renderList();tab('edit');const box=$('#edit');box.innerHTML='<p class="muted">Loading…</p>';
- let d;try{d=await api('/api/mod?category='+encodeURIComponent(c)+'&name='+encodeURIComponent(n))}catch(e){box.innerHTML='<p class="bad">'+esc(e.message)+'</p>';return}
- const files=d.files.map(f=>`<div class="ref"><div class="grow"><b>${esc(f.target)}</b><br>${esc(f.value)} ${f.inManifest?'<span class="ok">· in releases</span>':'<span class="bad">· not in manifest</span>'}</div>${f.editable?`<input type="file" accept=".zip" data-t="${esc(f.target)}" class="rf">`:'<span class="muted">URL / nested path</span>'}</div>`).join('')||'<p class="muted">No files.</p>';
- const prevs=d.previews.map(f=>`<div class="ref">${f.exists?`<img class="thumb" src="/preview?cat=${encodeURIComponent(c)}&name=${encodeURIComponent(f.value)}&t=${TOKEN}">`:'<div class="thumb"></div>'}<div class="grow"><b>${esc(f.target)}</b><br>${esc(f.value)} ${f.exists?'':'<span class="bad">· file missing</span>'}</div><input type="file" accept="image/*" data-t="${esc(f.target)}" class="rp"></div>`).join('')||'<p class="muted">No previews.</p>';
- box.innerHTML=`<h2>${esc(n)}</h2><div class="muted">${esc(c)}${d.group?' / '+esc(d.group):''}</div>
- <h3>Files (zip)</h3>${files}<label><input type="checkbox" id="mark" checked> after replacing a file: mark as updated (meta.date + “recently added”, makes Discord say “Updated”)</label>
- <h3>Previews</h3>${prevs}
- <h3>Entry (JSON)</h3><textarea id="json" spellcheck="false">${esc(JSON.stringify(d.entry,null,2))}</textarea>
- <div class="row" style="margin-top:8px"><button class="primary fit" id="bSave">Save JSON</button><span class="muted">Changes the local mods.json only. Publish to push.</span></div>
- <h3>Delete</h3><label><input type="checkbox" id="rmf" checked> also remove the zip file(s) from the releases repo (done on Publish, after the site stops using them)</label>
- <button class="danger" id="bDel">Delete this mod</button>`;
+
+/* side panel */
+function showPanel(t){$('#panel').hidden=false;$('#shell').classList.add('has-panel');$('#edit').hidden=t!=='edit';$('#add').hidden=t!=='add';$('#panel').scrollTop=0;if(innerWidth<=900)document.body.classList.add('noscroll')}
+function closePanel(){$('#panel').hidden=true;$('#shell').classList.remove('has-panel');document.body.classList.remove('noscroll');SEL=null;markSel()}
+$('#pClose').onclick=closePanel;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#dlg').open&&!$('#panel').hidden)closePanel()});
+$('#tAdd').onclick=()=>{SEL=null;markSel();renderAdd();showPanel('add')};
+
+async function openMod(c,n){SEL={c,n};markSel();showPanel('edit');const box=$('#edit');box.innerHTML='<div class="loading">Loading…</div>';
+ let d;try{d=await api('/api/mod?category='+encodeURIComponent(c)+'&name='+encodeURIComponent(n))}catch(e){box.innerHTML='<p class="bad" style="padding:20px">'+esc(e.message)+'</p>';return}
+ const hero=d.previews.find(f=>f.exists);const ns=(d.entry.styles||[]).length;
+ const files=d.files.map(f=>`<div class="ref"><div class="grow"><b>${esc(f.target)}</b><small>${esc(f.value)} ${f.inManifest?'<span class="ok">· in releases</span>':'<span class="bad">· not in manifest</span>'}</small></div>${f.editable?`<label class="btn tonal sm" style="margin:0">${ic('upload_file')}Replace<input type="file" accept=".zip" data-t="${esc(f.target)}" class="rf" hidden></label>`:'<span class="muted">URL / nested path</span>'}</div>`).join('')||'<p class="muted">No files.</p>';
+ const prevs=d.previews.map(f=>`<div class="ref">${f.exists?`<img class="thumb" loading="lazy" src="${pv(c,f.value)}" alt="">`:`<div class="thumb">${ic('hide_image')}</div>`}<div class="grow"><b>${esc(f.target)}</b><small>${esc(f.value)} ${f.exists?'':'<span class="bad">· file missing</span>'}</small></div><label class="btn tonal sm" style="margin:0">${ic('image')}Replace<input type="file" accept="image/*" data-t="${esc(f.target)}" class="rp" hidden></label></div>`).join('')||'<p class="muted">No previews.</p>';
+ box.innerHTML=`<div class="hero">${hero?`<img src="${pv(c,hero.value)}" alt="">`:`<div class="ph">${ic('hide_image')}</div>`}</div>
+ <div class="head"><h2>${esc(n)}</h2><div class="chips"><span class="chip">${esc(c)}</span>${d.group?`<span class="chip">${esc(d.group)}</span>`:''}${ns>1?`<span class="chip">${ns} styles</span>`:''}</div></div>
+ <section class="sect"><h3>${ic('image')}Previews</h3>${prevs}</section>
+ <section class="sect"><h3>${ic('folder_zip')}Files (zip)</h3>${files}<label class="chk"><input type="checkbox" id="mark" checked><span>After replacing a file, mark as updated (meta.date and “recently added”, so Discord says “Updated”)</span></label></section>
+ <section class="sect"><h3>${ic('data_object')}Entry (JSON)</h3><textarea id="json" spellcheck="false">${esc(JSON.stringify(d.entry,null,2))}</textarea>
+  <div class="row" style="margin-top:10px"><button class="filled fit" id="bSave">${ic('save')}Save JSON</button><span class="muted">Changes the local mods.json only. Publish to push.</span></div></section>
+ <section class="sect danger-zone"><h3>${ic('delete')}Delete</h3><label class="chk"><input type="checkbox" id="rmf" checked><span>Also remove the zip file(s) from the releases repo (done on Publish, after the site stops using them)</span></label>
+  <button class="danger" id="bDel" style="margin-top:10px">${ic('delete')}Delete this mod</button></section>`;
  document.querySelectorAll('.rf').forEach(i=>i.onchange=async()=>{const f=i.files[0];if(!f)return;if(!confirm('Replace '+i.dataset.t+' with '+f.name+'?'))return;
   await runJob((async()=>{const id=await upload(f);return api('/api/mod/replace-file',{category:c,name:n,target:i.dataset.t,uploadId:id,markUpdated:$('#mark').checked})})(),'Replace file');openMod(c,n)});
- document.querySelectorAll('.rp').forEach(i=>i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const id=await upload(f);await api('/api/mod/replace-preview',{category:c,name:n,target:i.dataset.t,uploadId:id});await refresh();openMod(c,n)}catch(e){alert(e.message)}});
- $('#bSave').onclick=async()=>{let e;try{e=JSON.parse($('#json').value)}catch(x){return alert('Invalid JSON: '+x.message)}try{await api('/api/mod/save',{category:c,name:n,entry:e});await refresh();SEL={c,n:e.name};openMod(c,e.name)}catch(x){alert(x.message)}};
+ document.querySelectorAll('.rp').forEach(i=>i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const id=await upload(f);await api('/api/mod/replace-preview',{category:c,name:n,target:i.dataset.t,uploadId:id});BUST=Date.now();await refresh();openMod(c,n);toast('Preview replaced')}catch(e){toast(e.message)}});
+ $('#bSave').onclick=async()=>{let e;try{e=JSON.parse($('#json').value)}catch(x){return toast('Invalid JSON: '+x.message)}try{await api('/api/mod/save',{category:c,name:n,entry:e});await refresh();SEL={c,n:e.name};markSel();openMod(c,e.name);toast('Saved locally')}catch(x){toast(x.message)}};
  $('#bDel').onclick=async()=>{if(!confirm('Delete "'+n+'" from mods.json?'))return;try{const r=await api('/api/mod/delete',{category:c,name:n,removeFiles:$('#rmf').checked});
-  let m='Deleted locally.';if(r.queued.length)m+='\nQueued for removal from releases on Publish:\n'+r.queued.join('\n');if(r.packWarnings.length)m+='\n\nWARNING: still listed in packs:\n'+r.packWarnings.join('\n');alert(m);SEL=null;$('#edit').innerHTML='<p class="muted">Select a mod on the left.</p>';await refresh()}catch(x){alert(x.message)}}}
-function renderAdd(){const cats=S.categories;$('#add').innerHTML=`<h2>Add new mod</h2>
- <label>Category</label><select id="aCat">${cats.map(c=>`<option>${esc(c.id)}</option>`).join('')}</select>
- <div id="aGroupBox"></div>
- <label>Mod name</label><input type="text" id="aName">
- <label>File name base (optional, letters/digits/-_. only; default is made from the name)</label><input type="text" id="aBase" placeholder="my-mod">
- <label><input type="checkbox" id="aStyled"> this mod has several styles / variants</label>
- <div id="aRows"></div><button id="aMore" hidden>+ add style</button>
- <label>Tags (JSON object, optional)</label><textarea id="aTags" style="min-height:60px" placeholder='{"hero":"Axe"}'></textarea>
- <label>Links (JSON list, optional)</label><textarea id="aLinks" style="min-height:60px" placeholder='[{"type":"author","url":"Name"}]'></textarea>
- <label><input type="checkbox" id="aRecent" checked> add to “recently added”</label>
- <div class="note">The zip is uploaded to the releases repo immediately. mods.json and the preview change locally until you press Publish.${S.pillow?'':' Install pillow (pip install pillow) to convert png/jpg previews to webp.'}</div>
- <button class="primary" id="aGo">Add mod</button>`;
+  let m='Deleted locally.';if(r.queued.length)m+='\nQueued for removal from releases on Publish:\n'+r.queued.join('\n');if(r.packWarnings.length)m+='\n\nWARNING: still listed in packs:\n'+r.packWarnings.join('\n');alert(m);closePanel();await refresh()}catch(x){toast(x.message)}}}
+
+function renderAdd(){const cats=S.categories;$('#add').innerHTML=`<div class="addhead"><h2>Add new mod</h2></div>
+ <section class="sect"><h3>${ic('category')}Where</h3>
+  <label>Category</label><select id="aCat" style="width:100%;max-width:none">${cats.map(c=>`<option>${esc(c.id)}</option>`).join('')}</select>
+  <div id="aGroupBox"></div>
+  <label>Mod name</label><input type="text" id="aName">
+  <label>File name base (optional, letters/digits/-_. only; default is made from the name)</label><input type="text" id="aBase" placeholder="my-mod"></section>
+ <section class="sect"><h3>${ic('folder_zip')}Files and previews</h3>
+  <label class="chk"><input type="checkbox" id="aStyled"><span>This mod has several styles / variants</span></label>
+  <div id="aRows"></div><button class="tonal sm" id="aMore" hidden style="margin-top:10px">${ic('add')}Add style</button></section>
+ <section class="sect"><h3>${ic('sell')}Details</h3>
+  <label>Tags (JSON object, optional)</label><textarea id="aTags" style="min-height:64px" placeholder='{"hero":"Axe"}'></textarea>
+  <label>Links (JSON list, optional)</label><textarea id="aLinks" style="min-height:64px" placeholder='[{"type":"author","url":"Name"}]'></textarea>
+  <label class="chk"><input type="checkbox" id="aRecent" checked><span>Add to “recently added”</span></label></section>
+ <div style="margin:12px 14px 0"><div class="note">${ic('info')}<span>The zip is uploaded to the releases repo immediately. mods.json and the preview change locally until you press Publish.${S.pillow?'':' Install pillow (pip install pillow) to convert png/jpg previews to webp.'}</span></div>
+ <button class="filled" id="aGo">${ic('add')}Add mod</button></div>`;
  const rows=$('#aRows');let n=0;
- const addRow=()=>{const i=n++;const d=document.createElement('div');d.className='style-row';d.innerHTML=`<div class="srow-meta" ${$('#aStyled').checked?'':'hidden'}><div class="row"><input type="text" class="lab" placeholder="Style label (e.g. Style 1)"><input type="color" class="col fit" value="#8b5cf6"></div></div>
-  <label>Zip file</label><input type="file" accept=".zip" class="zip"><label>Preview image</label><input type="file" accept="image/*" class="pv">`;rows.appendChild(d)};
+ const addRow=()=>{n++;const d=document.createElement('div');d.className='style-row';d.innerHTML=`<div class="srow-meta" ${$('#aStyled').checked?'':'hidden'}><div class="row" style="margin-top:12px"><input type="text" class="lab" placeholder="Style label (e.g. Style 1)"><input type="color" class="col fit" value="#8b5cf6"></div></div>
+  <label>Zip file</label><input type="file" accept=".zip" class="zip"><label>Preview image</label><input type="file" accept="image/*" class="pv"><img class="pvthumb" alt="" hidden>`;
+  const pi=d.querySelector('.pv'),th=d.querySelector('.pvthumb');pi.onchange=()=>{const f=pi.files[0];if(th.src&&th.src.startsWith('blob:'))URL.revokeObjectURL(th.src);if(f){th.src=URL.createObjectURL(f);th.hidden=false}else{th.hidden=true}};rows.appendChild(d)};
  addRow();
  const syncStyled=()=>{const on=$('#aStyled').checked;document.querySelectorAll('.srow-meta').forEach(e=>e.hidden=!on);$('#aMore').hidden=!on;if(!on)while(rows.children.length>1)rows.lastChild.remove()};
  $('#aStyled').onchange=syncStyled;$('#aMore').onclick=()=>{addRow();syncStyled()};
- const grp=()=>{const c=cats.find(x=>x.id===$('#aCat').value);$('#aGroupBox').innerHTML=c&&c.grouped?`<label>Group</label><select id="aGroup">${c.groups.map(g=>`<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('')}<option value="">(new group…)</option></select><input type="text" id="aGroupNew" placeholder="New group name" hidden style="margin-top:6px">`:'';
+ const grp=()=>{const c=cats.find(x=>x.id===$('#aCat').value);$('#aGroupBox').innerHTML=c&&c.grouped?`<label>Group</label><select id="aGroup" style="width:100%;max-width:none">${c.groups.map(g=>`<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('')}<option value="">(new group…)</option></select><input type="text" id="aGroupNew" placeholder="New group name" hidden style="margin-top:8px">`:'';
   const sel=$('#aGroup');if(sel)sel.onchange=()=>{$('#aGroupNew').hidden=sel.value!==''}};
  $('#aCat').onchange=grp;grp();
- $('#aGo').onclick=async()=>{const name=$('#aName').value.trim();if(!name)return alert('Enter the mod name');
+ $('#aGo').onclick=async()=>{const name=$('#aName').value.trim();if(!name)return toast('Enter the mod name');
   const styled=$('#aStyled').checked;const rowsEl=[...rows.children];const zips=[];
-  for(const r of rowsEl){const z=r.querySelector('.zip').files[0];if(!z)return alert('Choose a zip in every row');zips.push({z,p:r.querySelector('.pv').files[0],label:styled?r.querySelector('.lab').value.trim():'',color:r.querySelector('.col').value})}
-  let tags=null,links=null;try{if($('#aTags').value.trim())tags=JSON.parse($('#aTags').value);if($('#aLinks').value.trim())links=JSON.parse($('#aLinks').value)}catch(x){return alert('Tags/Links: invalid JSON')}
+  for(const r of rowsEl){const z=r.querySelector('.zip').files[0];if(!z)return toast('Choose a zip in every row');zips.push({z,p:r.querySelector('.pv').files[0],label:styled?r.querySelector('.lab').value.trim():'',color:r.querySelector('.col').value})}
+  let tags=null,links=null;try{if($('#aTags').value.trim())tags=JSON.parse($('#aTags').value);if($('#aLinks').value.trim())links=JSON.parse($('#aLinks').value)}catch(x){return toast('Tags/Links: invalid JSON')}
   const gs=$('#aGroup');const body={category:$('#aCat').value,name,fileBase:$('#aBase').value.trim(),tags,links,recent:$('#aRecent').checked,groupId:gs?gs.value:'',groupName:gs&&gs.value===''?$('#aGroupNew').value:''};
   $('#aGo').disabled=true;await runJob((async()=>{$('#logPre').textContent='Uploading files to the local server…';body.zips=[];for(const x of zips){const e={uploadId:await upload(x.z),label:x.label,color:x.color};if(x.p)e.previewUploadId=await upload(x.p);body.zips.push(e)}return api('/api/mod/add',body)})(),'Add mod "'+name+'"');
   $('#aGo').disabled=false;}}
+
 $('#bSync').onclick=()=>runJob(api('/api/sync',{}),'Sync (git pull)');
 $('#bValidate').onclick=()=>runJob(api('/api/validate',{}),'Validate');
-$('#bUndo').onclick=async()=>{if(!confirm('Restore the previous version of mods.json? (previews and release files are not reverted)'))return;try{await api('/api/undo',{});await refresh();SEL&&openMod(SEL.c,SEL.n)}catch(e){alert(e.message)}};
-$('#bPublish').onclick=()=>{const d=$('#dlg');d.innerHTML=`<h2>Publish</h2><div class="note"><b>Local changes</b><br>${S.changes.map(esc).join('<br>')||'none'}</div>
- ${S.pendingRemove.length?`<div class="note"><b>Will be removed from releases after the push</b><br>${S.pendingRemove.map(k=>esc(k)+' <a href="#" data-k="'+esc(k)+'" class="uq">cancel</a>').join('<br>')}</div>`:''}
+$('#bUndo').onclick=async()=>{if(!confirm('Restore the previous version of mods.json? (previews and release files are not reverted)'))return;try{await api('/api/undo',{});await refresh();SEL&&openMod(SEL.c,SEL.n)}catch(e){toast(e.message)}};
+$('#bPublish').onclick=()=>{const d=$('#dlg');d.innerHTML=`<h2>Publish</h2><div class="note"><span><b>Local changes</b><br>${S.changes.map(esc).join('<br>')||'none'}</span></div>
+ ${S.pendingRemove.length?`<div class="note"><span><b>Will be removed from releases after the push</b><br>${S.pendingRemove.map(k=>esc(k)+' <a href="#" data-k="'+esc(k)+'" class="uq">cancel</a>').join('<br>')}</span></div>`:''}
  <label>Commit message</label><input type="text" id="pMsg" value="chore: update mods via admin">
- <label><input type="checkbox" id="pPipe"> also run the Pipeline manually (not needed when mods.json changed, the push starts it)</label>
- <div class="row" style="margin-top:14px"><button class="fit" onclick="dlg.close()">Cancel</button><span></span><button class="primary fit" id="pGo">Publish</button></div>`;d.showModal();
+ <label class="chk"><input type="checkbox" id="pPipe"><span>Also run the Pipeline manually (not needed when mods.json changed, the push starts it)</span></label>
+ <div class="row" style="margin-top:20px;justify-content:flex-end"><button class="fit" onclick="dlg.close()">Cancel</button><button class="filled fit" id="pGo">${ic('cloud_upload')}Publish</button></div>`;d.showModal();
  d.querySelectorAll('.uq').forEach(a=>a.onclick=async e=>{e.preventDefault();await api('/api/unqueue',{key:a.dataset.k});d.close();await refresh()});
  $('#pGo').onclick=()=>{const m=$('#pMsg').value,rp=$('#pPipe').checked;d.close();runJob(api('/api/publish',{message:m,runPipeline:rp}),'Publish')}};
-const dlg=$('#dlg');refresh().then(()=>{if(!S.mods.length)renderAdd()});
+const dlg=$('#dlg');refresh().then(()=>{if(!S.mods.length){renderAdd();showPanel('add')}});
 </script></body></html>"""
 
 
