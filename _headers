@@ -1,0 +1,5 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://cdn.jsdelivr.net https://raw.githubusercontent.com https://cdn.discordapp.com https://*.huggingface.co; media-src 'self' data: blob: https://cdn.jsdelivr.net https://raw.githubusercontent.com; connect-src 'self' https://cdn.jsdelivr.net https://raw.githubusercontent.com https://*.githubusercontent.com https://huggingface.co https://*.huggingface.co https://cdn.discordapp.com https://uploader.hrdq.workers.dev https://d2pfx-api.hrdq.workers.dev https://d2pfx-counter.hrdqfck.workers.dev https://api.github.com https://api.allorigins.win https://corsproxy.io; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
