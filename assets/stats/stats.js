@@ -894,30 +894,32 @@ function createGlobe({ canvas, stage, tooltip, landLatLon, countries }) {
       ctx.fillRect(cx + R * x - s / 2, cy - R * y - s / 2, s, s);
     }
 
-    // hotspots (smallest first so big ones stay on top)
+    // hotspots: dots shrink as their number grows so dense maps stay readable
+    const sizeScale = Math.max(0.55, 1 - Math.max(0, hot.length - 15) / 130);
     for (const o of hot) {
       const [sl, cl, cp, sp] = o.p;
       const z0 = cp * (cl * cc + sl * sc);
       o.z = sp * st + z0 * ct;
       o.sx = cx + R * cp * (sl * cc - cl * sc);
       o.sy = cy - R * (sp * ct - z0 * st);
-      o.r = (3 + 13 * Math.sqrt(o.count / maxCount)) * (R / 190);
+      o.r = (1.8 + 6.5 * Math.sqrt(o.count / maxCount)) * sizeScale * (R / 190);
     }
     ctx.fillStyle = colors.primary;
     ctx.strokeStyle = colors.primary;
-    for (let i = hot.length - 1; i >= 0; i--) {
+    // biggest first, so small dots are drawn on top and never hidden
+    for (let i = 0; i < hot.length; i++) {
       const o = hot[i];
       if (o.z <= 0.02) continue;
       const a = 0.35 + 0.65 * o.z;
-      ctx.globalAlpha = 0.16 * a;
-      ctx.beginPath(); ctx.arc(o.sx, o.sy, o.r * 2.3, 0, Math.PI * 2); ctx.fill();
-      ctx.globalAlpha = (i === hoverIdx ? 1 : 0.9) * a;
+      ctx.globalAlpha = 0.09 * a;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, o.r * 1.8, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = (i === hoverIdx ? 1 : 0.85) * a;
       ctx.beginPath(); ctx.arc(o.sx, o.sy, o.r * (i === hoverIdx ? 1.25 : 1), 0, Math.PI * 2); ctx.fill();
       if (i < 3 && !reduceMotion) {
         const ph = ((now / 1800) + i * 0.33) % 1;
-        ctx.globalAlpha = (1 - ph) * 0.5 * a;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.arc(o.sx, o.sy, o.r + ph * o.r * 2.4, 0, Math.PI * 2); ctx.stroke();
+        ctx.globalAlpha = (1 - ph) * 0.4 * a;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(o.sx, o.sy, o.r + ph * o.r * 1.6, 0, Math.PI * 2); ctx.stroke();
       }
     }
     ctx.globalAlpha = 1;
