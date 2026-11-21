@@ -1070,3 +1070,77 @@
     min-height: 340px;
   }
 }
+
+.total-downloads-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface-container) 100%);
+  border-radius: var(--stat-radius-lg);
+  padding: 32px 40px;
+  box-shadow: var(--stat-shadow);
+  transition: transform 0.35s var(--stat-ease), box-shadow 0.35s var(--stat-ease);
+}
+
+.total-downloads-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--stat-shadow-hover);
+}
+
+.total-downloads-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.total-downloads-icon .material-symbols-rounded {
+  font-size: 32px;
+}
+
+.total-downloads-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.total-downloads-number {
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.total-downloads-label {
+  font-size: 15px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 500;
+}
+
+@media (max-width: 620px) {
+  .total-downloads-card {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .total-downloads-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .total-downloads-icon .material-symbols-rounded {
+    font-size: 24px;
+  }
+
+  .total-downloads-number {
+    font-size: 36px;
+  }
+}

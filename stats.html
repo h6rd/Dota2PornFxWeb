@@ -19,6 +19,7 @@
   <script src="assets/m3e/theme.bundle.js" type="module"></script>
   <script src="assets/m3e/shape.bundle.js" type="module"></script>
   <script src="assets/m3e/loading-indicator.bundle.js" type="module"></script>
+  <script src="assets/stats.js" defer></script>
   <script src="assets/stats/stats.js" defer></script>
 </head>
 
@@ -86,14 +87,18 @@
         <section class="stats-section">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
-              <span class="material-symbols-rounded">trending_up</span>
-              Most Popular Mods
+              <span class="material-symbols-rounded">download</span>
+              Total Mod Downloads
             </h3>
-            <span class="stats-section-sub" id="popularSub"></span>
           </div>
-          <div class="leaderboard-card popular-card">
-            <div id="popularList"></div>
-            <div id="popularToggleWrap"></div>
+          <div class="total-downloads-card">
+            <div class="total-downloads-icon">
+              <span class="material-symbols-rounded">download</span>
+            </div>
+            <div class="total-downloads-content">
+              <div class="total-downloads-number" id="totalDownloadsNumber">0</div>
+              <div class="total-downloads-label">downloads across all mods</div>
+            </div>
           </div>
         </section>
 
@@ -127,6 +132,20 @@
                 <div class="popular-skeleton stat-skeleton"></div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-section-head">
+            <h3 class="stats-section-title">
+              <span class="material-symbols-rounded">trending_up</span>
+              Most Popular Mods
+            </h3>
+            <span class="stats-section-sub" id="popularSub"></span>
+          </div>
+          <div class="leaderboard-card popular-card">
+            <div id="popularList"></div>
+            <div id="popularToggleWrap"></div>
           </div>
         </section>
 

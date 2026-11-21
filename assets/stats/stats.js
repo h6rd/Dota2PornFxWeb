@@ -586,7 +586,6 @@ async function renderPopularMods(modsData, constants) {
   if (!list) return;
 
   list.innerHTML = Array.from({ length: 5 }, () => '<div class="popular-skeleton stat-skeleton"></div>').join('');
-
   const ok = await whenCountsReady();
   if (!ok) {
     list.innerHTML = '<div class="leaderboard-empty">Download counts are unavailable right now</div>';
@@ -594,6 +593,12 @@ async function renderPopularMods(modsData, constants) {
   }
 
   const { items: all, total } = buildPopularMods(modsData, constants);
+
+  const totalNumEl = document.getElementById('totalDownloadsNumber');
+  if (totalNumEl) {
+    observeAndAnimate(totalNumEl, total);
+  }
+
   const items = all.slice(0, 25);
   if (!items.length) {
     list.innerHTML = '<div class="leaderboard-empty">No download data yet</div>';
@@ -601,7 +606,6 @@ async function renderPopularMods(modsData, constants) {
   }
 
   sub.textContent = `${numberFormat(total)} downloads across all mods`;
-
   const VISIBLE_LIMIT = 10;
   const maxCount = items[0].count || 1;
   const shapes = ['sunny', '4-sided-cookie', 'pentagon'];
@@ -609,23 +613,23 @@ async function renderPopularMods(modsData, constants) {
   list.innerHTML = items.map((m, i) => {
     const rank = i + 1;
     const shape = shapes[i] || 'square';
-    const meta = `${m.emoji ? m.emoji + ' ' : ''}${escapeHtml(m.categoryLabel)}${m.styles ? ` · ${m.styles} styles` : ''}`;
-    return `
-      <div class="leaderboard-item ${i >= VISIBLE_LIMIT ? 'leaderboard-item-hidden' : ''}" data-idx="${i}">
-        <div class="leaderboard-rank ${rank <= 3 ? `rank-${rank}` : ''}">
-          <m3e-shape name="${shape}">${rank}</m3e-shape>
-        </div>
-        <div class="leaderboard-body">
-          <div class="leaderboard-name">${escapeHtml(m.name)}</div>
-          <div class="popular-meta">${meta}</div>
-          <div class="leaderboard-bar-track">
-            <div class="leaderboard-bar-fill" data-width="${(m.count / maxCount) * 100}"></div>
-          </div>
-        </div>
-        <div class="leaderboard-count popular-count">
-          <span class="material-symbols-rounded">download</span>${numberFormat(m.count)}
-        </div>
-      </div>`;
+    const meta = `${escapeHtml(m.categoryLabel)}${m.styles ? ` · ${m.styles} styles` : ''}`;
+
+    return `<div class="leaderboard-item ${i >= VISIBLE_LIMIT ? 'leaderboard-item-hidden' : ''}" data-idx="${i}"> 
+      <div class="leaderboard-rank ${rank <= 3 ? `rank-${rank}` : ''}"> 
+        <m3e-shape name="${shape}">${rank}</m3e-shape> 
+      </div> 
+      <div class="leaderboard-body"> 
+        <div class="leaderboard-name">${escapeHtml(m.name)}</div> 
+        <div class="popular-meta">${meta}</div> 
+        <div class="leaderboard-bar-track"> 
+          <div class="leaderboard-bar-fill" data-width="${(m.count / maxCount) * 100}"></div> 
+        </div> 
+      </div> 
+      <div class="leaderboard-count popular-count"> 
+        <span class="material-symbols-rounded">download</span>${numberFormat(m.count)} 
+      </div> 
+    </div>`;
   }).join('');
 
   requestAnimationFrame(() => {
@@ -635,11 +639,7 @@ async function renderPopularMods(modsData, constants) {
   });
 
   if (items.length > VISIBLE_LIMIT) {
-    toggleWrap.innerHTML = `
-      <button class="leaderboard-toggle-btn" id="popularToggle">
-        <span>Show top ${items.length}</span>
-        <span class="material-symbols-rounded">expand_more</span>
-      </button>`;
+    toggleWrap.innerHTML = `<button class="leaderboard-toggle-btn" id="popularToggle"> <span>Show top ${items.length}</span> <span class="material-symbols-rounded">expand_more</span> </button>`;
     const btn = document.getElementById('popularToggle');
     btn.addEventListener('click', () => {
       const expanded = btn.classList.toggle('expanded');
