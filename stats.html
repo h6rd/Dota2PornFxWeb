@@ -38,6 +38,20 @@
           <h1 class="logo">
             <a href="index.html"><span id="tg">Dota2</span>PornFx</a>
           </h1>
+          <nav class="stats-nav" id="statsNav" aria-label="Page sections" hidden>
+            <a class="stats-nav-chip" href="#sec-overview"><span
+                class="material-symbols-rounded">donut_large</span>Overview</a>
+            <a class="stats-nav-chip" href="#sec-downloads"><span
+                class="material-symbols-rounded">download</span>Downloads</a>
+            <a class="stats-nav-chip" href="#globeSection"><span class="material-symbols-rounded">public</span>World</a>
+            <a class="stats-nav-chip" href="#sec-popular"><span
+                class="material-symbols-rounded">trending_up</span>Popular</a>
+            <a class="stats-nav-chip" href="#sec-categories"><span
+                class="material-symbols-rounded">category</span>Categories</a>
+            <a class="stats-nav-chip" href="#sec-people"><span
+                class="material-symbols-rounded">leaderboard</span>People</a>
+            <a class="stats-nav-chip" href="#sec-tools"><span class="material-symbols-rounded">build</span>Tools</a>
+          </nav>
         </div>
       </div>
     </div>
@@ -57,6 +71,7 @@
       </div>
 
       <div id="statsContent" class="stats-hidden">
+
         <section class="stats-hero">
           <m3e-shape id="heroBgShape" name="very-sunny"></m3e-shape>
 
@@ -74,7 +89,7 @@
           </div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-overview">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">donut_large</span>
@@ -84,7 +99,7 @@
           <div class="stats-overview-grid" id="overviewGrid"></div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-downloads">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">download</span>
@@ -108,13 +123,41 @@
               <span class="material-symbols-rounded">public</span>
               Downloads Around the World
             </h3>
-            <span class="stats-section-sub">Drag to rotate, tap a location to focus</span>
+            <span class="stats-section-sub">Drag to rotate, tap a country to zoom in, Ctrl + scroll to zoom</span>
           </div>
           <div class="globe-grid">
             <div class="globe-stage" id="globeStage">
-              <canvas id="globeCanvas" aria-label="3D dotted globe showing downloads by country" role="img"></canvas>
+              <canvas id="globeCanvas"
+                aria-label="3D dotted globe showing downloads by country. Arrow keys rotate, plus and minus zoom, Escape resets."
+                role="application"></canvas>
               <div class="globe-tooltip" id="globeTooltip"></div>
               <div class="globe-note" id="globeNote" hidden></div>
+
+              <div class="globe-info" id="globeInfo" aria-live="polite">
+                <div class="globe-info-main">
+                  <div class="globe-info-name" id="globeInfoName"></div>
+                  <div class="globe-info-stats">
+                    <span class="globe-info-num" id="globeInfoNum">0</span>
+                    <span class="globe-info-share" id="globeInfoShare"></span>
+                  </div>
+                </div>
+                <div class="globe-info-cities" id="globeInfoCities"></div>
+                <button class="globe-info-close" id="globeInfoClose" type="button" aria-label="Zoom out">
+                  <span class="material-symbols-rounded">close</span>
+                </button>
+              </div>
+
+              <div class="globe-controls" id="globeControls" hidden>
+                <button class="globe-ctrl" id="globeZoomIn" type="button" aria-label="Zoom in">
+                  <span class="material-symbols-rounded">add</span>
+                </button>
+                <button class="globe-ctrl" id="globeZoomOut" type="button" aria-label="Zoom out">
+                  <span class="material-symbols-rounded">remove</span>
+                </button>
+                <button class="globe-ctrl is-primary" id="globeReset" type="button" aria-label="Reset view">
+                  <span class="material-symbols-rounded">my_location</span>
+                </button>
+              </div>
             </div>
             <div class="leaderboard-card globe-side">
               <div class="leaderboard-card-head">
@@ -131,11 +174,12 @@
               <div id="globeCountries">
                 <div class="popular-skeleton stat-skeleton"></div>
               </div>
+              <div id="globeToggleWrap"></div>
             </div>
           </div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-popular">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">trending_up</span>
@@ -143,13 +187,14 @@
             </h3>
             <span class="stats-section-sub" id="popularSub"></span>
           </div>
+          <div class="podium" id="popularPodium"></div>
           <div class="leaderboard-card popular-card">
             <div id="popularList"></div>
             <div id="popularToggleWrap"></div>
           </div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-categories">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">category</span>
@@ -160,7 +205,7 @@
           <div id="categoryBarsToggleWrap"></div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-people">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">leaderboard</span>
@@ -193,7 +238,7 @@
           </div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" id="sec-tools">
           <div class="stats-section-head">
             <h3 class="stats-section-title">
               <span class="material-symbols-rounded">download</span>
