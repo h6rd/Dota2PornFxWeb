@@ -1,6 +1,26 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Last Match Vidget",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Vasilisa Dark Carnival",
+      "category": "sounds"
+    },
+    {
+      "name": "Specialists Array Model",
+      "category": "item-icons"
+    },
+    {
+      "name": "Qwop Arcana",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Necrophos Scream",
+      "category": "heroes"
+    },
+    {
       "name": "Minify",
       "category": "tools"
     },
@@ -557,10 +577,6 @@
       "category": "roshan"
     },
     {
-      "name": "Qwop Arcana",
-      "category": "backgrounds"
-    },
-    {
       "name": "Barboskiny X Naruto",
       "category": "mega-kill"
     },
@@ -623,10 +639,6 @@
     {
       "name": "Huskar Bloodbath",
       "category": "heroes"
-    },
-    {
-      "name": "Last Match Vidget",
-      "category": "backgrounds"
     },
     {
       "name": "Rainy Day",
@@ -17682,6 +17694,41 @@
         "meta": {
           "date": 1795274794
         }
+      },
+      {
+        "name": "Necrophos Scream",
+        "styles": [
+          {
+            "label": "Original voice",
+            "color": "#f2f2f2",
+            "preview": "Necrophos Scream.webp",
+            "file": "Necrophos Scream.zip"
+          },
+          {
+            "label": "Russian voice",
+            "color": "linear-gradient(135deg, #f2f2f2 50%, #b3121b 50%)",
+            "preview": "Necrophos Scream Russian voice.webp",
+            "file": "Necrophos Scream Russian voice.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Fleece"
+          },
+          {
+            "type": "author",
+            "url": "inher1ted"
+          }
+        ],
+        "meta": {
+          "date": 1795332201,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -28839,8 +28886,8 @@
           }
         ],
         "meta": {
-          "date": 1794177576,
-          "commit-sha": "91501e497bc348aa699dedc3a633cc50d0295db4"
+          "date": 1795332201,
+          "commit-sha": ""
         }
       },
       {
@@ -29409,8 +29456,8 @@
           }
         ],
         "meta": {
-          "date": 1794347188,
-          "commit-sha": "e7fb5a6367295602ea901c681230b66a875d4da5"
+          "date": 1795332201,
+          "commit-sha": ""
         }
       },
       {
@@ -30549,6 +30596,21 @@
         ],
         "meta": {
           "date": 1795226491
+        }
+      },
+      {
+        "name": "Specialists Array Model",
+        "preview": "Specialists Array Model.webp",
+        "file": "Specialists Array Model.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "c0nf1"
+          }
+        ],
+        "meta": {
+          "date": 1795332201,
+          "commit-sha": ""
         }
       }
     ],
@@ -34990,6 +35052,25 @@
         "meta": {
           "date": 1795046713,
           "commit-sha": "9252391ca24d9974bab94fe5b10ad82204d53ddd"
+        }
+      },
+      {
+        "name": "Vasilisa Dark Carnival",
+        "preview": "Vasilisa Dark Carnival.webp",
+        "file": "Vasilisa Dark Carnival.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Blessed"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/-X7csYPhBMs"
+          }
+        ],
+        "meta": {
+          "date": 1795332201,
+          "commit-sha": ""
         }
       }
     ],
