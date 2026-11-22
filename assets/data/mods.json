@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Minify",
+      "category": "tools"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -179,10 +183,6 @@
     {
       "name": "Saya No Uta Hair",
       "category": "backgrounds"
-    },
-    {
-      "name": "Minify",
-      "category": "tools"
     },
     {
       "name": "Gray Trees",
