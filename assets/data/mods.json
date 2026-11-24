@@ -1,6 +1,38 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Shadow Fiend Neiroslop",
+      "category": "heroes"
+    },
+    {
+      "name": "Origami Tobiichi Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Pink Little Angel Moe Style",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Pudge Demid",
+      "category": "heroes"
+    },
+    {
+      "name": "Woman Hz Kak Zovut",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Nailoong",
+      "category": "backgrounds"
+    },
+    {
+      "name": "Pink Hud",
+      "category": "huds"
+    },
+    {
+      "name": "Anti Mage Custom Wei",
+      "category": "heroes"
+    },
+    {
       "name": "Dota 2 Mod Manager",
       "category": "tools"
     },
@@ -17728,6 +17760,55 @@
         "meta": {
           "date": 1795332201
         }
+      },
+      {
+        "name": "Anti Mage Custom Wei",
+        "preview": "Anti Mage Custom Wei.webp",
+        "file": "Anti Mage Custom Wei.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "lmbaftd"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Demid",
+        "preview": "Pudge Demid.webp",
+        "file": "Pudge Demid.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "lmbaftd"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Shadow Fiend Neiroslop",
+        "preview": "Shadow Fiend Neiroslop.webp",
+        "file": "Shadow Fiend Neiroslop.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "ifrully"
+          },
+          {
+            "type": "author",
+            "url": "Amir4an"
+          }
+        ],
+        "meta": {
+          "date": 1795501252,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -26520,6 +26601,44 @@
           "date": 1794043573,
           "commit-sha": "69bf48a92151f7ff4d1c2fd3f30bd72410dd9451"
         }
+      },
+      {
+        "name": "Pink Hud",
+        "preview": "Pink Hud.webp",
+        "file": "Pink Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "красивое уебище"
+          },
+          {
+            "type": "source",
+            "url": "HUD Studio"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Origami Tobiichi Hud",
+        "preview": "Origami Tobiichi Hud.webp",
+        "file": "Origami Tobiichi Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "MAKCIKOVICH"
+          },
+          {
+            "type": "source",
+            "url": "HUD Studio"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
       }
     ],
     "high-five": [
@@ -29776,6 +29895,60 @@
         ],
         "meta": {
           "date": 1795274794
+        }
+      },
+      {
+        "name": "Nailoong",
+        "preview": "Nailoong.webp",
+        "file": "Nailoong.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Anonymous"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Woman Hz Kak Zovut",
+        "preview": "Woman Hz Kak Zovut.webp",
+        "file": "Woman Hz Kak Zovut.zip",
+        "tags": {
+          "image": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "bledina"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pink Little Angel Moe Style",
+        "preview": "Pink Little Angel Moe Style.webp",
+        "file": "Pink Little Angel Moe Style.zip",
+        "tags": {
+          "video": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Whitecrow"
+          }
+        ],
+        "meta": {
+          "date": 1795501251,
+          "commit-sha": ""
         }
       }
     ],
