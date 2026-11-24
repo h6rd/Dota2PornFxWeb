@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Earthshaker Ukrainian Voice",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Shadow Fiend Neiroslop",
       "category": "heroes"
     },
@@ -123,10 +127,6 @@
     {
       "name": "Drow Ranger Arcana Dota 2",
       "category": "backgrounds"
-    },
-    {
-      "name": "Earthshaker Ukrainian Voice",
-      "category": "hero-sounds"
     },
     {
       "name": "Onda Andar",
@@ -23535,7 +23535,7 @@
           },
           {
             "type": "source",
-            "url": "WoWTools"
+            "url": "https://wowtools.work/"
           }
         ],
         "meta": {
@@ -26610,7 +26610,7 @@
           },
           {
             "type": "source",
-            "url": "HUD Studio"
+            "url": "https://vpkgod.github.io/dota-hud-studio/"
           }
         ],
         "meta": {
@@ -26628,7 +26628,7 @@
           },
           {
             "type": "source",
-            "url": "HUD Studio"
+            "url": "https://vpkgod.github.io/dota-hud-studio/"
           }
         ],
         "meta": {
@@ -34579,8 +34579,8 @@
           }
         ],
         "meta": {
-          "date": 1795162294,
-          "commit-sha": "e385522091c89de83aff557764e5f5868900ba3c"
+          "date": 1795501496,
+          "commit-sha": ""
         }
       },
       {
