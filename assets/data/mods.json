@@ -1,6 +1,46 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Warcraft 3 Morphling",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Monkey King",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Mirana",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Meepo",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Medusa",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Mars",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Marci",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Magnus",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Lycan",
+      "category": "heroes"
+    },
+    {
+      "name": "Warcraft 3 Luna",
+      "category": "heroes"
+    },
+    {
       "name": "Earthshaker Ukrainian Voice",
       "category": "hero-sounds"
     },
@@ -17805,6 +17845,156 @@
         ],
         "meta": {
           "date": 1795501252
+        }
+      },
+      {
+        "name": "Warcraft 3 Luna",
+        "preview": "WC3---Luna.webp",
+        "file": "WC3---Luna.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Lycan",
+        "preview": "WC3---Lycan.webp",
+        "file": "WC3---Lycan.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Magnus",
+        "preview": "WC3---Magnus.webp",
+        "file": "WC3---Magnus.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Marci",
+        "preview": "WC3---Marci.webp",
+        "file": "WC3---Marci.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Mars",
+        "preview": "WC3---Mars.webp",
+        "file": "WC3---Mars.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Medusa",
+        "preview": "WC3---Medusa.webp",
+        "file": "WC3---Medusa.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Meepo",
+        "preview": "WC3---Meepo.webp",
+        "file": "WC3---Meepo.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Mirana",
+        "preview": "WC3---Mirana.webp",
+        "file": "WC3---Mirana.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Monkey King",
+        "preview": "WC3---Monkey-King.webp",
+        "file": "WC3---Monkey-King.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Warcraft 3 Morphling",
+        "preview": "WC3---Morphling.webp",
+        "file": "WC3---Morphling.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795593448,
+          "commit-sha": ""
         }
       }
     ],

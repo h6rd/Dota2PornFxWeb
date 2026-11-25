@@ -27,6 +27,8 @@ ADD_MOD = HERE / "add_mod.py"
 MIGRATE = HERE / "migrate_to_releases.py"
 VALIDATE = HERE / "validate_data.py"
 MODS_REL = "assets/data/mods.json"
+CONSTS_REL = "assets/data/constants.json"
+TAG_KEY_RE = re.compile(r"^[A-Za-z0-9_-]{1,40}$")
 IMG_TYPES = {
     ".webp": "image/webp",
     ".png": "image/png",
@@ -40,8 +42,24 @@ APP = None
 # helpers
 
 
+_TR = dict(
+    zip(
+        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+        ["a","b","v","g","d","e","e","zh","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h","ts","ch","sh","sch","","y","","e","yu","ya"],
+    )
+)
+
+
+def translit(s):
+    out = []
+    for ch in str(s):
+        t = _TR.get(ch.lower())
+        out.append(ch if t is None else (t.capitalize() if ch.isupper() else t))
+    return "".join(out)
+
+
 def slug(s, fallback="mod"):
-    s = re.sub(r"[^A-Za-z0-9._-]+", "-", str(s).strip()).strip("-._")
+    s = re.sub(r"[^A-Za-z0-9._-]+", "-", translit(str(s).strip())).strip("-._")
     return s or fallback
 
 
@@ -181,6 +199,7 @@ class App:
     def __init__(self, a):
         self.root = Path.cwd()
         self.mods_path = self.root / MODS_REL
+        self.consts_path = self.root / CONSTS_REL
         self.previews = self.root / "assets" / "previews"
         self.releases = Path(a.releases_dir).resolve()
         self.repo = a.repo
@@ -195,6 +214,14 @@ class App:
         self.jobs = {}
         self.trailing_nl = True
         self.state_path = self.work / "state.json"
+        # uploads (and extracted bundle files) older than 3 days are not needed any more
+        try:
+            cutoff = time.time() - 3 * 86400
+            for d in (self.work / "uploads").iterdir():
+                if d.is_dir() and d.stat().st_mtime < cutoff:
+                    shutil.rmtree(d, ignore_errors=True)
+        except OSError:
+            pass
 
     # -- mods.json
     def load(self):
@@ -219,6 +246,31 @@ class App:
             with open(tmp, "w", encoding="utf-8", newline="") as f:
                 f.write(self.dump(data))
             os.replace(tmp, self.mods_path)
+
+    # constants.json (authors, tag names)
+    def load_consts(self):
+        try:
+            text = self.consts_path.read_text(encoding="utf-8")
+            return json.loads(text), text
+        except Exception:  # noqa: BLE001
+            return None, ""
+
+    @staticmethod
+    def dump_consts(data):
+        return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
+
+    def save_consts(self, data):
+        with self.lock:
+            if self.consts_path.exists():
+                ts = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+                shutil.copy2(self.consts_path, self.work / "backups" / f"consts-{ts}.json")
+                old = sorted((self.work / "backups").glob("consts-*.json"))
+                for p in old[:-30]:
+                    p.unlink(missing_ok=True)
+            tmp = self.consts_path.with_name("constants.json.tmp")
+            with open(tmp, "w", encoding="utf-8", newline="") as f:
+                f.write(self.dump_consts(data))
+            os.replace(tmp, self.consts_path)
 
     def undo(self):
         with self.lock:
@@ -393,6 +445,253 @@ def stage_and_upload(job, category, items, update):
         shutil.rmtree(stage, ignore_errors=True)
 
 
+def category_used_files(content):
+    """lower-case names of every zip already referenced inside a category"""
+    return {
+        v.lower()
+        for _g, lst in category_lists(content)
+        for m in lst
+        if isinstance(m, dict)
+        for _t, v in file_refs(m)
+    }
+
+
+def check_file_name(cat, fname, zp, used, index):
+    """-> True when the identical file is already in the releases repo (reuse), raises when the name is taken"""
+    if fname.lower() in used:
+        raise ValueError(
+            f"file name is already taken: {fname} (change the 'file name' field)"
+        )
+    entry_m = index.get(f"{cat}/{fname}".lower())
+    if entry_m:
+        # in the manifest but not in mods.json = leftover of an interrupted run; identical content is reused
+        if entry_m.get("sha256") and entry_m["sha256"] == sha256_file(zp):
+            return True
+        raise ValueError(
+            f"file name is already taken: {fname} (change the 'file name' field)"
+        )
+    return False
+
+
+def place_previews(job, cat, plan):
+    """place all previews; a broken image must fail BEFORE anything is uploaded. Returns the placed names."""
+    placed = []
+    try:
+        for x in plan:
+            x["previewName"] = (
+                place_preview(x["preview"], cat, x["stem"]) if x.get("preview") else None
+            )
+            if x["previewName"]:
+                placed.append(x["previewName"])
+                job.log(f"preview: assets/previews/{cat}/{x['previewName']}")
+    except Exception:
+        for nm in placed:
+            delete_preview(cat, nm)
+        raise
+    return placed
+
+
+def upload_plan(job, cat, plan):
+    todo = [(x["file"], x["zip"]) for x in plan if not x["reuse"]]
+    for x in plan:
+        if x["reuse"]:
+            job.log(
+                f"{x['file']}: already in the releases repo with identical content, not uploaded again"
+            )
+    if todo:
+        job.log(f"Uploading {len(todo)} file(s) to the releases repo...")
+        stage_and_upload(job, cat, todo, update=False)
+
+
+def insert_entry(data, cat, p, entry):
+    """append entry to the category (plain list or the chosen/new group)"""
+    content = data["modsData"][cat]
+    if isinstance(content, dict) and isinstance(content.get("groups"), list):
+        gid = str(p.get("groupId") or "").strip()
+        gname = str(p.get("groupName") or "").strip()
+        grp = next(
+            (
+                g
+                for g in content["groups"]
+                if isinstance(g, dict) and gid and g.get("id") == gid
+            ),
+            None,
+        )
+        if not grp and gname:
+            grp = next(
+                (
+                    g
+                    for g in content["groups"]
+                    if isinstance(g, dict)
+                    and str(g.get("name", "")).strip().lower() == gname.lower()
+                ),
+                None,
+            )
+            if not grp:
+                grp = {"id": slug(gname, "group").lower(), "name": gname, "mods": []}
+                content["groups"].append(grp)
+        if not grp:
+            raise ValueError(
+                "this category has groups: choose one or type a new group name"
+            )
+        grp["mods"].append(entry)
+    elif isinstance(content, list):
+        content.append(entry)
+    else:
+        raise ValueError(f"unsupported structure of category '{cat}'")
+
+
+def build_plan(cat, used, index, base, zips, used_prev=None):
+    """zips: [{uploadId, previewUploadId?, label?, color?}] -> (styled, plan). Raises on any name clash."""
+    styled = len(zips) > 1 or bool(zips[0].get("label"))
+    plan = []
+    for i, z in enumerate(zips):
+        suffix = (
+            ("-" + slug(z.get("label") or str(i + 1), str(i + 1))) if styled else ""
+        )
+        fname = f"{base}{suffix}.zip"
+        zp = APP.upload_path(z["uploadId"])
+        if not zipfile.is_zipfile(zp):
+            raise ValueError(f"not a valid zip: {zp.name}")
+        reuse = check_file_name(cat, fname, zp, used, index)
+        pv = APP.upload_path(z["previewUploadId"]) if z.get("previewUploadId") else None
+        stem = f"{base}{suffix}"
+        if pv and used_prev and stem.lower() in used_prev:
+            raise ValueError(
+                f"the preview name '{stem}' is already used by another mod (change the file name)"
+            )
+        plan.append(
+            {
+                "file": fname,
+                "zip": zp,
+                "preview": pv,
+                "label": z.get("label") or f"Style {i + 1}",
+                "color": z.get("color") or "#888888",
+                "stem": stem,
+                "reuse": reuse,
+            }
+        )
+    if len({x["file"].lower() for x in plan}) != len(plan):
+        raise ValueError("two styles produce the same file name")
+    return styled, plan
+
+
+def make_entry(name, styled, plan, tags, links):
+    entry = {"name": name}
+    if styled:
+        entry["styles"] = []
+        for x in plan:
+            st = {"label": x["label"], "color": x["color"]}
+            if x["previewName"]:
+                st["preview"] = x["previewName"]
+            st["file"] = x["file"]
+            entry["styles"].append(st)
+    else:
+        if plan[0]["previewName"]:
+            entry["preview"] = plan[0]["previewName"]
+        entry["file"] = plan[0]["file"]
+    if tags:
+        entry["tags"] = dict(tags)
+    if links:
+        entry["links"] = json.loads(json.dumps(links))
+    entry["meta"] = {"date": now_ts(), "commit-sha": ""}
+    return entry
+
+
+def category_used_previews(content):
+    return {
+        Path(v).stem.lower()
+        for _g, lst in category_lists(content)
+        for m in lst
+        if isinstance(m, dict)
+        for _t, v in preview_refs(m)
+        if isinstance(v, str)
+    }
+
+
+# authors / tags (picked from assets/data/constants.json)
+
+
+def clean_authors(p):
+    raw = list(p.get("authors") or [])
+    if p.get("author"):  # legacy single string
+        raw.append(p["author"])
+    consts, _t = APP.load_consts()
+    canon = {k.lower(): k for k in ((consts or {}).get("MOD_AUTHOR") or {})}
+    out, seen = [], set()
+    for a in raw:
+        a = re.sub(r"\s+", " ", str(a)).strip()
+        a = canon.get(a.lower(), a)
+        if not a or a.lower() in seen:
+            continue
+        if len(a) > 80 or re.search(r"[\x00-\x1f]", a):
+            raise ValueError(f"bad author name: {a[:30]}")
+        seen.add(a.lower())
+        out.append(a)
+    return out
+
+
+def clean_tags(raw):
+    if not raw:
+        return None
+    if not isinstance(raw, dict):
+        raise ValueError("tags must be an object")
+    out = {}
+    for k, v in raw.items():
+        if not TAG_KEY_RE.match(str(k)):
+            raise ValueError(f"bad tag name: {k}")
+        if not isinstance(v, bool):
+            raise ValueError(f"tag '{k}' must be true/false")
+        out[str(k)] = v
+    return out or None
+
+
+def build_meta(p):
+    authors = clean_authors(p)
+    extra = p.get("links") or []
+    if not isinstance(extra, list) or any(not isinstance(l, dict) for l in extra):
+        raise ValueError("extra links must be a JSON list of objects")
+    links = [{"type": "author", "url": a} for a in authors] + extra
+    return authors, links, clean_tags(p.get("tags"))
+
+
+def register_authors(names, urls):
+    """add unknown authors to MOD_AUTHOR in constants.json -> (added, warning)"""
+    names = [n for n in names if n]
+    if not names:
+        return [], None
+    with APP.lock:
+        consts, text = APP.load_consts()
+        if consts is None:
+            return [], "constants.json not found: new authors were not added to MOD_AUTHOR."
+        known = {k.lower() for k in (consts.get("MOD_AUTHOR") or {})}
+        new, seen = [], set()
+        for n in names:
+            if n.lower() not in known and n.lower() not in seen:
+                seen.add(n.lower())
+                new.append(n)
+        if not new:
+            return [], None
+        if APP.dump_consts(consts) != text:
+            return [], (
+                "constants.json has custom formatting, so it was not rewritten. "
+                "Add to MOD_AUTHOR by hand: " + ", ".join(new)
+            )
+        ma = consts.setdefault("MOD_AUTHOR", {})
+        for n in new:
+            ma[n] = str((urls or {}).get(n, "") or "").strip()
+        APP.save_consts(consts)
+        return new, None
+
+
+def log_authors(job, authors, urls):
+    added, warn = register_authors(authors, urls)
+    if added:
+        job.log("New author(s) added to MOD_AUTHOR in constants.json: " + ", ".join(added))
+    if warn:
+        job.log("WARNING: " + warn)
+
+
 def job_add(job, p):
     data, _ = APP.load()
     cat = p["category"]
@@ -409,143 +708,481 @@ def job_add(job, p):
     zips = p.get("zips") or []
     if not zips:
         raise ValueError("add at least one zip")
-    styled = len(zips) > 1 or bool(zips[0].get("label"))
+    authors, links, tags = build_meta(p)
     base = slug(p.get("fileBase") or name)
+    styled, plan = build_plan(
+        cat,
+        category_used_files(content),
+        APP.manifest_index(),
+        base,
+        zips,
+        category_used_previews(content),
+    )
+
+    placed = place_previews(job, cat, plan)
+    try:
+        upload_plan(job, cat, plan)
+    except Exception:
+        for nm in placed:
+            delete_preview(cat, nm)
+        raise
+
+    entry = make_entry(name, styled, plan, tags, links)
+    with APP.lock:
+        data, _ = APP.load()
+        if name_taken(data, cat, name):
+            raise ValueError("a mod with this name appeared in the meantime")
+        insert_entry(data, cat, p, entry)
+        if p.get("recent", True):
+            touch_recent(data, cat, name)
+        APP.save(data)
+    log_authors(job, authors, p.get("newAuthors"))
+    job.log("")
+    job.log("Added to mods.json (locally). Press 'Publish' to commit and push.")
+
+
+def job_bulk_add(job, p):
+    """many mods at once: shared category/group/authors/tags; each item = one mod (1 zip, or several styles)"""
+    data, _ = APP.load()
+    cat = p["category"]
+    content = (data.get("modsData") or {}).get(cat)
+    if content is None:
+        raise ValueError(f"category '{cat}' does not exist in mods.json")
+    items = p.get("items") or []
+    if not items:
+        raise ValueError("add at least one mod")
+    authors, links, tags = build_meta(p)
+
     index = APP.manifest_index()
-    used = {
-        m.get("file", "").lower()
-        for _g, lst in category_lists(content)
-        for m in lst
-        if isinstance(m, dict)
+    used = category_used_files(content)
+    used_prev = category_used_previews(content)
+    seen_names, plan, errors = set(), [], []
+    for n, it in enumerate(items, 1):
+        name = str(it.get("name") or "").strip()
+        label = f"#{n} {name or '(no name)'}"
+        try:
+            if not name:
+                raise ValueError("name is empty")
+            if name.lower() in seen_names:
+                raise ValueError("duplicate name in this batch")
+            if name_taken(data, cat, name):
+                raise ValueError("a mod with this name already exists in this category")
+            zips = it.get("styles") or [
+                {"uploadId": it["uploadId"], "previewUploadId": it.get("previewUploadId")}
+            ]
+            base = slug(it.get("fileBase") or name)
+            styled, parts = build_plan(cat, used, index, base, zips, used_prev)
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"{label}: {e}")
+            continue
+        seen_names.add(name.lower())
+        used |= {x["file"].lower() for x in parts}  # later items must not reuse these file names
+        used_prev |= {x["stem"].lower() for x in parts if x["preview"]}
+        plan.append({"name": name, "styled": styled, "parts": parts})
+    if errors:
+        raise ValueError("nothing was uploaded, fix these first:\n" + "\n".join(errors))
+
+    flat = [x for it in plan for x in it["parts"]]
+    job.log(
+        f"Bulk add: {len(plan)} mod(s), {len(flat)} file(s) to {cat}"
+        + (f", authors: {', '.join(authors)}" if authors else "")
+    )
+    placed = place_previews(job, cat, flat)
+    try:
+        upload_plan(job, cat, flat)
+    except Exception:
+        for nm in placed:
+            delete_preview(cat, nm)
+        raise
+
+    with APP.lock:
+        data, _ = APP.load()
+        for it in plan:
+            if name_taken(data, cat, it["name"]):
+                raise ValueError(f"a mod named '{it['name']}' appeared in the meantime")
+        for it in plan:
+            insert_entry(
+                data, cat, p, make_entry(it["name"], it["styled"], it["parts"], tags, links)
+            )
+            if p.get("recent", True):
+                touch_recent(data, cat, it["name"])
+        APP.save(data)
+    log_authors(job, authors, p.get("newAuthors"))
+    job.log("")
+    job.log(
+        f"Added {len(plan)} mod(s) to mods.json (locally). Press 'Publish' to commit and push."
+    )
+
+
+# bundle archives: ONE zip that contains the preview image(s) and the mod zip(s)
+
+JUNK_FILES = {"thumbs.db", "desktop.ini", ".ds_store"}
+GENERIC_STEMS = {
+    "mod", "mods", "file", "files", "archive", "data", "download", "new", "untitled",
+    "pak", "pak01", "vpk", "copy", "main", "release",
+}
+PALETTE = ["#8b5cf6", "#ef4444", "#3b82f6", "#22c55e", "#f59e0b", "#ec4899", "#14b8a6", "#a3a3a3"]
+MAX_BUNDLE_IMAGE = 40 * 1024 * 1024
+
+
+def _zname(zi):
+    """member name; repairs names written in cp866 / utf-8 without the utf-8 flag (common for RU archivers)"""
+    n = zi.filename
+    if zi.flag_bits & 0x800 or n.isascii():
+        return n
+    try:
+        raw = n.encode("cp437")
+    except UnicodeEncodeError:
+        return n
+    for enc in ("utf-8", "cp866"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            pass
+    return n
+
+
+def _norm(s):
+    return re.sub(r"[^0-9a-zа-яё]+", "", s.lower())
+
+
+def _pretty(stem):
+    return re.sub(r"\s+", " ", re.sub(r"[_-]+", " ", stem)).strip()
+
+
+def _natkey(s):
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", s)]
+
+
+def _is_generic(stem):
+    n = _norm(stem)
+    return len(n) < 3 or n in GENERIC_STEMS
+
+
+def _pick_image(imgs, stem, level):
+    """level: strict = by name only; shared = by name, else the only image; any = also 'preview'-like name, else first"""
+    if not imgs:
+        return None
+    ns = _norm(stem)
+    for im in imgs:
+        if _norm(Path(im["base"]).stem) == ns:
+            return im
+    cand = [im for im in imgs if len(ns) >= 3 and ns in _norm(Path(im["base"]).stem)]
+    if len(cand) == 1:
+        return cand[0]
+    if level == "strict":
+        return None
+    if len(imgs) == 1:
+        return imgs[0]
+    if level == "shared":
+        return None
+    for im in imgs:
+        if re.search(r"preview|cover|thumb|screen|main|image|превью|обложка", im["base"], re.I):
+            return im
+    return sorted(imgs, key=lambda i: _natkey(i["base"]))[0]
+
+
+def _labels(stems):
+    """style labels from zip names: 'Mod Red', 'Mod Blue' -> 'Red', 'Blue'"""
+    if len(stems) < 2:
+        return [""] * len(stems)
+    pre = os.path.commonprefix([s.lower() for s in stems])
+    cut = max([pre.rfind(c) for c in " _-."] + [-1]) + 1
+    labels = [_pretty(s[cut:]) or _pretty(s) for s in stems]
+    if len({x.lower() for x in labels}) != len(labels):
+        labels = [_pretty(s) for s in stems]
+    return [l or f"Style {i + 1}" for i, l in enumerate(labels)]
+
+
+def inspect_bundle(uid, mode="auto"):
+    """Look inside an uploaded archive. If it holds image(s) + nested mod zip(s), extract those into fresh
+    uploads (so the normal add flow can use them by id) and return the detected mods.
+    mode 'auto': root with several zips = several mods, a folder = one mod (several zips = styles)
+    mode 'single': everything becomes ONE mod (several zips = styles)"""
+    src = APP.upload_path(uid)
+    if not zipfile.is_zipfile(src):
+        return {"bundle": False, "reason": "not a zip archive"}
+    arch_stem = Path(src.name).stem
+    warnings = []
+    with zipfile.ZipFile(src) as zf:
+        ents = []
+        for zi in zf.infolist():
+            if zi.is_dir():
+                continue
+            parts = [x for x in _zname(zi).replace("\\", "/").split("/") if x]
+            if not parts:
+                continue
+            base = parts[-1]
+            if "__MACOSX" in parts or base.startswith(".") or base.lower() in JUNK_FILES:
+                continue
+            ext = Path(base).suffix.lower()
+            kind = "zip" if ext == ".zip" else "img" if ext in IMG_TYPES else None
+            if kind:
+                ents.append({"zi": zi, "dir": tuple(parts[:-1]), "base": base, "kind": kind})
+        zips = [e for e in ents if e["kind"] == "zip"]
+        imgs = [e for e in ents if e["kind"] == "img"]
+        if not zips:
+            return {"bundle": False, "reason": "no mod .zip found inside this archive"}
+        if not imgs:
+            return {"bundle": False, "reason": "no preview image found inside this archive"}
+
+        wrapper = tuple(os.path.commonprefix([e["dir"] for e in ents]))
+        for e in ents:
+            e["dir"] = e["dir"][len(wrapper):]
+        root_name = wrapper[-1] if wrapper else arch_stem
+
+        def mod_name(stem_or_dir, zip_stem=None):
+            if zip_stem and not _is_generic(zip_stem):
+                return _pretty(zip_stem)
+            return _pretty(stem_or_dir)
+
+        def zstem(e):
+            return Path(e["base"]).stem
+
+        def plan_auto():
+            mods = []
+            groups = {}
+            for e in ents:
+                groups.setdefault(e["dir"], {"zips": [], "imgs": []})[
+                    "zips" if e["kind"] == "zip" else "imgs"
+                ].append(e)
+            for d, g in groups.items():
+                gz = sorted(g["zips"], key=lambda e: _natkey(e["base"]))
+                if not gz:
+                    if g["imgs"]:
+                        warnings.append(
+                            f"images without a zip were ignored: {'/'.join(d) or '(root)'}"
+                        )
+                    continue
+                if len(gz) == 1:
+                    z = gz[0]
+                    name = mod_name(d[-1] if d else root_name, zstem(z)) if not d else _pretty(d[-1])
+                    mods.append(
+                        {"name": name, "pairs": [(z, _pick_image(g["imgs"], zstem(z), "any"))]}
+                    )
+                elif not d:
+                    left = list(g["imgs"])
+                    for z in gz:
+                        im = _pick_image(left, zstem(z), "strict")
+                        if im:
+                            left.remove(im)
+                        else:
+                            warnings.append(f"no preview matched by name for {z['base']}")
+                        mods.append({"name": _pretty(zstem(z)), "pairs": [(z, im)]})
+                else:
+                    mods.append(
+                        {
+                            "name": _pretty(d[-1]),
+                            "pairs": [(z, _pick_image(g["imgs"], zstem(z), "shared")) for z in gz],
+                        }
+                    )
+            return mods
+
+        def plan_single():
+            gz = sorted(zips, key=lambda e: _natkey(e["base"]))
+            if len(gz) == 1:
+                z = gz[0]
+                return [
+                    {"name": mod_name(root_name, zstem(z)), "pairs": [(z, _pick_image(imgs, zstem(z), "any"))]}
+                ]
+            return [
+                {
+                    "name": _pretty(root_name),
+                    "pairs": [(z, _pick_image(imgs, zstem(z), "shared")) for z in gz],
+                }
+            ]
+
+        auto = plan_auto()
+        chosen = plan_single() if mode == "single" else auto
+
+        cache = {}
+
+        def extract(e):
+            key = e["zi"].filename
+            if key in cache:
+                return cache[key]
+            if e["kind"] == "img" and e["zi"].file_size > MAX_BUNDLE_IMAGE:
+                warnings.append(f"image too large, skipped: {e['base']}")
+                cache[key] = (None, e["base"])
+                return cache[key]
+            d = uuid.uuid4().hex
+            dd = APP.work / "uploads" / d
+            dd.mkdir(parents=True)
+            fname = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "_", e["base"])
+            try:
+                with zf.open(e["zi"]) as s, open(dd / fname, "wb") as t:
+                    shutil.copyfileobj(s, t, 1 << 20)
+            except RuntimeError as ex:  # encrypted member
+                shutil.rmtree(dd, ignore_errors=True)
+                raise ValueError(f"cannot read {e['base']} (password protected?): {ex}") from None
+            cache[key] = (d, fname)
+            return cache[key]
+
+        out = []
+        for m in chosen:
+            stems = [zstem(z) for z, _im in m["pairs"]]
+            labels = _labels(stems)
+            styles = []
+            for i, (z, im) in enumerate(m["pairs"]):
+                zid, zname = extract(z)
+                pid, pname = extract(im) if im else (None, None)
+                styles.append(
+                    {
+                        "label": labels[i],
+                        "color": PALETTE[i % len(PALETTE)],
+                        "uploadId": zid,
+                        "zipName": zname,
+                        "previewUploadId": pid,
+                        "previewName": pname if pid else None,
+                    }
+                )
+            if len(styles) == 1:
+                base = slug(stems[0]) if not _is_generic(stems[0]) else slug(m["name"])
+            else:
+                base = slug(m["name"])
+            out.append(
+                {"name": m["name"], "fileBase": base, "styled": len(styles) > 1, "styles": styles}
+            )
+    return {
+        "bundle": True,
+        "mods": out,
+        "autoCount": len(auto),
+        "warnings": warnings,
+        "archive": src.name,
     }
-    plan = []
-    for i, z in enumerate(zips):
-        suffix = (
-            ("-" + slug(z.get("label") or str(i + 1), str(i + 1))) if styled else ""
+
+
+def api_bundle_inspect(p):
+    return inspect_bundle(p["uploadId"], p.get("mode") or "auto")
+
+
+def api_set_meta(p):
+    """replace the author links and the tags of one mod (picked values, no JSON editing)"""
+    cat, name = p["category"], p["name"]
+    authors = clean_authors(p)
+    tags = clean_tags(p.get("tags"))
+    with APP.lock:
+        data, _ = APP.load()
+        found = find_mod(data, cat, name)
+        if not found:
+            raise ValueError("mod not found")
+        _g, lst, i = found
+        entry = lst[i]
+        old = entry.get("links") if isinstance(entry.get("links"), list) else []
+        pos = next(
+            (k for k, l in enumerate(old) if isinstance(l, dict) and l.get("type") == "author"),
+            0,
         )
-        fname = f"{base}{suffix}.zip"
+        others = [l for l in old if not (isinstance(l, dict) and l.get("type") == "author")]
+        links = others[:pos] + [{"type": "author", "url": a} for a in authors] + others[pos:]
+
+        def put(e, key, value):  # keep the usual order: ..., tags, links, meta
+            if value in (None, [], {}):
+                e.pop(key, None)
+                return e
+            if key in e:
+                e[key] = value
+                return e
+            out = {}
+            for k, v in e.items():
+                if k == "meta" and key not in out:
+                    out[key] = value
+                out[k] = v
+            out.setdefault(key, value)
+            return out
+
+        entry = put(entry, "tags", tags)
+        entry = put(entry, "links", links)
+        lst[i] = entry
+        APP.save(data)
+    added, warn = register_authors(authors, p.get("newAuthors"))
+    return {"ok": True, "added": added, "warn": warn}
+
+
+def job_add_styles(job, p):
+    """add one or more styles to an existing mod (a single-file mod is converted to a styled one)"""
+    cat, name = p["category"], p["name"]
+    new = p.get("styles") or []
+    if not new:
+        raise ValueError("add at least one style")
+    data, _ = APP.load()
+    found = find_mod(data, cat, name)
+    if not found:
+        raise ValueError("mod not found")
+    entry = found[1][found[2]]
+    existing = [s for s in (entry.get("styles") or []) if isinstance(s, dict)]
+    if not existing and not simple_name(entry.get("file")):
+        raise ValueError(
+            "this mod's main file is a URL or nested path; edit the JSON by hand to add styles"
+        )
+    content = data["modsData"][cat]
+    used = category_used_files(content)
+    index = APP.manifest_index()
+    base = slug(p.get("fileBase") or name)
+    plan, taken = [], set()
+    for i, z in enumerate(new):
+        label = str(z.get("label") or "").strip() or f"Style {len(existing) + i + (2 if not existing else 1)}"
+        stem = f"{base}-{slug(label, str(len(existing) + i + 1))}"
+        fname = f"{stem}.zip"
+        if fname.lower() in taken:
+            raise ValueError(f"two styles produce the same file name: {fname}")
+        taken.add(fname.lower())
         zp = APP.upload_path(z["uploadId"])
         if not zipfile.is_zipfile(zp):
             raise ValueError(f"not a valid zip: {zp.name}")
-        reuse = False
-        entry_m = index.get(f"{cat}/{fname}".lower())
-        if fname.lower() in used:
-            raise ValueError(
-                f"file name is already taken: {fname} (change the 'file name' field)"
-            )
-        if entry_m:
-            # in the manifest but not in mods.json = leftover of an interrupted run; identical content is reused
-            if entry_m.get("sha256") and entry_m["sha256"] == sha256_file(zp):
-                reuse = True
-            else:
-                raise ValueError(
-                    f"file name is already taken: {fname} (change the 'file name' field)"
-                )
+        reuse = check_file_name(cat, fname, zp, used, index)
         pv = APP.upload_path(z["previewUploadId"]) if z.get("previewUploadId") else None
         plan.append(
             {
                 "file": fname,
                 "zip": zp,
                 "preview": pv,
-                "label": z.get("label") or f"Style {i + 1}",
+                "label": label,
                 "color": z.get("color") or "#888888",
-                "stem": f"{base}{suffix}",
+                "stem": stem,
                 "reuse": reuse,
             }
         )
-    if len({x["file"].lower() for x in plan}) != len(plan):
-        raise ValueError("two styles produce the same file name")
-
-    # previews first: a broken image must fail BEFORE anything is uploaded to the releases repo
-    placed = []
+    placed = place_previews(job, cat, plan)
     try:
-        for x in plan:
-            x["previewName"] = (
-                place_preview(x["preview"], cat, x["stem"]) if x["preview"] else None
-            )
-            if x["previewName"]:
-                placed.append(x["previewName"])
-                job.log(f"preview: assets/previews/{cat}/{x['previewName']}")
-        todo = [(x["file"], x["zip"]) for x in plan if not x["reuse"]]
-        for x in plan:
-            if x["reuse"]:
-                job.log(
-                    f"{x['file']}: already in the releases repo with identical content, not uploaded again"
-                )
-        if todo:
-            job.log(f"Uploading {len(todo)} file(s) to the releases repo...")
-            stage_and_upload(job, cat, todo, update=False)
+        upload_plan(job, cat, plan)
     except Exception:
         for nm in placed:
             delete_preview(cat, nm)
         raise
 
-    entry = {"name": name}
-    if styled:
-        entry["styles"] = []
+    with APP.lock:
+        data, _ = APP.load()
+        found = find_mod(data, cat, name)
+        if not found:
+            raise ValueError("mod disappeared in the meantime")
+        entry = found[1][found[2]]
+        if not isinstance(entry.get("styles"), list) or not entry["styles"]:
+            # single-file mod -> styled: the current file/preview become style 1
+            first = {
+                "label": str(p.get("firstLabel") or "").strip() or "Style 1",
+                "color": p.get("firstColor") or "#888888",
+            }
+            for k in ("preview", "file", "fileWin", "fileLinux"):
+                if k in entry:
+                    first[k] = entry.pop(k)
+            entry["styles"] = [first]
+            job.log(f"Converted '{name}' to a styled mod (existing file is now '{first['label']}').")
         for x in plan:
             st = {"label": x["label"], "color": x["color"]}
             if x["previewName"]:
                 st["preview"] = x["previewName"]
             st["file"] = x["file"]
             entry["styles"].append(st)
-    else:
-        if plan[0]["previewName"]:
-            entry["preview"] = plan[0]["previewName"]
-        entry["file"] = plan[0]["file"]
-    if p.get("tags"):
-        entry["tags"] = p["tags"]
-    if p.get("links"):
-        entry["links"] = p["links"]
-    entry["meta"] = {"date": now_ts(), "commit-sha": ""}
-
-    with APP.lock:
-        data, _ = APP.load()
-        if name_taken(data, cat, name):
-            raise ValueError("a mod with this name appeared in the meantime")
-        content = data["modsData"][cat]
-        if isinstance(content, dict) and isinstance(content.get("groups"), list):
-            gid = str(p.get("groupId") or "").strip()
-            gname = str(p.get("groupName") or "").strip()
-            grp = next(
-                (
-                    g
-                    for g in content["groups"]
-                    if isinstance(g, dict) and gid and g.get("id") == gid
-                ),
-                None,
-            )
-            if not grp and gname:
-                grp = next(
-                    (
-                        g
-                        for g in content["groups"]
-                        if isinstance(g, dict)
-                        and str(g.get("name", "")).strip().lower() == gname.lower()
-                    ),
-                    None,
-                )
-                if not grp:
-                    grp = {
-                        "id": slug(gname, "group").lower(),
-                        "name": gname,
-                        "mods": [],
-                    }
-                    content["groups"].append(grp)
-            if not grp:
-                raise ValueError(
-                    "this category has groups: choose one or type a new group name"
-                )
-            grp["mods"].append(entry)
-        elif isinstance(content, list):
-            content.append(entry)
-        else:
-            raise ValueError(f"unsupported structure of category '{cat}'")
-        if p.get("recent", True):
+        if p.get("markUpdated", True):
+            meta = entry.get("meta") if isinstance(entry.get("meta"), dict) else {}
+            meta["date"] = now_ts()
+            meta["commit-sha"] = ""
+            entry["meta"] = meta
             touch_recent(data, cat, name)
         APP.save(data)
     job.log("")
-    job.log("Added to mods.json (locally). Press 'Publish' to commit and push.")
+    job.log(f"Added {len(plan)} style(s). Press 'Publish' to commit and push.")
 
 
 def job_replace_file(job, p):
@@ -696,6 +1333,7 @@ def job_publish(job, p):
 def api_state(_q):
     data, text = APP.load()
     cats, mods = [], []
+    observed = {}  # category -> {tag key: seen as false}
     for cat, content in (data.get("modsData") or {}).items():
         grouped = isinstance(content, dict) and isinstance(content.get("groups"), list)
         groups = (
@@ -712,6 +1350,9 @@ def api_state(_q):
             for m in lst:
                 if not isinstance(m, dict):
                     continue
+                for tk, tv in (m.get("tags") or {}).items() if isinstance(m.get("tags"), dict) else []:
+                    o = observed.setdefault(cat, {})
+                    o[tk] = o.get(tk, False) or tv is False
                 refs = file_refs(m)
                 mods.append(
                     {
@@ -735,12 +1376,34 @@ def api_state(_q):
                         else None,
                     }
                 )
+    consts, _ct = APP.load_consts()
+    consts = consts or {}
+    authors = sorted(
+        ({"name": k, "url": v} for k, v in (consts.get("MOD_AUTHOR") or {}).items()),
+        key=lambda a: a["name"].lower(),
+    )
+    cfg = consts.get("TAG_CONFIGS") or {}
+    tag_opts = {}
+    for c in cats:
+        cid = c["id"]
+        cmap = (cfg.get(cid) or {}).get("map") or {}
+        seen = observed.get(cid, {})
+        opts = [{"key": k, "label": str(v), "off": bool(seen.get(k))} for k, v in cmap.items()]
+        have = {o["key"] for o in opts}
+        for k in sorted(seen):
+            if k not in have:
+                opts.append(
+                    {"key": k, "label": k.replace("-", " ").title(), "off": bool(seen[k])}
+                )
+        tag_opts[cid] = opts
     _, branch, _ = git_out("rev-parse", "--abbrev-ref", "HEAD")
     _, status, _ = git_out(
         "status", "--porcelain=v1", "--", "assets/data", "assets/previews"
     )
     return {
         "categories": cats,
+        "authors": authors,
+        "tagOptions": tag_opts,
         "mods": mods,
         "branch": branch,
         "changes": [l for l in status.splitlines() if l.strip()],
@@ -921,6 +1584,8 @@ def api_job(q):
 GET_ROUTES = {"/api/state": api_state, "/api/mod": api_mod, "/api/job": api_job}
 POST_ROUTES = {
     "/api/mod/save": api_save_json,
+    "/api/mod/set-meta": api_set_meta,
+    "/api/bundle/inspect": api_bundle_inspect,
     "/api/mod/replace-preview": api_replace_preview,
     "/api/mod/delete": api_delete,
     "/api/unqueue": api_unqueue,
@@ -928,6 +1593,8 @@ POST_ROUTES = {
 }
 JOB_ROUTES = {
     "/api/mod/add": job_add,
+    "/api/mod/bulk-add": job_bulk_add,
+    "/api/mod/add-styles": job_add_styles,
     "/api/mod/replace-file": job_replace_file,
     "/api/validate": job_validate,
     "/api/sync": job_sync,
@@ -992,6 +1659,17 @@ class Handler(BaseHTTPRequestHandler):
                     200,
                     f.read_bytes(),
                     IMG_TYPES[f.suffix.lower()],
+                    {"Cache-Control": "private, max-age=3600"},
+                )
+            except Exception:  # noqa: BLE001
+                return self._send(404, {"error": "not found"})
+        if u.path == "/upload-preview":
+            try:
+                f = APP.upload_path(q["id"][0])
+                if f.suffix.lower() not in IMG_TYPES:
+                    raise FileNotFoundError
+                return self._send(
+                    200, f.read_bytes(), IMG_TYPES[f.suffix.lower()],
                     {"Cache-Control": "private, max-age=3600"},
                 )
             except Exception:  # noqa: BLE001
@@ -1168,6 +1846,20 @@ input[type=file]::file-selector-button{font:inherit;font-weight:500;height:34px;
 .addhead{padding:20px 20px 0}.addhead h2{margin:0;font-size:24px;font-weight:500}
 #add .sect{margin-top:12px}
 
+/* pickers, bundle rows */
+.pick{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px}
+.pchip{display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 12px;border-radius:8px;background:var(--sc-high);color:var(--on-surface-variant);font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px var(--outline-variant)}
+button.pchip{cursor:pointer}
+.pchip.on{background:var(--secondary-container);color:var(--on-secondary-container);box-shadow:none}
+.pchip.new{box-shadow:inset 0 0 0 1px var(--warn)}
+.pchip .ms{font-size:16px}
+.pchip button{height:22px;width:22px;padding:0;margin:0 -6px 0 2px;border-radius:50%;font-size:16px;line-height:1;color:inherit}
+details.adv{margin-top:10px}details.adv summary{cursor:pointer;color:var(--on-surface-variant)}
+.bitem{display:flex;gap:12px;align-items:center}
+.bthumb{width:72px;aspect-ratio:16/10;object-fit:cover;border-radius:10px;flex:none;background:var(--sc)}
+.style-row small{display:block}
+.style-row small.bad{display:inline}
+
 /* log sheet, dialog, snackbar */
 #log{position:fixed;left:0;right:0;bottom:0;max-height:45vh;background:var(--sc-highest);color:var(--on-surface);border-radius:28px 28px 0 0;display:none;z-index:30;box-shadow:0 -4px 24px rgba(0,0,0,.35)}
 #log pre{margin:0;padding:4px 24px 20px;overflow:auto;max-height:calc(45vh - 56px);font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}
@@ -1209,6 +1901,7 @@ dialog a{color:var(--primary)}
       </div>
       <span id="count"></span>
       <span class="spacer"></span>
+      <button class="tonal" id="tBulk"><span class="ms">library_add</span>Bulk upload</button>
       <button class="filled" id="tAdd"><span class="ms">add</span>Add mod</button>
     </div>
     <div id="list" class="grid"></div>
@@ -1217,9 +1910,11 @@ dialog a{color:var(--primary)}
     <div id="panelBar"><span></span><button class="icon-btn" id="pClose" aria-label="Close"><span class="ms">close</span></button></div>
     <div id="edit"></div>
     <div id="add" hidden></div>
+    <div id="bulk" hidden></div>
   </aside>
 </main>
 <div id="log"><div class="bar"><span id="logTitle">Log</span><button class="icon-btn" onclick="hideLog()" aria-label="Close log"><span class="ms">close</span></button></div><pre id="logPre"></pre></div>
+<datalist id="dlAuthors"></datalist>
 <dialog id="dlg"></dialog>
 <div id="snacks" role="status" aria-live="polite"></div>
 <script>
@@ -1240,7 +1935,7 @@ async function runJob(p,title){$('#log').style.display='block';$('#logTitle').te
  let id;try{id=(await p).job}catch(e){pre.textContent='ERROR: '+e.message;return false}
  let from=0;for(;;){const j=await api('/api/job?id='+id+'&from='+from);if(j.lines.length){pre.textContent+=j.lines.join('\n')+'\n';pre.scrollTop=pre.scrollHeight}from=j.next;
   if(j.status!=='running'){$('#logTitle').textContent=title+(j.status==='ok'?' — done':' — FAILED');BUST=Date.now();await refresh();return j.status==='ok'}await new Promise(r=>setTimeout(r,700))}}
-async function refresh(){S=await api('/api/state');$('#branch').innerHTML=ic('call_split')+esc(S.branch);$('#dry').hidden=!S.dry;
+async function refresh(){S=await api('/api/state');$('#dlAuthors').innerHTML=(S.authors||[]).map(a=>`<option value="${esc(a.name)}">`).join('');$('#branch').innerHTML=ic('call_split')+esc(S.branch);$('#dry').hidden=!S.dry;
  $('#changes').innerHTML=ic(S.changes.length?'edit_note':'check')+(S.changes.length?S.changes.length+' local change(s)':'no local changes');$('#changes').className='chip'+(S.changes.length?' warn':'');
  $('#pending').hidden=!S.pendingRemove.length;$('#pending').textContent=S.pendingRemove.length+' file(s) to remove from releases on Publish';
  $('#bUndo').disabled=!S.undo;const sel=$('#cat'),cur=sel.value;sel.innerHTML='<option value="">All categories</option>'+S.categories.map(c=>`<option>${esc(c.id)}</option>`).join('');sel.value=cur;renderList();
@@ -1261,11 +1956,12 @@ $('#vGrid').onclick=()=>setView('grid');$('#vRows').onclick=()=>setView('rows');
 $('#q').oninput=renderList;$('#cat').onchange=renderList;
 
 /* side panel */
-function showPanel(t){$('#panel').hidden=false;$('#shell').classList.add('has-panel');$('#edit').hidden=t!=='edit';$('#add').hidden=t!=='add';$('#panel').scrollTop=0;if(innerWidth<=900)document.body.classList.add('noscroll')}
+function showPanel(t){$('#panel').hidden=false;$('#shell').classList.add('has-panel');$('#edit').hidden=t!=='edit';$('#add').hidden=t!=='add';$('#bulk').hidden=t!=='bulk';$('#panel').scrollTop=0;if(innerWidth<=900)document.body.classList.add('noscroll')}
 function closePanel(){$('#panel').hidden=true;$('#shell').classList.remove('has-panel');document.body.classList.remove('noscroll');SEL=null;markSel()}
 $('#pClose').onclick=closePanel;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#dlg').open&&!$('#panel').hidden)closePanel()});
 $('#tAdd').onclick=()=>{SEL=null;markSel();renderAdd();showPanel('add')};
+$('#tBulk').onclick=()=>{SEL=null;markSel();renderBulk();showPanel('bulk')};
 
 async function openMod(c,n){SEL={c,n};markSel();showPanel('edit');const box=$('#edit');box.innerHTML='<div class="loading">Loading…</div>';
  let d;try{d=await api('/api/mod?category='+encodeURIComponent(c)+'&name='+encodeURIComponent(n))}catch(e){box.innerHTML='<p class="bad" style="padding:20px">'+esc(e.message)+'</p>';return}
@@ -1276,6 +1972,13 @@ async function openMod(c,n){SEL={c,n};markSel();showPanel('edit');const box=$('#
  <div class="head"><h2>${esc(n)}</h2><div class="chips"><span class="chip">${esc(c)}</span>${d.group?`<span class="chip">${esc(d.group)}</span>`:''}${ns>1?`<span class="chip">${ns} styles</span>`:''}</div></div>
  <section class="sect"><h3>${ic('image')}Previews</h3>${prevs}</section>
  <section class="sect"><h3>${ic('folder_zip')}Files (zip)</h3>${files}<label class="chk"><input type="checkbox" id="mark" checked><span>After replacing a file, mark as updated (meta.date and “recently added”, so Discord says “Updated”)</span></label></section>
+ <section class="sect"><h3>${ic('person')}Authors and tags</h3><label>Authors</label><div id="eAuth"></div><label>Tags</label><div id="eTags"></div>
+  <div class="row" style="margin-top:10px"><button class="filled fit" id="eMetaSave">${ic('save')}Save authors and tags</button><span class="muted">Local only until you press Publish.</span></div></section>
+ <section class="sect"><h3>${ic('palette')}Add styles</h3>
+  ${ns?'':`<div class="note">${ic('info')}<span>This mod has a single file. Adding a style converts it to a styled mod: the current file becomes the first style.</span></div><label>Label for the existing file</label><div class="row"><input type="text" id="sFirst" placeholder="Style 1"><input type="color" id="sFirstCol" class="fit" value="#888888"></div>`}
+  <div id="sRows"></div><button class="tonal sm" id="sMore" style="margin-top:10px">${ic('add')}Add style row</button>
+  <label class="chk"><input type="checkbox" id="sMark" checked><span>Mark as updated (meta.date and “recently added”)</span></label>
+  <button class="filled" id="sGo" style="margin-top:10px">${ic('upload')}Upload styles</button></section>
  <section class="sect"><h3>${ic('data_object')}Entry (JSON)</h3><textarea id="json" spellcheck="false">${esc(JSON.stringify(d.entry,null,2))}</textarea>
   <div class="row" style="margin-top:10px"><button class="filled fit" id="bSave">${ic('save')}Save JSON</button><span class="muted">Changes the local mods.json only. Publish to push.</span></div></section>
  <section class="sect danger-zone"><h3>${ic('delete')}Delete</h3><label class="chk"><input type="checkbox" id="rmf" checked><span>Also remove the zip file(s) from the releases repo (done on Publish, after the site stops using them)</span></label>
@@ -1283,42 +1986,160 @@ async function openMod(c,n){SEL={c,n};markSel();showPanel('edit');const box=$('#
  document.querySelectorAll('.rf').forEach(i=>i.onchange=async()=>{const f=i.files[0];if(!f)return;if(!confirm('Replace '+i.dataset.t+' with '+f.name+'?'))return;
   await runJob((async()=>{const id=await upload(f);return api('/api/mod/replace-file',{category:c,name:n,target:i.dataset.t,uploadId:id,markUpdated:$('#mark').checked})})(),'Replace file');openMod(c,n)});
  document.querySelectorAll('.rp').forEach(i=>i.onchange=async()=>{const f=i.files[0];if(!f)return;try{const id=await upload(f);await api('/api/mod/replace-preview',{category:c,name:n,target:i.dataset.t,uploadId:id});BUST=Date.now();await refresh();openMod(c,n);toast('Preview replaced')}catch(e){toast(e.message)}});
+ const EA=authorPicker($('#eAuth'),(d.entry.links||[]).filter(l=>l&&l.type==='author').map(l=>l.url)),ET=tagPicker($('#eTags'),c,d.entry.tags||{});
+ $('#eMetaSave').onclick=async()=>{const au=EA.get();try{const r=await api('/api/mod/set-meta',{category:c,name:n,authors:au.authors,newAuthors:au.newAuthors,tags:ET.get()});await refresh();openMod(c,n);toast('Saved locally'+(r.added&&r.added.length?'\nAdded to constants.json: '+r.added.join(', '):'')+(r.warn?'\n'+r.warn:''))}catch(x){toast(x.message)}};
+ const sRows=$('#sRows');styleRowEl(sRows);$('#sMore').onclick=()=>styleRowEl(sRows);
+ $('#sGo').onclick=async()=>{const list=[];for(const r of sRows.children){const z=r.querySelector('.zip').files[0];if(!z)return toast('Choose a zip in every style row');list.push({z,p:r.querySelector('.pv').files[0],label:r.querySelector('.lab').value.trim(),color:r.querySelector('.col').value})}
+  if(!list.length)return toast('Add at least one style row');
+  const fl=$('#sFirst'),fc=$('#sFirstCol');$('#sGo').disabled=true;
+  const ok=await runJob((async()=>{$('#logPre').textContent='Uploading files to the local server…';const styles=[];for(const x of list){const e={uploadId:await upload(x.z),label:x.label,color:x.color};if(x.p)e.previewUploadId=await upload(x.p);styles.push(e)}
+   return api('/api/mod/add-styles',{category:c,name:n,styles,firstLabel:fl?fl.value.trim():'',firstColor:fc?fc.value:'',markUpdated:$('#sMark').checked})})(),'Add styles to "'+n+'"');
+  $('#sGo').disabled=false;if(ok)openMod(c,n)};
  $('#bSave').onclick=async()=>{let e;try{e=JSON.parse($('#json').value)}catch(x){return toast('Invalid JSON: '+x.message)}try{await api('/api/mod/save',{category:c,name:n,entry:e});await refresh();SEL={c,n:e.name};markSel();openMod(c,e.name);toast('Saved locally')}catch(x){toast(x.message)}};
  $('#bDel').onclick=async()=>{if(!confirm('Delete "'+n+'" from mods.json?'))return;try{const r=await api('/api/mod/delete',{category:c,name:n,removeFiles:$('#rmf').checked});
   let m='Deleted locally.';if(r.queued.length)m+='\nQueued for removal from releases on Publish:\n'+r.queued.join('\n');if(r.packWarnings.length)m+='\n\nWARNING: still listed in packs:\n'+r.packWarnings.join('\n');alert(m);closePanel();await refresh()}catch(x){toast(x.message)}}}
 
-function renderAdd(){const cats=S.categories;$('#add').innerHTML=`<div class="addhead"><h2>Add new mod</h2></div>
+function styleRowEl(rows){const d=document.createElement('div');d.className='style-row';
+ d.innerHTML=`<div class="row" style="margin-top:12px"><input type="text" class="lab" placeholder="Style label (e.g. Red)"><input type="color" class="col fit" value="#8b5cf6"><button type="button" class="icon-btn fit rm" aria-label="Remove style">${ic('close')}</button></div>
+  <label>Zip file</label><input type="file" accept=".zip" class="zip"><label>Preview image (optional)</label><input type="file" accept="image/*" class="pv"><img class="pvthumb" alt="" hidden>`;
+ const pi=d.querySelector('.pv'),th=d.querySelector('.pvthumb');
+ pi.onchange=()=>{const f=pi.files[0];if(th.src&&th.src.startsWith('blob:'))URL.revokeObjectURL(th.src);if(f){th.src=URL.createObjectURL(f);th.hidden=false}else{th.hidden=true}};
+ d.querySelector('.rm').onclick=()=>d.remove();rows.appendChild(d);return d}
+
+/* pickers: authors and tags come from constants.json (no JSON editing) */
+const knownAuthors=()=>new Map((S.authors||[]).map(a=>[a.name.toLowerCase(),a.name]));
+function authorPicker(box,init){
+ const st={list:[],urls:{}},K=knownAuthors();
+ box.innerHTML=`<div class="pick" data-r="chips"></div><div class="row"><input type="text" list="dlAuthors" data-r="inp" autocomplete="off" placeholder="Pick or type an author, press Enter"><button type="button" class="tonal sm fit" data-r="add">${ic('add')}Add</button></div><div data-r="new"></div>`;
+ const q=r=>box.querySelector('[data-r='+r+']'),isNew=n=>!K.has(n.toLowerCase());
+ const draw=()=>{q('chips').innerHTML=st.list.map((n,i)=>`<span class="pchip on${isNew(n)?' new':''}">${esc(n)}${isNew(n)?' (new)':''}<button type="button" data-i="${i}" aria-label="Remove ${esc(n)}">×</button></span>`).join('')||'<span class="muted">No authors selected</span>';
+  q('chips').querySelectorAll('button').forEach(b=>b.onclick=()=>{st.list.splice(+b.dataset.i,1);draw()});
+  q('new').innerHTML=st.list.filter(isNew).map(n=>`<label>Link for the new author “${esc(n)}” (optional, saved to constants.json)</label><input type="text" data-n="${esc(n)}" value="${esc(st.urls[n]||'')}" placeholder="https://t.me/...">`).join('');
+  q('new').querySelectorAll('input').forEach(i=>i.oninput=()=>{st.urls[i.dataset.n]=i.value.trim()})};
+ const add=()=>{const v=q('inp').value.trim();if(!v)return;const n=K.get(v.toLowerCase())||v;if(!st.list.some(x=>x.toLowerCase()===n.toLowerCase()))st.list.push(n);q('inp').value='';draw()};
+ q('add').onclick=add;q('inp').onchange=add;q('inp').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();add()}};
+ (init||[]).forEach(n=>{if(typeof n==='string'&&n&&!st.list.some(x=>x.toLowerCase()===n.toLowerCase()))st.list.push(K.get(n.toLowerCase())||n)});draw();
+ return{get:()=>{add();const nu={};st.list.forEach(n=>{if(isNew(n))nu[n]=st.urls[n]||''});return{authors:[...st.list],newAuthors:nu}}}}
+
+function tagPicker(box,cat,init){
+ const on=new Set(Object.entries(init||{}).filter(([k,v])=>v===true).map(([k])=>k)),custom=new Set(Object.keys(init||{}));let C=cat;
+ box.innerHTML=`<div class="pick" data-r="tags"></div><div class="row"><input type="text" data-r="ci" autocomplete="off" placeholder="Other tag (a-z, 0-9, -), Enter to add"><button type="button" class="tonal sm fit" data-r="ca">${ic('add')}Add</button></div>`;
+ const q=r=>box.querySelector('[data-r='+r+']');
+ const opts=()=>{const base=((S.tagOptions||{})[C])||[],keys=new Set(base.map(o=>o.key));return base.concat([...custom].filter(k=>!keys.has(k)).map(k=>({key:k,label:k,off:false})))};
+ const draw=()=>{const o=opts();q('tags').innerHTML=o.map(x=>`<button type="button" class="pchip${on.has(x.key)?' on':''}" data-k="${esc(x.key)}" aria-pressed="${on.has(x.key)}">${on.has(x.key)?ic('check'):''}${esc(x.label)}</button>`).join('')||'<span class="muted">No tags for this category yet. Add one below if needed.</span>';
+  q('tags').querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=b.dataset.k;on.has(k)?on.delete(k):on.add(k);draw()})};
+ const add=()=>{const v=q('ci').value.trim().toLowerCase();if(!v)return;if(!/^[a-z0-9_-]{1,40}$/.test(v))return toast('Tag: only a-z, 0-9, - and _');custom.add(v);on.add(v);q('ci').value='';draw()};
+ q('ca').onclick=add;q('ci').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();add()}};draw();
+ return{setCategory:c=>{C=c;const base=new Set((((S.tagOptions||{})[C])||[]).map(o=>o.key));[...on].forEach(k=>{if(!base.has(k))on.delete(k)});custom.clear();draw()},
+  get:()=>{if(!on.size)return{};const t={};opts().forEach(x=>{if(on.has(x.key))t[x.key]=true;else if(x.off)t[x.key]=false});return t}}}
+
+/* bundle archive = one zip with the preview image + the mod zip(s) inside */
+const upv=id=>`/upload-preview?id=${encodeURIComponent(id)}&t=${TOKEN}`;
+async function inspectBundle(file,mode){const id=await upload(file);return api('/api/bundle/inspect',{uploadId:id,mode})}
+const stemOf=n=>n.replace(/\.[^.]+$/,'');
+const nameFromFile=n=>stemOf(n).replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();
+
+let BUNDLED=[],LOOSE=[],BULK_INGEST=null;
+function renderBulk(){BUNDLED=[];LOOSE=[];const cats=S.categories;$('#bulk').innerHTML=`<div class="addhead"><h2>Bulk upload</h2></div>
+ <section class="sect"><h3>${ic('category')}Shared by every mod</h3>
+  <label>Category</label><select id="bCat" style="width:100%;max-width:none">${cats.map(c=>`<option>${esc(c.id)}</option>`).join('')}</select>
+  <div id="bGroupBox"></div>
+  <label>Authors</label><div id="bAuth"></div>
+  <label>Tags</label><div id="bTagBox"></div>
+  <details class="adv"><summary>Extra links (JSON, optional)</summary><textarea id="bLinks" style="min-height:64px" placeholder='[{"type":"source","url":"..."}]'></textarea></details>
+  <label class="chk"><input type="checkbox" id="bRecent" checked><span>Add all to “recently added”</span></label></section>
+ <section class="sect"><h3>${ic('folder_zip')}Files</h3>
+  <label>Bundle archives: a zip with the preview image and the mod zip inside (picked automatically). One archive may hold one mod, or many: pairs matched by file name, or one folder per mod.</label>
+  <input type="file" accept=".zip" multiple id="bBund"><div id="bStat" class="muted"></div>
+  <label>Or plain mod zips (select many)</label><input type="file" accept=".zip" multiple id="bZips">
+  <label>Preview images for plain zips (optional, matched by file name: cool-mod.zip ↔ cool-mod.png)</label><input type="file" accept="image/*" multiple id="bPvs">
+  <div id="bList"></div></section>
+ <div style="margin:12px 14px 0"><div class="note">${ic('info')}<span>Names come from the files; edit them below. Everything is checked first and nothing is uploaded if any mod has a problem. Zips go to the releases repo in one run; mods.json changes locally until you press Publish.</span></div>
+ <button class="filled" id="bGo" disabled>${ic('library_add')}Add mods</button></div>`;
+ const AP=authorPicker($('#bAuth'),[]),TP=tagPicker($('#bTagBox'),$('#bCat').value,{});
+ const grp=()=>{const c=cats.find(x=>x.id===$('#bCat').value);$('#bGroupBox').innerHTML=c&&c.grouped?`<label>Group</label><select id="bGroup" style="width:100%;max-width:none">${c.groups.map(g=>`<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('')}<option value="">(new group…)</option></select><input type="text" id="bGroupNew" placeholder="New group name" hidden style="margin-top:8px">`:'';
+  const sel=$('#bGroup');if(sel)sel.onchange=()=>{$('#bGroupNew').hidden=sel.value!==''}};
+ grp();
+ const pvMap=()=>{const m={};for(const f of $('#bPvs').files)m[stemOf(f.name).toLowerCase()]=f;return m};
+ const draw=()=>{const pm=pvMap();LOOSE.forEach(x=>{x.pv=pm[stemOf(x.z.name).toLowerCase()]||null;if(x.pvFor!==x.pv){x.pvFor=x.pv;x.url=x.pv?URL.createObjectURL(x.pv):null}});
+  const all=[...BUNDLED,...LOOSE],cat=$('#bCat').value;
+  const have=new Set(S.mods.filter(m=>m.category===cat).map(m=>(m.name||'').toLowerCase())),cnt={};all.forEach(x=>{const k=x.name.trim().toLowerCase();cnt[k]=(cnt[k]||0)+1});
+  $('#bList').innerHTML=all.map((x,i)=>{const k=x.name.trim().toLowerCase();
+   const th=x.styles?(x.styles.find(s=>s.previewUploadId)||{}).previewUploadId:null;
+   const thumb=(x.styles?th:x.url)?`<img class="bthumb" alt="" src="${esc(x.styles?upv(th):x.url)}">`:`<div class="bthumb"></div>`;
+   const info=x.styles?(x.styles.length>1?x.styles.length+' styles: '+x.styles.map(s=>s.label).join(', '):x.styles[0].zipName)+' · from '+x.origin:x.z.name+' · '+(x.pv?x.pv.name:'no preview');
+   const warn=have.has(k)?'already exists in this category':cnt[k]>1?'duplicate name in this batch':'';
+   return `<div class="style-row"><div class="bitem" style="margin-top:12px">${thumb}<div class="grow" style="flex:1;min-width:0"><input type="text" class="bn" data-i="${i}" value="${esc(x.name)}"><small class="muted">${esc(info)}</small>${warn?`<small class="bad"> · ${esc(warn)}</small>`:''}</div><button type="button" class="icon-btn fit brm" data-i="${i}" aria-label="Remove">${ic('close')}</button></div></div>`}).join('');
+  $('#bList').querySelectorAll('.bn').forEach(i=>i.oninput=()=>{all[+i.dataset.i].name=i.value});
+  $('#bList').querySelectorAll('.brm').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(i<BUNDLED.length)BUNDLED.splice(i,1);else LOOSE.splice(i-BUNDLED.length,1);draw()});
+  $('#bGo').disabled=!all.length;$('#bGo').lastChild.textContent=all.length?'Add '+all.length+' mod'+(all.length>1?'s':''):'Add mods'};
+ $('#bCat').onchange=()=>{grp();TP.setCategory($('#bCat').value);draw()};
+ $('#bZips').onchange=()=>{const old=new Map(LOOSE.map(x=>[x.z.name,x.name]));LOOSE=[...$('#bZips').files].sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true})).map(z=>({z,name:old.get(z.name)||nameFromFile(z.name),fileBase:stemOf(z.name),pv:null}));draw()};
+ $('#bPvs').onchange=draw;
+ BULK_INGEST=async files=>{for(const f of files){$('#bStat').textContent='Reading '+f.name+'…';
+   try{const r=await inspectBundle(f,'auto');if(!r.bundle){toast(f.name+': '+r.reason+'. Plain mod zips go into the field below.');continue}
+    r.mods.forEach(m=>{m.origin=f.name;BUNDLED.push(m)});(r.warnings||[]).forEach(w=>toast(f.name+': '+w))}catch(e){toast(f.name+': '+e.message)}}
+  $('#bStat').textContent='';draw()};
+ $('#bBund').onchange=async()=>{const fs=[...$('#bBund').files];$('#bBund').value='';await BULK_INGEST(fs)};
+ $('#bGo').onclick=async()=>{const all=[...BUNDLED,...LOOSE];if(!all.length)return;if(all.some(x=>!x.name.trim()))return toast('Every mod needs a name');
+  let links=[];try{if($('#bLinks').value.trim())links=JSON.parse($('#bLinks').value)}catch(x){return toast('Extra links: invalid JSON')}
+  const au=AP.get(),gs=$('#bGroup');const body={category:$('#bCat').value,authors:au.authors,newAuthors:au.newAuthors,tags:TP.get(),links,recent:$('#bRecent').checked,groupId:gs?gs.value:'',groupName:gs&&gs.value===''?$('#bGroupNew').value:'',items:[]};
+  const total=all.length;$('#bGo').disabled=true;
+  const ok=await runJob((async()=>{const pre=$('#logPre');for(let i=0;i<total;i++){const x=all[i];let styles;
+    if(x.styles)styles=x.styles.map(s=>({uploadId:s.uploadId,previewUploadId:s.previewUploadId,label:x.styles.length>1?s.label:'',color:s.color}));
+    else{pre.textContent='Uploading to the local server '+(i+1)+'/'+total+': '+x.z.name;const e={uploadId:await upload(x.z)};if(x.pv)e.previewUploadId=await upload(x.pv);styles=[e]}
+    body.items.push({name:x.name.trim(),fileBase:x.fileBase,styles})}
+   pre.textContent='';return api('/api/mod/bulk-add',body)})(),'Bulk add ('+total+' mods)');
+  if(ok){renderBulk()}else{$('#bGo').disabled=false}}}
+
+let ADDB=null;
+function renderAdd(){ADDB=null;const cats=S.categories;$('#add').innerHTML=`<div class="addhead"><h2>Add new mod</h2></div>
  <section class="sect"><h3>${ic('category')}Where</h3>
   <label>Category</label><select id="aCat" style="width:100%;max-width:none">${cats.map(c=>`<option>${esc(c.id)}</option>`).join('')}</select>
   <div id="aGroupBox"></div>
   <label>Mod name</label><input type="text" id="aName">
   <label>File name base (optional, letters/digits/-_. only; default is made from the name)</label><input type="text" id="aBase" placeholder="my-mod"></section>
  <section class="sect"><h3>${ic('folder_zip')}Files and previews</h3>
-  <label class="chk"><input type="checkbox" id="aStyled"><span>This mod has several styles / variants</span></label>
-  <div id="aRows"></div><button class="tonal sm" id="aMore" hidden style="margin-top:10px">${ic('add')}Add style</button></section>
- <section class="sect"><h3>${ic('sell')}Details</h3>
-  <label>Tags (JSON object, optional)</label><textarea id="aTags" style="min-height:64px" placeholder='{"hero":"Axe"}'></textarea>
-  <label>Links (JSON list, optional)</label><textarea id="aLinks" style="min-height:64px" placeholder='[{"type":"author","url":"Name"}]'></textarea>
+  <label>Bundle archive (optional): one zip with the preview image and the mod zip inside, both are picked automatically</label>
+  <input type="file" accept=".zip" id="aBundle"><div id="aBInfo"></div>
+  <div id="aManual"><label class="chk"><input type="checkbox" id="aStyled"><span>This mod has several styles / variants</span></label>
+  <div id="aRows"></div><button class="tonal sm" id="aMore" hidden style="margin-top:10px">${ic('add')}Add style</button></div></section>
+ <section class="sect"><h3>${ic('person')}Authors</h3><div id="aAuth"></div></section>
+ <section class="sect"><h3>${ic('sell')}Tags</h3><div id="aTagBox"></div>
+  <details class="adv"><summary>Extra links (JSON, optional)</summary><textarea id="aLinks" style="min-height:64px" placeholder='[{"type":"source","url":"..."}]'></textarea></details>
   <label class="chk"><input type="checkbox" id="aRecent" checked><span>Add to “recently added”</span></label></section>
  <div style="margin:12px 14px 0"><div class="note">${ic('info')}<span>The zip is uploaded to the releases repo immediately. mods.json and the preview change locally until you press Publish.${S.pillow?'':' Install pillow (pip install pillow) to convert png/jpg previews to webp.'}</span></div>
  <button class="filled" id="aGo">${ic('add')}Add mod</button></div>`;
- const rows=$('#aRows');let n=0;
- const addRow=()=>{n++;const d=document.createElement('div');d.className='style-row';d.innerHTML=`<div class="srow-meta" ${$('#aStyled').checked?'':'hidden'}><div class="row" style="margin-top:12px"><input type="text" class="lab" placeholder="Style label (e.g. Style 1)"><input type="color" class="col fit" value="#8b5cf6"></div></div>
-  <label>Zip file</label><input type="file" accept=".zip" class="zip"><label>Preview image</label><input type="file" accept="image/*" class="pv"><img class="pvthumb" alt="" hidden>`;
-  const pi=d.querySelector('.pv'),th=d.querySelector('.pvthumb');pi.onchange=()=>{const f=pi.files[0];if(th.src&&th.src.startsWith('blob:'))URL.revokeObjectURL(th.src);if(f){th.src=URL.createObjectURL(f);th.hidden=false}else{th.hidden=true}};rows.appendChild(d)};
+ const rows=$('#aRows');
+ const addRow=()=>{const d=styleRowEl(rows);d.querySelector('.rm').hidden=true;if(!$('#aStyled').checked)d.querySelector('.lab').parentNode.hidden=true;return d};
  addRow();
- const syncStyled=()=>{const on=$('#aStyled').checked;document.querySelectorAll('.srow-meta').forEach(e=>e.hidden=!on);$('#aMore').hidden=!on;if(!on)while(rows.children.length>1)rows.lastChild.remove()};
+ const syncStyled=()=>{const on=$('#aStyled').checked;rows.querySelectorAll('.lab').forEach(e=>e.parentNode.hidden=!on);$('#aMore').hidden=!on;if(!on)while(rows.children.length>1)rows.lastChild.remove()};
  $('#aStyled').onchange=syncStyled;$('#aMore').onclick=()=>{addRow();syncStyled()};
  const grp=()=>{const c=cats.find(x=>x.id===$('#aCat').value);$('#aGroupBox').innerHTML=c&&c.grouped?`<label>Group</label><select id="aGroup" style="width:100%;max-width:none">${c.groups.map(g=>`<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('')}<option value="">(new group…)</option></select><input type="text" id="aGroupNew" placeholder="New group name" hidden style="margin-top:8px">`:'';
   const sel=$('#aGroup');if(sel)sel.onchange=()=>{$('#aGroupNew').hidden=sel.value!==''}};
- $('#aCat').onchange=grp;grp();
+ grp();const AP=authorPicker($('#aAuth'),[]),TP=tagPicker($('#aTagBox'),$('#aCat').value,{});
+ $('#aCat').onchange=()=>{grp();TP.setCategory($('#aCat').value)};
+ const showBundle=()=>{const b=ADDB,box=$('#aBInfo');
+  box.innerHTML=b.styles.map((s,i)=>`<div class="style-row"><div class="bitem" style="margin-top:12px">${s.previewUploadId?`<img class="bthumb" alt="" src="${esc(upv(s.previewUploadId))}">`:`<div class="bthumb"></div>`}<div class="grow" style="flex:1;min-width:0"><b>${esc(s.zipName)}</b><small class="muted">${s.previewName?esc(s.previewName):'no preview image found'}</small>${b.styles.length>1?`<div class="row" style="margin-top:6px"><input type="text" class="bl" data-i="${i}" value="${esc(s.label)}" placeholder="Style label"><input type="color" class="bc fit" data-i="${i}" value="${esc(s.color)}"></div>`:''}</div></div></div>`).join('')+`<div style="margin-top:8px"><button type="button" class="tonal sm" id="aBClear">${ic('close')}Not a bundle, choose files manually</button></div>`;
+  box.querySelectorAll('.bl').forEach(i=>i.oninput=()=>{b.styles[+i.dataset.i].label=i.value});box.querySelectorAll('.bc').forEach(i=>i.oninput=()=>{b.styles[+i.dataset.i].color=i.value});
+  $('#aBClear').onclick=()=>{ADDB=null;box.innerHTML='';$('#aBundle').value='';$('#aManual').hidden=false}};
+ $('#aBundle').onchange=async()=>{const f=$('#aBundle').files[0],box=$('#aBInfo');ADDB=null;box.innerHTML='';$('#aManual').hidden=false;if(!f)return;
+  box.innerHTML=`<div class="note">${ic('hourglass_top')}<span>Reading the archive…</span></div>`;let r;
+  try{r=await inspectBundle(f,'single')}catch(e){box.innerHTML='';return toast(e.message)}
+  if(!r.bundle){box.innerHTML=`<div class="note">${ic('info')}<span>${esc(r.reason)}. Use the fields below for a normal mod zip.</span></div>`;return}
+  ADDB=r.mods[0];$('#aManual').hidden=true;if(!$('#aName').value.trim())$('#aName').value=ADDB.name;$('#aBase').placeholder=ADDB.fileBase;showBundle();
+  if(r.autoCount>1)box.insertAdjacentHTML('afterbegin',`<div class="note">${ic('library_add')}<span>This archive looks like ${r.autoCount} separate mods, but here it is added as ONE mod with ${ADDB.styles.length} styles. <a href="#" id="aToBulk">Open it in Bulk upload instead</a></span></div>`);
+  const tb=$('#aToBulk');if(tb)tb.onclick=e=>{e.preventDefault();renderBulk();showPanel('bulk');BULK_INGEST([f])};
+  (r.warnings||[]).forEach(w=>toast(w))};
  $('#aGo').onclick=async()=>{const name=$('#aName').value.trim();if(!name)return toast('Enter the mod name');
-  const styled=$('#aStyled').checked;const rowsEl=[...rows.children];const zips=[];
-  for(const r of rowsEl){const z=r.querySelector('.zip').files[0];if(!z)return toast('Choose a zip in every row');zips.push({z,p:r.querySelector('.pv').files[0],label:styled?r.querySelector('.lab').value.trim():'',color:r.querySelector('.col').value})}
-  let tags=null,links=null;try{if($('#aTags').value.trim())tags=JSON.parse($('#aTags').value);if($('#aLinks').value.trim())links=JSON.parse($('#aLinks').value)}catch(x){return toast('Tags/Links: invalid JSON')}
-  const gs=$('#aGroup');const body={category:$('#aCat').value,name,fileBase:$('#aBase').value.trim(),tags,links,recent:$('#aRecent').checked,groupId:gs?gs.value:'',groupName:gs&&gs.value===''?$('#aGroupNew').value:''};
-  $('#aGo').disabled=true;await runJob((async()=>{$('#logPre').textContent='Uploading files to the local server…';body.zips=[];for(const x of zips){const e={uploadId:await upload(x.z),label:x.label,color:x.color};if(x.p)e.previewUploadId=await upload(x.p);body.zips.push(e)}return api('/api/mod/add',body)})(),'Add mod "'+name+'"');
-  $('#aGo').disabled=false;}}
+  let links=[];try{if($('#aLinks').value.trim())links=JSON.parse($('#aLinks').value)}catch(x){return toast('Extra links: invalid JSON')}
+  const zips=[];if(!ADDB){const styled=$('#aStyled').checked;for(const r of rows.children){const z=r.querySelector('.zip').files[0];if(!z)return toast('Choose a zip in every row');zips.push({z,p:r.querySelector('.pv').files[0],label:styled?r.querySelector('.lab').value.trim():'',color:r.querySelector('.col').value})}}
+  const au=AP.get(),gs=$('#aGroup');const body={category:$('#aCat').value,name,fileBase:$('#aBase').value.trim()||(ADDB?ADDB.fileBase:''),authors:au.authors,newAuthors:au.newAuthors,tags:TP.get(),links,recent:$('#aRecent').checked,groupId:gs?gs.value:'',groupName:gs&&gs.value===''?$('#aGroupNew').value:''};
+  $('#aGo').disabled=true;
+  const ok=await runJob((async()=>{body.zips=[];if(ADDB){ADDB.styles.forEach(s=>body.zips.push({uploadId:s.uploadId,previewUploadId:s.previewUploadId,label:ADDB.styles.length>1?s.label:'',color:s.color}))}
+   else{$('#logPre').textContent='Uploading files to the local server…';for(const x of zips){const e={uploadId:await upload(x.z),label:x.label,color:x.color};if(x.p)e.previewUploadId=await upload(x.p);body.zips.push(e)}}
+   return api('/api/mod/add',body)})(),'Add mod "'+name+'"');
+  $('#aGo').disabled=false;if(ok)renderAdd()}}
 
 $('#bSync').onclick=()=>runJob(api('/api/sync',{}),'Sync (git pull)');
 $('#bValidate').onclick=()=>runJob(api('/api/validate',{}),'Validate');
