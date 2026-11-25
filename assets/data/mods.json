@@ -1,6 +1,30 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Ingame Hud Purple And Black",
+      "category": "huds"
+    },
+    {
+      "name": "Bee Swarm Simulator Music",
+      "category": "music"
+    },
+    {
+      "name": "Riki Ghostface",
+      "category": "heroes"
+    },
+    {
+      "name": "Pudge Midas Slapper",
+      "category": "heroes"
+    },
+    {
+      "name": "Natures Prophet Furion",
+      "category": "heroes"
+    },
+    {
+      "name": "Witch Doctor Female Head",
+      "category": "hero-items"
+    },
+    {
       "name": "Warcraft 3 Zeus",
       "category": "heroes"
     },
@@ -18294,6 +18318,59 @@
         "meta": {
           "date": 1795593951
         }
+      },
+      {
+        "name": "Natures Prophet Furion",
+        "preview": "Natures Prophet Furion.webp",
+        "file": "Natures Prophet Furion.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "Anonymous"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1795595196,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Pudge Midas Slapper",
+        "preview": "Pudge Midas Slapper.webp",
+        "file": "Pudge Midas Slapper.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Fr0dech"
+          }
+        ],
+        "meta": {
+          "date": 1795595196,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Riki Ghostface",
+        "preview": "Riki Ghostface.webp",
+        "file": "Riki Ghostface.zip",
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "Mirik522"
+          }
+        ],
+        "meta": {
+          "date": 1795595196,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -23756,7 +23833,26 @@
         {
           "id": "witch-doctor",
           "name": "Witch Doctor",
-          "mods": []
+          "mods": [
+            {
+              "name": "Witch Doctor Female Head",
+              "preview": "Witch Doctor Female Head.webp",
+              "file": "Witch Doctor Female Head.zip",
+              "tags": {
+                "head": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "lmbaftd"
+                }
+              ],
+              "meta": {
+                "date": 1795595196,
+                "commit-sha": ""
+              }
+            }
+          ]
         },
         {
           "id": "wraith-king",
@@ -27121,6 +27217,21 @@
         ],
         "meta": {
           "date": 1795501252
+        }
+      },
+      {
+        "name": "Ingame Hud Purple And Black",
+        "preview": "Ingame Hud Purple And Black.webp",
+        "file": "Ingame Hud Purple And Black.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "франз"
+          }
+        ],
+        "meta": {
+          "date": 1795595197,
+          "commit-sha": ""
         }
       }
     ],
@@ -32858,6 +32969,21 @@
         "meta": {
           "date": 1794775254,
           "commit-sha": "bbb0cb11d4e43d3f04380b3cb5d979c6fa380c18"
+        }
+      },
+      {
+        "name": "Bee Swarm Simulator Music",
+        "preview": "Bee Swarm Simulator Music.webp",
+        "file": "Bee Swarm Simulator Music.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Zerokol"
+          }
+        ],
+        "meta": {
+          "date": 1795595196,
+          "commit-sha": ""
         }
       }
     ],
