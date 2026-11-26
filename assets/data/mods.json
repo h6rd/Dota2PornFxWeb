@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Naga Siren All ItemRecolored",
+      "category": "heroes"
+    },
+    {
       "name": "Huskar Red",
       "category": "heroes"
     },
@@ -18396,6 +18400,49 @@
         ],
         "meta": {
           "date": 1795692079
+        }
+      },
+      {
+        "name": "Naga Siren All ItemRecolored",
+        "styles": [
+          {
+            "label": "Pink",
+            "color": "#e55ff7",
+            "preview": "Naga Siren All ItemRecolored Pink.webp",
+            "file": "Naga Siren All ItemRecolored Pink.zip"
+          },
+          {
+            "label": "Red",
+            "color": "#ef4444",
+            "preview": "Naga Siren All ItemRecolored Red.webp",
+            "file": "Naga Siren All ItemRecolored Red.zip"
+          },
+          {
+            "label": "Blue",
+            "color": "#3b82f6",
+            "preview": "Naga Siren All ItemRecolored Blue.webp",
+            "file": "Naga Siren All ItemRecolored Blue.zip"
+          },
+          {
+            "label": "Yellow",
+            "color": "#fbff00",
+            "preview": "Naga Siren All ItemRecolored Yellow.webp",
+            "file": "Naga Siren All ItemRecolored Yellow.zip"
+          }
+        ],
+        "tags": {
+          "effects": true,
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "NahuiToSay"
+          }
+        ],
+        "meta": {
+          "date": 1795693051,
+          "commit-sha": ""
         }
       }
     ],
