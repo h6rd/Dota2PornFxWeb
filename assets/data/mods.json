@@ -1,6 +1,10 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Pink Anime Hud",
+      "category": "huds"
+    },
+    {
       "name": "Naga Siren All ItemRecolored",
       "category": "heroes"
     },
@@ -27320,6 +27324,21 @@
         ],
         "meta": {
           "date": 1795595197
+        }
+      },
+      {
+        "name": "Pink Anime Hud",
+        "preview": "Pink Anime Hud.webp",
+        "file": "Pink Anime Hud.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "yuccaga"
+          }
+        ],
+        "meta": {
+          "date": 1795693403,
+          "commit-sha": ""
         }
       }
     ],
