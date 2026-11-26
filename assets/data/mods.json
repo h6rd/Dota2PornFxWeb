@@ -1,6 +1,18 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Huskar Red",
+      "category": "heroes"
+    },
+    {
+      "name": "Tink Brood Kotl True Laugh",
+      "category": "sounds"
+    },
+    {
+      "name": "Keeper Of The Light Dagon",
+      "category": "hero-items"
+    },
+    {
       "name": "Ingame Hud Purple And Black",
       "category": "huds"
     },
@@ -18368,6 +18380,24 @@
         "meta": {
           "date": 1795595197
         }
+      },
+      {
+        "name": "Huskar Red",
+        "preview": "Huskar Red.webp",
+        "file": "Huskar Red.zip",
+        "tags": {
+          "effects": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "xvii"
+          }
+        ],
+        "meta": {
+          "date": 1795692079,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -21842,6 +21872,24 @@
               "meta": {
                 "date": 1793062291,
                 "commit-sha": "4f388a72e7380a105f41d588fad404c8bdd0e513"
+              }
+            },
+            {
+              "name": "Keeper Of The Light Dagon",
+              "preview": "Keeper Of The Light Dagon.webp",
+              "file": "Keeper Of The Light Dagon.zip",
+              "tags": {
+                "weapon": true
+              },
+              "links": [
+                {
+                  "type": "author",
+                  "url": "Maxiiimka927"
+                }
+              ],
+              "meta": {
+                "date": 1795692079,
+                "commit-sha": ""
               }
             }
           ]
@@ -35839,6 +35887,25 @@
         ],
         "meta": {
           "date": 1795332201
+        }
+      },
+      {
+        "name": "Tink Brood Kotl True Laugh",
+        "preview": "Tink Brood Kotl True Laugh.webp",
+        "file": "Tink Brood Kotl True Laugh.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "samoredoto"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/oZDvN2CX42c"
+          }
+        ],
+        "meta": {
+          "date": 1795692079,
+          "commit-sha": ""
         }
       }
     ],
