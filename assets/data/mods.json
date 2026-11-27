@@ -1,6 +1,42 @@
 {
   "recentlyAddedMods": [
     {
+      "name": "Queen Of Pain Marika",
+      "category": "heroes"
+    },
+    {
+      "name": "Chaos Knight Without Steps",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Invoker Rehab",
+      "category": "heroes"
+    },
+    {
+      "name": "Tinker True Spellstechies",
+      "category": "hero-icons"
+    },
+    {
+      "name": "Sniper Assasinate Dravaya",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Bankay Kez",
+      "category": "hero-sounds"
+    },
+    {
+      "name": "Tink Brood Kotl True Laugh",
+      "category": "sounds"
+    },
+    {
+      "name": "Queen Of Pain Invalid Bastard",
+      "category": "heroes"
+    },
+    {
+      "name": "Shadow Fiend Ultimate 2021",
+      "category": "hero-sounds"
+    },
+    {
       "name": "Pink Anime Hud",
       "category": "huds"
     },
@@ -11,10 +47,6 @@
     {
       "name": "Huskar Red",
       "category": "heroes"
-    },
-    {
-      "name": "Tink Brood Kotl True Laugh",
-      "category": "sounds"
     },
     {
       "name": "Keeper Of The Light Dagon",
@@ -18448,6 +18480,55 @@
           "date": 1795693051,
           "commit-sha": ""
         }
+      },
+      {
+        "name": "Queen Of Pain Invalid Bastard",
+        "preview": "Queen Of Pain Invalid Bastard.webp",
+        "file": "Queen Of Pain Invalid Bastard.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "woldraks"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Invoker Rehab",
+        "preview": "Invoker Rehab.webp",
+        "file": "Invoker Rehab.zip",
+        "links": [
+          {
+            "type": "modded",
+            "url": "PerDynn"
+          },
+          {
+            "type": "author",
+            "url": "Harlord"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Queen Of Pain Marika",
+        "preview": "Queen Of Pain Marika.webp",
+        "file": "Queen Of Pain Marika.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "woldraks"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
       }
     ],
     "shaders": [
@@ -31736,6 +31817,24 @@
           "date": 1795161448,
           "commit-sha": "5f5e4c3f13d95db3163451bd22d0cfdc2fe90c70"
         }
+      },
+      {
+        "name": "Tinker True Spellstechies",
+        "preview": "Tinker True Spellstechies.webp",
+        "file": "Tinker True Spellstechies.zip",
+        "tags": {
+          "icons": true
+        },
+        "links": [
+          {
+            "type": "author",
+            "url": "кирпич фиолетовый"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
       }
     ],
     "wards": [
@@ -35350,6 +35449,74 @@
         "meta": {
           "date": 1795274794
         }
+      },
+      {
+        "name": "Shadow Fiend Ultimate 2021",
+        "preview": "Shadow Fiend Ultimate 2021.webp",
+        "file": "Shadow Fiend Ultimate 2021.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "simonchmel"
+          },
+          {
+            "type": "preview",
+            "url": "https://youtu.be/9s6IAfEiQDk"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Bankay Kez",
+        "preview": "Bankay Kez.webp",
+        "file": "Bankay Kez.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "stay_bottom#2016"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Sniper Assasinate Dravaya",
+        "preview": "Sniper Assasinate Dravaya.webp",
+        "file": "Sniper Assasinate Dravaya.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Meq"
+          },
+          {
+            "type": "preview",
+            "url": "https://www.youtube.com/watch?v=z6HJAA4Sqtk"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
+      },
+      {
+        "name": "Chaos Knight Without Steps",
+        "preview": "Chaos Knight Without Steps.webp",
+        "file": "Chaos Knight Without Steps.zip",
+        "links": [
+          {
+            "type": "author",
+            "url": "Gr0m"
+          }
+        ],
+        "meta": {
+          "date": 1795821008,
+          "commit-sha": ""
+        }
       }
     ],
     "sounds": [
@@ -35967,7 +36134,8 @@
           }
         ],
         "meta": {
-          "date": 1795692079
+          "date": 1795821008,
+          "commit-sha": ""
         }
       }
     ],
