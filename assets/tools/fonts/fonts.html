@@ -1,0 +1,99 @@
+<!-- font changer -->
+<div id="fontOverlay" class="info-overlay"></div>
+<div id="fontModal" class="info-modal fc-modal">
+  <button class="tools-back" data-tools-back aria-label="Back to tools" title="Back to tools">
+    <span class="material-symbols-rounded">arrow_back</span>
+  </button>
+  <button class="info-modal-close" id="closeFontModal" aria-label="Close">
+    <span class="material-symbols-rounded">close</span>
+  </button>
+  <div class="fc-body">
+    <div class="fc-form">
+      <h2 class="info-modal-title">Font Changer <span class="fc-beta">BETA</span></h2>
+
+      <div class="fc-row">
+        <div class="upload-form-group">
+          <label for="fnMainFile">Interface font</label>
+          <div class="md3-file-field" id="fnMainField">
+            <input type="file" id="fnMainFile" accept=".ttf,.otf,.woff">
+            <label for="fnMainFile" class="md3-file-field-btn">
+              <span class="material-symbols-rounded">upload_file</span>
+              <span id="fnMainLabel">Choose font…</span>
+            </label>
+          </div>
+          <p class="upload-form-hint">Replaces Radiance, the main interface font.</p>
+          <div class="fc-meta" id="fnMainMeta"></div>
+        </div>
+        <div class="upload-form-group" id="fnTitleGroup">
+          <label for="fnTitleFile">Title font</label>
+          <div class="md3-file-field" id="fnTitleField">
+            <input type="file" id="fnTitleFile" accept=".ttf,.otf,.woff">
+            <label for="fnTitleFile" class="md3-file-field-btn">
+              <span class="material-symbols-rounded">upload_file</span>
+              <span id="fnTitleLabel">Choose font…</span>
+            </label>
+          </div>
+          <p class="upload-form-hint">Replaces Reaver, used for hero names and headings.</p>
+          <div class="fc-meta" id="fnTitleMeta"></div>
+        </div>
+      </div>
+
+      <label class="settings-toggle-label">
+        <span class="cr-ghost-text"><strong>Same font for titles</strong><small>Use the interface font instead of Reaver
+            too.</small></span>
+        <input type="checkbox" id="fnSame" class="settings-toggle-input" checked>
+        <span class="settings-toggle-track"></span>
+      </label>
+
+      <div class="fc-row fc-bottom">
+        <div class="upload-form-group">
+          <label for="fnName">Archive name</label>
+          <input type="text" id="fnName" class="fc-name-input" value="My Font" maxlength="48" autocomplete="off"
+            spellcheck="false">
+        </div>
+        <div class="upload-form-group">
+          <label for="fnSample">Preview text</label>
+          <input type="text" id="fnSample" class="fc-sample" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="fc-actions">
+        <div class="fc-status" id="fnStatus" aria-live="polite"></div>
+        <div class="fc-btn-row">
+          <button type="button" class="upload-submit-btn" id="fnGenerate" disabled>
+            <span class="upload-submit-icon material-symbols-rounded">font_download</span>
+            <span class="upload-submit-text">Generate archive</span>
+          </button>
+          <button type="button" class="upload-submit-btn fc-download-btn" id="fnDownload">
+            <span class="upload-submit-icon material-symbols-rounded">download</span>
+            <span class="upload-submit-text">Download</span>
+          </button>
+          <div class="fc-result" id="fnResult">
+            <div><strong id="fnResultText"></strong>Run Install.bat inside the archive.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="fc-side">
+      <h3 class="upload-preview-title">Preview</h3>
+      <div class="fc-pv empty" id="fnPvMain">
+        <span class="fc-pv-title">Interface</span>
+        <div class="fc-pv-line big"></div>
+        <div class="fc-pv-line small"></div>
+      </div>
+      <div class="fc-pv empty" id="fnPvTitle">
+        <span class="fc-pv-title">Titles</span>
+        <div class="fc-pv-line big"></div>
+        <div class="fc-pv-line small"></div>
+      </div>
+      <div class="upload-preview-log">
+        <div class="upload-preview-log-header">
+          <span class="material-symbols-rounded upload-preview-log-icon">terminal</span>
+          <span class="upload-preview-log-title">Activity</span>
+        </div>
+        <div class="upload-preview-log-body" id="fnLog"></div>
+      </div>
+    </aside>
+  </div>
+</div>
